@@ -1,0 +1,394 @@
+- id: q-paint-composition-001
+  concept: paint-composition
+  layer: 1
+  type: single-choice
+  sources:
+  - berrie-2025
+  - handprint-macevoy
+  correct: b
+- id: q-paint-composition-002
+  concept: paint-composition
+  layer: 1
+  type: short-answer
+  sources:
+  - golden-justpaint
+  - handprint-macevoy
+- id: q-paint-composition-003
+  concept: paint-composition
+  layer: 1
+  type: single-choice
+  sources:
+  - handprint-macevoy
+  - golden-justpaint
+  - learner-2007
+  correct: c
+- id: q-paint-composition-004
+  concept: paint-composition
+  layer: 2
+  type: single-choice
+  sources:
+  - feller-1986
+  - golden-justpaint
+  correct: a
+- id: q-paint-composition-005
+  concept: paint-composition
+  layer: 2
+  type: single-choice
+  sources:
+  - berrie-2025
+  - feller-1986
+  correct: b
+- id: q-paint-composition-006
+  concept: paint-composition
+  layer: 2
+  type: open
+  sources:
+  - learner-2007
+- id: q-paint-composition-007
+  concept: paint-composition
+  layer: 3
+  type: case
+  sources:
+  - handprint-macevoy
+  - golden-justpaint
+- id: q-paint-composition-008
+  concept: paint-composition
+  layer: 3
+  type: case
+  sources:
+  - learner-2007
+- id: q-colour-index-names-001
+  concept: colour-index-names
+  layer: 1
+  type: single-choice
+  sources:
+  - handprint-macevoy
+  - feller-1986
+  correct: a
+- id: q-colour-index-names-002
+  concept: colour-index-names
+  layer: 1
+  type: single-choice
+  sources:
+  - golden-justpaint
+  correct: d
+- id: q-colour-index-names-003
+  concept: colour-index-names
+  layer: 1
+  type: short-answer
+  sources:
+  - golden-justpaint
+  - handprint-macevoy
+- id: q-colour-index-names-004
+  concept: colour-index-names
+  layer: 2
+  type: single-choice
+  sources:
+  - handprint-macevoy
+  - feller-1986
+  correct: c
+- id: q-colour-index-names-005
+  concept: colour-index-names
+  layer: 2
+  type: single-choice
+  sources:
+  - feller-1986
+  - golden-justpaint
+  correct: b
+- id: q-colour-index-names-006
+  concept: colour-index-names
+  layer: 2
+  type: single-choice
+  sources:
+  - feller-1986
+  correct: a
+- id: q-colour-index-names-007
+  concept: colour-index-names
+  layer: 2
+  type: open
+  sources:
+  - feller-1986
+  - golden-justpaint
+  - handprint-macevoy
+- id: q-colour-index-names-008
+  concept: colour-index-names
+  layer: 3
+  type: case
+  sources:
+  - mitra-astm
+  - golden-justpaint
+- id: q-colour-index-names-009
+  concept: colour-index-names
+  layer: 3
+  type: case
+  sources:
+  - handprint-macevoy
+  - learner-2007
+- id: q-transparency-opacity-001
+  concept: transparency-opacity
+  layer: 1
+  type: single-choice
+  sources:
+  - feller-1986
+  - handprint-macevoy
+  correct: a
+- id: q-transparency-opacity-002
+  concept: transparency-opacity
+  layer: 1
+  type: short-answer
+  sources:
+  - feller-1986
+  - golden-justpaint
+- id: q-transparency-opacity-003
+  concept: transparency-opacity
+  layer: 1
+  type: single-choice
+  sources:
+  - feller-1986
+  correct: c
+- id: q-transparency-opacity-004
+  concept: transparency-opacity
+  layer: 1
+  type: single-choice
+  sources:
+  - golden-justpaint
+  - handprint-macevoy
+  correct: b
+- id: q-transparency-opacity-005
+  concept: transparency-opacity
+  layer: 2
+  type: single-choice
+  sources:
+  - learner-2007
+  correct: a
+- id: q-transparency-opacity-006
+  concept: transparency-opacity
+  layer: 2
+  type: single-choice
+  sources:
+  - feller-1986
+  correct: d
+- id: q-transparency-opacity-007
+  concept: transparency-opacity
+  layer: 2
+  type: single-choice
+  sources:
+  - feller-1986
+  correct: b
+- id: q-transparency-opacity-008
+  concept: transparency-opacity
+  layer: 2
+  type: open
+  sources:
+  - learner-2007
+- id: q-transparency-opacity-009
+  concept: transparency-opacity
+  layer: 3
+  type: case
+  sources:
+  - golden-justpaint
+  - handprint-macevoy
+- id: q-transparency-opacity-010
+  concept: transparency-opacity
+  layer: 3
+  type: case
+  sources:
+  - golden-justpaint
+  - handprint-macevoy
+- id: q-tinting-strength-001
+  concept: tinting-strength
+  layer: 2
+  type: single-choice
+  sources:
+  - golden-justpaint
+  correct: c
+- id: q-tinting-strength-002
+  concept: tinting-strength
+  layer: 2
+  type: single-choice
+  sources:
+  - handprint-macevoy
+  correct: a
+- id: q-tinting-strength-003
+  concept: tinting-strength
+  layer: 2
+  type: single-choice
+  sources:
+  - handprint-macevoy
+  - golden-justpaint
+  correct: b
+- id: q-tinting-strength-004
+  concept: tinting-strength
+  layer: 2
+  type: single-choice
+  sources:
+  - golden-justpaint
+  correct: a
+- id: q-tinting-strength-005
+  concept: tinting-strength
+  layer: 2
+  type: open
+  sources:
+  - handprint-macevoy
+  - golden-justpaint
+- id: q-tinting-strength-006
+  concept: tinting-strength
+  layer: 3
+  type: case
+  sources:
+  - golden-justpaint
+  - handprint-macevoy
+- id: q-tinting-strength-007
+  concept: tinting-strength
+  layer: 3
+  type: case
+  sources:
+  - handprint-macevoy
+  - golden-justpaint
+- id: q-masstone-undertone-001
+  concept: masstone-undertone
+  layer: 2
+  type: single-choice
+  sources:
+  - golden-justpaint
+  - feller-1986
+  correct: a
+- id: q-masstone-undertone-002
+  concept: masstone-undertone
+  layer: 2
+  type: single-choice
+  sources:
+  - golden-justpaint
+  - handprint-macevoy
+  correct: b
+- id: q-masstone-undertone-003
+  concept: masstone-undertone
+  layer: 2
+  type: single-choice
+  sources:
+  - golden-justpaint
+  - kubelka-munk-1931
+  correct: c
+- id: q-masstone-undertone-004
+  concept: masstone-undertone
+  layer: 2
+  type: single-choice
+  sources:
+  - feller-1986
+  correct: a
+- id: q-masstone-undertone-005
+  concept: masstone-undertone
+  layer: 2
+  type: open
+  sources:
+  - golden-justpaint
+  - handprint-macevoy
+- id: q-masstone-undertone-006
+  concept: masstone-undertone
+  layer: 3
+  type: case
+  sources:
+  - golden-justpaint
+  - handprint-macevoy
+- id: q-masstone-undertone-007
+  concept: masstone-undertone
+  layer: 3
+  type: case
+  sources:
+  - golden-justpaint
+  - handprint-macevoy
+- id: q-lightfastness-001
+  concept: lightfastness
+  layer: 2
+  type: single-choice
+  sources:
+  - feller-1986
+  - berrie-2025
+  correct: a
+- id: q-lightfastness-002
+  concept: lightfastness
+  layer: 2
+  type: single-choice
+  sources:
+  - berrie-2025
+  - feller-1986
+  correct: b
+- id: q-lightfastness-003
+  concept: lightfastness
+  layer: 2
+  type: single-choice
+  sources:
+  - feller-1994
+  - golden-justpaint
+  correct: c
+- id: q-lightfastness-004
+  concept: lightfastness
+  layer: 2
+  type: single-choice
+  sources:
+  - mitra-astm
+  - golden-justpaint
+  correct: d
+- id: q-lightfastness-005
+  concept: lightfastness
+  layer: 2
+  type: single-choice
+  sources:
+  - handprint-macevoy
+  - learner-2007
+  - berrie-2025
+  correct: a
+- id: q-lightfastness-006
+  concept: lightfastness
+  layer: 2
+  type: open
+  sources:
+  - feller-1986
+  - mitra-astm
+  - golden-justpaint
+- id: q-lightfastness-007
+  concept: lightfastness
+  layer: 3
+  type: case
+  sources:
+  - mitra-astm
+  - handprint-macevoy
+  - feller-1986
+  - berrie-2025
+- id: q-lightfastness-008
+  concept: lightfastness
+  layer: 3
+  type: case
+  sources:
+  - golden-justpaint
+  - mitra-astm
+  - feller-1994
+- id: q-lightfastness-009
+  concept: lightfastness
+  layer: 3
+  type: case
+  sources:
+  - feller-1986
+  - feller-1994
+- id: q-limited-palette-001
+  concept: limited-palette
+  layer: 3
+  type: case
+  sources:
+  - golden-justpaint
+  - handprint-macevoy
+  - mitra-astm
+- id: q-limited-palette-002
+  concept: limited-palette
+  layer: 3
+  type: case
+  sources:
+  - sochorova-2021
+  - handprint-macevoy
+- id: q-limited-palette-003
+  concept: limited-palette
+  layer: 3
+  type: case
+  sources:
+  - golden-justpaint
+  - handprint-macevoy

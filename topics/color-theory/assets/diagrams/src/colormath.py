@@ -244,3 +244,35 @@ def reflectance_lab(spec: list[float]) -> tuple[float, float, float]:
 
 def reflectance_hex(spec: list[float]) -> str:
     return hex_rgb(xyz_to_linear_srgb(*reflectance_xyz(spec)))
+
+
+# --- Two-constant Kubelka-Munk: layers of finite thickness ------------------
+# Kubelka & Munk (1931): a layer with absorption K and scattering S (per unit
+# thickness) and thickness X over a background of reflectance Rg reflects
+#   R = (1 - Rg (a - b coth(b S X))) / (a - Rg + b coth(b S X)),
+# with a = 1 + K/S and b = sqrt(a^2 - 1). For X -> infinity this tends to
+# R_inf = a - b, the opaque-layer value used by r_from_ks. Mixtures of paints
+# add their K and S weighted by concentration (two-constant form). Illustrative
+# use with synthetic K and S spectra only.
+
+def km_layer(k: float, s: float, x: float, rg: float) -> float:
+    """Reflectance of one paint layer (K, S, thickness X) over a background Rg."""
+    a = 1 + k / s
+    b = math.sqrt(a * a - 1)
+    bsx = b * s * x
+    coth = 1 / math.tanh(bsx) if bsx < 30 else 1.0
+    return (1 - rg * (a - b * coth)) / (a - rg + b * coth)
+
+
+def km_layer_spectrum(k: list[float], s: list[float], x: float, rg: list[float] | float) -> list[float]:
+    """km_layer per wavelength; rg may be a spectrum or a constant."""
+    rgs = rg if isinstance(rg, list) else [rg] * len(WAVELENGTHS)
+    return [km_layer(ki, si, x, gi) for ki, si, gi in zip(k, s, rgs)]
+
+
+def km_mix_ks(paints: list[tuple[list[float], list[float]]], weights: list[float]) -> tuple[list[float], list[float]]:
+    """Two-constant mixture: concentration-weighted K and S spectra."""
+    tot = sum(weights)
+    k = [sum(w * p[0][i] for p, w in zip(paints, weights)) / tot for i in range(len(WAVELENGTHS))]
+    s = [sum(w * p[1][i] for p, w in zip(paints, weights)) / tot for i in range(len(WAVELENGTHS))]
+    return k, s

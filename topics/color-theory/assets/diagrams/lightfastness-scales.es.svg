@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 400" font-family="sans-serif" font-size="14">
+<rect width="800" height="400" fill="#fff"/>
+<text x="400.0" y="30" text-anchor="middle" font-size="17" font-weight="bold" fill="#222">Tres escalas de resistencia a la luz, alineadas de forma aproximada</text>
+<text x="200" y="62" fill="#555" font-size="12">← más fugitiva</text>
+<text x="760" y="62" text-anchor="end" fill="#555" font-size="12">más permanente →</text>
+<text x="188" y="105" text-anchor="end" fill="#222" font-weight="bold">lana azul</text>
+<text x="188" y="175" text-anchor="end" fill="#222" font-weight="bold">clases de Feller</text>
+<text x="188" y="245" text-anchor="end" fill="#222" font-weight="bold">categorías ASTM</text>
+<rect x="202" y="75" width="66" height="48" fill="#2c4f9e"/>
+<text x="235.0" y="105" text-anchor="middle" fill="#fff" font-weight="bold">1</text>
+<rect x="272" y="75" width="66" height="48" fill="#2c4f9e"/>
+<text x="305.0" y="105" text-anchor="middle" fill="#fff" font-weight="bold">2</text>
+<rect x="342" y="75" width="66" height="48" fill="#2c4f9e"/>
+<text x="375.0" y="105" text-anchor="middle" fill="#fff" font-weight="bold">3</text>
+<rect x="412" y="75" width="66" height="48" fill="#2c4f9e"/>
+<text x="445.0" y="105" text-anchor="middle" fill="#fff" font-weight="bold">4</text>
+<rect x="482" y="75" width="66" height="48" fill="#2c4f9e"/>
+<text x="515.0" y="105" text-anchor="middle" fill="#fff" font-weight="bold">5</text>
+<rect x="552" y="75" width="66" height="48" fill="#2c4f9e"/>
+<text x="585.0" y="105" text-anchor="middle" fill="#fff" font-weight="bold">6</text>
+<rect x="622" y="75" width="66" height="48" fill="#2c4f9e"/>
+<text x="655.0" y="105" text-anchor="middle" fill="#fff" font-weight="bold">7</text>
+<rect x="692" y="75" width="66" height="48" fill="#2c4f9e"/>
+<text x="725.0" y="105" text-anchor="middle" fill="#fff" font-weight="bold">8</text>
+<rect x="202" y="145" width="206" height="48" fill="#d9d9d9"/>
+<text x="305.0" y="174" text-anchor="middle" fill="#111" font-size="13">C: &lt; 20 años</text>
+<rect x="412" y="145" width="206" height="48" fill="#b3b3b3"/>
+<text x="515.0" y="174" text-anchor="middle" fill="#111" font-size="13">B: 20–100 años</text>
+<rect x="622" y="145" width="136" height="48" fill="#8c8c8c"/>
+<text x="690.0" y="174" text-anchor="middle" fill="#111" font-size="13">A: ≥ 100 años</text>
+<rect x="201" y="215" width="145.0" height="48" fill="#d7301f"/>
+<text x="273.5" y="245" text-anchor="middle" fill="#111" font-weight="bold">V</text>
+<rect x="348.0" y="215" width="232.5" height="48" fill="#fc8d59"/>
+<text x="464.25" y="245" text-anchor="middle" fill="#111" font-weight="bold">IV</text>
+<rect x="582.5" y="215" width="39.99999999999997" height="48" fill="#fee08b"/>
+<text x="602.5" y="245" text-anchor="middle" fill="#111" font-weight="bold">III</text>
+<rect x="624.5" y="215" width="68.0" height="48" fill="#91cf60"/>
+<text x="658.5" y="245" text-anchor="middle" fill="#111" font-weight="bold">II</text>
+<rect x="694.5" y="215" width="64.50000000000001" height="48" fill="#1a9850"/>
+<text x="726.75" y="245" text-anchor="middle" fill="#111" font-weight="bold">I</text>
+<text x="50" y="312" fill="#222">Categorías ASTM según el cambio de color medio ΔE*ab tras la exposición:</text>
+<text x="50" y="336" fill="#222" font-weight="bold">I &lt; 4 · II 4–8 · III 8–16 · IV 16–24 · V &gt; 24</text>
+<text x="50" y="372" fill="#555" font-size="12">Correspondencias aproximadas: clases según Feller (1994); ASTM–lana azul según MacEvoy (fuente C).</text>
+</svg>

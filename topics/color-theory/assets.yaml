@@ -60,3 +60,24 @@
   generator: diagrams/src/blue_yellow_mixing.py
   license: CC-BY-4.0
   concepts: [pigment-mixing-behavior, optical-mixing, subtractive-mixing]
+
+- id: opacity-black-stripe
+  file: diagrams/opacity-black-stripe.{lang}.svg
+  origin: own
+  generator: diagrams/src/opacity_black_stripe.py
+  license: CC-BY-4.0
+  concepts: [transparency-opacity]
+
+- id: masstone-tint-thin-film
+  file: diagrams/masstone-tint-thin-film.{lang}.svg
+  origin: own
+  generator: diagrams/src/masstone_tint_thin_film.py
+  license: CC-BY-4.0
+  concepts: [masstone-undertone, transparency-opacity]
+
+- id: lightfastness-scales
+  file: diagrams/lightfastness-scales.{lang}.svg
+  origin: own
+  generator: diagrams/src/lightfastness_scales.py
+  license: CC-BY-4.0
+  concepts: [lightfastness]

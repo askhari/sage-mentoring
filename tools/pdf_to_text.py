@@ -39,7 +39,9 @@ def main() -> int:
     if a.src.startswith(("http://", "https://")):
         pdf = out / f"{name}.pdf"
         # curl copes with servers and certificates that WebFetch rejects.
-        r = subprocess.run(["curl", "-sSL", "-m", "60", "-A", "Mozilla/5.0", "-o", str(pdf), a.src])
+        # Identify honestly: if a site blocks this agent, use another source.
+        agent = "SageMentoring/0.1 (personal learning tool; reads open-access documents)"
+        r = subprocess.run(["curl", "-sSL", "-m", "60", "-A", agent, "-o", str(pdf), a.src])
         if r.returncode != 0:
             print(f"download failed (curl exit {r.returncode})", file=sys.stderr)
             return 1

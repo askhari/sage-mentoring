@@ -33,7 +33,7 @@ Accessed: PARTIAL. justpaint.org/?p=5235 returned only a "down for maintenance" 
 ## Williamsburg oils: Munsell + CIELAB table (verified by the main session, 2026-11-01)
 Read directly: Golden PDF "Munsell and Lab Readings for Williamsburg Handmade Oil Colors — Munsell Ordering", 4 pp., https://assets.goldenartistcolors.com/v4/linked-files/2343-munsell-and-cie-lab-data-for-williamsburg-oils-munsell-ordering.pdf (text extracted locally). Columns: Name, Hue, Value, Chroma, L*, a*, b*. Film: 6 mil (header). Illuminant/observer not stated in the PDF.
 - The table is sorted by Munsell hue (R → YR → Y → GY → G → BG → B → PB → P → RP) and gives decimal hue, value and chroma for each paint next to its L*, a*, b*. (PDF, header and ordering) → munsell-system, cielab-basics
-- Very dark, high-chroma masstones: Ultramarine Blue 9.01PB 0.32/18.16, L* 4.78, a* 24.88, b* −37.90; Phthalo Blue 9.61PB 0.60/12.00, L* 7.75; Alizarin Crimson 1.42YR 1.12/6.15, L* 11.18. (PDF pp. 1–4) → value, chroma, cielab-basics
+- Very dark, high-chroma masstones: Ultramarine Blue 9.01PB 0.32/18.16, L* 4.78, a* 24.88, b* −37.90; Phthalo Blue 9.61PB 0.60/12.00, L* 7.75; Alizarin Crimson 1.42YR 1.12/6.15, L* 11.18. (PDF pp. 1–4) → value, chroma, cielab-basics, masstone-undertone
 - Light, high-chroma yellows: Cadmium Lemon 9.06Y 9.05/12.69, L* 89.99, a* −8.36, b* 94.94; Cadmium Yellow Medium 2.73Y 8.45/16.78, L* 83.08, b* 111.85. (PDF) → value, chroma, cielab-basics
 - Mid-value, highest-chroma reds: Cadmium Red Light 9.29R 5.13/17.97, L* 51.19, a* 64.23, b* 70.20; Cadmium Red Medium 8R 3.92/16.05. (PDF) → chroma, value
 - Earths, low chroma: Yellow Ochre 9.62YR 5.55/8.69, L* 55.50, a* 18.84, b* 52.68; Burnt Sienna 2.23YR 2.61/6.10; Raw Umber 6.41Y 1.83/1.18, L* 18.68, a* 0.42, b* 7.03. (PDF) → chroma, value
@@ -41,7 +41,7 @@ Read directly: Golden PDF "Munsell and Lab Readings for Williamsburg Handmade Oi
 - Same hue family, very different value: Cobalt Blue 6.42PB 2.25/13.27 (L* 26.58) vs Ultramarine Blue 9.01PB 0.32/18.16 (L* 4.78). (PDF) → value, hue
 - Munsell value and L* run together in the table (e.g. value 0.32 ↔ L* 4.78, 5.13 ↔ 51.19, 9.73 ↔ 98.24): roughly L* ≈ 10 × value. (PDF, computed from rows) → value, cielab-basics
 - Munsell chroma and C*ab = √(a*²+b*²) are not proportional across hues: Cadmium Yellow Medium chroma 16.78 has C*ab ≈ 113, while Ultramarine Blue chroma 18.16 has C*ab ≈ 45. (PDF, computed from rows) → chroma, cielab-basics
-- Several high-chroma blues and violets reach their highest chroma at very low value in masstone (Ultramarine 0.32/18, Cobalt Blue Deep 2.20/15.36), while yellows do so near value 8–9. (PDF) → chroma, munsell-system
+- Several high-chroma blues and violets reach their highest chroma at very low value in masstone (Ultramarine 0.32/18, Cobalt Blue Deep 2.20/15.36), while yellows do so near value 8–9. (PDF) → chroma, munsell-system, masstone-undertone
 
 ## Not covered
 - Concepts requested but not covered: value-structure (Williamsburg grey match to Munsell values only inferred from the Golden Neutral Gray listing, not from the Williamsburg PDF), paints-and-pigments drying shift beyond the secondhand line above; any L*a*b* meaning or Williamsburg numbers (PDF unreadable).

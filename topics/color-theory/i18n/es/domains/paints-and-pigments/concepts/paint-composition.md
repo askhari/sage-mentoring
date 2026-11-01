@@ -1,0 +1,48 @@
+---
+concept: paint-composition
+title: "Pigmento, aglutinante y medio"
+---
+
+## Fundamentos {#layer-1}
+
+Una pintura es **pigmento (pigment)** repartido en un líquido que lo mantiene en suspensión y lo fija al soporte al secarse: el **vehículo (vehicle)** o **aglutinante (binder)**, por ejemplo yema de huevo, goma o aceite secante [@berrie-2025, p. 6; @handprint-macevoy, pigmt1, "Paint Composition"]. Los pigmentos son las partículas que dan el matiz y se dividen en **orgánicos** (sintéticos, a base de carbono) e **inorgánicos** (procedentes de minerales o menas) [@golden-justpaint, B, "Pigment vs. Binder"]. Por qué un material tiene color se explica en [por qué los objetos tienen color](../../light-and-vision/concepts/light-matter-interaction.md); aquí interesa qué hay dentro del tubo.
+
+Piensa en tres piezas:
+
+- **Pigmento:** el que da el color. No se disuelve; son partículas.
+- **Aglutinante:** el que sostiene las partículas y las pega. Cambia según la técnica: goma arábiga en la acuarela, aceite en el óleo, un polímero acrílico disperso en agua en el acrílico [@handprint-macevoy, pigmt1, "Paint Composition"; @golden-justpaint, B, "Pigment vs. Binder"; @learner-2007, Learner, pp. 5-10]. La goma arábiga es un aglutinante débil que se puede volver a disolver con agua; el acrílico seco ya no, porque al evaporarse el agua las esferas de polímero se funden en una película continua [@handprint-macevoy, pigmt1, "Paint Composition"; @learner-2007, Learner, p. 7].
+- **Aditivos y cargas:** ingredientes menores que ayudan a fabricar la pintura, como espesantes o dispersantes, y minerales baratos (**cargas o extendedores, extenders**) como sílice, arcilla o carbonato de calcio [@learner-2007, Learner, Table 2, p. 7; Croll, pp. 21-23].
+
+**Pigmento, colorante y laca.** Las **lacas (lakes)** se ilustran bien con el carmín, un colorante de origen animal convertido en pigmento: se extrae la cochinilla con agua y se precipita con alumbre una sal de aluminio del ácido carmínico; con otros metales salen otros matices [@feller-1986, Carmine 3.5 and 4.2, pp. 265-267].
+
+**Primera idea que conviene llevarse.** El color de una pintura no depende solo del pigmento: el aglutinante, el espesor y las cargas también cuentan. Por eso los siguientes conceptos del ámbito (nombre del pigmento, transparencia, poder tintóreo, resistencia a la luz) se refieren siempre a una pintura concreta, no a un pigmento en abstracto. El nombre normalizado del pigmento se verá en [nombres Colour Index](colour-index-names.md).
+
+## Comprensión {#layer-2}
+
+**El aglutinante cambia lo que se ve.** El mismo pigmento da cromas distintas en aglutinantes distintos: en un diagrama de cromaticidad, la laca de carmín en cola animal y en óleo ocupa posiciones distintas [@feller-1986, Carmine 3.1, fig. 8, p. 265]. La acidez del aglutinante también cuenta: en el amarillo indio, el medio ácido da un amarillo más pálido [@feller-1986, Indian Yellow 3.1, p. 22]. El acrílico, de película clara, puede secar notablemente más oscuro con colores transparentes como el azul ftalo [@golden-justpaint, B]. Y cambia la transparencia (véase [transparencia y opacidad](transparency-opacity.md)).
+
+**Pigmento y aglutinante reaccionan.** Los iones metálicos de los pigmentos reaccionan con los ácidos grasos del aceite y forman jabones metálicos (metal soaps). La reacción es lenta, pero modifica la textura, puede provocar delaminación y, con plomo, formar bultos y luego cráteres [@berrie-2025, pp. 6-7]. El óxido de zinc forma también jabones con el aceite secante, endurece la película y la vuelve quebradiza, más deprisa cuanto más fino es el pigmento [@feller-1986, Zinc White 3.3 and 3.5, pp. 174-175]. El blanco de zinc no sirve para vehículos con muchos ácidos grasos libres o resínicos [@feller-1986, Zinc White 3.5, p. 175]. Desde la química de laboratorio no siempre se prevé qué ocurre dentro de la película: se necesita la experiencia de la conservación [@berrie-2025, p. 15].
+
+**Los aceites y los acrílicos son mezclas.** El aceite de linaza sigue siendo común, pero en blancos y colores claros se usa cártamo o amapola porque amarillean menos; Winsor & Newton mezcla linaza y cártamo para equilibrar secado y amarilleo, y suele añadir secantes, estabilizantes y dispersantes [@learner-2007, Learner, p. 8]. Una emulsión acrílica de artista lleva tensioactivo, antiespumante, espesante, agente anticongelante, disolvente coalescente, regulador de pH, biocida, dispersante y humectante [@learner-2007, Learner, Table 2, p. 7]. El tensioactivo permanece en la película seca, migra a la superficie y puede enturbiarla; Golden aconseja pasar un paño húmedo sin pelusa, aunque puede llevarse algo de color, y proteger con una capa de aislamiento hecha con la misma composición pero sin pigmento [@learner-2007, Hayes, Golden and Smith, pp. 59-62].
+
+**Qué hacen las cargas.** Las cargas minerales tienen un índice de refracción cercano al del aglutinante (hacia 1,56 frente a 1,5), así que dispersan muy poca luz; sirven para abaratar y a veces arrastran impurezas coloreadas [@learner-2007, Croll, pp. 21-23]. Una pintura de artista, comparada con una doméstica, lleva menos carga y más espesante, y por eso es más intensa [@learner-2007, Croll, pp. 18, 23]. Hay también pigmentos que ya llevan carga incorporada: el litopón de cadmio es sulfuro de cadmio coprecipitado con sulfato de bario (hasta un 62 % de BaSO₄), y el sulfato de bario sirve de base para lacas y de carga del blanco de plomo [@feller-1986, Cadmium 1.0 and 2.2, pp. 65, 69; Barium Sulfate 1.0 and 2.3, pp. 47, 50].
+
+**Errores frecuentes.**
+
+1. "El aspecto dice qué aglutinante es": no es fiable; un alquídico puede secar mate y texturado si se sube la carga, el acrílico se mezcla en húmedo y el óleo puede mostrar burbujas [@learner-2007, Learner, p. 11].
+2. "Un nombre histórico garantiza el material": el blanco de zinc se llamó con muchos nombres antiguos, y tarros de farmacia rotulados "tutia" contenían piedra pómez o yeso [@feller-1986, Zinc White 2.1-2.2, pp. 169-170].
+3. "Lo que lleva el tubo es solo pigmento": el blanco de zinc se añadía a pinturas de color como agente aclarante sin que el pintor lo supiera [@feller-1986, Zinc White 2.2, p. 172], y en el siglo XIX el blanco de plomo se adulteraba con baritina [@feller-1986, Barium Sulfate 2.21, p. 49].
+
+## Profesional {#layer-3}
+
+**Leer un tubo como lo haría un profesional.** Para elegir pintura hay que mirar pigmento, aglutinante, aditivos y manejo. MacEvoy sostiene, a partir de sus ensayos con acuarelas, que las líneas baratas tienden a llevar menos pigmento, sustitutos, más dispersante y cargas, y que "el precio no indica calidad" [@handprint-macevoy, pigmt2, "Paint composition"; opinión basada en sus ensayos]. Prefiere pinturas de un solo pigmento: las mezclas de conveniencia suelen reducir pureza y resistencia a la luz, y la proporción de pinturas monopigmento varía por marca (86 % en Daniel Smith frente a 46 % en Lukas, según su recuento) [@handprint-macevoy, pigmt2, "Pigment"]. Cómo identificar el pigmento con precisión está en [nombres Colour Index](colour-index-names.md). Golden, por su parte, afirma que la carga de pigmento es aproximadamente la misma en casi todas sus líneas, la más alta posible sin debilitar la película [@golden-justpaint, C]; es la declaración de un fabricante sobre sus propios productos.
+
+**Elegir el medio por razones ópticas y prácticas.** Los artistas eligen una pintura por sus cualidades ópticas (brillo, transparencia, textura), prácticas (secado, diluyente), económicas y simbólicas [@learner-2007, Learner, p. 12]. Algunos datos útiles de taller:
+
+- El tiempo de secado del óleo de Winsor & Newton ronda de 1 a 14 días según el pigmento; el alquídico seca en menos de un día [@learner-2007, Foster, p. 55].
+- Los óleos miscibles con agua son óleos con tensioactivo; en el caso de Artisan, los aditivos volátiles no permanecen en la película seca y la pintura seca por oxidación como un óleo normal [@learner-2007, Foster, pp. 53-54]. Su película resultó más blanda y pegajosa que la de otros óleos [@learner-2007, Foster, pp. 55-56].
+- Según la absorción de aceite, que depende del pigmento, un óleo necesita más o menos aglutinante: el cadmio absorbe un 18-26 %, el blanco de zinc 20-25 %, la laca de carmín 46-100 % [@feller-1986, Cadmium 3.6, p. 73; Zinc White 3.6, p. 175; Carmine 3.6, p. 266]. Es una de las razones por las que el blanco de zinc cubre menos en óleo que el de plomo (véase [transparencia y opacidad](transparency-opacity.md)).
+
+**Compatibilidad entre materiales.** Algunos problemas vienen de la mezcla de pigmentos en la paleta y no del pigmento solo: el amarillo de cadmio se oscurece en contacto con pigmentos de plomo o cobre, y las espátulas de hierro pueden dejar sulfuro de hierro [@feller-1986, Cadmium 3.4, pp. 72-73]; véase [resistencia a la luz y permanencia](lightfastness.md). En acrílico, a los fabricantes les costó añadir ceras y mateantes: produjeron amarilleo y menos brillo de color en las líneas mate [@learner-2007, Hayes, Golden and Smith, p. 61].
+
+**Cuándo importa la composición exacta.** Para quien estudia obras, saber con qué se pintó cambia la lectura: los pigmentos pueden revelar el conjunto de pigmentos básicos de un pintor, si una pintura se hizo opaca o transparente o si un verde era un pigmento verde o una mezcla de amarillo y azul [@feller-1986, Introduction, p. 12]. Como manual general de materiales de artista, el editor presenta como obra de referencia a Mayer, cuyo índice (cap. 1 aglutinantes, cap. 2 pigmentos, cap. 3 óleo) se señala como lectura adicional; solo se pudo consultar el índice [@mayer-1991, índice, caps. 1-3].

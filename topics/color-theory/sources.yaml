@@ -251,6 +251,7 @@
   identifiers: { isbn: "978-0-670-83701-4" }
   access: paid
   accessed: 2026-11-01
+  notes: "TOC only: table of contents and publisher description via a bookseller page (2026-11-01). Further reading only."
 - id: astm-d4303
   type: standard
   reliability: A
@@ -261,6 +262,7 @@
   identifiers: { url: "https://store.astm.org/d4303-10.html" }
   access: paid
   accessed: 2026-11-01
+  notes: "Abstract only: ASTM store page (scope, methods A–D). The store page forbids AI use of ASTM content, so only a short summary of that page is used; categories and ΔE bands come from mitra-astm and golden-justpaint."
 - id: colour-index
   type: docs
   reliability: A
@@ -271,7 +273,7 @@
   identifiers: { url: "https://colour-index.com/" }
   access: paid
   accessed: 2026-11-01
-  notes: "Online database; year = year consulted."
+  notes: "Abstract only: colour-index.com home page; explanatory pages returned HTTP 500/404 (2026-11-01), details from search summaries. Online database; year = year consulted."
 
 # --- Practitioner support (C) ---
 - id: gurney-2010
@@ -409,3 +411,71 @@
   access: open
   accessed: 2026-11-01
   notes: "Abstract only: PDF at http://www.art-si.org/PDFs/Processing/Art-SI_K-M_2006.pdf (host does not resolve, 2026-11-01); abstract via conservationresearch.blogspot.com."
+
+# --- Added for paints-and-pigments (2026-11-01) ---
+- id: feller-1994
+  type: textbook
+  reliability: A
+  title: "Accelerated Aging: Photochemical and Thermal Aspects"
+  authors: ["Robert L. Feller"]
+  year: 1994
+  language: en
+  identifiers: { isbn: "0-89236-125-5", url: "https://www.getty.edu/publications-reports/item/246PKY" }
+  access: open
+  accessed: 2026-11-01
+  notes: "Full text: free PDF from the Getty Conservation Institute (Research in Conservation 4). Read via tools/pdf_to_text.py."
+- id: learner-2007
+  type: paper
+  reliability: A
+  title: "Modern Paints Uncovered: Proceedings from the Modern Paints Uncovered Symposium"
+  authors: ["Thomas J. S. Learner (ed.)", "Patricia Smithen (ed.)", "Jay W. Krueger (ed.)", "Michael R. Schilling (ed.)"]
+  year: 2007
+  language: en
+  identifiers: { isbn: "978-0-89236-906-5", url: "https://www.getty.edu/publications-reports/item/244G3V" }
+  access: open
+  accessed: 2026-11-01
+  notes: "Full text: free PDF from the Getty Conservation Institute (symposium proceedings; cite the paper and its authors in the locator). Read via tools/pdf_to_text.py."
+- id: feller-1986
+  type: textbook
+  reliability: A
+  title: "Artists' Pigments: A Handbook of Their History and Characteristics, Volume 1"
+  authors: ["Robert L. Feller (ed.)"]
+  year: 1986
+  language: en
+  identifiers: { isbn: "0-89468-086-2", url: "https://www.nga.gov/research/publications/artists-pigments-handbook-their-history-and-characteristics-volume-1" }
+  access: open
+  accessed: 2026-11-01
+  notes: "Full text: free PDF from the National Gallery of Art (430 MB; WebFetch gets 403, download with a browser user agent). Chapters by different authors; cite the chapter in the locator."
+- id: berrie-2025
+  type: paper
+  reliability: B
+  title: "Pigment Alteration and Color Change"
+  authors: ["Barbara H. Berrie"]
+  year: 2025
+  language: en
+  identifiers: { doi: "10.66322/kyoa2476", url: "https://www.nga.gov/sites/default/files/2025-12/pigment_alteration_and_color_change.pdf" }
+  access: open
+  accessed: 2026-11-01
+  notes: "Full text: peer-reviewed article in Facture vol. 7 (National Gallery of Art). Read via tools/pdf_to_text.py."
+- id: golden-justpaint
+  type: article
+  reliability: B
+  title: "Just Paint: technical articles on lightfastness, ASTM testing and colour specifications"
+  authors: ["Golden Artist Colors"]
+  year: 2026
+  language: en
+  identifiers: { url: "https://justpaint.org/lightfastness-testing-at-golden-artist-colors/" }
+  access: open
+  accessed: 2026-11-01
+  notes: "Full text (website). Manufacturer's technical publication, not peer-reviewed; cite for test methods and data on its own paints. Year = year consulted."
+- id: mitra-astm
+  type: article
+  reliability: B
+  title: "ASTM and Lightfastness of Media"
+  authors: ["MITRA (Materials Information and Technical Resources for Artists), University of Delaware"]
+  year: 2024
+  language: en
+  identifiers: { url: "https://www.artcons.udel.edu/mitra/Documents/ASTM-and-Lightfastness.pdf" }
+  access: open
+  accessed: 2026-11-01
+  notes: "Full text (6 pp.): educational fact sheet of the University of Delaware art conservation department. Original URL now redirects; read from the Wayback Machine copy of 2024-01-15. Year = archive date."

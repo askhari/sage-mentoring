@@ -1,0 +1,651 @@
+- id: q-paint-composition-001
+  prompt: ¿Qué función tiene el aglutinante (binder) en una pintura?
+  options:
+    a: Aporta el color, porque es el ingrediente que absorbe la luz
+    b: Mantiene las partículas de pigmento en suspensión y las fija al soporte al secarse
+    c: Disuelve el pigmento hasta formar una solución transparente
+    d: Rebaja el coste de la pintura sustituyendo parte del pigmento
+  explanation: El aglutinante (aceite, goma arábiga, polímero acrílico…) es el vehículo que sostiene las
+    partículas y las pega al soporte. El color lo da el pigmento; y el pigmento no se disuelve, son partículas
+    (la opción a atribuye el color al aglutinante, y la d describe a las cargas, no al aglutinante).
+- id: q-paint-composition-002
+  prompt: En una pintura, ¿cómo se llaman las partículas que dan el matiz y que no se disuelven en el
+    vehículo?
+  accepted:
+  - pigmento
+  - pigmentos
+  - pigment
+  - pigments
+  - el pigmento
+- id: q-paint-composition-003
+  prompt: ¿Qué emparejamiento de técnica y aglutinante es correcto?
+  options:
+    a: 'Acuarela: aceite secante; óleo: goma arábiga; acrílico: polímero acrílico'
+    b: 'Acuarela: polímero acrílico; óleo: yema de huevo; acrílico: goma arábiga'
+    c: 'Acuarela: goma arábiga; óleo: aceite secante; acrílico: polímero acrílico disperso en agua'
+    d: 'Acuarela: goma arábiga; óleo: polímero acrílico; acrílico: aceite de linaza'
+  explanation: La acuarela usa goma arábiga (un aglutinante débil que se puede volver a disolver), el
+    óleo aceite secante y el acrílico una emulsión de polímero que al secar forma una película continua.
+    Las otras opciones intercambian los aglutinantes.
+- id: q-paint-composition-004
+  prompt: El mismo pigmento puede dar un color distinto en cola animal que en óleo. ¿Cuál es la conclusión
+    correcta?
+  options:
+    a: 'El color de una pintura no depende solo del pigmento: el aglutinante (y su acidez, su transparencia)
+      también lo modifica'
+    b: El pigmento cambia de composición química al mezclarse con cada aglutinante
+    c: Solo cambia la cantidad de pintura que se extiende, no su color
+    d: El aglutinante es siempre incoloro, así que el color depende solo del grosor
+  explanation: Feller muestra que la laca de carmín ocupa posiciones distintas en el diagrama de cromaticidad
+    según el aglutinante, y que un medio ácido aclara el amarillo indio. No hay transformación del pigmento
+    en otro (a) ni es solo cuestión de grosor (c).
+- id: q-paint-composition-005
+  prompt: ¿Qué ocurre cuando los iones metálicos de un pigmento reaccionan con los ácidos grasos del aceite?
+  options:
+    a: Se forma una película más flexible y más resistente que no sufre cambios
+    b: Se forman jabones metálicos que, con el tiempo, pueden alterar la textura de la película y provocar
+      delaminación
+    c: El aceite se evapora por completo y el pigmento queda sin aglutinante
+    d: El pigmento se disuelve en el aceite y pasa a ser un colorante
+  explanation: Los jabones metálicos se forman de manera lenta, pero modifican la textura, pueden causar
+    delaminación y, con plomo, bultos y cráteres. El blanco de zinc, por ejemplo, endurece y vuelve quebradiza
+    la película. La opción a es lo contrario de lo que se observa.
+- id: q-paint-composition-006
+  prompt: Explica con tus palabras qué son las cargas (extenders) de una pintura, qué hacen ópticamente
+    y por qué una pintura de artista suele ser más intensa que una doméstica.
+  model_answer: Las cargas son minerales baratos como sílice, arcilla o carbonato de calcio. Su índice
+    de refracción (hacia 1,56) es casi igual al del aglutinante (hacia 1,5), por lo que dispersan muy
+    poca luz y casi no cubren ni colorean; sirven sobre todo para abaratar y a veces arrastran impurezas
+    coloreadas. Una pintura de artista lleva menos carga y más espesante que una doméstica, y por eso
+    resulta más intensa.
+  rubric:
+  - Indica que son minerales baratos (sílice, arcilla, carbonato de calcio) añadidos a la pintura
+  - Explica que su índice de refracción es casi igual al del aglutinante y por tanto dispersan poca luz
+  - Menciona que abaratan y que pueden arrastrar impurezas coloreadas
+  - Relaciona la mayor intensidad de la pintura de artista con llevar menos carga (y más espesante)
+- id: q-paint-composition-007
+  prompt: 'Una compañera te dice: "Compra la acuarela más cara; el precio indica calidad." Tú dudas entre
+    una línea barata y otra cara, y lees que Golden asegura que casi todas sus líneas llevan la carga
+    de pigmento más alta posible. ¿Cómo decides y cómo valoras ambas afirmaciones?'
+  model_answer: 'No me fío del precio como indicador. MacEvoy, a partir de sus ensayos con acuarelas (es
+    su opinión, no una norma), sostiene que las líneas baratas tienden a llevar menos pigmento, sustitutos,
+    más dispersante y más cargas, pero también que el precio no indica calidad. La afirmación de Golden
+    es la declaración de un fabricante sobre sus propios productos. Por eso decidiría mirando el contenido:
+    pigmento de cada tubo por su código, preferencia por pinturas de un solo pigmento (las mezclas de
+    conveniencia suelen reducir pureza y resistencia a la luz) y una muestra propia comparando intensidad
+    y comportamiento.'
+  rubric:
+  - Presenta lo que dice MacEvoy como opinión basada en sus ensayos y no como hecho normativo
+  - Dice que la afirmación de Golden es una declaración del propio fabricante (parte interesada)
+  - Concluye que el precio no es un indicador fiable y que hay que mirar el pigmento (código) y si es
+    monopigmento
+  - Propone comprobar con una muestra propia en lugar de fiarse de una sola afirmación
+- id: q-paint-composition-008
+  prompt: Terminas un cuadro en acrílico y semanas después la superficie se ve algo turbia, como con una
+    película blanquecina. Una amiga sugiere frotar con disolvente fuerte. ¿Qué causa probable ves y qué
+    harías?
+  model_answer: 'La causa probable es el tensioactivo de la emulsión acrílica: permanece en la película
+    seca, migra a la superficie y puede enturbiarla. En lugar de usar disolvente fuerte, seguiría la indicación
+    de Golden: pasar un paño húmedo sin pelusa, sabiendo que puede llevarse algo de color, y luego proteger
+    con una capa de aislamiento hecha con la misma composición pero sin pigmento.'
+  rubric:
+  - Identifica el tensioactivo de la emulsión acrílica que migra a la superficie como causa probable
+  - Propone pasar un paño húmedo sin pelusa
+  - Advierte de que puede llevarse algo de color
+  - Propone proteger después con una capa de aislamiento sin pigmento (misma composición)
+- id: q-colour-index-names-001
+  prompt: ¿Por qué no basta el nombre comercial de una pintura ("amarillo indio", "blanco permanente")
+    para saber qué pigmento lleva?
+  options:
+    a: Porque un mismo nombre puede cubrir pigmentos distintos y su comportamiento cambia según la marca
+    b: Porque los nombres comerciales los fija una norma y cambian cada año
+    c: Porque el nombre solo indica el aglutinante, no el pigmento
+    d: Porque todas las marcas usan el mismo pigmento aunque lo llamen distinto
+  explanation: MacEvoy señala que un nombre como "amarillo indio" puede cubrir varios pigmentos, y Feller
+    recuerda que "blanco permanente" se usó para sulfato de bario y a veces para blanco de zinc. Los nombres
+    comerciales no están normalizados (opción a falsa).
+- id: q-colour-index-names-002
+  prompt: En el nombre genérico PB 60 (azul de antraquinona), ¿qué indican las letras P y B?
+  options:
+    a: 'P: pintura; B: brillante'
+    b: 'P: permanente; B: buena resistencia a la luz'
+    c: 'P: polímero; B: blanco'
+    d: 'P: pigmento; B: matiz general azul (blue)'
+  explanation: El nombre genérico combina el tipo de colorante (P de pigmento), una abreviatura del matiz
+    general (B de blue) y un número de serie (60). No indica permanencia ni calidad (opción b).
+- id: q-colour-index-names-003
+  prompt: ¿Cómo se llama el sistema internacional de códigos de pigmentos al que pertenecen nombres como
+    PB29, PY35 o PW6?
+  accepted:
+  - Colour Index
+  - Color Index
+  - C.I.
+  - CI
+  - Colour Index (C.I.)
+  - índice de color
+  - código Colour Index
+  - Colour Index International
+- id: q-colour-index-names-004
+  prompt: Dos tubos de marcas distintas llevan el mismo código C.I. ¿Qué se puede concluir con seguridad?
+  options:
+    a: Son la misma pintura y darán exactamente el mismo color y el mismo comportamiento
+    b: Tienen la misma resistencia a la luz porque el código la garantiza
+    c: Llevan el mismo tipo (clase química) de pigmento, pero no necesariamente la misma calidad ni la
+      misma resistencia a la luz
+    d: Uno de los dos fabricantes se ha equivocado en la etiqueta
+  explanation: 'Un nombre C.I. identifica una clase química: el código dice qué es, no qué tal es. Tamaño
+    de partícula, fabricante y aglutinante pueden cambiar color y solidez. La opción a es el error frecuente
+    de equiparar código y pintura.'
+- id: q-colour-index-names-005
+  prompt: El blanco de barita natural (Pigment White 22) y el sintético (Pigment White 21) tienen nombres
+    genéricos distintos pero el mismo número de constitución 77120. ¿Por qué?
+  options:
+    a: Porque el número de constitución lo asigna el fabricante al azar
+    b: Porque la numeración de constitución se basa en la estructura química y ambos son sulfato de bario
+      (BaSO₄)
+    c: Porque el número depende del uso del pigmento y ambos se usan como carga
+    d: Porque son la misma sustancia con el mismo origen natural
+  explanation: 'El nombre genérico distingue el tipo específico (natural o sintético), mientras que el
+    número de constitución depende de la estructura química, igual en los dos. La opción c es falsa: uno
+    es mineral y el otro se fabrica.'
+- id: q-colour-index-names-006
+  prompt: En el cadmio, el Pigment Yellow 37 es sulfuro de cadmio puro y el Pigment Yellow 35 es litopón
+    de cadmio-bario. ¿Qué diferencia práctica tienen?
+  options:
+    a: El litopón (PY35) cubre y tiñe mucho menos, porque lleva sulfato de bario
+    b: El PY35 es más puro y por eso tiñe más
+    c: 'No hay diferencia práctica: son el mismo pigmento con otro nombre'
+    d: El PY35 es siempre más resistente a la luz que el PY37
+  explanation: Feller indica que las versiones de litopón cubren y tiñen bastante menos que el cadmio
+    puro. Dos códigos de la misma familia no son intercambiables (opción b), y los datos no apoyan que
+    uno sea más sólido (c).
+- id: q-colour-index-names-007
+  prompt: Explica con tus palabras qué diferencia hay entre el nombre genérico C.I. y el número de constitución,
+    y por qué un código C.I. dice "qué es" el pigmento pero no "qué tal es".
+  model_answer: El nombre genérico (por ejemplo PB15:3) combina la clase de uso (P de pigmento), una abreviatura
+    del matiz y un número de serie del tipo específico. El número de constitución es un número de cinco
+    cifras basado en la estructura química, cuando se conoce; por eso dos nombres genéricos pueden compartir
+    número. El código identifica la clase química, pero el tamaño de partícula, el fabricante o el aglutinante
+    pueden cambiar el color y la resistencia a la luz, y las etiquetas pueden estar equivocadas; por eso
+    no garantiza calidad.
+  rubric:
+  - Describe el nombre genérico como tipo de colorante + matiz + número de serie
+  - Describe el número de constitución como basado en la estructura química
+  - Dice que el código identifica la clase química del pigmento
+  - Explica que no garantiza calidad ni resistencia a la luz (influyen partícula, fabricante o medio)
+- id: q-colour-index-names-008
+  prompt: Estás en una tienda de arte y tienes dos tubos de "amarillo indio" de marcas distintas, con
+    precios distintos. Uno de ellos lleva en la etiqueta un número de conformidad con la norma ASTM D4236.
+    ¿Qué lees en las etiquetas para decidir y qué no puedes deducir de ellas?
+  model_answer: 'Miraría el nombre genérico del pigmento (el código, no el nombre comercial), la certificación
+    a una norma y la clasificación de resistencia a la luz. Un producto conforme con la D4236 lleva el
+    número de conformidad, el nombre común del color, el nombre del pigmento, la clasificación de resistencia
+    a la luz, la certificación de salud y las advertencias. Tendría presente que la D4236 (etiquetado
+    de riesgos) es obligatoria, pero el cumplimiento de las normas de calidad ASTM es voluntario, de modo
+    que la D4236 por sí sola no prueba calidad de artista. Además, aunque ambos códigos coincidan, no
+    se puede deducir que ambas pinturas sean iguales en solidez o calidad: depende de marca y medio.'
+  rubric:
+  - Indica que se lee el nombre genérico del pigmento (código), la certificación y la clasificación de
+    resistencia a la luz
+  - Distingue que la D4236 es obligatoria y las normas de calidad ASTM son voluntarias
+  - Señala que el mismo código no garantiza igual calidad o solidez entre marcas
+  - Concluye que hay que comparar código y clasificación de cada tubo y no el nombre comercial
+- id: q-colour-index-names-009
+  prompt: Una marca de acuarelas barata etiqueta sus tubos solo con nombres comerciales; otra indica el
+    código C.I. de cada pigmento. Un compañero dice que, si compras la segunda, ya no necesitas comprobar
+    nada más. ¿Qué respondes?
+  model_answer: 'Ver el código C.I. declarado es una señal de calidad (opinión de MacEvoy) y permite comparar
+    marcas, saber qué se mezcla con qué y consultar la resistencia a la luz buscando por código. Pero
+    no es una garantía: el código dice qué clase de pigmento es, no qué tal es, y las etiquetas pueden
+    fallar (MacEvoy menciona identificaciones erróneas en una marca y una muestra rotulada PBr23 resultó
+    ser sobre todo carbonato de calcio). Por eso compraría la que declara el código, pero haría muestras
+    propias y comprobaría la resistencia a la luz en esa marca y medio.'
+  rubric:
+  - Reconoce el valor del código declarado para comparar y consultar la resistencia a la luz
+  - Presenta la señal de calidad de MacEvoy como opinión suya
+  - Aporta que las etiquetas pueden estar equivocadas (ejemplo PBr23 o identificaciones erróneas)
+  - Recomienda verificar con muestras propias y comprobar la resistencia a la luz de esa marca y medio
+- id: q-transparency-opacity-001
+  prompt: ¿Para qué se suelen usar las pinturas opacas y las transparentes?
+  options:
+    a: Las opacas, para cubrir y corregir; las transparentes, para veladuras en las que el color de abajo
+      sigue contando
+    b: Las opacas, para veladuras; las transparentes, para cubrir errores
+    c: Ambas sirven para lo mismo; solo cambia la marca
+    d: Las opacas son siempre las más caras y las transparentes las más baratas
+  explanation: Una pintura opaca tapa lo que hay debajo; una transparente deja ver el fondo, por lo que
+    sirve para veladuras. La opción a invierte los usos.
+- id: q-transparency-opacity-002
+  prompt: ¿Cómo se llama también a la capacidad de una pintura de tapar lo que hay debajo? (término en
+    español o en inglés)
+  accepted:
+  - poder cubriente
+  - hiding power
+  - cobertura
+  - opacidad
+  - poder de cobertura
+  - capacidad de cobertura
+  - poder de ocultación
+- id: q-transparency-opacity-003
+  prompt: En una prueba clásica, la pintura se extiende sobre un fondo mitad blanco y mitad negro. ¿Cómo
+    se interpreta el resultado?
+  options:
+    a: Si el límite se ve, la pintura es opaca
+    b: Si el límite desaparece, la pintura es transparente
+    c: Si el límite entre las dos mitades no se ve, la cobertura es completa; si se ve, es incompleta
+    d: Solo sirve para medir el brillo, no la cobertura
+  explanation: 'Un límite visible indica que la pintura deja pasar luz y aún deja ver el fondo: cobertura
+    incompleta. Las opciones a y b invierten la lectura.'
+- id: q-transparency-opacity-004
+  prompt: Un azul ftalo recién salido del tubo, en capa gruesa, parece casi opaco. ¿Qué debes recordar?
+  options:
+    a: Si parece opaco en capa gruesa, es un pigmento opaco
+    b: Es transparente y solo se aprecia al aplicarlo en capa fina o con medio; casi cualquier pintura
+      se vuelve más transparente al diluirse
+    c: La transparencia depende solo del pigmento, no del espesor
+    d: Una pintura transparente nunca puede verse oscura
+  explanation: Golden advierte que una pintura transparente puede parecer opaca recién salida del tubo,
+    y MacEvoy que casi cualquier pintura es más transparente diluida. La transparencia se aprecia en capa
+    fina (c y b son falsas).
+- id: q-transparency-opacity-005
+  prompt: ¿Por qué cubre bien un pigmento blanco como el dióxido de titanio?
+  options:
+    a: 'Porque dispersa mucho la luz: la dispersión crece con la diferencia de índice de refracción entre
+      pigmento y aglutinante'
+    b: Porque absorbe toda la luz que le llega
+    c: Porque tiene un índice de refracción casi igual al del aglutinante
+    d: Porque es más barato y se usa en mayor cantidad
+  explanation: Los blancos funcionan dispersando, no absorbiendo, y el dióxido de titanio (índice 2,76
+    frente a hacia 1,5 del polímero) dispersa mucho. La opción c es la propiedad de las cargas, que casi
+    no cubren.
+- id: q-transparency-opacity-006
+  prompt: El amarillo indio puede ser translúcido en óleo y opaco en un aglutinante acuoso. ¿Cuál es la
+    razón principal?
+  options:
+    a: El color del pigmento cambia con el vehículo
+    b: El óleo contiene siempre menos pigmento que el aglutinante acuoso
+    c: La luz atraviesa el aglutinante acuoso sin dispersarse
+    d: La diferencia de índice de refracción entre el pigmento y el vehículo
+  explanation: 'Feller atribuye el cambio de opacidad principalmente al índice de refracción del vehículo:
+    en óleo, las partículas del amarillo indio tienen un índice cercano al de la resina y se confunden
+    con ella. No ofrece una fórmula general.'
+- id: q-transparency-opacity-007
+  prompt: El blanco de zinc y el de plomo tienen índices de refracción parecidos, pero en óleo el de zinc
+    cubre menos. ¿Por qué?
+  options:
+    a: Porque su índice de refracción es mucho menor que el del plomo
+    b: Sobre todo porque necesita más aceite y tiene menor concentración volumétrica de pigmento
+    c: Porque el zinc absorbe la luz en vez de dispersarla
+    d: Porque el blanco de zinc es siempre más transparente por su tamaño de partícula
+  explanation: Feller indica que, al ser parecidos los índices, la diferencia viene de la mayor absorción
+    de aceite y la menor concentración volumétrica de pigmento. Atribuirlo al índice (a) contradice el
+    dato de partida.
+- id: q-transparency-opacity-008
+  prompt: Explica con tus palabras por qué el dióxido de titanio cubre mucho mientras que las cargas minerales
+    (como el carbonato de calcio) cubren muy poco, aunque ambos son sólidos blancos en un aglutinante.
+  model_answer: Un pigmento blanco cubre porque dispersa la luz, y la dispersión aumenta con la diferencia
+    de índice de refracción entre el pigmento y el aglutinante. El dióxido de titanio tiene un índice
+    de 2,76 frente a 1,5 de un polímero, así que dispersa muchísimo y cubre bien en capas finas. Las cargas
+    tienen un índice de hacia 1,56, casi igual al del aglutinante, por lo que dispersan muy poca luz y
+    apenas cubren.
+  rubric:
+  - Dice que la cobertura de los blancos se debe a dispersión de la luz y no a absorción
+  - Relaciona la dispersión con la diferencia de índice de refracción entre pigmento y aglutinante
+  - Contrasta un índice alto (titanio, hacia 2,76) con un índice casi igual al del aglutinante (cargas,
+    hacia 1,56)
+  - Concluye que las cargas dispersan poco y por eso cubren poco
+- id: q-transparency-opacity-009
+  prompt: 'Comparas dos fichas técnicas: una de Golden valora la transparencia en una escala de 1 (más
+    opaca) a 8 (más transparente); otra, basada en MacEvoy, usa una escala de 0 a 4 por el poder cubriente
+    sobre líneas negras. Un pintor quiere elegir la más opaca de entre pinturas de las dos fuentes. ¿Qué
+    le aconsejas y por qué?'
+  model_answer: 'No existe una norma industrial para medir opacidad: cada fabricante o autor usa su propia
+    escala (Golden 1-8 con etiquetas opaco, semiopaco, semitransparente y transparente; MacEvoy 0-4 sobre
+    bandas negras), y además el espesor de la muestra cambia el resultado. Por tanto las cifras de fuentes
+    distintas no se pueden comparar directamente. Le aconsejaría hacer su propia tira con una banda negra
+    y otra blanca, extender cada pintura en la misma capa y comparar cuál tapa más la banda negra.'
+  rubric:
+  - Indica que no hay norma industrial y cada fuente usa su escala
+  - Dice que las cifras de escalas distintas no se pueden comparar directamente (y que influye el espesor)
+  - Propone una prueba propia con banda negra y blanca y capa igual
+  - Concluye que se elige por la comparación de las muestras y no por los números de las fichas
+- id: q-transparency-opacity-010
+  prompt: Vas a pintar en acrílico una veladura rosa pálida sobre un cielo y, en otra zona, necesitas
+    aclarar y corregir con un blanco que tape. ¿Qué blanco eliges para cada tarea, cómo ordenas las capas
+    y cómo juzgas el resultado?
+  model_answer: Para tintes claros que sigan siendo transparentes en veladura elegiría blanco de zinc,
+    que añade poco poder cubriente; para tapar y corregir, blanco de titanio, que aumenta la cobertura.
+    En las capas seguiría la recomendación de MacEvoy de glasear de claro a oscuro, de cálido a frío y
+    de opaco a transparente. Como los acrílicos con colores transparentes secan más oscuros, juzgaría
+    el color sobre una muestra seca y no en húmedo.
+  rubric:
+  - Elige zinc para tintes transparentes/veladura y titanio para cubrir
+  - Menciona el orden de las capas (claro a oscuro, cálido a frío, opaco a transparente)
+  - Señala que los acrílicos con colores transparentes secan más oscuros
+  - Concluye juzgar el color sobre una muestra seca
+- id: q-tinting-strength-001
+  prompt: ¿Qué es el poder tintóreo (tinting strength) de una pintura?
+  options:
+    a: Cuánto cubre el fondo cuando se aplica en capa fina
+    b: Cuánto resiste la pintura la exposición a la luz
+    c: Cuánto cambia el carácter de otra pintura con la que se mezcla
+    d: Lo oscura que se ve la pintura en capa gruesa
+  explanation: 'Golden lo define como lo que una pintura cambia a otra con la que se mezcla, y lo mide
+    mezclando cada color con blanco de titanio. La cobertura (a) es la opacidad, y la oscuridad en masa
+    (c) es el tono de masa: no son lo mismo.'
+- id: q-tinting-strength-002
+  prompt: MacEvoy distingue el teñido (staining) del poder tintóreo. ¿Cómo?
+  options:
+    a: El teñido es un efecto sobre la superficie del papel; el poder tintóreo es un efecto en el líquido,
+      al mezclar
+    b: Son dos nombres de lo mismo
+    c: El teñido se refiere a mezclar con blanco y el poder tintóreo, a la resistencia a la luz
+    d: El teñido solo ocurre en óleo y el poder tintóreo, en acuarela
+  explanation: MacEvoy señala que se confunden a menudo, pero uno afecta al papel y el otro al líquido.
+    Ninguno mide solidez a la luz (opción b).
+- id: q-tinting-strength-003
+  prompt: ¿Qué factor suele aumentar el poder tintóreo de un pigmento?
+  options:
+    a: Un tamaño de partícula mayor, porque hay más material por partícula
+    b: Un tamaño de partícula más pequeño (más superficie por masa), y en general los orgánicos tienen
+      un poder más alto que los inorgánicos
+    c: Que el pigmento sea inorgánico, porque los minerales tiñen más
+    d: Que la pintura sea más barata
+  explanation: MacEvoy relaciona partículas más pequeñas con más poder tintóreo y Golden dice que los
+    orgánicos tienen alta intensidad tintórea y los inorgánicos suelen tener menos. La opción a invierte
+    la relación de tamaño.
+- id: q-tinting-strength-004
+  prompt: Una página de Golden describe sus tintes como mezclas con partes iguales de blanco de titanio
+    y otra, como 1 parte de color por 10 de blanco. ¿Qué conclusión es adecuada?
+  options:
+    a: Las descripciones no coinciden y no sabemos cuál corresponde a cada gráfica; hay que pedir la proporción
+      de la prueba antes de usar una cifra
+    b: Las dos son correctas a la vez, así que la proporción real es de 1:5
+    c: Hay que fiarse de la de 1:10 porque es más reciente
+    d: Hay que fiarse de la de partes iguales porque es la definición oficial
+  explanation: El contenido indica que las dos descripciones no coinciden y que ninguna fuente da un método
+    estándar único; no hay base para elegir una (c y d) ni para promediarlas (b).
+- id: q-tinting-strength-005
+  prompt: Explica con tus palabras cómo se diferencian poder tintóreo, teñido y transparencia, y por qué
+    un pigmento de alto poder tintóreo no tiene por qué ser transparente.
+  model_answer: 'El poder tintóreo es cuánto domina una pintura al mezclarse (efecto en el líquido); el
+    teñido es un efecto sobre la superficie del papel; la transparencia es la capacidad de dejar ver el
+    fondo. Un poder tintóreo alto permite aplicar la pintura más fina y por tanto más transparente, pero
+    no equivale a transparencia: son propiedades distintas, y una pintura puede ser fuerte al mezclar
+    y aun así cubrir.'
+  rubric:
+  - Define el poder tintóreo como cuánto domina o cambia una pintura al mezclarse
+  - Distingue el teñido como efecto sobre el papel y no sobre el líquido
+  - Define la transparencia como dejar ver el fondo y la separa de las otras dos
+  - Indica que alto poder tintóreo no equivale a transparencia
+- id: q-tinting-strength-006
+  prompt: 'Quieres un verde claro para un paisaje y mezclas amarillo y azul ftalo en partes iguales: sale
+    un verde azulado casi negro. ¿Cómo lo diagnosticas y cómo lo corriges?'
+  model_answer: 'El azul ftalo es un pigmento orgánico de poder tintóreo muy alto, y una pintura fuerte
+    domina más de lo que sugiere su proporción. Hay que usarlo en cantidades mucho menores que el amarillo:
+    Golden parte de 1 parte de azul ftalo (GS) por 10 de amarillo para un verde claro. Empezaría con el
+    amarillo (la pintura más débil) y añadiría el ftalo en pequeñas cantidades, mirando la dilución en
+    la paleta y el matiz hacia el que se desplaza la mezcla.'
+  rubric:
+  - Atribuye el resultado al alto poder tintóreo del azul ftalo, que domina más que su proporción
+  - Propone usarlo en una proporción mucho menor (ejemplo 1:10 con amarillo)
+  - Recomienda empezar por la pintura débil y añadir la fuerte en pequeñas cantidades
+  - Indica que se cuenta con la dilución o el matiz hacia el que se desplaza la mezcla
+- id: q-tinting-strength-007
+  prompt: Dos marcas venden el "mismo" rojo con el mismo código C.I., pero una se ve claramente más débil
+    al mezclarla con blanco. Un compañero dice que la marca barata es siempre peor y otro que da igual.
+    ¿Cómo lo resuelves?
+  model_answer: 'La fuerza de una misma pintura entre marcas puede variar por el tamaño de partícula,
+    la carga o la dilución. MacEvoy afirma (opinión basada en sus ensayos) que las líneas baratas llevan
+    menos pigmento y más carga, mientras que Golden declara que su carga de pigmento es casi igual en
+    todas sus líneas. Como ninguna fuente da un método estándar ni escala numérica de poder tintóreo,
+    lo resolvería haciendo una escala de tintes con blanco con mis propias pinturas. También tendría en
+    cuenta el coste: un pigmento orgánico caro y fuerte puede salir económico porque se gasta poco.'
+  rubric:
+  - Reconoce que varía por partícula, carga o dilución
+  - Presenta las afirmaciones de MacEvoy (opinión) y de Golden (fabricante) sin tomar ninguna como definitiva
+  - Dice que no hay método estándar ni escala numérica y propone hacer una escala de tintes con blanco
+    con las propias pinturas
+  - 'Considera el coste: pigmentos fuertes pueden ser económicos por usarse poco'
+- id: q-masstone-undertone-001
+  prompt: ¿Qué es el tono de masa (masstone) de una pintura?
+  options:
+    a: El color de la pintura a plena concentración, aplicada con espesor suficiente para ocultar lo de
+      debajo
+    b: El color de la pintura mezclada con blanco
+    c: El color de la pintura extendida muy fina sobre blanco
+    d: El color que tiene el pigmento en polvo antes de mezclarse
+  explanation: Golden y Feller coinciden en que es el color a plena concentración en su vehículo; el azul
+    ftalo espeso parece casi negro. Las opciones b y a describen subtono o tinte.
+- id: q-masstone-undertone-002
+  prompt: Una ficha técnica habla del "subtono" de una pintura. ¿Qué conviene hacer al leerla?
+  options:
+    a: Asumir que significa siempre el color de la pintura espesa
+    b: 'Comprobar en qué sentido lo usa el autor: película fina sobre blanco (Golden) o tinte/lavado diluido
+      con blanco (MacEvoy)'
+    c: Asumir que es siempre el tono de masa más oscuro
+    d: Ignorarlo, porque los fabricantes no lo definen nunca
+  explanation: 'Hay una ambigüedad real: Golden entiende la película fina sobre blanco o adelgazada con
+    medio; MacEvoy, un tinte con blanco o lavado diluido. Feller no usa la palabra en este sentido.'
+- id: q-masstone-undertone-003
+  prompt: ¿Por qué pigmentos transparentes como las quinacridonas o los ftalos pueden tener un subtono
+    muy distinto de su tono de masa?
+  options:
+    a: Porque el pigmento se descompone al diluirse
+    b: Porque en capa fina la pintura es siempre más oscura
+    c: Porque en capa gruesa la pintura oculta el fondo y en capa fina deja pasar parte de la luz, de
+      modo que cambian absorción y dispersión efectivas
+    d: Porque el tono de masa lo determina el aglutinante y el subtono, el pigmento
+  explanation: Con el espesor cambia lo que la capa absorbe y dispersa y cuánto del fondo se ve (Kubelka
+    y Munk). No hay descomposición del pigmento (a), y la opción c separa artificialmente pigmento y aglutinante,
+    que influyen en ambos.
+- id: q-masstone-undertone-004
+  prompt: La laca de carmín ocupa posiciones distintas en el diagrama de cromaticidad en cola animal y
+    en óleo. ¿Qué enseña esto sobre el tono de masa?
+  options:
+    a: 'Que no es una propiedad solo del pigmento: cambia con el aglutinante'
+    b: Que el tono de masa es una propiedad fija del pigmento
+    c: Que el tono de masa solo cambia si se añade blanco
+    d: Que el óleo siempre da tonos de masa más oscuros que la cola
+  explanation: Feller muestra que el aglutinante modifica el color en masa. La opción b confunde tono
+    de masa con tinte; la c generaliza sin base.
+- id: q-masstone-undertone-005
+  prompt: Explica con tus palabras por qué el color que ves en el tubo (el tono de masa) puede ser engañoso
+    y por qué la palabra "subtono" puede significar dos cosas.
+  model_answer: 'El tono de masa es el color a plena concentración y capa gruesa, que puede ser engañoso:
+    el azul ftalo espeso parece casi negro aunque en capa fina o mezclado con blanco sea un azul vivo.
+    Por eso el color del tubo no es todo el color de la pintura. Subtono tiene dos sentidos: para Golden
+    es lo que se ve en película fina sobre blanco o adelgazada con medio; para MacEvoy es el color de
+    un lavado diluido o tinte con blanco. Hay que ver cuál usa la ficha.'
+  rubric:
+  - Define el tono de masa como el color a plena concentración o capa gruesa
+  - Da el ejemplo del azul ftalo, que espeso parece casi negro
+  - 'Explica el sentido de Golden: película fina sobre blanco o adelgazada'
+  - 'Explica el sentido de MacEvoy: tinte o lavado diluido con blanco'
+- id: q-masstone-undertone-006
+  prompt: Un proveedor te ofrece un rojo con clasificación ASTM I y quieres usarlo sin diluir, en una
+    obra pensada para durar. ¿Basta con esa clasificación? ¿Qué harías?
+  model_answer: 'No basta: las clasificaciones ASTM se hacen sobre el tinte con blanco, no sobre el tono
+    de masa, y el comportamiento en masa puede ser distinto. Golden encontró, por ejemplo, que el rojo
+    pirrol mantuvo el tono de masa mientras el tinte se aclaraba, y que el amarillo hansa medio se oscureció
+    en masa pero se blanqueó en tinte; MacEvoy observó que PBr7, PR101, PR108, PY35, PY42 y PY184 se alteran
+    en muestras concentradas aunque parecen sólidos diluidos. Haría una tira que vaya del tono de masa
+    al tinte, dejaría que seque y la expondría, o buscaría datos de la marca para tonos de masa.'
+  rubric:
+  - Dice que la clasificación ASTM se hace sobre el tinte y no sobre el tono de masa
+  - Aporta un ejemplo en que masa y tinte se comportan distinto (Golden o MacEvoy)
+  - Concluye que la clasificación no garantiza el comportamiento en masa
+  - Propone una muestra del tono de masa al tinte y probarla
+- id: q-masstone-undertone-007
+  prompt: 'Quieres comparar dos marcas de un mismo pigmento. Una ficha dice "subtono: verdoso", pero la
+    otra da un desplazamiento de matiz de +13 sin más explicación. ¿Cómo procedes para compararlas con
+    rigor?'
+  model_answer: 'Primero averiguo en qué sentido usa cada marca el subtono: Golden lo define como el aspecto
+    en película fina sobre blanco; MacEvoy, como tinte o lavado diluido, con un desplazamiento de matiz
+    medido en CIELAB entre subtono y tono de masa. Como no son equivalentes, no las compararía directamente.
+    Haría yo una tira de cada pintura que vaya del tono de masa al tinte sobre bandas negra y blanca,
+    la dejaría secar (la reflectancia cambia al secar) y anotaría qué sentido usa cada ficha.'
+  rubric:
+  - Detecta que los dos datos pueden usar sentidos distintos de subtono
+  - Describe el sentido de Golden (película fina) y el de MacEvoy (tinte/lavado diluido)
+  - Propone una tira del tono de masa al tinte sobre bandas negra y blanca
+  - Indica dejar secar y anotar el sentido usado por cada ficha
+- id: q-lightfastness-001
+  prompt: ¿Cuál es la diferencia entre resistencia a la luz (lightfastness) y permanencia (permanence)?
+  options:
+    a: 'La permanencia es más amplia: incluye también la reacción a contaminantes, al aglutinante y a
+      otros pigmentos'
+    b: Son sinónimos exactos
+    c: La resistencia a la luz incluye la permanencia como caso particular
+    d: La permanencia solo se refiere al desvanecimiento por ultravioleta
+  explanation: La resistencia a la luz es la resistencia a cambiar bajo la luz; la permanencia incluye
+    además la compatibilidad y las reacciones químicas. Las opciones b y c invierten o recortan el alcance.
+- id: q-lightfastness-002
+  prompt: ¿Por qué las normas actuales para pigmentos de artista exigen ensayarlos en un aglutinante?
+  options:
+    a: Porque el pigmento solo no se puede medir con un espectrofotómetro
+    b: 'Porque el aglutinante afecta a la permanencia: el mismo pigmento da cambios de color muy distintos
+      según el aglutinante'
+    c: Porque los aglutinantes siempre protegen al pigmento de la luz
+    d: Porque así se obtiene una cifra en años de duración
+  explanation: Feller midió que el amarillo indio cambió ΔE 10,3 en goma arábiga y 39,1 en emulsión vinílica
+    ácida tras la misma exposición. El aglutinante no siempre protege (b), y las clasificaciones no dan
+    años.
+- id: q-lightfastness-003
+  prompt: Una pintura tiene clasificación ASTM I. ¿Qué te dice esa clasificación?
+  options:
+    a: Que no cambiará de color en cien años en ninguna condición
+    b: Que dura exactamente el doble que una de categoría II
+    c: Ordena la pintura frente a otros materiales bajo las condiciones del ensayo; no predice cuántos
+      años durará
+    d: Que es válida para cualquier medio y marca del mismo pigmento
+  explanation: Feller y Golden advierten de que una clasificación ordena materiales entre sí y cualquier
+    estimación de años es una conjetura razonada; además depende de aglutinante, tinte y marca.
+- id: q-lightfastness-004
+  prompt: La categoría ASTM II se llama "Good" en Golden y "Muy buena" en MITRA, con el mismo rango de
+    ΔE de 4 a 8. ¿Qué conclusión sacas?
+  options:
+    a: Que una de las dos fuentes mide con un método distinto
+    b: Que en realidad son dos categorías diferentes
+    c: Que el adjetivo es lo que define la categoría
+    d: Que las etiquetas verbales de las categorías varían según la fuente, así que hay que fijarse en
+      el rango de ΔE y no en el adjetivo
+  explanation: El contenido señala que la categoría II recibe dos nombres distintos sin que cambien los
+    números. Por tanto no son categorías diferentes (b) y lo que identifica la categoría es el rango.
+- id: q-lightfastness-005
+  prompt: ¿Qué afirmación sobre pigmentos orgánicos e inorgánicos y su envejecimiento es más acertada?
+  options:
+    a: 'Los orgánicos tienden a desvanecerse y los inorgánicos a oscurecerse, pero no es absoluto: el
+      amarillo de cadmio es un inorgánico sensible y las quinacridonas, muy sólidas'
+    b: Todos los inorgánicos son permanentes y todos los orgánicos fugitivos
+    c: Todos los orgánicos son sólidos porque son sintéticos
+    d: Los inorgánicos se desvanecen siempre y los orgánicos se oscurecen siempre
+  explanation: 'Es una tendencia con excepciones: óxidos de hierro, azul cobalto, quinacridonas y ftalocianina
+    de cobre son muy sólidos, mientras que cadmio, amarillo de cromo y bermellón son sensibles. La opción
+    a es el error frecuente.'
+- id: q-lightfastness-006
+  prompt: Explica con tus palabras por qué dos tubos con el mismo pigmento pueden tener clasificaciones
+    de resistencia a la luz distintas, y qué tres cosas deberías comprobar antes de fiarte de una clasificación.
+  model_answer: 'La resistencia a la luz es del producto y no solo del pigmento: depende del aglutinante
+    (el bermellón es I en óleo y acrílico pero III en acuarela, y la acuarela se aplica fina), de si se
+    mide en tinte o en masa, y de la marca (tamaño de partícula, impurezas, fabricación). Antes de fiarme
+    comprobaría la marca, el medio y que la clasificación se refiera al producto y no a un pigmento genérico;
+    y miraría si se refiere al tinte.'
+  rubric:
+  - Dice que la resistencia a la luz depende del aglutinante o medio, con un ejemplo (bermellón u otros)
+  - Menciona la diferencia entre tinte y masa o la marca como otra causa
+  - Indica que la clasificación debe referirse al producto concreto y no al pigmento genérico
+  - 'Enumera qué comprobar: marca, medio y a qué se refiere la clasificación'
+- id: q-lightfastness-007
+  prompt: Un cliente encarga un cuadro que colgará frente a una ventana soleada. Tu paleta tiene una laca
+    de carmín (alizarina), amarillo de cadmio y azul ftalo, y piensas hacer un violeta mezclando la laca
+    roja con un azul. ¿Qué decides y por qué?
+  model_answer: Para una obra pensada para durar buscaría clasificación I o II en la marca y el medio
+    que voy a usar (MacEvoy, opinión suya, considera inadecuado III o inferior). La laca de carmín equivale
+    a lana azul 1-2, es decir, muy fugitiva, así que la sustituiría por un rojo/magenta más sólido; un
+    violeta de laca roja y azul virará hacia el azul cuando la laca se desvanezca. Además, con esa luz
+    intensa el cliente debe saber que evitar la luz directa y el UV reduce el cambio, que no puede eliminarse.
+    Y comprobaría el cadmio y el medio, y haría muestras.
+  rubric:
+  - Pide una clasificación alta (I o II) para la marca y el medio concretos
+  - Identifica que la laca de carmín es muy fugitiva (lana azul 1-2) y propone sustituirla
+  - Explica que un violeta de laca roja y azul virará hacia el azul al desvanecerse la laca
+  - Menciona reducir la luz/UV o aceptar que el cambio no se elimina del todo
+- id: q-lightfastness-008
+  prompt: Un tubo de acuarela dice "ASTM I" sin más datos. Quieres saber si te puedes fiar y tienes tres
+    meses antes de empezar el encargo. ¿Qué preguntas haces y qué prueba casera montas?
+  model_answer: Preguntaría si la clasificación se ha ensayado en ese producto o se ha asignado de una
+    tabla de pigmentos probados hace décadas (la ASTM lo permite; Golden, parte interesada, lo considera
+    insuficiente), y tendría en cuenta que la acuarela es más sensible por aplicarse fina y que algunos
+    fabricantes usan escalas propias o la palabra permanencia sin equivaler a ASTM. Para comprobarlo,
+    MITRA propone exponer muestras a la luz diurna durante meses con un control oscuro, o usar tarjetas
+    de lana azul y comparar con el escalón que cambia primero; Golden sugiere una ventana al sur y un
+    cajón de control, comparando a 3, 6 y 12 meses. En tres meses obtendría solo una indicación, y recordaría
+    que ninguna clasificación predice años.
+  rubric:
+  - Pregunta si la clasificación se asignó de una tabla de pigmentos o se ensayó el producto
+  - Señala que la acuarela es más sensible o que hay escalas propias que no equivalen a ASTM
+  - Describe una prueba casera con control oscuro (ventana, meses) o con lana azul
+  - 'Reconoce el límite: una prueba corta es indicativa y no predice años'
+- id: q-lightfastness-009
+  prompt: En tu paleta mezclas amarillo de cadmio con blanco de plomo, con un verde de cobre, y lo remueves
+    con una espátula de hierro. Además usas blanco de zinc y de titanio en las mismas mezclas con colores
+    orgánicos. ¿Qué problemas anticipas y qué cambias?
+  model_answer: 'El amarillo de cadmio se oscurece en contacto con pigmentos de plomo o cobre, y las espátulas
+    de hierro pueden dejar sulfuro de hierro; separaría esas pinturas (o evitaría esas mezclas) y usaría
+    espátulas que no sean de hierro. Los blancos de zinc y de titanio y el sulfuro de cadmio son fotosensibles
+    y pueden generar peróxido de hidrógeno que ataca a lo que tienen al lado, de modo que las mezclas
+    con orgánicos sensibles podrían desvanecerse antes: probaría esas mezclas con una muestra y un control
+    antes de usarlas en obra.'
+  rubric:
+  - Identifica que el cadmio se oscurece con pigmentos de plomo o cobre
+  - Menciona las espátulas de hierro (sulfuro de hierro)
+  - Indica que zinc, titanio y sulfuro de cadmio son fotosensibles y pueden generar peróxido de hidrógeno
+  - Propone evitar o separar las mezclas problemáticas o ensayarlas con muestras
+- id: q-limited-palette-001
+  prompt: Te piden seis paisajes en acrílico, con mucho verde y poca complicación de material. Piensas
+    en la paleta de ocho colores de Golden (amarillo benzimidazolona medio, magenta de quinacridona, azul
+    ftalo, verde ftalo, rojo naftol claro, blanco de titanio, blanco de zinc y ocre amarillo). ¿Cómo decides
+    si te sirve y qué comprobarías antes de empezar?
+  model_answer: 'Vería qué función cumple cada color: amarillo, magenta y azul ftalo son los primarios
+    de mezcla; el negro se omite porque verde ftalo más rojo naftol claro da un casi negro; hay dos blancos,
+    uno cubriente (titanio) y otro de veladura (zinc). Para paisajes verdes, el verde ftalo ayuda. Antes
+    de empezar comprobaría el código C.I. de cada pintura en mi marca, la clasificación de resistencia
+    a la luz para esa marca y el medio, las proporciones por el poder tintóreo de los ftalos y haría muestras
+    secas con mis tubos. No es una paleta única: es un punto de partida.'
+  rubric:
+  - Identifica los primarios de mezcla (amarillo, magenta, azul ftalo) y que el negro se omite
+  - Menciona los dos blancos con funciones distintas (cubriente y de veladura)
+  - Propone comprobar C.I. y resistencia a la luz de la marca y el medio
+  - Propone hacer muestras secas con los propios tubos
+- id: q-limited-palette-002
+  prompt: Una alumna defiende que la paleta correcta es la de seis pinturas de MacEvoy; otro, que la de
+    cuatro pigmentos de Sochorova y colaboradores (azul ftalo, magenta de quinacridona, amarillo hansa
+    y blanco de titanio). ¿Cómo mediarías?
+  model_answer: 'No hay una paleta única: los tres ejemplos del contenido difieren en tamaño y medio.
+    Para Sochorova y colaboradores la elección de los pigmentos es parte íntima del enfoque del artista,
+    y para MacEvoy (opinión) el estilo y la técnica pesan más que casi cualquier otra consideración. El
+    criterio sería el compromiso entre gamut y simplicidad: más pinturas alcanzan más croma pero hay más
+    recetas que aprender; seis es un punto intermedio entre tres y paletas largas. Les propondría probar
+    ambas con muestras secas sobre el tipo de cuadro que pintan y decidir con el resultado.'
+  rubric:
+  - Afirma que no existe una paleta única correcta
+  - Cita que la elección depende del artista, el estilo o la técnica (Sochorova o MacEvoy)
+  - Menciona el compromiso gamut frente a simplicidad
+  - Propone probar con muestras secas en lugar de decidir por autoridad
+- id: q-limited-palette-003
+  prompt: 'Al probar tu paleta (azul ftalo, amarillo hansa y magenta de quinacridona) notas que las recetas
+    salen muy desiguales: unas necesitan gotas de una pintura y mucha cantidad de otra. Una tienda te
+    ofrece además una "mezcla de conveniencia" de verde. ¿Qué explicación das y qué decides?'
+  model_answer: 'Las pinturas muy fuertes, como los ftalos, se usan en cantidades mucho menores que los
+    amarillos: Golden parte de 1 parte de azul ftalo por 10 de amarillo para un verde claro y de 1 de
+    magenta por 5 de amarillo para un rojo claro. Una paleta con pinturas de fuerzas muy distintas tiene
+    recetas desiguales, algo que se equilibra conociendo el poder tintóreo y dosificando. Respecto a la
+    mezcla de conveniencia, MacEvoy (en su opinión) prefiere las pinturas de un solo pigmento porque las
+    mezclas suelen reducir la pureza y la resistencia a la luz; yo miraría el código C.I., y probablemente
+    la evitaría, mezclando yo mi verde.'
+  rubric:
+  - Relaciona las recetas desiguales con las fuerzas distintas (poder tintóreo) de las pinturas
+  - Cita las proporciones de Golden (1:10 con amarillo para un verde claro o 1:5 para el rojo claro)
+  - Señala que las mezclas de conveniencia suelen reducir pureza y resistencia a la luz (según MacEvoy)
+  - Recomienda mirar el código C.I. y preferir pigmentos únicos
