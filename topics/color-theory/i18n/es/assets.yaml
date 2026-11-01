@@ -57,3 +57,19 @@
 - id: equiluminance
   alt: "Cuatro rectángulos en dos columnas. Arriba, un disco naranja sobre fondo azul grisáceo: a la izquierda con la misma luminosidad que el fondo, a la derecha más claro. Abajo, las mismas imágenes solo con luminosidad: a la izquierda el disco desaparece en un gris uniforme y a la derecha se sigue viendo."
   caption: "Si figura y fondo tienen la misma luminancia, una imagen que solo conserva la luminosidad pierde la figura, como el sol de Monet en Impresión, sol naciente en blanco y negro [@livingstone-2014]. La igualdad se calcula con L* de CIELAB para una pantalla sRGB; en otra pantalla o para otra persona el punto de equiluminancia cambia [unverified]. Diagrama propio."
+
+- id: classic-schemes-hue-circle
+  alt: "Cinco anillos de color iguales con matices marcados. Monocromático: un solo azul morado y, en el centro, cuatro muestras de ese matiz de oscuro a claro. Análogo: naranja, amarillo y verde-amarillo, vecinos en el anillo. Complementario: amarillo y morado-azul, opuestos y unidos por una línea. Complementario dividido: amarillo unido a azul y a morado, los vecinos de su opuesto. Tríada: rojo, verde-amarillo y azul formando un triángulo equilátero."
+  caption: "Los esquemas clásicos como posiciones sobre un círculo de matices tipo Munsell (L* 60, C*ab 32, colores aproximados). Los opuestos son los de este círculo; en la rueda tradicional del pintor (rojo, amarillo y azul) los pares cambian. Diagrama propio."
+
+- id: warm-cool-hue-circle
+  alt: "Anillo de diez matices con un arco naranja exterior sobre rojo, naranja y amarillo, rotulado cálidos, y un arco azul sobre verde, azul-verde, azul y morado-azul, rotulado fríos. Sobre verde-amarillo y sobre morado y rojo-morado, arcos grises discontinuos rotulados límite dudoso."
+  caption: "Reparto habitual de cálidos (rojo, naranja, amarillo) y fríos (verde, cian, azul) [@palmer-2013, p. 84]. Los límites exactos de cada sector son una elección de dibujo: las fuentes no dan una frontera y la asociación con la temperatura solo se ha medido para rojo y azul [@ho-2014]. Diagrama propio."
+
+- id: value-structure-thumbnails
+  alt: "Arriba, un paisaje sencillo (cielo azul claro, colinas violáceas, campo verde-amarillo, suelo marrón y un árbol verde oscuro) y el mismo paisaje en grises. Abajo, tres miniaturas en tres grises del mismo paisaje: en la primera casi todo es claro, en la segunda casi todo es gris medio y en la tercera casi todo es oscuro, con el árbol claro."
+  caption: "Un cuadro en color lleva dentro una estructura de valores (arriba, cada zona en gris con su misma claridad L*). Abajo, tres planes de tres valores para la misma composición, en los que domina el claro, el medio o el oscuro, al estilo de los bocetos de valores que recomienda Gurney [@gurney-2010, blog 'Value Planning', 2011-03-29]. Escena inventada. Diagrama propio."
+
+- id: cleland-area-balance
+  alt: "Dos rectángulos. A la izquierda, mitad amarillo y mitad azul morado oscuro. A la derecha, un campo azul morado oscuro con un cuadrado amarillo pequeño en el centro."
+  caption: "La regla de Cleland: multiplicar valor por croma (amarillo Y 7/9 → 63, morado-azul P-B 3/4 → 12) y dar a cada color un área inversamente proporcional, unas 12 partes de amarillo por 63 de morado-azul [@cleland-1921, pp. ~21-22]. Es una prescripción de 1921, sin contraste experimental. Colores aproximados a partir de pinturas medidas. Diagrama propio."

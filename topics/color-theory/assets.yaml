@@ -102,3 +102,31 @@
   generator: diagrams/src/equiluminance.py
   license: CC-BY-4.0
   concepts: [equiluminance]
+
+- id: classic-schemes-hue-circle
+  file: diagrams/classic-schemes-hue-circle.{lang}.svg
+  origin: own
+  generator: diagrams/src/classic_schemes.py
+  license: CC-BY-4.0
+  concepts: [color-schemes]
+
+- id: warm-cool-hue-circle
+  file: diagrams/warm-cool-hue-circle.{lang}.svg
+  origin: own
+  generator: diagrams/src/warm_cool_circle.py
+  license: CC-BY-4.0
+  concepts: [color-temperature]
+
+- id: value-structure-thumbnails
+  file: diagrams/value-structure-thumbnails.{lang}.svg
+  origin: own
+  generator: diagrams/src/value_thumbnails.py
+  license: CC-BY-4.0
+  concepts: [value-structure]
+
+- id: cleland-area-balance
+  file: diagrams/cleland-area-balance.{lang}.svg
+  origin: own
+  generator: diagrams/src/cleland_area_balance.py
+  license: CC-BY-4.0
+  concepts: [dominance-and-accent]

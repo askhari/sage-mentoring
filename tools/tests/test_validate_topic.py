@@ -191,5 +191,14 @@ class ValidatorTest(unittest.TestCase):
         self.edit("research/notes/src-a.md", "(p. 2) → hue", "(p. 2) → hue (TOC only)")
         self.assertNotIn("has no '→ hue' bullet", self.warnings("map"))
 
+    def test_broken_concept_link_is_a_warning(self):
+        self.edit("i18n/es/domains/basics/concepts/hue.md",
+                  "Aplicación [@src-a, pp. 4-5].",
+                  "Aplicación [@src-a, pp. 4-5]. Ver [luz](light.md) y [nada](../../other/concepts/missing.md#layer-2).")
+        warns = self.warnings()
+        self.assertIn("link '../../other/concepts/missing.md' not found", warns)
+        self.assertNotIn("link 'light.md'", warns)
+        self.assertNotIn("missing.md", self.errors())
+
 if __name__ == "__main__":
     unittest.main(verbosity=1)

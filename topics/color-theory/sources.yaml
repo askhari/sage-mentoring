@@ -174,6 +174,7 @@
   identifiers: { isbn: "978-0-500-23654-3" }
   access: paid
   accessed: 2026-11-01
+  notes: "TOC only (Google Books TOC, publisher blurb, reviews of later Gage books; no book text). Further reading, not a basis for claims."
 - id: conway-livingstone-2007
   type: paper
   reliability: B
@@ -232,6 +233,7 @@
   identifiers: { doi: "10.3758/s13414-010-0027-0", url: "https://pmc.ncbi.nlm.nih.gov/articles/PMC3037488" }
   access: open
   accessed: 2026-11-01
+  notes: "full text (Europe PMC open-access XML, PMC3037488; PMC pages show a CAPTCHA to scripts)."
 - id: palmer-2013
   type: paper
   reliability: B
@@ -239,9 +241,43 @@
   authors: ["Stephen E. Palmer", "Karen B. Schloss", "Jonathan Sammartino"]
   year: 2013
   language: en
-  identifiers: { doi: "10.1146/annurev-psych-120710-100504" }
+  identifiers: { doi: "10.1146/annurev-psych-120710-100504", url: "https://palmerlab.berkeley.edu/pdf/PalmerSchlossSammartino(2013)AR.pdf" }
   access: paid
   accessed: 2026-11-01
+  notes: "full text (authors' copy on the Palmer lab publications page; the journal version is paid)."
+- id: palmer-schloss-2010
+  type: paper
+  reliability: B
+  title: "An ecological valence theory of human color preference"
+  authors: ["Stephen E. Palmer", "Karen B. Schloss"]
+  year: 2010
+  language: en
+  identifiers: { doi: "10.1073/pnas.0906172107", url: "https://palmerlab.berkeley.edu/pdf/Palmer%26Schloss%282010%29.pdf" }
+  access: open
+  accessed: 2026-11-01
+  notes: "full text (PNAS; authors' copy on the Palmer lab page). Colour preference and colour–object associations."
+- id: ho-2014
+  type: paper
+  reliability: B
+  title: "Colour-temperature correspondences: when reactions to thermal stimuli are influenced by colour"
+  authors: ["Hsin-Ni Ho", "George H. Van Doorn", "Takahiro Kawabe", "Junji Watanabe", "Charles Spence"]
+  year: 2014
+  language: en
+  identifiers: { doi: "10.1371/journal.pone.0091854", url: "https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0091854" }
+  access: open
+  accessed: 2026-11-01
+  notes: "full text (PLOS ONE, CC BY; read through the Europe PMC open-access XML, PMC3950287). Warm/cool colour–temperature associations."
+- id: jonauskaite-2020
+  type: paper
+  reliability: B
+  title: "Universal patterns in color-emotion associations are further shaped by linguistic and geographic proximity"
+  authors: ["Domicele Jonauskaite", "Christine Mohr", "et al."]
+  year: 2020
+  language: en
+  identifiers: { doi: "10.1177/0956797620948810", url: "https://iris.unil.ch/bitstreams/7d6867e0-d9bc-4341-885c-19643911db2d/download" }
+  access: open
+  accessed: 2026-11-01
+  notes: "full text (accepted manuscript in the UNIL IRIS repository, CC BY-NC-ND; the IRIS link redirects to api.unil.ch; SAGE version paid; biopen.bi.no copy did not resolve). Cite manuscript pages. 4,598 participants, 30 nations."
 
 # --- Paints and pigments ---
 - id: mayer-1991

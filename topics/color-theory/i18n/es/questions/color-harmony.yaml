@@ -1,0 +1,478 @@
+- id: q-color-schemes-001
+  prompt: "¿Qué describe un esquema complementario (complementary scheme)?"
+  options:
+    a: "Dos matices opuestos en la rueda de color, con el neutro en el centro"
+    b: "Tres matices repartidos a igual distancia en la rueda"
+    c: "Varios matices vecinos en la rueda, con variaciones de valor"
+    d: "Un solo matiz variado en valor y croma"
+  explanation: "Es la definición que da Gurney: dos matices opuestos con el neutro entre ellos. La opción de tres matices equidistantes es la tríada, y la de matices vecinos es el esquema análogo."
+- id: q-color-schemes-002
+  prompt: "¿Qué caracteriza a un esquema análogo (analogous scheme)?"
+  options:
+    a: "Usa un matiz y los dos vecinos de su opuesto"
+    b: "Usa dos matices opuestos para realzarse mutuamente"
+    c: "Usa matices próximos en la rueda, que se llevan bien por cercanía y no por contraste"
+    d: "Usa tres matices, uno por cada primario"
+  explanation: "Chevreul lo llama armonía de analogía y Cleland dice que los matices próximos se llevan bien por cercanía. La opción que menciona los vecinos del opuesto es el complementario dividido."
+- id: q-color-schemes-003
+  prompt: "¿Cómo se llama el esquema formado por un matiz más los dos vecinos de su opuesto en la rueda?"
+  accepted:
+    - "complementario dividido"
+    - "split complementary"
+    - "split-complementary"
+    - "complementarios divididos"
+    - "complementario partido"
+- id: q-color-schemes-004
+  prompt: "En un esquema monocromático se varían el valor y el croma, pero se mantiene fijo un mismo... ¿qué dimensión del color?"
+  accepted:
+    - "matiz"
+    - "hue"
+    - "tono"
+    - "el matiz"
+- id: q-color-schemes-005
+  prompt: "¿Qué estatus tienen los esquemas clásicos de color según las fuentes del tema?"
+  options:
+    a: "Son leyes de la percepción comprobadas desde el siglo XIX"
+    b: "Son convenciones útiles para decidir, no leyes demostradas"
+    c: "Son reglas que garantizan armonía si se aplican con exactitud"
+    d: "Son resultados de experimentos con pintores profesionales"
+  explanation: "Las teorías clásicas se formularon sin mediciones estéticas (Palmer) y Gurney las presenta como herramientas de decisión. Ninguna de las otras opciones tiene respaldo en las fuentes."
+- id: q-color-schemes-006
+  prompt: "En el método de la máscara de gama (gamut masking) de Gurney, ¿qué ocurre con los colores que quedan fuera de la forma dibujada sobre la rueda?"
+  options:
+    a: "Se usan solo para los acentos, mezclados al final"
+    b: "Se mezclan con los de dentro para neutralizarlos"
+    c: "Se reservan para las sombras"
+    d: "Se descartan: lo que queda dentro de la forma es la paleta del cuadro"
+  explanation: "La máscara define la paleta y el resto se descarta. La idea de acentos fuera de la gama es un recurso posterior, no parte del método básico."
+- id: q-color-schemes-007
+  prompt: "Según Chevreul, ¿es siempre preferible la armonía de contraste a la de analogía?"
+  options:
+    a: "No: con dos colores cercanos puede ser preferible avanzar hacia la armonía de escala o de matiz"
+    b: "Sí: el contraste siempre mejora los colores"
+    c: "Sí, pero solo con colores puros sin gris"
+    d: "No: la armonía de analogía solo funciona en grises"
+  explanation: "Chevreul admite que con dos colores próximos puede convenir la armonía de escala o de matiz. Sí defiende que los complementarios se mejoran mutuamente, pero no que el contraste sea siempre mejor."
+- id: q-color-schemes-008
+  prompt: "¿Por qué no se puede decir que los esquemas clásicos estén demostrados?"
+  options:
+    a: "Porque los experimentos modernos los refutaron todos por igual"
+    b: "Porque se formularon sin mediciones estéticas y las teorías discrepan tanto entre sí que casi cualquier par resultaría armonioso"
+    c: "Porque solo valen para pigmentos y no para luz"
+    d: "Porque solo se han probado con tres colores"
+  explanation: "Palmer señala que las teorías se formularon sin mediciones y Schloss y Palmer que, juntas, casi cualquier par sería armonioso. No es cierto que todas fueran refutadas: los datos las matizan."
+- id: q-color-schemes-009
+  prompt: "Dos pintores hablan de colores complementarios y discrepan sobre cuál es el opuesto del rojo. ¿Qué explicación apoyan las fuentes?"
+  options:
+    a: "Uno de los dos se equivoca: solo hay una rueda correcta"
+    b: "Los complementarios solo existen en la luz, no en el pigmento"
+    c: "Lo que es complementario depende de la rueda: la tradicional RYB y la digital no coinciden"
+    d: "El opuesto cambia según la hora del día"
+  explanation: "Gurney reconoce que su preferencia por la rueda RYB es una preferencia, y que la digital (cian, magenta, amarillo) da otros opuestos. No hay una rueda única correcta."
+- id: q-color-schemes-010
+  prompt: "Explica con tus palabras por qué la afirmación 'los colores complementarios son los más armoniosos' no está respaldada por los datos experimentales con pares de colores."
+  model_answer: "En los experimentos de Schloss y Palmer con pares de colores, tanto la preferencia como la armonía bajan de forma monótona al aumentar la diferencia de matiz, y no hay repunte para los pares complementarios (ni perceptuales ni de pintura). Los complementarios de pintura se puntuaron incluso menos armoniosos que los mismos matices junto a los vecinos de su complementario. Su valor no es la armonía del par: el contraste de matiz mejora cómo se ve el color de la figura sobre el fondo."
+  rubric:
+    - "Dice que la armonía y la preferencia del par disminuyen al aumentar la diferencia de matiz"
+    - "Dice que no hay aumento (repunte) para los pares complementarios"
+    - "Distingue la armonía del par del efecto del contraste sobre la figura sobre el fondo"
+    - "No presenta la afirmación como un hecho medido ni como una ley"
+- id: q-color-schemes-011
+  prompt: "Vas a ilustrar una serie de ocho láminas que deben sentirse del mismo mundo cromático. Un compañero propone elegir un esquema triádico y garantizar así la armonía. ¿Qué decides y cómo lo justificas?"
+  model_answer: "Usaría el esquema como herramienta de control, no como garantía: dibujo una forma de máscara de gama sobre la rueda, premezclo las cadenas de color de esa gama y uso solo esas en todas las láminas, que es lo que da coherencia en trabajos secuenciales según Gurney. No prometo armonía por el nombre del esquema: los experimentos de Schloss y Palmer solo probaron pares de colores y no tríadas ni paletas, y solo hay resultados preliminares para tríos. Por eso valoro la gama por cómo se comporta en los bocetos de las láminas y la ajusto."
+  rubric:
+    - "Propone usar el esquema para limitar opciones (por ejemplo, una máscara de gama con colores premezclados)"
+    - "Relaciona la gama cerrada con la coherencia en trabajos secuenciales"
+    - "Indica que la evidencia experimental se basa en pares y no prueba tríadas ni paletas completas"
+    - "Concluye que el resultado se juzga probando en bocetos y no por el nombre de la regla"
+- id: q-color-schemes-012
+  prompt: "Un cliente exige un cuadro en naranja y azul 'porque los complementarios son por ciencia lo más armonioso'. ¿Cómo respondes, y qué alternativa o matiz le ofreces?"
+  model_answer: "Le explico que la afirmación no se sostiene: en los datos de Schloss y Palmer la armonía y la preferencia de los pares bajan al aumentar la diferencia de matiz y no hay repunte para los complementarios (una excepción fue la preferencia por naranja-azul, y los autores atribuyen un repunte azul-amarillo quizá a los colores de la universidad). Las teorías clásicas no salieron de mediciones. Aun así, el naranja y el azul pueden ser una buena elección por su contraste, que mejora la figura sobre el fondo; si busca cohesión y calma, matices próximos funcionan mejor de media. Propongo probar ambas gamas en bocetos."
+  rubric:
+    - "Rechaza que haya respaldo experimental para 'complementario = más armonioso'"
+    - "Cita que la armonía baja al aumentar la diferencia de matiz o que no hay repunte para complementarios"
+    - "Ofrece una razón válida para usar el contraste (mejora la figura sobre el fondo) sin llamarlo armonía"
+    - "Propone probar o comparar en bocetos en lugar de decidir por regla"
+- id: q-color-schemes-013
+  prompt: "Pintas un retrato por encargo. La tez y el pelo del modelo vienen dados, pero la ropa y el fondo son libres. Según Chevreul, ¿cómo elegirías esos colores libres, y con qué cautela tomas su consejo?"
+  model_answer: "Chevreul distingue colores fijados por el tema (carne, pelo) y colores libres (ropajes, fondo). Buscaría el color dominante de la tez y escogería accesorios y fondo que lo hagan resaltar; si quiero atraer la mirada, usaría armonía de contraste con colores puros o rotos con gris, y si quiero menos diversidad, armonía de escala o de matiz. Son consejos de un colorista del siglo XIX, sin contrastar experimentalmente, así que los tomo como hipótesis de partida y las compruebo en el cuadro."
+  rubric:
+    - "Distingue colores fijados por el tema y colores libres"
+    - "Busca el color dominante de la tez para elegir lo que lo haga resaltar"
+    - "Asocia contraste con atraer la mirada y escala o matiz con menos diversidad"
+    - "Señala que son consejos históricos usados como hipótesis, no como ley"
+- id: q-color-schemes-014
+  prompt: "Quieres basar la paleta de un cuadro en una tríada y te preguntas qué dice la evidencia sobre tríos de colores. ¿Cuál es la respuesta más fiel a las fuentes?"
+  options:
+    a: "Los experimentos usan pares; los autores solo mencionan resultados preliminares, sin publicar, de que un trío se predice a partir de sus pares"
+    b: "Se ha demostrado que las tríadas equilátero son más armoniosas que los pares"
+    c: "Se ha demostrado que las tríadas son menos armoniosas que los pares"
+    d: "Los experimentos probaron tríadas, complementarios divididos y tetradas con resultados concluyentes"
+  explanation: "Los estudios de Schloss y Palmer usan pares de dos colores; Palmer tampoco aporta datos sobre tríadas. Las otras opciones afirman resultados que no existen."
+- id: q-color-temperature-001
+  prompt: "En la práctica corriente, ¿qué colores se consideran cálidos (warm)?"
+  options:
+    a: "Rojo, naranja y amarillo"
+    b: "Verde, cian y azul"
+    c: "Rojo, verde y azul"
+    d: "Amarillo, verde y violeta"
+  explanation: "Palmer recoge que los cálidos son rojo, naranja y amarillo, y los fríos verde, cian y azul. El verde no se considera cálido."
+- id: q-color-temperature-002
+  prompt: "¿Qué significa que un color sea 'cálido' o 'frío'?"
+  options:
+    a: "Es la temperatura física real que emite la pintura"
+    b: "Es una propiedad del pigmento que no depende del cuadro"
+    c: "Es una asociación entre un matiz y una sensación de calor o frío, que se puede medir"
+    d: "Es una ilusión sin efecto medible"
+  explanation: "Ho y colaboradores midieron que la gente responde más deprisa cuando rojo va con 'cálido' y azul con 'frío'. No es temperatura física, pero tampoco es una ilusión sin efecto."
+- id: q-color-temperature-003
+  prompt: "Un rojo anaranjado, ¿es cálido o frío?"
+  options:
+    a: "Siempre cálido, porque contiene naranja"
+    b: "Depende de sus vecinos: es cálido junto a un rojo violáceo y frío junto a un naranja"
+    c: "Siempre frío, porque el rojo se aleja"
+    d: "Ni cálido ni frío: solo los azules y los amarillos tienen temperatura"
+  explanation: "Gurney insiste en juzgar la temperatura siempre por comparación y en desconfiar de reglas fijas. Es relativa a los colores vecinos."
+- id: q-color-temperature-004
+  prompt: "En la convención de los grifos, ¿qué dos colores marcan el agua caliente y la fría, respectivamente? (responde con los dos colores)"
+  accepted:
+    - "rojo y azul"
+    - "rojo/azul"
+    - "rojo caliente y azul frío"
+    - "red and blue"
+    - "rojo, azul"
+- id: q-color-temperature-005
+  prompt: "¿Qué sugieren Ho y colaboradores sobre el origen de la asociación rojo–cálido y azul–frío?"
+  options:
+    a: "Que se aprende de correlaciones del entorno, y no parece innata: en algunos países africanos el mapa está invertido"
+    b: "Que es innata, porque aparece igual en todas las culturas"
+    c: "Que viene de la longitud de onda, que calienta la retina"
+    d: "Que fue inventada por los pintores del siglo XIX"
+  explanation: "Los autores la explican por el fuego, el sol, el agua y la piel, y recogen casos de mapa invertido. No es innata ni universal."
+- id: q-color-temperature-006
+  prompt: "¿Qué limitación tiene el estudio de Ho para repartir toda la rueda en cálidos y fríos?"
+  options:
+    a: "Solo probó pintores profesionales, que no representan al público"
+    b: "Midió la temperatura física de las pinturas con termómetro"
+    c: "Probó todos los matices, pero con una sola persona"
+    d: "Solo probó rojo y azul, con muestras pequeñas, así que amarillo, naranja, verde y violeta no se apoyan en esa fuente"
+  explanation: "Los experimentos usaron rojo y azul con muestras de 11, 14 y 17 personas. El verde frío se infiere del bosque, no se midió."
+- id: q-color-temperature-007
+  prompt: "Entre adultos estadounidenses y británicos, ¿qué tendencia de preferencia recoge Palmer respecto a la temperatura?"
+  options:
+    a: "Se prefieren los cálidos porque son más activos"
+    b: "Se prefieren, en general, los colores fríos a los cálidos"
+    c: "No hay ninguna diferencia de preferencia"
+    d: "Se prefiere el rojo saturado en objetos grandes como paredes o sofás"
+  explanation: "Palmer recoge preferencia por lo frío, con el azul más querido. Los objetos grandes en rojo (paredes, sofás) se rechazan."
+- id: q-color-temperature-008
+  prompt: "¿Dónde sitúa Munsell el verde respecto a cálidos y fríos?"
+  options:
+    a: "Claramente entre los cálidos"
+    b: "Claramente entre los fríos"
+    c: "En el centro, entre los matices cálidos (amarillo, rojo) y los fríos (azul, morado)"
+    d: "Fuera de la clasificación, por ser secundario"
+  explanation: "Munsell coloca el verde en el centro de su partitura. Esto contradice la idea de que el verde esté claramente de un lado."
+- id: q-color-temperature-009
+  prompt: "Explica qué demuestra y qué no demuestra el estudio de Ho sobre los colores cálidos y fríos."
+  model_answer: "El estudio demuestra que existe una asociación medible entre rojo y calor y entre azul y frío: la gente responde más deprisa cuando rojo va con 'cálido' y azul con 'frío'. No demuestra el reparto completo de la rueda, porque solo probó rojo y azul con muestras pequeñas (el verde frío se infiere del bosque, no se midió). Tampoco demuestra que sea innata, ya que los autores la explican por aprendizaje de correlaciones del entorno y hay países con el mapa invertido. Además el efecto va en una dirección: el color acelera el juicio de temperatura, no al revés."
+  rubric:
+    - "Indica que la asociación rojo–cálido y azul–frío se midió (respuestas más rápidas cuando coinciden)"
+    - "Indica que solo se probaron rojo y azul con muestras pequeñas"
+    - "Indica que el origen se atribuye al aprendizaje y no es universal"
+    - "Menciona que el resto de la rueda (amarillo, verde, etc.) no se apoya en esa fuente"
+- id: q-color-temperature-010
+  prompt: "Pintas un paisaje al aire libre. Un compañero te dice que 'la luz es cálida y la sombra es fría, siempre'. En tu sombra, el suelo cálido refleja luz hacia arriba. ¿Cómo decides el color de la sombra?"
+  model_answer: "Trato la fórmula 'luz cálida, sombra fría' como regla con excepciones, no como ley. Según Gurney, la luz reflejada cálida puede hacer las sombras más cálidas que las luces. Aplico su regla más precisa: los planos en sombra que miran hacia arriba son fríos (cielo) y los que miran hacia abajo, cálidos (rebote del suelo), con excepciones como una luz cálida fuerte desde arriba. Compruebo comparando pares concretos de colores en mi escena ('comparar, comparar') y trato mi decisión como hipótesis que verifico pintando."
+  rubric:
+    - "Rechaza 'luz cálida, sombra fría' como ley fija"
+    - "Menciona que la luz reflejada cálida puede calentar la sombra o la regla de planos hacia arriba (fríos) y hacia abajo (cálidos)"
+    - "Decide comparando colores concretos en la escena"
+    - "Trata la temperatura como hipótesis que se comprueba al pintar"
+- id: q-color-temperature-011
+  prompt: "Te encargan un mural para un vestíbulo de uso internacional y piensas en rojo para 'calidez de acogida' y azul para 'frialdad profesional'. ¿Qué dicen las fuentes que deberías tener en cuenta antes de decidir?"
+  model_answer: "Que la asociación rojo–cálido no es universal: Ho describe una norma cultural poco rígida y países con el mapa invertido, así que no puedo asumir que todo el público la lea igual. En preferencia, de media gustan más los colores fríos y los pares más azulados, y el rojo saturado produce pares particularmente desagradables; además Palmer recoge que se rechazan los objetos grandes en rojo, como paredes o sofás. Pero son tendencias de grupo con grandes diferencias individuales. Por tanto probaría la gama en un boceto con el contexto real y no daría por segura la lectura 'rojo = acogida'."
+  rubric:
+    - "Señala que la asociación rojo–cálido no es universal"
+    - "Menciona que de media se prefieren los colores fríos o que el rojo saturado desagrada en pares"
+    - "Señala que son tendencias de grupo con diferencias individuales"
+    - "Concluye con una decisión prudente (probar o ajustar al público) y no una regla fija"
+- id: q-color-temperature-012
+  prompt: "Según Witzel, la luz natural del día varía sobre todo a lo largo del eje azul–amarillo. ¿Qué consecuencia práctica se saca para juzgar la temperatura de luces y sombras?"
+  options:
+    a: "Que los juicios azul–amarillo son los más inciertos, así que conviene juzgar por comparación y no por nombre"
+    b: "Que el azul siempre es la sombra y el amarillo la luz"
+    c: "Que la luz del día no cambia de color, solo de intensidad"
+    d: "Que los juicios azul–amarillo son los más fiables"
+  explanation: "Como la variación natural de la luz ocupa ese eje, los juicios en él son los más inciertos. Por eso refuerza juzgar por comparación."
+- id: q-value-structure-001
+  prompt: "¿Qué es la estructura de valores (value structure) de un cuadro?"
+  options:
+    a: "La manera en que las zonas claras y oscuras se agrupan y se reparten, con independencia del matiz"
+    b: "La lista de los pigmentos usados, ordenados de claro a oscuro"
+    c: "El contraste entre colores cálidos y fríos"
+    d: "La cantidad total de blanco que lleva el cuadro"
+  explanation: "Se trata de cómo se reparten los valores (claridad). El matiz y la temperatura son otras dimensiones."
+- id: q-value-structure-002
+  prompt: "Según Gurney (que cita a Rockwell, Cornwell y Lovell), ¿qué relación hay entre el color y el diseño de valores?"
+  options:
+    a: "Un buen color corrige siempre un valor flojo"
+    b: "El color añade mucho, pero no puede salvar un mal diseño de valores"
+    c: "El valor solo importa en cuadros monocromos"
+    d: "El valor y el color no se influyen"
+  explanation: "Es la opinión de un practicante, atribuida a Gurney y a los ilustradores que cita. La opción opuesta es el error que él señala."
+- id: q-value-structure-003
+  prompt: "Según la reseña de Livingstone (fuente secundaria), ¿por qué importa la luminancia para dar sensación de volumen?"
+  options:
+    a: "Porque el color no puede percibirse sin luminancia en ningún caso"
+    b: "Porque la luminancia solo importa en blanco y negro"
+    c: "Una forma sombreada solo por cambio de color parece plana; con un gradiente de luminancia da sensación de volumen"
+    d: "Porque el volumen solo se percibe con colores cálidos"
+  explanation: "La reseña lo cuenta así y añade que los artistas construyen la forma con contraste de luminancia desde el siglo XIII."
+- id: q-value-structure-004
+  prompt: "En los experimentos de Schloss y Palmer con pares de colores, ¿qué papel tuvo el contraste de claridad?"
+  options:
+    a: "Los pares más armoniosos son siempre los de mayor contraste de valor"
+    b: "Los pares más preferidos tienen el menor contraste de valor"
+    c: "No influyó en nada"
+    d: "Los pares más preferidos tienen más contraste de valor, pero la armonía depende poco de él"
+  explanation: "La diferencia de claridad aporta un 4,5 % de la preferencia más allá de la armonía; los pares más armoniosos que preferidos tienen poco contraste de claridad."
+- id: q-value-structure-005
+  prompt: "Explica con tus palabras por qué conviene mirar un estudio en grises o desaturado antes de dar por buena su estructura de valores, y qué relación tiene con el contraste simultáneo."
+  model_answer: "Cuando dos zonas difieren mucho en croma (un naranja intenso junto a un azul gris apagado), el color altera el valor percibido, de modo que a ojo en color el valor puede engañar. Desaturar la imagen muestra cómo se lee realmente el valor, y permite comprobar si el diseño de valores funciona antes de fiarse del color. Es la misma sensibilidad del contraste simultáneo: el valor de una zona se juzga contra sus vecinas."
+  rubric:
+    - "Afirma que el croma/color puede alterar el valor percibido"
+    - "Explica que desaturar muestra el valor real o cómo se lee el valor"
+    - "Relaciona la idea con el contraste simultáneo: el valor se juzga contra los vecinos"
+- id: q-value-structure-006
+  prompt: "¿Qué encontró Schloss y Palmer (Exp. 4) sobre la preferencia por el color de una figura según su claridad respecto al fondo?"
+  options:
+    a: "Se prefieren figuras claras sobre fondos oscuros y figuras oscuras sobre fondos claros"
+    b: "Se prefieren figuras de igual claridad que el fondo"
+    c: "Solo se prefieren figuras oscuras sobre cualquier fondo"
+    d: "No hubo ninguna relación con la claridad"
+  explanation: "Es decir, gusta el contraste de claridad entre figura y fondo. Los autores especulan que podría deberse a la fluidez de procesamiento o al rechazo de bordes casi isoluminantes, sin probarlo."
+- id: q-value-structure-007
+  prompt: "Vas a pintar una escena exterior de gran contraste. Un compañero dice que 'el pigmento llega a todo'. ¿Qué le respondes y cómo planificas los valores?"
+  model_answer: "El pigmento solo cubre un rango de contraste de unos 20:1, mientras que una escena exterior puede rondar 1000:1 (Livingstone), así que no llega a todo. Hay que decidir qué parte de la escala se sacrifica y agrupar los valores en pocos escalones para que la composición lea. Siguiendo a Gurney, haría antes un diseño tonal en dos o tres valores, comprobaría el estudio en grises o desaturado, y después encajaría el color con una paleta limitada reservando los oscuros más profundos."
+  rubric:
+    - "Indica la diferencia de rango entre pigmento (~20:1) y escena (~1000:1)"
+    - "Concluye que hay que comprimir y decidir qué parte de la escala sacrificar"
+    - "Propone agrupar los valores en pocos grupos (dos o tres) o un diseño tonal previo"
+    - "Propone comprobar en grises o desaturado antes de añadir el color"
+- id: q-value-structure-008
+  prompt: "En tu cuadro, el punto de interés es un sol rojo-anaranjado sobre un cielo del mismo valor. En la foto en blanco y negro desaparece. ¿Qué haces y por qué?"
+  model_answer: "Es el fenómeno de la equiluminancia: cuando dos colores en contacto tienen el mismo valor, el sistema visual que organiza el espacio y la profundidad apenas registra el límite. Livingstone cuenta que en Impresión, sol naciente de Monet el sol tiene la misma luminancia que el cielo, parece vibrar y desaparece en una reproducción en grises. Primero lo detectaría con la prueba en grises, como aconseja Gurney. Después decidiría según la intención: si quiero esa vibración o ambiente lo dejo; si el sol debe ser un punto de interés firme, cambio el valor de uno de los dos para que el borde lea."
+  rubric:
+    - "Identifica el problema como igualdad de luminancia entre colores en contacto"
+    - "Explica el efecto (el límite apenas se registra, vibra o desaparece en grises), citando a Monet"
+    - "Usa la prueba en grises como diagnóstico"
+    - "Toma una decisión razonada según la intención (mantener la vibración o cambiar el valor)"
+- id: q-value-structure-009
+  prompt: "Según Schloss y Palmer (Exp. 4), ¿cuándo ayuda más el contraste de matiz a que la figura se vea bien sobre el fondo?"
+  options:
+    a: "Sobre todo cuando el contraste de valor es mínimo"
+    b: "Solo cuando el contraste de valor es máximo"
+    c: "Nunca: el contraste de matiz no influye en la figura"
+    d: "Solo cuando figura y fondo son complementarios exactos"
+  explanation: "Por eso color y valor se pueden repartir las tareas. La condición relevante es el contraste de valor bajo, no el complementario exacto."
+- id: q-dominance-and-accent-001
+  prompt: "Según Munsell, ¿qué ocurre con el área necesaria para equilibrar dos colores de distinto croma?"
+  options:
+    a: "El color de croma más débil necesita más área para equilibrar a uno más fuerte"
+    b: "Los dos necesitan siempre la misma área"
+    c: "El color más fuerte necesita más área"
+    d: "El área no influye, solo el matiz"
+  explanation: "Munsell también dice que unas manchas pequeñas y fuertes pueden equilibrar campos grandes y débiles."
+- id: q-dominance-and-accent-002
+  prompt: "¿Qué estatus tiene la regla de Cleland que reparte las áreas en proporción inversa a valor por croma?"
+  options:
+    a: "Es una ley comprobada con observadores"
+    b: "Es una prescripción de un libro de 1921 sin contrastar experimentalmente"
+    c: "Es un resultado de Schloss y Palmer"
+    d: "Es una regla de Munsell verificada con pigmentos modernos"
+  explanation: "Ni Cleland ni Munsell comprobaron sus reglas con observadores, y las fuentes manejadas no contienen estudios de proporciones de acento."
+- id: q-dominance-and-accent-003
+  prompt: "La fórmula de Cleland multiplica el valor de cada color por otra dimensión para repartir las áreas. ¿Cuál?"
+  accepted:
+    - "croma"
+    - "chroma"
+    - "el croma"
+    - "saturación"
+    - "intensidad"
+- id: q-dominance-and-accent-004
+  prompt: "En la revisión de Palmer sobre peso visual en cuadrados, ¿qué color tuvo más influencia en el equilibrio?"
+  options:
+    a: "El amarillo, por ser el más claro"
+    b: "El rojo (y el azul, menos)"
+    c: "El azul, por ser el más frío"
+    d: "Todos pesaron igual"
+  explanation: "En estudios con Mondrian, el rojo pesó más, el azul fue intermedio y el amarillo el más ligero. Además, los colores oscuros se comportan como más pesados."
+- id: q-dominance-and-accent-005
+  prompt: "Según Gurney, ¿cómo se percibe un acento que no es el complementario exacto, sino desplazado?"
+  options:
+    a: "Se percibe igual que un complementario exacto"
+    b: "Desaparece en el fondo"
+    c: "Parece menos natural y puede llamar más la atención"
+    d: "Siempre resulta más armonioso"
+  explanation: "Es la opinión de un practicante: no se apoya en mediciones. Gurney distingue complementario exacto de desplazado."
+- id: q-dominance-and-accent-006
+  prompt: "En los experimentos de Schloss y Palmer, ¿qué contó más en la preferencia del par: el color del fondo o el de la figura?"
+  options:
+    a: "El del fondo (15 % frente a 6,7 % de la varianza); los autores lo atribuyen, sin probarlo, a su mayor área"
+    b: "El de la figura, por ser el centro de atención"
+    c: "Contaron exactamente igual"
+    d: "El de la figura, por su mayor saturación"
+  explanation: "El fondo contó más. La explicación por el área es una conjetura de los autores."
+- id: q-dominance-and-accent-007
+  prompt: "Un amigo te pide 'la proporción correcta' de color dominante y acento. Explica con tus palabras qué ofrecen realmente las fuentes y qué no."
+  model_answer: "No hay una proporción contrastada. Cleland ofrece una prescripción de 1921 (áreas en proporción inversa a valor por croma, con el área mayor más oscura y débil) que no se comprobó con observadores, y Munsell solo da la idea de que un croma débil necesita más área y que manchas pequeñas fuertes equilibran campos grandes débiles. Palmer solo recoge estudios de peso visual y figura/fondo, no de proporciones de acento, y reglas numéricas populares como 60-30-10 no aparecen en las fuentes. Gurney expresa la proporción por el tamaño de la máscara, sin cifras. La decisión es de criterio y se prueba en bocetos."
+  rubric:
+    - "Dice que no hay proporción matemática contrastada"
+    - "Describe la idea de Cleland o Munsell (croma fuerte necesita menos área) como prescripción histórica sin comprobar"
+    - "Indica que las fuentes no contienen estudios de proporción de acento ni cifras tipo 60-30-10"
+    - "Concluye que la decisión es de criterio o que se prueba en bocetos"
+- id: q-dominance-and-accent-008
+  prompt: "Quieres equilibrar un amarillo Y 7/9 con un morado-azul P-B 3/4. Según el cálculo de Cleland, ¿cómo repartirías las áreas y con qué cautelas lo usarías?"
+  model_answer: "El producto valor por croma es 63 para el amarillo y 12 para el morado-azul; las áreas van en proporción inversa, así que salen unas 12 partes de amarillo por 63 de morado-azul: mucho morado y poco amarillo. Lo usaría como punto de partida de un boceto y no como medida: es una prescripción de 1921, sin contrastar, con valores y límites de croma de un sistema Munsell de entonces y en pigmentos. Munsell advertía además que el equilibrio resiste las reglas simples (el amarillo fuerte atrae más atención). Comprobaría el croma y valor reales de mis mezclas y ajustaría a ojo."
+  rubric:
+    - "Calcula 63 (amarillo) y 12 (morado-azul) y reparte inversamente, con mucho morado-azul y poco amarillo"
+    - "Indica que es una prescripción de 1921 no comprobada"
+    - "Advierte que los valores y límites de croma son de un sistema antiguo, no del actual"
+    - "Propone usarlo como punto de partida y ajustar con los valores y croma reales"
+- id: q-dominance-and-accent-009
+  prompt: "Trabajas con una gama cerrada de tres matices y quieres un acento fuera de ella. ¿Qué compromisos tienes en cuenta y cómo decides su tamaño?"
+  model_answer: "Con una gama cerrada la armonía está dada y el esfuerzo se va a los acentos, pero un acento fuera de la gama hay que mezclarlo aparte. Debo decidir qué contraste hará el trabajo: la investigación indica que el contraste de matiz ayuda sobre todo cuando el contraste de valor es bajo. Para el tamaño no hay datos: no existen estudios de proporción de acento en pinturas, y los experimentos usaron cuadrados de igual tamaño, no acentos pequeños sobre un campo grande. Por eso lo pruebo en un boceto pequeño, cambio el tamaño del acento y miro cuándo deja de ser acento."
+  rubric:
+    - "Menciona que el acento fuera de la gama requiere una mezcla aparte"
+    - "Relaciona el contraste de matiz con un contraste de valor bajo"
+    - "Reconoce que no hay datos de proporción de área para acentos"
+    - "Propone probar variantes de tamaño en boceto"
+- id: q-dominance-and-accent-010
+  prompt: "¿Qué límite tienen los datos experimentales para decidir cuánto acento poner?"
+  options:
+    a: "Los estímulos eran cuadrados de igual tamaño y no verdaderos acentos pequeños sobre un campo grande"
+    b: "Los datos demostraron que el acento ideal es el 10 % del área"
+    c: "Solo se probaron acentos en cuadros de Mondrian"
+    d: "Los datos solo incluían pintores profesionales"
+  explanation: "No hay una proporción respaldada; la cifra del 10 % es una regla popular que no aparece en las fuentes."
+- id: q-color-meaning-001
+  prompt: "Jonauskaite y colaboradores hallaron una similitud media de r = ,88 entre el patrón de cada país y el global. ¿Cómo la interpretan los autores?"
+  options:
+    a: "Como prueba de que el significado del color es idéntico en todos los países"
+    b: "Como candidato sólido a universal psicológico, modulado y no compartido al 100 %"
+    c: "Como prueba de que el significado es puramente cultural"
+    d: "Como un resultado sin interés por la muestra reducida"
+  explanation: "Los autores subrayan una base compartida con variación nacional medible (el clasificador acertó el país en el 34,4 % frente a un 9,7 % por azar)."
+- id: q-color-meaning-002
+  prompt: "¿Qué se presentó a los participantes en el estudio de Jonauskaite?"
+  options:
+    a: "Términos de color (palabras), no manchas de color"
+    b: "Manchas de color sobre un monitor calibrado"
+    c: "Cuadros famosos de distintas épocas"
+    d: "Muestras de pintura físicas"
+  explanation: "Por eso no se puede decir que los resultados describan qué se siente al ver el color: una persona puede asociar rojo con ira sin sentirla al verlo."
+- id: q-color-meaning-003
+  prompt: "¿Qué propone la teoría de la valencia ecológica (ecological valence theory)?"
+  options:
+    a: "Que cada color tiene una valencia emocional innata"
+    b: "Que el gusto por un color depende de su longitud de onda"
+    c: "Que nos gusta un color en la medida en que nos gustan los objetos asociados a él"
+    d: "Que el gusto depende solo de la cultura de cada país"
+  explanation: "Explicó el 80 % de la preferencia por 32 colores, sin parámetros libres."
+- id: q-color-meaning-004
+  prompt: "¿Qué apoyo tiene la idea de que las preferencias de color son innatas, según Palmer?"
+  options:
+    a: "Mucho: los bebés muestran las mismas preferencias que los adultos"
+    b: "Poco: los patrones de matiz y luminosidad de los bebés difieren de los de los adultos"
+    c: "Total: las preferencias de Birren y Eysenck están confirmadas"
+    d: "Ninguno de los estudios con bebés se ha hecho"
+  explanation: "Si hay base compartida, puede reflejar una ecología compartida y no una preferencia innata. Las afirmaciones de Birren y Eysenck las contradice la investigación moderna."
+- id: q-color-meaning-005
+  prompt: "Explica con tus palabras que el significado del color tiene una parte compartida, otra cultural y otra individual, con un ejemplo de cada una."
+  model_answer: "Parte compartida: en 30 países, el negro se asocia con tristeza, el rojo con amor e ira, y la similitud entre el patrón de cada país y el global es r = ,88. Parte cultural: los patrones nacionales difieren (un clasificador acierta el país en el 34,4 % frente a un 9,7 % por azar; los chinos asocian también el blanco con la tristeza), y la cercanía lingüística y geográfica predicen similitud. Parte individual y aprendida: la preferencia cambia con la experiencia, y con género, edad y cultura. No hay un diccionario fijo."
+  rubric:
+    - "Presenta una parte compartida con un dato o ejemplo (p. ej. r = ,88, negro–tristeza)"
+    - "Presenta una parte cultural con un ejemplo (p. ej. blanco en China, clasificador de país)"
+    - "Menciona la variación individual o aprendida (experiencia, género, edad)"
+    - "Concluye que no hay un significado fijo"
+- id: q-color-meaning-006
+  prompt: "Un cliente te pide un cuadro para un público internacional con un rojo dominante que 'signifique amor' sin lugar a dudas. ¿Qué le adviertes y cómo decides?"
+  model_answer: "Le advierto que el rojo es ambivalente: se asocia con amor y también con ira, según Jonauskaite. Los datos muestran una base global fuerte pero con variación nacional medible, con la lengua pesando más que la geografía. Además se midieron palabras de color, no manchas, y la muestra era en línea y alfabetizada, así que no extiendo los resultados a sociedades de pequeña escala. Por eso el contexto es lo que orienta la lectura: el sujeto, los valores, las proporciones y los colores vecinos. Defino el significado por el público concreto y no por un diccionario."
+  rubric:
+    - "Señala que el rojo es ambivalente (amor e ira)"
+    - "Menciona la variación nacional o lingüística de las asociaciones"
+    - "Señala límites del estudio (palabras en vez de manchas, muestra en línea)"
+    - "Concluye que el contexto o el público concreto orienta la lectura"
+- id: q-color-meaning-007
+  prompt: "Un alumno te enseña una lista de 'significados de colores' encontrada en internet, sin fuentes, y quiere seguirla al pie de la letra en sus cuadros. ¿Qué le recomiendas?"
+  model_answer: "Le recomiendo desconfiar de las listas sin fuente: en lo medido, las asociaciones se cuentan como probabilidades y con excepciones, no como definiciones (Jonauskaite). Debe distinguir lo que un color significa de lo que gusta, porque la preferencia depende de objetos y asociaciones y varía con género, edad y cultura (Palmer). El contexto manda sobre el color suelto: por ejemplo, las berlinas de lujo se prefieren en acromáticos y los VW Beetle en colores vivos. Que defina el significado según el público y contexto de su obra."
+  rubric:
+    - "Recomienda desconfiar de listas sin fuente"
+    - "Explica que las asociaciones son probabilidades con excepciones"
+    - "Distingue significado de preferencia"
+    - "Subraya el papel del contexto o del público"
+- id: q-color-meaning-008
+  prompt: "Las berlinas de lujo se prefieren en colores acromáticos y los VW Beetle en colores vivos. ¿Qué ilustra esto?"
+  options:
+    a: "Que las convenciones del objeto anulan las preferencias genéricas de color"
+    b: "Que los colores acromáticos son universalmente más elegantes"
+    c: "Que el color preferido es innato para cada objeto"
+    d: "Que los colores vivos solo gustan en coches pequeños por su tamaño"
+  explanation: "Según Palmer, el contexto del objeto manda sobre el color suelto. Extenderlo a la pintura es razonable, pero es una inferencia no respaldada por esa fuente."
+- id: q-harmony-research-001
+  prompt: "¿Qué mide la 'armonía del par' (pair harmony) en los estudios de Schloss y Palmer?"
+  options:
+    a: "Cuánto 'van juntos' los dos colores, con independencia de si gustan"
+    b: "Cuánto gusta la pareja de colores"
+    c: "Cuánto gusta el color de una figura sobre un fondo"
+    d: "La diferencia de claridad entre los dos colores"
+  explanation: "Son tres juicios distintos: preferencia del par, armonía del par y preferencia figural. Mezclarlos explica parte de la contradicción de la bibliografía."
+- id: q-harmony-research-002
+  prompt: "¿Qué ocurre con la preferencia y la armonía de un par al aumentar la diferencia de matiz entre figura y fondo?"
+  options:
+    a: "Suben hasta alcanzar un máximo en los complementarios"
+    b: "Bajan de forma monótona, sin repunte para los complementarios"
+    c: "Se mantienen constantes"
+    d: "Suben solo para la armonía"
+  explanation: "La preferencia máxima se da con el mismo matiz. Las excepciones puntuales (preferencia naranja-azul, repunte de armonía azul-amarillo) no cambian la tendencia."
+- id: q-harmony-research-003
+  prompt: "¿Cómo se relacionan la preferencia y la armonía de los pares según Schloss y Palmer?"
+  options:
+    a: "Son idénticas"
+    b: "No se relacionan en absoluto"
+    c: "Están muy correlacionadas (r = ,79), pero no son lo mismo, y la armonía es más consistente entre observadores"
+    d: "La preferencia es más consistente entre observadores que la armonía"
+  explanation: "La armonía obtuvo r = ,51 entre observadores y la preferencia r = ,36. Más del 80 % de la varianza de la preferencia del par se explica por la armonía, el gusto por cada color y la diferencia de claridad."
+- id: q-harmony-research-004
+  prompt: "¿Qué reinterpretación hacen los autores de la 'armonía de contraste' de Chevreul?"
+  options:
+    a: "Como prueba de que los complementarios son los pares más armoniosos"
+    b: "Como un fenómeno que no existe"
+    c: "Como una armonía que solo se da con pigmentos"
+    d: "Como contraste que hace que el color de la figura se vea mejor, y no como armonía del par"
+  explanation: "La preferencia figural sube al disminuir la similitud de matiz con el fondo, lo opuesto a los otros dos juicios. Quizá se debe a un aumento de la saturación aparente."
+- id: q-harmony-research-005
+  prompt: "¿Cuál es una limitación real de los experimentos de armonía descritos?"
+  options:
+    a: "Solo se probaron pigmentos sobre lienzo"
+    b: "Usan pares de cuadrados en un monitor, sin significado ni contexto, con ocho matices"
+    c: "Se probaron muchas tríadas pero solo con músicos"
+    d: "Se hicieron con pintores profesionales y no con estudiantes"
+  explanation: "Los estímulos eran cuadrados en pantalla y la muestra eran estudiantes de Berkeley. Las otras opciones invierten los hechos."
+- id: q-harmony-research-006
+  prompt: "Eres pintor con mucha formación y lees que 'los pares armoniosos gustan más'. Tu paleta, armoniosa por las reglas, te resulta aburrida. Un colega concluye que la investigación sobre armonía no sirve. ¿Qué respondes?"
+  model_answer: "Que los datos no son inútiles pero tampoco sirven como certificado. La correlación entre gustar y armonía varió entre personas de +,75 a −,03, y Palmer y Griscom describen la preferencia por la armonía como un rasgo individual: a algunas personas les disgusta lo armonioso, y la formación artística específica la baja. Los autores especulan que los expertos aprenden a ir más allá de las reglas (interpretación sin probar). Además los estímulos eran pares de cuadrados, no cuadros. Por tanto uso los esquemas para reducir opciones y decido probando en bocetos, sabiendo que Cleland aceptaba el desequilibrio deliberado."
+  rubric:
+    - "Cita la variación individual en la relación entre gustar y armonía"
+    - "Menciona que la preferencia por la armonía es un rasgo individual o que la formación experta la reduce (marcando que la interpretación no está probada)"
+    - "Recuerda que los estímulos eran pares de cuadrados y no cuadros"
+    - "Concluye usar los esquemas para reducir opciones o probar en bocetos, sin descartar la investigación"
+- id: q-harmony-research-007
+  prompt: "Preparas una sesión de taller sobre qué decir de los esquemas clásicos y qué calidad de evidencia tiene cada afirmación. Resume tu mensaje y las cautelas que incluirías."
+  model_answer: "Mensaje: los esquemas son herramientas de oficio para reducir opciones; no son certificados de armonía. Las teorías clásicas (Chevreul, Itten, Munsell, Ostwald) se formularon sin mediciones estéticas y discrepan tanto que casi cualquier par sería armonioso. En los datos de Schloss y Palmer gana la similitud de matiz, no hay repunte complementario, y el contraste de matiz mejora sobre todo el aspecto de la figura sobre el fondo. Cautelas: se probaron solo pares de cuadrados en monitor con estudiantes de Berkeley y ocho matices; no hay datos sobre tríadas, complementarios divididos o tetradas; las causas no se conocen; los promedios ocultan diferencias individuales. Y animaría a probar gamas en bocetos, como hace Gurney."
+  rubric:
+    - "Dice que las teorías clásicas no salieron de mediciones estéticas"
+    - "Resume al menos dos resultados (gana la similitud de matiz, sin repunte complementario, contraste de matiz y figura)"
+    - "Menciona al menos dos límites (pares, monitor, estudiantes, sin tríadas, causas desconocidas)"
+    - "Presenta los esquemas como herramienta para reducir opciones y propone probar en bocetos"

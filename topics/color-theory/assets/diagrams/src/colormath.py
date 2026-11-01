@@ -276,3 +276,60 @@ def km_mix_ks(paints: list[tuple[list[float], list[float]]], weights: list[float
     k = [sum(w * p[0][i] for p, w in zip(paints, weights)) / tot for i in range(len(WAVELENGTHS))]
     s = [sum(w * p[1][i] for p, w in zip(paints, weights)) / tot for i in range(len(WAVELENGTHS))]
     return k, s
+
+
+# --- sRGB hex -> CIELAB, greyscale and approximate Munsell colours ----------
+def decode_srgb(v: float) -> float:
+    """Inverse of encode_srgb (IEC 61966-2-1 transfer function)."""
+    return v / 12.92 if v <= 0.04045 else ((v + 0.055) / 1.055) ** 2.4
+
+
+def linear_srgb_to_xyz(r: float, g: float, b: float) -> tuple[float, float, float]:
+    """Inverse of xyz_to_linear_srgb (sRGB primaries, D65)."""
+    return (0.4124 * r + 0.3576 * g + 0.1805 * b,
+            0.2126 * r + 0.7152 * g + 0.0722 * b,
+            0.0193 * r + 0.1192 * g + 0.9505 * b)
+
+
+def hex_lab(hexcol: str) -> tuple[float, float, float]:
+    """CIELAB (D65) of an sRGB hex colour such as '#a0b0c0'."""
+    v = [decode_srgb(int(hexcol[i:i + 2], 16) / 255) for i in (1, 3, 5)]
+    return xyz_to_lab(*linear_srgb_to_xyz(*v))
+
+
+def grey_hex(l: float) -> str:
+    """Neutral grey of CIELAB lightness L* (what a colour looks like in greyscale)."""
+    return lch_hex(l, 0.0, 0.0)
+
+
+# C*ab per Munsell chroma step, from Golden's Williamsburg oil paints
+# (justpaint-munsell-cielab): about 6.5 for yellows and yellow-reds (Cadmium Yellow
+# Medium 113/16.8, Yellow Ochre 56/8.7) and about 3.8 for purple-blues (Cobalt Blue
+# 50/13.3, Cobalt Blue Deep 58/15.4). Interpolated linearly in hue between these; a
+# rough paint-film approximation, not the Munsell renotation.
+_CHROMA_SCALE = [(20.0, 6.5), (75.0, 3.8)]
+
+
+def munsell_approx_hex(hue_number: float, value: float, chroma: float) -> str:
+    """Approximate sRGB hex for Munsell H V/C: L* = 10 V, h_ab from munsell_hue_angle,
+    C*ab = chroma x a hue-dependent factor, clipped to the sRGB gamut."""
+    (n0, k0), (n1, k1) = _CHROMA_SCALE
+    t = min(1.0, max(0.0, (hue_number - n0) / (n1 - n0)))
+    l, h = 10.0 * value, munsell_hue_angle(hue_number)
+    c = min(chroma * (k0 + (k1 - k0) * t), max_srgb_chroma(l, h))
+    return lch_hex(l, c, h)
+
+
+def svg_hue_ring(pos, r_out: float, r_in: float, l: float = 60.0, c: float = 32.0, steps: int = 100) -> list[str]:
+    """SVG paths of a continuous Munsell-type hue ring at constant L*, C*ab.
+    `pos(hue_number, radius) -> (x, y)` places hues (as in hue_circle.py)."""
+    out = []
+    for i in range(steps):
+        n = i * 100 / steps
+        n0, n1 = n - 50 / steps, n + 52 / steps
+        col = lch_hex(l, c, munsell_hue_angle(n))
+        p = [pos(n0, r_out), pos(n1, r_out), pos(n1, r_in), pos(n0, r_in)]
+        out.append(f'<path d="M{p[0][0]:.1f},{p[0][1]:.1f} A{r_out},{r_out} 0 0 1 {p[1][0]:.1f},{p[1][1]:.1f} '
+                   f'L{p[2][0]:.1f},{p[2][1]:.1f} A{r_in},{r_in} 0 0 0 {p[3][0]:.1f},{p[3][1]:.1f} Z" '
+                   f'fill="{col}" stroke="{col}" stroke-width="0.8"/>')
+    return out

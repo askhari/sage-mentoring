@@ -32,6 +32,7 @@ from topiclib import (  # noqa: E402
 
 SOURCE_TYPES = {"textbook", "course", "standard", "paper", "docs", "article"}
 RELIABILITY = {"A", "B", "C"}
+LINK_RE = re.compile(r"(?<!!)\[[^\]]*\]\(([^)\s#]+\.md)(?:#[^)]*)?\)")
 ACCESS = {"open", "paid"}
 QUESTION_TYPES = {"single-choice", "short-answer", "open", "case"}
 ORIGINS = {"own", "third-party"}
@@ -229,6 +230,12 @@ def check_markdown_refs(path: Path, body: str, source_ids: set, rep: Report, whe
             continue
         if not (path.parent / ref).resolve().exists():
             rep.error(where, f"image '{ref}' not found")
+    for ref in LINK_RE.findall(body):
+        if ref.startswith(("http://", "https://")):
+            continue
+        if not (path.parent / ref).resolve().exists():
+            # Warning, not error: in phase 2 a concept may link ahead to a domain not built yet.
+            rep.warn(where, f"link '{ref}' not found")
 
 
 def check_questions(t: Topic, domains: list, concept_ids: set, source_ids: set, rep: Report) -> None:

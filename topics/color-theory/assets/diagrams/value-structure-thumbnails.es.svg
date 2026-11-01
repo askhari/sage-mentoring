@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 840 510" font-family="sans-serif" font-size="14">
+<rect width="840" height="510" fill="#ffffff"/>
+<rect x="165.0" y="20" width="240" height="170" fill="#aad2ea"/>
+<polygon points="165.0,108.4 208.2,81.2 256.2,98.2 309.0,71.0 361.8,94.8 405.0,84.6 405.0,125.4 165.0,125.4" fill="#8f95b1"/>
+<polygon points="165.0,122.0 405.0,118.6 405.0,156.0 165.0,162.8" fill="#aab162"/>
+<polygon points="165.0,159.4 405.0,152.6 405.0,190.0 165.0,190.0" fill="#84693b"/>
+<path d="M333.0,166.2 l6,0 l0,-38 l-6,0 Z M335.4,57.4 a30,34 0 1 0 0.1,0 Z" fill="#2e5333"/>
+<rect x="165.0" y="20" width="240" height="170" fill="none" stroke="#333" stroke-width="1"/>
+<text x="285.0" y="212" text-anchor="middle" fill="#222" font-weight="bold">En color</text>
+<rect x="435.0" y="20" width="240" height="170" fill="#cccccc"/>
+<polygon points="435.0,108.4 478.2,81.2 526.2,98.2 579.0,71.0 631.8,94.8 675.0,84.6 675.0,125.4 435.0,125.4" fill="#969696"/>
+<polygon points="435.0,122.0 675.0,118.6 675.0,156.0 435.0,162.8" fill="#ababab"/>
+<polygon points="435.0,159.4 675.0,152.6 675.0,190.0 435.0,190.0" fill="#6d6d6d"/>
+<path d="M603.0,166.2 l6,0 l0,-38 l-6,0 Z M605.4,57.4 a30,34 0 1 0 0.1,0 Z" fill="#4b4b4b"/>
+<rect x="435.0" y="20" width="240" height="170" fill="none" stroke="#333" stroke-width="1"/>
+<text x="555.0" y="212" text-anchor="middle" fill="#222" font-weight="bold">El mismo cuadro en grises</text>
+<rect x="30" y="260" width="240" height="170" fill="#d4d4d4"/>
+<polygon points="30.0,348.4 73.2,321.2 121.2,338.2 174.0,311.0 226.8,334.8 270.0,324.6 270.0,365.4 30.0,365.4" fill="#d4d4d4"/>
+<polygon points="30.0,362.0 270.0,358.6 270.0,396.0 30.0,402.8" fill="#d4d4d4"/>
+<polygon points="30.0,399.4 270.0,392.6 270.0,430.0 30.0,430.0" fill="#848484"/>
+<path d="M198.0,406.2 l6,0 l0,-38 l-6,0 Z M200.4,297.4 a30,34 0 1 0 0.1,0 Z" fill="#3b3b3b"/>
+<rect x="30" y="260" width="240" height="170" fill="none" stroke="#333" stroke-width="1"/>
+<text x="150.0" y="452" text-anchor="middle" fill="#222" font-weight="bold">Domina el claro</text>
+<rect x="300" y="260" width="240" height="170" fill="#d4d4d4"/>
+<polygon points="300.0,348.4 343.2,321.2 391.2,338.2 444.0,311.0 496.8,334.8 540.0,324.6 540.0,365.4 300.0,365.4" fill="#848484"/>
+<polygon points="300.0,362.0 540.0,358.6 540.0,396.0 300.0,402.8" fill="#848484"/>
+<polygon points="300.0,399.4 540.0,392.6 540.0,430.0 300.0,430.0" fill="#848484"/>
+<path d="M468.0,406.2 l6,0 l0,-38 l-6,0 Z M470.4,297.4 a30,34 0 1 0 0.1,0 Z" fill="#3b3b3b"/>
+<rect x="300" y="260" width="240" height="170" fill="none" stroke="#333" stroke-width="1"/>
+<text x="420.0" y="452" text-anchor="middle" fill="#222" font-weight="bold">Domina el medio</text>
+<rect x="570" y="260" width="240" height="170" fill="#848484"/>
+<polygon points="570.0,348.4 613.2,321.2 661.2,338.2 714.0,311.0 766.8,334.8 810.0,324.6 810.0,365.4 570.0,365.4" fill="#3b3b3b"/>
+<polygon points="570.0,362.0 810.0,358.6 810.0,396.0 570.0,402.8" fill="#3b3b3b"/>
+<polygon points="570.0,399.4 810.0,392.6 810.0,430.0 570.0,430.0" fill="#3b3b3b"/>
+<path d="M738.0,406.2 l6,0 l0,-38 l-6,0 Z M740.4,297.4 a30,34 0 1 0 0.1,0 Z" fill="#d4d4d4"/>
+<rect x="570" y="260" width="240" height="170" fill="none" stroke="#333" stroke-width="1"/>
+<text x="690.0" y="452" text-anchor="middle" fill="#222" font-weight="bold">Domina el oscuro</text>
+<rect x="270.0" y="478" width="22" height="16" fill="#d4d4d4" stroke="#333" stroke-width="0.8"/>
+<text x="298.0" y="491" fill="#333" font-size="13">claro</text>
+<rect x="375.0" y="478" width="22" height="16" fill="#848484" stroke="#333" stroke-width="0.8"/>
+<text x="403.0" y="491" fill="#333" font-size="13">medio</text>
+<rect x="480.0" y="478" width="22" height="16" fill="#3b3b3b" stroke="#333" stroke-width="0.8"/>
+<text x="508.0" y="491" fill="#333" font-size="13">oscuro</text>
+</svg>
