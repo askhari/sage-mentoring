@@ -81,3 +81,24 @@
   generator: diagrams/src/lightfastness_scales.py
   license: CC-BY-4.0
   concepts: [lightfastness]
+
+- id: simultaneous-contrast
+  file: diagrams/simultaneous-contrast.{lang}.svg
+  origin: own
+  generator: diagrams/src/simultaneous_contrast.py
+  license: CC-BY-4.0
+  concepts: [simultaneous-contrast]
+
+- id: assimilation-stripes
+  file: diagrams/assimilation-stripes.{lang}.svg
+  origin: own
+  generator: diagrams/src/assimilation_stripes.py
+  license: CC-BY-4.0
+  concepts: [assimilation, simultaneous-contrast]
+
+- id: equiluminance
+  file: diagrams/equiluminance.{lang}.svg
+  origin: own
+  generator: diagrams/src/equiluminance.py
+  license: CC-BY-4.0
+  concepts: [equiluminance]

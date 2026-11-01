@@ -1,0 +1,323 @@
+- id: q-simultaneous-contrast-001
+  concept: simultaneous-contrast
+  layer: 1
+  type: single-choice
+  sources:
+  - cie-e-ilv
+  - chevreul-1890
+  correct: b
+- id: q-simultaneous-contrast-002
+  concept: simultaneous-contrast
+  layer: 1
+  type: single-choice
+  sources:
+  - chevreul-1890
+  correct: c
+- id: q-simultaneous-contrast-003
+  concept: simultaneous-contrast
+  layer: 1
+  type: short-answer
+  sources:
+  - chevreul-1890
+- id: q-simultaneous-contrast-004
+  concept: simultaneous-contrast
+  layer: 1
+  type: short-answer
+  sources:
+  - chevreul-1890
+- id: q-simultaneous-contrast-005
+  concept: simultaneous-contrast
+  layer: 2
+  type: single-choice
+  sources:
+  - chevreul-1890
+  - webvision
+  correct: d
+- id: q-simultaneous-contrast-006
+  concept: simultaneous-contrast
+  layer: 2
+  type: single-choice
+  sources:
+  - chevreul-1890
+  correct: a
+- id: q-simultaneous-contrast-007
+  concept: simultaneous-contrast
+  layer: 2
+  type: single-choice
+  sources:
+  - chevreul-1890
+  correct: b
+- id: q-simultaneous-contrast-008
+  concept: simultaneous-contrast
+  layer: 2
+  type: single-choice
+  sources:
+  - otazu-2022
+  correct: c
+- id: q-simultaneous-contrast-009
+  concept: simultaneous-contrast
+  layer: 2
+  type: open
+  sources:
+  - chevreul-1890
+  - gomez-sanchez-2014
+- id: q-simultaneous-contrast-010
+  concept: simultaneous-contrast
+  layer: 2
+  type: open
+  sources:
+  - otazu-2022
+  - gomez-sanchez-2014
+- id: q-simultaneous-contrast-011
+  concept: simultaneous-contrast
+  layer: 3
+  type: case
+  sources:
+  - chevreul-1890
+- id: q-simultaneous-contrast-012
+  concept: simultaneous-contrast
+  layer: 3
+  type: case
+  sources:
+  - chevreul-1890
+- id: q-simultaneous-contrast-013
+  concept: simultaneous-contrast
+  layer: 3
+  type: case
+  sources:
+  - chevreul-1890
+- id: q-simultaneous-contrast-014
+  concept: simultaneous-contrast
+  layer: 3
+  type: case
+  sources:
+  - chevreul-1890
+- id: q-afterimages-001
+  concept: afterimages
+  layer: 2
+  type: single-choice
+  sources:
+  - zeki-2017
+  - chevreul-1890
+  correct: b
+- id: q-afterimages-002
+  concept: afterimages
+  layer: 2
+  type: single-choice
+  sources:
+  - chevreul-1890
+  - zeki-2017
+  - webvision
+  correct: d
+- id: q-afterimages-003
+  concept: afterimages
+  layer: 2
+  type: single-choice
+  sources:
+  - zeki-2017
+  correct: c
+- id: q-afterimages-004
+  concept: afterimages
+  layer: 2
+  type: open
+  sources:
+  - chevreul-1890
+  - zeki-2017
+- id: q-afterimages-005
+  concept: afterimages
+  layer: 3
+  type: case
+  sources:
+  - chevreul-1890
+- id: q-afterimages-006
+  concept: afterimages
+  layer: 3
+  type: case
+  sources:
+  - chevreul-1890
+- id: q-color-constancy-001
+  concept: color-constancy
+  layer: 2
+  type: single-choice
+  sources:
+  - witzel-2018
+  - zeki-2017
+  correct: a
+- id: q-color-constancy-002
+  concept: color-constancy
+  layer: 2
+  type: single-choice
+  sources:
+  - witzel-2018
+  correct: b
+- id: q-color-constancy-003
+  concept: color-constancy
+  layer: 2
+  type: single-choice
+  sources:
+  - witzel-2018
+  correct: c
+- id: q-color-constancy-004
+  concept: color-constancy
+  layer: 2
+  type: single-choice
+  sources:
+  - witzel-2018
+  correct: d
+- id: q-color-constancy-005
+  concept: color-constancy
+  layer: 2
+  type: open
+  sources:
+  - witzel-2018
+  - webvision
+- id: q-color-constancy-006
+  concept: color-constancy
+  layer: 3
+  type: case
+  sources:
+  - witzel-2018
+- id: q-color-constancy-007
+  concept: color-constancy
+  layer: 3
+  type: case
+  sources:
+  - witzel-2018
+  - chevreul-1890
+- id: q-color-constancy-008
+  concept: color-constancy
+  layer: 3
+  type: case
+  sources:
+  - witzel-2018
+- id: q-assimilation-001
+  concept: assimilation
+  layer: 2
+  type: single-choice
+  sources:
+  - otazu-2022
+  correct: b
+- id: q-assimilation-002
+  concept: assimilation
+  layer: 2
+  type: single-choice
+  sources:
+  - otazu-2022
+  correct: a
+- id: q-assimilation-003
+  concept: assimilation
+  layer: 2
+  type: single-choice
+  sources:
+  - otazu-2022
+  correct: c
+- id: q-assimilation-004
+  concept: assimilation
+  layer: 2
+  type: single-choice
+  sources:
+  - chevreul-1890
+  - gomez-sanchez-2014
+  correct: d
+- id: q-assimilation-005
+  concept: assimilation
+  layer: 2
+  type: open
+  sources:
+  - otazu-2022
+  - koenderink-2018
+- id: q-assimilation-006
+  concept: assimilation
+  layer: 3
+  type: case
+  sources:
+  - otazu-2022
+  - chevreul-1890
+  - koenderink-2018
+- id: q-assimilation-007
+  concept: assimilation
+  layer: 3
+  type: case
+  sources:
+  - otazu-2022
+- id: q-assimilation-008
+  concept: assimilation
+  layer: 3
+  type: case
+  sources:
+  - chevreul-1890
+- id: q-color-categories-001
+  concept: color-categories
+  layer: 2
+  type: single-choice
+  sources:
+  - witzel-2018
+  correct: c
+- id: q-color-categories-002
+  concept: color-categories
+  layer: 2
+  type: single-choice
+  sources:
+  - regier-kay-cook-2005
+  correct: b
+- id: q-color-categories-003
+  concept: color-categories
+  layer: 2
+  type: single-choice
+  sources:
+  - witzel-2018
+  correct: d
+- id: q-color-categories-004
+  concept: color-categories
+  layer: 2
+  type: single-choice
+  sources:
+  - witzel-2018
+  correct: a
+- id: q-color-categories-005
+  concept: color-categories
+  layer: 2
+  type: open
+  sources:
+  - witzel-2018
+  - regier-kay-cook-2005
+- id: q-color-categories-006
+  concept: color-categories
+  layer: 3
+  type: case
+  sources:
+  - witzel-2018
+- id: q-color-categories-007
+  concept: color-categories
+  layer: 3
+  type: case
+  sources:
+  - witzel-2018
+- id: q-equiluminance-001
+  concept: equiluminance
+  layer: 3
+  type: case
+  sources:
+  - livingstone-2014
+  - otazu-2022
+- id: q-equiluminance-002
+  concept: equiluminance
+  layer: 3
+  type: case
+  sources:
+  - livingstone-2014
+- id: q-equiluminance-003
+  concept: equiluminance
+  layer: 3
+  type: case
+  sources:
+  - koenderink-2018
+  - otazu-2022
+- id: q-equiluminance-004
+  concept: equiluminance
+  layer: 3
+  type: case
+  sources:
+  - otazu-2022
+  - koenderink-2018
+  - chevreul-1890

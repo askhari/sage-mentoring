@@ -1,6 +1,6 @@
 ---
 source: webvision
-concepts: [photoreceptors, trichromacy, opponent-process, color-vision-deficiency, light-spectrum]
+concepts: [photoreceptors, trichromacy, opponent-process, color-vision-deficiency, light-spectrum, color-constancy, afterimages, simultaneous-contrast, equiluminance]
 ---
 
 Accessed: three chapters read in full via fetch (webvision.med.utah.edu redirects with 301 to https://www.webvision.pitt.edu/, which is the working base URL). Chapters: (A) "Photoreceptors" (H. Kolb), https://www.webvision.pitt.edu/book/part-ii-anatomy-and-physiology-of-the-retina/photoreceptors/ ; (B) "Color Vision" (P. Gouras), https://www.webvision.pitt.edu/book/part-vii-color-vision/color-vision/ ; (C) "Color Perception", https://www.webvision.pitt.edu/book/part-viii-psychophysics-of-vision/color-perception/ . Not read: "Light and Dark Adaptation" (listed at .../part-viii-psychophysics-of-vision/light-and-dark-adaptation/). Pages were read through an automatic summarizer, so exact numbers should be re-checked in the page before quoting. Section numbers for (B) are as listed by the summarizer.
@@ -49,6 +49,30 @@ Accessed: three chapters read in full via fetch (webvision.med.utah.edu redirect
 ## light-spectrum
 - UV is absorbed by the anterior eye; infrared photons may carry too little energy to activate opsins (B, §2). Mice and rats have UV-sensitive cone opsins (B, §2). Photopigment peaks: see photoreceptors above. No visible-range numbers (e.g. 380-700 nm) were found in the chapters read. → light-spectrum
 
+## Color Perception chapter (Kalloniatis & Luu)
+Re-checked chapter C (and B for constancy/contrast) in a second pass. Chapter C turns out to cover almost none of the requested perceptual-phenomena concepts; the usable material comes from chapter B (Gouras), cited by section/figure. Via the same automatic summarizer; re-check before quoting.
+
+- Chapter C mentions colour opponency "as revealed by coloured after images" only as part of what Hering's theory was meant to explain (C, "Opponent Colour Theory"); it gives no discussion of successive contrast or adaptation mechanisms. → afterimages
+- Afterimage example: after fixating a black spot on a blue/white figure and then looking at a neutral scene, a yellow afterimage appears where the object was (B, §18, Fig. 38, as summarized). → afterimages
+- Gouras uses the afterimage to argue that S-cone ganglion-cell activity signals that S cones absorbed light, not that the light is "blue" (it could be white or gray) (B, §18). → afterimages
+- Gouras says Hering's opponency theory was right in its analysis but wrong in placing opponency in the photoreceptors (B, §18). → afterimages
+- Adaptation is shown with coloured adapting fields: red and blue adapting fields (B, §8, Fig. 17), yellow adapting light (B, §8, Fig. 18), blue adapting light (B, §17); "transient tritanopia" is mentioned (B, §6). The summaries give no explicit afterimage-by-adaptation explanation. → afterimages
+- Problem of constancy: colours look stable under very different illuminants (e.g. fluorescent vs tungsten), while identical surface reflectances can look different depending on the whole scene (B, §7 "Color Constancy and Double Opponency"). → color-constancy
+- Land's model: cone signals are normalized across the entire scene before being compared locally to give object colour (B, §7). "Retinex" appears only in the reference list (B). → color-constancy
+- Shadow demonstration: a shadow cast on a white-plus-yellow screen looks blue, although raw absorption predicts yellow; normalizing the screen to 100% raises the relative S-cone effect (B, §7, Fig. 11). → color-constancy
+- Proposed mechanism: mutual inhibition between S- and L-cone channels could implement the normalization (B, §7, Fig. 12). → color-constancy
+- Double-opponent cells (found by C. Michael in monkey striate cortex, after Daw's goldfish work) separate spectral contrast from energy contrast and are linked to constancy (B, §7, §13-14). → color-constancy
+- If surround regions enhance local spectral contrast, the result is simultaneous colour contrast; the idea is stated briefly, not as a separate topic (B, §7, Fig. 12). → simultaneous-contrast
+- Double-opponent logic: a region looks blue with short wavelengths and no long wavelengths, yellow for the reverse; activation of the surround by the opposite colour strengthens this (B, §7). → simultaneous-contrast
+- Cortical cell responding to spectral contrast but not energy contrast: no response to red or green bars on black, large response to a green bar on a red background where luminance contrast is minimal (B, §13, Fig. 26). → equiluminance
+- Orientation- and direction-selective complex cells respond strongly to red/green spectral contrast without energy contrast (B, §14, Fig. 28); simple cells likewise give strong, out-of-phase responses to red-green and green-red bars (B, §14, Fig. 27). → equiluminance
+- Double-opponent simple/complex/hypercomplex cells parallel the energy-based cells; both likely contribute to form vision, and energy-based processing gets more cortical area because of finer spatial resolution (B, §14, Fig. 29). → equiluminance
+- Parasol cells (achromatic, motion) are discussed separately (B, §5, §10); the chapter does not test isoluminant motion or depth. → equiluminance
+- In C, "isoluminant" appears only as a design property: the colours of the Panel D-15 test are chosen from the CIE diagram to be isoluminant (C, "Diagnostic Colour Vision Tests", Fig. 23). → equiluminance
+- C lists the Helmholtz-Kohlrausch effect and failure of Abney's law as luminance-additivity problems in colour matching, without explaining them (C, "Colour Matches"). → equiluminance
+- C says trichromatic theory fails to account for the four unique colours (red, green, yellow, blue), and that complementary wavelengths cancel for all wavelengths except the four unique hues (C, Theories of Colour Vision; Fig. 15, Hurvich and Jameson data). Not a treatment of naming or categories. → color-categories
+
 ## Not covered / level
 - Not covered: scotopic vs photopic definitions (chapter not read); explicit visible-spectrum range; explanation of how deuteranopia etc. relate to specific missing cone classes (not given in the summaries obtained).
+- Not covered in C or B: assimilation / Bezold spreading (only the unrelated Bezold-Brücke hue shift appears, C); colour categories / Berlin & Kay / colour naming (only unique hues, above); simultaneous contrast as a dedicated topic; successive contrast; isoluminant effects on motion, depth, form (not tested; only analogies). Concept ids `assimilation` not covered at all.
 - Level: university / specialist (retina textbook), reliability A; the Color Perception chapter is the most accessible for the topic.

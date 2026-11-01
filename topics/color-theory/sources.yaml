@@ -163,6 +163,7 @@
   identifiers: { isbn: "978-0-300-17935-4" }
   access: paid
   accessed: 2026-11-01
+  notes: "Paid; use only publisher pages, previews and reviews."
 - id: gage-1993
   type: textbook
   reliability: A
@@ -204,9 +205,10 @@
   authors: ["Christoph Witzel", "Karl R. Gegenfurtner"]
   year: 2018
   language: en
-  identifiers: { doi: "10.1146/annurev-vision-091517-034231" }
+  identifiers: { doi: "10.1146/annurev-vision-091517-034231", url: "https://www.allpsych.uni-giessen.de/rauisch/readings/Witzel_Gegenfurtner.2018.pdf" }
   access: open
   accessed: 2026-11-01
+  notes: "Full text: publisher PDF hosted by the second author's department (University of Giessen)."
 - id: shevell-2008
   type: paper
   reliability: B
@@ -217,6 +219,7 @@
   identifiers: { doi: "10.1146/annurev.psych.59.103006.093619" }
   access: paid
   accessed: 2026-11-01
+  notes: "Abstract only: the second author's copy (mvr.mcgill.ca) was unreachable and its Wayback snapshot is a truncated PDF."
 
 # --- Harmony and preference ---
 - id: schloss-palmer-2011
@@ -479,3 +482,49 @@
   access: open
   accessed: 2026-11-01
   notes: "Full text (6 pp.): educational fact sheet of the University of Delaware art conservation department. Original URL now redirects; read from the Wayback Machine copy of 2024-01-15. Year = archive date."
+
+# --- color-interaction (added in phase 2) ---
+- id: chevreul-1890
+  type: textbook
+  reliability: A
+  title: "The Principles of Harmony and Contrast of Colours, and Their Applications to the Arts (3rd ed., trans. Charles Martel)"
+  authors: ["Michel Eugène Chevreul"]
+  year: 1890
+  language: en
+  identifiers: { url: "https://archive.org/details/principlesofharm00chev" }
+  access: open
+  accessed: 2026-11-01
+  notes: "Full text (public domain; Internet Archive OCR). French original 1839. Paragraphs are numbered (§); cite by § so locations hold across editions. Historical primary source: 19th-century explanations are not current science."
+- id: zeki-2017
+  type: paper
+  reliability: B
+  title: "The Constancy of Colored After-Images"
+  authors: ["Semir Zeki", "Samuel Cheadle", "Joshua Pepper", "Dimitris Mylonas"]
+  year: 2017
+  language: en
+  identifiers: { doi: "10.3389/fnhum.2017.00229", url: "https://pmc.ncbi.nlm.nih.gov/articles/PMC5423953" }
+  access: open
+  accessed: 2026-11-01
+  notes: "Full text (CC BY). Single study, not a review."
+- id: regier-kay-cook-2005
+  type: paper
+  reliability: B
+  title: "Focal colors are universal after all"
+  authors: ["Terry Regier", "Paul Kay", "Richard S. Cook"]
+  year: 2005
+  language: en
+  identifiers: { doi: "10.1073/pnas.0503281102", url: "https://pmc.ncbi.nlm.nih.gov/articles/PMC1149449" }
+  access: open
+  accessed: 2026-11-01
+  notes: "Full text (PMC)."
+- id: otazu-2022
+  type: paper
+  reliability: B
+  title: "The contribution of luminance and chromatic channels to color assimilation"
+  authors: ["Xavier Otazu", "Xim Cerda-Company"]
+  year: 2022
+  language: en
+  identifiers: { doi: "10.1167/jov.22.6.10", url: "https://pmc.ncbi.nlm.nih.gov/articles/PMC9160498" }
+  access: open
+  accessed: 2026-11-01
+  notes: "Full text (Journal of Vision, CC BY-NC-ND), read from the Europe PMC open-access XML. A 2025 correction only changes a grant number."

@@ -1,0 +1,540 @@
+- id: q-simultaneous-contrast-001
+  prompt: ¿Qué es el contraste simultáneo (simultaneous contrast)?
+  options:
+    a: Un cambio físico en la pintura de un color cuando se coloca junto a otro
+    b: El cambio de aspecto que sufre un color al verse junto a otro, casi instantáneo
+    c: El cambio de color que aparece después de mirar mucho rato otro color
+    d: La mezcla de dos colores cuando sus elementos son demasiado pequeños para verse por separado
+  explanation: La definición de la CIE (inducción cromática) lo describe como una alteración mutua de
+    dos estímulos vistos juntos, prácticamente instantánea. Chevreul insiste en que no cambia la pintura
+    sino la percepción (a). La opción c es el contraste sucesivo (posimagen) y la d es la mezcla óptica.
+- id: q-simultaneous-contrast-002
+  prompt: Un mismo gris se pinta sobre dos fondos, uno claro y otro oscuro. ¿Qué se observa?
+  options:
+    a: Se ve igual en los dos, porque la pintura es la misma
+    b: Se ve más claro sobre el fondo claro, porque se mezcla con él
+    c: Se ve más claro sobre el fondo oscuro y más oscuro sobre el claro
+    d: Se ve más oscuro sobre los dos fondos, porque ambos le restan luz
+  explanation: 'Es el contraste de tono (valor): cada zona parece aclararse junto a la oscura y oscurecerse
+    junto a la clara. La opción a olvida el efecto y la b lo invierte.'
+- id: q-simultaneous-contrast-003
+  prompt: ¿Cómo se apellida el director de tintes de la manufactura de los Gobelinos que describió con
+    orden el contraste simultáneo a partir de quejas sobre negros "flojos" en tapices?
+  accepted:
+  - Chevreul
+  - Michel Eugène Chevreul
+  - Michel-Eugène Chevreul
+  - chevreul
+- id: q-simultaneous-contrast-004
+  prompt: Según Chevreul, un gris neutro colocado junto a un naranja tiende a verse teñido de un color.
+    ¿Cuál?
+  accepted:
+  - azulado
+  - azul
+  - tirando a azul
+  - bluish
+  - blue
+  - azul grisáceo
+- id: q-simultaneous-contrast-005
+  prompt: ¿Cómo conviene usar hoy la regla de Chevreul según la cual cada color "recibe" el complementario
+    de su vecino?
+  options:
+    a: Como la explicación fisiológica definitiva del fenómeno
+    b: Como una ley falsa que debe descartarse entera
+    c: Como una regla válida solo para pigmentos puros complementarios
+    d: Como una descripción útil de la dirección del cambio, no como mecanismo
+  explanation: Como dirección de lo observado (el color se aleja del vecino hacia su opuesto) la regla
+    es útil; como mecanismo es del siglo XIX y el propio Chevreul admite que no es una teoría fisiológica
+    completa. La explicación actual apunta a procesos de oposición en el sistema visual. La opción a es
+    lo que no es.
+- id: q-simultaneous-contrast-006
+  prompt: Se colocan dos colores casi complementarios (rojo y verde) uno junto a otro. Según Chevreul,
+    ¿cuál es el resultado principal?
+  options:
+    a: Ambos ganan intensidad y pureza; el cambio de matiz es menor
+    b: Ambos se neutralizan y tienden al gris
+    c: Ambos cambian mucho de matiz, hacia el naranja y el azul
+    d: No ocurre ningún efecto, porque son opuestos
+  explanation: Con colores casi complementarios el efecto principal es más intensidad y pureza; el desplazamiento
+    de matiz es menor y varía con la luz y la fatiga del ojo. La opción b confunde el contraste con la
+    mezcla de pigmentos complementarios.
+- id: q-simultaneous-contrast-007
+  prompt: Un pintor aplica la ley del contraste de matiz y sus resultados salen mal. Según el traductor
+    de Chevreul, ¿cuál es el error más frecuente?
+  options:
+    a: Usar pigmentos que no son puros
+    b: Olvidar el contraste de tono (valor), que se superpone al de matiz
+    c: Pintar colores demasiado cercanos en la rueda
+    d: Mirar el cuadro desde demasiado lejos
+  explanation: El prefacio del traductor señala que olvidar el contraste de tono es el fallo más habitual;
+    ambos contrastes se superponen y pueden anularse (un azul muy oscuro junto a un amarillo puede hacerlo
+    verdoso). Que ningún pigmento sea puro es cierto, pero no es lo que se señala como error más frecuente.
+- id: q-simultaneous-contrast-008
+  prompt: ¿Qué tipo de fondo suele producir contraste y cuál asimilación, según la literatura recogida?
+  options:
+    a: Los fondos rayados dan contraste y los uniformes asimilación
+    b: Los dos fondos dan siempre contraste
+    c: Los fondos uniformes suelen dar contraste y los rayados suelen dar asimilación
+    d: El tipo de fondo no influye; solo cuenta el matiz
+  explanation: Con fondos uniformes suele darse contraste y con fondos rayados asimilación (aunque no
+    es una regla absoluta). La opción a invierte la relación.
+- id: q-simultaneous-contrast-009
+  prompt: Explica con tus palabras por qué el contraste simultáneo no cambia la pintura ni depende del
+    pigmento, y cómo puedes comprobarlo en el cuadro.
+  model_answer: 'El contraste es un cambio de percepción de dos colores vistos juntos, no un cambio físico:
+    los objetos no actúan uno sobre otro. Por eso no depende del pigmento; ultramar, cobalto o azul de
+    Prusia dan la misma modificación si el color visto es el mismo. Para comprobarlo se aísla la zona
+    dudosa tapando el entorno con un papel recortado y se compara directamente con la muestra; si el color
+    cambia al aislarlo, el efecto era del vecino.'
+  rubric:
+  - Dice que el efecto es perceptivo y no un cambio físico de la pintura
+  - Afirma que no depende del pigmento concreto, sino del color visto
+  - Describe la comprobación de aislar el color con un papel recortado y compararlo con una muestra
+  - Concluye que la zona cambia de aspecto al cambiar el entorno aunque la pintura siga igual
+- id: q-simultaneous-contrast-010
+  prompt: Explica la diferencia entre contraste y asimilación, y di qué relación tiene el contraste con
+    la mezcla óptica.
+  model_answer: 'En el contraste el color de un objeto se desplaza lejos del color de su vecino (un gris
+    sobre un inductor verde se ve rojizo); en la asimilación se desplaza hacia él (se ve verdoso). Los
+    fondos uniformes suelen dar contraste y los rayados, asimilación. Gómez Sánchez sostiene que la fusión
+    óptica y la vibración por contraste se excluyen: si se percibe contraste, la fusión no está ocurriendo.'
+  rubric:
+  - Define contraste como desplazamiento lejos del color vecino
+  - Define asimilación como desplazamiento hacia el color vecino
+  - Menciona que los fondos uniformes tienden a contraste y los rayados a asimilación
+  - Indica que, según Gómez Sánchez, contraste y fusión óptica se excluyen
+- id: q-simultaneous-contrast-011
+  prompt: Pintas una carnación a partir de un cuadro antiguo. En las sombras ves un verdoso y piensas
+    en mezclar verde. Junto al rosa de la piel hay un gris. ¿Qué haces antes de pintar y por qué?
+  model_answer: 'Sospecho que el verdoso viene del contraste entre el rosa y el gris, no de un verde pintado;
+    Chevreul explica así muchas sombras verdosas de las carnaciones antiguas. Antes de mezclar verde aíslo
+    la zona con un papel recortado que tape el entorno y la comparo con una muestra: si el verdor desaparece,
+    era contraste. Entonces pinto un gris y dejo que el contraste actúe.'
+  rubric:
+  - Atribuye el verdoso al contraste del gris con el rosa y no a un verde pintado
+  - Propone aislar la zona con un papel recortado y comparar con una muestra
+  - Decide no añadir verde, sino pintar el gris y dejar que el contraste haga el resto
+  - Evita presentar el efecto como un cambio en la pintura
+- id: q-simultaneous-contrast-012
+  prompt: Al copiar un rojo junto a un azul ves un naranja aparente en el borde del rojo y un verde aparente
+    en el borde del azul. Un compañero te dice que los pintes tal como los ves. ¿Qué le respondes?
+  model_answer: 'Que no lo haga: ese naranja y ese verde aparentes los produce ya el contraste, y si los
+    pinto se sumarán al efecto y el resultado saldrá exagerado. Debo pintar el rojo y el azul planos,
+    como colores locales, y dejar que el contraste actúe. Es lo mismo que pintar gris un dibujo que sobre
+    fondo amarillo parece lila.'
+  rubric:
+  - Dice que el naranja y el verde aparentes los produce el contraste
+  - Explica que pintarlos duplicaría el efecto y exageraría el resultado
+  - Indica que hay que pintar los colores locales planos y dejar actuar el contraste
+  - Puede añadir el ejemplo del gris sobre fondo amarillo que parece lila
+- id: q-simultaneous-contrast-013
+  prompt: Un azul muy oscuro está junto a un amarillo y, contra lo que esperabas, el amarillo se ve verdoso.
+    Quieres que se vea amarillo puro. ¿Cómo lo analizas y qué ajustas?
+  model_answer: 'El contraste de tono y el de matiz se superponen y pueden anularse: junto a un azul muy
+    oscuro, el amarillo se aclara por valor y se desplaza en matiz, y el resultado puede ser verdoso.
+    Olvidar el valor es el error más frecuente. Aíslo el amarillo con un papel recortado para comprobar
+    su color real y modifico el valor del azul o del amarillo, además del matiz, hasta que el conjunto
+    dé el efecto deseado.'
+  rubric:
+  - Explica que contrastan a la vez el valor y el matiz y que pueden superponerse o anularse
+  - Señala que ignorar el contraste de tono es el error frecuente
+  - Propone aislar el amarillo para ver su color real
+  - Ajusta el valor y no solo el matiz
+- id: q-simultaneous-contrast-014
+  prompt: Terminas un cuadro en el taller con colores intensos y exagerados para que "funcione" el contraste.
+    Lo vas a colgar en una sala con otra luz y se verá desde más lejos. ¿Cómo lo juzgas y decides?
+  model_answer: 'Lo juzgaría con la luz de su lugar previsto y a la distancia a la que se verá, porque
+    Chevreul advierte que así debe valorarse. Además, en el modelo real las modificaciones cambian con
+    el punto de vista, mientras que el cuadro las fija desde el del pintor. La exageración puede ser deliberada:
+    un cuadro fiel pero algo exagerado suele resultar más agradable; la mantengo si es intencionada y
+    no si solo es fruto del taller.'
+  rubric:
+  - Dice que hay que juzgar el cuadro con la luz de su lugar previsto
+  - Dice que hay que juzgarlo a su distancia de exhibición
+  - Menciona que en el cuadro las modificaciones se fijan desde el punto de vista del pintor
+  - Admite que la exageración puede ser deliberada y agradable
+- id: q-afterimages-001
+  prompt: Miras fijamente una superficie roja y luego una pared neutra. ¿Qué posimagen negativa aparece?
+  options:
+    a: Una roja más intensa, reflejo del color mirado
+    b: En una familia de color aproximadamente complementaria a la mirada
+    c: Una gris uniforme sin matiz
+    d: Del mismo matiz pero más oscuro
+  explanation: La posimagen negativa cae en una familia de color aproximadamente complementaria a la que
+    se miró; es lo que coincide entre las fuentes. La opción a es el error de pensarla como reflejo del
+    color mirado.
+- id: q-afterimages-002
+  prompt: ¿Cómo debe presentarse la explicación de Chevreul de la posimagen (fatiga de la retina que queda
+    predispuesta al complementario)?
+  options:
+    a: Como la explicación actual y completa
+    b: Como una prueba de que la posimagen se genera en la corteza
+    c: Como una explicación válida también del contraste simultáneo
+    d: Como una explicación histórica; hoy se habla de adaptación y oposición fisiológica
+  explanation: La fatiga es una explicación histórica; las corrientes hablan de adaptación de fotorreceptores
+    y oposición. Además Chevreul señala que la fatiga explicaría el sucesivo pero no el simultáneo, que
+    aparece antes de que haya fatiga (c).
+- id: q-afterimages-003
+  prompt: En el estudio de Zeki y colaboradores, ¿a qué seguía el color de la posimagen en la gran mayoría
+    de los ensayos?
+  options:
+    a: A la longitud de onda que reflejaba el parche
+    b: Al color del entorno, por inducción
+    c: 'Al color percibido: era oponente a él'
+    d: Era aleatorio y no seguía nada
+  explanation: En ese estudio la posimagen fue oponente al color percibido en la mayoría de los ensayos,
+    aunque los parches reflejasen composiciones de longitud de onda parecidas. Es un estudio pequeño (6
+    observadores), así que es una propuesta y no algo establecido. La opción b la controlaron expresamente.
+- id: q-afterimages-004
+  prompt: Explica la diferencia entre contraste simultáneo y contraste sucesivo, y por qué la explicación
+    por fatiga no sirve para ambos.
+  model_answer: En el simultáneo el cambio lo causa lo que hay al lado, mientras se ve el vecino; en el
+    sucesivo, lo que se miró antes. Chevreul señala que la fatiga explicaría el sucesivo pero no el simultáneo,
+    que aparece antes de que haya fatiga, así que no pueden atribuirse al mismo origen. Zeki controló
+    la inducción del entorno al diseñar su estudio, que además es pequeño y debe tomarse como propuesta.
+  rubric:
+  - Distingue el simultáneo (vecino presente) del sucesivo (lo mirado antes)
+  - Explica que la fatiga puede explicar el sucesivo
+  - Explica que el simultáneo aparece antes de que haya fatiga, por lo que no puede explicarlo
+  - Presenta la fatiga como explicación histórica, no como mecanismo probado
+- id: q-afterimages-005
+  prompt: Llevas horas mirando un modelo rojo y al pasar a pintar un amarillo te parece más anaranjado
+    de lo que esperabas. ¿Qué ocurre y cómo compruebas el color?
+  model_answer: 'Es contraste mixto: tras mirar mucho un color, el siguiente se ve modificado por el complementario
+    del primero, lo que puede hacer más anaranjado un amarillo mirado tras un rojo. Para comprobarlo uso
+    la prueba de Chevreul del ojo fresco: el ojo descansado ve el color sin modificar. Con ambos ojos
+    abiertos el efecto se atenúa mucho y desaparece al repetirse; no juzgo el color justo después de mirar
+    largo rato su opuesto.'
+  rubric:
+  - Identifica el fenómeno como contraste mixto o sucesivo
+  - Dice que el segundo color se desplaza hacia el complementario del primero
+  - Describe la prueba del ojo descansado como comprobación
+  - Concluye que no debe juzgarse un color justo después de mirar largo rato otro
+- id: q-afterimages-006
+  prompt: Atiendes a un cliente que ha mirado seis o siete telas rojas seguidas y las siguientes le parecen
+    poco atractivas. ¿Qué haces y por qué?
+  model_answer: 'Le muestro un verde, como hacían los vendedores de telas según Chevreul, para restablecer
+    el ojo: tras ver siete u ocho piezas rojas idénticas las siguientes parecían menos bellas por contraste
+    sucesivo. Con ambos ojos abiertos el efecto se atenúa y, si se repite, el ojo vuelve a la normalidad.
+    Así el cliente juzga la tela sin la modificación del complementario.'
+  rubric:
+  - Atribuye el juicio del cliente al contraste sucesivo por mirar rojos seguidos
+  - Propone mostrar un verde para restablecer el ojo
+  - Menciona que el efecto se atenúa con ambos ojos abiertos o con la repetición
+  - Explica que el objetivo es que se juzgue sin la modificación del complementario
+- id: q-color-constancy-001
+  prompt: ¿Qué es la constancia del color (color constancy)?
+  options:
+    a: Asignar a un objeto un color estable aunque cambie la iluminación
+    b: Que la luz reflejada por un objeto no cambie nunca
+    c: Ver el mismo matiz exacto bajo cualquier luz
+    d: Que dos objetos distintos reflejen la misma luz
+  explanation: Es la capacidad de asignar un color estable aunque cambie la iluminación; Zeki precisa
+    que se trata de una categoría constante, no de un matiz idéntico, porque el matiz se aclara u oscurece
+    con la luz. La opción c es el error habitual.
+- id: q-color-constancy-002
+  prompt: 'Dos fotos de la misma escena bajo luz rojiza y verdosa: las uvas de la primera tienen el mismo
+    color colorimétrico que la naranja de la segunda, y aun así vemos uvas verdes y una naranja naranja.
+    ¿Qué ilustra?'
+  options:
+    a: Que los conos no responden a la luz
+    b: Que las señales de los conos mezclan reflectancia e iluminante y el sistema visual debe separarlos
+    c: Que la constancia es perfecta en todas las condiciones
+    d: Que el color depende solo de la superficie
+  explanation: 'Las señales de los conos dependen a la vez de la reflectancia y del espectro de la luz,
+    pero percibimos sobre todo la reflectancia; la pregunta es cómo se separan. La opción c es falsa:
+    la constancia varía mucho con las condiciones.'
+- id: q-color-constancy-003
+  prompt: ¿Qué significa que la constancia no es apariencia idéntica?
+  options:
+    a: Que el objeto cambia de color al cambiar la luz
+    b: Que la constancia solo funciona con pigmentos puros
+    c: Que el objeto se ve algo distinto, pero atribuimos la diferencia a la iluminación
+    d: Que no existe constancia en la vida diaria
+  explanation: 'Las uvas de las dos fotos no se ven iguales: atribuimos la diferencia a la luz, una identificación
+    inferencial. Percibir que la luz cambió y que el objeto es el mismo son cosas compatibles. La opción
+    d es contraria a lo que señala la revisión.'
+- id: q-color-constancy-004
+  prompt: Distintos estudios dan índices de constancia muy diferentes. ¿Cuál es la lectura correcta?
+  options:
+    a: El índice correcto es el del estudio más reciente
+    b: Siempre es casi perfecta, y los índices bajos son errores
+    c: Siempre es casi nula, y los índices altos son errores
+    d: 'Depende del método: con adaptación asegurada o muchas pistas sube; igualar la apariencia da índices
+      bajos'
+  explanation: 'Los resultados van de casi nada a casi perfecta según el método: las instrucciones de
+    igualar la apariencia dan índices bajos y las de igualar "el papel" permiten constancia inferencial
+    y dan índices altos. Por eso ninguna cifra es la constancia.'
+- id: q-color-constancy-005
+  prompt: Explica con tus palabras los principales mecanismos de la constancia del color.
+  model_answer: 'Los principales son la adaptación cromática y el contraste local simultáneo; la adaptación
+    empieza en una fracción de segundo pero completarla lleva varios minutos. Además existe una constancia
+    inferencial basada en anclas o referencias: interreflexiones, sombreado, segmentación en profundidad,
+    brillos especulares y colores de memoria. En el modelo de Land las señales de los conos se normalizan
+    sobre la escena antes de compararse localmente, aunque la teoría retinex no está plenamente aceptada.'
+  rubric:
+  - Nombra la adaptación cromática y el contraste local simultáneo
+  - Indica que la adaptación empieza enseguida pero se completa en minutos
+  - Menciona la constancia inferencial con al menos una pista (sombreado, brillos, colores de memoria...)
+  - Puede añadir el modelo de Land con su reserva sobre su aceptación
+- id: q-color-constancy-006
+  prompt: Entras en un taller con otra luz y quieres ajustar enseguida el color de un fondo. ¿Qué tienes
+    en cuenta sobre tu propia percepción?
+  model_answer: La adaptación cromática empieza en una fracción de segundo pero completarla lleva varios
+    minutos, por lo que mi juicio justo al entrar se hace con adaptación incompleta y debo considerarlo
+    provisional. Además la constancia me empuja a ver el color del objeto y no el de la luz, y según la
+    instrucción (igualar apariencia o identificar el papel) el resultado cambia. No uso una cifra de constancia
+    de laboratorio como regla, porque depende del método.
+  rubric:
+  - Dice que la adaptación completa lleva minutos
+  - Concluye que el juicio recién entrado es provisional
+  - Distingue juzgar la apariencia de identificar el papel o la superficie
+  - Evita aplicar una cifra de constancia de laboratorio al taller
+- id: q-color-constancy-007
+  prompt: Dos pinturas que en el taller parecen iguales se ven distintas en la sala de exposición. ¿Cómo
+    lo explicas y qué haces?
+  model_answer: 'Puede tratarse de metamerismo: superficies idénticas bajo una luz que se ven distintas
+    bajo otra, caso en que la constancia es imposible; parece raro en el mundo real. Compruebo las pinturas
+    bajo la luz de exposición prevista, de acuerdo con la advertencia de Chevreul de juzgar el cuadro
+    con la luz de su lugar. También sé que la luz cambia matiz e intensidad del color de un cuerpo.'
+  rubric:
+  - Identifica el metamerismo como explicación posible
+  - Indica que en un metámero la constancia es imposible, aunque sea raro
+  - Propone comprobar bajo la luz de exposición prevista
+  - Cita a Chevreul sobre juzgar el cuadro con la luz de su lugar
+- id: q-color-constancy-008
+  prompt: 'Un alumno pinta un plátano a la sombra y dice: "Lo veo amarillo, así que el color que llega
+    al ojo es amarillo". ¿Qué le explicas?'
+  model_answer: 'Por constancia, vemos el color intrínseco del objeto (el amarillo del plátano) y atribuimos
+    manchas, sombreado y variación de la luz a otras causas; lo que vemos no es una lectura directa de
+    la luz que llega. Además hay un efecto de memoria: un plátano gris se ve ligeramente amarillento.
+    Para juzgar la claridad conviene fijarse en las partes más brillantes sin brillos, que menos afecta
+    el sombreado.'
+  rubric:
+  - Explica que la constancia atribuye sombreado y luz a otras causas y se ve el color intrínseco
+  - Dice que lo visto no es una lectura directa de la luz que llega al ojo
+  - Menciona el efecto de color de memoria (plátano gris visto algo amarillento)
+  - Puede añadir que la claridad se juzga mejor en las partes más brillantes sin brillos
+- id: q-assimilation-001
+  prompt: Un gris sobre un inductor verde se ve verdoso. ¿Cómo se llama el efecto?
+  options:
+    a: Contraste, porque se desplaza lejos del vecino
+    b: Asimilación, porque se desplaza hacia el color del inductor
+    c: Posimagen, porque aparece tras mirar el verde
+    d: Constancia, porque el gris se mantiene estable
+  explanation: Si el desplazamiento es hacia el color del inductor es asimilación; si es lejos de él (se
+    vería rojizo) es contraste. La opción a invierte la dirección.
+- id: q-assimilation-002
+  prompt: ¿Qué propiedad del fondo se considera clave para pasar de contraste a asimilación?
+  options:
+    a: 'La frecuencia espacial de las rayas: cuanto más finas, más asimilación'
+    b: El matiz absoluto del fondo, no su estructura
+    c: La temperatura de color de la iluminación
+    d: El grosor del pigmento aplicado
+  explanation: 'Varios autores concluyen que la frecuencia espacial de las rayas es clave y que, cuanto
+    más finas, más se pasa de contraste a asimilación. No es una regla absoluta: incluso con fondos rayados
+    algunas condiciones dieron contraste.'
+- id: q-assimilation-003
+  prompt: En el estudio de Otazu y colaboradores, ¿qué condición necesitaba la asimilación para aparecer?
+  options:
+    a: Que los colores fuesen equiluminantes
+    b: Que solo estuviera activa la vía de color
+    c: Que estuviera activa la vía de luminancia (magnocelular)
+    d: Que el observador cerrara un ojo
+  explanation: La asimilación solo apareció con la vía de luminancia activa, y dependió más del canal
+    koniocelular que del parvocelular. Con colores equiluminantes no hubo asimilación (a). Son 11 participantes
+    y condiciones de laboratorio, así que limita lo generalizable.
+- id: q-assimilation-004
+  prompt: Según Chevreul, ¿de qué depende que se dé mezcla o contraste entre dos colores?
+  options:
+    a: Del pigmento empleado
+    b: De la temperatura de la luz
+    c: De la humedad de la superficie
+    d: De que el ojo pueda separar o no los elementos
+  explanation: Si los materiales están tan divididos que el ojo no los distingue, hay una sola impresión
+    (mezcla); si las superficies se ven distintas y a la vez, hay contraste. Chevreul no usa la palabra
+    asimilación ni da umbral. Gómez Sánchez añade que fusión y contraste se excluyen.
+- id: q-assimilation-005
+  prompt: Explica con tus palabras qué es la asimilación, cuándo tiende a aparecer y cómo la ven Koenderink
+    y colaboradores en el puntillismo.
+  model_answer: La asimilación es el desplazamiento del color percibido de un objeto hacia el de sus vecinos
+    inductores, lo contrario del contraste. Tiende a aparecer con fondos rayados y finos, y el contraste
+    con fondos uniformes. Koenderink y colaboradores la ven como la capacidad generalizadora de la conciencia
+    visual que funde texturas de colores en una impresión, y llaman asimilación, no mezcla física, a la
+    fusión de los puntos de color en el puntillismo.
+  rubric:
+  - Define asimilación como desplazamiento hacia el color del inductor
+  - Indica que aparece con fondos rayados o finos y el contraste con uniformes
+  - Dice que Koenderink la describe como una fusión de texturas de color en una sola impresión
+  - Aclara que en el puntillismo la llaman asimilación y no mezcla física
+- id: q-assimilation-006
+  prompt: Pintas con pinceladas finas de azul sobre un fondo amarillo y quieres que el conjunto se vea
+    tocado de azul. Lo ves distinto de cerca y de lejos. ¿Cómo decides el grosor de la trama?
+  model_answer: 'Cuanto más fina es la trama, más se tiende a la asimilación, y el resultado cambia con
+    la distancia: visto desde lejos, un hilo amarillo y violeta mezclado parecía un violeta apagado y
+    el puntillismo de Seurat se veía apagado de lejos y vivo de cerca. Por eso compruebo el cuadro a su
+    distancia de exhibición. Ninguna fuente da un grosor en milímetros, así que lo decido probando sobre
+    el propio cuadro.'
+  rubric:
+  - Dice que una trama más fina favorece la asimilación
+  - Menciona que el resultado cambia con la distancia (Chevreul o Seurat)
+  - Propone comprobar a la distancia de exhibición
+  - Reconoce que las fuentes no dan una regla de grosor y que hay que probar
+- id: q-assimilation-007
+  prompt: Quieres que unas rayas verdes tiñan de verde un fondo y eliges verde y fondo con el mismo valor
+    (equiluminantes). ¿Funcionará? Justifica con lo que se sabe.
+  model_answer: No es seguro. En el estudio de Otazu, a equiluminancia no hubo asimilación en ninguna
+    condición y casi ninguna inducción; la asimilación solo apareció donde había diferencias de luminancia.
+    Por tanto introduciría alguna diferencia de valor entre la trama y el fondo, y sé que la polaridad
+    de esa diferencia cuenta (un trabajo citado la halló con el objeto más claro que los inductores).
+    La hipótesis de los autores de que habría asimilación a equiluminancia con los dos canales cromáticos
+    activos no se confirmó, y los datos son de laboratorio.
+  rubric:
+  - Dice que a equiluminancia no hubo asimilación en ese estudio
+  - Indica que hace falta alguna diferencia de luminancia
+  - Menciona que la polaridad de la diferencia influye
+  - Reconoce que los datos son de laboratorio o que la hipótesis de los autores no se confirmó
+- id: q-assimilation-008
+  prompt: Un tejedor de tapices te muestra bandas de naranja y azul que, según la luz y su posición, dan
+    franjas violetas, verdes, rojas y amarillas, y con luz fuerte las bandas no se ven separadas. ¿Cómo
+    lo interpretas y qué le recomiendas?
+  model_answer: 'Mezcla y contraste interfieren: si los elementos se distinguen hay contraste y los colores
+    se diferencian; si el ojo no los separa hay una sola impresión por mezcla. Como Chevreul observó,
+    el resultado depende de la luz y de la posición del observador. Recomiendo juzgar con la luz del lugar
+    y a la distancia prevista; con tramas (hatchings) se pueden imitar los colores de un modelo, pero
+    hay que comprobarlo.'
+  rubric:
+  - Explica que mezcla y contraste interfieren en ese caso
+  - Distingue elementos separables (contraste) de no separables (mezcla)
+  - Menciona que el resultado depende de la luz y de la posición del observador
+  - Recomienda juzgar con la luz del lugar y a la distancia de uso
+- id: q-color-categories-001
+  prompt: ¿Cuántos términos básicos de color tiene una lengua?
+  options:
+    a: Once en todas las lenguas
+    b: Cinco en las lenguas modernas y once en las antiguas
+    c: 'Depende de la lengua: 11 en inglés, 12 en ruso, 15 en coreano y 5 en himba o berinmo'
+    d: Depende solo del número de pigmentos conocidos
+  explanation: El número varía por lengua; el ruso divide el azul en siniy y goluboy. La opción a es la
+    creencia de que todas las lenguas parten igual el espectro.
+- id: q-color-categories-002
+  prompt: En la World Color Survey, ¿qué apoya la idea de focos universales con límites variables?
+  options:
+    a: Que los límites de las categorías son idénticos entre lenguas
+    b: Que los mejores ejemplos se agrupan más estrechamente entre lenguas que los centros de las categorías
+    c: Que todas las lenguas tienen once términos
+    d: Que los hablantes nombraron los colores sin ver fichas
+  explanation: 'Los mejores ejemplos se agrupan en torno a blanco, negro, rojo, amarillo, verde y azul
+    y más estrechamente que los centros, lo que concuerda con focos universales y límites variables. La
+    opción a es falsa: los límites varían.'
+- id: q-color-categories-003
+  prompt: ¿Qué se sabe sobre la percepción categórica del color?
+  options:
+    a: Las categorías mejoran los umbrales de discriminación en los límites
+    b: Las categorías cambian la sensibilidad sensorial básica
+    c: Los efectos son permanentes e iguales con o sin entrenamiento
+    d: Dos colores parecen más distintos al cruzar un límite, pero no hay efecto sensorial bajo; actúa
+      a un nivel superior
+  explanation: Los umbrales no mejoran en los límites; la facilitación categórica solo aparece en la discriminación
+    rápida y por encima del umbral, en observadores sin entrenamiento, y desaparece con el entrenamiento.
+    La opción b es el error habitual.
+- id: q-color-categories-004
+  prompt: ¿Qué crítica se hace a que los focos de las categorías sean lo más saturado?
+  options:
+    a: Que esa saturación alta es una peculiaridad del conjunto de fichas, no un rasgo de la percepción
+      humana
+    b: Que los focos no existen en ninguna lengua
+    c: Que los focos coinciden siempre con los canales de conos oponentes
+    d: Que los datos de Berlin y Kay venían solo de lenguas sin escritura
+  explanation: Los prototipos están cerca de picos de saturación de las fichas Munsell de máxima saturación,
+    así que parte del apoyo depende del conjunto de estímulos. Además los focos no se alinean sistemáticamente
+    con los canales de conos oponentes (c), y los datos originales venían sobre todo de lenguas escritas
+    (d).
+- id: q-color-categories-005
+  prompt: ¿Cambian las categorías de color lo que vemos? Resume con tus palabras la evidencia.
+  model_answer: 'No sobre la sensibilidad sensorial básica: los umbrales de discriminación no mejoran
+    en los límites. Lo que se observa es una facilitación en la discriminación rápida y por encima del
+    umbral, que desaparece con entrenamiento y con interferencia verbal, y que parece situarse en un nivel
+    superior de procesamiento. Hay regularidades entre lenguas (focos casi universales) aunque los límites
+    varían, y el origen de esos focos no puede decidirse todavía.'
+  rubric:
+  - Dice que no hay efecto en la sensibilidad sensorial básica o en los umbrales
+  - Describe la facilitación categórica en la discriminación rápida por encima del umbral
+  - Indica que se reduce con entrenamiento o interferencia verbal
+  - Menciona que hay prototipos estables entre lenguas aunque los límites varían
+- id: q-color-categories-006
+  prompt: Pides por teléfono a un proveedor un "verde azulado" y otro cliente, ruso, te habla de su "azul".
+    ¿Qué riesgos hay y cómo aseguras que habláis del mismo color?
+  model_answer: 'El centro de una categoría tiene acuerdo alto entre hablantes, pero "verde azulado" cae
+    en un límite donde discrepan. Además los nombres básicos no se corresponden uno a uno entre lenguas:
+    el ruso tiene dos azules básicos (siniy y goluboy) donde el inglés tiene uno. Por eso uso el nombre
+    para comunicar y planificar, pero cuando importa la diferencia exacta comparo directamente los colores
+    o los mido, porque el nombre no la preserva.'
+  rubric:
+  - Dice que en los límites de categoría los hablantes discrepan y en el centro coinciden
+  - Menciona que los nombres básicos no coinciden entre lenguas (ruso con dos azules)
+  - Propone comparar o medir cuando importa la diferencia exacta
+  - Explica que el nombre sirve para comunicar y planificar pero no preserva la diferencia
+- id: q-color-categories-007
+  prompt: 'Un cliente dice: "Bajo las lámparas de la galería sigue siendo el mismo rojo, así que lo veo
+    igual que en tu estudio." ¿Qué le contestas?'
+  model_answer: Que conservar el nombre no equivale a verlo igual. Al cambiar la iluminación la categorización
+    es más estable en el centro de las categorías, pero, una vez controlada la saturación, no hay relación
+    entre categorización y constancia perceptual. Puede seguir llamándolo rojo y verlo distinto, y por
+    tanto conviene comprobar el color bajo esa luz.
+  rubric:
+  - Dice que mantener el nombre no equivale a ver el color igual
+  - Indica que la categorización es más estable en el centro de la categoría
+  - Indica que, controlada la saturación, no hay relación entre categorización y constancia perceptual
+  - Concluye que hay que comprobar el color bajo la luz real
+- id: q-equiluminance-001
+  prompt: Quieres que un sol anaranjado vibre sobre un cielo azul grisáceo, como en Monet. ¿Qué buscas
+    en los colores y qué debes saber sobre la fuente?
+  model_answer: 'Busco que el sol tenga la misma luminancia que el cielo (mismo valor, distinto matiz):
+    según Livingstone, la luminancia gobierna la profundidad, el movimiento y la organización espacial,
+    y el sistema sensible al color no, de modo que el sol parece vibrar, y en una reproducción en blanco
+    y negro desaparece. Un sol más claro y naturalista pierde la vibración. Debo saber que la equiluminancia
+    se mide (borde mínimamente distinto) y no se adivina, y que el punto exacto cambia con cada observador.'
+  rubric:
+  - Pide que sol y cielo tengan la misma luminancia (mismo valor, distinto matiz)
+  - Explica que la luminancia gobierna posición y movimiento y el color no, según Livingstone
+  - Señala que con un sol más claro se pierde la vibración
+  - Aclara que la equiluminancia se mide y no se adivina
+- id: q-equiluminance-002
+  prompt: Quieres modelar un volumen redondeado solo con cambios de matiz del mismo valor. ¿Funcionará?
+    ¿Cuándo usarías colores equiluminantes?
+  model_answer: Según la fuente de Livingstone, un sombreado solo por color se ve plano, y los artistas
+    desde el siglo XIII han construido la forma con contraste de luminancia; para modelar volumen necesito
+    diferencias de valor. Los equiluminantes me sirven si busco un borde inestable o un acento que no
+    se deje fijar. Es una compensación entre vibración y forma, y la afirmación procede de divulgación.
+  rubric:
+  - Dice que el sombreado solo por color se ve plano
+  - Dice que la forma se ha construido con contraste de luminancia
+  - Reserva los equiluminantes para bordes inestables o acentos vibrantes
+  - Presenta la decisión como un compromiso entre vibración y forma
+- id: q-equiluminance-003
+  prompt: Quieres un amarillo cadmio saturado y un azul saturado equiluminantes. ¿Qué dificultad esperas
+    y cómo lo resuelves?
+  model_answer: 'Los colores saturados difieren mucho en luminancia: el amarillo cardinal tiene una Y
+    de unos 100 y el azul de unos 20, así que para igualarlos habría que atenuar el amarillo unas cinco
+    veces. Con pinturas habría que aclarar el azul o rebajar el amarillo. Qué pinturas concretas lo logran
+    no lo sé de antemano: lo compruebo con mi paleta. Y la equiluminancia se determina midiendo (borde
+    mínimamente distinto) y siempre queda un borde cromático residual.'
+  rubric:
+  - Indica que el amarillo saturado tiene mucha más luminancia que el azul
+  - Dice que hay que aclarar el azul o rebajar el amarillo
+  - Reconoce que se debe comprobar con la paleta propia
+  - Menciona que la equiluminancia se mide y siempre queda un borde cromático residual
+- id: q-equiluminance-004
+  prompt: 'Un alumno afirma: "A equiluminancia desaparece todo: no hay contraste de color, ni asimilación,
+    ni se ven los bordes". Corrígelo con lo que se sabe.'
+  model_answer: 'Es falso. El contraste de color no desaparece: varios estudios con fondos uniformes apoyaron
+    la tercera ley de Kirschmann, y Chevreul ya probaba el contraste con colores de tono lo más igual
+    posible. La asimilación sí desaparece: en el experimento de Otazu no hubo asimilación a equiluminancia
+    y casi ninguna inducción. Los bordes siguen viéndose: en el puntillismo los bordes equiluminantes
+    se ven aunque los modelos basados en luminancia los den por invisibles. Los datos son de laboratorio.'
+  rubric:
+  - Dice que el contraste de color persiste a equiluminancia
+  - Dice que la asimilación desaparece a equiluminancia en ese estudio
+  - Dice que los bordes equiluminantes siguen viéndose (puntillismo)
+  - Cita al menos una fuente por afirmación o señala que son datos de laboratorio

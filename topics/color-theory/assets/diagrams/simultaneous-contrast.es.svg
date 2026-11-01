@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 590" font-family="sans-serif" font-size="14">
+<rect width="760" height="590" fill="#fff"/>
+<text x="380.0" y="32" text-anchor="middle" font-size="17" font-weight="bold" fill="#222">El mismo color sobre dos fondos distintos</text>
+<rect x="70" y="70" width="300" height="200" fill="#2c2c2c"/>
+<rect x="390" y="70" width="300" height="200" fill="#e8e8e8"/>
+<rect x="175.0" y="125.0" width="90" height="90" fill="#848484"/>
+<rect x="495.0" y="125.0" width="90" height="90" fill="#848484"/>
+<rect x="216.0" y="215.0" width="8" height="71.0" fill="#848484"/>
+<rect x="536.0" y="215.0" width="8" height="71.0" fill="#848484"/>
+<rect x="216.0" y="278" width="328.0" height="8" fill="#848484"/>
+<text x="380.0" y="62" text-anchor="middle" fill="#222" font-weight="bold">mismo gris (L* 55)</text>
+<rect x="70" y="320" width="300" height="200" fill="#4768b3"/>
+<rect x="390" y="320" width="300" height="200" fill="#ed8f47"/>
+<rect x="175.0" y="375.0" width="90" height="90" fill="#a6937e"/>
+<rect x="495.0" y="375.0" width="90" height="90" fill="#a6937e"/>
+<rect x="216.0" y="465.0" width="8" height="71.0" fill="#a6937e"/>
+<rect x="536.0" y="465.0" width="8" height="71.0" fill="#a6937e"/>
+<rect x="216.0" y="528" width="328.0" height="8" fill="#a6937e"/>
+<text x="380.0" y="312" text-anchor="middle" fill="#222" font-weight="bold">mismo color apagado</text>
+<text x="380.0" y="572" text-anchor="middle" fill="#555" font-size="13">la franja que une los dos cuadrados es del mismo color</text>
+</svg>

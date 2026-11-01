@@ -45,3 +45,15 @@
 - id: lightfastness-scales
   alt: "Tres filas alineadas de izquierda (más fugitiva) a derecha (más permanente). Arriba, las ocho referencias de lana azul numeradas del 1 al 8. En medio, las clases de Feller: C hasta la lana 3, B de la 3 a la 6 y A por encima de la 6. Abajo, las categorías ASTM: V, IV (la más ancha), III (muy estrecha), II e I. Debajo, los tramos de cambio de color de cada categoría ASTM."
   caption: "Tres escalas de resistencia a la luz puestas una junto a otra. Las clases de Feller se definen respecto a las lanas azules 3 y 6 [@feller-1994, pp. 6-7]; las categorías ASTM, por el cambio de color medio ΔE*ab tras la exposición [@mitra-astm, pp. 1-2]. Su alineación con la lana azul es aproximada y sigue la correspondencia que da MacEvoy (fuente de menor fiabilidad) [@handprint-macevoy, pigmt9]. Diagrama propio."
+
+- id: simultaneous-contrast
+  alt: "Dos filas de dos rectángulos. Arriba, un mismo cuadrado gris medio sobre un fondo casi negro y sobre un fondo casi blanco. Abajo, un mismo cuadrado de color ocre apagado sobre un fondo azul y sobre un fondo naranja. Una franja fina del color del cuadrado une cada pareja por debajo para mostrar que es el mismo."
+  caption: "El mismo gris parece más claro sobre fondo oscuro y más oscuro sobre fondo claro, y un color apagado tiende a teñirse del opuesto al de su fondo [@chevreul-1890, §9-11, §63-70]. Colores fijados en CIELAB. Diagrama propio."
+
+- id: assimilation-stripes
+  alt: "Dos rectángulos del mismo rojo. El de la izquierda está cruzado por líneas horizontales finas blancas y el de la derecha por líneas finas negras. Debajo de cada uno, una muestra del mismo rojo sin líneas."
+  caption: "Montaje de tipo Bezold. Con fondos rayados el color tiende a desplazarse hacia el de las rayas (asimilación), al revés que en el contraste, y cuanto más finas son las rayas más se pasa del contraste a la asimilación [@otazu-2022, Introducción; Discusión]. El efecto cambia con la distancia de observación. Diagrama propio."
+
+- id: equiluminance
+  alt: "Cuatro rectángulos en dos columnas. Arriba, un disco naranja sobre fondo azul grisáceo: a la izquierda con la misma luminosidad que el fondo, a la derecha más claro. Abajo, las mismas imágenes solo con luminosidad: a la izquierda el disco desaparece en un gris uniforme y a la derecha se sigue viendo."
+  caption: "Si figura y fondo tienen la misma luminancia, una imagen que solo conserva la luminosidad pierde la figura, como el sol de Monet en Impresión, sol naciente en blanco y negro [@livingstone-2014]. La igualdad se calcula con L* de CIELAB para una pantalla sRGB; en otra pantalla o para otra persona el punto de equiluminancia cambia [unverified]. Diagrama propio."
