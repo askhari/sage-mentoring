@@ -1,0 +1,19 @@
+title: "Teoría del color"
+description: >-
+  Teoría del color orientada a la pintura y el arte, desde cero hasta nivel
+  profesional: cómo funcionan la luz y la visión, cómo se describe y se mezcla
+  el color, qué hacen los pigmentos reales, cómo cambia un color según su
+  contexto y cómo usarlo con criterio en un cuadro.
+layers:
+  0: "Orientación"
+  1: "Fundamentos"
+  2: "Comprensión"
+  3: "Profesional"
+domains:
+  light-and-vision: "Luz y visión"
+  color-attributes: "Dimensiones del color"
+  color-mixing: "Mezcla de color"
+  paints-and-pigments: "Pinturas y pigmentos"
+  color-interaction: "Interacción del color"
+  color-harmony: "Armonía y composición del color"
+  color-in-painting: "Color y luz en la pintura"

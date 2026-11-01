@@ -1,0 +1,6 @@
+- id: wheel
+  file: diagrams/wheel.{lang}.svg
+  origin: own
+  generator: diagrams/src/wheel.py
+  license: CC-BY-4.0
+  concepts: [hue]

@@ -1,0 +1,390 @@
+- id: q-light-spectrum-001
+  concept: light-spectrum
+  layer: 1
+  type: single-choice
+  sources:
+  - openstax-physics-3
+  - openstax-psychology-2e
+  correct: b
+- id: q-light-spectrum-002
+  concept: light-spectrum
+  layer: 1
+  type: short-answer
+  sources:
+  - openstax-psychology-2e
+- id: q-light-spectrum-003
+  concept: light-spectrum
+  layer: 1
+  type: single-choice
+  sources:
+  - cie-e-ilv
+  - openstax-college-physics-2e
+  - openstax-psychology-2e
+  correct: c
+- id: q-light-spectrum-004
+  concept: light-spectrum
+  layer: 2
+  type: single-choice
+  sources:
+  - openstax-college-physics-2e
+  - openstax-physics-3
+  correct: d
+- id: q-light-spectrum-005
+  concept: light-spectrum
+  layer: 2
+  type: open
+  sources:
+  - cie-e-ilv
+  - openstax-psychology-2e
+- id: q-light-spectrum-006
+  concept: light-spectrum
+  layer: 3
+  type: case
+  sources:
+  - cie-e-ilv
+- id: q-light-spectrum-007
+  concept: light-spectrum
+  layer: 3
+  type: case
+  sources:
+  - openstax-college-physics-2e
+- id: q-light-matter-interaction-001
+  concept: light-matter-interaction
+  layer: 1
+  type: single-choice
+  sources:
+  - openstax-college-physics-2e
+  correct: a
+- id: q-light-matter-interaction-002
+  concept: light-matter-interaction
+  layer: 1
+  type: single-choice
+  sources:
+  - openstax-physics-3
+  correct: b
+- id: q-light-matter-interaction-003
+  concept: light-matter-interaction
+  layer: 1
+  type: short-answer
+  sources:
+  - cie-e-ilv
+- id: q-light-matter-interaction-004
+  concept: light-matter-interaction
+  layer: 2
+  type: single-choice
+  sources:
+  - openstax-college-physics-2e
+  correct: c
+- id: q-light-matter-interaction-005
+  concept: light-matter-interaction
+  layer: 2
+  type: open
+  sources:
+  - cie-e-ilv
+- id: q-light-matter-interaction-006
+  concept: light-matter-interaction
+  layer: 3
+  type: case
+  sources:
+  - cie-e-ilv
+  - openstax-college-physics-2e
+- id: q-light-matter-interaction-007
+  concept: light-matter-interaction
+  layer: 3
+  type: case
+  sources:
+  - openstax-college-physics-2e
+- id: q-photoreceptors-001
+  concept: photoreceptors
+  layer: 1
+  type: single-choice
+  sources:
+  - openstax-psychology-2e
+  - openstax-college-physics-2e
+  correct: b
+- id: q-photoreceptors-002
+  concept: photoreceptors
+  layer: 1
+  type: single-choice
+  sources:
+  - openstax-psychology-2e
+  correct: d
+- id: q-photoreceptors-003
+  concept: photoreceptors
+  layer: 1
+  type: short-answer
+  sources:
+  - openstax-psychology-2e
+  - openstax-college-physics-2e
+- id: q-photoreceptors-004
+  concept: photoreceptors
+  layer: 2
+  type: single-choice
+  sources:
+  - webvision
+  - openstax-college-physics-2e
+  - openstax-psychology-2e
+  correct: a
+- id: q-photoreceptors-005
+  concept: photoreceptors
+  layer: 2
+  type: single-choice
+  sources:
+  - openstax-psychology-2e
+  - openstax-college-physics-2e
+  correct: c
+- id: q-photoreceptors-006
+  concept: photoreceptors
+  layer: 2
+  type: single-choice
+  sources:
+  - cie-e-ilv
+  correct: b
+- id: q-photoreceptors-007
+  concept: photoreceptors
+  layer: 2
+  type: open
+  sources:
+  - cie-e-ilv
+- id: q-photoreceptors-008
+  concept: photoreceptors
+  layer: 3
+  type: case
+  sources:
+  - cie-e-ilv
+  - openstax-psychology-2e
+- id: q-photoreceptors-009
+  concept: photoreceptors
+  layer: 3
+  type: case
+  sources:
+  - openstax-psychology-2e
+- id: q-trichromacy-001
+  concept: trichromacy
+  layer: 1
+  type: single-choice
+  sources:
+  - webvision
+  - openstax-psychology-2e
+  correct: c
+- id: q-trichromacy-002
+  concept: trichromacy
+  layer: 1
+  type: short-answer
+  sources:
+  - openstax-psychology-2e
+- id: q-trichromacy-003
+  concept: trichromacy
+  layer: 1
+  type: single-choice
+  sources:
+  - openstax-college-physics-2e
+  correct: a
+- id: q-trichromacy-004
+  concept: trichromacy
+  layer: 2
+  type: single-choice
+  sources:
+  - webvision
+  correct: b
+- id: q-trichromacy-005
+  concept: trichromacy
+  layer: 2
+  type: single-choice
+  sources:
+  - openstax-college-physics-2e
+  - webvision
+  correct: d
+- id: q-trichromacy-006
+  concept: trichromacy
+  layer: 2
+  type: open
+  sources:
+  - webvision
+  - cie-e-ilv
+- id: q-trichromacy-007
+  concept: trichromacy
+  layer: 3
+  type: case
+  sources:
+  - cie-e-ilv
+- id: q-trichromacy-008
+  concept: trichromacy
+  layer: 3
+  type: case
+  sources:
+  - webvision
+- id: q-opponent-process-001
+  concept: opponent-process
+  layer: 2
+  type: single-choice
+  sources:
+  - openstax-psychology-2e
+  - cie-e-ilv
+  correct: a
+- id: q-opponent-process-002
+  concept: opponent-process
+  layer: 2
+  type: single-choice
+  sources:
+  - openstax-psychology-2e
+  - webvision
+  correct: b
+- id: q-opponent-process-003
+  concept: opponent-process
+  layer: 2
+  type: single-choice
+  sources:
+  - openstax-psychology-2e
+  - cie-e-ilv
+  correct: d
+- id: q-opponent-process-004
+  concept: opponent-process
+  layer: 2
+  type: open
+  sources:
+  - openstax-psychology-2e
+  - webvision
+- id: q-opponent-process-005
+  concept: opponent-process
+  layer: 3
+  type: case
+  sources:
+  - openstax-psychology-2e
+- id: q-opponent-process-006
+  concept: opponent-process
+  layer: 3
+  type: case
+  sources:
+  - webvision
+- id: q-color-vision-deficiency-001
+  concept: color-vision-deficiency
+  layer: 2
+  type: single-choice
+  sources:
+  - cie-e-ilv
+  - webvision
+  correct: c
+- id: q-color-vision-deficiency-002
+  concept: color-vision-deficiency
+  layer: 2
+  type: single-choice
+  sources:
+  - webvision
+  correct: a
+- id: q-color-vision-deficiency-003
+  concept: color-vision-deficiency
+  layer: 2
+  type: single-choice
+  sources:
+  - cie-e-ilv
+  correct: d
+- id: q-color-vision-deficiency-004
+  concept: color-vision-deficiency
+  layer: 2
+  type: open
+  sources:
+  - cie-e-ilv
+  - openstax-psychology-2e
+- id: q-color-vision-deficiency-005
+  concept: color-vision-deficiency
+  layer: 3
+  type: case
+  sources:
+  - webvision
+- id: q-color-vision-deficiency-006
+  concept: color-vision-deficiency
+  layer: 3
+  type: case
+  sources:
+  - cie-e-ilv
+- id: q-illuminant-color-001
+  concept: illuminant-color
+  layer: 2
+  type: single-choice
+  sources:
+  - cie-e-ilv
+  correct: b
+- id: q-illuminant-color-002
+  concept: illuminant-color
+  layer: 2
+  type: single-choice
+  sources:
+  - cie-e-ilv
+  - openstax-physics-3
+  correct: c
+- id: q-illuminant-color-003
+  concept: illuminant-color
+  layer: 2
+  type: single-choice
+  sources:
+  - cie-e-ilv
+  correct: a
+- id: q-illuminant-color-004
+  concept: illuminant-color
+  layer: 2
+  type: open
+  sources:
+  - cie-e-ilv
+  - openstax-college-physics-2e
+- id: q-illuminant-color-005
+  concept: illuminant-color
+  layer: 3
+  type: case
+  sources:
+  - cie-e-ilv
+  - openstax-college-physics-2e
+- id: q-illuminant-color-006
+  concept: illuminant-color
+  layer: 3
+  type: case
+  sources:
+  - cie-e-ilv
+- id: q-metamerism-001
+  concept: metamerism
+  layer: 2
+  type: single-choice
+  sources:
+  - cie-e-ilv
+  correct: b
+- id: q-metamerism-002
+  concept: metamerism
+  layer: 2
+  type: single-choice
+  sources:
+  - webvision
+  - cie-e-ilv
+  correct: c
+- id: q-metamerism-003
+  concept: metamerism
+  layer: 2
+  type: single-choice
+  sources:
+  - cie-e-ilv
+  correct: d
+- id: q-metamerism-004
+  concept: metamerism
+  layer: 2
+  type: open
+  sources:
+  - cie-e-ilv
+  - webvision
+- id: q-metamerism-005
+  concept: metamerism
+  layer: 3
+  type: case
+  sources:
+  - cie-e-ilv
+- id: q-metamerism-006
+  concept: metamerism
+  layer: 3
+  type: case
+  sources:
+  - cie-e-ilv
+  - webvision
+- id: q-metamerism-007
+  concept: metamerism
+  layer: 3
+  type: case
+  sources:
+  - cie-e-ilv

@@ -1,0 +1,62 @@
+- id: visible-spectrum
+  file: diagrams/visible-spectrum.{lang}.svg
+  origin: own
+  generator: diagrams/src/visible_spectrum.py
+  license: CC-BY-4.0
+  concepts: [light-spectrum]
+
+- id: cone-sensitivity
+  file: diagrams/cone-sensitivity.{lang}.svg
+  origin: own
+  generator: diagrams/src/cone_sensitivity.py
+  license: CC-BY-4.0
+  concepts: [trichromacy, photoreceptors]
+
+- id: hue-circle
+  file: diagrams/hue-circle.{lang}.svg
+  origin: own
+  generator: diagrams/src/hue_circle.py
+  license: CC-BY-4.0
+  concepts: [hue, color-wheel, munsell-system]
+
+- id: color-wheels-comparison
+  file: diagrams/color-wheels-comparison.{lang}.svg
+  origin: own
+  generator: diagrams/src/color_wheels_comparison.py
+  license: CC-BY-4.0
+  concepts: [color-wheel-models, color-wheel]
+
+- id: munsell-hue-page
+  file: diagrams/munsell-hue-page.{lang}.svg
+  origin: own
+  generator: diagrams/src/munsell_hue_page.py
+  license: CC-BY-4.0
+  concepts: [munsell-system, value, chroma, cielab-basics]
+
+- id: additive-vs-subtractive-overlaps
+  file: diagrams/additive-vs-subtractive-overlaps.{lang}.svg
+  origin: own
+  generator: diagrams/src/additive_subtractive.py
+  license: CC-BY-4.0
+  concepts: [additive-mixing, subtractive-mixing]
+
+- id: complementary-mix-to-grey
+  file: diagrams/complementary-mix-to-grey.{lang}.svg
+  origin: own
+  generator: diagrams/src/complementary_mix.py
+  license: CC-BY-4.0
+  concepts: [complementary-colors]
+
+- id: tint-ladder
+  file: diagrams/tint-ladder.{lang}.svg
+  origin: own
+  generator: diagrams/src/tint_ladder.py
+  license: CC-BY-4.0
+  concepts: [tints-shades-tones, pigment-mixing-behavior]
+
+- id: blue-yellow-mixing
+  file: diagrams/blue-yellow-mixing.{lang}.svg
+  origin: own
+  generator: diagrams/src/blue_yellow_mixing.py
+  license: CC-BY-4.0
+  concepts: [pigment-mixing-behavior, optical-mixing, subtractive-mixing]

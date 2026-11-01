@@ -1,0 +1,8 @@
+title: "Tema de juguete"
+description: "Tema mínimo para probar las herramientas."
+layers:
+  1: "Fundamentos"
+  2: "Comprensión"
+  3: "Profesional"
+domains:
+  basics: "Lo básico"

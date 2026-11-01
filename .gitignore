@@ -1,0 +1,13 @@
+# Python
+__pycache__/
+*.pyc
+.venv/
+
+# macOS
+.DS_Store
+
+# skill-creator test workspaces
+*-workspace/
+
+# Local caches (e.g. future local copies of open sources)
+.cache/

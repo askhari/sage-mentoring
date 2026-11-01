@@ -1,0 +1,31 @@
+# Glosario
+
+- **Tema:** área de conocimiento que se quiere aprender (p. ej. teoría del color). Unidad de generación y de reparto: un tema se puede compartir sin datos personales.
+- **Ámbito / subdominio:** gran parte en la que se divide un tema (p. ej. percepción, espacios de color).
+- **Concepto:** unidad mínima de conocimiento. Las preguntas y los prerrequisitos se vinculan a conceptos.
+- **Mapa de conceptos:** conceptos de un tema con sus relaciones de prerrequisito ("para entender X necesitas Y").
+- **Capa:** nivel de profundidad del contenido:
+  - **Capa 0 – Orientación:** visión general; saber de qué va el tema y cómo se organiza.
+  - **Capa 1 – Fundamentos:** reconocer y definir los conceptos básicos.
+  - **Capa 2 – Comprensión:** relaciones y porqués; poder explicarlo con tus palabras.
+  - **Capa 3 – Profesional:** aplicar con criterio en casos reales y justificar decisiones.
+- **Fuente:** origen citado de una afirmación o pregunta, con un nivel de fiabilidad.
+- **Nivel de fiabilidad:**
+  - **A:** libros de texto de referencia, cursos universitarios, organismos oficiales y de normalización, documentación oficial.
+  - **B:** artículos revisados por pares, reseñas académicas.
+  - **C:** divulgación de calidad; solo como apoyo.
+- **Sin verificar:** marca para una afirmación que no se ha podido respaldar con una fuente.
+- **Banco de preguntas:** fichero con las preguntas de un tema, cada una vinculada a concepto, capa y fuente. Fuente única para exámenes y exportaciones.
+- **Examen:** sesión de preguntas en el chat con Claude, que corrige y registra el resultado.
+- **Progreso:** datos personales del usuario (resultados, aciertos, fechas de repaso), separados del contenido del tema.
+- **Repaso espaciado:** técnica que repite antes lo que fallas y espacia lo que dominas (p. ej. Anki, algoritmo FSRS).
+- **Exportación:** conversión del banco de preguntas a un formato externo (Anki en v1).
+- **Parte común:** ficheros de un tema que no dependen del idioma (`topic.yaml`, `concepts.yaml`, `sources.yaml`, `assets.yaml`, `questions/`).
+- **Parte por idioma:** textos de un tema en un idioma, en `i18n/<lang>/`.
+- **Identificador (id):** nombre estable en inglés que enlaza la parte común, los textos y el progreso (p. ej. `hue`, `q-hue-001`).
+- **Recurso (asset):** imagen o diagrama de un tema. **Propio:** generado por código nuestro. **De terceros:** solo con licencia compartible y atribución.
+- **Índice por capa:** fichero generado que lista todas las secciones de una capa en un tema.
+- **Aprendiz (learner):** persona que estudia; tiene su carpeta en `learners/<id>/`.
+- **Registro de intentos:** historial de respuestas (`attempts.jsonl`) en el que solo se añaden líneas; nunca se edita.
+- **Resumen de progreso:** estado de dominio por concepto y capa, recalculado desde el registro (`summary.json`).
+- **Procedimiento de generación:** pasos fijos que Claude sigue para crear un tema (skill de Claude Code en v1; motor automático en la hoja de ruta).

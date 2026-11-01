@@ -1,0 +1,98 @@
+- id: light-spectrum
+  title: "Luz y espectro visible"
+- id: light-matter-interaction
+  title: "Por qué los objetos tienen color (reflexión, absorción, dispersión)"
+- id: photoreceptors
+  title: "Conos y bastones"
+- id: trichromacy
+  title: "Visión tricromática"
+- id: opponent-process
+  title: "Procesos oponentes"
+- id: color-vision-deficiency
+  title: "Daltonismo y deficiencias de la visión del color"
+- id: illuminant-color
+  title: "El color de la luz (iluminante, temperatura de color)"
+- id: metamerism
+  title: "Metamerismo"
+- id: hue
+  title: "Matiz (hue)"
+- id: value
+  title: "Valor / claridad (value, lightness)"
+- id: chroma
+  title: "Croma (chroma)"
+- id: color-wheel
+  title: "La rueda de color"
+- id: saturation-and-colorfulness
+  title: "Saturación, croma y colorido"
+- id: color-wheel-models
+  title: "Por qué hay varias ruedas (RYB, RGB/CMY, perceptuales)"
+- id: munsell-system
+  title: "El sistema Munsell"
+- id: cielab-basics
+  title: "CIELAB para pintores"
+- id: additive-mixing
+  title: "Mezcla aditiva"
+- id: subtractive-mixing
+  title: "Mezcla sustractiva"
+- id: complementary-colors
+  title: "Colores complementarios"
+- id: tints-shades-tones
+  title: "Aclarar, oscurecer y agrisar (tints, shades, tones)"
+- id: primary-colors
+  title: "El mito de los primarios perfectos"
+- id: pigment-mixing-behavior
+  title: "Cómo se mezclan de verdad los pigmentos (Kubelka-Munk)"
+- id: optical-mixing
+  title: "Mezcla óptica (puntillismo, veladuras)"
+- id: target-color-mixing
+  title: "Mezclar un color objetivo"
+- id: paint-composition
+  title: "Pigmento, aglutinante y medio"
+- id: colour-index-names
+  title: "Nombres Colour Index (PB29, PY35…)"
+- id: transparency-opacity
+  title: "Transparencia y opacidad"
+- id: tinting-strength
+  title: "Poder tintóreo"
+- id: masstone-undertone
+  title: "Tono de masa y subtono"
+- id: lightfastness
+  title: "Resistencia a la luz y permanencia"
+- id: limited-palette
+  title: "Diseñar una paleta limitada"
+- id: simultaneous-contrast
+  title: "Contraste simultáneo"
+- id: afterimages
+  title: "Posimágenes y contraste sucesivo"
+- id: color-constancy
+  title: "Constancia del color"
+- id: assimilation
+  title: "Asimilación (efecto Bezold)"
+- id: color-categories
+  title: "Categorías y nombres de color"
+- id: equiluminance
+  title: "Equiluminancia y bordes vibrantes"
+- id: color-schemes
+  title: "Esquemas clásicos (análogo, complementario, tríada)"
+- id: color-temperature
+  title: "Colores cálidos y fríos"
+- id: value-structure
+  title: "Estructura de valores y clave tonal"
+- id: dominance-and-accent
+  title: "Dominante, proporción y acento"
+- id: color-meaning
+  title: "Significado y simbolismo del color"
+- id: harmony-research
+  title: "Qué dice la investigación sobre armonía"
+- id: local-vs-perceived-color
+  title: "Color local y color percibido"
+- id: light-and-shadow-color
+  title: "El color de luces y sombras"
+- id: atmospheric-perspective
+  title: "Perspectiva atmosférica"
+- id: colored-light-unity
+  title: "Luz coloreada y unidad cromática"
+- id: gamut-planning
+  title: "Planificar la gama de un cuadro"
+- id: judging-color
+  title: "Ver y juzgar el color al pintar"

@@ -1,0 +1,411 @@
+# --- Physics of light and vision ---
+- id: openstax-physics-3
+  type: textbook
+  reliability: A
+  title: "University Physics Volume 3"
+  authors: ["Samuel J. Ling", "Jeff Sanny", "William Moebs"]
+  year: 2016
+  language: en
+  identifiers: { url: "https://openstax.org/books/university-physics-volume-3/pages/preface" }
+  access: open
+  accessed: 2026-11-01
+- id: purves-2001
+  type: textbook
+  reliability: A
+  title: "Neuroscience (2nd ed.)"
+  authors: ["Dale Purves", "George J. Augustine", "David Fitzpatrick", "et al."]
+  year: 2001
+  language: en
+  identifiers: { isbn: "0-87893-742-0", url: "https://www.ncbi.nlm.nih.gov/books/NBK11059/" }
+  access: open
+  accessed: 2026-11-01
+  notes: "NCBI Bookshelf: search-only access, not browsable."
+- id: webvision
+  type: textbook
+  reliability: A
+  title: "Webvision: The Organization of the Retina and Visual System"
+  authors: ["Helga Kolb", "Ralph Nelson", "Eduardo Fernandez", "Bryan Jones"]
+  year: 1995
+  language: en
+  identifiers: { url: "https://www.webvision.pitt.edu/" }
+  access: open
+  accessed: 2026-11-01
+  notes: "Year = first publication; updated online. Moved from webvision.med.utah.edu (301 redirect)."
+- id: conway-2009
+  type: paper
+  reliability: B
+  title: "Color vision, cones, and color-coding in the cortex"
+  authors: ["Bevil R. Conway"]
+  year: 2009
+  language: en
+  identifiers: { doi: "10.1177/1073858408331369", url: "https://pubmed.ncbi.nlm.nih.gov/19436076/" }
+  access: paid
+  accessed: 2026-11-01
+  notes: "Abstract only accessible."
+
+- id: openstax-college-physics-2e
+  type: textbook
+  reliability: A
+  title: "College Physics 2e"
+  authors: ["Paul Peter Urone", "Roger Hinrichs"]
+  year: 2022
+  language: en
+  identifiers: { url: "https://openstax.org/books/college-physics-2e/pages/26-3-color-and-color-vision" }
+  access: open
+  accessed: 2026-11-01
+- id: openstax-psychology-2e
+  type: textbook
+  reliability: A
+  title: "Psychology 2e"
+  authors: ["Rose M. Spielman", "William J. Jenkins", "Marilyn D. Lovett"]
+  year: 2020
+  language: en
+  identifiers: { url: "https://openstax.org/books/psychology-2e/pages/5-3-vision" }
+  access: open
+  accessed: 2026-11-01
+- id: cie-e-ilv
+  type: standard
+  reliability: A
+  title: "CIE S 017:2020 ILV: International Lighting Vocabulary, 2nd edition (e-ILV)"
+  authors: ["CIE (International Commission on Illumination)"]
+  year: 2020
+  language: en
+  identifiers: { url: "https://cie.co.at/e-ilv" }
+  access: open
+  accessed: 2026-11-01
+  notes: "Free online term database; cite by term number (e.g. 17-23-006)."
+
+# --- Color science (reference) ---
+- id: fairchild-2013
+  type: textbook
+  reliability: A
+  title: "Color Appearance Models (3rd ed.)"
+  authors: ["Mark D. Fairchild"]
+  year: 2013
+  language: en
+  identifiers: { isbn: "978-1-119-96703-3" }
+  access: paid
+  accessed: 2026-11-01
+- id: berns-2019
+  type: textbook
+  reliability: A
+  title: "Billmeyer and Saltzman's Principles of Color Technology (4th ed.)"
+  authors: ["Roy S. Berns"]
+  year: 2019
+  language: en
+  identifiers: { isbn: "978-1-119-36722-2" }
+  access: paid
+  accessed: 2026-11-01
+- id: cie-015-2018
+  type: standard
+  reliability: A
+  title: "CIE 015:2018 Colorimetry, 4th Edition"
+  authors: ["CIE (International Commission on Illumination)"]
+  year: 2018
+  language: en
+  identifiers: { doi: "10.25039/TR.015.2018", isbn: "978-3-902842-13-8" }
+  access: paid
+  accessed: 2026-11-01
+  notes: "abstract only (CIE webshop; full text paid). Further reading only."
+- id: newhall-1943
+  type: paper
+  reliability: B
+  title: "Final report of the O.S.A. subcommittee on the spacing of the Munsell colors"
+  authors: ["Sidney M. Newhall", "Dorothy Nickerson", "Deane B. Judd"]
+  year: 1943
+  language: en
+  identifiers: { doi: "10.1364/JOSA.33.000385" }
+  access: paid
+  accessed: 2026-11-01
+  notes: "blocked (Optica page unreachable; RIT renotation page failed). Note built from secondary descriptions only. Further reading, not for claims."
+- id: cleland-1921
+  type: textbook
+  reliability: A
+  title: "A Grammar of Color"
+  authors: ["T. M. Cleland", "A. H. Munsell"]
+  year: 1921
+  language: en
+  identifiers: { url: "https://archive.org/details/gri_c00033125006531145" }
+  access: open
+  accessed: 2026-11-01
+  notes: "full text (Internet Archive scan of the 1921 edition, Getty; the old munsell.com page now redirects to pantone.com). Historical primary source on the Munsell system; its harmony rules are prescriptive, not empirical. Page numbers approximate (OCR)."
+
+# --- Color and art ---
+- id: berns-2016
+  type: textbook
+  reliability: A
+  title: "Color Science and the Visual Arts: A Guide for Conservators, Curators, and the Curious"
+  authors: ["Roy S. Berns"]
+  year: 2016
+  language: en
+  identifiers: { isbn: "978-1-60606-481-8" }
+  access: paid
+  accessed: 2026-11-01
+  notes: "TOC only: no free Getty Virtual Library copy; publisher, Google Books and retailers unreachable (2026-11-01). Further reading only."
+- id: livingstone-2014
+  type: textbook
+  reliability: A
+  title: "Vision and Art: The Biology of Seeing (updated and expanded ed.)"
+  authors: ["Margaret S. Livingstone"]
+  year: 2014
+  language: en
+  identifiers: { isbn: "978-1-4197-0692-9" }
+  access: paid
+  accessed: 2026-11-01
+  notes: "Secondary only: no TOC or preview reachable; note rests on the author's Harvard Magazine 2003 article, a review and a lecture abstract (2026-11-01)."
+- id: albers-2013
+  type: textbook
+  reliability: A
+  title: "Interaction of Color (50th anniversary ed.)"
+  authors: ["Josef Albers"]
+  year: 2013
+  language: en
+  identifiers: { isbn: "978-0-300-17935-4" }
+  access: paid
+  accessed: 2026-11-01
+- id: gage-1993
+  type: textbook
+  reliability: A
+  title: "Colour and Culture: Practice and Meaning from Antiquity to Abstraction"
+  authors: ["John Gage"]
+  year: 1993
+  language: en
+  identifiers: { isbn: "978-0-500-23654-3" }
+  access: paid
+  accessed: 2026-11-01
+- id: conway-livingstone-2007
+  type: paper
+  reliability: B
+  title: "Perspectives on science and art"
+  authors: ["Bevil R. Conway", "Margaret S. Livingstone"]
+  year: 2007
+  language: en
+  identifiers: { doi: "10.1016/j.conb.2007.07.010", url: "https://pmc.ncbi.nlm.nih.gov/articles/PMC2813684" }
+  access: open
+  accessed: 2026-11-01
+
+- id: sochorova-2021
+  type: paper
+  reliability: B
+  title: "Practical Pigment Mixing for Digital Painting"
+  authors: ["Šárka Sochorová", "Ondřej Jamriška"]
+  year: 2021
+  language: en
+  identifiers: { doi: "10.1145/3478513.3480549", url: "https://dcgi.fel.cvut.cz/wp-content/wpallimport-dist/publications/pdf/publications-2021-sochorova-tog-pigments-paper.pdf" }
+  access: open
+  accessed: 2026-11-01
+  notes: "Full text (PDF, read via tools/pdf_to_text.py; WebFetch cannot extract it)."
+
+# --- Perception in context ---
+- id: witzel-2018
+  type: paper
+  reliability: B
+  title: "Color Perception: Objects, Constancy, and Categories"
+  authors: ["Christoph Witzel", "Karl R. Gegenfurtner"]
+  year: 2018
+  language: en
+  identifiers: { doi: "10.1146/annurev-vision-091517-034231" }
+  access: open
+  accessed: 2026-11-01
+- id: shevell-2008
+  type: paper
+  reliability: B
+  title: "Color in complex scenes"
+  authors: ["Steven K. Shevell", "Frederick A. A. Kingdom"]
+  year: 2008
+  language: en
+  identifiers: { doi: "10.1146/annurev.psych.59.103006.093619" }
+  access: paid
+  accessed: 2026-11-01
+
+# --- Harmony and preference ---
+- id: schloss-palmer-2011
+  type: paper
+  reliability: B
+  title: "Aesthetic response to color combinations: preference, harmony, and similarity"
+  authors: ["Karen B. Schloss", "Stephen E. Palmer"]
+  year: 2011
+  language: en
+  identifiers: { doi: "10.3758/s13414-010-0027-0", url: "https://pmc.ncbi.nlm.nih.gov/articles/PMC3037488" }
+  access: open
+  accessed: 2026-11-01
+- id: palmer-2013
+  type: paper
+  reliability: B
+  title: "Visual aesthetics and human preference"
+  authors: ["Stephen E. Palmer", "Karen B. Schloss", "Jonathan Sammartino"]
+  year: 2013
+  language: en
+  identifiers: { doi: "10.1146/annurev-psych-120710-100504" }
+  access: paid
+  accessed: 2026-11-01
+
+# --- Paints and pigments ---
+- id: mayer-1991
+  type: textbook
+  reliability: A
+  title: "The Artist's Handbook of Materials and Techniques (5th ed.)"
+  authors: ["Ralph Mayer", "Steven Sheehan (rev.)"]
+  year: 1991
+  language: en
+  identifiers: { isbn: "978-0-670-83701-4" }
+  access: paid
+  accessed: 2026-11-01
+- id: astm-d4303
+  type: standard
+  reliability: A
+  title: "ASTM D4303-10(2022) Standard Test Methods for Lightfastness of Colorants Used in Artists' Materials"
+  authors: ["ASTM International"]
+  year: 2022
+  language: en
+  identifiers: { url: "https://store.astm.org/d4303-10.html" }
+  access: paid
+  accessed: 2026-11-01
+- id: colour-index
+  type: docs
+  reliability: A
+  title: "Colour Index International (4th ed. online)"
+  authors: ["Society of Dyers and Colourists", "AATCC"]
+  year: 2026
+  language: en
+  identifiers: { url: "https://colour-index.com/" }
+  access: paid
+  accessed: 2026-11-01
+  notes: "Online database; year = year consulted."
+
+# --- Practitioner support (C) ---
+- id: gurney-2010
+  type: textbook
+  reliability: C
+  title: "Color and Light: A Guide for the Realist Painter"
+  authors: ["James Gurney"]
+  year: 2010
+  language: en
+  identifiers: { isbn: "978-0-7407-9771-2" }
+  access: paid
+  accessed: 2026-11-01
+  notes: "Practitioner manual; back its claims with A/B sources where possible."
+- id: handprint-macevoy
+  type: article
+  reliability: C
+  title: "handprint: watercolors (color, pigments, palettes)"
+  authors: ["Bruce MacEvoy"]
+  year: 2015
+  language: en
+  identifiers: { url: "https://www.handprint.com/HP/WCL/" }
+  access: open
+  accessed: 2026-11-01
+  notes: "Website; year approximate, to be confirmed."
+- id: briggs-dimensions
+  type: article
+  reliability: C
+  title: "The Dimensions of Colour"
+  authors: ["David Briggs"]
+  year: 2017
+  language: en
+  identifiers: { url: "https://www.huevaluechroma.com/" }
+  access: open
+  accessed: 2026-11-01
+  notes: "Website; year approximate, to be confirmed."
+
+# --- Added for color-attributes (2026-11-01) ---
+- id: munsell-1905
+  type: textbook
+  reliability: A
+  title: "A Color Notation"
+  authors: ["Albert H. Munsell"]
+  year: 1905
+  language: en
+  identifiers: { url: "https://www.gutenberg.org/ebooks/26054" }
+  access: open
+  accessed: 2026-11-01
+  notes: "full text (public domain, Project Gutenberg). Primary historical source on the Munsell system; its harmony and pedagogy views are prescriptive."
+- id: konica-minolta-pcc
+  type: docs
+  reliability: C
+  title: "Precise Color Communication: Color control from perception to instrumentation"
+  authors: ["Konica Minolta Sensing"]
+  year: 2011
+  language: en
+  identifiers: { url: "https://www.konicaminolta.com/instruments/knowledge/color/" }
+  access: open
+  accessed: 2026-11-01
+  notes: "full text (instrument maker's technical guide, online pages; figures are images). Pages show ©2011-; edition not stated."
+- id: justpaint-munsell-cielab
+  type: docs
+  reliability: A
+  title: "Munsell and Lab Readings for Williamsburg Handmade Oil Colors (Munsell ordering); Munsell Notation listing – Heavy Body Acrylics"
+  authors: ["Golden Artist Colors"]
+  year: 2017
+  language: en
+  identifiers: { url: "https://assets.goldenartistcolors.com/v4/linked-files/2343-munsell-and-cie-lab-data-for-williamsburg-oils-munsell-ordering.pdf" }
+  access: open
+  accessed: 2026-11-01
+  notes: "full text (paint maker's data tables: Williamsburg oils PDF with Munsell + L*a*b* at 6 mil; GOLDEN Heavy Body Munsell listing at goldenartistcolors.com/resources/munsell-notation-listing-heavy-body-acrylics). Explanatory article justpaint.org/?p=5235 was down; method details secondhand. Year from PDF upload path (2017)."
+- id: okumura-2005
+  type: paper
+  reliability: B
+  title: "Developing a Spectral and Colorimetric Database of Artist Paint Materials"
+  authors: ["Yoshio Okumura"]
+  year: 2005
+  language: en
+  identifiers: { url: "https://repository.rit.edu/theses/8126/" }
+  access: open
+  accessed: 2026-11-01
+  notes: "abstract only (repository marks the thesis as withdrawn; no PDF). MS thesis, RIT Munsell Color Science Laboratory (advisor R. S. Berns). Further reading only."
+- id: newton-1704
+  type: textbook
+  reliability: A
+  title: "Opticks: or, A Treatise of the Reflexions, Refractions, Inflexions and Colours of Light"
+  authors: ["Isaac Newton"]
+  year: 1704
+  language: en
+  identifiers: { url: "https://www.gutenberg.org/ebooks/33504" }
+  access: open
+  accessed: 2026-11-01
+  notes: "full text (public domain, Project Gutenberg; 4th ed. 1730 text). Primary historical source: the colour circle for mixing lights (Book I, Part II, Prop. VI)."
+
+# --- Added for color-mixing (2026-11-01) ---
+- id: kubelka-munk-1931
+  type: paper
+  reliability: A
+  title: "Ein Beitrag zur Optik der Farbanstriche (An Article on Optics of Paint Layers, trans. S. H. Westin)"
+  authors: ["Paul Kubelka", "Franz Munk"]
+  year: 1931
+  language: en
+  identifiers: { url: "http://www.graphics.cornell.edu/~westin/pubs/kubelka.pdf" }
+  access: open
+  accessed: 2026-11-01
+  notes: "Full text: Westin's English translation (16 pp.). Original in Z. Techn. Physik 12, 593–601 (German). WebFetch rejects the certificate; read via tools/pdf_to_text.py."
+- id: koenderink-2018
+  type: paper
+  reliability: B
+  title: "Area Dominates Edge in Pointillistic Colour"
+  authors: ["Jan Koenderink", "Andrea van Doorn", "Karl Gegenfurtner"]
+  year: 2018
+  language: en
+  identifiers: { doi: "10.1177/2041669518788582", url: "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6096696/" }
+  access: open
+  accessed: 2026-11-01
+- id: gomez-sanchez-2014
+  type: paper
+  reliability: B
+  title: "The Myth of the Impressionist Optical Mixture"
+  authors: ["Diego Gómez Sánchez"]
+  year: 2014
+  language: en
+  identifiers: { doi: "10.4471/brac.2014.15", url: "https://journals.hipatiapress.com/index.php/brac/article/view/1105" }
+  access: open
+  accessed: 2026-11-01
+  notes: "Full text (Spanish version; English has abstract only). BRAC – Barcelona Research Art Creation 2(3), 301–326; CC BY. Spanish version: 'El mito de la mezcla óptica impresionista'."
+- id: zhao-berns-2006
+  type: paper
+  reliability: B
+  title: "Further Investigations of Colorant Database Development for Two-Constant Kubelka-Munk Theory for Artist Acrylic and Oil Paints"
+  authors: ["Yonghui Zhao", "Roy S. Berns"]
+  year: 2006
+  language: en
+  identifiers: { url: "http://www.art-si.org/PDFs/Processing/Art-SI_K-M_2006.pdf" }
+  access: open
+  accessed: 2026-11-01
+  notes: "Abstract only: PDF at http://www.art-si.org/PDFs/Processing/Art-SI_K-M_2006.pdf (host does not resolve, 2026-11-01); abstract via conservationresearch.blogspot.com."

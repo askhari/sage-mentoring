@@ -1,0 +1,10 @@
+- id: src-a
+  type: textbook
+  reliability: A
+  title: "Example Textbook"
+  authors: ["Jane Doe"]
+  year: 2020
+  language: en
+  identifiers: { isbn: "000-0-000-00000-0" }
+  access: paid
+  accessed: 2026-11-01

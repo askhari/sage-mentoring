@@ -1,0 +1,35 @@
+- id: visible-spectrum
+  alt: "Franja del espectro electromagnético, de los rayos gamma a las ondas de radio, con la pequeña zona de luz visible ampliada debajo: un degradado de violeta a rojo sobre una escala de 400 a 800 nm que se oscurece poco a poco en los extremos."
+  caption: "La luz visible es una franja estrecha del espectro electromagnético, sin límites nítidos. Diagrama propio; la franja superior no está a escala y los colores son aproximados, porque una pantalla no puede reproducir los colores espectrales puros."
+
+- id: cone-sensitivity
+  alt: "Gráfica de sensibilidad relativa frente a longitud de onda con tres curvas en forma de campana para los conos S (pico hacia 420 nm), M (hacia 530 nm) y L (hacia 560 nm), y una curva discontinua para los bastones (hacia 500 nm). Las curvas M y L se solapan mucho."
+  caption: "Sensibilidad espectral relativa de los conos y los bastones. Esquema propio con una plantilla de fotopigmento estándar y los picos de un capítulo de Webvision; según el método de medida, los picos cambian unos nanómetros."
+
+- id: hue-circle
+  alt: "Anillo de color con diez matices marcados en el sentido de las agujas del reloj: 5R rojo arriba, 5YR amarillo-rojo, 5Y amarillo, 5GY verde-amarillo, 5G verde, 5BG azul-verde abajo, 5B azul, 5PB morado-azul, 5P morado y 5RP rojo-morado. En el centro, un círculo gris marcado N; líneas discontinuas unen cada matiz con el opuesto pasando por el gris."
+  caption: "Círculo de matices tipo Munsell: cinco matices principales y cinco intermedios; los opuestos quedan unidos a través del gris neutro. Diagrama propio. Todos los matices se muestran con la misma claridad y el mismo croma CIELAB (L* 60, C*ab 32); su posición se ha interpolado a partir de pinturas reales medidas por Golden, así que los colores son aproximados."
+
+- id: color-wheels-comparison
+  alt: "Tres ruedas de color una al lado de otra con el rojo arriba y una línea discontinua hasta su opuesto. Rueda RYB tradicional de doce sectores con los primarios R, Y y B: el opuesto del rojo es el verde. Rueda RGB/CMY de doce sectores con R, Y, G, C, B y M: el opuesto del rojo es el cian. Círculo perceptual tipo Munsell de diez matices: el opuesto de 5R es 5BG, azul-verde."
+  caption: "El color opuesto al rojo depende de la rueda: verde en la RYB de los pintores, cian en la RGB/CMY de la luz y azul-verde en el círculo perceptual de Munsell. Diagrama propio; los colores de la rueda RYB son esquemáticos porque ese modelo no tiene una definición colorimétrica."
+
+- id: munsell-hue-page
+  alt: "Dos gráficas de claridad L* (vertical, 0 a 100) frente a croma C*ab (horizontal, 0 a 120). En la amarilla, las casillas de color llegan a croma 80 hacia L* 80 y se estrechan hacia lo oscuro; el amarillo de cadmio medio y el limón quedan más allá, arriba a la derecha, y la sombra natural abajo a la izquierda. En la morado-azul, las casillas llegan solo a croma 50 hacia L* 60; los azules cobalto y cerúleo quedan hacia L* 26–30 y el azul ultramar casi en el fondo, con L* 5 y croma 45."
+  caption: "Páginas de matiz constante aproximadas con CIELAB: las casillas son los colores que puede mostrar una pantalla y los círculos, pinturas al óleo reales con su notación Munsell [@justpaint-munsell-cielab]. Los amarillos alcanzan su croma máximo en tonos claros y los azules y morados, en tonos muy oscuros. Diagrama propio; los ejes son de CIELAB (el valor Munsell es, más o menos, L*/10) y las pinturas pertenecen a la misma familia de matiz, no exactamente al mismo matiz."
+
+- id: additive-vs-subtractive-overlaps
+  alt: "Izquierda, sobre fondo negro: tres círculos de luz roja, verde y azul solapados; donde se cruzan dos aparecen amarillo, cian y magenta, y en el centro, blanco. Derecha, sobre fondo blanco: tres círculos de filtro cian, magenta y amarillo; donde se cruzan dos aparecen azul, rojo y verde, y en el centro, negro."
+  caption: "Con luces, cada solape suma luz y aclara; con filtros o tintas, cada solape quita una parte del espectro y oscurece. Diagrama propio con primarios ideales que emiten o dejan pasar exactamente un tercio del espectro; las luces, tintas y pinturas reales no son tan limpias."
+
+- id: complementary-mix-to-grey
+  alt: "Cinco tiras de once muestras. Las cuatro primeras van de un color a su opuesto (rojo a azul verdoso, amarillo a morado azulado, verde amarillento a morado, azul morado a amarillo anaranjado) y la muestra central de todas es el mismo gris. La quinta, separada por una línea, va de rojo a verde y su centro es un gris verdoso."
+  caption: "Dos colores opuestos con la misma claridad y el mismo croma se neutralizan en gris al mezclarse a partes iguales; si no son del todo opuestos, queda un gris coloreado. Diagrama propio y esquemático: las mezclas avanzan en línea recta por CIELAB (L* 60, C*ab 30), algo que las pinturas reales no hacen."
+
+- id: tint-ladder
+  alt: "Tres escaleras de siete muestras que parten del mismo azul: con blanco se aclara hacia un celeste pálido; con gris se apaga hacia un gris azulado; con negro se oscurece enseguida hacia un gris casi negro. A la derecha, una gráfica de claridad L* frente a croma C*ab: la escalera con blanco sube y su croma apenas cambia al principio y luego baja; la de gris va hacia la izquierda a claridad casi constante; la de negro baja y pierde croma deprisa."
+  caption: "Aclarar con blanco, agrisar con gris y oscurecer con negro cambian la claridad y el croma de forma distinta, y el matiz también se desplaza un poco (aquí, hacia el turquesa). Modelo ilustrativo, no medidas de pintura: un espectro azul sintético mezclado con blanco, gris y negro neutros según la regla de Kubelka-Munk de una constante [@kubelka-munk-1931; @sochorova-2021]. Diagrama propio."
+
+- id: blue-yellow-mixing
+  alt: "Arriba, dos tiras de once muestras del azul al amarillo. En la de pintura mezclada, las intermedias son verdes azulados y verdes intensos. En la de mezcla óptica, las intermedias son grises azulados y grises amarillentos. Abajo a la izquierda, damero de azul y amarillo cada vez más fino y, al lado, la muestra de su media al 50 %, un gris amarillento. Abajo a la derecha, el plano a*b*: la mezcla óptica es una línea recta del azul al amarillo que pasa cerca del gris; la de pintura se curva hacia los verdes."
+  caption: "Los mismos azul y amarillo dan verdes al mezclarse en la paleta y grises amarillentos al mezclarse en el ojo, como puntos pequeños vistos de lejos. Modelo ilustrativo con espectros sintéticos: la pintura sigue la regla de Kubelka-Munk de una constante [@kubelka-munk-1931; @sochorova-2021] y la mezcla óptica, la media de la luz reflejada por cada color según su área. Diagrama propio."

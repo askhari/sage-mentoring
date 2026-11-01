@@ -1,0 +1,572 @@
+- id: q-additive-mixing-001
+  prompt: Se proyectan sobre una pantalla blanca una luz roja y una luz verde, solapadas. ¿Qué color se
+    ve en la zona de solape?
+  options:
+    a: Marrón oscuro, porque se mezclan como pinturas
+    b: Amarillo
+    c: Gris, porque los dos colores se neutralizan
+    d: Naranja rojizo, porque domina la luz roja
+  explanation: 'Con luces los colores se suman: rojo más verde se ve amarillo, y las tres luces primarias
+    juntas se ven blancas. El marrón o el gris (opciones a y c) serían la intuición de la pintura, que
+    sigue otras reglas.'
+- id: q-additive-mixing-002
+  prompt: ¿Cómo se llama la mezcla que resulta de superponer luces de colores, como la de los puntos rojos,
+    verdes y azules de un televisor?
+  accepted:
+  - mezcla aditiva
+  - aditiva
+  - síntesis aditiva
+  - additive mixing
+  - additive
+  - mezcla aditiva de luces
+- id: q-additive-mixing-003
+  prompt: Un amarillo de pantalla puede venir de luz amarilla, de rojo más verde o de luz blanca sin su
+    parte violeta, y los tres se ven igual. ¿Por qué?
+  options:
+    a: Porque las tres luces tienen la misma longitud de onda
+    b: Porque la pantalla convierte siempre la luz en amarillo puro
+    c: Porque el color depende del patrón de estimulación de los tres tipos de cono, y luces distintas
+      pueden producir el mismo patrón
+    d: Porque el ojo mide la luminosidad y no el matiz
+  explanation: 'El color resultante depende de cómo se estimulan los conos L, M y S; luces distintas que
+    los estimulan igual dan el mismo color. La opción a es falsa: las tres luces tienen espectros distintos,
+    justo lo que hace posible el efecto.'
+- id: q-additive-mixing-004
+  prompt: Un programa de dibujo basado en RGB mezcla azul y amarillo en un gris, pero la pintura real
+    da verde. Explica con tus palabras a qué se debe la diferencia.
+  model_answer: 'El programa calcula de forma aditiva: los espectros de las luces se suman linealmente,
+    y con luces azul más amarillo dan un tono neutro o blanco. En una pintura real las partículas de pigmento
+    absorben y dispersan la luz y el resultado no es lineal, de modo que la mezcla da verde. El modelo
+    aditivo describe la pantalla, no el tubo de pintura.'
+  rubric:
+  - Dice que el programa RGB suma luces (mezcla aditiva) de forma lineal
+  - Indica que la pintura no sigue esa regla porque sus pigmentos absorben (y dispersan) luz
+  - Concluye que RGB describe pantallas y no predice la mezcla de pintura real
+  - Menciona que en la pintura el resultado es verde
+- id: q-additive-mixing-005
+  prompt: Una pintora quiere igualar con acrílicos un turquesa muy saturado que ve en la pantalla de su
+    portátil, mezclando ftalo azul y blanco. Después de varias muestras secas, ninguna se parece a lo
+    que ve. ¿Cómo interpretas el problema y qué le recomiendas?
+  model_answer: 'La pantalla trabaja de forma aditiva y tiene un gamut propio: un monitor sRGB habitual
+    no puede mostrar el turquesa más saturado que da el azul ftalo con blanco, y a la inversa hay colores
+    de pantalla que ningún pigmento conocido logra. Por tanto la pantalla recorta ese color y no es un
+    patrón fiable. Le recomendaría no usar la pantalla como referencia final, partir de una muestra física
+    o del propio pigmento, y juzgar siempre con una muestra seca.'
+  rubric:
+  - Explica que la pantalla es aditiva (luz) y la pintura no, así que no coinciden
+  - Indica que un monitor sRGB no puede mostrar el turquesa más saturado de ftalo con blanco (la pantalla
+    recorta el color)
+  - Señala que también hay colores de pantalla que ningún pigmento conocido logra mezclar
+  - Recomienda no depender de la pantalla y comparar con una referencia física o muestra seca
+- id: q-additive-mixing-006
+  prompt: 'Un ilustrador planifica sus mezclas de óleo con una aplicación que mezcla en RGB: ve en pantalla
+    que un azul y un amarillo dan un gris intermedio, con una línea recta entre ambos. Al pintar, la mezcla
+    real pasa por verdes. Su colega dice que la aplicación está rota. ¿Qué decisión tomas y cómo lo justificas?'
+  model_answer: 'La aplicación no está rota: hace lo que dice, mezclar de forma aditiva, y en RGB las
+    mezclas siguen líneas rectas mientras que la pintura sigue trayectorias curvas que se alejan del gris
+    y conservan saturación. Decidiría no usar esa aplicación para predecir mezclas de pintura, sino solo
+    como referencia de luces y pantallas, y hacer las mezclas con muestras de los propios tubos. Si se
+    necesita simulación, haría falta un modelo de pigmentos y no un promedio de RGB.'
+  rubric:
+  - Dice que la aplicación mezcla de forma aditiva y por eso no está rota
+  - Contrasta línea recta en RGB frente a trayectoria curva de la pintura
+  - Concluye que no sirve para predecir mezclas de pintura
+  - Propone una alternativa (muestras reales o un modelo de pigmentos)
+- id: q-subtractive-mixing-001
+  prompt: Mezclas varias pinturas de colores distintos en la paleta. ¿Qué tiende a pasar con el resultado,
+    y por qué?
+  options:
+    a: Se vuelve más claro, porque cada pintura añade luz
+    b: Se vuelve más oscuro y apagado, porque cada material añadido absorbe más luz
+    c: Se vuelve más brillante, porque los colores se suman como luces
+    d: Queda igual, porque el ojo promedia los colores
+  explanation: En la mezcla sustractiva cada material absorbe más luz, así que la mezcla absorbe más que
+    cualquiera de sus componentes y tiende a oscurecerse y apagarse. La opción c confunde la pintura con
+    la mezcla aditiva de luces.
+- id: q-subtractive-mixing-002
+  prompt: Un objeto azul se ilumina solo con luz roja. ¿Cómo se ve y por qué?
+  options:
+    a: Azul, porque su color es una propiedad fija
+    b: Rojo, porque refleja la luz que recibe
+    c: Morado, porque se mezclan la luz y el color del objeto
+    d: Negro, porque absorbe la luz roja y no tiene luz azul que reflejar
+  explanation: Un objeto azul absorbe el rojo; con luz solo roja no refleja nada y se ve negro. La opción
+    a ignora que el color depende de la luz que llega y de lo que el objeto absorbe.
+- id: q-subtractive-mixing-003
+  prompt: ¿Qué trío de colores se considera hoy el de los primarios sustractivos modernos?
+  accepted:
+  - cian, amarillo y magenta
+  - cian, magenta y amarillo
+  - magenta, cian y amarillo
+  - amarillo, cian y magenta
+  - amarillo, magenta y cian
+  - magenta, amarillo y cian
+  - CMY
+  - CMYK
+  - cyan, magenta, yellow
+  - cyan, yellow, magenta
+  - cian magenta amarillo
+  - cian amarillo magenta
+- id: q-subtractive-mixing-004
+  prompt: ¿Por qué un modelo sustractivo puro (que solo considera absorción) no predice bien una mezcla
+    real de azul cobalto y amarillo Hansa?
+  options:
+    a: Porque en una pintura las partículas también dispersan la luz, y el modelo puro ignora esa dispersión
+    b: Porque la pintura no absorbe luz, solo la refleja
+    c: Porque el modelo puro suma luces en lugar de restarlas
+    d: Porque el azul y el amarillo no son pigmentos reales
+  explanation: Los autores muestran que el modelo sustractivo puro da un resultado más oscuro, menos saturado
+    y de otro matiz que la pintura real, porque no incluye la dispersión. La opción c describe el modelo
+    aditivo, no el sustractivo.
+- id: q-subtractive-mixing-005
+  prompt: Explica con tus palabras la diferencia entre absorber y dispersar la luz en una capa de pintura,
+    y por qué importa para mezclar.
+  model_answer: Absorber elimina luz de forma permanente; dispersar solo la redirige, por ejemplo devolviéndola
+    hacia arriba, sin quitarla. Kubelka y Munk basan su modelo de una capa de pintura en esa distinción,
+    que la visión anterior no hacía. Una teoría de filtros apilados solo tiene absorción, pero una pintura
+    tiene las dos, y por eso las mezclas de pintura no se comportan como filtros.
+  rubric:
+  - Dice que la absorción quita luz de forma permanente
+  - Dice que la dispersión solo redirige la luz
+  - Indica que una pintura real tiene absorción y dispersión, mientras que un modelo de filtros solo tiene
+    absorción
+  - Relaciona la distinción con el modelo de Kubelka y Munk o con que la regla simple falle
+- id: q-subtractive-mixing-006
+  prompt: Según Macevoy, dos pinturas que se ven con el mismo color en el tubo, ¿pueden dar la misma mezcla
+    con un tercer color?
+  options:
+    a: 'Sí, siempre: el mismo aspecto implica la misma mezcla'
+    b: Sí, si se usa la misma cantidad de cada una
+    c: 'No necesariamente: pueden tener curvas de reflectancia distintas y mezclar de otra forma'
+    d: No, porque dos pinturas nunca pueden verse igual
+  explanation: 'Pinturas con el mismo color visual pueden tener curvas de reflectancia distintas y mezclar
+    diferente. La opción a es el error que se corrige: el color visual del tubo no basta para predecir
+    la mezcla.'
+- id: q-subtractive-mixing-007
+  prompt: Das un taller de acuarela. Una alumna quiere calcular, con la fórmula sustractiva que le explicaron,
+    qué mezcla exacta de un azul y un amarillo dará su verde objetivo. ¿Qué le aconsejas?
+  model_answer: 'Le diría que la pintura solo es aproximadamente sustractiva: el modelo sirve de brújula
+    para anticipar la dirección (mezclar siempre cuesta luz y croma, y más cuanto más separados están
+    los colores en la rueda), pero no para calcular el resultado exacto. Según Macevoy, la rueda es una
+    guía direccional y no una calculadora. Haría muestras con sus propias pinturas y las juzgaría secas,
+    porque las mezclas cambian al secar.'
+  rubric:
+  - Dice que la pintura solo es aproximadamente sustractiva
+  - Explica que el modelo sirve para la dirección (mezclar cuesta luz y croma) pero no para calcular el
+    resultado
+  - Recomienda usar la rueda como guía y no como calculadora
+  - Recomienda comprobar con una muestra seca
+- id: q-subtractive-mixing-008
+  prompt: 'Un compañero afirma: "La pintura es cian, magenta y amarillo y punto; con la fórmula sustractiva
+    y el color visual de cada tubo puedo predecir cualquier mezcla". ¿Qué le respondes?'
+  model_answer: Es una simplificación. En impresión las tintas cian, amarillo y magenta se superponen
+    sustractivamente dentro de cada punto, pero eso no hace predecible cada mezcla de tubos. El modelo
+    sustractivo puro ignora la dispersión y da resultados más oscuros y de otro matiz que la pintura real;
+    además pinturas con el mismo color visual pueden mezclar distinto. Para predecir bien hay que usar
+    un modelo con absorción y dispersión, o muestras reales de los propios tubos.
+  rubric:
+  - Rechaza que la fórmula sustractiva pura predique cualquier mezcla
+  - Menciona que la pintura también dispersa luz y el modelo puro no lo incluye
+  - Indica que el color visual del tubo no basta (misma apariencia, distinta mezcla)
+  - Propone un modelo con absorción y dispersión o muestras reales
+- id: q-subtractive-mixing-009
+  prompt: Un estudio de restauración debe igualar con precisión una mezcla de pinturas para retocar una
+    obra. ¿Cómo plantearías la decisión entre calcular la mezcla y hacerla por muestras, y qué pasos darías?
+  model_answer: Cuando importa la precisión, se miden los coeficientes de absorción y dispersión de cada
+    pigmento y se calcula la mezcla (suma ponderada por concentración de esos coeficientes, con la ecuación
+    de Kubelka-Munk), lo que exige datos medidos de los propios materiales. Esos modelos tienen límites,
+    como suponer una capa gruesa que oculta el fondo. Por eso en la práctica se comprueba siempre con
+    una muestra seca, porque las mezclas cambian al secar. Combinaría el cálculo, si hay datos de los
+    pigmentos, con la verificación física.
+  rubric:
+  - Dice que la precisión exige medir absorción y dispersión de cada pigmento
+  - Describe que el cálculo usa esos coeficientes ponderados por concentración
+  - Menciona al menos un límite del modelo (capa gruesa que oculta el fondo, o datos de un medio concreto)
+  - Indica que siempre se verifica con una muestra seca
+- id: q-complementary-colors-001
+  prompt: ¿Qué ocurre, según Munsell, al mezclar en la proporción adecuada dos pinturas de matices opuestos
+    en la rueda?
+  options:
+    a: Dan un color más vivo que cada uno por separado
+    b: Se neutralizan y dan un gris
+    c: Dan siempre un blanco
+    d: Dan un color intermedio de croma máximo
+  explanation: Los matices opuestos mezclan en un gris neutro. Con luces el resultado sería blanco, no
+    con pigmentos (opción c).
+- id: q-complementary-colors-002
+  prompt: ¿Qué color se obtiene al mezclar con pintura, en la proporción adecuada, dos colores complementarios?
+  accepted:
+  - gris
+  - un gris
+  - gris neutro
+  - un gris neutro
+  - neutro
+  - gray
+  - grey
+  - neutral gray
+- id: q-complementary-colors-003
+  prompt: Una alumna mezcla a partes iguales los dos pigmentos de un par complementario y no obtiene un
+    gris, sino un color que tira a uno de ellos. ¿Cuál es la explicación más razonable según Munsell?
+  options:
+    a: El par no era realmente complementario
+    b: La mezcla de pigmentos nunca puede dar gris
+    c: El ojo se equivoca siempre con los grises
+    d: Los dos pigmentos tienen distinto croma, y la proporción que neutraliza no suele ser mitad y mitad
+  explanation: Munsell señala que el óxido de cromo tiene aproximadamente la mitad de croma que su complementario,
+    el sulfuro de mercurio, así que no basta la misma cantidad de cada uno. La opción a es tentadora,
+    pero el desequilibrio se explica por el croma, no por que el par sea falso.
+- id: q-complementary-colors-004
+  prompt: Explica con tus palabras por qué un color no tiene un único complementario "correcto".
+  model_answer: Según Macevoy, hay complementarios visuales, de mezcla y de posimagen, que a menudo no
+    coinciden. Además, un matiz puede tener varios complementarios de mezcla, así que no caben todos en
+    un único punto de la rueda. A eso se suma que los pares cambian según la rueda utilizada (por ejemplo,
+    RYB frente a Munsell, que eligió los suyos porque se neutralizaban en discos giratorios).
+  rubric:
+  - Distingue al menos dos tipos de complementarios (visual, de mezcla, de posimagen)
+  - Dice que esos tipos a menudo no coinciden
+  - Indica que un matiz puede tener varios complementarios de mezcla o que los pares dependen de la rueda
+  - Concluye que no hay un único complementario fijo
+- id: q-complementary-colors-005
+  prompt: Estás pintando a la acuarela un rojo muy saturado que resulta demasiado chillón. Quieres apagarlo
+    hacia un gris coloreado, más vivo que uno de tubo. ¿Qué haces y qué precauciones tomas?
+  model_answer: 'Usaría un complementario de mezcla para apagarlo de forma controlada y obtener un gris
+    coloreado. La rueda indica la dirección, pero no la cantidad ni el pigmento concreto: según Macevoy,
+    los pares que neutralizan dependen de cada pigmento y los neutralizantes habituales, como la siena
+    tostada o el rojo veneciano, funcionan bien. Añadiría poco a poco, probaría con muestras y las juzgaría
+    secas. Sus resultados son de acuarela y pueden diferir en otros medios.'
+  rubric:
+  - Propone apagar con un complementario de mezcla para obtener un gris coloreado
+  - Aclara que la rueda da la dirección, no la cantidad ni el pigmento exacto
+  - Menciona que el complementario eficaz depende del pigmento concreto (por ejemplo un neutralizante
+    como la siena tostada)
+  - Indica que hay que comprobar con muestras secas o que los datos son de acuarela
+- id: q-complementary-colors-006
+  prompt: Una alumna prepara un par de pigmentos complementarios y quiere comprobar si están equilibrados,
+    pero al mezclarlos obtiene un gris con un matiz residual. ¿Cómo procederías, según el método de Munsell,
+    para decidir qué corregir?
+  model_answer: Munsell igualaba antes el valor y el croma de los dos pigmentos y los pintaba en discos
+    giratorios (discos de Maxwell). Si la mezcla se veía gris, el par estaba equilibrado; si quedaba un
+    matiz residual, ese matiz indicaba cuál de los dos sobraba. Corregiría reduciendo el pigmento sobrante
+    y recordaría que la proporción no suele ser mitad y mitad, porque los pigmentos tienen distinto croma.
+  rubric:
+  - Propone igualar valor y croma de los pigmentos antes de comparar
+  - Describe la mezcla en discos giratorios o la comprobación de que el resultado sea gris
+  - Dice que el matiz residual indica cuál sobra
+  - Señala que la proporción no tiene por qué ser mitad y mitad
+- id: q-tints-shades-tones-001
+  prompt: ¿Qué efecto práctico tiene añadir negro a un color de pintura, según Macevoy?
+  options:
+    a: Solo baja el valor y deja el croma intacto
+    b: Sube el valor y el croma a la vez
+    c: Baja a la vez la claridad y el croma, y es un camino hacia los colores oscuros y apagados
+    d: No cambia nada si se añade poco
+  explanation: El negro baja la claridad y el croma al mismo tiempo. La opción a es tentadora, pero se
+    corrige con la observación de que el negro apaga la mezcla además de oscurecerla.
+- id: q-tints-shades-tones-002
+  prompt: Quieres conseguir un marrón o un ocre a partir de un amarillo. Según Macevoy, ¿qué ocurre si
+    solo le añades blanco?
+  options:
+    a: Obtienes pasteles, pero nunca los colores oscuros y apagados como el marrón o el ocre
+    b: Obtienes directamente el marrón
+    c: Obtienes el mismo amarillo con más croma
+    d: Obtienes un amarillo más oscuro
+  explanation: El blanco da pasteles y no los colores oscuros y apagados; para llegar a ellos hay que
+    pasar por el negro, un gris o un complementario. La opción c confunde subir el valor con subir el
+    croma.
+- id: q-tints-shades-tones-003
+  prompt: En pintura real, ¿qué ocurre al mezclar azul ftalo con cantidades crecientes de blanco, en comparación
+    con un degradado RGB?
+  options:
+    a: En ambos casos el color pierde saturación de forma directa
+    b: En la pintura el croma puede subir un poco al principio y el matiz se desplaza hacia el turquesa,
+      mientras que el degradado RGB se ve gris y apagado
+    c: En la pintura el matiz no cambia nunca
+    d: En el RGB el matiz se desplaza y en la pintura no
+  explanation: Sochorova y colaboradores muestran que el modelo de pigmentos reproduce la ganancia de
+    croma y el desplazamiento del matiz, mientras que los degradados RGB se ven grises y apagados. La
+    opción a describe solo el comportamiento de RGB.
+- id: q-tints-shades-tones-004
+  prompt: Explica con tus palabras por qué el blanco y el negro de tubo no son ideales, con algún dato.
+  model_answer: Un blanco ideal sería valor 10 y croma 0, y un negro ideal valor 0, pero en las tablas
+    de acrílicos el blanco de titanio mide valor 10 y croma 1,1 y el negro de carbón valor 1 y croma 0,3,
+    así que el negro de tubo no llega a valor 0. Según Macevoy, los negros de carbón son en realidad grises
+    oscuros con una reflectancia de unos 20.
+  rubric:
+  - Dice que el negro de tubo no llega a valor 0 (por ejemplo valor 1)
+  - Dice que el blanco de tubo no es perfectamente acromático (croma distinto de 0)
+  - Aporta algún dato de las tablas (blanco de titanio 10 / 1,1 o negro de carbón 1 / 0,3)
+  - Concluye que ambos son aproximaciones y no extremos ideales
+- id: q-tints-shades-tones-005
+  prompt: Quieres entender cómo se comportan tus acrílicos al mezclarlos con blanco para poder predecir
+    mezclas. Un colega propone hacer una escalera completa de muchas mezclas de cada pigmento; otro dice
+    que bastan dos muestras. ¿Qué decides y por qué?
+  model_answer: 'La escalera de tinte (el pigmento con blanco en concentraciones crecientes) es la práctica
+    habitual para construir una base de datos de colorantes, ajustando por mínimos cuadrados un coeficiente
+    de absorción y otro de dispersión por colorante. Según el resumen de Zhao y Berns, para acrílicos
+    y óleos de artista bastan dos muestras: la pintura pura y una mezcla con blanco, con mejor resultado
+    hacia un 40-60 % de pigmento. Para un uso de taller, hacer la escalera de cada pigmento con mi propio
+    blanco muestra su naturaleza (cómo cambia el matiz y el croma).'
+  rubric:
+  - Explica que la escalera de tinte sirve para caracterizar absorción y dispersión de cada colorante
+  - Indica que, según el resumen de Zhao y Berns, bastan dos muestras (pura y mezcla con blanco) en acrílico
+    y óleo
+  - Menciona la proporción de pigmento de la mezcla (hacia un 40-60 %)
+  - Justifica la elección o el valor de la escalera con el blanco propio
+- id: q-tints-shades-tones-006
+  prompt: Pintas un paisaje y necesitas un verde dorado y un ocre oscuro. Tu primer intento es añadir
+    blanco a un amarillo y un verde, pero salen pasteles. ¿Qué cambias y cómo decides qué añadir?
+  model_answer: 'Cambiaría de estrategia: el blanco sube el valor y da pasteles, pero para llegar a marrones,
+    ocres y verdes dorados hay que pasar por el negro, un gris o un complementario. Decidiría primero
+    qué dimensión quiero modificar: solo el valor (agua o blanco), valor y croma a la vez (negro) o el
+    croma (un complementario o un neutro del mismo valor). Probaría con pequeñas cantidades y compararía
+    con el objetivo.'
+  rubric:
+  - Dice que el blanco solo da pasteles y no los colores oscuros y apagados
+  - Propone el negro, un gris o un complementario para llegar a ocres y marrones
+  - Distingue qué dimensión cambia cada opción (valor, valor y croma, croma)
+  - Decide el pigmento según la dimensión que se quiere corregir
+- id: q-primary-colors-001
+  prompt: ¿Por qué ningún trío de pinturas puede mezclar todos los colores?
+  options:
+    a: Porque solo existen tres colores primarios en la naturaleza
+    b: Porque los primarios "ideales" son imaginarios y los pigmentos reales son siempre imperfectos
+    c: Porque la pintura no se puede mezclar
+    d: Porque el ojo solo distingue tres colores
+  explanation: Los pigmentos reales son imperfectos, así que ningún conjunto de tres primarios materiales
+    cubre todo el gamut (Sochorova lo confirma con sus pigmentos). La opción a reproduce el mito de que
+    los primarios son un hecho de la naturaleza.
+- id: q-primary-colors-002
+  prompt: Un alumno afirma que rojo, amarillo y azul son los primarios "de la naturaleza". ¿Cuál de estas
+    respuestas se ajusta mejor a las fuentes?
+  options:
+    a: 'Es cierto: todos los demás colores salen de ellos'
+    b: Es cierto solo para las luces
+    c: Es una elección histórica limitada por los pigmentos de cada época; Munsell ya criticaba el modelo
+      RYB
+    d: Es falso porque los primarios son el verde, el naranja y el violeta
+  explanation: 'El trío RYB es una elección histórica ligada a los pigmentos disponibles; Munsell decía
+    que el amarillo no es primario porque se produce con luz roja y verde. La opción b invierte la realidad:
+    para luces el conjunto tampoco es único.'
+- id: q-primary-colors-003
+  prompt: Explica con tus palabras la diferencia entre un primario en la visión (luces) y un primario
+    en la pintura.
+  model_answer: En la visión, los primarios corresponden a los tres tipos de cono y el conjunto no es
+    único (rojo, verde y azul sirven, pero también amarillo, verde y azul); se definen por la fisiología
+    y la luz. En la pintura, un primario es un pigmento concreto, y como los pigmentos son imperfectos,
+    ningún trío mezcla todos los colores. Según Macevoy, los primarios de la pintura son una elección.
+  rubric:
+  - Dice que en la visión los primarios se relacionan con los tres tipos de cono
+  - Dice que el conjunto de primarios de luz no es único
+  - Dice que en pintura un primario es un pigmento concreto
+  - Indica que el trío de pintura tiene límites (no mezcla todo) o es una elección
+- id: q-primary-colors-004
+  prompt: Según Macevoy, ¿cómo se ve el gamut de una paleta?
+  options:
+    a: Contando cuántos tubos tiene
+    b: Sumando la claridad de cada pintura
+    c: Mirando solo el matiz de la pintura más saturada
+    d: 'Dibujando los pigmentos en un diagrama y uniéndolos: cuanta más área encierren, más mezclas'
+  explanation: El gamut se ve uniendo los pigmentos en un diagrama; cuanta más área, más mezclas posibles.
+    La opción a es tentadora pero tener más tubos no garantiza más área.
+- id: q-primary-colors-005
+  prompt: Eres acuarelista y dudas entre una paleta de seis pinturas (tríada más tres secundarias) y una
+    de primarios divididos. Quieres el mayor croma por pintura. ¿Qué escoges y qué límites conoces?
+  model_answer: Según Macevoy, seis pinturas (la tríada más tres secundarias) dan el mayor croma por pintura,
+    y casi todo el potencial de mezcla de las acuarelas se alcanza con seis; la paleta de primarios divididos
+    da un gamut menor y mezclas más incómodas. Como límite, una tríada puede no mezclar un oscuro neutro
+    igual al negro. Es un criterio de fiabilidad C y basado en acuarela, así que probaría con muestras
+    propias.
+  rubric:
+  - Escoge la paleta de seis, atribuyendo el criterio a Macevoy
+  - Justifica con el mayor croma por pintura o el gamut mayor
+  - Dice que los primarios divididos dan un gamut menor y mezclas incómodas
+  - Menciona un límite (una tríada puede no dar un oscuro neutro igual al negro) o que son datos de acuarela
+- id: q-primary-colors-006
+  prompt: Enseñas pintura a un grupo que aprendió que "rojo, amarillo y azul lo mezclan todo". Un alumno
+    no consigue un violeta vivo ni un verde vivo con sus tres tubos. ¿Cómo lo explicas y qué le propones?
+  model_answer: 'Le explicaría que RYB es una elección histórica y que ningún trío de pigmentos mezcla
+    todo: los pigmentos son impuros, y Munsell ya decía que la práctica de los pintores no valida el RYB.
+    Mezclar colores separados en la rueda cuesta croma. Le propondría escoger primarios más próximos a
+    los ideales sustractivos (un rojo violáceo, un amarillo y un azul verdoso) o añadir una pintura que
+    amplíe el gamut, y comprobarlo con muestras secas.'
+  rubric:
+  - Explica que RYB es una elección histórica y no una ley de la naturaleza
+  - Dice que los pigmentos son impuros, así que ningún trío mezcla todo
+  - Propone primarios más cercanos a los ideales (magenta, amarillo, cian) o añadir otra pintura
+  - Relaciona el problema con la pérdida de croma al mezclar colores lejanos o recomienda muestras
+- id: q-primary-colors-007
+  prompt: Un pintor usa un ultramar (azul cálido) como único azul y observa que casi todas sus mezclas
+    azuladas salen "cálidas". ¿Qué decisión le recomiendas respecto a su paleta y cómo la justificas?
+  model_answer: 'Según Sochorova y colaboradores, los primarios elegidos marcan el comportamiento de todas
+    las mezclas: con un azul cálido como el ultramar, la mayoría de los colores azulados heredan su carácter
+    cálido. Le recomendaría decidir cuál de las versiones cálida y fría de cada primario sesga menos sus
+    mezclas, escoger primarios según los colores más difíciles de alcanzar de su tema y comprobar las
+    mezclas secundarias con muestras secas.'
+  rubric:
+  - Dice que el primario elegido marca el carácter de todas las mezclas
+  - Relaciona el ultramar cálido con mezclas azuladas cálidas
+  - Propone considerar versiones cálida y fría de cada primario
+  - Recomienda elegir según los colores difíciles de su tema y comprobar con muestras
+- id: q-pigment-mixing-behavior-001
+  prompt: En el modelo de mezcla de pigmentos basado en Kubelka-Munk que usan Sochorova y colaboradores,
+    ¿sobre qué magnitudes se hace el promedio ponderado por concentración?
+  options:
+    a: Sobre los valores RGB de cada pigmento
+    b: Sobre la reflectancia de cada pigmento
+    c: Sobre los coeficientes de absorción K y de dispersión S de cada pigmento
+    d: Sobre los matices de cada pigmento
+  explanation: El promedio lineal se hace en K y S (regla atribuida allí a Duncan, 1940), no en la reflectancia
+    ni en RGB. Promediar RGB (opción a) sería el error de tratar la pintura como luz.
+- id: q-pigment-mixing-behavior-002
+  prompt: Según Kubelka y Munk, para una capa gruesa de pintura acromática, ¿de qué depende su aspecto?
+  options:
+    a: Solo de la razón entre absorción y dispersión, no de sus valores absolutos
+    b: Solo del espesor de la capa
+    c: Solo de la dispersión
+    d: Del valor absoluto de la absorción únicamente
+  explanation: 'Para una capa gruesa el aspecto depende de la razón s/r entre absorción y dispersión.
+    La opción b es errónea: el espesor deja de importar cuando la capa es lo bastante gruesa.'
+- id: q-pigment-mixing-behavior-003
+  prompt: Explica con tus palabras por qué mezclar pinturas no es promediar sus colores.
+  model_answer: En una pintura, las partículas absorben y dispersan la luz varias veces, y el resultado
+    de mezclar es muy poco lineal. El modelo de Kubelka-Munk promedia los coeficientes de absorción y
+    dispersión, no la reflectancia ni el RGB, así que el color resultante no es el promedio de los colores.
+    Por eso las líneas de mezcla de pintura se curvan y pasan por matices secundarios, mientras que en
+    RGB la trayectoria es una recta.
+  rubric:
+  - Dice que la mezcla de pigmentos es poco lineal (absorción y dispersión)
+  - Indica que el promedio se hace en K y S y no en el color
+  - Menciona que las trayectorias de mezcla de pintura se curvan, a diferencia de RGB
+  - Concluye que el color de la mezcla no es el promedio de los colores
+- id: q-pigment-mixing-behavior-004
+  prompt: Quieres implementar en una aplicación de pintura un modelo de mezcla basado en Kubelka-Munk
+    para que el azul y el amarillo den verde como en la realidad. Tu jefe cree que servirá igual para
+    acuarela con veladuras. ¿Qué le adviertes?
+  model_answer: 'Le advertiría de los límites que reconocen Sochorova y colaboradores: el modelo supone
+    una capa gruesa que oculta el fondo y una mezcla homogénea de pintura opaca, y las capas translúcidas
+    como las veladuras de acuarela quedan como trabajo futuro. Además, los coeficientes proceden de acrílicos
+    brillantes y el brillo enriquece los colores, así que el método puede sobrestimar la saturación en
+    un medio más mate. Y necesita muchos más canales que tres y costosas integrales espectrales por píxel.'
+  rubric:
+  - Dice que el modelo supone capa gruesa y opaca y que las veladuras translúcidas no están cubiertas
+  - Indica que los coeficientes son de acrílicos brillantes y que puede sobrestimar la saturación en medios
+    más mates
+  - Menciona el coste computacional (muchos canales, integrales espectrales)
+  - Concluye que no sirve tal cual para acuarela con veladuras
+- id: q-pigment-mixing-behavior-005
+  prompt: Tienes dos tubos de amarillo que en el tubo se ven casi idénticos, pero al mezclarlos con el
+    mismo azul dan verdes distintos. Tu compañera cree que uno de los tubos está defectuoso. ¿Qué piensas
+    y qué decides?
+  model_answer: 'No creería que esté defectuoso: según Macevoy, pinturas con el mismo color visual pueden
+    tener curvas de reflectancia distintas y mezclar de otra forma, y dos amarillos de reflectancia casi
+    idéntica pueden mezclar distinto por su índice de refracción. Por eso el aspecto del tubo no predice
+    la mezcla. Decidiría hacer muestras de mezcla con mis propios tubos y juzgarlas secas, porque la reflectancia
+    cambia al secar y con el espesor.'
+  rubric:
+  - Rechaza que sea un defecto y explica que el mismo color visual no implica la misma mezcla
+  - Menciona curvas de reflectancia distintas o el índice de refracción
+  - Indica que la reflectancia cambia al secar o con el espesor
+  - Decide hacer muestras con los propios tubos y secarlas antes de juzgar
+- id: q-pigment-mixing-behavior-006
+  prompt: 'Para armar tu paleta de acuarelas comparas dos opciones: un trío de primarios sustractivos
+    y otro de tipo aditivo (naranja, verde, violeta). ¿Qué te sugiere la observación de Macevoy sobre
+    el coste de mezclar, y con qué cautela la aplicas?'
+  model_answer: Según Macevoy, mezclar pinturas muy separadas en la rueda cuesta saturación. Las líneas
+    de mezcla de primarios sustractivos se curvan hacia fuera (menos pérdida de croma de la esperada),
+    mientras que las de tipo aditivo se curvan hacia dentro, con mayores pérdidas de croma y de claridad.
+    Me inclinaría por el trío sustractivo para mezclas vivas. Lo aplicaría con cautela porque es una observación
+    de taller sobre acuarelas, no una regla universal, y lo comprobaría con muestras propias.
+  rubric:
+  - Dice que mezclar colores muy separados en la rueda cuesta saturación
+  - Contrasta primarios sustractivos (curva hacia fuera) y de tipo aditivo (hacia dentro, más pérdidas)
+  - Elige el trío sustractivo para mezclas vivas
+  - Aclara que es una observación sobre acuarelas y no una regla universal
+- id: q-optical-mixing-001
+  prompt: Pequeños puntos de tinta roja y de tinta verde, vistos desde lejos, se funden visualmente. ¿Cómo
+    se ven según Macevoy y de qué tipo de mezcla se trata?
+  options:
+    a: Amarillos y brillantes, por mezcla aditiva
+    b: 'Apagados y oscuros, porque el ojo promedia la reflectancia: no es aditiva ni sustractiva'
+    c: Verdes, por mezcla sustractiva
+    d: Blancos, porque se suman las luces
+  explanation: En la mezcla partitiva el ojo promedia la reflectancia, no suma luz, y los puntos rojo
+    y verde se ven apagados. La opción a es la confusión de Fénéon que recoge Gómez Sánchez, según su
+    interpretación.
+- id: q-optical-mixing-002
+  prompt: Según Koenderink y colaboradores, ¿qué caracteriza la mezcla óptica?
+  options:
+    a: Es una mezcla física de pigmentos en el lienzo
+    b: Exige que los puntos desaparezcan por completo
+    c: Es una mezcla de la mente y no de la luz, y los puntos deben seguir siendo visibles
+    d: Siempre da colores más luminosos que la mezcla en la paleta
+  explanation: Los autores la describen como una mezcla de la mente, con efecto de asimilación, y los
+    puntos deben seguir visibles. La opción d es la creencia común que discute Gómez Sánchez.
+- id: q-optical-mixing-003
+  prompt: Según Gómez Sánchez, ¿qué se suele creer sobre la luminosidad de la mezcla óptica y qué sostiene
+    él sobre los impresionistas? Distingue lo que afirma de lo que es su interpretación.
+  model_answer: La creencia común es que las mezclas en la retina se comportan como rayos de luz y por
+    eso son más intensas y luminosas que la mezcla física de pigmentos. Gómez Sánchez la discute y, como
+    tesis suya (no como resultado experimental), sostiene que los impresionistas no usaron conscientemente
+    la mezcla óptica y que el vínculo se crea tras 1886, mientras que los divisionistas sí la buscaron.
+    Añade que la fusión anula el contraste.
+  rubric:
+  - Expone la creencia común de mayor luminosidad
+  - Dice que el autor la discute
+  - Presenta su tesis sobre los impresionistas como interpretación del autor
+  - Menciona que los divisionistas sí la buscaron o que la fusión anula el contraste
+- id: q-optical-mixing-004
+  prompt: Un pintor quiere dividir el color en pequeños toques en un paisaje grande, convencido de que
+    ganará luminosidad automáticamente. ¿Qué le aconsejas?
+  model_answer: 'No contaría con un extra de luminosidad automático: la evidencia es contradictoria y
+    depende de la distancia, del tamaño del toque y de si el espectador sigue viendo los puntos. Gómez
+    Sánchez recoge que, a partir de cierta distancia, los toques se funden y el cuadro se ve más apagado,
+    y Koenderink y colaboradores notan que los primeros Seurat parecían apagados de lejos, lo que llevó
+    a separar más los puntos. Su experimento se hizo a una sola distancia, así que las fuentes no dan
+    una distancia correcta.'
+  rubric:
+  - Rechaza la promesa de luminosidad automática
+  - Dice que el efecto depende de la distancia y del tamaño del toque
+  - Cita que de lejos los toques se funden y el cuadro se ve más apagado (Seurat o Gómez Sánchez)
+  - Reconoce que las fuentes no fijan una distancia correcta
+- id: q-optical-mixing-005
+  prompt: Un pintor duda entre mezclar un rojo y un verde en la paleta o colocarlos como toques separados
+    para evitar el gris. ¿Qué ventajas e inconvenientes plantearías?
+  model_answer: Según Signac, las prisas del impresionismo fundían físicamente colores opuestos en un
+    gris pigmentario apagado, y los neoimpresionistas evitan ensuciar la pureza del color manteniendo
+    los toques separados en la paleta y el lienzo. Dividir ahorra esa pérdida de croma, pero a cambio
+    hay una dependencia de la distancia. Además, Signac era consciente de que un toque muy atomizado era
+    más un inconveniente que una virtud, y Francastel observa que Monet mezclaba mucho en la paleta. Todo
+    esto es, en parte, interpretación del autor.
+  rubric:
+  - Explica que mezclar complementarios en la superficie da un gris y pierde croma (Signac)
+  - Dice que dividir evita esa pérdida pero depende de la distancia
+  - Menciona un inconveniente del toque muy atomizado o que los maestros también mezclaban en la paleta
+  - Indica que lo dicho de pintores concretos es interpretación del autor
+- id: q-target-color-mixing-001
+  prompt: Debes reproducir con tus acuarelas un verde oliva apagado que ves en un objeto. Describe, paso
+    a paso, cómo lo harías y qué precauciones tomas.
+  model_answer: Primero describiría el objetivo en matiz, valor y croma; según Macevoy, localizaría el
+    matiz y el croma en la rueda y trataría la claridad aparte, y no me fiaría solo del ojo, porque Munsell
+    mostró que juzgar un gris a ojo es poco fiable. Después elegiría dos pinturas cuya línea de mezcla
+    pase cerca del objetivo (pares que desplazan el croma para colores apagados) y un color de ajuste.
+    Mezclaría por pasos, empezando más saturado porque las pinturas se apagan al secar, y probaría sobre
+    papel. Juzgaría con una muestra seca, no con la mancha húmeda.
+  rubric:
+  - Describe el objetivo en matiz, valor y croma
+  - Advierte de que juzgar a ojo es poco fiable o recomienda una referencia medida
+  - Elige pinturas según la línea de mezcla y un color de ajuste
+  - Menciona empezar más saturado, mezclar por pasos y juzgar una muestra seca
+- id: q-target-color-mixing-002
+  prompt: El objetivo es un amarillo muy saturado y solo dispones de un ocre amarillo y de un amarillo
+    de cadmio medio. Un compañero dice que con ocre y un poco de blanco basta. ¿Qué decides y por qué?
+  model_answer: 'Comprobaría primero si la paleta puede llegar: en las tablas, el amarillo de cadmio medio
+    de Williamsburg mide 8,45 / 16,78 y el ocre amarillo 5,55 / 8,69, de modo que un amarillo de croma
+    alto no sale del ocre. Si el objetivo cae fuera del gamut, lo máximo es el color mezclable más cercano,
+    y otra pintura puede alargar el gamut. Usaría el cadmio como base, mezclaría por pasos y compararía
+    con una muestra seca, ya que las pinturas se apagan al secar.'
+  rubric:
+  - Compara el croma del cadmio medio y del ocre con datos de las tablas
+  - Concluye que un amarillo de croma alto no sale de un ocre
+  - Explica que fuera del gamut solo se logra el color mezclable más cercano o que otra pintura puede
+    ampliarlo
+  - Menciona mezclar por pasos y juzgar una muestra seca

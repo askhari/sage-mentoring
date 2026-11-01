@@ -1,0 +1,438 @@
+- id: q-light-spectrum-001
+  prompt: ¿Qué distingue a las ondas de radio, la luz visible y los rayos X, si todos son radiación electromagnética?
+  options:
+    a: Que son tres tipos de materia distintos
+    b: Su longitud de onda (y, ligada a ella, su frecuencia)
+    c: Que solo la luz visible es una onda
+    d: La velocidad con la que los percibe el ojo
+  explanation: 'Todas son variedades de la misma radiación electromagnética y se diferencian por su longitud de onda. La opción c es la tentación habitual: todas son ondas, no solo la luz visible.'
+- id: q-light-spectrum-002
+  prompt: ¿En qué unidad se expresa habitualmente la longitud de onda de la luz visible? (Equivale a una milmillonésima de metro.)
+  accepted:
+  - nm
+  - nanómetro
+  - nanómetros
+  - nanometro
+  - nanometer
+  - nanometers
+- id: q-light-spectrum-003
+  prompt: ¿Qué se puede decir de los límites del espectro visible?
+  options:
+    a: Son exactamente 400 y 700 nm para todo el mundo
+    b: Los fija la ley de Wien
+    c: 'No son nítidos: las fuentes dan valores algo distintos (p. ej. 400–750 o 380–740 nm)'
+    d: Los marca el tipo de lámpara usada
+  explanation: La CIE indica que la radiación visible no tiene límites espectrales precisos y los manuales dan rangos ligeramente distintos. Por eso un valor único fijo (a) es incorrecto.
+- id: q-light-spectrum-004
+  prompt: ¿Por qué un prisma desvía más el violeta que el rojo?
+  options:
+    a: Porque el violeta lleva más energía luminosa total
+    b: Porque la reflexión interior depende de la longitud de onda
+    c: Porque el prisma absorbe más el rojo
+    d: Porque el índice de refracción del material aumenta al disminuir la longitud de onda
+  explanation: 'El índice de refracción depende de la longitud de onda y es mayor para las cortas, de ahí la dispersión. La opción b es tentadora, pero en la gota de lluvia la reflexión interior no depende de la longitud de onda: la dispersión ocurre en las refracciones.'
+- id: q-light-spectrum-005
+  prompt: Explica con tus palabras por qué 'luz' y 'color' no son lo mismo.
+  model_answer: La longitud de onda es una propiedad física de la radiación; el color es una sensación que depende del sistema visual (los fotorreceptores del ojo). La CIE define la luz como radiación considerada por su capacidad de excitar el sistema visual. Por eso una misma radiación puede producir sensaciones distintas según quién y cómo la mire, y no todo lo que existe en el espectro lo vemos (las abejas ven ultravioleta).
+  rubric:
+  - Indica que la longitud de onda es una propiedad física de la radiación
+  - Indica que el color es una sensación que depende del sistema visual
+  - Menciona que la luz se define por su capacidad de excitar el sistema visual o da el ejemplo de otras especies que ven otras radiaciones
+- id: q-light-spectrum-006
+  prompt: Redactas la ficha técnica de tu estudio para un restaurador y quieres comparar dos lámparas. Una colega propone escribir solo 'la lámpara A es más cálida que la B' y llamar 'luz ultravioleta' a la radiación UV que emite una de ellas. ¿Cómo lo redactarías y por qué?
+  model_answer: 'Compararía las lámparas por su distribución espectral relativa y no solo con adjetivos como ''más cálida'', porque dos iluminaciones se distinguen por cómo reparten su potencia entre longitudes de onda. Además reservaría la palabra ''luz'' para la radiación visible: la CIE desaconseja usarla para radiación no visible, así que hablaría de ''radiación ultravioleta''.'
+  rubric:
+  - Propone describir cada lámpara por su distribución espectral relativa, no solo por 'cálida/fría'
+  - Indica que 'luz' debe reservarse para la radiación visible
+  - Propone llamar 'radiación ultravioleta' a la no visible
+  - Cita o alude a la CIE como criterio terminológico
+- id: q-light-spectrum-007
+  prompt: 'En un taller para principiantes, un alumno afirma: ''el arcoíris tiene siete colores fijos y la luz blanca es luz sin color''. Debes corregirlo en la hoja de la sesión. ¿Qué escribes?'
+  model_answer: 'Escribiría que la luz del arcoíris es una distribución continua de longitudes de onda: la imagen de seis o siete bandas es una convención. La luz blanca no carece de color: es una mezcla bastante uniforme de todas las longitudes de onda visibles. La luz solar parece ligeramente amarilla porque es más intensa en el rojo que en el violeta.'
+  rubric:
+  - Dice que el espectro es continuo y que las siete bandas son una convención
+  - Dice que la luz blanca contiene todas las longitudes de onda visibles
+  - No presenta la luz blanca como 'sin color'
+- id: q-light-matter-interaction-001
+  prompt: ¿Por qué un objeto no luminoso se ve azul?
+  options:
+    a: Porque refleja sobre todo luz azul y absorbe en buena medida las demás
+    b: Porque emite luz azul propia
+    c: Porque absorbe la luz azul y refleja las demás
+    d: Porque transforma la luz blanca en azul al tocarla
+  explanation: El objeto azul refleja azul y absorbe los otros colores. La opción c invierte el mecanismo, error muy común.
+- id: q-light-matter-interaction-002
+  prompt: ¿Por qué una hoja de papel se ve desde cualquier lado, mientras que un espejo solo muestra una imagen desde ciertos ángulos?
+  options:
+    a: Porque el papel emite luz y el espejo no
+    b: El papel refleja de modo difuso (rugosa) y el espejo de modo especular (lisa)
+    c: El papel absorbe toda la luz
+    d: El espejo transmite la luz a través suyo
+  explanation: 'En una superficie rugosa la luz se reparte en muchas direcciones (reflexión difusa); en una lisa, la reflexión es especular. La opción a es falsa: el papel no emite luz propia.'
+- id: q-light-matter-interaction-003
+  prompt: ¿Cómo se llama el fenómeno por el que una superficie devuelve la radiación sin cambiar su frecuencia?
+  accepted:
+  - reflexión
+  - reflexion
+  - reflection
+  - reflejo
+- id: q-light-matter-interaction-004
+  prompt: Un objeto azul se ilumina solo con luz roja pura y se ve negro. ¿Cómo se interpreta?
+  options:
+    a: El objeto ha cambiado de color verdadero
+    b: La luz roja se convierte en azul
+    c: El objeto no tiene luz azul que reflejar, y su color verdadero sigue siendo azul
+    d: El ojo falla y no distingue colores
+  explanation: 'El color percibido depende también de la iluminación: sin componente azul en la luz no hay azul que reflejar. La opción a es falsa: el color ''verdadero'' lo fijan sus propiedades de absorción y reflexión.'
+- id: q-light-matter-interaction-005
+  prompt: Explica qué es la reflectancia espectral y por qué se dice que el color de una superficie es 'una curva' y no un solo valor.
+  model_answer: La reflectancia es el cociente entre el flujo reflejado y el incidente, y puede darse en función de la longitud de onda (reflectancia espectral). Así, el color de una superficie se describe con una curva que indica qué fracción de cada longitud de onda devuelve. La curva pertenece al objeto; lo que llega al ojo es esa curva aplicada a la luz que ilumina. Por conservación de la energía, absorbancia + reflectancia + transmitancia = 1.
+  rubric:
+  - Define reflectancia como fracción reflejada del flujo incidente
+  - Indica que depende de la longitud de onda (curva espectral)
+  - Distingue la curva del objeto de la luz que lo ilumina
+- id: q-light-matter-interaction-006
+  prompt: Has igualado un color en tu estudio con una luz y estás tentada de dar la igualación por buena sin cambiar de luz. ¿Es prudente? Justifica con lo que determina el color visto.
+  model_answer: No es prudente. El color de una superficie queda fijado por su reflectancia espectral y lo que se ve depende además de la luz que la ilumina. Dos pinturas pueden compartir aspecto en una luz y no en otra, por lo que juzgar un color en un único tipo de luz es arriesgado.
+  rubric:
+  - Concluye que no es prudente juzgar en una sola luz
+  - Indica que el color de la superficie lo fija su reflectancia espectral
+  - Indica que lo visto depende también de la luz
+  - Menciona que dos pinturas pueden coincidir en una luz y no en otra
+- id: q-light-matter-interaction-007
+  prompt: Una galería ilumina con focos de luz roja casi pura un cuadro de tu serie en azules, y el galerista dice que 'el azul está mal pintado porque se ve negro'. ¿Qué le respondes y cuál es la causa del problema?
+  model_answer: 'Le diría que el cuadro no ha cambiado: un objeto azul bajo luz roja pura se ve negro porque no hay luz azul que reflejar y absorbe la roja, aunque su color verdadero siga siendo azul. La causa es la iluminación, no la pintura; habría que cambiar la luz por una que contenga las longitudes de onda que el cuadro refleja.'
+  rubric:
+  - Atribuye el problema a la iluminación y no a la pintura
+  - Explica que el objeto azul absorbe la luz roja y no tiene azul que reflejar
+  - Señala que el color verdadero sigue siendo azul
+  - Propone una luz que contenga longitudes de onda más amplias
+- id: q-photoreceptors-001
+  prompt: ¿Qué fotorreceptores dan la visión del color y están concentrados en la fóvea?
+  options:
+    a: Los bastones
+    b: Los conos
+    c: Ambos por igual
+    d: Las células horizontales
+  explanation: Los conos trabajan con mucha luz, tienen alta agudeza y dan el color; los bastones, repartidos por el resto de la retina, no dan información de color.
+- id: q-photoreceptors-002
+  prompt: Entras de un vestíbulo luminoso a una sala de cine a oscuras y al principio casi no ves. ¿Qué ocurre?
+  options:
+    a: Los conos se hacen de golpe más sensibles
+    b: La pupila se cierra y deja entrar menos luz
+    c: El cristalino pierde el enfoque
+    d: La visión pasa de depender de los conos a depender de los bastones, y eso lleva tiempo
+  explanation: El cambio de conos a bastones no es inmediato. La opción b es tentadora, pero con poca luz la pupila se ensancha.
+- id: q-photoreceptors-003
+  prompt: ¿Cómo se llaman los fotorreceptores que funcionan con poca luz y no dan información de color?
+  accepted:
+  - bastones
+  - bastón
+  - rods
+  - rod
+- id: q-photoreceptors-004
+  prompt: Las fuentes dan picos distintos para los conos S, M y L (por ejemplo 420/530/560, 440/545/565 o 455/535/580 nm). ¿A qué se debe?
+  options:
+    a: Los máximos dependen del método de medida, por lo que no se fija un único valor
+    b: Unas fuentes están equivocadas y otras no
+    c: Cada persona tiene un solo valor, igual en todas las fuentes
+    d: La longitud de onda cambia con el tiempo
+  explanation: Las fuentes divergen según el método (por ejemplo, si se corrige la pérdida de luz antes de la retina). La opción b trata la diferencia como error, cuando es una variación metodológica.
+- id: q-photoreceptors-005
+  prompt: ¿Por qué en este tema se usan los nombres S, M y L en lugar de 'conos rojos, verdes y azules'?
+  options:
+    a: Porque los conos solo ven colores neutros
+    b: Porque son nombres internacionales de laboratorio sin relación con el color
+    c: Porque cada cono responde a un intervalo amplio y solapado de longitudes de onda, y el cono 'rojo' tiene su pico en el amarillo-verdoso
+    d: Porque los conos S son los más numerosos
+  explanation: 'Los conos no ven un solo color: responden a intervalos amplios y solapados, y ''rojo'' es una etiqueta imprecisa. La opción d es falsa: los conos S son aproximadamente el 8 % de los conos.'
+- id: q-photoreceptors-006
+  prompt: ¿Cuál es la visión que usa los conos como fotorreceptores principales y es propia de la percepción del color?
+  options:
+    a: Escotópica
+    b: Fotópica
+    c: Mesópica
+    d: Periférica
+  explanation: 'La visión fotópica usa conos; la escotópica, bastones y sin color; la mesópica es intermedia, con ambos. Mesópica no es: ahí funcionan conos y bastones a la vez.'
+- id: q-photoreceptors-007
+  prompt: Explica con tus palabras las diferencias entre la visión fotópica, escotópica y mesópica.
+  model_answer: La fotópica usa los conos con luminancias de adaptación altas (unos 5 cd/m² o más) y es la propia del color. La escotópica usa los bastones, con luminancias muy bajas (por debajo de unos 0,005 cd/m²), sin percepción de color y con sensibilidad desplazada hacia longitudes de onda más cortas. La mesópica es intermedia y en ella funcionan conos y bastones.
+  rubric:
+  - Asocia la fotópica con conos y luz alta
+  - Asocia la escotópica con bastones, luz muy baja y ausencia de color
+  - Indica que la mesópica es intermedia con ambos tipos de fotorreceptor
+- id: q-photoreceptors-008
+  prompt: Sueles pintar al atardecer y la luz del estudio baja mucho. ¿Qué dicen las fuentes sobre cómo cambia tu percepción del color a medida que la luminancia desciende y qué precauciones razonables extraes? Distingue lo respaldado de lo inferido.
+  model_answer: Con luminancias fotópicas ven los conos y hay percepción de color; en el rango escotópico (bajo unos 0,005 cd/m²) no hay percepción de color; en el mesópico intervienen conos y bastones. Además, tras pasar a una zona oscura la visión tarda en cambiar de conos a bastones. Como inferencia (no está en las fuentes tal cual), con luz muy baja el juicio del color se vuelve menos fiable y conviene no tomar decisiones finales de color en esas condiciones.
+  rubric:
+  - Dice que en el rango escotópico no hay percepción de color
+  - Dice que en el mesópico intervienen conos y bastones
+  - Menciona que el cambio de conos a bastones lleva tiempo
+  - Marca como inferencia la conclusión práctica sobre la fiabilidad del juicio de color
+- id: q-photoreceptors-009
+  prompt: Un alumno sostiene que ve los colores con la misma precisión en todo el campo visual, incluso en el borde de un lienzo grande mientras mira el centro. ¿Qué le explicas con lo que se sabe de los fotorreceptores?
+  model_answer: Los conos, que dan el color y la alta agudeza, se concentran en la fóvea; el resto de la retina está ocupado por bastones, que no dan información de color y tienen baja agudeza. Por eso el color se aprecia con precisión en la zona que se mira directamente, no en la periferia.
+  rubric:
+  - Indica que los conos se concentran en la fóvea
+  - Indica que los bastones ocupan el resto de la retina y no dan color
+  - Concluye que el color se aprecia con más precisión en lo que se mira directamente
+- id: q-trichromacy-001
+  prompt: ¿En qué consiste la visión tricromática humana?
+  options:
+    a: En que el ojo tiene tres lentes
+    b: En que vemos tres colores únicamente
+    c: En que hay tres clases de conos (S, M, L), cada una con mayor respuesta a un intervalo distinto de longitudes de onda
+    d: En que los bastones se dividen en tres tipos
+  explanation: 'Las tres clases de cono son la base. La opción b es falsa: con tres canales se perciben al menos un millón de colores.'
+- id: q-trichromacy-002
+  prompt: ¿Cómo se llama la teoría según la cual los tres tipos de cono responden cada uno mejor a un intervalo distinto de longitudes de onda?
+  accepted:
+  - teoría tricromática
+  - teoria tricromatica
+  - tricromática
+  - tricromatica
+  - tricromacía
+  - tricromacia
+  - tricromatismo
+  - visión tricromática
+  - vision tricromatica
+  - trichromatic theory
+  - trichromacy
+  - Young-Helmholtz
+  - teoría de Young-Helmholtz
+- id: q-trichromacy-003
+  prompt: ¿Por qué la pantalla de un móvil puede mostrar millones de colores con solo tres tipos de luz?
+  options:
+    a: Porque el ojo también tiene solo tres canales de entrada (los tres tipos de cono)
+    b: Porque cada color tiene su propio píxel
+    c: Porque los bastones completan el color
+    d: Porque la pantalla emite todas las longitudes de onda visibles
+  explanation: Tres primarios bastan porque el ojo capta con tres tipos de cono. La opción d confunde la pantalla con la luz blanca natural.
+- id: q-trichromacy-004
+  prompt: ¿Por qué un único tipo de cono sería ciego al color?
+  options:
+    a: Porque no tendría pigmento
+    b: Porque respondería igual a la misma energía absorbida sea cual sea la longitud de onda (univarianza), y hacen falta al menos dos tipos para compararlas
+    c: Porque no se saturaría
+    d: Porque no habría fóvea
+  explanation: 'La univarianza impide distinguir longitud de onda de intensidad con un solo pigmento. La opción c no tiene que ver: la saturación se discute para bastones y conos, no explica la ceguera al color.'
+- id: q-trichromacy-005
+  prompt: ¿Por qué se dice que la teoría de los tres conos está bien establecida pero es incompleta?
+  options:
+    a: Porque no hay tres conos en la retina
+    b: Porque solo describe la visión nocturna
+    c: Porque los primarios son siempre rojo, verde y azul
+    d: Por sí sola no explica los cuatro matices únicos ni cómo ven los dicromáticos blanco y amarillo; lo completan los procesos oponentes
+  explanation: 'La teoría tricromática describe la etapa de los conos, no el procesamiento posterior. La opción c es un error: no hay un conjunto único de primarios.'
+- id: q-trichromacy-006
+  prompt: Explica con tus palabras cómo se relaciona la igualación de colores con los valores triestímulo y por qué esto convierte el color en tres números.
+  model_answer: 'Tres primarios pueden igualar casi cualquier color, y la igualación es lineal: un color de prueba equivale a una suma ponderada de tres primarios. Los pesos son los valores triestímulo. Por eso el color se especifica con tres números, que es la base de los sistemas tricromáticos de la CIE y del metamerismo.'
+  rubric:
+  - Dice que tres primarios pueden igualar casi cualquier color
+  - Indica que los pesos de la suma son los valores triestímulo
+  - Concluye que el color queda especificado por tres números
+- id: q-trichromacy-007
+  prompt: Una colega pintora duda de que una pantalla con solo tres tipos de luz pueda mostrar fielmente los colores de sus pigmentos, cuyos espectros son muy distintos. ¿Qué le explicas?
+  model_answer: El ojo reduce cualquier espectro a tres respuestas, por eso las pantallas y cámaras reproducen el color con tres primarios. Espectros distintos con los mismos valores triestímulo parecen iguales (metamerismo), así que la pantalla no necesita reproducir el espectro del pigmento, sino producir las mismas tres respuestas.
+  rubric:
+  - Dice que el ojo reduce el espectro a tres respuestas
+  - Dice que ello permite reproducir color con tres primarios
+  - Explica que espectros distintos con iguales valores triestímulo parecen iguales
+- id: q-trichromacy-008
+  prompt: Dos pintores con visión normal discuten si un verde de una pintura 'tira a amarillo' o no. Uno afirma que seguro ven distinto porque tienen distinta proporción de conos. ¿Qué dato respaldado puedes aportar y qué no puedes afirmar todavía?
+  model_answer: El dato respaldado es que la relación entre conos L y M varía mucho entre individuos (de aproximadamente igual hasta unos 16:1) y que los conos S son cerca del 8 % del total. Que por ello dos personas vean exactamente distinto un mismo color es una inferencia razonable, pero las fuentes consultadas no lo afirman, así que debe presentarse como hipótesis.
+  rubric:
+  - Cita que la relación L:M varía mucho entre individuos (hasta aproximadamente 16:1)
+  - Distingue el dato de la conclusión sobre ver distinto
+  - Indica que esa conclusión es una inferencia no afirmada por las fuentes
+- id: q-opponent-process-001
+  prompt: ¿Qué pares opuestos propone la teoría del proceso oponente?
+  options:
+    a: Negro–blanco, amarillo–azul y verde–rojo
+    b: Rojo–azul, verde–amarillo y negro–gris
+    c: Cian–rojo, magenta–verde y amarillo–azul
+    d: Claro–oscuro, cálido–frío y saturado–apagado
+  explanation: Esos son los tres pares de la teoría. La opción c recuerda a las rueda de pigmentos, pero no es el esquema de la teoría.
+- id: q-opponent-process-002
+  prompt: ¿Cómo se relacionan la teoría tricromática y la del proceso oponente?
+  options:
+    a: 'Son excluyentes: solo una es correcta'
+    b: 'Actúan en niveles distintos: los conos siguen la tricromática y más allá de la retina las células responden según la oponencia'
+    c: La oponente explica la retina y la tricromática la corteza
+    d: La oponente sustituyó a la tricromática por completo
+  explanation: Ambas se cumplen en etapas distintas. La opción c invierte las etapas.
+- id: q-opponent-process-003
+  prompt: Según la experiencia cotidiana descrita por la teoría oponente, ¿qué combinaciones no vemos como colores?
+  options:
+    a: Amarillos anaranjados
+    b: Violetas azulados
+    c: Rojos anaranjados
+    d: Verdes rojizos o azules amarillentos
+  explanation: Los pares opuestos no se perciben mezclados en un mismo matiz único. Las otras opciones son mezclas de matices vecinos, que sí percibimos.
+- id: q-opponent-process-004
+  prompt: Explica con tus palabras por qué la visión tricromática no basta para explicar la percepción del color y cómo la completa el proceso oponente.
+  model_answer: 'Los tres conos describen lo que ocurre en la retina, pero no explican por qué percibimos cuatro matices puros (rojo, verde, amarillo, azul). El proceso oponente propone pares opuestos (negro–blanco, amarillo–azul, verde–rojo) con células que se excitan con un color y se inhiben con el opuesto. Ambas teorías actúan en etapas distintas: tricromática en los conos y oponente en el procesamiento posterior.'
+  rubric:
+  - Dice que la tricromática no explica los cuatro matices únicos
+  - Describe los pares oponentes y la excitación/inhibición
+  - Indica que las teorías actúan en etapas distintas
+- id: q-opponent-process-005
+  prompt: Un estudiante de pintura te pregunta si los pares oponentes de la fisiología (verde–rojo, amarillo–azul) demuestran que los complementarios de la rueda del pintor son los correctos. ¿Qué respondes?
+  model_answer: Los pares verde–rojo y amarillo–azul son una explicación fisiológica de por qué ciertos colores se 'oponen' visualmente, y pueden relacionarse con el uso pictórico de los complementarios. Pero las fuentes consultadas no establecen una correspondencia exacta entre esos pares fisiológicos y los complementarios de la rueda del pintor, así que no se puede afirmar que lo demuestren.
+  rubric:
+  - Menciona los pares verde–rojo y amarillo–azul como base fisiológica
+  - Dice que explican por qué ciertos colores se oponen visualmente
+  - Aclara que no hay correspondencia exacta establecida con los complementarios de la rueda del pintor
+- id: q-opponent-process-006
+  prompt: Un compañero asegura que 'a cada longitud de onda le corresponde un único color fijo, así que una luz de onda corta nunca puede verse rojiza'. ¿Qué respondes?
+  model_answer: 'Algunas longitudes de onda cortas pueden verse rojizas, atribuido a la banda beta de la opsina L. Es un recordatorio de que el matiz percibido no es simplemente ''una longitud de onda, un color'': depende del procesamiento del sistema visual.'
+  rubric:
+  - Indica que algunas longitudes de onda cortas pueden verse rojizas
+  - Menciona la banda beta de la opsina L
+  - Concluye que el matiz no es 'una longitud de onda, un color'
+- id: q-color-vision-deficiency-001
+  prompt: ¿Qué caracteriza al dicromatismo?
+  options:
+    a: Que solo se ven grises
+    b: Que la discriminación es menor pero siguen necesitándose tres estímulos
+    c: Que todos los colores pueden igualarse con mezclas aditivas de solo dos estímulos
+    d: Que no existen conos
+  explanation: Esa es la definición CIE. La opción b describe el tricromatismo anómalo.
+- id: q-color-vision-deficiency-002
+  prompt: ¿Por qué las deficiencias rojo–verde afectan a muchos más varones que mujeres?
+  options:
+    a: Son recesivas ligadas al X (genes OPN1LW y OPN1MW), así que un varón necesita una sola copia alterada
+    b: Son autosómicas dominantes
+    c: Dependen de las hormonas masculinas
+    d: Se deben a la ausencia de bastones en varones
+  explanation: Con un solo cromosoma X, una copia alterada basta. La opción b describe las deficiencias azul–amarillo (OPN1SW), no las rojo–verde.
+- id: q-color-vision-deficiency-003
+  prompt: ¿Qué diferencia hay entre protanopía y deuteranopía?
+  options:
+    a: La protanopía afecta al azul y la deuteranopía al rojo
+    b: En ambas se confunden azulados y amarillentos
+    c: Solo la deuteranopía tiene dificultades con el rojo
+    d: En ambas no se distingue rojo de verde, pero en la protanopía los rojizos se ven anormalmente oscuros
+  explanation: El oscurecimiento anormal de los rojizos es el rasgo distintivo de la protanopía. La opción b describe la tritanopía.
+- id: q-color-vision-deficiency-004
+  prompt: Un conocido dice que su amigo 'es ciego al color'. Explica por qué ese término suele ser exagerado y cuáles son las tres familias de deficiencias.
+  model_answer: '''Ceguera al color'' suele exagerar, porque lo habitual es confundir ciertos colores, no perder el color. Las familias son: tricromatismo anómalo (menor discriminación, siguen necesitándose tres estímulos), dicromatismo (todo se iguala con dos estímulos) y monocromatismo (visión en escala de grises, extremadamente rara y de baja agudeza al depender solo de bastones).'
+  rubric:
+  - Explica que lo habitual es confundir ciertos colores, no perder el color
+  - 'Nombra las tres familias: tricromatismo anómalo, dicromatismo y monocromatismo'
+  - Caracteriza al menos dos de las familias correctamente
+- id: q-color-vision-deficiency-005
+  prompt: Preparas una exposición. Sabes que cerca del 8 % de los varones y el 0,5 % de las mujeres tienen alguna deficiencia de visión del color. ¿Qué dato aporta eso para tu decisión sobre cómo componer el cuadro y qué parte de tu conclusión es inferencia?
+  model_answer: La prevalencia implica que en cualquier público habrá personas que no distingan ciertos pares de colores (rojo–verde sobre todo). Una consecuencia razonable es no apoyar información esencial únicamente en una diferencia rojo–verde (o azul–amarillo) con el mismo valor, y comprobar el cuadro en escala de grises. Esa recomendación es una inferencia razonable; las fuentes dan los datos, no la formulan.
+  rubric:
+  - Cita la prevalencia (~8 % varones, ~0,5 % mujeres)
+  - Concluye que en el público habrá quien no distinga ciertos pares de colores
+  - Propone no apoyar información esencial solo en rojo–verde o azul–amarillo con el mismo valor
+  - Señala que la recomendación es una inferencia y no una afirmación de las fuentes
+- id: q-color-vision-deficiency-006
+  prompt: Un cliente con protanopía y otro con deuteranopía van a ver el mismo cuadro, que depende de un contraste entre un rojo y un verde del mismo valor aparente. ¿Qué diferencia entre ambos tipos conviene tener presente y qué no puedes concluir de las fuentes?
+  model_answer: En la protanopía los colores rojizos se ven anormalmente oscuros, mientras que en la deuteranopía tampoco se distingue rojo de verde pero sin oscurecimiento anormal. Por eso un contraste de valor puede sobrevivir de modo distinto según el tipo. Las fuentes no desarrollan implicaciones concretas para el diseño, así que no se pueden dar reglas más allá de eso.
+  rubric:
+  - Indica que en la protanopía los rojizos se ven anormalmente oscuros
+  - Indica que en la deuteranopía no hay oscurecimiento anormal
+  - Concluye que el contraste de valor puede percibirse de modo distinto según el tipo
+  - Reconoce que las fuentes no dan más reglas de diseño
+- id: q-illuminant-color-001
+  prompt: ¿Qué representan los iluminantes estándar A y D65 de la CIE?
+  options:
+    a: A, la luz del día a 6 500 K; D65, la radiación planckiana a 2 855,5 K
+    b: A, la radiación planckiana a unos 2 855,5 K; D65, una fase de la luz del día de unos 6 500 K
+    c: Ambos son lámparas fluorescentes
+    d: Ambos representan luz de tungsteno
+  explanation: A se corresponde con la luz incandescente (2 855,5 K) y D65 con la luz del día (6 500 K). La opción a invierte los dos.
+- id: q-illuminant-color-002
+  prompt: ¿Qué relación hay entre el 'cálido' del lenguaje del pintor y la temperatura de color?
+  options:
+    a: Cálido corresponde a temperaturas de color altas
+    b: No hay relación
+    c: Cálido (rojizo) corresponde a temperaturas de color bajas, al contrario de la intuición de 'calor'
+    d: Cálido es azulado y frío rojizo
+  explanation: Según la ley de Wien, los cuerpos más calientes tienen su máximo a longitudes de onda más cortas; así, una estrella azul (Rigel) es más caliente que una roja (Betelgeuse). La opción a es la intuición errónea.
+- id: q-illuminant-color-003
+  prompt: ¿Cómo se llama la compensación aproximada que hace el ojo cuando cambia el color de la luz que ilumina la escena?
+  options:
+    a: Adaptación cromática
+    b: Inducción cromática
+    c: Dispersión
+    d: Univarianza
+  explanation: La adaptación cromática es lenta; la inducción cromática (b) es casi instantánea y es otro fenómeno.
+- id: q-illuminant-color-004
+  prompt: Explica con tus palabras qué es un iluminante y por qué el color de un objeto depende de él.
+  model_answer: En el uso técnico, un iluminante es una radiación con una distribución espectral de potencia relativa definida. Las fuentes de luz tienen color propio según las longitudes de onda que emiten, y el color que vemos resulta del objeto (lo que refleja y absorbe) y de la luz que lo ilumina; por ejemplo, un objeto azul bajo luz roja pura se ve negro.
+  rubric:
+  - Define iluminante como radiación con distribución espectral definida
+  - Indica que el color visto depende del objeto y de la luz
+  - Da un ejemplo (objeto azul bajo luz roja se ve negro)
+- id: q-illuminant-color-005
+  prompt: Un cuadro pintado a la luz del día se cuelga en una sala iluminada con luz cálida y el comprador dice que 'ha cambiado de color'. ¿Cómo lo explicas?
+  model_answer: Cambia la distribución espectral de la luz que lo ilumina, y el color visto es el resultado de esa luz y de la reflectancia de cada pintura. El ojo corrige solo en parte mediante la adaptación cromática. Cuánto se nota para cada pigmento depende de su curva de reflectancia.
+  rubric:
+  - Dice que cambia la distribución espectral de la luz
+  - Dice que el color visto resulta de la luz y de la reflectancia
+  - Menciona que la adaptación cromática corrige solo en parte
+- id: q-illuminant-color-006
+  prompt: Debes documentar para un catálogo el color de un cuadro de modo comparable. Un colega propone anotar 'fotografiado a luz de día'. ¿Qué criterio propones y por qué?
+  model_answer: Usar un iluminante normalizado, como D65, en lugar de 'luz de día' sin especificar, porque la CIE recomienda los iluminantes estándar para obtener resultados comparables. 'Luz blanca' o 'luz de día' pueden corresponder a espectros muy distintos.
+  rubric:
+  - Propone un iluminante normalizado como D65
+  - Justifica que es para obtener resultados comparables
+  - Señala que 'luz de día' sin especificar es ambiguo
+- id: q-metamerism-001
+  prompt: ¿Qué son los metámeros?
+  options:
+    a: Dos colores con el mismo espectro
+    b: Estímulos de color espectralmente diferentes que tienen los mismos valores triestímulo
+    c: Dos pigmentos con la misma fórmula química
+    d: Colores que solo ven los dicromáticos
+  explanation: 'Es la definición CIE. La opción a es lo contrario: los espectros son distintos.'
+- id: q-metamerism-002
+  prompt: ¿Por qué ocurre el metamerismo?
+  options:
+    a: Porque algunos pigmentos están mal fabricados
+    b: Porque la luz cambia de frecuencia al reflejarse
+    c: Porque el ojo resume cada espectro en solo tres respuestas y espectros distintos pueden dar las mismas tres
+    d: Porque los bastones intervienen siempre
+  explanation: El metamerismo es consecuencia de codificar el color con tres números, no un defecto de un pigmento concreto (a).
+- id: q-metamerism-003
+  prompt: ¿Qué mide el índice de metamerismo?
+  options:
+    a: La intensidad de un color
+    b: La temperatura de color de una lámpara
+    c: El número de pigmentos de una mezcla
+    d: En qué grado dos colores que coinciden bajo un iluminante de referencia difieren al cambiar de iluminante u observador
+  explanation: El índice se expresa como diferencia de color con una fórmula CIE. La opción b confunde con la CCT.
+- id: q-metamerism-004
+  prompt: Explica con tus palabras por qué dos colores pueden verse idénticos en una luz y diferentes en otra.
+  model_answer: 'Dos superficies pueden tener curvas de reflectancia distintas pero producir las mismas tres respuestas de los conos bajo un iluminante de referencia (son metámeros). Al sustituir el iluminante, el espectro que llega al ojo cambia de forma distinta en cada una, y las respuestas ya no coinciden: lo mide el índice de metamerismo. El ojo solo resume el espectro en tres respuestas.'
+  rubric:
+  - Dice que el ojo resume el espectro en tres respuestas
+  - Indica que los espectros pueden ser distintos con las mismas respuestas
+  - Explica que al cambiar el iluminante la coincidencia puede romperse
+  - Menciona el índice de metamerismo o el cambio de iluminante (u observador)
+- id: q-metamerism-005
+  prompt: Quieres igualar el color de un tubo mezclando otros pigmentos, y el resultado coincide bajo tu lámpara de trabajo. ¿Qué riesgo corres y cómo lo compruebas, dado lo que define el índice de metamerismo?
+  model_answer: 'Estás buscando un metámero: si coinciden las tres respuestas bajo una luz pero no las curvas de reflectancia, la igualación puede romperse al cambiar la luz. Dado que el índice de metamerismo se define por la diferencia al cambiar de iluminante, la comprobación directa es ver la igualación bajo más de una luz (por ejemplo, diurna y cálida). Como práctica de taller, es una recomendación derivada.'
+  rubric:
+  - Identifica que busca un metámero
+  - Indica que la igualación puede romperse al cambiar la luz si las curvas de reflectancia difieren
+  - Propone comprobar bajo más de una luz
+  - Relaciona la comprobación con la definición del índice de metamerismo
+- id: q-metamerism-006
+  prompt: 'Dos tonos que igualaste dejan de coincidir al llevarlos a otra sala, y un ayudante concluye: ''este pigmento está defectuoso y hay que descartarlo''. ¿Es correcta su conclusión? Justifica.'
+  model_answer: 'No necesariamente. El metamerismo no es un defecto de un pigmento concreto sino una consecuencia de que el color se codifique con tres números: espectros distintos con las mismas tres respuestas parecen iguales en una luz y pueden dejar de hacerlo al cambiar el iluminante. Lo adecuado es entender el caso como un par de metámeros y evaluar la igualación bajo más de un iluminante.'
+  rubric:
+  - Rechaza que sea un defecto de un pigmento concreto
+  - Explica que es consecuencia de codificar el color con tres números
+  - Indica que espectros distintos pueden coincidir en una luz y no en otra
+- id: q-metamerism-007
+  prompt: La ficha técnica de una pintura incluye un 'índice de metamerismo' respecto a otra. Un colega lo ignora por 'tecnicismo'. ¿Qué le explicas que significa y cómo te influye al elegir entre ambas?
+  model_answer: El índice mide el grado en que dos colores que coinciden bajo un iluminante de referencia difieren cuando se sustituye por otro iluminante u observador, y se expresa como una diferencia de color con una fórmula CIE. Un valor alto indica que la igualación es más frágil al cambiar de luz, así que se debe tener en cuenta para decidir si basta con una igualación hecha bajo una sola luz.
+  rubric:
+  - Define el índice como diferencia al sustituir iluminante u observador
+  - Indica que se expresa como diferencia de color con una fórmula CIE
+  - Relaciona un valor alto con una igualación más frágil al cambiar de luz

@@ -1,0 +1,8 @@
+- id: light
+  domain: basics
+  first_layer: 1
+  prerequisites: []
+- id: hue
+  domain: basics
+  first_layer: 2
+  prerequisites: [light]

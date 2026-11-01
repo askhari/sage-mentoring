@@ -1,0 +1,6 @@
+id: toy-topic
+version: 1
+languages: [es]
+license: CC-BY-4.0
+domains:
+  - basics

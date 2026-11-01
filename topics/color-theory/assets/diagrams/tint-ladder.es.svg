@@ -1,0 +1,74 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 430" font-family="sans-serif" font-size="14">
+<rect width="960" height="430" fill="#fff"/>
+<text x="480.0" y="30" text-anchor="middle" font-size="17" font-weight="bold" fill="#222">Un azul aclarado, agrisado y oscurecido (modelo ilustrativo)</text>
+<text x="138" y="110.0" text-anchor="end" fill="#222">+ blanco (tintes)</text>
+<rect x="150" y="80" width="50" height="50" fill="#0062a0"/>
+<rect x="204" y="80" width="50" height="50" fill="#0077b6"/>
+<rect x="258" y="80" width="50" height="50" fill="#008dc8"/>
+<rect x="312" y="80" width="50" height="50" fill="#1ba4d7"/>
+<rect x="366" y="80" width="50" height="50" fill="#5eb7e2"/>
+<rect x="420" y="80" width="50" height="50" fill="#88c8e9"/>
+<rect x="474" y="80" width="50" height="50" fill="#a7d5ee"/>
+<circle cx="146" cy="140" r="0"/>
+<text x="138" y="202.0" text-anchor="end" fill="#222">+ gris (tonos)</text>
+<rect x="150" y="172" width="50" height="50" fill="#0062a0"/>
+<rect x="204" y="172" width="50" height="50" fill="#006291"/>
+<rect x="258" y="172" width="50" height="50" fill="#00648a"/>
+<rect x="312" y="172" width="50" height="50" fill="#256984"/>
+<rect x="366" y="172" width="50" height="50" fill="#4a6f80"/>
+<rect x="420" y="172" width="50" height="50" fill="#61757e"/>
+<rect x="474" y="172" width="50" height="50" fill="#6f787d"/>
+<circle cx="146" cy="232" r="0"/>
+<text x="138" y="294.0" text-anchor="end" fill="#222">+ negro (sombras)</text>
+<rect x="150" y="264" width="50" height="50" fill="#0062a0"/>
+<rect x="204" y="264" width="50" height="50" fill="#07475d"/>
+<rect x="258" y="264" width="50" height="50" fill="#233e49"/>
+<rect x="312" y="264" width="50" height="50" fill="#2b383e"/>
+<rect x="366" y="264" width="50" height="50" fill="#2d3438"/>
+<rect x="420" y="264" width="50" height="50" fill="#2f3234"/>
+<rect x="474" y="264" width="50" height="50" fill="#303132"/>
+<circle cx="146" cy="324" r="0"/>
+<text x="175.0" y="72" text-anchor="middle" fill="#555" font-size="12">puro</text>
+<text x="524" y="356" text-anchor="end" fill="#555" font-size="12">más mezcla →</text>
+<rect x="620" y="70" width="300" height="300" fill="none" stroke="#999"/>
+<text x="614" y="374.0" text-anchor="end" fill="#555" font-size="11">0</text>
+<text x="614" y="314.0" text-anchor="end" fill="#555" font-size="11">20</text>
+<text x="614" y="254.0" text-anchor="end" fill="#555" font-size="11">40</text>
+<text x="614" y="194.0" text-anchor="end" fill="#555" font-size="11">60</text>
+<text x="614" y="134.0" text-anchor="end" fill="#555" font-size="11">80</text>
+<text x="614" y="74.0" text-anchor="end" fill="#555" font-size="11">100</text>
+<text x="620.0" y="386" text-anchor="middle" fill="#555" font-size="11">0</text>
+<text x="662.9" y="386" text-anchor="middle" fill="#555" font-size="11">10</text>
+<text x="705.7" y="386" text-anchor="middle" fill="#555" font-size="11">20</text>
+<text x="748.6" y="386" text-anchor="middle" fill="#555" font-size="11">30</text>
+<text x="791.4" y="386" text-anchor="middle" fill="#555" font-size="11">40</text>
+<text x="834.3" y="386" text-anchor="middle" fill="#555" font-size="11">50</text>
+<text x="877.1" y="386" text-anchor="middle" fill="#555" font-size="11">60</text>
+<text x="920.0" y="386" text-anchor="middle" fill="#555" font-size="11">70</text>
+<text x="770.0" y="406" text-anchor="middle" fill="#222">croma C*ab</text>
+<text x="586" y="220.0" text-anchor="middle" fill="#222" transform="rotate(-90 586 220.0)">claridad L*</text>
+<polyline points="817.8,257.9 819.3,232.7 809.5,207.1 787.7,180.7 760.1,157.7 730.5,137.7 702.9,121.5" fill="none" stroke="#c47a00" stroke-width="1.5"/>
+<circle cx="817.8" cy="257.9" r="6" fill="#0062a0" stroke="#c47a00" stroke-width="1.5"/>
+<circle cx="819.3" cy="232.7" r="6" fill="#0077b6" stroke="#c47a00" stroke-width="1.5"/>
+<circle cx="809.5" cy="207.1" r="6" fill="#008dc8" stroke="#c47a00" stroke-width="1.5"/>
+<circle cx="787.7" cy="180.7" r="6" fill="#1ba4d7" stroke="#c47a00" stroke-width="1.5"/>
+<circle cx="760.1" cy="157.7" r="6" fill="#5eb7e2" stroke="#c47a00" stroke-width="1.5"/>
+<circle cx="730.5" cy="137.7" r="6" fill="#88c8e9" stroke="#c47a00" stroke-width="1.5"/>
+<circle cx="702.9" cy="121.5" r="6" fill="#a7d5ee" stroke="#c47a00" stroke-width="1.5"/>
+<polyline points="817.8,257.9 780.4,256.7 755.4,252.8 723.8,245.4 688.3,235.2 659.1,226.4 639.1,220.3" fill="none" stroke="#666" stroke-width="1.5"/>
+<circle cx="817.8" cy="257.9" r="6" fill="#0062a0" stroke="#666" stroke-width="1.5"/>
+<circle cx="780.4" cy="256.7" r="6" fill="#006291" stroke="#666" stroke-width="1.5"/>
+<circle cx="755.4" cy="252.8" r="6" fill="#00648a" stroke="#666" stroke-width="1.5"/>
+<circle cx="723.8" cy="245.4" r="6" fill="#256984" stroke="#666" stroke-width="1.5"/>
+<circle cx="688.3" cy="235.2" r="6" fill="#4a6f80" stroke="#666" stroke-width="1.5"/>
+<circle cx="659.1" cy="226.4" r="6" fill="#61757e" stroke="#666" stroke-width="1.5"/>
+<circle cx="639.1" cy="220.3" r="6" fill="#6f787d" stroke="#666" stroke-width="1.5"/>
+<polyline points="817.8,257.9 709.5,286.6 671.5,296.7 648.6,302.6 636.0,305.8 627.0,308.1 622.8,309.2" fill="none" stroke="#222" stroke-width="1.5"/>
+<circle cx="817.8" cy="257.9" r="6" fill="#0062a0" stroke="#222" stroke-width="1.5"/>
+<circle cx="709.5" cy="286.6" r="6" fill="#07475d" stroke="#222" stroke-width="1.5"/>
+<circle cx="671.5" cy="296.7" r="6" fill="#233e49" stroke="#222" stroke-width="1.5"/>
+<circle cx="648.6" cy="302.6" r="6" fill="#2b383e" stroke="#222" stroke-width="1.5"/>
+<circle cx="636.0" cy="305.8" r="6" fill="#2d3438" stroke="#222" stroke-width="1.5"/>
+<circle cx="627.0" cy="308.1" r="6" fill="#2f3234" stroke="#222" stroke-width="1.5"/>
+<circle cx="622.8" cy="309.2" r="6" fill="#303132" stroke="#222" stroke-width="1.5"/>
+</svg>

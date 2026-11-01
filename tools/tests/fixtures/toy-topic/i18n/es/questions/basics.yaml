@@ -1,0 +1,21 @@
+- id: q-light-001
+  prompt: "¿Qué es la luz?"
+  options:
+    a: "Un sonido"
+    b: "Radiación electromagnética visible"
+  explanation: "Explicación."
+- id: q-light-002
+  prompt: "¿Cómo se llama…?"
+  accepted: ["espectro"]
+- id: q-light-003
+  prompt: "Caso práctico…"
+  model_answer: "Respuesta modelo."
+  rubric: ["Menciona X"]
+- id: q-hue-001
+  prompt: "Explica el matiz."
+  model_answer: "Respuesta modelo."
+  rubric: ["Menciona Y"]
+- id: q-hue-002
+  prompt: "Caso práctico de matiz…"
+  model_answer: "Respuesta modelo."
+  rubric: ["Menciona Z"]

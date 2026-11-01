@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 470" font-family="sans-serif" font-size="14">
+<rect x="0" y="0" width="450.0" height="470" fill="#000"/>
+<rect x="450.0" y="0" width="450.0" height="470" fill="#fff"/>
+<rect x="0.5" y="0.5" width="899" height="469" fill="none" stroke="#999"/>
+<text x="225.0" y="32" text-anchor="middle" fill="#fff" font-size="17" font-weight="bold">Mezcla aditiva: luces</text>
+<text x="675.0" y="32" text-anchor="middle" fill="#222" font-size="17" font-weight="bold">Mezcla sustractiva: filtros y tintas</text>
+<defs>
+<clipPath id="aR"><circle cx="225.0" cy="181.1" r="95"/></clipPath>
+<clipPath id="aG"><circle cx="173.8" cy="269.4" r="95"/></clipPath>
+<clipPath id="aB"><circle cx="276.2" cy="269.4" r="95"/></clipPath>
+</defs>
+<circle cx="225.0" cy="181.1" r="95" fill="#ff0000"/>
+<circle cx="173.8" cy="269.4" r="95" fill="#00ff00"/>
+<circle cx="276.2" cy="269.4" r="95" fill="#0000ff"/>
+<g clip-path="url(#aG)"><circle cx="225.0" cy="181.1" r="95" fill="#ffff00"/></g>
+<g clip-path="url(#aB)"><circle cx="173.8" cy="269.4" r="95" fill="#00ffff"/></g>
+<g clip-path="url(#aR)"><circle cx="276.2" cy="269.4" r="95" fill="#ff00ff"/></g>
+<g clip-path="url(#aB)"><g clip-path="url(#aG)"><circle cx="225.0" cy="181.1" r="95" fill="#ffffff"/></g></g>
+<text x="225.0" y="69.1" text-anchor="middle" fill="#fff" font-weight="bold">rojo</text>
+<text x="62.1" y="338.6" text-anchor="middle" fill="#fff" font-weight="bold">verde</text>
+<text x="387.9" y="338.6" text-anchor="middle" fill="#fff" font-weight="bold">azul</text>
+<text x="225.0" y="245" text-anchor="middle" fill="#000" font-size="12">blanco</text>
+<defs>
+<clipPath id="sC"><circle cx="675.0" cy="181.1" r="95"/></clipPath>
+<clipPath id="sM"><circle cx="623.8" cy="269.4" r="95"/></clipPath>
+<clipPath id="sY"><circle cx="726.2" cy="269.4" r="95"/></clipPath>
+</defs>
+<circle cx="675.0" cy="181.1" r="95" fill="#00ffff"/>
+<circle cx="623.8" cy="269.4" r="95" fill="#ff00ff"/>
+<circle cx="726.2" cy="269.4" r="95" fill="#ffff00"/>
+<g clip-path="url(#sM)"><circle cx="675.0" cy="181.1" r="95" fill="#0000ff"/></g>
+<g clip-path="url(#sY)"><circle cx="623.8" cy="269.4" r="95" fill="#ff0000"/></g>
+<g clip-path="url(#sC)"><circle cx="726.2" cy="269.4" r="95" fill="#00ff00"/></g>
+<g clip-path="url(#sY)"><g clip-path="url(#sM)"><circle cx="675.0" cy="181.1" r="95" fill="#000000"/></g></g>
+<text x="675.0" y="69.1" text-anchor="middle" fill="#222" font-weight="bold">cian</text>
+<text x="512.1" y="338.6" text-anchor="middle" fill="#222" font-weight="bold">magenta</text>
+<text x="837.9" y="338.6" text-anchor="middle" fill="#222" font-weight="bold">amarillo</text>
+<text x="675.0" y="245" text-anchor="middle" fill="#fff" font-size="12">negro</text>
+<text x="225.0" y="454" text-anchor="middle" fill="#ddd">cada luz añade energía → más claro</text>
+<text x="675.0" y="454" text-anchor="middle" fill="#444">cada filtro quita una parte → más oscuro</text>
+</svg>

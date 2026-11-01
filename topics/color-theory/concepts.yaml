@@ -1,0 +1,209 @@
+# --- light-and-vision ---
+- id: light-spectrum
+  domain: light-and-vision
+  first_layer: 1
+  prerequisites: []
+- id: light-matter-interaction
+  domain: light-and-vision
+  first_layer: 1
+  prerequisites: [light-spectrum]
+- id: photoreceptors
+  domain: light-and-vision
+  first_layer: 1
+  prerequisites: [light-spectrum]
+- id: trichromacy
+  domain: light-and-vision
+  first_layer: 1
+  prerequisites: [photoreceptors]
+- id: opponent-process
+  domain: light-and-vision
+  first_layer: 2
+  prerequisites: [trichromacy]
+- id: color-vision-deficiency
+  domain: light-and-vision
+  first_layer: 2
+  prerequisites: [trichromacy]
+- id: illuminant-color
+  domain: light-and-vision
+  first_layer: 2
+  prerequisites: [light-spectrum, light-matter-interaction]
+- id: metamerism
+  domain: light-and-vision
+  first_layer: 2
+  prerequisites: [trichromacy, illuminant-color]
+
+# --- color-attributes ---
+- id: hue
+  domain: color-attributes
+  first_layer: 1
+  prerequisites: [light-spectrum]
+- id: value
+  domain: color-attributes
+  first_layer: 1
+  prerequisites: [light-matter-interaction]
+- id: chroma
+  domain: color-attributes
+  first_layer: 1
+  prerequisites: [hue, value]
+- id: color-wheel
+  domain: color-attributes
+  first_layer: 1
+  prerequisites: [hue]
+- id: saturation-and-colorfulness
+  domain: color-attributes
+  first_layer: 2
+  prerequisites: [chroma]
+- id: color-wheel-models
+  domain: color-attributes
+  first_layer: 2
+  prerequisites: [color-wheel, trichromacy]
+- id: munsell-system
+  domain: color-attributes
+  first_layer: 2
+  prerequisites: [hue, value, chroma]
+- id: cielab-basics
+  domain: color-attributes
+  first_layer: 3
+  prerequisites: [munsell-system, opponent-process]
+
+# --- color-mixing ---
+- id: additive-mixing
+  domain: color-mixing
+  first_layer: 1
+  prerequisites: [trichromacy]
+- id: subtractive-mixing
+  domain: color-mixing
+  first_layer: 1
+  prerequisites: [light-matter-interaction, additive-mixing]
+- id: complementary-colors
+  domain: color-mixing
+  first_layer: 1
+  prerequisites: [color-wheel, subtractive-mixing]
+- id: tints-shades-tones
+  domain: color-mixing
+  first_layer: 1
+  prerequisites: [value, chroma]
+- id: primary-colors
+  domain: color-mixing
+  first_layer: 2
+  prerequisites: [subtractive-mixing, color-wheel-models]
+- id: pigment-mixing-behavior
+  domain: color-mixing
+  first_layer: 2
+  prerequisites: [subtractive-mixing]
+- id: optical-mixing
+  domain: color-mixing
+  first_layer: 2
+  prerequisites: [additive-mixing, subtractive-mixing]
+- id: target-color-mixing
+  domain: color-mixing
+  first_layer: 3
+  prerequisites: [complementary-colors, tints-shades-tones, pigment-mixing-behavior, munsell-system]
+
+# --- paints-and-pigments ---
+- id: paint-composition
+  domain: paints-and-pigments
+  first_layer: 1
+  prerequisites: [light-matter-interaction]
+- id: colour-index-names
+  domain: paints-and-pigments
+  first_layer: 1
+  prerequisites: [paint-composition]
+- id: transparency-opacity
+  domain: paints-and-pigments
+  first_layer: 1
+  prerequisites: [paint-composition]
+- id: tinting-strength
+  domain: paints-and-pigments
+  first_layer: 2
+  prerequisites: [paint-composition, tints-shades-tones]
+- id: masstone-undertone
+  domain: paints-and-pigments
+  first_layer: 2
+  prerequisites: [transparency-opacity]
+- id: lightfastness
+  domain: paints-and-pigments
+  first_layer: 2
+  prerequisites: [colour-index-names]
+- id: limited-palette
+  domain: paints-and-pigments
+  first_layer: 3
+  prerequisites: [primary-colors, colour-index-names, tinting-strength, pigment-mixing-behavior]
+
+# --- color-interaction ---
+- id: simultaneous-contrast
+  domain: color-interaction
+  first_layer: 1
+  prerequisites: [hue, value]
+- id: afterimages
+  domain: color-interaction
+  first_layer: 2
+  prerequisites: [opponent-process]
+- id: color-constancy
+  domain: color-interaction
+  first_layer: 2
+  prerequisites: [illuminant-color, simultaneous-contrast]
+- id: assimilation
+  domain: color-interaction
+  first_layer: 2
+  prerequisites: [simultaneous-contrast, optical-mixing]
+- id: color-categories
+  domain: color-interaction
+  first_layer: 2
+  prerequisites: [hue]
+- id: equiluminance
+  domain: color-interaction
+  first_layer: 3
+  prerequisites: [value, simultaneous-contrast, opponent-process]
+
+# --- color-harmony ---
+- id: color-schemes
+  domain: color-harmony
+  first_layer: 1
+  prerequisites: [color-wheel, complementary-colors]
+- id: color-temperature
+  domain: color-harmony
+  first_layer: 1
+  prerequisites: [hue]
+- id: value-structure
+  domain: color-harmony
+  first_layer: 2
+  prerequisites: [value, simultaneous-contrast]
+- id: dominance-and-accent
+  domain: color-harmony
+  first_layer: 2
+  prerequisites: [color-schemes, chroma]
+- id: color-meaning
+  domain: color-harmony
+  first_layer: 2
+  prerequisites: [color-categories]
+- id: harmony-research
+  domain: color-harmony
+  first_layer: 3
+  prerequisites: [color-schemes, dominance-and-accent]
+
+# --- color-in-painting ---
+- id: local-vs-perceived-color
+  domain: color-in-painting
+  first_layer: 1
+  prerequisites: [color-constancy]
+- id: light-and-shadow-color
+  domain: color-in-painting
+  first_layer: 2
+  prerequisites: [local-vs-perceived-color, illuminant-color, value-structure]
+- id: atmospheric-perspective
+  domain: color-in-painting
+  first_layer: 2
+  prerequisites: [light-matter-interaction, value, chroma]
+- id: colored-light-unity
+  domain: color-in-painting
+  first_layer: 2
+  prerequisites: [light-and-shadow-color, color-temperature]
+- id: gamut-planning
+  domain: color-in-painting
+  first_layer: 3
+  prerequisites: [limited-palette, munsell-system, colored-light-unity]
+- id: judging-color
+  domain: color-in-painting
+  first_layer: 3
+  prerequisites: [simultaneous-contrast, target-color-mixing, value-structure]

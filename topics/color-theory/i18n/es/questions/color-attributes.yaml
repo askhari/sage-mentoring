@@ -1,0 +1,600 @@
+- id: q-hue-001
+  prompt: ¿Qué describe el matiz (hue) de un color?
+  options:
+    a: Lo claro u oscuro que es
+    b: Lo que permite distinguir un rojo de un amarillo, de un verde o de un azul
+    c: Lo fuerte o apagado que es
+    d: La cantidad de luz que refleja
+  explanation: El matiz es lo que distingue unos colores de otros (rojo, amarillo, verde, azul y sus mezclas).
+    Lo claro u oscuro es el valor (a) y lo fuerte o apagado es el croma (c).
+- id: q-hue-002
+  prompt: ¿Cómo se llama la dimensión del color que nombramos como rojo, amarillo, verde, azul o morado,
+    y que no dice nada de lo claro ni de lo fuerte que es el color?
+  accepted:
+  - matiz
+  - el matiz
+  - hue
+  - tono
+  - tinte
+- id: q-hue-003
+  prompt: Un rosa pálido y un granate oscuro se consideran del mismo matiz (rojo). ¿En qué se diferencian?
+  options:
+    a: En el matiz y en el valor
+    b: Solo en el croma
+    c: En el valor y en el croma
+    d: En la longitud de onda dominante, que es distinta
+  explanation: 'Si el matiz es el mismo, la diferencia está en las otras dos dimensiones: valor y croma.
+    La opción d es la tentación habitual de equiparar matiz con longitud de onda, pero aquí el matiz es
+    el mismo por hipótesis.'
+- id: q-hue-004
+  prompt: El espectro es una recta con un extremo rojo y otro violeta, pero los matices forman un anillo
+    cerrado. ¿Por qué se cierra el anillo?
+  options:
+    a: Porque el matiz es exactamente la longitud de onda y el ojo la repite cíclicamente
+    b: Porque incluye los morados y magentas, que no son luz de una sola longitud de onda
+    c: Porque el rojo y el violeta tienen la misma longitud de onda
+    d: Porque la rueda es una convención sin base perceptual
+  explanation: 'El anillo se cierra con los morados y magentas, que resultan de mezclar extremos del espectro
+    (Newton ya los describió como púrpuras). La opción a es la idea frecuente que se corrige: matiz y
+    longitud de onda no son equivalentes, y la definición de la CIE habla de un anillo cerrado de percepción.'
+- id: q-hue-005
+  prompt: Explica con tus palabras por qué el matiz no es una propiedad fija del objeto o de la luz, sino
+    algo percibido.
+  model_answer: 'Según la CIE, el color percibido (matiz, claridad y colorido) depende del espectro, pero
+    también del tamaño, la forma, la estructura y el entorno del estímulo, y de la adaptación y la experiencia
+    del observador. Por eso el matiz es una sensación y no una propiedad física: la luz tiene longitudes
+    de onda, y lo que vemos es un matiz, que puede cambiar con la luz o con lo que rodea al color.'
+  rubric:
+  - Dice que el matiz es una sensación, no una propiedad física de la luz
+  - Indica que depende del entorno del estímulo o de la luz
+  - Menciona al observador (adaptación o experiencia) como factor
+  - Distingue longitud de onda (física) de matiz (percibido)
+- id: q-hue-006
+  prompt: 'Preparas una ficha de pinturas a partir de la tabla de Williamsburg. Para el blanco de titanio
+    la tabla da matiz 2,7 GY con croma 0,24, y para el negro de marfil 5,16 PB con croma 0,08. Un compañero
+    propone escribir en la ficha "blanco de titanio: verde-amarillento". ¿Qué decides y por qué?'
+  model_answer: 'No lo escribiría. Con un croma casi cero (0,24 y 0,08) el matiz carece de sentido: son
+    pinturas acromáticas y el matiz de la tabla no debe leerse como un matiz real. El listado de Golden
+    lo resuelve poniendo "White" o "Black" en lugar de un matiz. En la ficha pondría "blanco, acromático"
+    y reservaría el matiz para pinturas con croma apreciable.'
+  rubric:
+  - Observa que el croma es casi cero
+  - Concluye que con croma casi cero el matiz es irrelevante o no debe leerse como real
+  - Propone anotar la pintura como acromática (blanco/negro) en lugar de un matiz
+  - Menciona que Golden usa "Black"/"White" o contrasta con la tabla que sí da matiz
+- id: q-hue-007
+  prompt: 'Necesitas repetir un amarillo de cadmio medio de una obra. En la tienda hay dos tubos con casi
+    el mismo nombre: el "genuino" y el "Hue" (imitación) de Golden. Tu colega dice que son el mismo color
+    porque ponen lo mismo en la etiqueta. ¿Qué datos miras y qué le respondes?'
+  model_answer: 'Le diría que el nombre no garantiza el color: Golden mide el genuino en 3,0 Y y el Hue
+    en 1,5 Y, es decir, tienen matices distintos, y además el croma del genuino es mayor (16,1 frente
+    a 13,7). Antes de comprar compararía el matiz, el valor y el croma de las fichas, no el nombre, y
+    haría una muestra para comprobarlo.'
+  rubric:
+  - Dice que el nombre comercial no garantiza el mismo matiz
+  - Cita que el genuino mide 3,0 Y y el Hue 1,5 Y (o que difieren en matiz)
+  - Añade que el croma también difiere (16,1 frente a 13,7) o que hay que mirar valor y croma
+  - Propone decidir con los datos de la ficha en lugar de por el nombre
+- id: q-value-001
+  prompt: ¿Qué es el valor (value) de un color?
+  options:
+    a: Lo fuerte o apagado que es
+    b: Su posición en la rueda de color
+    c: Lo claro u oscuro que es
+    d: La cantidad de pigmento que contiene
+  explanation: El valor es lo claro u oscuro; es lo que sigue viéndose en una fotografía en blanco y negro.
+    Lo fuerte o apagado es el croma (a).
+- id: q-value-002
+  prompt: En la escala de valor de Munsell, que va de negro a blanco con nueve grises intermedios, ¿qué
+    número corresponde al blanco?
+  accepted:
+  - '10'
+  - diez
+  - 10 (diez)
+  - el 10
+- id: q-value-003
+  prompt: Munsell propone reservar la palabra "tint" (tinte) y la palabra "shade" (sombra) para usos distintos.
+    ¿Cuáles?
+  options:
+    a: '"Tint" para un valor claro y "shade" para uno más oscuro'
+    b: '"Tint" para un croma alto y "shade" para un croma bajo'
+    c: '"Tint" para los matices cálidos y "shade" para los fríos'
+    d: Las considera sinónimos de valor y propone usarlas indistintamente
+  explanation: Munsell advierte de que se usan mal y propone tint para un valor claro y shade para uno
+    más oscuro, prefiriendo "valor" en general. Las otras opciones mezclan valor con croma o matiz.
+- id: q-value-004
+  prompt: ¿A cuál de los conceptos de la CIE se corresponde mejor el "valor" de los pintores?
+  options:
+    a: Al brillo (brightness) de una zona
+    b: A la claridad (lightness), juzgada respecto a un blanco iluminado igual
+    c: Al colorido (colourfulness)
+    d: A la luminancia medida con un fotómetro
+  explanation: La claridad es el brillo juzgado en relación con un blanco iluminado de forma parecida,
+    y es lo que equivale al valor. El brillo (a) también aparece como equivalente parcial en la CIE, pero
+    una superficie es "clara u oscura", no "brillante", y solo la claridad se juzga contra un blanco.
+- id: q-value-005
+  prompt: Un papel gris a la sombra y un blanco al sol pueden devolver al ojo la misma luz y verse muy
+    distintos. Explica con tus palabras por qué el valor depende del contexto.
+  model_answer: La claridad se juzga respecto a un blanco iluminado de la misma manera, no como una cantidad
+    absoluta de luz. Por eso el valor es una propiedad del objeto percibido en su entorno y no un número
+    que se lea en la luz que llega al ojo. Newton lo ilustró con un polvo grisáceo que, puesto al sol,
+    se veía más blanco que un papel blanco a la sombra.
+  rubric:
+  - Dice que la claridad se juzga en relación con un blanco iluminado de forma parecida
+  - Concluye que el valor depende del entorno/contexto y no de la luz que llega al ojo
+  - Aporta un ejemplo (papel a la sombra y al sol, polvo de Newton o similar)
+- id: q-value-006
+  prompt: 'Quieres el oscuro más profundo de un cuadro y dudas entre negro de marfil y azul ultramar de
+    Williamsburg. Los datos son: ultramar, valor 0,32 y L* 4,78; negro de marfil, valor 1,03 y L* 10,83.
+    Un alumno cree que "el negro siempre es lo más oscuro del tubo". ¿Qué le explicas y qué debes comprobar
+    además?'
+  model_answer: 'El ultramar sale del tubo más oscuro que el negro de marfil (valor 0,32 frente a 1,03
+    y L* 4,78 frente a 10,83). En esta tabla L* ≈ 10 × valor, así que los dos sistemas coinciden. Pero
+    el ultramar tiene además un croma muy alto (18,16), de modo que es un oscuro azulado y muy intenso,
+    mientras que el negro es casi neutro. Habría que decidir si se quiere un oscuro neutro o coloreado,
+    y recordar que ni el negro llega a 0: los negros de tubo miden alrededor de 1.'
+  rubric:
+  - 'Compara los valores: ultramar 0,32 < negro de marfil 1,03 (o L* 4,78 < 10,83)'
+  - Concluye que el ultramar es más oscuro que el negro, contradiciendo la idea del alumno
+  - Señala que el ultramar tiene croma muy alto (18,16), es decir, un oscuro coloreado frente a uno casi
+    neutro
+  - Menciona que los negros reales no llegan a valor 0 o relaciona valor y L* (≈ 10 ×)
+- id: q-value-007
+  prompt: Un libro de dibujo dice que los negros de tubo miden "alrededor de 2" en la escala Munsell;
+    la ficha de Williamsburg da 0,8 a 1 para sus negros; y un taller usa una escala de once niveles con
+    el negro de pintura en 0 y el blanco en 10. Quieres anotar el valor del negro que usas. ¿Cómo procedes?
+  model_answer: 'Las fuentes difieren: Briggs señala que la mayoría de los negros miden alrededor de 2
+    en el Munsell moderno, mientras que las tablas de Williamsburg y Golden dan valores de 0,8 a 1; y
+    la escala de Reilly de once niveles pone el negro y el blanco de pintura en 0 y 10. En lugar de dar
+    por bueno un único número, anotaría el valor junto con la escala o la fuente de la que procede, y
+    compararía solo valores medidos con el mismo criterio. En todo caso el negro de tubo no es un 0 absoluto.'
+  rubric:
+  - Reconoce que las fuentes dan cifras distintas (alrededor de 2 frente a 0,8 a 1)
+  - Concluye que hay que indicar qué escala o fuente usa cada dato
+  - Menciona que la escala de Reilly pone negro y blanco de pintura en 0 y 10 o que los negros reales
+    no son 0
+  - No elige una cifra como la única verdadera
+- id: q-value-008
+  prompt: 'Vas a mezclar un azul que iguale a uno de Golden y encuentras dos datos: azul cerúleo oscuro,
+    1,2 PB 3/7,9, y azul ultramar claro, 3,0 PB 6,3/7,9. Una compañera dice que, como ambos tienen croma
+    7,9 y son "azules", cualquiera de los dos sirve. ¿Qué respondes?'
+  model_answer: 'No sirven por igual: aunque el croma sea el mismo (7,9) y los matices sean vecinos (1,2
+    PB y 3,0 PB), el valor difiere en unos tres puntos (3 frente a 6,3). Igualar matiz y croma no basta:
+    hay que comprobar el valor aparte, así que elegiría la pintura cuyo valor se acerque al del color
+    objetivo.'
+  rubric:
+  - Constata que el croma coincide (7,9) y los matices son vecinos
+  - Señala la diferencia de valor (3 frente a 6,3, unos tres puntos)
+  - Concluye que igualar matiz no basta y hay que comprobar el valor por separado
+- id: q-chroma-001
+  prompt: Una alfombra tiene "mucho color". ¿Qué dimensión describe esa frase, según Munsell?
+  options:
+    a: El matiz
+    b: El valor
+    c: El croma
+    d: La textura de la fibra
+  explanation: Decir que algo tiene "mucho color" habla de la fuerza del color, es decir, el croma, sin
+    decir nada de su matiz ni de su valor.
+- id: q-chroma-002
+  prompt: ¿Cómo se llama la dimensión del color que se mide desde el gris neutro hacia afuera, y que distingue
+    un color intenso de uno apagado?
+  accepted:
+  - croma
+  - el croma
+  - chroma
+  - intensidad cromática
+- id: q-chroma-003
+  prompt: Munsell comparaba los diagramas planos de matiz y valor con "un mapa de Suiza sin montañas".
+    ¿Qué falta en esos diagramas?
+  options:
+    a: El valor
+    b: El croma
+    c: El matiz
+    d: El nombre de los colores
+  explanation: 'Sin el croma, el color no queda definido: hacen falta las tres dimensiones. Al omitirlo,
+    el mapa pierde las montañas del sólido de color.'
+- id: q-chroma-004
+  prompt: ¿Alcanzan todos los matices el mismo croma máximo en los pigmentos del sistema Munsell?
+  options:
+    a: 'Sí: el croma máximo es el mismo, por eso el sólido de color es una esfera'
+    b: 'No: cada matiz llega a un croma máximo distinto y por eso el sólido tiene "montañas y valles"'
+    c: Sí, pero solo en los matices cálidos
+    d: No, solo difieren los matices de valor alto
+  explanation: El croma máximo varía según el matiz (y el valor), lo que da al sólido un perfil irregular.
+    La opción a es la intuición de un sólido regular que Munsell descarta.
+- id: q-chroma-005
+  prompt: Explica con tus palabras cómo se pierde croma al mezclar pinturas y qué papel juega el opuesto
+    del círculo.
+  model_answer: 'Al mezclar dos matices opuestos del círculo se obtiene un gris, que es el centro de la
+    rueda y no tiene croma. Si los matices están separados por uno intermedio, como rojo y verde, la mezcla
+    da un color entre el gris y el amarillo, un gris coloreado. Así, mezclar un color con su opuesto lo
+    lleva hacia el eje neutro: pierde croma.'
+  rubric:
+  - Indica que dos matices opuestos mezclados dan un gris
+  - Relaciona el gris con el centro o eje neutro, donde el croma es cero
+  - Menciona que dos matices no opuestos dan un gris coloreado o un croma intermedio
+  - Concluye que mezclar con el opuesto reduce el croma
+- id: q-chroma-006
+  prompt: 'Una alumna cree que "para tener más croma hay que ir a colores más claros". Tú tienes la tabla
+    de Williamsburg: azul ultramar 0,32 / 18,16 (valor / croma), rojo de cadmio claro 5,13 / 17,97 y amarillo
+    de cadmio medio 8,45 / 16,78. ¿Cómo la corriges?'
+  model_answer: 'En la tabla el croma máximo aparece a valores distintos según el matiz: el azul ultramar
+    tiene croma 18 a valor 0,32 (casi negro), el rojo lo tiene a valor medio y el amarillo hacia valor
+    8-9. "Más croma" y "más claro" no van juntos automáticamente: son dimensiones distintas, y cada matiz de pigmento
+    alcanza su croma máximo a un valor propio. Para el taller, esto significa que un azul muy intenso puede ser también muy oscuro.'
+  rubric:
+  - Rechaza la idea de que más croma implique más claro
+  - Cita el ultramar (valor 0,32, croma 18) como azul muy oscuro y muy intenso
+  - Indica que el amarillo y el rojo tienen su croma máximo a otro valor (8-9 y medio)
+  - Concluye que valor y croma son dimensiones distintas y que el croma máximo depende del matiz y del valor
+- id: q-chroma-007
+  prompt: Un colega afirma que el azul ultramar de Williamsburg (croma Munsell 18,16) es más intenso que
+    el amarillo de cadmio medio (croma Munsell 16,78). Otro responde que en CIELAB el cadmio tiene C*
+    ≈ 113 y el ultramar C* ≈ 45, o sea, al revés. ¿Quién tiene razón y cómo lo resuelves?
+  model_answer: 'Los dos números son correctos, pero pertenecen a escalas distintas: el croma Munsell
+    y el C*ab de CIELAB no son proporcionales entre matices, así que una cifra de croma no significa lo
+    mismo en cada sistema. No se puede convertir de uno a otro con un único factor. Resolvería comparando
+    siempre en un mismo sistema y diciendo cuál se usa.'
+  rubric:
+  - Reconoce que ambos datos son correctos
+  - Explica que son escalas distintas y no son proporcionales entre matices
+  - Dice que no hay un único factor de conversión
+  - Propone comparar dentro de un mismo sistema, indicando cuál
+- id: q-color-wheel-001
+  prompt: ¿Qué es una rueda de color?
+  options:
+    a: Una tabla de los pigmentos de un fabricante ordenados por precio
+    b: Un dibujo que ordena los matices en un círculo cerrado, de modo que cada uno tiene dos vecinos
+    c: Un diagrama que muestra solo el valor de cada color
+    d: La lista de los colores del arcoíris
+  explanation: 'La rueda ordena los matices en un círculo cerrado, en coherencia con la definición de
+    matiz de la CIE como anillo. El arcoíris (d) es una fila abierta: no incluye los morados y magentas.'
+- id: q-color-wheel-002
+  prompt: En el círculo de Munsell hay cinco matices principales y cinco intermedios entre ellos. ¿Cuántas
+    posiciones tiene en total?
+  accepted:
+  - '10'
+  - diez
+  - 10 (diez)
+  - 10 posiciones
+- id: q-color-wheel-003
+  prompt: Según Munsell, ¿cuál es el opuesto del rojo en su círculo de matices?
+  options:
+    a: Verde
+    b: Cian
+    c: Azul verdoso (blue-green)
+    d: Amarillo
+  explanation: 'En el círculo de Munsell los opuestos se eligieron porque, mezclados en un disco giratorio,
+    daban un gris neutro; para el rojo es el azul verdoso. El verde es el opuesto en la rueda RYB y el
+    cian en RGB/CMY: cada rueda tiene el suyo.'
+- id: q-color-wheel-004
+  prompt: En el círculo de Newton, ¿qué indica la distancia entre el punto de una mezcla y el centro?
+  options:
+    a: El matiz de la mezcla
+    b: El valor de la mezcla
+    c: Cuánto se aleja el color del blanco central (su "plenitud o intensidad")
+    d: Cuántos colores del prisma intervienen
+  explanation: La dirección desde el centro marca el matiz y la distancia al centro marca la plenitud
+    del color. El matiz (a) lo da el ángulo, no el radio.
+- id: q-color-wheel-005
+  prompt: Explica con tus palabras por qué el círculo de Newton sirve para predecir mezclas de luces y
+    no mezclas de pinturas.
+  model_answer: Newton construyó el círculo para saber qué color resulta de mezclar luces, calculando
+    el centro de gravedad de las cantidades de cada color. Los polvos de colores, en cambio, absorben
+    buena parte de la luz al mezclarse, y el resultado es oscuro, sucio, gris o pardo, no el brillante
+    que predice el círculo.
+  rubric:
+  - Dice que el círculo se diseñó para mezclar luces
+  - Indica que los polvos o pigmentos absorben luz al mezclarse
+  - Describe el resultado de mezclar pigmentos como oscuro, gris o pardo y no como lo que predice el círculo
+- id: q-color-wheel-006
+  prompt: Mezclas un naranja con un azul que supuestamente es su opuesto, pero en lugar de un gris obtienes
+    un tono azulado. Una compañera dice "la rueda de color está mal". ¿Qué le respondes y qué compruebas?
+  model_answer: 'La rueda no falla: según Munsell, dos opuestos solo se neutralizan si tienen el mismo
+    valor y un croma equilibrado. Si queda un tinte, indica cuál de los dos sobra (aquí, el azul). Comprobaría
+    el valor de cada pintura, igualándolo, y ajustaría la proporción o el croma de uno de ellos hasta
+    obtener el gris.'
+  rubric:
+  - Dice que la rueda no está fallando
+  - Indica que los opuestos solo dan gris con el mismo valor y croma equilibrado
+  - Interpreta el tinte residual como señal de que sobra uno de los dos (el azul)
+  - Propone igualar el valor o ajustar la proporción/croma
+- id: q-color-wheel-007
+  prompt: Debes igualar un verde-azulado de un cuadro con tus tubos. Según el método que describe Briggs
+    (fuente de taller, no una medida), ¿en qué orden decides y por qué?
+  model_answer: 'Siguiendo el método de Briggs: elegir dos pinturas situadas a ambos lados del objetivo
+    en el círculo de matices, llevar cada una al valor del objetivo, mezclarlas y, si hace falta, bajar
+    el croma al final, por ejemplo con una pequeña cantidad del opuesto. El orden razonable es acertar
+    primero el matiz con el valor ya ajustado y dejar el croma para el final. Es una guía de taller que
+    conviene comprobar con una muestra, no una regla.'
+  rubric:
+  - Elige dos pinturas a ambos lados del objetivo en el círculo de matices
+  - Iguala el valor de cada una al del objetivo antes de mezclar
+  - Deja el ajuste de croma para el final
+  - Indica que es una guía de taller (Briggs) y no una regla o medida
+- id: q-saturation-and-colorfulness-001
+  prompt: En el vocabulario de la CIE, ¿en qué se diferencian saturación y croma?
+  options:
+    a: La saturación se juzga respecto al brillo del propio color; el croma, respecto al brillo de un
+      blanco o gris de referencia
+    b: Son sinónimos exactos
+    c: El croma se juzga respecto al propio brillo y la saturación respecto a un blanco de referencia
+    d: La saturación mide el matiz y el croma el valor
+  explanation: La CIE define la saturación como colorido proporcional al brillo de la misma zona, y el
+    croma como colorido proporcional al brillo de una referencia que parece blanca o gris. La opción c
+    invierte las referencias.
+- id: q-saturation-and-colorfulness-002
+  prompt: Según las notas de la CIE, si se enciende más luz sobre una pintura sin cambiar nada más, ¿qué
+    ocurre?
+  options:
+    a: El colorido sube, mientras que el croma y la saturación casi no cambian
+    b: El croma sube y el colorido casi no cambia
+    c: Colorido, croma y saturación suben por igual
+    d: Los tres bajan
+  explanation: El colorido, a una cromaticidad dada, tiende a aumentar con la luminancia, mientras que
+    saturación y croma se mantienen casi constantes. Por eso el colorido no equivale al croma.
+- id: q-saturation-and-colorfulness-003
+  prompt: Explica con tus palabras por qué la palabra "saturación" puede crear confusión al leer fuentes
+    distintas.
+  model_answer: 'En la CIE, saturación, croma y colorido son tres conceptos distintos: la saturación se
+    juzga respecto al propio brillo y el croma respecto a un blanco de referencia. Konica Minolta, en
+    cambio, usa saturación como sinónimo de croma, y Munsell habla de croma y rechaza "intensidad" y "pureza".
+    Además, en HSB/HSV la "S" es una saturación relativa. Por eso conviene saber qué definición usa cada
+    fuente.'
+  rubric:
+  - Menciona que la CIE distingue saturación, croma y colorido
+  - Indica que Konica Minolta usa saturación como sinónimo de croma
+  - Cita que Munsell usa croma y rechaza "intensidad" o "pureza", o que los programas de dibujo usan otra
+    "S"
+  - Concluye que hay que ver qué definición usa cada fuente
+- id: q-saturation-and-colorfulness-004
+  prompt: Un tutorial te dice "sube la saturación un 20 %" y una ficha técnica de una pintura da "saturación
+    0,8". Debes decidir qué significan esos números antes de usarlos para elegir pinturas. ¿Cómo procedes?
+  model_answer: 'Averiguaría de cuál de tres cosas se trata: (a) la saturación de la CIE, relativa al
+    propio brillo; (b) el croma, relativo a un blanco de referencia, como en Munsell o en la C* de CIELAB;
+    o (c) la "S" de un modelo de ordenador como HSB, que Briggs avisa que se usa con poco rigor. Para
+    elegir pinturas compararía croma, que es lo que publican los fabricantes en sus tablas (Williamsburg,
+    Golden), y no la cifra de "saturación".'
+  rubric:
+  - 'Distingue al menos las tres posibilidades: CIE, croma y modelo de ordenador (HSB)'
+  - Menciona que la palabra se usa con poco rigor en los sistemas digitales
+  - Propone comparar el croma, que publican los fabricantes
+  - Cita las tablas de Williamsburg o Golden como fuente de esos datos
+- id: q-saturation-and-colorfulness-005
+  prompt: Una galería sube la iluminación sobre uno de tus cuadros. La dueña dice que los colores "están
+    más saturados", y tú sostienes que el croma de la pintura no ha cambiado. ¿Cómo lo explicas con la
+    terminología de la CIE?
+  model_answer: 'Ambos pueden tener razón. El colorido, a una cromaticidad dada, suele aumentar al aumentar
+    la luminancia (salvo con brillos muy altos), y eso es lo que ve la dueña: los colores parecen más
+    cromáticos. Pero el croma de un color relacionado, y la saturación, se mantienen casi constantes cuando
+    cambia la luz. Según la CIE el croma describe el color atribuido al objeto mismo, y el colorido, la
+    luz que viene de él. La pintura no ha cambiado; sí lo ha hecho su colorido.'
+  rubric:
+  - Dice que el colorido aumenta con la luz
+  - Dice que el croma (y la saturación) se mantienen casi constantes
+  - Distingue colorido (apariencia con esa luz) de croma (atributo del objeto)
+  - Evita llamar a todo "saturación" y emplea los términos de la CIE
+- id: q-color-wheel-models-001
+  prompt: Una rueda dice que el opuesto del rojo es el verde, otra que es el cian y otra que es el azul
+    verdoso. ¿Cómo se explica?
+  options:
+    a: Dos de ellas están equivocadas y solo una es la verdadera
+    b: Cada rueda responde a una pregunta distinta (arte tradicional, mezcla de luces, orden perceptual)
+      y usa criterios distintos
+    c: Es un error de impresión que se repite en los libros
+    d: Depende solo del color del papel
+  explanation: Las ruedas RYB, RGB/CMY y las perceptuales responden a preguntas distintas; los problemas
+    aparecen al usar una fuera de su pregunta. La opción a supone una única rueda correcta.
+- id: q-color-wheel-models-002
+  prompt: ¿Qué pareja de opuestos del rojo corresponde a cada rueda, según las fuentes?
+  options:
+    a: 'RYB: azul verdoso; RGB/CMY: verde; Munsell: cian'
+    b: 'RYB: cian; RGB/CMY: azul verdoso; Munsell: verde'
+    c: 'RYB: verde; RGB/CMY: cian; Munsell: azul verdoso'
+    d: En las tres el opuesto es el verde
+  explanation: La rueda RYB da el verde, la de luz RGB/CMY el cian y la de Munsell el azul verdoso. La
+    opción d es la intuición de la enseñanza basada solo en RYB.
+- id: q-color-wheel-models-003
+  prompt: ¿Cuál de estas es una crítica de Munsell (1905) a la rueda RYB?
+  options:
+    a: Que tiene demasiados matices intermedios
+    b: Que los pares RYB no se neutralizan en un gris equilibrado y el círculo tiene un exceso de naranja
+    c: Que solo funciona con luz y no con pigmentos
+    d: Que usa el verde como primario
+  explanation: 'Munsell mostró con luces y discos de Maxwell que los pares RYB no se neutralizan bien,
+    y que el círculo tiene un exceso de naranja. La opción d es lo contrario: en RYB el verde no es primario
+    y Munsell defendía que sí es fundamental en la visión.'
+- id: q-color-wheel-models-004
+  prompt: Explica con tus palabras por qué una rueda basada en la mezcla de luces (RGB/CMY) no sirve para
+    predecir mezclas de pigmentos.
+  model_answer: 'La mezcla de luces suma luz, mientras que los polvos o pigmentos absorben parte de ella
+    al mezclarse y dan un resultado oscuro. Además, ningún pigmento es un ejemplo puro de su matiz: el
+    bermellón refleja también algo de verde y de púrpura, y el verde esmeralda algo de azul y de rojo;
+    por eso rojo y verde de pigmento dan un pardo en lugar del amarillo que darían luces espectrales.
+    Por eso los pintores usan pigmentos amarillos.'
+  rubric:
+  - Dice que los pigmentos absorben luz y la mezcla de luces la suma
+  - Menciona que los pigmentos no son puros (ejemplo del bermellón o del esmeralda)
+  - Indica que rojo y verde de pigmento dan un pardo/gris cálido y no amarillo
+- id: q-color-wheel-models-005
+  prompt: 'Trabajas en dos proyectos: uno de proyección con focos de colores sobre un muro, y otro de
+    pintura al óleo. Debes decidir qué rueda usar para anticipar las mezclas en cada uno y con qué cautelas.
+    ¿Qué decides?'
+  model_answer: 'Para la mezcla de luces usaría la rueda RGB/CMY (o el círculo de Newton), que se construye
+    para luces, donde el complementario del rojo es el cian. Para el óleo no daría por hecho que la rueda
+    RYB sea correcta: Munsell la critica, y Briggs (fuente de fiabilidad C) apunta que los complementarios
+    de mezcla de pinturas se parecen más a los pares aditivos que a los RYB. Aun así comprobaría con una
+    mezcla real, porque los pigmentos absorben luz y no son puros.'
+  rubric:
+  - Asigna RGB/CMY o el círculo de Newton a la mezcla de luces
+  - No toma RYB como regla fiable para pinturas, citando a Munsell o a Briggs
+  - Indica que los pigmentos no se comportan como luces (absorben luz, no son puros)
+  - Propone comprobar con una mezcla real
+- id: q-color-wheel-models-006
+  prompt: Quieres el opuesto del rojo de cadmio claro de Williamsburg (9,29 R). Tu manual RYB dice "verde";
+    el círculo Munsell que tienes dice otra cosa. ¿Qué haces?
+  model_answer: Iría al lado contrario del círculo Munsell, cuyo opuesto del rojo es el azul verdoso,
+    y no al verde de la rueda RYB, porque la tabla del fabricante da el matiz en Munsell y no en RYB.
+    Después lo comprobaría con una mezcla real, ya que, según Briggs (fuente C), el camino de la mezcla
+    de pinturas se curva cerca del eje amarillo-azul violáceo. Coincidirían ambas ruedas, en cambio, para
+    el naranja, cuyo opuesto es el azul en las dos.
+  rubric:
+  - Usa el círculo Munsell y nombra el azul verdoso como opuesto del rojo
+  - Justifica que la tabla del fabricante da el matiz en Munsell, no en RYB
+  - Propone comprobar con una mezcla real, citando la curvatura del camino de mezcla
+  - Menciona el caso donde coinciden (naranja-azul) o que RYB da verde
+- id: q-color-wheel-models-007
+  prompt: 'Tu profesor de pintura enseña la rueda RYB y afirma: "está probada por la práctica de taller,
+    porque con un rojo, un amarillo y un azul de pigmento se imita casi todo". ¿Qué argumentos de las
+    fuentes usarías para matizar esa afirmación sin descartar la rueda como lenguaje de enseñanza?'
+  model_answer: 'Diría que imitar muchos colores con tres pigmentos no valida la teoría: Munsell sostenía
+    que esa discrepancia entre la mezcla de pigmentos y la de la retina se aclara al conocer el comportamiento
+    de las pinturas. Añadiría que, con luces o discos de Maxwell, los pares RYB no se neutralizan en un
+    gris equilibrado, que el círculo tiene exceso de naranja y que el amarillo no es primario en la visión.
+    Aun así, RYB sigue siendo base de la enseñanza, y conviene conocerla y saber en qué falla.'
+  rubric:
+  - Dice que imitar colores con tres pigmentos no valida la teoría (Munsell)
+  - Cita que los pares RYB no se neutralizan en gris o el exceso de naranja
+  - Menciona que el amarillo no es primario en la visión
+  - Reconoce que RYB sigue siendo útil como lenguaje de enseñanza
+- id: q-munsell-system-001
+  prompt: En la esfera de Munsell, ¿cómo se representan las tres dimensiones?
+  options:
+    a: El valor es la escala vertical, el matiz va alrededor del ecuador y el croma crece hacia afuera
+      desde el eje de grises
+    b: El matiz es vertical, el valor va alrededor y el croma es la altura
+    c: El croma es vertical, de negro a blanco
+    d: Las tres dimensiones se miden sobre una misma recta
+  explanation: El blanco está en el polo norte y el negro en el sur (valor), el matiz recorre el ecuador
+    y el croma se mide hacia afuera desde el eje neutro. La opción c confunde croma y valor.
+- id: q-munsell-system-002
+  prompt: En la notación de Munsell de 1905, el ejemplo "R 5/9" representa el bermellón. ¿Qué significa
+    cada parte?
+  options:
+    a: R = croma, 5 = matiz, 9 = valor
+    b: R = matiz rojo, 5 = valor, 9 = croma
+    c: R = rojo, 5 y 9 = dos matices vecinos
+    d: R = reflectancia, 5 = croma, 9 = valor
+  explanation: La inicial indica el matiz, el número sobre la raya el valor y el de debajo el croma. Las
+    ediciones posteriores anteponen un número al matiz (por ejemplo 7R), de modo que la forma varía según
+    la edición.
+- id: q-munsell-system-003
+  prompt: ¿Tiene el croma de Munsell un tope de 10?
+  options:
+    a: Sí, la escala termina en 10, igual que la de valor
+    b: 'No: en la esfera de 1905 llegaba a 5, en el árbol a 9 y las tablas actuales de pinturas dan valores
+      de 16 a 18'
+    c: Sí, y los valores mayores son errores de medida
+    d: No, pero solo existe para los azules
+  explanation: 'La escala de croma no tiene un tope fijo: depende de qué pigmentos se midan. La opción
+    a transfiere la escala de valor (0-10) al croma.'
+- id: q-munsell-system-004
+  prompt: Explica con tus palabras por qué Munsell propuso un "árbol de color" en lugar de limitarse a
+    una esfera.
+  model_answer: 'Porque los pigmentos no llegan igual de lejos del gris en todos los matices: producen
+    "montañas y valles" en el sólido, así que no es una esfera regular. En el árbol, el eje de valor es
+    el tronco y las ramas, horizontales, llevan la escala de croma y se prolongan cada una hasta un croma
+    distinto, marcando los pigmentos más fuertes. Además muestra que el amarillo está más cerca del blanco
+    y el morado más cerca del negro.'
+  rubric:
+  - Dice que los pigmentos alcanzan croma máximo distinto según el matiz (el sólido es irregular)
+  - 'Describe el árbol: tronco = valor, ramas = croma'
+  - Indica que las ramas tienen longitudes distintas
+  - Menciona la altura relativa de matices (amarillo cerca del blanco, morado cerca del negro)
+- id: q-munsell-system-005
+  prompt: 'Tienes cuatro pinturas de Williamsburg: azul ultramar 9,01 PB 0,32/18,16; rojo de cadmio claro
+    9,29 R 5,13/17,97; ocre amarillo 9,62 YR 5,55/8,69; y sombra natural 6,41 Y 1,83/1,18. Necesitas un
+    oscuro casi neutro para ensuciar un amarillo sin volverlo vivo y un rojo intenso de valor medio. ¿Cuáles
+    eliges y cómo lees los datos?'
+  model_answer: 'Leo cada fila como matiz, valor y croma. Para el oscuro casi neutro elegiría la sombra
+    natural: valor 1,83 (oscuro) y croma 1,18 (casi neutro). Para el rojo intenso de valor medio, el rojo
+    de cadmio claro: valor 5,13 y croma 17,97. El ultramar es oscuro pero de croma muy alto, y el ocre
+    tiene valor medio y croma medio, así que ninguno de los dos cumple lo pedido. Los cadmios están en
+    el extremo de croma alto y las tierras en el de croma bajo.'
+  rubric:
+  - Lee las notaciones como matiz/valor/croma
+  - Elige la sombra natural para el oscuro casi neutro (valor 1,83, croma 1,18)
+  - Elige el rojo de cadmio claro para el rojo intenso de valor medio
+  - Descarta el ultramar o el ocre con una razón basada en sus valores y croma
+- id: q-munsell-system-006
+  prompt: Vas a combinar en una sola carta de colores las tablas de Williamsburg y el listado de Golden.
+    ¿Qué precauciones tomas al leer y comparar sus datos?
+  model_answer: Tendría en cuenta que el listado de Golden contiene erratas aparentes (un matiz "73,92"
+    para el rojo de cadmio oscuro, "19,0 YR" para la tierra siena cruda), por lo que hay que revisarlo
+    con cautela. La tabla de Williamsburg no indica iluminante ni observador, y los datos proceden de
+    medidas con métodos distintos, así que su comparación directa es solo indicativa. Además Golden indica
+    "Black" o "White" en lugar de matiz para las pinturas acromáticas, mientras que Williamsburg da un
+    matiz hasta a los casi neutros, que no debe tomarse en serio.
+  rubric:
+  - Menciona las erratas aparentes del listado de Golden
+  - Indica que Williamsburg no da iluminante ni observador
+  - Señala que los dos conjuntos usan métodos distintos y la comparación es indicativa
+  - Menciona la diferencia en el tratamiento de las pinturas acromáticas (Black/White frente a matiz)
+- id: q-cielab-basics-001
+  prompt: La ficha de Williamsburg para el azul ultramar da L* 4,78, a* 24,88 y b* −37,90. Un compañero
+    que no conoce CIELAB te pide que le expliques qué dice cada número y cómo calcularías el croma y el
+    ángulo de matiz.
+  model_answer: 'L* aproxima la claridad (el valor): 4,78 es muy oscuro. a* va del verde (negativo) al
+    rojo (positivo): 24,88 apunta algo al rojo. b* va del azul (negativo) al amarillo (positivo): −37,90
+    es claramente azul. Juntos sitúan un azul-morado oscuro. El croma es C*ab = √(a*² + b*²) ≈ 45 y el
+    ángulo h = arctan(b*/a*), medido desde el eje +a*, sale ≈ 303°. Son valores medidos con instrumento,
+    sin muestras físicas ni ojo humano; y la ficha no indica iluminante ni observador.'
+  rubric:
+  - Explica L* como claridad y que 4,78 es muy oscuro
+  - Explica a* (verde-rojo) y b* (azul-amarillo) e interpreta los signos
+  - Da la fórmula del croma C* = √(a*² + b*²) y obtiene ≈ 45
+  - Da h como ángulo desde +a* (arctan b*/a*), ≈ 303°, o advierte de la ausencia de iluminante/observador
+- id: q-cielab-basics-002
+  prompt: Mides con un colorímetro un patrón (L* 43,31, a* 47,63, b* 14,12) y una muestra (L* 47,34, a*
+    44,58, b* 15,16), como en el ejemplo de la manzana de Konica Minolta. Tu cliente quiere saber "cuánto
+    se diferencian" y "hacia dónde" hay que corregir. ¿Qué le dices?
+  model_answer: 'ΔE*ab = √(ΔL*² + Δa*² + Δb*²), con ΔL* = +4,03, Δa* = −3,05 y Δb* = +1,04, da 5,16. Ese
+    número solo indica el tamaño de la diferencia, no su dirección. Para el sentido hay que descomponer
+    en L*C*h: ΔL* = +4,03 (la muestra es más clara), ΔC* = −2,59 (tiene menos croma) y ΔH* = +1,92 (se
+    desvía hacia el amarillo).'
+  rubric:
+  - Calcula o cita ΔE*ab ≈ 5,16 con la fórmula euclidiana
+  - Indica que ΔE solo da el tamaño y no la dirección
+  - Interpreta ΔL* = +4,03 como más clara y ΔC* = −2,59 como menos croma
+  - Menciona ΔH* = +1,92 como desvío hacia el amarillo
+- id: q-cielab-basics-003
+  prompt: Un taller te pide fijar la regla "se acepta el lote si ΔE*ab < 2" y confía en que "si el número
+    es bajo, el ojo no verá diferencia". ¿Qué puedes y qué no puedes sostener con las fuentes?
+  model_answer: 'Las fuentes dan el cálculo y un ejemplo, pero Konica Minolta no da umbrales de tolerancia:
+    el valor de corte hay que fijarlo según el uso. Además ΔE*ab trata la tolerancia como un círculo perfecto,
+    pero la discriminación humana es elíptica, de modo que el colorímetro puede no coincidir con el juicio
+    visual. La sensibilidad es baja con saturación alta, varía con el matiz, y la de claridad alcanza
+    su máximo cerca de L* 50. Incluso hay parejas que se ven idénticas y dan ΔE*ab de 0,77, 0,18 y 0,15.'
+  rubric:
+  - Dice que las fuentes no dan un umbral general de tolerancia
+  - Explica que la discriminación humana es elíptica y ΔE*ab usa un círculo
+  - Menciona que la sensibilidad varía con el matiz, la saturación alta o la claridad
+  - Concluye que el límite se fija según el uso y puede requerir comprobación visual
+- id: q-cielab-basics-004
+  prompt: Tienes la ficha de una pintura con Munsell (por ejemplo 9,06 Y 9,05/12,69) y la de otra con
+    L*a*b*. Quieres comparar valor, croma y matiz entre ambas sin remedir. ¿Qué relaciones puedes aprovechar
+    y cuáles no?
+  model_answer: 'Puedo aprovechar que, en la tabla de Williamsburg, L* ≈ 10 × valor (0,32 con 4,78; 5,13
+    con 51,19; 9,73 con 98,24). No puedo convertir el croma con un único factor, porque el croma Munsell
+    y el C*ab no son proporcionales entre matices (amarillo de cadmio medio 16,78 y ≈ 113; ultramar 18,16
+    y ≈ 45). Tampoco el ángulo de matiz de CIELAB es el matiz Munsell: el ultramar (9,01 PB) tiene h ≈
+    303° y el cadmio limón (9,06 Y), ≈ 95°. Además la ficha no indica iluminante ni observador.'
+  rubric:
+  - Usa la relación aproximada L* ≈ 10 × valor, con algún ejemplo
+  - Dice que el croma Munsell y C*ab no son proporcionales y no hay un único factor
+  - Dice que el ángulo h de CIELAB no coincide con el matiz Munsell
+  - Advierte de la falta de iluminante/observador o de que son escalas distintas
+- id: q-cielab-basics-005
+  prompt: En tu estudio hay que (a) archivar el color exacto de una pintura para repetirlo dentro de años
+    y (b) describir a un alumno cómo se ve una mezcla comparándola con muestras. Decide qué sistema usas
+    en cada caso y por qué.
+  model_answer: Para archivar una medida o calcular una diferencia entre dos pinturas usaría CIELAB, porque
+    se calcula con instrumento a partir de valores triestímulo y un colorímetro mide siempre con la misma
+    fuente y geometría, a diferencia del ojo, cuya percepción cambia con el fondo o la luz; habría que
+    anotar iluminante y observador estándar (C o D65). Para comparar a ojo con muestras físicas usaría
+    Munsell, que se evalúa visualmente con fichas de papel en las tres escalas y se escribe H V/C.
+  rubric:
+  - Elige CIELAB para archivar/medir/calcular diferencias
+  - Justifica con la medida instrumental (misma fuente y geometría) frente al ojo
+  - Elige Munsell para la comparación visual con muestras físicas
+  - Menciona anotar iluminante y observador o la notación H V/C

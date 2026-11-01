@@ -1,0 +1,136 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 560" font-family="sans-serif" font-size="13">
+<rect width="1000" height="560" fill="#ffffff"/>
+<text x="280.0" y="38" text-anchor="middle" font-weight="bold" font-size="15" fill="#222">Página de matiz ≈ 5Y (amarillo)</text>
+<rect x="90.5" y="383.5" width="30.7" height="37.0" fill="#1f1b15"/>
+<rect x="122.2" y="383.5" width="30.7" height="37.0" fill="#241a00"/>
+<rect x="90.5" y="345.5" width="30.7" height="37.0" fill="#343029"/>
+<rect x="122.2" y="345.5" width="30.7" height="37.0" fill="#392f1a"/>
+<rect x="153.8" y="345.5" width="30.7" height="37.0" fill="#3c2f08"/>
+<rect x="90.5" y="307.5" width="30.7" height="37.0" fill="#4a463f"/>
+<rect x="122.2" y="307.5" width="30.7" height="37.0" fill="#50452f"/>
+<rect x="153.8" y="307.5" width="30.7" height="37.0" fill="#55451f"/>
+<rect x="185.5" y="307.5" width="30.7" height="37.0" fill="#58440b"/>
+<rect x="90.5" y="269.5" width="30.7" height="37.0" fill="#625e56"/>
+<rect x="122.2" y="269.5" width="30.7" height="37.0" fill="#695d46"/>
+<rect x="153.8" y="269.5" width="30.7" height="37.0" fill="#6e5c35"/>
+<rect x="185.5" y="269.5" width="30.7" height="37.0" fill="#725c23"/>
+<rect x="217.2" y="269.5" width="30.7" height="37.0" fill="#755b0a"/>
+<rect x="90.5" y="231.5" width="30.7" height="37.0" fill="#7b766f"/>
+<rect x="122.2" y="231.5" width="30.7" height="37.0" fill="#82765e"/>
+<rect x="153.8" y="231.5" width="30.7" height="37.0" fill="#88754c"/>
+<rect x="185.5" y="231.5" width="30.7" height="37.0" fill="#8d743a"/>
+<rect x="217.2" y="231.5" width="30.7" height="37.0" fill="#907326"/>
+<rect x="248.8" y="231.5" width="30.7" height="37.0" fill="#937306"/>
+<rect x="90.5" y="193.5" width="30.7" height="37.0" fill="#959088"/>
+<rect x="122.2" y="193.5" width="30.7" height="37.0" fill="#9d8f76"/>
+<rect x="153.8" y="193.5" width="30.7" height="37.0" fill="#a38e65"/>
+<rect x="185.5" y="193.5" width="30.7" height="37.0" fill="#a88d53"/>
+<rect x="217.2" y="193.5" width="30.7" height="37.0" fill="#ac8d3f"/>
+<rect x="248.8" y="193.5" width="30.7" height="37.0" fill="#b08c28"/>
+<rect x="90.5" y="155.5" width="30.7" height="37.0" fill="#b0aba2"/>
+<rect x="122.2" y="155.5" width="30.7" height="37.0" fill="#b8aa90"/>
+<rect x="153.8" y="155.5" width="30.7" height="37.0" fill="#bea97e"/>
+<rect x="185.5" y="155.5" width="30.7" height="37.0" fill="#c4a86b"/>
+<rect x="217.2" y="155.5" width="30.7" height="37.0" fill="#c9a758"/>
+<rect x="248.8" y="155.5" width="30.7" height="37.0" fill="#cda643"/>
+<rect x="280.5" y="155.5" width="30.7" height="37.0" fill="#d0a62a"/>
+<rect x="90.5" y="117.5" width="30.7" height="37.0" fill="#cbc6bd"/>
+<rect x="122.2" y="117.5" width="30.7" height="37.0" fill="#d4c5ab"/>
+<rect x="153.8" y="117.5" width="30.7" height="37.0" fill="#dbc498"/>
+<rect x="185.5" y="117.5" width="30.7" height="37.0" fill="#e1c385"/>
+<rect x="217.2" y="117.5" width="30.7" height="37.0" fill="#e6c272"/>
+<rect x="248.8" y="117.5" width="30.7" height="37.0" fill="#ebc15d"/>
+<rect x="280.5" y="117.5" width="30.7" height="37.0" fill="#eec146"/>
+<rect x="312.2" y="117.5" width="30.7" height="37.0" fill="#f2c02a"/>
+<rect x="90.5" y="79.5" width="30.7" height="37.0" fill="#e7e2d9"/>
+<rect x="122.2" y="79.5" width="30.7" height="37.0" fill="#f0e1c6"/>
+<rect x="153.8" y="79.5" width="30.7" height="37.0" fill="#f8e0b3"/>
+<rect x="185.5" y="79.5" width="30.7" height="37.0" fill="#fedfa0"/>
+<line x1="90" y1="440.0" x2="470.0" y2="440.0" stroke="#333"/>
+<line x1="90" y1="440.0" x2="90" y2="60.0" stroke="#333"/>
+<text x="82" y="444.0" text-anchor="end" fill="#444" font-size="12">0</text>
+<text x="82" y="368.0" text-anchor="end" fill="#444" font-size="12">20</text>
+<text x="82" y="292.0" text-anchor="end" fill="#444" font-size="12">40</text>
+<text x="82" y="216.0" text-anchor="end" fill="#444" font-size="12">60</text>
+<text x="82" y="140.0" text-anchor="end" fill="#444" font-size="12">80</text>
+<text x="82" y="64.0" text-anchor="end" fill="#444" font-size="12">100</text>
+<text x="90.0" y="458.0" text-anchor="middle" fill="#444" font-size="12">0</text>
+<text x="153.3" y="458.0" text-anchor="middle" fill="#444" font-size="12">20</text>
+<text x="216.7" y="458.0" text-anchor="middle" fill="#444" font-size="12">40</text>
+<text x="280.0" y="458.0" text-anchor="middle" fill="#444" font-size="12">60</text>
+<text x="343.3" y="458.0" text-anchor="middle" fill="#444" font-size="12">80</text>
+<text x="406.7" y="458.0" text-anchor="middle" fill="#444" font-size="12">100</text>
+<text x="470.0" y="458.0" text-anchor="middle" fill="#444" font-size="12">120</text>
+<text x="280.0" y="480.0" text-anchor="middle" fill="#222">croma C*ab (CIELAB)</text>
+<text transform="translate(46,250.0) rotate(-90)" text-anchor="middle" fill="#222">claridad L*  (valor Munsell ≈ L*/10)</text>
+<circle cx="391.8" cy="98.0" r="5.5" fill="#fff" stroke="#111" stroke-width="2"/>
+<text x="381.8" y="86.0" text-anchor="end" fill="#111" font-size="12" paint-order="stroke" stroke="#fff" stroke-width="3.5" stroke-linejoin="round">Amarillo limón de cadmio <tspan font-weight="bold">9.06Y 9.05/12.69</tspan></text>
+<circle cx="448.2" cy="124.3" r="5.5" fill="#fff" stroke="#111" stroke-width="2"/>
+<text x="438.2" y="146.3" text-anchor="end" fill="#111" font-size="12" paint-order="stroke" stroke="#fff" stroke-width="3.5" stroke-linejoin="round">Amarillo de cadmio medio <tspan font-weight="bold">2.73Y 8.45/16.78</tspan></text>
+<circle cx="267.2" cy="229.1" r="5.5" fill="#fff" stroke="#111" stroke-width="2"/>
+<text x="277.2" y="233.1" text-anchor="start" fill="#111" font-size="12" paint-order="stroke" stroke="#fff" stroke-width="3.5" stroke-linejoin="round">Ocre amarillo <tspan font-weight="bold">9.62YR 5.55/8.69</tspan></text>
+<circle cx="112.3" cy="369.0" r="5.5" fill="#fff" stroke="#111" stroke-width="2"/>
+<text x="122.3" y="373.0" text-anchor="start" fill="#111" font-size="12" paint-order="stroke" stroke="#fff" stroke-width="3.5" stroke-linejoin="round">Sombra natural <tspan font-weight="bold">6.41Y 1.83/1.18</tspan></text>
+<text x="760.0" y="38" text-anchor="middle" font-weight="bold" font-size="15" fill="#222">Página de matiz ≈ 5PB (morado-azul)</text>
+<rect x="570.5" y="383.5" width="30.7" height="37.0" fill="#181c22"/>
+<rect x="602.2" y="383.5" width="30.7" height="37.0" fill="#091d30"/>
+<rect x="570.5" y="345.5" width="30.7" height="37.0" fill="#2c3138"/>
+<rect x="602.2" y="345.5" width="30.7" height="37.0" fill="#213146"/>
+<rect x="633.8" y="345.5" width="30.7" height="37.0" fill="#033255"/>
+<rect x="570.5" y="307.5" width="30.7" height="37.0" fill="#43474e"/>
+<rect x="602.2" y="307.5" width="30.7" height="37.0" fill="#38485e"/>
+<rect x="633.8" y="307.5" width="30.7" height="37.0" fill="#25496d"/>
+<rect x="570.5" y="269.5" width="30.7" height="37.0" fill="#5a5f66"/>
+<rect x="602.2" y="269.5" width="30.7" height="37.0" fill="#4f5f76"/>
+<rect x="633.8" y="269.5" width="30.7" height="37.0" fill="#406087"/>
+<rect x="665.5" y="269.5" width="30.7" height="37.0" fill="#246197"/>
+<rect x="570.5" y="231.5" width="30.7" height="37.0" fill="#73777f"/>
+<rect x="602.2" y="231.5" width="30.7" height="37.0" fill="#687890"/>
+<rect x="633.8" y="231.5" width="30.7" height="37.0" fill="#5a79a1"/>
+<rect x="665.5" y="231.5" width="30.7" height="37.0" fill="#457ab2"/>
+<rect x="697.2" y="231.5" width="30.7" height="37.0" fill="#1a7bc3"/>
+<rect x="570.5" y="193.5" width="30.7" height="37.0" fill="#8c9199"/>
+<rect x="602.2" y="193.5" width="30.7" height="37.0" fill="#8292ab"/>
+<rect x="633.8" y="193.5" width="30.7" height="37.0" fill="#7493bc"/>
+<rect x="665.5" y="193.5" width="30.7" height="37.0" fill="#6294ce"/>
+<rect x="697.2" y="193.5" width="30.7" height="37.0" fill="#4695e0"/>
+<rect x="570.5" y="155.5" width="30.7" height="37.0" fill="#a7abb4"/>
+<rect x="602.2" y="155.5" width="30.7" height="37.0" fill="#9cacc6"/>
+<rect x="633.8" y="155.5" width="30.7" height="37.0" fill="#8fadd8"/>
+<rect x="665.5" y="155.5" width="30.7" height="37.0" fill="#7eaeea"/>
+<rect x="697.2" y="155.5" width="30.7" height="37.0" fill="#67affc"/>
+<rect x="570.5" y="117.5" width="30.7" height="37.0" fill="#c2c7d0"/>
+<rect x="602.2" y="117.5" width="30.7" height="37.0" fill="#b7c8e2"/>
+<rect x="633.8" y="117.5" width="30.7" height="37.0" fill="#aac9f5"/>
+<rect x="570.5" y="79.5" width="30.7" height="37.0" fill="#dee3ec"/>
+<rect x="602.2" y="79.5" width="30.7" height="37.0" fill="#d3e4ff"/>
+<line x1="570" y1="440.0" x2="950.0" y2="440.0" stroke="#333"/>
+<line x1="570" y1="440.0" x2="570" y2="60.0" stroke="#333"/>
+<text x="562" y="444.0" text-anchor="end" fill="#444" font-size="12">0</text>
+<text x="562" y="368.0" text-anchor="end" fill="#444" font-size="12">20</text>
+<text x="562" y="292.0" text-anchor="end" fill="#444" font-size="12">40</text>
+<text x="562" y="216.0" text-anchor="end" fill="#444" font-size="12">60</text>
+<text x="562" y="140.0" text-anchor="end" fill="#444" font-size="12">80</text>
+<text x="562" y="64.0" text-anchor="end" fill="#444" font-size="12">100</text>
+<text x="570.0" y="458.0" text-anchor="middle" fill="#444" font-size="12">0</text>
+<text x="633.3" y="458.0" text-anchor="middle" fill="#444" font-size="12">20</text>
+<text x="696.7" y="458.0" text-anchor="middle" fill="#444" font-size="12">40</text>
+<text x="760.0" y="458.0" text-anchor="middle" fill="#444" font-size="12">60</text>
+<text x="823.3" y="458.0" text-anchor="middle" fill="#444" font-size="12">80</text>
+<text x="886.7" y="458.0" text-anchor="middle" fill="#444" font-size="12">100</text>
+<text x="950.0" y="458.0" text-anchor="middle" fill="#444" font-size="12">120</text>
+<text x="760.0" y="480.0" text-anchor="middle" fill="#222">croma C*ab (CIELAB)</text>
+<text transform="translate(526,250.0) rotate(-90)" text-anchor="middle" fill="#222">claridad L*  (valor Munsell ≈ L*/10)</text>
+<circle cx="753.3" cy="340.6" r="5.5" fill="#fff" stroke="#111" stroke-width="2"/>
+<text x="763.3" y="330.6" text-anchor="start" fill="#111" font-size="12" paint-order="stroke" stroke="#fff" stroke-width="3.5" stroke-linejoin="round">Azul cobalto oscuro <tspan font-weight="bold">6.82PB 2.20/15.36</tspan></text>
+<circle cx="728.1" cy="339.0" r="5.5" fill="#fff" stroke="#111" stroke-width="2"/>
+<text x="738.1" y="353.0" text-anchor="start" fill="#111" font-size="12" paint-order="stroke" stroke="#fff" stroke-width="3.5" stroke-linejoin="round">Azul cobalto <tspan font-weight="bold">6.42PB 2.25/13.27</tspan></text>
+<circle cx="683.2" cy="327.6" r="5.5" fill="#fff" stroke="#111" stroke-width="2"/>
+<text x="683.2" y="313.6" text-anchor="middle" fill="#111" font-size="12" paint-order="stroke" stroke="#fff" stroke-width="3.5" stroke-linejoin="round">Azul cerúleo <tspan font-weight="bold">1.61PB 2.61/8.65</tspan></text>
+<circle cx="713.6" cy="421.8" r="5.5" fill="#fff" stroke="#111" stroke-width="2"/>
+<text x="723.6" y="425.8" text-anchor="start" fill="#111" font-size="12" paint-order="stroke" stroke="#fff" stroke-width="3.5" stroke-linejoin="round">Azul ultramar <tspan font-weight="bold">9.01PB 0.32/18.16</tspan></text>
+<rect x="90" y="515" width="14" height="14" fill="#c1a875"/>
+<text x="112" y="526" fill="#333">colores que caben en una pantalla sRGB</text>
+<circle cx="527" cy="522" r="5.5" fill="#fff" stroke="#111" stroke-width="2"/>
+<text x="540" y="526" fill="#333">pinturas al óleo medidas (notación Munsell H V/C)</text>
+</svg>

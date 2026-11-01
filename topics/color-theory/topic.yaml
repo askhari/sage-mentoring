@@ -1,0 +1,12 @@
+id: color-theory
+version: 1
+languages: [es]
+license: CC-BY-4.0
+domains:                    # in study order
+  - light-and-vision
+  - color-attributes
+  - color-mixing
+  - paints-and-pigments
+  - color-interaction
+  - color-harmony
+  - color-in-painting

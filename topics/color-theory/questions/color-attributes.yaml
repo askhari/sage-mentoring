@@ -1,0 +1,367 @@
+- id: q-hue-001
+  concept: hue
+  layer: 1
+  type: single-choice
+  sources:
+  - munsell-1905
+  - cie-e-ilv
+  correct: b
+- id: q-hue-002
+  concept: hue
+  layer: 1
+  type: short-answer
+  sources:
+  - munsell-1905
+  - cie-e-ilv
+- id: q-hue-003
+  concept: hue
+  layer: 1
+  type: single-choice
+  sources:
+  - munsell-1905
+  correct: c
+- id: q-hue-004
+  concept: hue
+  layer: 2
+  type: single-choice
+  sources:
+  - cie-e-ilv
+  - munsell-1905
+  - newton-1704
+  correct: b
+- id: q-hue-005
+  concept: hue
+  layer: 2
+  type: open
+  sources:
+  - cie-e-ilv
+- id: q-hue-006
+  concept: hue
+  layer: 3
+  type: case
+  sources:
+  - justpaint-munsell-cielab
+- id: q-hue-007
+  concept: hue
+  layer: 3
+  type: case
+  sources:
+  - justpaint-munsell-cielab
+- id: q-value-001
+  concept: value
+  layer: 1
+  type: single-choice
+  sources:
+  - munsell-1905
+  - konica-minolta-pcc
+  correct: c
+- id: q-value-002
+  concept: value
+  layer: 1
+  type: short-answer
+  sources:
+  - cleland-1921
+  - munsell-1905
+- id: q-value-003
+  concept: value
+  layer: 1
+  type: single-choice
+  sources:
+  - munsell-1905
+  correct: a
+- id: q-value-004
+  concept: value
+  layer: 2
+  type: single-choice
+  sources:
+  - cie-e-ilv
+  - briggs-dimensions
+  correct: b
+- id: q-value-005
+  concept: value
+  layer: 2
+  type: open
+  sources:
+  - newton-1704
+  - cie-e-ilv
+- id: q-value-006
+  concept: value
+  layer: 3
+  type: case
+  sources:
+  - justpaint-munsell-cielab
+- id: q-value-007
+  concept: value
+  layer: 3
+  type: case
+  sources:
+  - justpaint-munsell-cielab
+  - briggs-dimensions
+- id: q-value-008
+  concept: value
+  layer: 3
+  type: case
+  sources:
+  - justpaint-munsell-cielab
+- id: q-chroma-001
+  concept: chroma
+  layer: 1
+  type: single-choice
+  sources:
+  - munsell-1905
+  - konica-minolta-pcc
+  correct: c
+- id: q-chroma-002
+  concept: chroma
+  layer: 1
+  type: short-answer
+  sources:
+  - munsell-1905
+  - cleland-1921
+- id: q-chroma-003
+  concept: chroma
+  layer: 1
+  type: single-choice
+  sources:
+  - munsell-1905
+  correct: b
+- id: q-chroma-004
+  concept: chroma
+  layer: 2
+  type: single-choice
+  sources:
+  - munsell-1905
+  - cleland-1921
+  correct: b
+- id: q-chroma-005
+  concept: chroma
+  layer: 2
+  type: open
+  sources:
+  - munsell-1905
+- id: q-chroma-006
+  concept: chroma
+  layer: 3
+  type: case
+  sources:
+  - justpaint-munsell-cielab
+- id: q-chroma-007
+  concept: chroma
+  layer: 3
+  type: case
+  sources:
+  - justpaint-munsell-cielab
+- id: q-color-wheel-001
+  concept: color-wheel
+  layer: 1
+  type: single-choice
+  sources:
+  - cleland-1921
+  - konica-minolta-pcc
+  - cie-e-ilv
+  correct: b
+- id: q-color-wheel-002
+  concept: color-wheel
+  layer: 1
+  type: short-answer
+  sources:
+  - munsell-1905
+- id: q-color-wheel-003
+  concept: color-wheel
+  layer: 1
+  type: single-choice
+  sources:
+  - munsell-1905
+  correct: c
+- id: q-color-wheel-004
+  concept: color-wheel
+  layer: 2
+  type: single-choice
+  sources:
+  - newton-1704
+  correct: c
+- id: q-color-wheel-005
+  concept: color-wheel
+  layer: 2
+  type: open
+  sources:
+  - newton-1704
+- id: q-color-wheel-006
+  concept: color-wheel
+  layer: 3
+  type: case
+  sources:
+  - munsell-1905
+- id: q-color-wheel-007
+  concept: color-wheel
+  layer: 3
+  type: case
+  sources:
+  - briggs-dimensions
+  - munsell-1905
+- id: q-saturation-and-colorfulness-001
+  concept: saturation-and-colorfulness
+  layer: 2
+  type: single-choice
+  sources:
+  - cie-e-ilv
+  correct: a
+- id: q-saturation-and-colorfulness-002
+  concept: saturation-and-colorfulness
+  layer: 2
+  type: single-choice
+  sources:
+  - cie-e-ilv
+  correct: a
+- id: q-saturation-and-colorfulness-003
+  concept: saturation-and-colorfulness
+  layer: 2
+  type: open
+  sources:
+  - cie-e-ilv
+  - konica-minolta-pcc
+  - munsell-1905
+- id: q-saturation-and-colorfulness-004
+  concept: saturation-and-colorfulness
+  layer: 3
+  type: case
+  sources:
+  - cie-e-ilv
+  - briggs-dimensions
+  - justpaint-munsell-cielab
+- id: q-saturation-and-colorfulness-005
+  concept: saturation-and-colorfulness
+  layer: 3
+  type: case
+  sources:
+  - cie-e-ilv
+- id: q-color-wheel-models-001
+  concept: color-wheel-models
+  layer: 2
+  type: single-choice
+  sources:
+  - briggs-dimensions
+  - munsell-1905
+  - cie-e-ilv
+  correct: b
+- id: q-color-wheel-models-002
+  concept: color-wheel-models
+  layer: 2
+  type: single-choice
+  sources:
+  - briggs-dimensions
+  - munsell-1905
+  correct: c
+- id: q-color-wheel-models-003
+  concept: color-wheel-models
+  layer: 2
+  type: single-choice
+  sources:
+  - munsell-1905
+  correct: b
+- id: q-color-wheel-models-004
+  concept: color-wheel-models
+  layer: 2
+  type: open
+  sources:
+  - newton-1704
+  - munsell-1905
+- id: q-color-wheel-models-005
+  concept: color-wheel-models
+  layer: 3
+  type: case
+  sources:
+  - newton-1704
+  - munsell-1905
+  - briggs-dimensions
+- id: q-color-wheel-models-006
+  concept: color-wheel-models
+  layer: 3
+  type: case
+  sources:
+  - munsell-1905
+  - briggs-dimensions
+  - justpaint-munsell-cielab
+- id: q-color-wheel-models-007
+  concept: color-wheel-models
+  layer: 3
+  type: case
+  sources:
+  - munsell-1905
+  - briggs-dimensions
+- id: q-munsell-system-001
+  concept: munsell-system
+  layer: 2
+  type: single-choice
+  sources:
+  - munsell-1905
+  correct: a
+- id: q-munsell-system-002
+  concept: munsell-system
+  layer: 2
+  type: single-choice
+  sources:
+  - munsell-1905
+  - cleland-1921
+  correct: b
+- id: q-munsell-system-003
+  concept: munsell-system
+  layer: 2
+  type: single-choice
+  sources:
+  - munsell-1905
+  - justpaint-munsell-cielab
+  correct: b
+- id: q-munsell-system-004
+  concept: munsell-system
+  layer: 2
+  type: open
+  sources:
+  - munsell-1905
+  - cleland-1921
+- id: q-munsell-system-005
+  concept: munsell-system
+  layer: 3
+  type: case
+  sources:
+  - justpaint-munsell-cielab
+- id: q-munsell-system-006
+  concept: munsell-system
+  layer: 3
+  type: case
+  sources:
+  - justpaint-munsell-cielab
+- id: q-cielab-basics-001
+  concept: cielab-basics
+  layer: 3
+  type: case
+  sources:
+  - justpaint-munsell-cielab
+  - konica-minolta-pcc
+  - cie-e-ilv
+- id: q-cielab-basics-002
+  concept: cielab-basics
+  layer: 3
+  type: case
+  sources:
+  - konica-minolta-pcc
+  - cie-e-ilv
+- id: q-cielab-basics-003
+  concept: cielab-basics
+  layer: 3
+  type: case
+  sources:
+  - konica-minolta-pcc
+- id: q-cielab-basics-004
+  concept: cielab-basics
+  layer: 3
+  type: case
+  sources:
+  - justpaint-munsell-cielab
+- id: q-cielab-basics-005
+  concept: cielab-basics
+  layer: 3
+  type: case
+  sources:
+  - konica-minolta-pcc
+  - cie-e-ilv

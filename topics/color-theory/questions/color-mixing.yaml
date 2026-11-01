@@ -1,0 +1,318 @@
+- id: q-additive-mixing-001
+  concept: additive-mixing
+  layer: 1
+  type: single-choice
+  sources:
+  - openstax-college-physics-2e
+  correct: b
+- id: q-additive-mixing-002
+  concept: additive-mixing
+  layer: 1
+  type: short-answer
+  sources:
+  - openstax-college-physics-2e
+- id: q-additive-mixing-003
+  concept: additive-mixing
+  layer: 2
+  type: single-choice
+  sources:
+  - openstax-college-physics-2e
+  correct: c
+- id: q-additive-mixing-004
+  concept: additive-mixing
+  layer: 2
+  type: open
+  sources:
+  - sochorova-2021
+  - openstax-college-physics-2e
+- id: q-additive-mixing-005
+  concept: additive-mixing
+  layer: 3
+  type: case
+  sources:
+  - sochorova-2021
+- id: q-additive-mixing-006
+  concept: additive-mixing
+  layer: 3
+  type: case
+  sources:
+  - sochorova-2021
+- id: q-subtractive-mixing-001
+  concept: subtractive-mixing
+  layer: 1
+  type: single-choice
+  sources:
+  - handprint-macevoy
+  - newton-1704
+  correct: b
+- id: q-subtractive-mixing-002
+  concept: subtractive-mixing
+  layer: 1
+  type: single-choice
+  sources:
+  - openstax-college-physics-2e
+  correct: d
+- id: q-subtractive-mixing-003
+  concept: subtractive-mixing
+  layer: 1
+  type: short-answer
+  sources:
+  - handprint-macevoy
+- id: q-subtractive-mixing-004
+  concept: subtractive-mixing
+  layer: 2
+  type: single-choice
+  sources:
+  - sochorova-2021
+  correct: a
+- id: q-subtractive-mixing-005
+  concept: subtractive-mixing
+  layer: 2
+  type: open
+  sources:
+  - kubelka-munk-1931
+- id: q-subtractive-mixing-006
+  concept: subtractive-mixing
+  layer: 2
+  type: single-choice
+  sources:
+  - handprint-macevoy
+  correct: c
+- id: q-subtractive-mixing-007
+  concept: subtractive-mixing
+  layer: 3
+  type: case
+  sources:
+  - handprint-macevoy
+- id: q-subtractive-mixing-008
+  concept: subtractive-mixing
+  layer: 3
+  type: case
+  sources:
+  - sochorova-2021
+  - handprint-macevoy
+- id: q-subtractive-mixing-009
+  concept: subtractive-mixing
+  layer: 3
+  type: case
+  sources:
+  - handprint-macevoy
+  - sochorova-2021
+  - zhao-berns-2006
+- id: q-complementary-colors-001
+  concept: complementary-colors
+  layer: 1
+  type: single-choice
+  sources:
+  - munsell-1905
+  correct: b
+- id: q-complementary-colors-002
+  concept: complementary-colors
+  layer: 1
+  type: short-answer
+  sources:
+  - munsell-1905
+- id: q-complementary-colors-003
+  concept: complementary-colors
+  layer: 2
+  type: single-choice
+  sources:
+  - munsell-1905
+  correct: d
+- id: q-complementary-colors-004
+  concept: complementary-colors
+  layer: 2
+  type: open
+  sources:
+  - handprint-macevoy
+  - munsell-1905
+- id: q-complementary-colors-005
+  concept: complementary-colors
+  layer: 3
+  type: case
+  sources:
+  - handprint-macevoy
+- id: q-complementary-colors-006
+  concept: complementary-colors
+  layer: 3
+  type: case
+  sources:
+  - munsell-1905
+- id: q-tints-shades-tones-001
+  concept: tints-shades-tones
+  layer: 1
+  type: single-choice
+  sources:
+  - handprint-macevoy
+  correct: c
+- id: q-tints-shades-tones-002
+  concept: tints-shades-tones
+  layer: 1
+  type: single-choice
+  sources:
+  - handprint-macevoy
+  correct: a
+- id: q-tints-shades-tones-003
+  concept: tints-shades-tones
+  layer: 2
+  type: single-choice
+  sources:
+  - sochorova-2021
+  correct: b
+- id: q-tints-shades-tones-004
+  concept: tints-shades-tones
+  layer: 2
+  type: open
+  sources:
+  - justpaint-munsell-cielab
+  - handprint-macevoy
+- id: q-tints-shades-tones-005
+  concept: tints-shades-tones
+  layer: 3
+  type: case
+  sources:
+  - zhao-berns-2006
+  - sochorova-2021
+- id: q-tints-shades-tones-006
+  concept: tints-shades-tones
+  layer: 3
+  type: case
+  sources:
+  - handprint-macevoy
+- id: q-primary-colors-001
+  concept: primary-colors
+  layer: 2
+  type: single-choice
+  sources:
+  - handprint-macevoy
+  - sochorova-2021
+  correct: b
+- id: q-primary-colors-002
+  concept: primary-colors
+  layer: 2
+  type: single-choice
+  sources:
+  - munsell-1905
+  - handprint-macevoy
+  correct: c
+- id: q-primary-colors-003
+  concept: primary-colors
+  layer: 2
+  type: open
+  sources:
+  - openstax-college-physics-2e
+  - handprint-macevoy
+- id: q-primary-colors-004
+  concept: primary-colors
+  layer: 2
+  type: single-choice
+  sources:
+  - handprint-macevoy
+  correct: d
+- id: q-primary-colors-005
+  concept: primary-colors
+  layer: 3
+  type: case
+  sources:
+  - handprint-macevoy
+- id: q-primary-colors-006
+  concept: primary-colors
+  layer: 3
+  type: case
+  sources:
+  - munsell-1905
+  - handprint-macevoy
+- id: q-primary-colors-007
+  concept: primary-colors
+  layer: 3
+  type: case
+  sources:
+  - sochorova-2021
+  - handprint-macevoy
+- id: q-pigment-mixing-behavior-001
+  concept: pigment-mixing-behavior
+  layer: 2
+  type: single-choice
+  sources:
+  - sochorova-2021
+  correct: c
+- id: q-pigment-mixing-behavior-002
+  concept: pigment-mixing-behavior
+  layer: 2
+  type: single-choice
+  sources:
+  - kubelka-munk-1931
+  correct: a
+- id: q-pigment-mixing-behavior-003
+  concept: pigment-mixing-behavior
+  layer: 2
+  type: open
+  sources:
+  - sochorova-2021
+  - handprint-macevoy
+- id: q-pigment-mixing-behavior-004
+  concept: pigment-mixing-behavior
+  layer: 3
+  type: case
+  sources:
+  - sochorova-2021
+- id: q-pigment-mixing-behavior-005
+  concept: pigment-mixing-behavior
+  layer: 3
+  type: case
+  sources:
+  - handprint-macevoy
+- id: q-pigment-mixing-behavior-006
+  concept: pigment-mixing-behavior
+  layer: 3
+  type: case
+  sources:
+  - handprint-macevoy
+- id: q-optical-mixing-001
+  concept: optical-mixing
+  layer: 2
+  type: single-choice
+  sources:
+  - handprint-macevoy
+  correct: b
+- id: q-optical-mixing-002
+  concept: optical-mixing
+  layer: 2
+  type: single-choice
+  sources:
+  - koenderink-2018
+  correct: c
+- id: q-optical-mixing-003
+  concept: optical-mixing
+  layer: 2
+  type: open
+  sources:
+  - gomez-sanchez-2014
+- id: q-optical-mixing-004
+  concept: optical-mixing
+  layer: 3
+  type: case
+  sources:
+  - gomez-sanchez-2014
+  - koenderink-2018
+- id: q-optical-mixing-005
+  concept: optical-mixing
+  layer: 3
+  type: case
+  sources:
+  - gomez-sanchez-2014
+- id: q-target-color-mixing-001
+  concept: target-color-mixing
+  layer: 3
+  type: case
+  sources:
+  - munsell-1905
+  - handprint-macevoy
+- id: q-target-color-mixing-002
+  concept: target-color-mixing
+  layer: 3
+  type: case
+  sources:
+  - justpaint-munsell-cielab
+  - sochorova-2021
+  - handprint-macevoy
