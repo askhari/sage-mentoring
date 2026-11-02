@@ -38,7 +38,7 @@
     d: El aglutinante es siempre incoloro, así que el color depende solo del grosor
   explanation: Feller muestra que la laca de carmín ocupa posiciones distintas en el diagrama de cromaticidad
     según el aglutinante, y que un medio ácido aclara el amarillo indio. No hay transformación del pigmento
-    en otro (a) ni es solo cuestión de grosor (c).
+    en otro (b) ni es solo cuestión de grosor (d).
 - id: q-paint-composition-005
   prompt: ¿Qué ocurre cuando los iones metálicos de un pigmento reaccionan con los ácidos grasos del aceite?
   options:
@@ -103,7 +103,7 @@
     d: Porque todas las marcas usan el mismo pigmento aunque lo llamen distinto
   explanation: MacEvoy señala que un nombre como "amarillo indio" puede cubrir varios pigmentos, y Feller
     recuerda que "blanco permanente" se usó para sulfato de bario y a veces para blanco de zinc. Los nombres
-    comerciales no están normalizados (opción a falsa).
+    comerciales no están normalizados (opción b falsa).
 - id: q-colour-index-names-002
   prompt: En el nombre genérico PB 60 (azul de antraquinona), ¿qué indican las letras P y B?
   options:
@@ -146,7 +146,7 @@
     c: Porque el número depende del uso del pigmento y ambos se usan como carga
     d: Porque son la misma sustancia con el mismo origen natural
   explanation: 'El nombre genérico distingue el tipo específico (natural o sintético), mientras que el
-    número de constitución depende de la estructura química, igual en los dos. La opción c es falsa: uno
+    número de constitución depende de la estructura química, igual en los dos. La opción d es falsa: uno
     es mineral y el otro se fabrica.'
 - id: q-colour-index-names-006
   prompt: En el cadmio, el Pigment Yellow 37 es sulfuro de cadmio puro y el Pigment Yellow 35 es litopón
@@ -157,8 +157,8 @@
     c: 'No hay diferencia práctica: son el mismo pigmento con otro nombre'
     d: El PY35 es siempre más resistente a la luz que el PY37
   explanation: Feller indica que las versiones de litopón cubren y tiñen bastante menos que el cadmio
-    puro. Dos códigos de la misma familia no son intercambiables (opción b), y los datos no apoyan que
-    uno sea más sólido (c).
+    puro. Dos códigos de la misma familia no son intercambiables (opción c), y los datos no apoyan que
+    uno sea más sólido (d).
 - id: q-colour-index-names-007
   prompt: Explica con tus palabras qué diferencia hay entre el nombre genérico C.I. y el número de constitución,
     y por qué un código C.I. dice "qué es" el pigmento pero no "qué tal es".
@@ -214,7 +214,7 @@
     c: Ambas sirven para lo mismo; solo cambia la marca
     d: Las opacas son siempre las más caras y las transparentes las más baratas
   explanation: Una pintura opaca tapa lo que hay debajo; una transparente deja ver el fondo, por lo que
-    sirve para veladuras. La opción a invierte los usos.
+    sirve para veladuras. La opción b invierte los usos.
 - id: q-transparency-opacity-002
   prompt: ¿Cómo se llama también a la capacidad de una pintura de tapar lo que hay debajo? (término en
     español o en inglés)
@@ -246,7 +246,7 @@
     d: Una pintura transparente nunca puede verse oscura
   explanation: Golden advierte que una pintura transparente puede parecer opaca recién salida del tubo,
     y MacEvoy que casi cualquier pintura es más transparente diluida. La transparencia se aprecia en capa
-    fina (c y b son falsas).
+    fina (a y c son falsas).
 - id: q-transparency-opacity-005
   prompt: ¿Por qué cubre bien un pigmento blanco como el dióxido de titanio?
   options:
@@ -332,7 +332,7 @@
     d: Lo oscura que se ve la pintura en capa gruesa
   explanation: 'Golden lo define como lo que una pintura cambia a otra con la que se mezcla, y lo mide
     mezclando cada color con blanco de titanio. La cobertura (a) es la opacidad, y la oscuridad en masa
-    (c) es el tono de masa: no son lo mismo.'
+    (d) es el tono de masa: no son lo mismo.'
 - id: q-tinting-strength-002
   prompt: MacEvoy distingue el teñido (staining) del poder tintóreo. ¿Cómo?
   options:
@@ -342,7 +342,7 @@
     c: El teñido se refiere a mezclar con blanco y el poder tintóreo, a la resistencia a la luz
     d: El teñido solo ocurre en óleo y el poder tintóreo, en acuarela
   explanation: MacEvoy señala que se confunden a menudo, pero uno afecta al papel y el otro al líquido.
-    Ninguno mide solidez a la luz (opción b).
+    Ninguno mide solidez a la luz (opción c).
 - id: q-tinting-strength-003
   prompt: ¿Qué factor suele aumentar el poder tintóreo de un pigmento?
   options:
@@ -416,7 +416,7 @@
     c: El color de la pintura extendida muy fina sobre blanco
     d: El color que tiene el pigmento en polvo antes de mezclarse
   explanation: Golden y Feller coinciden en que es el color a plena concentración en su vehículo; el azul
-    ftalo espeso parece casi negro. Las opciones b y a describen subtono o tinte.
+    ftalo espeso parece casi negro. Las opciones b y c describen subtono o tinte.
 - id: q-masstone-undertone-002
   prompt: Una ficha técnica habla del "subtono" de una pintura. ¿Qué conviene hacer al leerla?
   options:
@@ -437,7 +437,7 @@
       modo que cambian absorción y dispersión efectivas
     d: Porque el tono de masa lo determina el aglutinante y el subtono, el pigmento
   explanation: Con el espesor cambia lo que la capa absorbe y dispersa y cuánto del fondo se ve (Kubelka
-    y Munk). No hay descomposición del pigmento (a), y la opción c separa artificialmente pigmento y aglutinante,
+    y Munk). No hay descomposición del pigmento (a), y la opción d separa artificialmente pigmento y aglutinante,
     que influyen en ambos.
 - id: q-masstone-undertone-004
   prompt: La laca de carmín ocupa posiciones distintas en el diagrama de cromaticidad en cola animal y
@@ -447,8 +447,8 @@
     b: Que el tono de masa es una propiedad fija del pigmento
     c: Que el tono de masa solo cambia si se añade blanco
     d: Que el óleo siempre da tonos de masa más oscuros que la cola
-  explanation: Feller muestra que el aglutinante modifica el color en masa. La opción b confunde tono
-    de masa con tinte; la c generaliza sin base.
+  explanation: Feller muestra que el aglutinante modifica el color en masa. La opción c confunde tono
+    de masa con tinte; la d generaliza sin base.
 - id: q-masstone-undertone-005
   prompt: Explica con tus palabras por qué el color que ves en el tubo (el tono de masa) puede ser engañoso
     y por qué la palabra "subtono" puede significar dos cosas.
@@ -499,7 +499,7 @@
     c: La resistencia a la luz incluye la permanencia como caso particular
     d: La permanencia solo se refiere al desvanecimiento por ultravioleta
   explanation: La resistencia a la luz es la resistencia a cambiar bajo la luz; la permanencia incluye
-    además la compatibilidad y las reacciones químicas. Las opciones b y c invierten o recortan el alcance.
+    además la compatibilidad y las reacciones químicas. Las opciones c y d invierten o recortan el alcance.
 - id: q-lightfastness-002
   prompt: ¿Por qué las normas actuales para pigmentos de artista exigen ensayarlos en un aglutinante?
   options:
@@ -509,7 +509,7 @@
     c: Porque los aglutinantes siempre protegen al pigmento de la luz
     d: Porque así se obtiene una cifra en años de duración
   explanation: Feller midió que el amarillo indio cambió ΔE 10,3 en goma arábiga y 39,1 en emulsión vinílica
-    ácida tras la misma exposición. El aglutinante no siempre protege (b), y las clasificaciones no dan
+    ácida tras la misma exposición. El aglutinante no siempre protege (c), y las clasificaciones no dan
     años.
 - id: q-lightfastness-003
   prompt: Una pintura tiene clasificación ASTM I. ¿Qué te dice esa clasificación?
@@ -542,7 +542,7 @@
     d: Los inorgánicos se desvanecen siempre y los orgánicos se oscurecen siempre
   explanation: 'Es una tendencia con excepciones: óxidos de hierro, azul cobalto, quinacridonas y ftalocianina
     de cobre son muy sólidos, mientras que cadmio, amarillo de cromo y bermellón son sensibles. La opción
-    a es el error frecuente.'
+    b es el error frecuente.'
 - id: q-lightfastness-006
   prompt: Explica con tus palabras por qué dos tubos con el mismo pigmento pueden tener clasificaciones
     de resistencia a la luz distintas, y qué tres cosas deberías comprobar antes de fiarte de una clasificación.

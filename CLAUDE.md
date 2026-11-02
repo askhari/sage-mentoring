@@ -42,6 +42,6 @@ Decidido y especificado en [docs/format.md](docs/format.md): `topics/` (contenid
 ## Plan de trabajo
 1. ~~Alcance del producto~~ y ~~formato de datos~~ (hechos).
 2. ~~Skills y herramientas~~ (hechas; `topic-builder` y los tres subagentes probados con el piloto en las fases 1 y 2; `topic-examiner` aún sin probar): `topic-builder` y `topic-examiner` en `.claude/skills/`; subagentes `source-researcher`, `concept-writer` y `question-writer` (Sonnet) en `.claude/agents/`; scripts en `tools/` (`validate_topic.py`, `build_layer_index.py`, `progress.py`; tests: `uv run tools/tests/test_validate_topic.py`). Los scripts se ejecutan con `uv run`; las tareas mecánicas, con scripts y no con modelos.
-3. Piloto: teoría del color, en curso: mapa aprobado (enfoque pintura y arte, 7 ámbitos); hechos los 7 ámbitos (`light-and-vision`, `color-attributes`, `color-mixing`, `paints-and-pigments`, `color-interaction`, `color-harmony` y `color-in-painting`). Falta la fase 3 de `topic-builder` (overview, índices por capa, validación final). Estado en `topics/color-theory/research/plan.md`.
+3. ~~Piloto: teoría del color~~ (hecho): 7 ámbitos (enfoque pintura y arte), 49 conceptos, 372 preguntas; overview, índices por capa y validación final hechos. Pendiente: probar `topic-examiner` con el piloto y repasar las afirmaciones `[unverified]`. Estado en `topics/color-theory/research/plan.md`.
 4. Exportador a Anki (`tools/`).
 5. Aplicación: volver al pipeline Navigate (`architect` → …).
