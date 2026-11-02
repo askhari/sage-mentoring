@@ -73,3 +73,19 @@
 - id: cleland-area-balance
   alt: "Dos rectángulos. A la izquierda, mitad amarillo y mitad azul morado oscuro. A la derecha, un campo azul morado oscuro con un cuadrado amarillo pequeño en el centro."
   caption: "La regla de Cleland: multiplicar valor por croma (amarillo Y 7/9 → 63, morado-azul P-B 3/4 → 12) y dar a cada color un área inversamente proporcional, unas 12 partes de amarillo por 63 de morado-azul [@cleland-1921, pp. ~21-22]. Es una prescripción de 1921, sin contraste experimental. Colores aproximados a partir de pinturas medidas. Diagrama propio."
+
+- id: atmospheric-perspective
+  alt: "Dos paneles. Arriba, bruma ligera: un verde oscuro y un blanco cálido pasan, de cerca a lejos, a un azul grisáceo claro igual al del horizonte; el oscuro sube de L* 28 a 82 y el claro baja de 94 a 86. Abajo, niebla: los mismos objetos convergen a un gris claro neutro."
+  caption: "Con la distancia, la luz del objeto se atenúa como e^(−βd) y se le suma la luz del aire, (1 − e^(−βd)) veces el color del horizonte: oscuros y claros convergen al valor y al color del horizonte [@narasimhan-nayar-2002, pp. 236-237, §3; pp. 241-242, §6]. En la niebla β apenas depende de la longitud de onda (γ ≈ 0) y el aire es gris; con γ > 0 el azul se dispersa más [@narasimhan-nayar-2002, p. 238, §4]. Longitudes de onda por canal, γ = 1,3 y colores del horizonte elegidos para ilustrar, no medidos. Diagrama propio."
+
+- id: gamut-mask
+  alt: "A la izquierda, un círculo de matices velado salvo dentro de un triángulo con vértices en un rojo-amarillo saturado (A), un azul-verde (B) y un morado apagado (C). A la derecha, seis tiras de siete muestras: de cada vértice al gris central y de vértice a vértice."
+  caption: "Máscara de gama según el método de Gurney: lo que queda dentro de la forma es la paleta del cuadro y se premezclan cadenas de color a partir de los vértices, los primarios subjetivos [@gurney-2010, blog 'Part 2: Gamut Masking Method', 2011-09]. Las cadenas se dibujan como rectas en CIELAB; las mezclas de pigmentos reales siguen trayectorias curvas [@sochorova-2021], así que no todo lo que hay dentro del triángulo se consigue necesariamente con las tres pinturas de los vértices. Corte a L* 60. Diagrama propio."
+
+- id: shadow-planes
+  alt: "Un muro blanco con un voladizo, con el sol detrás, sobre suelo arenoso al sol. La sombra que proyecta sobre el suelo es gris azulada, la cara del muro en sombra es gris lavanda clara y la parte inferior del voladizo es beis cálido."
+  caption: "Cada plano en sombra recibe solo luz indirecta y toma el color de lo que tiene enfrente: el suelo en sombra mira al cielo azul, la parte inferior del voladizo mira al suelo soleado y el muro vertical recibe de ambos, la regla de práctica que resume Gurney [@gurney-2010, blog 'Reflected light in shadow', 2014-11]. La luz del cielo es más azul que la del sol directo [@smith-2005, p. 590, Sec. I]. Modelo simple (albedo × luz, valores ilustrativos), no un cálculo radiométrico. Diagrama propio."
+
+- id: time-of-day-cct
+  alt: "Franja de colores de cuerpo negro de 3500 K (naranja claro) a 7000 K (blanco azulado), con marcas: por título, tarde 4692 K y mañana 5233 K; por clasificación de los observadores, tarde 3945 K y mañana 5686 K; una línea discontinua en D65, unos 6500 K."
+  caption: "Temperatura de color correlacionada media, ponderada por luminancia, de cuadros de paisaje europeos de los siglos XVII a XX: los de mañana son más fríos que los de tarde, y la diferencia crece en los cuadros que los observadores clasifican con más acuerdo [@yu-hurlbert-2024, Results, Experiment 2, Fig. 14]. Es una correlación en la imagen final, no una receta de mezcla. Colores de cuerpo negro vistos en una pantalla D65, sin adaptación cromática. Diagrama propio."

@@ -564,3 +564,47 @@
   access: open
   accessed: 2026-11-01
   notes: "Full text (Journal of Vision, CC BY-NC-ND), read from the Europe PMC open-access XML. A 2025 correction only changes a grant number."
+- id: leonardo-1835
+  type: textbook
+  reliability: A
+  title: "A Treatise on Painting"
+  authors: ["Leonardo da Vinci", "John Francis Rigaud (trans.)"]
+  year: 1835
+  language: en
+  identifiers: { url: "https://www.gutenberg.org/ebooks/46915" }
+  access: open
+  accessed: 2026-11-01
+  notes: "Full text (Project Gutenberg #46915, public domain; Rigaud translation, 1835 edition with Hawkins's life). Primary historical source on painting practice, not on optics: cite by chapter number. Italian original compiled c. 1540s, printed 1651."
+- id: yu-hurlbert-2024
+  type: paper
+  reliability: B
+  title: "Time-of-day perception in paintings"
+  authors: ["Cehao Yu", "Mitchell van Zuijlen", "Cristina Spoiala", "Sylvia C. Pont", "Maarten W. A. Wijntjes", "Anya Hurlbert"]
+  year: 2024
+  language: en
+  identifiers: { doi: "10.1167/jov.24.1.1", url: "https://pmc.ncbi.nlm.nih.gov/articles/PMC10768702" }
+  access: open
+  accessed: 2026-11-01
+  notes: "Full text (Journal of Vision, CC BY 4.0), read from the Europe PMC open-access XML."
+- id: narasimhan-nayar-2002
+  type: paper
+  reliability: B
+  title: "Vision and the Atmosphere"
+  authors: ["Srinivasa G. Narasimhan", "Shree K. Nayar"]
+  year: 2002
+  language: en
+  identifiers: { doi: "10.1023/A:1016328200723", url: "https://www.cs.cmu.edu/~ILIM/publications/PDFs/NN-IJCV02.pdf" }
+  access: open
+  accessed: 2026-11-01
+  notes: "Full text (authors' copy on the CMU ILIM page; International Journal of Computer Vision 48(3), 233-254). Physics of attenuation and airlight; computer-vision paper, not about painting."
+- id: smith-2005
+  type: paper
+  reliability: B
+  title: "Human color vision and the unsaturated blue color of the daytime sky"
+  authors: ["Glenn S. Smith"]
+  year: 2005
+  language: en
+  identifiers: { doi: "10.1119/1.1858479", url: "https://faculty.wallin.wwu.edu/envr442/pdf_files/Smith_G_2005_human_color_vision_unsaturated_blue_color_daytime_sky_Amer_J_Physics.pdf" }
+  access: open
+  accessed: 2026-11-01
+  notes: "Full text (American Journal of Physics 73(7), 590-597; copy posted on a Western Washington University course page). Physics of Rayleigh scattering and sky colour."

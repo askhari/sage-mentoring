@@ -333,3 +333,23 @@ def svg_hue_ring(pos, r_out: float, r_in: float, l: float = 60.0, c: float = 32.
                    f'L{p[2][0]:.1f},{p[2][1]:.1f} A{r_in},{r_in} 0 0 0 {p[3][0]:.1f},{p[3][1]:.1f} Z" '
                    f'fill="{col}" stroke="{col}" stroke-width="0.8"/>')
     return out
+
+
+# --- Blackbody (Planckian) colours ---------------------------------------
+def planck(nm: float, kelvin: float) -> float:
+    """Relative spectral radiance of a blackbody (Planck's law, arbitrary units)."""
+    lam = nm * 1e-9
+    return 1.0 / (lam ** 5 * (math.exp(1.4388e-2 / (lam * kelvin)) - 1.0))
+
+
+def blackbody_hex(kelvin: float) -> str:
+    """sRGB hex of a blackbody of colour temperature `kelvin`, as seen on a D65 display
+    (no chromatic adaptation), scaled so that its largest linear channel is 1."""
+    x = y = z = 0.0
+    for nm in range(380, 781, 5):
+        p = planck(nm, kelvin)
+        cx, cy, cz = cmf_xyz(nm)
+        x, y, z = x + p * cx, y + p * cy, z + p * cz
+    rgb = [max(0.0, c) for c in xyz_to_linear_srgb(x, y, z)]
+    m = max(rgb)
+    return hex_rgb(tuple(c / m for c in rgb))

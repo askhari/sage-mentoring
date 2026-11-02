@@ -130,3 +130,31 @@
   generator: diagrams/src/cleland_area_balance.py
   license: CC-BY-4.0
   concepts: [dominance-and-accent]
+
+- id: atmospheric-perspective
+  file: diagrams/atmospheric-perspective.{lang}.svg
+  origin: own
+  generator: diagrams/src/atmospheric_perspective.py
+  license: CC-BY-4.0
+  concepts: [atmospheric-perspective]
+
+- id: gamut-mask
+  file: diagrams/gamut-mask.{lang}.svg
+  origin: own
+  generator: diagrams/src/gamut_mask.py
+  license: CC-BY-4.0
+  concepts: [gamut-planning]
+
+- id: shadow-planes
+  file: diagrams/shadow-planes.{lang}.svg
+  origin: own
+  generator: diagrams/src/shadow_planes.py
+  license: CC-BY-4.0
+  concepts: [light-and-shadow-color]
+
+- id: time-of-day-cct
+  file: diagrams/time-of-day-cct.{lang}.svg
+  origin: own
+  generator: diagrams/src/time_of_day_cct.py
+  license: CC-BY-4.0
+  concepts: [light-and-shadow-color, colored-light-unity]

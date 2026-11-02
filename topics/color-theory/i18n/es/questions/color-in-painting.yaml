@@ -1,0 +1,455 @@
+- id: q-local-vs-perceived-color-001
+  prompt: "Según Gurney, ¿de qué cuatro factores depende el color de un punto de lo que se pinta?"
+  options:
+    a: "Color local, color de la luz, cantidad de luz y atmósfera intermedia"
+    b: "Matiz, valor, croma y temperatura"
+    c: "Color local, contraste simultáneo, textura y pincelada"
+    d: "Color de la luz, color del fondo, brillo y tamaño del objeto"
+  explanation: "Son los cuatro factores que da Gurney para analizar un color. Matiz, valor y croma son dimensiones del color, no causas de lo que llega al ojo; el contraste simultáneo es otro fenómeno que no figura entre sus cuatro factores."
+- id: q-local-vs-perceived-color-002
+  prompt: "¿Qué es el color local (local color) de un objeto?"
+  options:
+    a: "El color exacto que sale del tubo de pintura que usamos"
+    b: "El color que llega al ojo desde un punto concreto del objeto"
+    c: "El color que atribuimos al objeto mismo, con independencia de cómo esté iluminado"
+    d: "El color del objeto en su parte más oscura"
+  explanation: "El color local es el color que atribuimos a la cosa (la gorra es blanca). El que llega al ojo desde un punto concreto es el color percibido, que añade luz y atmósfera; confundir ambos es el error típico del principiante."
+- id: q-local-vs-perceived-color-003
+  prompt: "¿Cómo se llama el color que de hecho llega al ojo desde un punto del objeto, como resultado de su superficie, de la luz que recibe y de lo que hay por medio?"
+  accepted:
+    - "color percibido"
+    - "perceived color"
+    - "perceived colour"
+    - "el color percibido"
+- id: q-local-vs-perceived-color-004
+  prompt: "Según Leonardo, ¿en qué partes de un objeto se ve más cerca de su verdadero color?"
+  options:
+    a: "En las partes en sombra, donde el color es más profundo"
+    b: "En las partes iluminadas, libres de sombra y de brillo"
+    c: "En los brillos, donde la luz es más fuerte"
+    d: "En el contorno, junto al fondo"
+  explanation: "Leonardo sitúa el color más verdadero en las partes libres de sombra y de brillo; en sombra el color toma el tinte de la sombra y en el brillo se refleja el color de la luz."
+- id: q-local-vs-perceived-color-005
+  prompt: "¿Por qué los principiantes tienden a ver solo el color local de lo que pintan?"
+  options:
+    a: "Porque no han aprendido a mezclar los pigmentos con suficiente precisión"
+    b: "Porque el ojo es incapaz de registrar las diferencias de luz y de sombra sobre una superficie"
+    c: "Porque el color local es en realidad más fiable y más cercano al color físico del objeto"
+    d: "Porque la constancia del color, un proceso inconsciente, hace percibir los colores de los objetos como estables aunque cambie la luz"
+  explanation: "La constancia del color es inconsciente y difícil de anular, así que filtra luz y sombra. No es una incapacidad del ojo (el color llega, el cerebro lo reinterpreta) ni el color local es más fiable: depende de supuestos sobre luz y material."
+- id: q-local-vs-perceived-color-006
+  prompt: "Al estimar la claridad de un objeto, ¿dónde fijan la vista los observadores según Witzel y colaboradores?"
+  options:
+    a: "En sus partes más claras (sin contar los brillos), las menos afectadas por el sombreado"
+    b: "En sus partes más oscuras, que concentran la información del material"
+    c: "En los brillos, que indican la luz que recibe"
+    d: "Por igual en toda la superficie, sin preferencia"
+  explanation: "Los observadores miran las zonas más claras sin contar los brillos, porque el sombreado las afecta menos. Los brillos quedan excluidos porque reflejan la luz y no informan del color de la superficie."
+- id: q-local-vs-perceived-color-007
+  prompt: "Un plátano medido como gris con aparatos se ve ligeramente amarillento. ¿Qué ilustra esto?"
+  options:
+    a: "Que la luz del taller es siempre más cálida que la del exterior"
+    b: "Que lo que sabemos de un objeto (su color de memoria) sesga lo que vemos de él"
+    c: "Que el contraste simultáneo tiñe el objeto con el complementario del fondo"
+    d: "Que los observadores no distinguen los grises de los amarillos"
+  explanation: "Es el efecto de la memoria de color: el conocimiento del objeto sesga la percepción, más en azules y amarillos. No se debe al fondo ni a la luz: se midió el objeto como gris."
+- id: q-local-vs-perceived-color-008
+  prompt: "Explica con tus palabras por qué la afirmación 'el color local es el que dice el tubo de pintura' es un error."
+  model_answer: "El color local no es una medida física sino una idea de percepción: solo se puede asignar una coordenada de color a un objeto con supuestos muy fuertes sobre su forma, material e iluminación (superficie plana y mate bajo luz idealizada). Lo que llega al ojo en cada punto es el color percibido, que mezcla superficie, color y cantidad de luz y atmósfera. El color local solo se acerca al de la pintura en las zonas iluminadas, mates y sin brillo; en sombra o en un brillo el punto se parece más a otro tubo."
+  rubric:
+    - "Dice que el color local es una idea de percepción y no una medida del objeto"
+    - "Menciona que depende de supuestos sobre forma, material o iluminación"
+    - "Distingue el color percibido en un punto (superficie + luz + atmósfera) del color local"
+    - "Indica que solo en zonas iluminadas, mates y sin brillo se acerca al color real de la pintura"
+- id: q-local-vs-perceived-color-009
+  prompt: "Explica con tus palabras de qué manera los objetos vecinos modifican el color percibido en un punto del cuadro, mencionando los dos mecanismos distintos que describen Leonardo y Chevreul."
+  model_answer: "Leonardo describe un efecto de reflejo: cada superficie opaca toma parte del color de los objetos que la rodean, tanto más cuanto más cercanos y fuertes sean. Chevreul describe el contraste: de dos colores vistos juntos, cada uno aparece con su propio color más el complementario del otro, y el claro se aclara y el oscuro se oscurece. Por eso el color percibido en un punto mezcla luz, vecinos y contraste y no solo la pintura que se pone."
+  rubric:
+    - "Describe el mecanismo de Leonardo: la superficie toma color de los objetos próximos (reflejo)"
+    - "Describe el mecanismo de Chevreul: el contraste, con el complementario del vecino"
+    - "Aclara que son efectos distintos (uno es físico, otro del ojo)"
+    - "Concluye que el color percibido combina luz, vecinos y contraste"
+- id: q-local-vs-perceived-color-010
+  prompt: "Vas a pintar del natural un balón de voleibol blanco a contraluz, al sol. Tu primer impulso es mezclar blanco para las partes sombreadas. ¿Cómo decides el color de esas partes y cómo lo justificas?"
+  model_answer: "Antes de mezclar analizo ese punto con los cuatro factores de Gurney: el color local (blanco, probable), el color de la luz que cae ahí (en la cara sombreada a contraluz llega luz de cielo y rebote, no sol directo), la cantidad de luz (poca) y la atmósfera que hay en medio. El resultado es un color percibido que no será un blanco puro sino un gris con tinte de cielo o rebote. Lo mezclo comparándolo con los colores vecinos de la escena, no solo, y lo ajusto. La regla es de un autor de práctica (Gurney, fuente C), por eso la valido comparando con lo que veo."
+  rubric:
+    - "Aplica los cuatro factores: color local, color de la luz, cantidad de luz y atmósfera"
+    - "Concluye que la parte sombreada no se pinta con blanco puro sino con el color percibido (tintado por la luz que le llega)"
+    - "Propone comparar el color con los vecinos de la escena en lugar de juzgarlo aislado"
+    - "No presenta el método como una ley (es práctica de Gurney)"
+- id: q-local-vs-perceived-color-011
+  prompt: "Pintas un tapiz o un diseño plano con una banda roja junto a una azul. Ves que el borde del rojo junto al azul parece anaranjado y el del azul parece verdoso, y estás tentado de pintar esos tonos en los bordes. ¿Qué haces y por qué?"
+  model_answer: "Pinto simplemente rojo y azul y dejo que el contraste simultáneo actúe en el ojo del espectador. Según Chevreul, quien copia el naranja aparente del borde rojo o el verde del azul exagera el efecto, porque el contraste ya lo producirá al mirar la obra y el espectador lo vería dos veces. Hay que copiar el modelo de forma distinta a como se ve. Hay una cautela: el ejemplo de Chevreul se refiere a tintes planos y tapices; en un cuadro con modelado se suman las modificaciones por luz y reflejos."
+  rubric:
+    - "Decide pintar los colores locales (rojo y azul) sin copiar el tono aparente del borde"
+    - "Explica que el contraste simultáneo ya se producirá en el ojo del espectador"
+    - "Señala que copiar el efecto lo duplicaría o exageraría"
+    - "Matiza que el caso de Chevreul se refiere a tintes planos y que en un cuadro modelado se suman luz y reflejos"
+- id: q-local-vs-perceived-color-012
+  prompt: "Un alumno pinta una gorra blanca que está a la sombra, bajo un cielo azul y con mucho aire por medio, con blanco casi puro 'porque la gorra es blanca'. Su cuadro parece plano y fuera de la luz. ¿Qué le dices?"
+  model_answer: "Le explico que ha pintado el color local, lo que sabe de la gorra, y no el color percibido. Las sombras toman tinte de la luz que reciben (aquí cielo azul) y el aire intermedio también cambia el color; si acerca un tubo azul a la gorra verá que se parece más a él que al blanco. El cerebro lo oculta por constancia del color y pintar exige ver lo que llega al ojo. Le propongo analizar los cuatro factores de Gurney, comparar con otros colores de la escena y reservar el color local casi puro para las partes iluminadas, mates y sin brillo (Leonardo)."
+  rubric:
+    - "Identifica el error como pintar el color local en vez del percibido"
+    - "Explica que la sombra y la luz del cielo (y la atmósfera) cambian el color de la gorra"
+    - "Cita la constancia del color o el hecho de que el cerebro filtra esas variaciones"
+    - "Propone un método concreto: cuatro factores, comparar con vecinos o reservar el color local para la parte iluminada"
+- id: q-local-vs-perceived-color-013
+  prompt: "Debes elegir entre un cuadro que copie con fidelidad cómo modifica la luz los colores del modelo y otro que busque una armonía de colores locales sin ser fiel a la escena. Un cliente te pregunta cuál es la opción correcta. ¿Qué le respondes?"
+  model_answer: "Le respondo que ninguna es la única correcta: ambos son modelos de la misma realidad y el pintor decide cuál representa. Chevreul distingue entre la fidelidad en copiar cómo la luz modifica los colores del modelo y el agrado de una armonía de colores locales, y señala que quien juzga a un colorista pesa de forma distinta fidelidad, exageración y armonía. Si el cuadro depende de la luz, priorizaría el color percibido y dejaría que el local se infiera; si se busca una armonía decorativa, los colores locales. Lo importante es decidirlo de forma consciente."
+  rubric:
+    - "Afirma que ambas opciones son defendibles y que la decisión es del pintor"
+    - "Menciona la distinción de Chevreul entre fidelidad al modelo y armonía de colores locales"
+    - "Asocia el color percibido a cuadros que dependen de la luz"
+    - "Evita presentar una opción como regla universal"
+- id: q-light-and-shadow-color-001
+  prompt: "¿Qué respalda el resultado de Smith sobre la luz del cielo?"
+  options:
+    a: "Que la luz del cielo cerca del horizonte es más azul que en el cenit"
+    b: "Que las sombras al aire libre son siempre azuladas"
+    c: "Que el Sol emite luz azul que el aire enrojece"
+    d: "Que la luz del cielo en el cenit de un día claro está desplazada hacia el azul respecto a la del Sol (aprox. 1/λ⁴)"
+  explanation: "Smith modela el cielo del cenit con un día claro y Sol alto como espectro solar por 1/λ⁴. No trata sombras ni el horizonte; que una sombra sea azulada es una inferencia razonable, no una afirmación de la fuente."
+- id: q-light-and-shadow-color-002
+  prompt: "La regla 'los planos en sombra que miran hacia arriba son fríos y los que miran hacia abajo, cálidos' es, según el contenido:"
+  options:
+    a: "Un resultado medido por Yu y Hurlbert en cuadros reales"
+    b: "Una regla que solo vale para la hora dorada"
+    c: "Una regla de práctica de Gurney, útil como punto de partida y con excepciones"
+    d: "Una ley óptica que se cumple siempre que haya cielo azul"
+  explanation: "Gurney la presenta como regla de práctica (rebote cálido del suelo, cielo azul arriba) con excepciones: la luz reflejada cálida puede hacer las sombras más cálidas que las luces. No es una ley ni una medida."
+- id: q-light-and-shadow-color-003
+  prompt: "Según Chevreul, ¿cómo cambia un rojo al pasar de la parte iluminada a la sombreada?"
+  options:
+    a: "Se vuelve más amarillento"
+    b: "Pasa de más anaranjado a más carmesí"
+    c: "Pierde matiz y se vuelve gris"
+    d: "No cambia de matiz, solo se oscurece"
+  explanation: "Chevreul sostiene que la luz cambia el matiz y no solo la claridad: el rojo es más anaranjado al sol y más carmesí en sombra. La opción de que solo se oscurece es justo la idea que rechaza."
+- id: q-light-and-shadow-color-004
+  prompt: "Según Conway y Livingstone, ¿qué basta para que una sombra pintada se lea como sombra aunque sea físicamente imposible?"
+  options:
+    a: "Que la región sea relativamente más oscura y más desaturada que su entorno local, con cualquier matiz que lo cumpla"
+    b: "Que tenga exactamente el color complementario de la luz"
+    c: "Que sea siempre azul, como el cielo"
+    d: "Que sea el color del objeto mezclado con negro"
+  explanation: "Basta la relación de valor y saturación con el entorno; los fauvistas y Kingdom y colaboradores lo mostraron. Por eso el matiz de la sombra es una decisión de composición, aunque la sombra creíble dependa del resto del cuadro."
+- id: q-light-and-shadow-color-005
+  prompt: "Yu y Hurlbert dicen que con sol bajo la luz directa se inclina al rojo. ¿Cómo debe entenderse esta afirmación?"
+  options:
+    a: "Como una prueba de que los pintores eligieron colores cálidos a propósito"
+    b: "Como un resultado medido por ellos en las sombras de los cuadros"
+    c: "Como su explicación física de la luz natural (más dispersión de Rayleigh y más atmósfera), no un resultado medido por ellos"
+    d: "Como una demostración de que las sombras al atardecer son azules"
+  explanation: "Es una explicación física que ellos aportan sobre la luz natural. Lo medido es la distribución de color de los cuadros, de forma correlacional; y el contenido avisa de que no hay una medida directa del color de las sombras a esa hora."
+- id: q-light-and-shadow-color-006
+  prompt: "Explica con tus palabras por qué, según Leonardo, la sombra sobre una pared blanca al ponerse el sol es azul, y qué estatus tiene hoy esa idea."
+  model_answer: "Leonardo razona que la parte iluminada de la pared recibe el rojo del sol y la parte sombreada recibe solo la luz azul del cielo. Es coherente con el hecho, respaldado por Smith, de que la luz del cielo está desplazada hacia el azul respecto a la del Sol; pero Smith solo trata el cenit, así que decir que una zona en sombra es más azulada es una inferencia razonable y no una afirmación de la fuente. Lo que Leonardo pide es que el pintor conozca la causa para que el efecto sea verosímil."
+  rubric:
+    - "Explica que el sol directo da luz rojiza y la sombra solo recibe luz de cielo azul"
+    - "Relaciona la idea con que la luz del cielo es más azul que la del Sol (Smith)"
+    - "Aclara que la conclusión sobre sombras es inferencia, no algo que Smith afirme"
+    - "Menciona que el pintor debe conocer la causa para hacer verosímil el efecto"
+- id: q-light-and-shadow-color-007
+  prompt: "Explica con tus palabras cómo se forma el color de un reflejo sobre una superficie y en qué se equivocaba Leonardo al razonar sobre él."
+  model_answer: "El reflejo toma el color del objeto que lo emite y del objeto sobre el que cae, más cuanto más lisa sea la superficie receptora; nunca es un color simple sino mezcla de todo lo que allí se refleja, y es más débil que la luz directa. Leonardo razonaba como si los colores reflejados se mezclaran como pigmentos (un cuerpo amarillo con reflector azul daría verde). La visión actual, tal como la resume Gurney, lo describe como mezcla de luz y color de superficie, y no se reduce a 'azul más amarillo es verde'."
+  rubric:
+    - "Dice que el reflejo combina el color del emisor y el de la superficie receptora"
+    - "Indica que es más débil que la luz directa o que nunca es un color simple"
+    - "Señala que Leonardo lo trataba como mezcla de pigmentos"
+    - "Contrapone la idea actual de mezcla de luz y color de superficie"
+- id: q-light-and-shadow-color-008
+  prompt: "¿Qué idea errónea sobre las sombras corrigen Leonardo y Chevreul?"
+  options:
+    a: "Que las sombras no se ven en luz de cielo"
+    b: "Que la sombra de un color es simplemente ese color más oscuro o con negro"
+    c: "Que la sombra es siempre más fría que la luz"
+    d: "Que la sombra depende de la luz que recibe"
+  explanation: "Leonardo advierte que el color de la sombra no es puro cuando hay vecinos coloreados, y Chevreul que las sombras complementarias salen del contraste con un gris. La receta con negro es solo un punto de partida."
+- id: q-light-and-shadow-color-009
+  prompt: "Pintas del natural un muro blanco al atardecer, con el sol bajo a un lado. Tienes que decidir el color de tres zonas: la cara soleada, la cara en sombra que mira al cielo y el plano inferior de un voladizo que mira al suelo iluminado. ¿Qué decides y con qué reservas?"
+  model_answer: "Empiezo identificando las fuentes y hacia dónde mira cada plano. La cara soleada recibe el color del sol, rojizo cuando está bajo (Leonardo). La cara en sombra que mira al cielo recibe sobre todo luz de cielo, así que la pinto más azulada y fría. El plano que mira abajo recibe rebote del suelo iluminado, así que lo pinto más cálido, incluso con valor casi igual (regla de práctica de Gurney). Mantengo todo con una relación coherente de valor y compruebo comparando con los vecinos. Con reservas: es una regla de práctica con excepciones, y no hay una medida directa del color de las sombras a esa hora, así que decido caso por caso."
+  rubric:
+    - "Asigna a la cara soleada el color cálido del sol bajo"
+    - "Pinta más fría/azulada la sombra que mira al cielo y más cálida la que mira al suelo (rebote)"
+    - "Razona a partir de las fuentes de luz y la orientación de cada plano"
+    - "Reconoce que la regla de práctica tiene excepciones y se comprueba comparando con el entorno"
+- id: q-light-and-shadow-color-010
+  prompt: "Retratas a una modelo junto a una pared naranja iluminada por el sol. Aplicas la fórmula 'luz cálida, sombra fría' y la sombra de la mejilla te queda fría y azulada, pero se ve incoherente. ¿Qué ocurre y cómo lo resuelves?"
+  model_answer: "La fórmula tiene límites, como avisa Gurney: la luz reflejada cálida de la pared puede hacer las sombras más cálidas que las luces. La sombra de la mejilla recibe rebote naranja de la pared, así que probablemente debe ser cálida y no fría. Identifico las fuentes (sol, cielo, rebote), miro hacia dónde mira el plano, decido la intensidad (un reflejo es más débil que la luz directa) y comparo con los demás colores de la escena. La fórmula solo dice por dónde empezar. Se trata de práctica de Gurney (fuente C), por eso lo compruebo mirando."
+  rubric:
+    - "Reconoce que la luz reflejada cálida puede hacer la sombra más cálida que la luz"
+    - "Identifica la pared naranja como fuente de reflejo y analiza la orientación del plano"
+    - "Propone comparar con los colores vecinos y ajustar a lo visto"
+    - "Trata la fórmula como punto de partida y no como ley"
+- id: q-light-and-shadow-color-011
+  prompt: "Un alumno ha hecho estudios de una figura en casa, bajo una lámpara concreta, y quiere usarlos para un cuadro de campo abierto con luz general del cielo. ¿Qué le adviertes y qué le propones?"
+  model_answer: "Le advierto, como Leonardo, del error clásico de usar en un cuadro de campo abierto estudios hechos en casa bajo otra luz: aparecen sombras y reflejos oscuros que la naturaleza no daría con luz general de cielo. Propongo elegir la luz del cuadro con intención (los bordes de las sombras dicen qué luz hay: pequeña, sombras nítidas; grande o nubes finas, borrosas) y rehacer los estudios con esa luz, a ser posible del natural, con luz estable (ventana al norte o visillos si hay sol)."
+  rubric:
+    - "Advierte que el estudio con otra luz introduce sombras y reflejos incoherentes con el campo abierto"
+    - "Indica que la luz del cuadro se elige con intención y que los bordes de las sombras delatan el tipo de luz"
+    - "Propone rehacer o completar los estudios con la luz del cuadro (o luz estable)"
+    - "Se apoya en Leonardo sin presentar sus afirmaciones como leyes ópticas"
+- id: q-light-and-shadow-color-012
+  prompt: "Un colega afirma: 'Yu y Hurlbert demuestran que los pintores elegían deliberadamente 4692 K para las escenas de tarde'. ¿Cómo valoras esa afirmación y qué usas del estudio para tu propio trabajo?"
+  model_answer: "No se sostiene. El estudio es correlacional: mide la distribución de color de reproducciones de cuadros (Europa occidental, siglos XVII-XX, paisaje dominante) y no dice cómo mezclaron los pintores ni qué intención tenían. Además las cifras dependen de cómo se clasifique: por título la CCT media fue 5233 K de mañana y 4692 K de tarde, y por la clasificación de los observadores, 5686 K y 3945 K; no deben mezclarse. Como orientación, no receta: los de mañana se agrupan cerca de un blanco neutro (D50-D55) y los de tarde se reparten hacia lo cálido, y la diferencia de cromaticidad es más clara que la de luminancia."
+  rubric:
+    - "Rechaza la afirmación por ser un estudio correlacional que no demuestra la intención del pintor"
+    - "Mantiene separados los dos conjuntos de cifras (por título 5233/4692 K; por observadores 5686/3945 K)"
+    - "Usa el resultado solo como orientación: mañana cerca de neutro, tarde hacia lo cálido"
+    - "Menciona alguna limitación (reproducciones, época, títulos o diferencias entre individuos)"
+- id: q-atmospheric-perspective-001
+  prompt: "Según Narasimhan y Nayar, ¿qué dos efectos de la atmósfera explican el color de un objeto lejano?"
+  options:
+    a: "La refracción de la luz y el contraste simultáneo"
+    b: "La absorción por el vapor de agua y el reflejo del suelo"
+    c: "La atenuación de la luz del objeto y la luz del aire (airlight) que dispersan las partículas"
+    d: "La atenuación lineal y la saturación creciente"
+  explanation: "Son la atenuación (e^(−βd) de la luz del objeto) y el airlight (luz ambiental dispersada hacia el observador, horizonte × (1 − e^(−βd))). La atenuación no es lineal sino exponencial."
+- id: q-atmospheric-perspective-002
+  prompt: "A medida que aumenta la distancia, ¿hacia qué converge el color de un objeto?"
+  options:
+    a: "Hacia el negro, porque la luz se pierde"
+    b: "Hacia el color del aire del horizonte"
+    c: "Hacia un gris neutro fijo, sea cual sea la atmósfera"
+    d: "Hacia el complementario de su color original"
+  explanation: "El color que llega es el del objeto atenuado más el del horizonte; al crecer la distancia pesa menos lo primero. Converge al color del aire del horizonte, que puede ser azul claro, gris o incluso rojizo según la luz."
+- id: q-atmospheric-perspective-003
+  prompt: "En niebla o bruma densa (γ casi 0), ¿qué le pasa a lo lejano según el modelo de Narasimhan y Nayar?"
+  options:
+    a: "Se vuelve más saturado conforme se aleja"
+    b: "Pierde por completo la forma, pero conserva el brillo"
+    c: "Cambia de brillo pero casi no de matiz, y se acerca a la luz grisácea del aire"
+    d: "Se vuelve azul claro de forma muy marcada"
+  explanation: "Con γ ≈ 0 la dependencia de la longitud de onda desaparece: la luz transmitida cambia de brillo pero no de matiz, y la luz del aire tiende al gris o al azul claro. 'La atmósfera siempre da azul' es justo el concepto erróneo."
+- id: q-atmospheric-perspective-004
+  prompt: "¿Por qué no se acepta hoy la explicación de Leonardo del azul del cielo (mezcla de luz y oscuridad), aunque sí se aprovecha su consecuencia práctica?"
+  options:
+    a: "Porque Leonardo no observó el cielo del horizonte"
+    b: "Porque Leonardo creía que el cielo era verde"
+    c: "Porque la regla de pintar lo lejano más azul es falsa en todos los casos"
+    d: "Porque la óptica moderna lo atribuye a la dispersión de la luz solar por moléculas del aire, no a una mezcla de negro y blanco; lo útil es que lo lejano se ve más azul y pálido"
+  explanation: "Smith atribuye el azul del cielo a la dispersión (1/λ⁴) por moléculas del aire. La consecuencia práctica (más azul y más pálido con la distancia) se conserva, pero no su causa; tampoco es cierto que la regla sea falsa siempre, aunque tiene excepciones (niebla, sol bajo)."
+- id: q-atmospheric-perspective-005
+  prompt: "Según Smith, ¿cómo es el color del cielo en el cenit de un día claro?"
+  options:
+    a: "Gris neutro, porque el aire dispersa todas las longitudes de onda por igual"
+    b: "Un azul poco saturado: mezcla de azul espectral y luz blanca"
+    c: "Azul espectral puro, de máxima saturación"
+    d: "Un azul oscuro, porque se mira a través de más atmósfera"
+  explanation: "Smith lo describe como un azul poco saturado, mezcla de azul espectral y luz blanca. Y no trata objetos lejanos, así que no sirve para explicar el azul del paisaje lejano."
+- id: q-atmospheric-perspective-006
+  prompt: "Explica con tus palabras por qué la regla 'lo lejano es más oscuro' es un concepto erróneo o incompleto y qué ocurre en realidad con el valor al aumentar la distancia."
+  model_answer: "Para Leonardo, muchos pintores lo hacen así y solo es cierto de los objetos blancos: con la distancia lo oscuro se aclara y lo más claro que el aire se oscurece, ambos 'descoloridos' hacia el valor del aire. Es coherente con el modelo de Narasimhan y Nayar: la luz del objeto se atenúa y la del aire crece hasta el brillo del horizonte, así que todo converge a él. Hay un matiz de Leonardo: a distancia media las caras y objetos con detalle se oscurecen porque se pierden las luces pequeñas; luego el aire los aclara. Gurney propone aclarar los oscuros en proporción fija por capa de aire, de forma provisional."
+  rubric:
+    - "Dice que lo oscuro se aclara y lo muy claro se oscurece hacia el valor del aire/horizonte"
+    - "Relaciona la convergencia con atenuación más luz del aire"
+    - "Menciona el matiz de la distancia media (se pierden luces pequeñas) o el caso de objetos blancos"
+    - "No presenta el modelo geométrico de Gurney como un hecho establecido"
+- id: q-atmospheric-perspective-007
+  prompt: "Explica con tus palabras el orden en que, según Leonardo, se pierden las cualidades de un objeto con la distancia y qué consecuencia tiene para pintar lo lejano."
+  model_answer: "Con la distancia se pierde primero el brillo, luego las luces, luego las sombras principales hasta dejar una penumbra media; lo pequeño desaparece antes y después las líneas que cierran las formas. Por eso lo lejano se pinta con detalle inacabado y contornos suaves, y los contornos fuertes en objetos lejanos los hacen parecer cercanos. Es una ordenación de práctica de Leonardo; el artículo de Narasimhan y Nayar no da fórmula para la pérdida de contraste."
+  rubric:
+    - "Enumera el orden: brillo, luces, sombras principales, detalle pequeño y líneas de contorno"
+    - "Concluye que lo lejano lleva detalle inacabado y contornos suaves"
+    - "Indica que los contornos duros acercan visualmente el objeto"
+    - "Reconoce que es práctica de taller y no una fórmula física"
+- id: q-atmospheric-perspective-008
+  prompt: "Pintas un paisaje de una mañana de niebla densa. La receta que conoces es 'lo lejano, más azul y pálido'. ¿La aplicas? ¿Cómo planeas los planos?"
+  model_answer: "No la aplico a ciegas. En niebla densa γ es casi 0: lo lejano cambia de brillo, no de matiz, y converge a gris o blanco, con el matiz del objeto casi sin cambiar. Decido primero el aire del cuadro: fijo color y valor del horizonte (gris claro) como destino y, para cada plano, acerco el color del objeto a él más cuanto más lejos, reduciendo croma y contraste local y manteniendo el detalle en primer término. Leonardo añade que en niebla las partes iluminadas son más nítidas y las no iluminadas casi del color de la niebla. Compruebo con muestras secas, porque la mezcla de pigmentos no es lineal."
+  rubric:
+    - "Reconoce que en niebla el matiz no cambia y la lejanía converge a gris/blanco, no a azul"
+    - "Propone fijar color y valor del horizonte y acercar cada plano a él según la distancia"
+    - "Reduce croma/contraste con la distancia y conserva detalle delante"
+    - "Menciona comprobar con muestras secas o que la mezcla de pigmentos no es lineal"
+- id: q-atmospheric-perspective-009
+  prompt: "Pintas un valle al ponerse el sol, con nubes enrojecidas en el horizonte y colinas lejanas. Tu primer boceto las tiene en azul frío. ¿Qué cambias y qué decisión de fondo debes tomar?"
+  model_answer: "Según Leonardo, cuando el sol enrojece las nubes del horizonte los objetos lejanos azulados toman el rojo y dan una mezcla agradable de azul y rojo; el propio aire adopta el color. Así que dejo que el aire del cuadro tiña las colinas con el rojo del horizonte y no pinto un azul frío independiente. La decisión de fondo es qué manda: la luz del cuadro o la regla de la lejanía. Aquí elijo la luz coherente, aun sin que exista una explicación física completa en las fuentes del azul del paisaje lejano. La regla de Leonardo es de taller, no una ley."
+  rubric:
+    - "Propone que las colinas lejanas recojan el rojo del horizonte (mezcla azul-rojo) en vez de un azul frío"
+    - "Identifica el conflicto entre la regla de la lejanía y la luz del cuadro"
+    - "Elige la coherencia con la luz del cuadro"
+    - "No atribuye la causa del azul del paisaje lejano a una teoría concreta ni presenta la regla como ley"
+- id: q-atmospheric-perspective-010
+  prompt: "Un colega propone calcular los colores de cada plano con la fórmula del modelo físico (atenuación más luz del aire) para un cuadro de un día de sol intenso. ¿Qué le respondes?"
+  model_answer: "Que sirva como modelo de tendencia, no como cálculo exacto. El modelo supone atmósfera homogénea, trayectorias horizontales, cielo cubierto y sin lluvia ni dispersión múltiple, y se validó con fotos de niebla y bruma bajo cielo cubierto; con sol fuerte la luz del aire depende de la dirección de la mirada. Además la fórmula describe luz y la mezcla de pigmentos no es lineal, por lo que hay que comprobar con muestras secas. Para el contraste no hay fórmula en el artículo: se compara y se sigue la práctica (Leonardo, Gurney). Gurney avisa incluso de que el modelo homogéneo es poco realista."
+  rubric:
+    - "Señala los supuestos del modelo (atmósfera homogénea, cielo cubierto, validación con niebla/bruma)"
+    - "Indica que con sol fuerte la luz del aire depende de la dirección"
+    - "Dice que mezclar pigmentos no es lineal, por lo que se comprueba con muestras"
+    - "Concluye que se usa la tendencia y la comparación, no el cálculo exacto"
+- id: q-atmospheric-perspective-011
+  prompt: "Un alumno pinta una montaña lejana más oscura que el primer plano, con un contorno bien marcado y todos los detalles. Se ve cercana. ¿Cómo lo corriges?"
+  model_answer: "Aplico la práctica descrita por Leonardo: lo lejano se pinta más pálido, con el color moviéndose hacia el del horizonte, con menos croma y contraste local, con detalle inacabado y contornos suaves, porque los contornos fuertes hacen parecer cercano a lo lejano. La base de la montaña va más pálida que la cima, pues el aire es más espeso y claro cerca del suelo. Aclaro un matiz: 'lo lejano es más oscuro' solo es cierto de objetos blancos, y a distancia media lo oscuro con detalle puede oscurecerse al perderse las luces pequeñas, pero luego el aire lo aclara."
+  rubric:
+    - "Aclara el valor y acerca el color al del horizonte"
+    - "Suaviza contornos y reduce detalle y contraste en lo lejano"
+    - "Menciona que la base de las montañas lejanas es más pálida que la cima, o el orden de pérdida"
+    - "Explica que el contorno fuerte hace parecer cercano al objeto"
+- id: q-colored-light-unity-001
+  prompt: "Según Chevreul, ¿qué ocurre con un azul claro y con un índigo oscuro bajo luz naranja?"
+  options:
+    a: "Ambos mantienen su color y solo se oscurecen"
+    b: "El azul claro se vuelve verde y el índigo, violeta"
+    c: "Ambos se vuelven más saturados"
+    d: "El azul claro pasa a gris claro y el índigo oscuro, a marrón"
+  explanation: "Bajo luz naranja los púrpuras se enrojecen, los rojos van a escarlata, los amarillos a naranja y los verdes amarillean; el azul claro pasa a gris claro y el índigo a marrón. Por eso el pintor ajusta los demás colores."
+- id: q-colored-light-unity-002
+  prompt: "¿Qué entiende Leonardo por unidad de color?"
+  options:
+    a: "Usar solo los colores primarios"
+    b: "Pintar todos los árboles con el mismo verde"
+    c: "Variedad de colores que sean de una misma naturaleza para armonizar"
+    d: "Un mismo matiz y valor repetido en todo el cuadro"
+  explanation: "Leonardo quiere variedad dentro de la unidad: los colores de los paños varían para diferenciarse pero son de la misma naturaleza, y no se pinta todo árbol con el mismo verde. Unidad no es un solo matiz."
+- id: q-colored-light-unity-003
+  prompt: "¿Qué muestra el estudio de Yu y Hurlbert con 104 cuadros europeos?"
+  options:
+    a: "Que la hora representada se puede leer a partir de estadísticas de color y luminancia, de forma correlacional"
+    b: "Que los pintores planearon la paleta según la hora del día"
+    c: "Que los cuadros de tarde son siempre menos brillantes que los de mañana, sin excepción"
+    d: "Que los espectadores solo reconocen la hora por indicios como sombras o personas"
+  explanation: "Los espectadores leen la hora por estadísticas de bajo nivel, sin indicios de contenido, y esas estadísticas correlacionan con la hora; pero el estudio no demuestra qué planeó el pintor ni dice 'siempre'."
+- id: q-colored-light-unity-004
+  prompt: "Según Yu y Hurlbert, ¿qué acompaña a las imágenes percibidas como 'mañana' frente a 'tarde'?"
+  options:
+    a: "Más saturación y matices más amarillos"
+    b: "Más brillo, contraste y saturación y matices más azules"
+    c: "Menos brillo y matices más azules"
+    d: "El mismo brillo, pero más contraste"
+  explanation: "Mañana: más brillo, contraste y saturación y matices más azules; tarde: menos de los tres y matices más amarillos."
+- id: q-colored-light-unity-005
+  prompt: "Explica con tus palabras qué es la unidad cromática y cómo la crea una luz común sin que todo el cuadro tenga un único matiz."
+  model_answer: "La unidad cromática (chromatic unity) aparece cuando todo el cuadro está bañado por una misma luz y todos los colores comparten un matiz común, de modo que el espectador lo lee como una atmósfera. Chevreul describe cómo una luz naranja altera cada color y que el pintor debe ajustar los demás; Leonardo propone, al atardecer, reutilizar en las partes iluminadas el color pintado para el sol. Pero unidad no es un solo matiz: Leonardo pide variedad dentro de una misma naturaleza."
+  rubric:
+    - "Define la unidad como un matiz o tinte compartido por una luz común que se lee como una atmósfera"
+    - "Menciona que la luz altera cada color local (Chevreul) o la receta de repetir el color del sol (Leonardo)"
+    - "Aclara que no es un único matiz en todas partes"
+    - "Habla de variedad en matiz y valor dentro de una misma naturaleza"
+- id: q-colored-light-unity-006
+  prompt: "Pintas un paisaje al ocaso. Los edificios y las copas de los árboles que reciben el sol los has pintado con colores distintos entre sí y el resultado no parece una sola luz. ¿Qué haces?"
+  model_answer: "Aplico la receta de unidad de Leonardo: a la puesta del sol todo es de un color excepto lo que el sol alumbra, y en todas las zonas iluminadas se reutiliza el color pintado para el sol (un amarillo-rojo), mientras el resto se funde en una masa general. Dejo que las sombras reciban el color del cielo y ajusto cada color local a esa luz, como en la lista de Chevreul (bajo luz naranja los azules claros van a gris, etc.). Mantengo variedad de matiz y valor sin romper la naturaleza común. Elijo primero el color de la luz y el valor global."
+  rubric:
+    - "Elige el color de la luz (y el valor global) como señal compartida"
+    - "Reutiliza el color del sol en todas las zonas iluminadas, y las sombras reciben el color del cielo"
+    - "Ajusta los colores locales a esa luz según Chevreul"
+    - "Conserva variedad dentro de la unidad"
+- id: q-colored-light-unity-007
+  prompt: "Planeas dos versiones del mismo paisaje, una de mañana y otra de tarde. Quieres usar los datos de Yu y Hurlbert para orientar la paleta. ¿Qué tomas de ellos y qué cautelas aplicas?"
+  model_answer: "Tomo la orientación: los cuadros de mañana tienen más brillo, contraste y saturación y matices más azules, y se agrupan cerca de un blanco neutro (D50-D55); los de tarde tienen menos brillo, contraste y saturación, matices más amarillos y se reparten hacia lo cálido. Las cifras dependen de la clasificación (por título, 5233 K frente a 4692 K; por observadores, 5686 K frente a 3945 K) y no deben mezclarse. Las cautelas: es evidencia correlacional de reproducciones de Europa occidental, siglos XVII-XX, los títulos antiguos no los eligieron los artistas y las diferencias entre individuos son grandes; es orientación, no receta."
+  rubric:
+    - "Indica que la mañana lleva más brillo/contraste/saturación y tonos azules o neutros y la tarde, lo contrario y más cálido"
+    - "Cita las cifras de CCT sin mezclar los dos conjuntos (título vs observadores)"
+    - "Dice que es evidencia correlacional que no muestra la intención del pintor"
+    - "Menciona al menos una limitación (reproducciones, época, títulos o variabilidad individual)"
+- id: q-colored-light-unity-008
+  prompt: "Pintas una escena con luz muy cálida y estás tentado de hacer la lejanía muy azul y fría 'porque lo lejano es azul'. ¿Qué decides y con qué criterio?"
+  model_answer: "Hay que decidir qué manda: la luz del cuadro o la regla de la lejanía. Si el cuadro es una unidad de luz cálida, dejo que la luz tiña también el aire: Leonardo describe que, a la puesta del sol, los objetos lejanos azulados recogen el rojo del horizonte, y el aire adopta el color. Por tanto atenúo el azul y lo acerco al color del aire del cuadro, manteniendo la lejanía más pálida y menos definida. Es una regla de taller y un compromiso que se comprueba con bocetos."
+  rubric:
+    - "Plantea el conflicto luz del cuadro frente a regla de la lejanía"
+    - "Decide que el aire se tiñe con la luz cálida (los objetos lejanos recogen el color del horizonte)"
+    - "Mantiene la lejanía más pálida o menos definida"
+    - "Presenta la decisión como compromiso de oficio y no como ley"
+- id: q-colored-light-unity-009
+  prompt: "Un cliente pide 'unidad total': todo el cuadro en tonos naranja. Al probarlo, queda plano y artificial. ¿Cómo lo reorientas?"
+  model_answer: "Le explico que unidad no es un solo matiz: Leonardo pide variedad dentro de una misma naturaleza (no se pinta todo árbol con el mismo verde, porque estaciones y clima cambian los verdes). Mantengo el color de la luz como señal común, pero hago variar los demás colores en matiz y valor y dejo que las sombras reciban otro color, el del cielo. Aviso de los trade-offs: Chevreul admite que un cuadro puede ser fiel pero exagerado, y que a menudo gusta más; Gurney opina que una clave de una sola familia tiende a parecer fotográfica (opinión suya). Pruebo en bocetos."
+  rubric:
+    - "Dice que la unidad no equivale a un único matiz"
+    - "Propone variar matiz y valor dentro de una naturaleza común y dar a las sombras el color del cielo"
+    - "Menciona el equilibrio entre fidelidad y exageración (Chevreul) o la opinión de Gurney, señalada como opinión"
+    - "Propone comprobar con bocetos"
+- id: q-gamut-planning-001
+  prompt: "Vas a ilustrar una serie de láminas que deben tener un color controlado y consistente entre sí. ¿Qué método de planificación de gama eliges y cómo lo aplicas?"
+  model_answer: "Usaría el enmascarado de gama (gamut masking) de Gurney: coloco una forma, normalmente un triángulo, sobre la rueda; lo de dentro es la paleta y lo demás se excluye. Premezclo cadenas de color (color strings) a partir de los vértices (primarios subjetivos) y solo uso esas en todas las láminas. Una forma más pequeña da un rango más estrecho. Es un método de práctica (Gurney, fuente C), pensado para trabajos en serie, no una ley; la máscara es un plan, y la gama real se comprueba con muestras secas de mis tubos."
+  rubric:
+    - "Propone una máscara (triángulo u otra forma) sobre la rueda y usar solo lo que queda dentro"
+    - "Menciona premezclar cadenas de color a partir de los vértices"
+    - "Relaciona el método con trabajos en serie y control/consistencia"
+    - "Presenta el método como práctica de Gurney (fuente C) y comprobable, no como ley"
+- id: q-gamut-planning-002
+  prompt: "Tu máscara de gama tiene un vértice en un amarillo muy saturado, pero en tu caja solo tienes un ocre amarillo. ¿Qué consecuencia tiene y qué haces?"
+  model_answer: "El pigmento elegido fija el vértice: el ocre, menos saturado que un amarillo de cadmio, deja el vértice más dentro del margen de la rueda y reduce la gama. Los datos Munsell de Williamsburg dan una medida: el amarillo de cadmio medio tiene valor 8,45 y croma 16,78, y el ocre amarillo, 5,55 y 8,69; un amarillo de croma alto no sale de un ocre. Por eso elijo pigmentos que cubran los vértices comprobando su croma, o bien acepto una gama más estrecha y rediseño la máscara. Los datos son de una marca concreta."
+  rubric:
+    - "Explica que el pigmento fija el vértice y que un ocre reduce la gama"
+    - "Cita la diferencia de croma (cadmio medio 16,78 frente a ocre 8,69) o de valor"
+    - "Propone elegir pigmentos que cubran los vértices o rediseñar la máscara"
+    - "Aclara que no es posible mezclar un amarillo de croma alto a partir de un ocre"
+- id: q-gamut-planning-003
+  prompt: "Dibujas un triángulo de gama con tres pigmentos y supones que cualquier color dentro del triángulo se puede mezclar a partir de ellos. Al probar, un tono interior no sale. ¿Qué ocurre y cómo planificas en adelante?"
+  model_answer: "Las mezclas de pintura no siguen líneas rectas: las líneas de mezcla de la pintura son erráticas y suelen curvarse, a diferencia de las luces, que caen sobre rectas en un diagrama de cromaticidad; el modelo de Kubelka-Munk (absorción y dispersión por pigmento) explica la no linealidad. Por eso no todo lo que cae dentro del triángulo es mezclable desde los vértices. Además, pinturas del mismo color visual pueden mezclar de otro modo. Trato la máscara como un plan y fijo la gama real con muestras secas de mis tubos; si hace falta, añado o cambio un pigmento."
+  rubric:
+    - "Dice que las mezclas de pintura no son lineales y que sus líneas se curvan"
+    - "Contrapone con las luces (rectas en un diagrama de cromaticidad) o menciona Kubelka-Munk"
+    - "Concluye que no todo lo de dentro del triángulo se mezcla desde los vértices"
+    - "Propone verificar con muestras secas de los propios tubos"
+- id: q-gamut-planning-004
+  prompt: "Tu cuadro está casi todo en un ambiente verde apagado y quieres un punto de atención. ¿Cómo lo resuelves con la lógica del enmascarado de gama?"
+  model_answer: "Con un esquema de 'ambiente y acento' de Gurney: casi todo el cuadro en un ambiente de color y un único acento del otro lado de la rueda, sin mezclas intermedias. Como con una máscara la armonía ya está dada, el esfuerzo se va a buscar el acento. Un acento desplazado (no el complemento exacto) parece menos natural y puede llamar más la atención, así que decido si busco naturalidad o impacto. Antes planeo valores en dos o tres grupos, porque el color no salva un mal diseño de valores. Es práctica de Gurney, no ley."
+  rubric:
+    - "Propone un ambiente dominante y un único acento del lado opuesto de la rueda"
+    - "Indica que el acento no lleva mezclas intermedias"
+    - "Señala que el acento desplazado parece menos natural o llama más la atención"
+    - "Menciona planear antes los valores o presenta la regla como práctica de Gurney"
+- id: q-gamut-planning-005
+  prompt: "Quieres usar las dos primeras componentes principales de Yu y Hurlbert (luminancia y contraste; cromaticidad) como guion para planificar la gama de un cuadro. ¿Es razonable? ¿Qué cuidado tienes?"
+  model_answer: "Es una lectura razonable pero propia: esas dos componentes explican el 71,1 % de la varianza de 30 estadísticas redundantes de 104 cuadros, y sugieren que la gama se puede fijar antes de pintar en dos ejes: cuánto rango de claros, oscuros y contraste, y cuánto de saturación y de qué matices. Pero el estudio es correlacional y no dice cómo planean los pintores la paleta; no es una receta, es una forma de ordenar decisiones que verifico en bocetos."
+  rubric:
+    - "Identifica los dos ejes: luminancia/contraste y cromaticidad (saturación y matiz)"
+    - "Indica que es una lectura propia de datos correlacionales"
+    - "Aclara que el estudio no muestra cómo planean los pintores"
+    - "Propone usarlo como guía y verificarlo en bocetos"
+- id: q-gamut-planning-006
+  prompt: "Debes elegir entre una gama pequeña (casi monocroma) o una más amplia para dos encargos: una serie de láminas de ilustración y una escena con muchos objetos de colores locales y luz mixta. ¿Qué decides y por qué?"
+  model_answer: "Para la serie de ilustración elijo una gama pequeña: da unidad y consistencia (una forma más pequeña produce un rango más estrecho). Para la escena con muchos colores locales y luz mixta uso una gama más amplia: aporta variedad (Leonardo recomienda variar los verdes y vestir las figuras con colores vivos para que se despeguen). No confundo gama con paleta de tubos: la máscara define lo que se verá, no lo que hay en la caja. Para MacEvoy el estilo y la técnica pesan más y los principiantes eligen demasiados colores saturados; Gurney lo plantea como preferencia, no como ley."
+  rubric:
+    - "Elige gama pequeña para unidad/consistencia en series y más amplia para variedad"
+    - "Explica que más variedad de colores locales o luz mixta pide más gama"
+    - "Distingue la gama de la paleta de tubos"
+    - "Presenta la decisión como criterio de oficio (preferencias de Gurney, estilo y técnica) y no como ley"
+- id: q-judging-color-001
+  prompt: "Mezclas un color que, solo en la paleta, parece exactamente el del motivo, pero al ponerlo en el cuadro desentona. ¿Qué haces?"
+  model_answer: "Lo comparo con sus vecinos reales: Gurney aconseja comparar siempre ('¡compara, compara!') porque un solo punto de color es casi imposible de juzgar aislado. Antes de mezclar analizo el punto con los cuatro factores (color local, luz, cantidad de luz y atmósfera). Si dudo, aíslo con un agujero en un papel (Gurney y Chevreul lo recogen) para ver el color verdadero sin el contraste del entorno. La técnica del agujero en papel es una sugerencia de práctica, y el contraste simultáneo explica que un color cambie junto a otro."
+  rubric:
+    - "Propone comparar el color con otros de la escena y no juzgarlo aislado"
+    - "Propone aislar el punto (agujero en un papel o papel recortado)"
+    - "Explica el cambio por el contraste simultáneo o por un entorno distinto"
+    - "Recuerda analizar los cuatro factores antes de mezclar o presenta la técnica como práctica y no ley"
+- id: q-judging-color-002
+  prompt: "Llevas horas retocando un cuadro y tus colores cada vez te parecen más apagados, aunque no sabes por qué. ¿Qué haces?"
+  model_answer: "Reconozco la fatiga: Chevreul describe una mirada fatigada que tiende a ver complementarios y atribuye parte del colorido apagado de algunos pintores cuidadosos al exceso de mirada y retoques repetidos. Me alejo del cuadro y descanso, como recomienda Leonardo, para que el juicio sea más claro al volver; puedo mirarlo en un espejo para que parezca ajeno y muestre los fallos. Aclaro que la explicación de Leonardo para el espejo se apoya en la visión con un ojo y solo concierne en parte al color. Después comparo con los vecinos y juzgo con ojos descansados."
+  rubric:
+    - "Identifica la fatiga visual (mirada fatigada que ve complementarios) como causa probable"
+    - "Propone descansar o alejarse antes de seguir"
+    - "Menciona el espejo u otra distancia para ver el cuadro con ojos nuevos"
+    - "Matiza que el fundamento del espejo en Leonardo solo concierne en parte al color"
+- id: q-judging-color-003
+  prompt: "Pintas del natural en un estudio con una ventana al sur, y la luz cambia durante la sesión, alterando tus juicios. ¿Cómo organizas el espacio?"
+  model_answer: "Busco una luz constante: Leonardo recomienda una ventana al norte, que evita variaciones, y, con ventana al sur, visillos de papel para que el movimiento del sol no cambie las sombras. Me coloco algo de lado, entre la ventana y el modelo, para verlo en parte en luz y en parte en sombra. Y para ver el cuadro, sobre todo al óleo o barnizado, me alejo del lugar donde la luz de la ventana se refleja en la superficie. Son consejos de taller del siglo XV; su principio (estabilidad de luz) es válido, pero no son leyes."
+  rubric:
+    - "Busca luz constante: ventana al norte o visillos con ventana al sur"
+    - "Se sitúa entre ventana y modelo para ver luz y sombra"
+    - "Menciona evitar reflejos de la ventana sobre la superficie al mirar el cuadro"
+    - "Reconoce que son consejos históricos de taller y no leyes"
+- id: q-judging-color-004
+  prompt: "Terminas un cuadro en tu estudio, donde luce muy bien, y va a colgarse en una sala con luz muy distinta y a mayor distancia de visión. ¿Cómo lo juzgas antes de entregarlo?"
+  model_answer: "Chevreul indica que hay que juzgar un cuadro considerando la luz de su lugar previsto y la distancia de visión; así que lo miro, si puedo, con esa luz y desde esa distancia. Recuerdo que en un cuadro las modificaciones de color están fijadas desde el punto de vista del pintor, mientras en el modelo cambian con la posición del espectador. Leonardo añade que un paisaje pintado nunca igualará la viveza de uno iluminado por el sol salvo que el cuadro se cuelgue a ese mismo sol. Ajusto lo necesario aceptando que el resultado dependerá de la luz del destino."
+  rubric:
+    - "Juzga el cuadro con la luz y la distancia del lugar previsto"
+    - "Indica que los efectos de color en el cuadro son fijos desde el punto de vista del pintor"
+    - "Menciona que la viveza del cuadro no igualará a la natural (Leonardo)"
+    - "Ajusta o acepta limitaciones sin presentar una receta única"
+- id: q-judging-color-005
+  prompt: "Un alumno propone igualar colores con el cuentagotas digital sobre una foto del motivo y mezclar el valor que da. ¿Qué le recomiendas?"
+  model_answer: "Le recomiendo prudencia: Gurney menciona el cuentagotas, pero es una sugerencia de lectores, y avisa de que las cámaras captan el color de la sombra peor que el ojo y de que en escenas de alto contraste queman las luces o aplastan las sombras. Le propongo mezclar desde un objetivo claro (matiz, valor y croma), dejar secar antes de juzgar porque las pinturas cambian al secar (MacEvoy), y comparar siempre la mezcla con sus vecinos reales en lugar de un valor aislado."
+  rubric:
+    - "Advierte que las fotos captan mal el color de las sombras y alteran luces y sombras en alto contraste"
+    - "Indica que el cuentagotas es una sugerencia de lectores, no una regla firme"
+    - "Recomienda dejar secar antes de juzgar"
+    - "Propone comparar con vecinos o mezclar desde un objetivo de matiz, valor y croma"
+- id: q-judging-color-006
+  prompt: "Un colega defiende el truco del espejo de Leonardo con el argumento de que 'así se ve el color real del cuadro'. ¿Cómo evalúas ese argumento?"
+  model_answer: "Leonardo propone comparar el cuadro con el modelo reflejado mirando con un solo ojo, y dice que mirar el propio trabajo en un espejo lo hace parecer ajeno y muestra los fallos. Pero su fundamento es que dos ojos muestran más relieve que una pintura puede dar; la idea de aplanar la escena es útil, pero la explicación solo concierne en parte al color. Por tanto el argumento es incompleto: el espejo ayuda a ver con ojos nuevos, no muestra un color más 'real'. Lo combino con comparación y descanso."
+  rubric:
+    - "Describe la propuesta de Leonardo (espejo, un solo ojo, el trabajo parece ajeno)"
+    - "Indica que su fundamento es la diferencia entre dos ojos y la pintura (relieve)"
+    - "Concluye que la explicación solo concierne en parte al color y que no revela un color 'real'"
+    - "Propone usarlo como una ayuda junto a comparar o descansar"

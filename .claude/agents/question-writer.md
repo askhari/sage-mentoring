@@ -23,6 +23,7 @@ For every concept, every layer from its `first_layer` to 3: at least 2 questions
 ## Quality rules (and why)
 - **Answerable from the content.** Each question must be answerable from the concept file at that layer or below; otherwise the learner is tested on something they were never taught. List in `sources` the source(s) behind the correct answer.
 - **Plausible distractors** in single-choice: real misconceptions, not obviously silly options; similar length; no "all of the above".
+- **`correct` must name the option that is actually right.** Write the options first, place the right one at a varied position (spread a–d across the bank), then set `correct` to that letter, and re-read every key against its options and explanation before finishing. In color-in-painting, keys assigned in a rotating a, b, c, d pattern without moving the options left 13 of 21 questions with the wrong key.
 - **`explanation`** says why the correct option is right and why the most tempting wrong one is wrong.
 - **`accepted`** for short-answer: all reasonable spellings and synonyms, including the original-language term.
 - **`rubric`**: 3–5 concrete, checkable criteria; `model_answer` meets all of them. The examiner grades with these, so vague criteria mean inconsistent grades.

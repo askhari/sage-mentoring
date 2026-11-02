@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" font-family="sans-serif" font-size="14">
+<defs><linearGradient id="sky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#80a2de"/><stop offset="1" stop-color="#dce8f9"/></linearGradient></defs>
+<rect width="960" height="300" fill="url(#sky)"/>
+<rect y="300" width="960" height="260" fill="#e5d5c5"/>
+<path d="M300,380 L660,380 L760,470 L220,470 Z" fill="#5c6678"/>
+<path d="M300,150 L660,150 L660,380 L300,380 Z" fill="#adadbd"/>
+<path d="M300,150 L660,150 L720,110 L240,110 Z" fill="#c1b3a5"/>
+<path d="M240,92 L720,92 L720,110 L240,110 Z" fill="#adadbd"/>
+<text x="480" y="80" text-anchor="middle" fill="#7a5a00" font-size="13" font-style="italic">☀ sol detrás del muro</text>
+<line x1="560" y1="130" x2="590" y2="36" stroke="#222" stroke-width="1"/><circle cx="560" cy="130" r="3" fill="#222"/><text x="590" y="40" text-anchor="middle" fill="#111" font-size="14" stroke="#fff" stroke-width="4" stroke-opacity="0.85" paint-order="stroke">parte inferior del voladizo (mira abajo): rebote del suelo → cálida</text>
+<line x1="480" y1="260" x2="700" y2="246" stroke="#222" stroke-width="1"/><circle cx="480" cy="260" r="3" fill="#222"/><text x="700" y="250" text-anchor="start" fill="#111" font-size="14" stroke="#fff" stroke-width="4" stroke-opacity="0.85" paint-order="stroke">muro en sombra (vertical): cielo + suelo</text>
+<line x1="560" y1="430" x2="600" y2="508" stroke="#222" stroke-width="1"/><circle cx="560" cy="430" r="3" fill="#222"/><text x="600" y="512" text-anchor="middle" fill="#111" font-size="14" stroke="#fff" stroke-width="4" stroke-opacity="0.85" paint-order="stroke">sombra en el suelo (mira arriba): solo cielo → azulada</text>
+<line x1="850" y1="420" x2="940" y2="516" stroke="#222" stroke-width="1"/><circle cx="850" cy="420" r="3" fill="#222"/><text x="940" y="520" text-anchor="end" fill="#111" font-size="14" stroke="#fff" stroke-width="4" stroke-opacity="0.85" paint-order="stroke">suelo al sol: sol + cielo</text>
+</svg>
