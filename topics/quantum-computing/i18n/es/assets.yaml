@@ -21,3 +21,19 @@
 - id: dephasing-bloch-density
   alt: "Izquierda: la matriz densidad de |+⟩ para Γt = 0, 1 y 3. Las entradas diagonales valen siempre 0,50 (en azul) y las de fuera de la diagonal bajan de 0,50 a 0,18 y a 0,02 (en naranja, cada vez más claro). Derecha: corte x–z de la bola de Bloch. El círculo exterior se convierte en elipses cada vez más estrechas alrededor del eje z, y el punto del estado se desplaza desde el borde del eje x hacia el centro."
   caption: "Con el desfase (dephasing), las poblaciones no cambian y las coherencias decaen como e^(−Γt). En la esfera de Bloch, las componentes x e y se encogen y la bola se aplasta hacia el eje z. Diagrama propio, valores calculados."
+
+- id: bloch-sphere
+  alt: "Esfera de Bloch con los ejes x, y, z y el ecuador. |0⟩ está en el polo norte, |1⟩ en el polo sur, |+⟩ y |−⟩ en los extremos del eje x, y |+i⟩ y |−i⟩ en los del eje y; los puntos de la cara oculta se dibujan huecos. Una flecha azul marca un estado general |ψ⟩, con el ángulo polar θ medido desde el eje z y el ángulo acimutal φ medido en el ecuador desde el eje x. Al pie: |ψ⟩ = cos(θ/2)|0⟩ + e^(iφ) sen(θ/2)|1⟩."
+  caption: "Cada estado puro de un qubit es un punto de la esfera de Bloch, fijado por dos ángulos. Los estados ortogonales quedan en puntos opuestos. Diagrama propio; las posiciones están calculadas con r = (sen θ cos φ, sen θ sen φ, cos θ)."
+
+- id: bell-circuit
+  alt: "Circuito de dos cables, q₀ arriba y q₁ abajo, ambos empezando en |0⟩. Primero una puerta H sobre q₀ y después una CNOT con control en q₀ y objetivo en q₁. Tres líneas discontinuas marcan el estado en cada momento: |00⟩ al inicio, (|00⟩ + |10⟩)/√2 tras H y (|00⟩ + |11⟩)/√2 tras la CNOT."
+  caption: "Dos puertas bastan para crear un estado de Bell. Los kets se escriben con q₀ a la izquierda; Qiskit usa el orden contrario. Diagrama propio; los estados están calculados aplicando las matrices."
+
+- id: teleportation-circuit
+  alt: "Circuito de tres cables: Q con el estado |ψ⟩ que se quiere enviar, y A y B, que comparten el par |φ⁺⟩. En la zona de Alice hay una CNOT de Q a A, una H sobre Q y dos medidas: la de A da el bit a y la de Q da el bit b. Dos líneas clásicas dobles llevan a y b a la zona de Bob, donde controlan una puerta X y una puerta Z sobre B; a la salida, B tiene |ψ⟩. Debajo, una tabla con el estado de B antes de corregir para cada par de resultados: α|0⟩ + β|1⟩ (sin corrección), α|0⟩ − β|1⟩ (Z), β|0⟩ + α|1⟩ (X) y −β|0⟩ + α|1⟩ (X y después Z)."
+  caption: "Teleportación: Alice mide y envía dos bits clásicos, y Bob aplica X^a y después Z^b. Sin esos dos bits, el qubit de Bob no contiene información. Diagrama propio; la tabla está calculada aplicando X^a Z^b a α|0⟩ + β|1⟩."
+
+- id: chsh-game
+  alt: "Un árbitro envía el bit x a Alice y el bit y a Bob, y cada uno devuelve una respuesta, a y b. Una pared discontinua entre Alice y Bob indica que no se comunican; una línea punteada verde indica que pueden compartir un par entrelazado. Abajo: ganan si a ⊕ b = x ∧ y; la mejor estrategia clásica gana el 75 % de las veces y la cuántica, cos²(π/8) ≈ 85,4 %."
+  caption: "El juego CHSH. Diagrama propio; el 75 % se obtiene probando todas las estrategias clásicas deterministas y el 85,4 % es cos²(π/8)."

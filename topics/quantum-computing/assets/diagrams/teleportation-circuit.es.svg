@@ -1,0 +1,44 @@
+<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 900 520' width='900' height='520' font-family='Helvetica, Arial, sans-serif'>
+<rect width='100%' height='100%' fill='white'/>
+<defs><marker id='arrow-ink' viewBox='0 0 10 10' refX='9' refY='5' markerWidth='7' markerHeight='7' orient='auto-start-reverse'><path d='M0,0 L10,5 L0,10 z' fill='#222222'/></marker><marker id='arrow-a1' viewBox='0 0 10 10' refX='9' refY='5' markerWidth='7' markerHeight='7' orient='auto-start-reverse'><path d='M0,0 L10,5 L0,10 z' fill='#1f6fb2'/></marker><marker id='arrow-a2' viewBox='0 0 10 10' refX='9' refY='5' markerWidth='7' markerHeight='7' orient='auto-start-reverse'><path d='M0,0 L10,5 L0,10 z' fill='#c2571a'/></marker><marker id='arrow-a3' viewBox='0 0 10 10' refX='9' refY='5' markerWidth='7' markerHeight='7' orient='auto-start-reverse'><path d='M0,0 L10,5 L0,10 z' fill='#2e8b57'/></marker><marker id='arrow-muted' viewBox='0 0 10 10' refX='9' refY='5' markerWidth='7' markerHeight='7' orient='auto-start-reverse'><path d='M0,0 L10,5 L0,10 z' fill='#888888'/></marker></defs>
+<text x='70.0' y='96.0' font-size='18' fill='#222222' text-anchor='end' font-weight='normal'>Q  |ψ⟩</text>
+<text x='70.0' y='186.0' font-size='18' fill='#222222' text-anchor='end' font-weight='normal'>A</text>
+<text x='70.0' y='296.0' font-size='18' fill='#222222' text-anchor='end' font-weight='normal'>B</text>
+<line x1='80.0' y1='180.0' x2='80.0' y2='290.0' stroke='#c2571a' stroke-width='3'/>
+<text x='92.0' y='241.0' font-size='16' fill='#c2571a' text-anchor='start' font-weight='bold'>|φ⁺⟩</text>
+<line x1='150.0' y1='90.0' x2='420.0' y2='90.0' stroke='#222222' stroke-width='1.5'/>
+<line x1='150.0' y1='180.0' x2='420.0' y2='180.0' stroke='#222222' stroke-width='1.5'/>
+<line x1='80.0' y1='290.0' x2='760.0' y2='290.0' stroke='#222222' stroke-width='1.5'/>
+<line x1='80.0' y1='90.0' x2='150.0' y2='90.0' stroke='#222222' stroke-width='1.5'/>
+<line x1='80.0' y1='180.0' x2='150.0' y2='180.0' stroke='#222222' stroke-width='1.5'/>
+<line x1='220.0' y1='90.0' x2='220.0' y2='193.0' stroke='#222222' stroke-width='1.5'/><circle cx='220.0' cy='90.0' r='6.0' stroke='#222222' fill='#222222' stroke-width='1.5'/><circle cx='220.0' cy='180.0' r='13.0' stroke='#222222' fill='white' stroke-width='1.8'/><line x1='207.0' y1='180.0' x2='233.0' y2='180.0' stroke='#222222' stroke-width='1.8'/><line x1='220.0' y1='167.0' x2='220.0' y2='193.0' stroke='#222222' stroke-width='1.8'/>
+<rect x='288.0' y='68.0' width='44.0' height='44.0' rx='5' stroke='#1f6fb2' fill='#dbe9f6' stroke-width='2'/><text x='310.0' y='97.0' font-size='20' fill='#222222' text-anchor='middle' font-weight='bold'>H</text>
+<rect x='398.0' y='68.0' width='44.0' height='44.0' rx='5' stroke='#222222' fill='#f2f2f2' stroke-width='2'/><path d='M406.0,98.0 A16,16 0 0 1 434.0,98.0' stroke='#222222' fill='none' stroke-width='1.6'/><line x1='420.0' y1='98.0' x2='430.0' y2='80.0' stroke='#222222' stroke-width='1.6'/>
+<rect x='398.0' y='158.0' width='44.0' height='44.0' rx='5' stroke='#222222' fill='#f2f2f2' stroke-width='2'/><path d='M406.0,188.0 A16,16 0 0 1 434.0,188.0' stroke='#222222' fill='none' stroke-width='1.6'/><line x1='420.0' y1='188.0' x2='430.0' y2='170.0' stroke='#222222' stroke-width='1.6'/>
+<line x1='442.0' y1='87.5' x2='660.0' y2='87.5' stroke='#222222' stroke-width='1.2'/><line x1='442.0' y1='92.5' x2='660.0' y2='92.5' stroke='#222222' stroke-width='1.2'/>
+<text x='470.0' y='78.0' font-size='16' fill='#222222' text-anchor='middle' font-weight='normal' font-style='italic'>b</text>
+<line x1='442.0' y1='177.5' x2='560.0' y2='177.5' stroke='#222222' stroke-width='1.2'/><line x1='442.0' y1='182.5' x2='560.0' y2='182.5' stroke='#222222' stroke-width='1.2'/>
+<text x='470.0' y='168.0' font-size='16' fill='#222222' text-anchor='middle' font-weight='normal' font-style='italic'>a</text>
+<line x1='557.5' y1='180.0' x2='557.5' y2='268.0' stroke='#222222' stroke-width='1.2'/><line x1='562.5' y1='180.0' x2='562.5' y2='268.0' stroke='#222222' stroke-width='1.2'/>
+<line x1='657.5' y1='90.0' x2='657.5' y2='268.0' stroke='#222222' stroke-width='1.2'/><line x1='662.5' y1='90.0' x2='662.5' y2='268.0' stroke='#222222' stroke-width='1.2'/>
+<rect x='538.0' y='268.0' width='44.0' height='44.0' rx='5' stroke='#c2571a' fill='#fde3d3' stroke-width='2'/><text x='560.0' y='297.0' font-size='20' fill='#222222' text-anchor='middle' font-weight='bold'>X</text>
+<rect x='638.0' y='268.0' width='44.0' height='44.0' rx='5' stroke='#c2571a' fill='#fde3d3' stroke-width='2'/><text x='660.0' y='297.0' font-size='20' fill='#222222' text-anchor='middle' font-weight='bold'>Z</text>
+<text x='780.0' y='296.0' font-size='18' fill='#1f6fb2' text-anchor='start' font-weight='bold'>|ψ⟩</text>
+<rect x='160.0' y='40.0' width='300.0' height='175.0' rx='10' stroke='#888888' fill='none' stroke-width='1'/>
+<text x='310.0' y='32.0' font-size='15' fill='#888888' text-anchor='middle' font-weight='normal'>Alice</text>
+<rect x='520.0' y='250.0' width='190.0' height='80.0' rx='10' stroke='#888888' fill='none' stroke-width='1'/>
+<text x='615.0' y='350.0' font-size='15' fill='#888888' text-anchor='middle' font-weight='normal'>Bob</text>
+<text x='450.0' y='395.0' font-size='15' fill='#222222' text-anchor='middle' font-weight='bold'>Estado de B antes de corregir</text>
+<text x='160.0' y='430.0' font-size='14' fill='#888888' text-anchor='middle' font-weight='normal'>a=0, b=0</text>
+<text x='160.0' y='458.0' font-size='16' fill='#1f6fb2' text-anchor='middle' font-weight='normal'>α|0⟩ + β|1⟩</text>
+<text x='160.0' y='486.0' font-size='14' fill='#c2571a' text-anchor='middle' font-weight='normal'>—</text>
+<text x='350.0' y='430.0' font-size='14' fill='#888888' text-anchor='middle' font-weight='normal'>a=0, b=1</text>
+<text x='350.0' y='458.0' font-size='16' fill='#1f6fb2' text-anchor='middle' font-weight='normal'>α|0⟩ − β|1⟩</text>
+<text x='350.0' y='486.0' font-size='14' fill='#c2571a' text-anchor='middle' font-weight='normal'>Z</text>
+<text x='540.0' y='430.0' font-size='14' fill='#888888' text-anchor='middle' font-weight='normal'>a=1, b=0</text>
+<text x='540.0' y='458.0' font-size='16' fill='#1f6fb2' text-anchor='middle' font-weight='normal'>β|0⟩ + α|1⟩</text>
+<text x='540.0' y='486.0' font-size='14' fill='#c2571a' text-anchor='middle' font-weight='normal'>X</text>
+<text x='730.0' y='430.0' font-size='14' fill='#888888' text-anchor='middle' font-weight='normal'>a=1, b=1</text>
+<text x='730.0' y='458.0' font-size='16' fill='#1f6fb2' text-anchor='middle' font-weight='normal'>−β|0⟩ + α|1⟩</text>
+<text x='730.0' y='486.0' font-size='14' fill='#c2571a' text-anchor='middle' font-weight='normal'>X, Z</text>
+</svg>

@@ -1,0 +1,772 @@
+- id: q-qubit-001
+  prompt: "¿Cuál de estos vectores es un estado válido de un qubit?"
+  options:
+    a: "(1+2i)/3 |0⟩ − (2/3) |1⟩"
+    b: "(|0⟩ + |1⟩)/2"
+    c: "|0⟩ + i|1⟩"
+    d: "(|0⟩ + 2|1⟩)/√3"
+  explanation: "Un estado válido exige |α|² + |β|² = 1. Aquí |1+2i|²/9 + 4/9 = 5/9 + 4/9 = 1. En (|0⟩+|1⟩)/2 la suma de módulos al cuadrado es 1/2 y en |0⟩+i|1⟩ es 2 (falta el factor 1/√2); en la última es 1/3 + 4/3 = 5/3. El error típico es olvidar el cuadrado del módulo o la normalización."
+
+- id: q-qubit-002
+  prompt: "Se mide en la base estándar el estado |−⟩ = (|0⟩ − |1⟩)/√2. ¿Qué resultados se obtienen?"
+  options:
+    a: "Siempre 1, porque el signo menos apunta hacia |1⟩"
+    b: "0 con probabilidad 1/2 y 1 con probabilidad 1/2"
+    c: "0 con probabilidad 1/√2 y 1 con probabilidad 1/√2"
+    d: "Siempre 0, porque el signo negativo cancela la componente |1⟩"
+  explanation: "La probabilidad de cada resultado es el módulo de la amplitud al cuadrado: |±1/√2|² = 1/2. El signo no cambia las probabilidades en esa base (solo la fase relativa, que se ve tras una H). Tomar las amplitudes como probabilidades daría una suma de √2, imposible."
+
+- id: q-qubit-003
+  prompt: "|+⟩ y |−⟩ dan las mismas probabilidades al medir en la base estándar. ¿Cómo se llama la diferencia entre ambos estados que sí se puede detectar aplicando antes una puerta Hadamard?"
+  accepted: ["fase relativa", "la fase relativa", "relative phase", "signo relativo", "diferencia de fase relativa"]
+
+- id: q-qubit-004
+  prompt: "Aplicar H dos veces a |0⟩ devuelve |0⟩ con certeza, mientras que aleatorizar dos veces un bit clásico nunca vuelve a darle el valor 0 con certeza. ¿Qué explica la diferencia?"
+  options:
+    a: "La primera H ya mide el qubit y la segunda H solo restaura el valor de partida"
+    b: "H guarda en memoria el valor inicial 0 y lo recupera al aplicarse otra vez"
+    c: "Las amplitudes pueden ser negativas y las de los dos caminos hacia |1⟩ se cancelan (interferencia); las probabilidades no pueden cancelarse"
+    d: "Tras la primera H el qubit está en |+⟩, que equivale a |0⟩ salvo una fase global inobservable"
+  explanation: "Los dos caminos hacia |1⟩ llegan con amplitudes +1/2 y −1/2 y se anulan; es interferencia, algo que un bit probabilístico (probabilidades ≥ 0) no puede hacer. La H no mide ni guarda nada, y |+⟩ no es |0⟩ con fase global: su diferencia es de probabilidades de medida y, además, H los distingue."
+
+- id: q-qubit-005
+  prompt: "Explica con tus palabras por qué |+⟩ y |−⟩ son estados distintos aunque den las mismas probabilidades al medir en la base estándar. Distingue entre fase relativa y fase global."
+  model_answer: "En |+⟩ y |−⟩ las amplitudes tienen el mismo módulo (1/√2), así que en la base estándar ambos dan 0 y 1 con probabilidad 1/2. Pero difieren en el signo relativo entre las dos amplitudes, es decir, en una fase relativa. Esa fase es observable: si se aplica una puerta Hadamard antes de medir, |+⟩ pasa a |0⟩ y |−⟩ pasa a |1⟩, y la medida los distingue con certeza. La fase global, en cambio, multiplica todo el estado por un número de módulo 1; no cambia ninguna probabilidad en ninguna base y no se puede observar (Aaronson: es como desplazar todo el universo 20 pies a la izquierda). Por eso un estado de qubit equivale, salvo fase global, a uno con coeficiente real no negativo en |0⟩."
+  rubric:
+    - "Indica que |+⟩ y |−⟩ tienen amplitudes del mismo módulo y por eso dan las mismas probabilidades en la base estándar"
+    - "Identifica la diferencia como una fase (signo) relativa entre las amplitudes"
+    - "Explica que la fase relativa se hace observable aplicando antes una puerta H (|+⟩ → |0⟩, |−⟩ → |1⟩)"
+    - "Define la fase global como un factor común de módulo 1 que no cambia ninguna probabilidad y es inobservable"
+
+- id: q-qubit-006
+  prompt: "Un compañero de equipo afirma: «un qubit almacena infinitos bits clásicos, porque α y β son números complejos continuos». Evalúa la afirmación: ¿qué hay de cierto, qué de falso y qué se puede realmente extraer de un qubit?"
+  model_answer: "Es cierto que el estado de un qubit varía en un continuo, pero ese continuo no se lee directamente: cada medida da un único resultado discreto (un bit) y las amplitudes solo sirven para calcular probabilidades, igual que una distribución de probabilidad clásica tiene parámetros continuos y cada muestra es un bit. De Wolf señala además que enviar α₀, α₁ por un canal clásico requeriría precisión ilimitada, lo que muestra que el continuo no es información utilizable. Para aprender las amplitudes de un estado desconocido hacen falta muchas copias preparadas y medidas en tres ejes (z, x e y), porque medir solo en z da |α| y |β| pero no la fase relativa. Por tanto, un qubit no almacena infinitos bits accesibles: una medida da un bit, y el continuo solo se aprecia estadísticamente con muchas copias."
+  rubric:
+    - "Reconoce que el estado varía en un continuo pero cada medida da un resultado discreto (un bit)"
+    - "Explica que las amplitudes sirven para calcular probabilidades y no se observan directamente"
+    - "Indica que conocer α y β exige muchas copias preparadas medidas en varios ejes (medir solo en z no da la fase relativa)"
+    - "Concluye que la afirmación es falsa en cuanto a información accesible: no hay infinitos bits extraíbles"
+
+- id: q-qubit-007
+  prompt: "Dos programas distintos (A y B) preparan un qubit y, al medirlo en la base estándar miles de veces, ambos dan 0 y 1 con frecuencia ≈ 50 %. Tu compañera concluye que preparan el mismo estado. ¿Qué respondes y qué prueba añadirías para decidir si son el mismo estado? Supón que A prepara |+⟩ y B prepara |−⟩."
+  model_answer: "Las frecuencias solo informan de los módulos de las amplitudes en la base estándar; |+⟩ y |−⟩ comparten esos módulos y difieren en la fase relativa, así que no se puede concluir que sean iguales. La prueba es medir en otra base: aplicar una H antes de la medida estándar (equivale a medir en la base {+, −}); si el estado era |+⟩ saldrá 0 con certeza y si era |−⟩ saldrá 1 con certeza. Son bases complementarias: estar seguro del resultado en una significa estar indeciso en la otra. Una diferencia de fase global no se podría detectar con ninguna prueba y no los distinguiría."
+  rubric:
+    - "Señala que las frecuencias en la base estándar no determinan el estado: |+⟩ y |−⟩ dan lo mismo"
+    - "Propone aplicar H antes de medir (medir en la base {+, −})"
+    - "Predice el resultado: |+⟩ da 0 con certeza y |−⟩ da 1 con certeza"
+    - "Menciona que la fase global no es observable y no afecta a la comparación"
+
+- id: q-bloch-sphere-001
+  prompt: "¿Cuáles son las coordenadas (x, y, z) de |−⟩ = (|0⟩ − |1⟩)/√2 en la esfera de Bloch?"
+  options:
+    a: "(0, 0, −1)"
+    b: "(0, −1, 0)"
+    c: "(1, 0, 0)"
+    d: "(−1, 0, 0)"
+  explanation: "|−⟩ tiene θ = π/2 y φ = π, es decir, el punto (−1, 0, 0) del eje x. (0, 0, −1) es |1⟩ (el polo sur), (1, 0, 0) es |+⟩ y (0, −1, 0) es |−i⟩. El signo menos en la amplitud no lo manda al polo sur: cambia la fase φ, no la altura."
+
+- id: q-bloch-sphere-002
+  prompt: "Dos estados de un qubit son ortogonales (⟨ψ|φ⟩ = 0). ¿Cómo aparecen en la esfera de Bloch?"
+  options:
+    a: "Como puntos a 90° entre sí, igual que dos ejes perpendiculares"
+    b: "Como puntos opuestos (antipodales) de la esfera"
+    c: "Como el mismo punto, con distinto valor del ángulo φ"
+    d: "Como dos puntos cualesquiera de un mismo meridiano"
+  explanation: "Ortogonal significa antipodal: |0⟩/|1⟩, |+⟩/|−⟩ y |+i⟩/|−i⟩ son pares de polos opuestos. La confusión habitual es creer que ortogonal significa «perpendicular» también en la esfera: |0⟩ y |+⟩ están a 90° en la esfera pero no son ortogonales."
+
+- id: q-bloch-sphere-003
+  prompt: "¿Cuáles son las coordenadas (x, y, z) del estado |+i⟩ = (|0⟩ + i|1⟩)/√2 en la esfera de Bloch?"
+  accepted: ["(0, 1, 0)", "(0,1,0)", "0, 1, 0", "0 1 0", "(0;1;0)", "+y", "eje +y", "semieje y positivo"]
+
+- id: q-bloch-sphere-004
+  prompt: "El estado de un qubit se escribe cos(θ/2)|0⟩ + e^{iφ} sin(θ/2)|1⟩, con θ el ángulo polar de la esfera. ¿Por qué aparece θ/2 y no θ?"
+  options:
+    a: "Porque los estados ortogonales (a π/2 como vectores de amplitudes reales) deben ser puntos opuestos de la esfera (a π): el ángulo en la esfera es el doble"
+    b: "Porque la normalización |α|² + |β|² = 1 solo se cumple con la mitad del ángulo"
+    c: "Porque la fase global se elimina dividiendo todos los ángulos entre dos"
+    d: "Porque θ solo recorre [0, π] y hay que ajustarlo al intervalo [0, 2π)"
+  explanation: "Con α = cosα, sinα los estados reales giran α en el espacio de amplitudes pero 2α en la esfera: |0⟩ y |1⟩ están a π/2 en amplitudes y en polos opuestos en la esfera. La normalización se cumple igual con cos θ y sin θ, así que no es la causa; tampoco tiene que ver con la fase global ni con el rango de φ."
+
+- id: q-bloch-sphere-005
+  prompt: "Explica con ayuda de la esfera de Bloch por qué la puerta Z cambia el estado |+⟩ aunque no cambie las probabilidades de medida en la base estándar."
+  model_answer: "Z es, salvo fase global, una media vuelta (rotación de π) alrededor del eje z. |+⟩ está en el ecuador, en el punto (1, 0, 0); la media vuelta lo lleva a (−1, 0, 0), que es |−⟩: un estado distinto, antipodal al anterior. Al medir en la base estándar solo importa la altura del punto sobre el eje z (cuánto se acerca al polo norte o al sur), y ambos puntos están a altura 0, con lo que dan 0 y 1 con probabilidad 1/2. Lo que ha cambiado es el acimut φ, la fase relativa, que es invisible en esa base pero se hace visible midiendo en el eje x (aplicando antes H)."
+  rubric:
+    - "Describe Z como una rotación de π alrededor del eje z"
+    - "Indica que |+⟩ (1, 0, 0) pasa a |−⟩ (−1, 0, 0), un punto distinto"
+    - "Explica que la medida en la base estándar solo depende de la altura (coordenada z), igual en ambos puntos"
+    - "Relaciona el cambio con el ángulo φ / la fase relativa, visible al medir en otro eje"
+
+- id: q-bloch-sphere-006
+  prompt: "Tu dispositivo solo ofrece rotaciones alrededor de los ejes z e y de la esfera de Bloch. Necesitas implementar una puerta arbitraria de un qubit. ¿Es posible? Describe la construcción, cuántas rotaciones usa y qué papel tiene la fase global."
+  model_answer: "Sí. Toda unitaria de un qubit se escribe e^{iα}·diag(1, e^{iβ})·R(θ)·diag(1, e^{iγ}), con R(θ) la rotación real de entradas cosθ y sinθ (R(θ) = R_y(2θ) en la notación de Watrous). En lenguaje de la esfera es la descomposición de Euler: un giro alrededor de z, uno alrededor de y y otro alrededor de z, es decir, tres rotaciones bastan para compilar cualquier puerta de un qubit. El factor e^{iα} es una fase global: no cambia ninguna probabilidad y puede ignorarse, salvo que la puerta se vaya a usar controlada (una rotación de 2π da −I, observable al controlar), en cuyo caso hay que respetarla."
+  rubric:
+    - "Responde que sí y nombra la descomposición como giros z–y–z (Euler)"
+    - "Indica que bastan tres rotaciones (dos alrededor de z y una intermedia alrededor de y)"
+    - "Identifica el factor e^{iα} como fase global, inobservable en uso normal"
+    - "Advierte que la fase global deja de ser inocua si la puerta se controla"
+
+- id: q-bloch-sphere-007
+  prompt: "Dispones de muchas copias idénticas de un qubit en un estado desconocido. Mides todas en la base estándar y obtienes ≈ 50 % de ceros y ≈ 50 % de unos. ¿Qué has aprendido del estado y qué mediciones adicionales harías para reconstruir su punto de la esfera de Bloch? ¿Y qué ocurre si el qubit era la mitad de un par de Bell?"
+  model_answer: "Medir en z solo da |α|² y |β|², es decir, la coordenada z (aquí 0): el estado está en el ecuador, pero no se conoce la fase relativa (puede ser |+⟩, |−⟩, |+i⟩, …). Hacen falta tres ejes para reconstruir el vector de Bloch: además de z, medir en x (H antes de medir) y en y (S† y H, o una base equivalente), cada eje con muchas copias; es la tomografía de un qubit. Si el qubit era la mitad de un par de Bell, su estado reducido es el completamente mezclado I/2, cuyo punto es el centro de la bola: las tres coordenadas salen 0 y mirando solo esa mitad no se obtiene información."
+  rubric:
+    - "Explica que medir solo en z da la coordenada z (|α|², |β|²) pero no la fase relativa"
+    - "Propone medir en los tres ejes (x, y, z) con muchas copias para reconstruir el vector de Bloch"
+    - "Menciona que se necesitan muchas copias idénticas y no una sola"
+    - "Indica que la mitad de un par de Bell tiene estado reducido I/2, el centro de la esfera, con coordenadas (0, 0, 0)"
+
+- id: q-single-qubit-gates-001
+  prompt: "¿Qué estado resulta de aplicar la puerta Z a |+⟩ = (|0⟩ + |1⟩)/√2?"
+  options:
+    a: "|+⟩, porque Z no cambia ninguna probabilidad"
+    b: "|1⟩, porque Z actúa como un NOT"
+    c: "|−⟩ = (|0⟩ − |1⟩)/√2"
+    d: "|0⟩, porque Z proyecta sobre |0⟩"
+  explanation: "Z deja |0⟩ igual y cambia el signo de |1⟩, así que Z(|0⟩+|1⟩)/√2 = (|0⟩−|1⟩)/√2 = |−⟩. Z no cambia las probabilidades en la base estándar, pero sí la fase relativa: el estado es otro y H lo revela."
+
+- id: q-single-qubit-gates-002
+  prompt: "Un qubit empieza en |0⟩ y se aplica primero X y después H (circuito X, H, de izquierda a derecha). ¿Qué estado resulta? Respóndelo como |+⟩, |−⟩, |0⟩ o |1⟩."
+  accepted: ["|−⟩", "−", "|-⟩", "menos", "ket menos", "|->", "minus", "(|0⟩−|1⟩)/√2", "(|0⟩ - |1⟩)/√2"]
+
+- id: q-single-qubit-gates-003
+  prompt: "Se aplica H y después T a |0⟩, con T = diag(1, e^{iπ/4}). ¿Qué estado resulta?"
+  options:
+    a: "(|0⟩ + i|1⟩)/√2"
+    b: "(|0⟩ + (1+i)|1⟩)/√2"
+    c: "(|0⟩ + |1⟩)/√2, porque T solo cambia una fase y el estado queda igual"
+    d: "(|0⟩ + ((1+i)/√2)|1⟩)/√2"
+  explanation: "H|0⟩ = |+⟩ y T multiplica la amplitud de |1⟩ por e^{iπ/4} = (1+i)/√2. La opción con i es el resultado de S (fase π/2), no de T; la que lleva (1+i) sin normalizar tiene norma mayor que 1; y una fase relativa distinta de 0 sí cambia el estado (es otro punto de la esfera)."
+
+- id: q-single-qubit-gates-004
+  prompt: "Un qubit empieza en |0⟩ y pasa por H, luego Z y luego H, y se mide en la base estándar. ¿Qué resultado se obtiene y con qué probabilidad?"
+  accepted: ["1", "|1⟩", "ket 1", "siempre 1", "1 con certeza", "1 con probabilidad 1", "se obtiene 1 con probabilidad 1", "el resultado es 1"]
+
+- id: q-single-qubit-gates-005
+  prompt: "Salvo fase global, ¿qué hace sobre la esfera de Bloch la puerta S = diag(1, i)?"
+  options:
+    a: "Una rotación de π/2 alrededor del eje z"
+    b: "Una rotación de π alrededor del eje z"
+    c: "Una rotación de π/2 alrededor del eje x"
+    d: "Una rotación de π alrededor del eje (x+z)/√2"
+  explanation: "S y T son rotaciones alrededor de z, de π/2 y π/4. La de π alrededor de z es Z (S² = Z), y la de π alrededor de (x+z)/√2 es Hadamard. Aplicada a |+⟩, S lo lleva a |+i⟩: un cuarto de vuelta en el ecuador."
+
+- id: q-single-qubit-gates-006
+  prompt: "Alguien dice que la puerta Z «no hace nada» porque deja |0⟩ intacto y no altera las probabilidades de medida. Explica por qué es falso y cómo se hace visible su efecto usando la identidad H·Z·H = X."
+  model_answer: "Z deja |0⟩ igual y cambia el signo de |1⟩: no modifica las probabilidades en la base estándar, pero sí la fase relativa, y los estados con distinta fase relativa son distintos (|+⟩ y |−⟩). Como Hadamard cambia X por Z (H·Z·H = X, H·X·H = Z), aplicar H y luego medir en z equivale a medir en x: Z|+⟩ = |−⟩ y H|−⟩ = |1⟩, así que H, Z, H sobre |0⟩ da |1⟩ con certeza (la misma acción que X). Además, las puertas son lineales y actúan sobre superposiciones, de modo que una fase relativa nunca es irrelevante en un circuito donde después se interfiere."
+  rubric:
+    - "Explica que Z cambia la fase relativa (no las probabilidades en la base estándar) y que eso da un estado distinto"
+    - "Usa H·Z·H = X (o Z|+⟩ = |−⟩ y H|−⟩ = |1⟩) para mostrar un efecto observable"
+    - "Concluye que, medido tras H, el cambio de fase se convierte en un cambio de resultado con certeza"
+    - "Distingue entre fase relativa (observable) y global (no)"
+
+- id: q-single-qubit-gates-007
+  prompt: "Un compañero porta un circuito de una biblioteca que usa S = exp(−iπZ/4) a otra que usa S = diag(1, i) y dice: «solo difieren en una fase global, da igual». ¿En qué caso su afirmación es cierta y en cuál puede causar un error? Justifícalo."
+  model_answer: "Las dos matrices difieren en un factor global (e^{−iπ/4}), así que, en un circuito donde S actúa sobre el registro sin más, ninguna probabilidad de medida cambia y la afirmación es cierta; basta con no mezclar las dos convenciones en un mismo cálculo. El problema aparece al controlar la puerta (por ejemplo, una S controlada): una fase global del objetivo se convierte en una fase relativa entre las ramas control = 0 y control = 1, que sí es observable. Preskill lo ilustra con la rotación de 2π, que da −I: globalmente inocua pero observable si se controla. Por eso hay que fijar una convención (aquí S = diag(1, i)) y respetarla al construir puertas controladas."
+  rubric:
+    - "Reconoce que ambas S difieren solo en una fase global y que sin control no cambia ninguna probabilidad"
+    - "Señala que, al controlar la puerta, la fase global pasa a ser una fase relativa observable"
+    - "Cita un ejemplo (rotación de 2π = −I, o una S controlada) que lo ilustre"
+    - "Recomienda fijar una convención única (S = diag(1, i)) y no mezclar"
+
+- id: q-single-qubit-gates-008
+  prompt: "En una revisión técnica alguien afirma que ninguna operación sobre un bit puede «dar NOT al aplicarse dos veces» y que por eso la puerta √NOT no tiene sentido. Demuestra con las puertas de este ámbito que existe una R con R² = X y explica por qué no existe en el mundo clásico o con matrices reales."
+  model_answer: "Sea R = H·S·H con S = diag(1, i). Entonces R² = H·S·(H·H)·S·H = H·S²·H = H·Z·H = X, usando H² = I, S² = Z (porque P_θ·P_θ = P_{2θ}) y H·Z·H = X. Luego R es una raíz cuadrada de NOT. Una única operación clásica sobre un bit no puede ser √NOT, y con matrices reales tampoco: necesita números complejos (la fase i de S). Es un ejemplo de que la mecánica cuántica usa amplitudes complejas con interferencia, algo que no cabe en operaciones clásicas sobre bits."
+  rubric:
+    - "Define R = H·S·H y calcula R² = H·S²·H"
+    - "Usa H² = I, S² = Z y H·Z·H = X para llegar a R² = X"
+    - "Afirma que no hay √NOT con una única operación clásica sobre un bit"
+    - "Indica que hacen falta números complejos (no existe con matrices reales)"
+
+- id: q-multi-qubit-states-001
+  prompt: "¿Cuál es el estado |+⟩⊗|0⟩ (primer qubit a la izquierda en el ket)?"
+  options:
+    a: "(|00⟩ + |01⟩)/√2"
+    b: "(|00⟩ + |11⟩)/√2"
+    c: "|10⟩"
+    d: "(|00⟩ + |10⟩)/√2"
+  explanation: "El primer qubit está en |+⟩ = (|0⟩+|1⟩)/√2 y el segundo en |0⟩, así que los kets son |00⟩ y |10⟩. La opción con |01⟩ intercambia el orden de los qubits; (|00⟩+|11⟩)/√2 es el estado de Bell, que no es producto, y |10⟩ ignora la superposición."
+
+- id: q-multi-qubit-states-002
+  prompt: "¿Cuántas amplitudes complejas hacen falta para describir el estado de un registro de 10 qubits?"
+  accepted: ["1024", "2^10", "2¹⁰", "1.024", "2 elevado a 10", "1024 amplitudes"]
+
+- id: q-multi-qubit-states-003
+  prompt: "Un registro de dos qubits está en el estado (|00⟩ + |01⟩ + |11⟩)/√3. Se mide solo el primer qubit en la base estándar. ¿Con qué probabilidad sale 0? (Respóndelo como fracción o decimal.)"
+  accepted: ["2/3", "0,667", "0.667", "0,67", "0.67", "≈ 0,667", "66,7%", "66,7 %", "dos tercios", "66.7%"]
+
+- id: q-multi-qubit-states-004
+  prompt: "Un circuito de Qiskit termina y se mide la cadena «01». Qiskit coloca q_0 a la derecha de la cadena. ¿Qué valores tienen los qubits?"
+  options:
+    a: "q_0 = 0 y q_1 = 1"
+    b: "q_0 = 1 y q_1 = 1"
+    c: "q_0 = 1 y q_1 = 0"
+    d: "q_0 = 0 y q_1 = 0"
+  explanation: "En Qiskit la cadena se lee (q_{n−1}, …, q_0): el último símbolo es q_0. «01» significa q_1 = 0 y q_0 = 1. Leerla con el primer qubit a la izquierda (convención de esta guía) da el valor invertido; por eso hay que avisar siempre de la convención."
+
+- id: q-multi-qubit-states-005
+  prompt: "Un estado de dos qubits tiene amplitudes a₀₀, a₀₁, a₁₀, a₁₁. Si es un producto |φ⟩⊗|ψ⟩, se cumple a₀₀·a₁₁ = a₀₁·a₁₀. ¿Cuál de estos estados es un producto?"
+  options:
+    a: "(|00⟩ + |01⟩ + |10⟩ − |11⟩)/2"
+    b: "(|00⟩ + |01⟩ − |10⟩ − |11⟩)/2"
+    c: "(|00⟩ + |11⟩)/√2"
+    d: "(|01⟩ + |10⟩)/√2"
+  explanation: "Para el correcto, a₀₀·a₁₁ = (1/2)(−1/2) = −1/4 y a₀₁·a₁₀ = (1/2)(−1/2) = −1/4: coinciden, y de hecho es (|0⟩−|1⟩)/√2 ⊗ (|0⟩+|1⟩)/√2. En el primer distractor da −1/4 frente a +1/4 (basta un signo para romper el producto); en los otros dos un lado vale 1/2 y el otro 0."
+
+- id: q-multi-qubit-states-006
+  prompt: "Explica con tus palabras por qué (|00⟩ + |11⟩)/√2 no es un estado producto y por qué es un error pensar que un registro de n qubits son «n qubits independientes»."
+  model_answer: "Si (|00⟩+|11⟩)/√2 fuese |φ⟩⊗|ψ⟩ con amplitudes αᵢβⱼ, habría que tener a la vez a₀₁ = α₀β₁ = 0 y a₀₀ = α₀β₀ ≠ 0, a₁₁ = α₁β₁ ≠ 0, lo que es imposible; equivalentemente a₀₀·a₁₁ = 1/2 pero a₀₁·a₁₀ = 0. Un estado así se llama entrelazado. En general un registro de n qubits es un único vector de 2ⁿ amplitudes; solo cuando es un producto equivale a n estados de un qubit independientes (y entonces bastan del orden de 2n números). El producto es el análogo de la independencia estadística, y el estado general no tiene por qué cumplirla."
+  rubric:
+    - "Demuestra o ilustra la imposibilidad de escribirlo como producto (contradicción de amplitudes o a₀₀a₁₁ ≠ a₀₁a₁₀)"
+    - "Nombra el estado como entrelazado (no producto)"
+    - "Explica que un registro de n qubits es un vector de 2ⁿ amplitudes, no n vectores de 2"
+    - "Relaciona producto con independencia y señala que solo en ese caso los qubits son independientes"
+
+- id: q-multi-qubit-states-007
+  prompt: "Te piden estimar si un portátil puede simular dos circuitos de 50 qubits: el circuito A solo usa puertas de un qubit; el circuito B incluye CNOT que entrelazan todos los qubits. ¿Qué diferencia esperas en el coste de simularlos y por qué? ¿Qué implica para la ventaja cuántica?"
+  model_answer: "El circuito A parte de |0…0⟩ y solo aplica puertas de un qubit, así que el estado sigue siendo un producto de 50 estados de un qubit y se describe con del orden de 2n = 100 números: es trivial de simular. En el circuito B el estado puede llegar a necesitar las 2⁵⁰ amplitudes del vector general (un estado general de n qubits necesita 2ⁿ), que es inviable en un portátil con un simulador de vector de estado; la motivación de Feynman es que con 300 qubits hay más amplitudes que átomos en el universo observable. Un cómputo sin entrelazamiento es fácil de simular y no puede dar ventaja; el entrelazamiento (junto con la interferencia) va «de acompañante» en todo cálculo interesante."
+  rubric:
+    - "Explica que sin entrelazamiento el estado es un producto y requiere del orden de 2n números"
+    - "Explica que el estado general entrelazado necesita 2ⁿ amplitudes (2⁵⁰ en este caso)"
+    - "Concluye que A es fácil y B es inviable de simular de forma ingenua en un portátil"
+    - "Relaciona la ausencia de entrelazamiento con la ausencia de ventaja cuántica"
+
+- id: q-multi-qubit-states-008
+  prompt: "Un estudiante escribe en Qiskit un circuito con X sobre q_1 y luego un CNOT con control q_0 y objetivo q_1, parte de |00⟩ y mide. Espera ver «01» porque en su libro el primer qubit se escribe a la izquierda y él cree que q_1 es el primero. ¿Qué cadena devuelve Qiskit realmente y por qué? ¿Qué matriz de CNOT corresponde a control = q_0 en la convención de Qiskit (orden de base 00, 01, 10, 11)?"
+  model_answer: "Qiskit escribe la cadena como (q_1, q_0), con q_0 a la derecha. Tras X sobre q_1 el estado es q_1 = 1, q_0 = 0, es decir «10». El CNOT tiene el control en q_0 = 0, así que no hace nada, y la medida devuelve «10» con certeza (no «01»). La matriz de CNOT con el control en q_0 (el segundo símbolo de la cadena) en la convención de Qiskit es [[1,0,0,0],[0,0,0,1],[0,0,1,0],[0,1,0,0]], distinta de la de control en el primer símbolo de la cadena. La moraleja: fijar una convención de orden y usarla siempre."
+  rubric:
+    - "Indica que la cadena de Qiskit es (q_1, q_0) con q_0 a la derecha"
+    - "Deduce que el resultado es «10» con certeza y que el CNOT no actúa (control q_0 = 0)"
+    - "Da la matriz [[1,0,0,0],[0,0,0,1],[0,0,1,0],[0,1,0,0]] para control q_0 en Qiskit"
+    - "Concluye que hay que fijar una convención de orden y respetarla"
+
+- id: q-entanglement-001
+  prompt: "Se parte de |10⟩, se aplica H al primer qubit y luego CNOT con el primero como control. ¿Qué estado resulta?"
+  options:
+    a: "|φ⁺⟩ = (|00⟩ + |11⟩)/√2"
+    b: "|ψ⁻⟩ = (|01⟩ − |10⟩)/√2"
+    c: "|φ⁻⟩ = (|00⟩ − |11⟩)/√2"
+    d: "|ψ⁺⟩ = (|01⟩ + |10⟩)/√2"
+  explanation: "H|1⟩ = |−⟩, así que el estado pasa a (|00⟩ − |10⟩)/√2; el CNOT cambia el segundo qubit cuando el primero es 1: (|00⟩ − |11⟩)/√2. Si se olvida el signo de H|1⟩ se obtiene |φ⁺⟩; los estados ψ aparecen cuando el segundo qubit empieza en |1⟩."
+
+- id: q-entanglement-002
+  prompt: "Dos bits aleatorios están perfectamente correlacionados: con probabilidad 1/2 valen «00» y con probabilidad 1/2 valen «11» (estado clásico). ¿Están entrelazados?"
+  options:
+    a: "Sí, porque medir uno fija el valor del otro"
+    b: "Sí, porque cada bit «recuerda» el valor del otro"
+    c: "Solo si los bits están lo bastante lejos para que no puedan comunicarse"
+    d: "No: es una correlación clásica; el entrelazamiento no se define por la correlación"
+  explanation: "Es un estado clásico (mezcla de 00 y 11), no un vector de estado no producto. Frases como «medir uno afecta al otro» o «uno recuerda al otro» también valen para este estado, así que no capturan el entrelazamiento. Lo que distingue al entrelazamiento es lo que se puede hacer con él (teleportación, superdensa, CHSH)."
+
+- id: q-entanglement-003
+  prompt: "Se parte de |01⟩, se aplica H al primer qubit y luego CNOT con el primer qubit como control. ¿Qué estado de Bell resulta? (|φ⁺⟩, |φ⁻⟩, |ψ⁺⟩ o |ψ⁻⟩)"
+  accepted: ["|ψ⁺⟩", "ψ⁺", "psi plus", "ψ+", "psi+", "(|01⟩+|10⟩)/√2", "(|01⟩ + |10⟩)/√2", "|psi+⟩"]
+
+- id: q-entanglement-004
+  prompt: "Alice mide su qubit de un par |φ⁺⟩ = (|00⟩+|11⟩)/√2 en cualquier eje. ¿Qué obtiene y qué puede deducir?"
+  options:
+    a: "Un bit uniformemente aleatorio en cualquier eje; no puede saber qué estado de Bell se preparó"
+    b: "Siempre 0, porque el par de Bell parte de |00⟩"
+    c: "Un bit aleatorio, pero midiendo en z puede distinguir |φ⁺⟩ de |ψ⁺⟩"
+    d: "Un valor definido que depende del eje, porque tiene un estado puro propio"
+  explanation: "El estado de un solo qubit del par es el completamente mezclado I/2: cualquier medida local da un bit aleatorio. La información sobre qué estado de Bell se tiene (paridad y fase) está en las correlaciones y solo se lee con una operación conjunta. Las medidas locales en z revelan la paridad solo al comparar con la otra mitad; por sí sola, una mitad no distingue φ⁺ de ψ⁺."
+
+- id: q-entanglement-005
+  prompt: "Alice y Bob parten de |00⟩ y solo pueden hacer operaciones locales y hablar por teléfono. ¿Pueden preparar un par de Bell?"
+  options:
+    a: "Sí: basta con una H local de Alice y que Bob copie su resultado"
+    b: "No: hace falta una puerta de dos qubits (por ejemplo CNOT), que es la parte no local que crea entrelazamiento"
+    c: "Sí: con suficiente comunicación clásica siempre se puede generar"
+    d: "Solo si Alice y Bob usan puertas locales no unitarias"
+  explanation: "Las operaciones locales y la comunicación clásica no pueden subir el número de Schmidt de un estado puro por encima de 1, así que un estado separable sigue siéndolo. Crear entrelazamiento requiere una interacción (puerta de dos qubits) o, indirectamente, un qubit intermedio o teleportación."
+
+- id: q-entanglement-006
+  prompt: "Explica por qué el entrelazamiento no permite enviar mensajes más rápido que la luz, aunque medir una mitad de un par EPR fije el resultado de la otra mitad."
+  model_answer: "El resultado de Alice es un bit uniformemente aleatorio: no puede elegirlo para codificar un mensaje. Sea cual sea la base en la que mida, el estado local del qubit de Bob (su estado reducido) es el completamente mezclado I/2 y sus estadísticas no cambian; solo al comparar los resultados con Alice, por un canal clásico que no supera la velocidad de la luz, aparecen las correlaciones. Es el teorema de no comunicación. Lo que parece una señal instantánea (el qubit de Bob queda en otro par de estados si Alice mide en otra base) es una descripción condicionada al resultado de Alice, no algo que Bob pueda observar por sí mismo."
+  rubric:
+    - "Afirma que Alice no controla su resultado, que es aleatorio"
+    - "Indica que las estadísticas / estado reducido de Bob (I/2) no dependen de lo que haga Alice"
+    - "Dice que las correlaciones solo se ven al comparar resultados por un canal clásico"
+    - "Nombra la conclusión: no hay señalización superlumínica (no comunicación)"
+
+- id: q-entanglement-007
+  prompt: "Un compañero demuestra «entrelazamiento» en un ordenador cuántico: prepara H seguido de CNOT sobre |00⟩, mide ambos qubits en la base estándar miles de veces y obtiene solo «00» y «11», mitad y mitad. Concluye: «queda demostrado que están entrelazados». Evalúa la conclusión y propón un experimento que sí lo demostraría."
+  model_answer: "La conclusión no está justificada. Dos bits clásicos aleatorios perfectamente correlacionados (con probabilidad 1/2 «00» y con probabilidad 1/2 «11») dan exactamente las mismas estadísticas en la base estándar, y una moneda compartida (modelo local realista) también las reproduce; la correlación no es lo que define el entrelazamiento. Hay que medir en bases distintas y comparar con una cota clásica: por ejemplo, jugar el juego CHSH con rotaciones en cada qubit; cualquier estrategia clásica gana como máximo 3/4 de las veces y la estrategia con el par de Bell gana con probabilidad cos²(π/8) ≈ 0,85. Observar una tasa por encima de 3/4 (repitiendo muchas veces) sí demostraría una correlación no clásica; el entrelazamiento se reconoce por lo que permite hacer."
+  rubric:
+    - "Rechaza la conclusión: las correlaciones 00/11 en la base estándar las reproduce un estado clásico o una moneda compartida"
+    - "Propone medir en bases distintas (por ejemplo, con rotaciones/H antes de medir)"
+    - "Menciona la comparación con la cota clásica (CHSH: 3/4 clásico frente a cos²(π/8) ≈ 0,85 cuántico)"
+    - "Indica que hay que repetir muchas veces para estimar la probabilidad de ganar"
+
+- id: q-entanglement-008
+  prompt: "Alice y Bob comparten un par de Bell completamente entrelazado. Charlie pide a Alice que su mismo qubit esté también «totalmente entrelazado» con el suyo, para poder usar los tres como clave compartida tripartita. ¿Es posible? ¿Qué cambia si en lugar de un par de Bell se usan estados GHZ o W de tres qubits?"
+  model_answer: "No es posible: el entrelazamiento es monógamo. Si el qubit de Alice está maximalmente entrelazado con el de Bob, no puede estarlo también con el de Charlie. En tres qubits hay estados que reparten el entrelazamiento de otro modo: en el estado W, ningún par está maximalmente entrelazado, aunque hay algo de entrelazamiento entre A-B y A-C; en el estado GHZ, a diferencia de tres bits clásicos correlacionados, el entrelazamiento solo es visible con los tres qubits a la vez. Por tanto, el diseño debe usar un recurso multipartito adecuado (por ejemplo GHZ) y no pedir a un mismo qubit dos pares de Bell."
+  rubric:
+    - "Responde que no: el entrelazamiento máximo es monógamo"
+    - "Describe el estado W: ningún par maximalmente entrelazado, pero algo de entrelazamiento A-B y A-C"
+    - "Describe el estado GHZ: el entrelazamiento solo se aprecia con los tres qubits"
+    - "Concluye que hay que elegir el estado multipartito adecuado en vez de duplicar pares de Bell"
+
+- id: q-two-qubit-gates-001
+  prompt: "La puerta de Toffoli lleva |a⟩|b⟩|c⟩ a |a⟩|b⟩|c ⊕ (a∧b)⟩. ¿Qué estado resulta de aplicarla a |111⟩?"
+  accepted: ["|110⟩", "110", "ket 110", "|110>"]
+
+- id: q-two-qubit-gates-002
+  prompt: "Con el control como primer qubit, ¿qué resulta de aplicar CNOT a |1⟩|+⟩, siendo |+⟩ = (|0⟩+|1⟩)/√2?"
+  options:
+    a: "|1⟩|−⟩"
+    b: "(|01⟩ + |10⟩)/√2"
+    c: "(|00⟩ + |11⟩)/√2"
+    d: "|1⟩|+⟩: el estado no cambia"
+  explanation: "Con el control en |1⟩, CNOT aplica X al objetivo, y X|+⟩ = |+⟩ (X intercambia |0⟩ y |1⟩, que tienen la misma amplitud). Como el control es un estado de base, no se entrelaza. El entrelazamiento aparece cuando el control está en superposición, no cuando lo está el objetivo."
+
+- id: q-two-qubit-gates-003
+  prompt: "Con el primer qubit a la izquierda y orden de base 00, 01, 10, 11, ¿cuál es la matriz de un CNOT cuyo control es el segundo qubit y cuyo objetivo es el primero?"
+  options:
+    a: "[[1,0,0,0],[0,1,0,0],[0,0,0,1],[0,0,1,0]]"
+    b: "[[1,0,0,0],[0,0,0,1],[0,0,1,0],[0,1,0,0]]"
+    c: "[[0,1,0,0],[1,0,0,0],[0,0,1,0],[0,0,0,1]]"
+    d: "[[1,0,0,0],[0,0,1,0],[0,1,0,0],[0,0,0,1]]"
+  explanation: "Con control en el segundo qubit, |01⟩ ↔ |11⟩ (se invierte el primer qubit cuando el segundo es 1) y |00⟩, |10⟩ quedan fijos: es la matriz que permuta las filas 01 y 11. La primera opción es el CNOT con control en el primer qubit; la tercera es SWAP, y la segunda invierte el segundo qubit siempre que el primero es 0."
+
+- id: q-two-qubit-gates-004
+  prompt: "¿Por qué un producto A⊗B de puertas de un qubit nunca puede entrelazar, mientras que CNOT sí?"
+  options:
+    a: "CNOT es la única puerta que no es unitaria"
+    b: "Porque A⊗B mide los qubits y destruye la superposición"
+    c: "A⊗B actúa de forma independiente sobre cada qubit y lleva productos a productos; CNOT no es un producto tensorial y puede llevar un producto a un estado no producto"
+    d: "CNOT solo actúa sobre estados de base, y esos ya están entrelazados"
+  explanation: "(A⊗B)(|φ⟩⊗|ψ⟩) = A|φ⟩⊗B|ψ⟩ sigue siendo un producto. CNOT (y SWAP, aunque esta última no entrelaza) no se puede escribir como producto tensorial de unitarias; CNOT convierte |+⟩|0⟩ en |φ⁺⟩. CNOT es unitaria (es su propia inversa) y no mide nada; los estados de base no están entrelazados."
+
+- id: q-two-qubit-gates-005
+  prompt: "¿Qué circuito de CNOT implementa SWAP (intercambia dos qubits)?"
+  options:
+    a: "Tres CNOT alternando el control: (1→2), (2→1) y (1→2)"
+    b: "Dos CNOT: (1→2) y después (2→1)"
+    c: "Tres CNOT con el mismo control y el mismo objetivo"
+    d: "Un CNOT rodeado de H⊗H"
+  explanation: "Con bits: (x, y) → (x, x⊕y) → (y, x⊕y) → (y, x): tres CNOT alternados dan SWAP. Con solo dos, el resultado es (y, x⊕y), que no es un intercambio. Tres CNOT idénticos equivalen a uno (CNOT² = I), y rodear CNOT con H⊗H solo intercambia control y objetivo."
+
+- id: q-two-qubit-gates-006
+  prompt: "Explica por qué la puerta de Toffoli es completa para la computación clásica reversible, pero CNOT solo no basta (ni siquiera para la clásica)."
+  model_answer: "Con un 0 fijo en la tercera línea, Toffoli da AND (c ⊕ a∧b = a∧b), y con 1 fijos en las dos primeras da NOT; como AND y NOT bastan para construir cualquier circuito booleano, Toffoli es completa para el cómputo clásico reversible. CNOT, en cambio, solo calcula funciones afines módulo 2 (XOR y NOT): nunca produce AND ni OR, que no son afines. Además lleva estados de base a estados de base, así que por sí sola no crea superposición."
+  rubric:
+    - "Explica que Toffoli con un 0 fijo da AND y con dos 1 fijos da NOT"
+    - "Indica que AND y NOT bastan para cualquier circuito booleano"
+    - "Dice que CNOT solo da funciones afines módulo 2 (no AND ni OR)"
+    - "Menciona que CNOT lleva estados de base a estados de base (no crea superposición)"
+
+- id: q-two-qubit-gates-007
+  prompt: "El dispositivo con el que trabajas solo implementa de forma nativa la puerta controlada-Z entre qubits vecinos de una línea (1-2-3). Necesitas un CNOT con control en el qubit 1 y objetivo en el 3. Propón una construcción justificada."
+  model_answer: "CNOT se obtiene de una controlada-Z poniendo H en el qubit objetivo antes y después (H·CZ·H = CNOT). Como el 1 y el 3 no son vecinos, hay que acercarlos: un SWAP entre 2 y 3 (tres CNOT, cada uno construible con CZ y H) lleva el estado del qubit 3 a la posición 2; se aplica el CNOT (control 1, objetivo 2) construido con CZ y H, y se deshace el SWAP para devolver cada qubit a su sitio. Las restricciones geométricas apenas cambian la complejidad: añaden un número pequeño de SWAP. La elección concreta depende de las puertas nativas y de la conectividad del dispositivo."
+  rubric:
+    - "Construye CNOT con H en el objetivo antes y después de una controlada-Z"
+    - "Reconoce que el 1 y el 3 no son vecinos y requiere SWAP"
+    - "Indica que SWAP equivale a tres CNOT (o tres CZ con H) y que se deshace al final"
+    - "Concluye que la restricción de conectividad añade pocas puertas"
+
+- id: q-two-qubit-gates-008
+  prompt: "Tu dispositivo ofrece como puertas nativas H, T, T† y CNOT, pero un oráculo que escribes necesita calcular reversiblemente el AND de dos bits y dejar el resultado en un tercero. ¿Cómo lo haces y qué debes cuidar con los qubits de trabajo que uses?"
+  model_answer: "El AND reversible es una puerta de Toffoli con el tercer qubit en |0⟩ (c ⊕ a∧b = a∧b). Toffoli no necesita ser nativa: se construye con H, T, T† y CNOT. Si el cálculo usa qubits de trabajo, hay que devolverlos a |0⟩ antes de usar el subcircuito sobre una superposición, porque un entrelazamiento residual con el registro de datos destruye la interferencia buscada; se hace ejecutando el circuito a la inversa. Toffoli, CNOT y NOT son sus propias inversas, lo que facilita la limpieza."
+  rubric:
+    - "Identifica Toffoli con el tercer qubit en |0⟩ como AND reversible"
+    - "Indica que Toffoli se construye con H, T, T† y CNOT"
+    - "Advierte de que los qubits de trabajo deben devolverse a |0⟩ para no destruir la interferencia"
+    - "Menciona la ejecución inversa (descomputación) como método de limpieza"
+
+- id: q-quantum-circuits-001
+  prompt: "Un circuito se lee de izquierda a derecha: primero X, luego H y por último Z. ¿Qué producto de matrices representa el circuito completo?"
+  options:
+    a: "X·H·Z"
+    b: "Z·H·X"
+    c: "H·Z·X"
+    d: "Z·X·H"
+  explanation: "La primera puerta del circuito es la más a la derecha del producto, porque la matriz actúa sobre el vector por la izquierda: Z·H·X. Escribir las matrices en el orden de lectura (X·H·Z) es el error más frecuente."
+
+- id: q-quantum-circuits-002
+  prompt: "Un qubit empieza en |0⟩ y pasa por H, T, H (T = diag(1, e^{iπ/4})) y se mide en la base estándar. ¿Con qué probabilidad sale 0? (Da el valor exacto o una aproximación.)"
+  accepted: ["(2+√2)/4", "cos²(π/8)", "0,854", "0.854", "≈ 0,85", "0,85", "0.85", "(2+raíz de 2)/4", "cos^2(pi/8)", "85,4%"]
+
+- id: q-quantum-circuits-003
+  prompt: "Se ejecuta el circuito H en el primer qubit y CNOT (control en el primero) sobre |00⟩, y se miden los dos qubits en la base estándar. ¿Qué resultados aparecen?"
+  options:
+    a: "«00» y «11», cada uno con probabilidad 1/2"
+    b: "«01» y «10», cada uno con probabilidad 1/2"
+    c: "Los cuatro resultados, cada uno con probabilidad 1/4"
+    d: "Siempre «00»"
+  explanation: "El circuito crea |φ⁺⟩ = (|00⟩+|11⟩)/√2, con amplitudes 1/√2 para 00 y 11: la medida da esas dos cadenas con probabilidad 1/2. Los cuatro resultados equiprobables serían un producto |+⟩|+⟩, y «01»/«10» corresponde a |ψ⁺⟩, que sale al partir de |01⟩."
+
+- id: q-quantum-circuits-004
+  prompt: "Un circuito tiene una medida a mitad de camino seguida de más puertas. ¿Cambia la potencia del modelo respecto a medir solo al final?"
+  options:
+    a: "Sí: medir a mitad de circuito permite resolver problemas que no se pueden resolver midiendo al final"
+    b: "Sí, porque medir a mitad de circuito evita la decoherencia"
+    c: "No: la medida se puede aplazar al final usando un qubit auxiliar y un CNOT"
+    d: "Sí, porque tras una medida ya no se pueden aplicar más puertas unitarias"
+  explanation: "Se copia el qubit (en la base estándar) en una ancilla con un CNOT y se mide al final; las puertas posteriores que dependían del resultado se convierten en puertas controladas. Medir sí cambia el estado (colapsa), pero aplazar la medida produce las mismas estadísticas."
+
+- id: q-quantum-circuits-005
+  prompt: "Un circuito aplica A, luego B y luego C (en ese orden temporal). ¿Cuál es el circuito de su inversa U†?"
+  options:
+    a: "A†, luego B†, luego C†"
+    b: "C, luego B, luego A"
+    c: "A, luego B, luego C pero con las puertas transpuestas"
+    d: "C†, luego B†, luego A†"
+  explanation: "(C·B·A)† = A†·B†·C†: al invertir se revierte el orden y se sustituye cada puerta por su inversa. Invertir solo cada puerta sin cambiar el orden, o cambiar el orden sin invertirlas, no da U†. Toffoli, CNOT y NOT son sus propias inversas."
+
+- id: q-quantum-circuits-006
+  prompt: "Un circuito cuántico, aplicado a una superposición uniforme de entradas, calcula f(z) para los 2ⁿ valores de z con una sola aplicación. Explica por qué eso no significa que el algoritmo «obtenga todos los resultados a la vez» y qué hace falta para una ventaja real."
+  model_answer: "Con una sola aplicación se obtiene una superposición Σ|z⟩|f(z)⟩ de los 2ⁿ valores, pero al medir solo se lee un par aleatorio (z, f(z)): el resto de la información no es accesible. Para sacar partido hace falta interferencia: ordenar las amplitudes para que las respuestas erróneas se cancelen y la correcta se refuerce (y, junto a ella, entrelazamiento). Sin eso, un ordenador clásico aleatorizado haría lo mismo."
+  rubric:
+    - "Explica que se obtiene una superposición de todos los valores de f(z) en una sola aplicación"
+    - "Indica que medir da un único par (z, f(z)) aleatorio"
+    - "Menciona la interferencia como recurso necesario (amplitudes incorrectas se cancelan, la correcta se refuerza)"
+    - "Concluye que sin interferencia no hay ventaja sobre un ordenador clásico aleatorizado"
+
+- id: q-quantum-circuits-007
+  prompt: "Un compañero implementa el circuito H, S, H, T (aplicadas en ese orden a |0⟩) multiplicando las matrices en el orden de lectura, H·S·H·T. Mide miles de veces y obtiene 0 y 1 con probabilidad ≈ 1/2, igual que con tu simulador. Concluye que su producto es correcto. ¿Es válida su conclusión? Calcula el estado correcto y el del compañero."
+  model_answer: "No es válida. El producto correcto es T·H·S·H, con la última puerta a la izquierda. Con entrada |0⟩: H|0⟩ = |+⟩; S|+⟩ = (|0⟩+i|1⟩)/√2; H da ((1+i)/2)|0⟩ + ((1−i)/2)|1⟩; T multiplica la amplitud de |1⟩ por (1+i)/√2 y queda ((1+i)/2)|0⟩ + (1/√2)|1⟩. El producto del compañero, H·S·H·T, aplica primero T, que deja |0⟩ intacto, y termina en ((1+i)/2)|0⟩ + ((1−i)/2)|1⟩. Ambos dan P(0) = P(1) = 1/2 (|1+i|²/4 = 1/2), pero los estados son distintos: las probabilidades en la base estándar no detectan el error de orden. Para detectarlo hay que comparar los vectores de estado en un simulador o medir en otra base."
+  rubric:
+    - "Afirma que el orden correcto es T·H·S·H (la última puerta a la izquierda)"
+    - "Calcula el estado correcto ((1+i)/2)|0⟩ + (1/√2)|1⟩ paso a paso"
+    - "Calcula el estado del compañero ((1+i)/2)|0⟩ + ((1−i)/2)|1⟩ o indica que T actúa trivialmente primero"
+    - "Señala que las probabilidades de medida coinciden (1/2, 1/2) y por eso la medida no detecta el error"
+
+- id: q-quantum-circuits-008
+  prompt: "Un subcircuito que calcula una función con ayuda de un registro de trabajo funciona bien con entradas de base, pero al aplicarlo a una superposición de entradas el algoritmo deja de dar la interferencia esperada. ¿Cuál es la causa más probable y cómo se arregla? ¿Qué cuesta la solución?"
+  model_answer: "La causa más probable es que el registro de trabajo queda entrelazado con el registro de datos (basura que depende de la entrada): ese entrelazamiento residual destruye la interferencia buscada. Hay que devolver los qubits de trabajo a |0⟩ antes de usar el subcircuito sobre una superposición. La receta es guardar la basura, copiar la salida y ejecutar el circuito a la inversa (descomputación). Cuesta duplicar el número de puertas y memoria del orden del número de puertas; el juego de piedras (pebble game) permite intercambiar tiempo por espacio."
+  rubric:
+    - "Identifica la causa: el registro de trabajo queda entrelazado con el de datos"
+    - "Explica que ese entrelazamiento residual destruye la interferencia"
+    - "Propone descomputación: copiar la salida y ejecutar el circuito a la inversa para reponer |0⟩"
+    - "Menciona el coste (doble de puertas / memoria) y, opcionalmente, el pebble game"
+
+- id: q-no-cloning-001
+  prompt: "Se aplica CNOT (control en el primer qubit) a |+⟩|0⟩. ¿Qué resulta y por qué no es una copia de |+⟩?"
+  options:
+    a: "|+⟩|+⟩ = (|00⟩+|01⟩+|10⟩+|11⟩)/2: es una copia, porque CNOT copia el control"
+    b: "(|00⟩ + |11⟩)/√2, un par de Bell entrelazado; una copia verdadera sería |+⟩|+⟩ = (|00⟩+|01⟩+|10⟩+|11⟩)/2"
+    c: "|+⟩|0⟩ sin cambios, porque el control está en superposición"
+    d: "(|00⟩ + |10⟩)/√2, porque CNOT solo copia estados de base"
+  explanation: "Por linealidad, CNOT lleva |0⟩|0⟩ a |00⟩ y |1⟩|0⟩ a |11⟩, así que |+⟩|0⟩ pasa a (|00⟩+|11⟩)/√2. Eso no es |+⟩|+⟩: es un estado entrelazado, no dos copias independientes. CNOT «copia» solo los estados de la base estándar."
+
+- id: q-no-cloning-002
+  prompt: "Un programador lee «los qubits no se pueden copiar» y concluye que no se puede copiar ni |0⟩ ni |1⟩. ¿Qué es correcto?"
+  options:
+    a: "Es correcto: ningún estado cuántico se puede copiar, ni siquiera |0⟩ y |1⟩"
+    b: "Se puede copiar cualquier estado si se conoce su fase global"
+    c: "Se puede copiar cualquier estado si se usa una ancilla en |+⟩"
+    d: "Se pueden copiar |0⟩ y |1⟩ (una base ortonormal conocida) con CNOT y un objetivo en |0⟩; lo imposible es una unitaria que copie todos los estados"
+  explanation: "El teorema habla de una unitaria que clone todos los estados de un conjunto no ortogonal; los estados de una única base ortonormal conocida sí se clonan: |a⟩|0⟩ → |a⟩|a⟩ con CNOT. También se puede repetir la preparación si se sabe cómo se preparó el estado. Lo que no se puede es copiar un estado desconocido arbitrario."
+
+- id: q-no-cloning-003
+  prompt: "Si una unitaria clonara dos estados |ψ⟩ y |φ⟩ (|ψ⟩|0⟩ → |ψ⟩|ψ⟩ y |φ⟩|0⟩ → |φ⟩|φ⟩), ¿qué relación debe cumplir su producto interior y qué implica?"
+  options:
+    a: "⟨ψ|φ⟩ = 2⟨ψ|φ⟩: solo vale 0, y los estados deben ser ortogonales"
+    b: "⟨ψ|φ⟩ = √⟨ψ|φ⟩: cualquier par de estados se puede clonar"
+    c: "⟨ψ|φ⟩ = ⟨ψ|φ⟩²: solo vale 0 o 1, es decir, los estados deben ser ortogonales o iguales"
+    d: "⟨ψ|φ⟩ = ⟨ψ|φ⟩²: se cumple para todo par de estados, así que clonar siempre es posible"
+  explanation: "Las unitarias conservan los productos interiores, pero clonar los eleva al cuadrado. La ecuación x = x² solo tiene soluciones 0 y 1. Por eso solo se clonan estados de una base ortonormal (o estados iguales), no estados no ortogonales como |0⟩ y |+⟩."
+
+- id: q-no-cloning-004
+  prompt: "Explica con tus palabras la demostración del teorema de no clonación por linealidad, usando |0⟩, |1⟩ y |+⟩."
+  model_answer: "Supón que una unitaria U clonara |0⟩ y |1⟩: U|0⟩|φ⟩ = |00⟩ y U|1⟩|φ⟩ = |11⟩. Por linealidad, aplicada a |+⟩ = (|0⟩+|1⟩)/√2 daría (|00⟩+|11⟩)/√2. Pero una copia verdadera de |+⟩ sería |+⟩|+⟩ = (|00⟩+|01⟩+|10⟩+|11⟩)/2, que es otro vector: contradicción. En otras palabras, clonar es cuadrático en las amplitudes y las unitarias son lineales, así que no puede ser unitario. El resultado de aplicar CNOT a |+⟩|0⟩ es justo el par de Bell, no dos copias."
+  rubric:
+    - "Parte de que U clona |0⟩ y |1⟩ y lo aplica a |+⟩ usando linealidad"
+    - "Obtiene (|00⟩+|11⟩)/√2 como resultado"
+    - "Compara con |+⟩|+⟩ = (|00⟩+|01⟩+|10⟩+|11⟩)/2 y concluye la contradicción"
+    - "Señala que clonar es cuadrático en las amplitudes mientras que las unitarias son lineales"
+
+- id: q-no-cloning-005
+  prompt: "¿Por qué no se puede enviar información cuántica desconocida usando solo un canal clásico?"
+  options:
+    a: "Porque si se pudiera, un segundo receptor podría copiar el mensaje clásico y se obtendría una copia del qubit, lo que viola la no clonación"
+    b: "Porque los canales clásicos son demasiado lentos para llevar amplitudes"
+    c: "Porque un qubit contiene infinitos bits y el canal solo transmite bits finitos"
+    d: "Porque medir el qubit siempre destruye el estado y no deja ningún dato que enviar"
+  explanation: "Un mensaje clásico se puede copiar libremente; si bastara para reconstruir el qubit, cualquiera podría reconstruirlo dos veces. De ahí que haga falta entrelazamiento (teleportación). La respuesta de los infinitos bits es un error: un qubit no da infinitos bits accesibles, y la razón de fondo no es la velocidad ni la precisión sino la imposibilidad de clonar."
+
+- id: q-no-cloning-006
+  prompt: "Un compañero propone, para «guardar un valor intermedio» de un cálculo cuántico, aplicar un CNOT desde el qubit de datos a una ancilla en |0⟩ y seguir usando los dos qubits independientemente. ¿Funciona? ¿Qué se debe hacer en su lugar?"
+  model_answer: "Solo funcionaría si el qubit de datos estuviera en un estado de base (|0⟩ o |1⟩): entonces CNOT lo copia. Si está en una superposición, CNOT crea un estado entrelazado (por ejemplo (|00⟩+|11⟩)/√2), no dos copias independientes: operar sobre un qubit afecta al otro, y medirlo colapsa ambos. Por el teorema de no clonación no existe una instrucción de «copiar qubit» para estados desconocidos. En su lugar hay que mover el valor (no copiarlo) o rediseñar el cálculo; y la basura de un cálculo se elimina descomputando (ejecutando a la inversa), no borrando."
+  rubric:
+    - "Indica que CNOT solo copia estados de base"
+    - "Explica que con una superposición CNOT genera un estado entrelazado y no dos copias independientes"
+    - "Cita el teorema de no clonación: no existe «copiar qubit» para estados desconocidos"
+    - "Propone mover el valor o descomputar la basura en lugar de borrarla"
+
+- id: q-no-cloning-007
+  prompt: "Un banco quiere emitir billetes de dinero cuántico a la Wiesner: cada billete lleva un número de serie y n qubits no entrelazados, cada uno en uno de cuatro estados de dos bases. Un falsificador te pregunta por qué no puede simplemente copiar un billete válido. Responde con el teorema de no clonación y explica cómo verifica el banco y qué problema práctico queda."
+  model_answer: "Los cuatro estados pertenecen a dos bases distintas, así que no son ortogonales entre sí y no existe una máquina que copie perfectamente un estado desconocido de ese conjunto (la prueba solo usa la unitariedad). El banco guarda la base de datos con los estados previstos para cada número de serie y verifica midiendo cada qubit en su base correcta. El falsificador no conoce las bases; si adivina, la probabilidad de que su copia pase la verificación es exponencialmente pequeña en n. La seguridad frente a cualquier falsificador se demostró más tarde (Molina, Vidick y Watrous). El problema práctico es la decoherencia: los qubits aguantan, en el mejor caso, una hora en laboratorio y mucho menos en una cartera."
+  rubric:
+    - "Explica que los estados son no ortogonales y por no clonación no se pueden copiar perfectamente"
+    - "Describe la verificación: el banco mide cada qubit en su base guardada para ese número de serie"
+    - "Indica que adivinar las bases da una probabilidad de éxito exponencialmente pequeña"
+    - "Menciona la limitación práctica de la decoherencia (los qubits no duran)"
+
+- id: q-universal-gate-sets-001
+  prompt: "¿Cuál de estos conjuntos de puertas es universal (puede aproximar cualquier unitaria)?"
+  options:
+    a: "{CNOT, H, S}"
+    b: "{CNOT, H, T}"
+    c: "{H, S, T}"
+    d: "{CNOT, X, Z}"
+  explanation: "{CNOT, H, T} es la base de Shor. {CNOT, H, S} queda dentro del conjunto estabilizador y se simula clásicamente (Gottesman-Knill); {H, S, T} solo tiene puertas de un qubit y no puede entrelazar, y {CNOT, X, Z} lleva estados de base a estados de base: no crea superposición."
+
+- id: q-universal-gate-sets-002
+  prompt: "¿Qué falla en el conjunto {CNOT, H} para que no sea universal?"
+  options:
+    a: "Solo tiene puertas de un qubit y no puede entrelazar"
+    b: "CNOT lleva estados de base a estados de base y H no crea superposición"
+    c: "Todas sus entradas son reales, así que no puede aproximar unitarias con entradas complejas"
+    d: "Está contenido en el conjunto estabilizador, que se simula clásicamente (aunque sí tiene entradas complejas)"
+  explanation: "Aaronson enumera cuatro formas de fallar: sin superposición, sin entrelazamiento, solo puertas reales y contenido en el conjunto estabilizador. {CNOT, H} crea superposición (H) y entrelaza (CNOT); le falta la parte compleja (por eso hace falta una puerta como T o S). El conjunto estabilizador es {CNOT, H, S}, no {CNOT, H}."
+
+- id: q-universal-gate-sets-003
+  prompt: "¿Por qué un conjunto finito de puertas solo puede aproximar una unitaria arbitraria y no implementarla exactamente?"
+  options:
+    a: "Porque cada puerta real tiene ruido y los errores se acumulan"
+    b: "Porque Solovay-Kitaev solo garantiza resultados aproximados"
+    c: "Porque las puertas de dos qubits no se pueden construir exactamente"
+    d: "Porque las unitarias forman un continuo y los circuitos finitos con un conjunto finito de puertas son numerables"
+  explanation: "Los circuitos con un conjunto finito de puertas se pueden numerar (hay una cantidad contable), mientras que las unitarias son un continuo: casi todas quedan fuera. La aproximación a precisión arbitraria es posible, no la exactitud. El ruido y el teorema de Solovay-Kitaev hablan de otra cosa (precisión real y coste, respectivamente)."
+
+- id: q-universal-gate-sets-004
+  prompt: "El conjunto {CNOT, H, S} crea superposición, entrelaza y usa números complejos, y sin embargo no es universal. Explica por qué y qué hay que añadir."
+  model_answer: "{CNOT, H, S} es el conjunto estabilizador. Por el teorema de Gottesman-Knill, los circuitos hechos solo de estas puertas, a partir de |0…0⟩, se pueden simular clásicamente en tiempo polinómico; si fuera universal, un ordenador clásico podría simular cualquier cómputo cuántico. Por tanto, aunque cada ingrediente (superposición, entrelazamiento, complejos) esté presente, la combinación se queda dentro de un conjunto «clásicamente fácil». Hay que añadir una puerta fuera de ese conjunto, como T, para obtener la universalidad ({CNOT, H, T}); cambiar H por casi cualquier otra cosa también la da."
+  rubric:
+    - "Nombra {CNOT, H, S} como conjunto estabilizador"
+    - "Cita Gottesman-Knill: simulable clásicamente en tiempo polinómico"
+    - "Explica que si fuera universal el cómputo cuántico sería clásicamente simulable"
+    - "Indica que hay que añadir una puerta como T"
+
+- id: q-universal-gate-sets-005
+  prompt: "Un grupo de hardware presenta un procesador con puertas X, Y, Z, H, S y CNOT de fidelidad casi perfecta y afirma que ya demuestra ventaja cuántica. Evalúa la afirmación y di qué recomendarías antes de hablar de ventaja."
+  model_answer: "Ese conjunto está dentro del conjunto estabilizador {CNOT, H, S} (X, Y, Z son productos de las mismas puertas): por Gottesman-Knill, los circuitos estabilizadores sobre |0…0⟩ se simulan clásicamente en tiempo polinómico, así que no pueden demostrar ventaja por muy buena que sea la fidelidad. Para hablar de ventaja hace falta una puerta fuera del conjunto, como T (con la base de Shor {CNOT, H, T}, o el conjunto por defecto de Watrous con S†, T, T†). En el análisis de recursos conviene contar aparte las puertas T, porque sin ellas el circuito es simulable."
+  rubric:
+    - "Identifica que el conjunto está dentro del conjunto estabilizador"
+    - "Cita Gottesman-Knill: simulable clásicamente en tiempo polinómico"
+    - "Concluye que no puede demostrar ventaja por sí solo"
+    - "Recomienda añadir una puerta como T y contar las puertas T aparte"
+
+- id: q-universal-gate-sets-006
+  prompt: "Un equipo de compiladores debe traducir las puertas nativas de un dispositivo a {CNOT, H, T} con error 10⁻¹⁰ y teme que el coste sea exponencial en la precisión. Explica qué garantiza el teorema de Solovay-Kitaev, cuál es la idea de la demostración y qué consecuencia tiene para la clase BQP."
+  model_answer: "El teorema de Solovay-Kitaev dice que, para un conjunto universal cerrado bajo inversas, cualquier unitaria de k qubits (k fijo) se aproxima con error ε usando polylog(1/ε) puertas, y el circuito se encuentra clásicamente en tiempo polylog(1/ε): la precisión cuesta poco, no es exponencial. La idea: se usa un conmutador de grupo e^{iB}e^{iC}e^{−iB}e^{−iC} de cuatro elementos de una red ε para aproximar el error restante; los errores de orden ε se cancelan y la precisión pasa de ε a C·ε^{3/2}, de modo que se mejora iterando. Para {H, T} se hace mejor, con O(log(1/ε)) puertas en un qubit. Consecuencia: un conjunto universal simula a otro con sobrecoste polilogarítmico, y BQP no depende del conjunto de puertas elegido."
+  rubric:
+    - "Enuncia que la aproximación con error ε cuesta polylog(1/ε) puertas y se encuentra clásicamente en tiempo polylog(1/ε)"
+    - "Describe la idea: el conmutador de grupo cancela los errores de orden ε y mejora la precisión a ε^{3/2}"
+    - "Concluye que el coste de traducir entre conjuntos universales es polilogarítmico, no exponencial"
+    - "Indica que BQP no depende del conjunto universal elegido"
+
+- id: q-universal-gate-sets-007
+  prompt: "Tu jefe dice: «universal significa que cualquier unitaria de 30 qubits se compila; así que compila esta unitaria genérica y listo». Explica con el argumento de conteo por qué no es realista."
+  model_answer: "Universal significa aproximable, no eficiente. Las unitarias de n qubits forman un continuo enorme, mientras que los circuitos con T puertas de un conjunto finito son pocos: contando, alcanzar todo U(2ⁿ) con precisión δ exige un T exponencial en n. Aaronson lo da como versión cuántica del argumento de Shannon: incluso las unitarias diagonales de n qubits necesitan unos 2ⁿ parámetros, mientras que un circuito con pocas puertas tiene pocos parámetros, así que casi todas las unitarias necesitan un número exponencial de puertas. Por eso hay que partir de unitarias con estructura que sí se implementen con un número polinómico de puertas, y no compilar una unitaria genérica de 30 qubits."
+  rubric:
+    - "Distingue universal (aproximable) de eficiente"
+    - "Explica el conteo: pocos circuitos frente a un continuo de unitarias"
+    - "Concluye que casi todas las unitarias necesitan un número exponencial de puertas"
+    - "Recomienda trabajar con unitarias estructuradas implementables con un número polinómico de puertas"
+
+- id: q-quantum-teleportation-001
+  prompt: "En la teleportación, Alice mide A y Q y obtiene (a, b) = (1, 0) (a es el resultado de A y b el de Q; Bob corrige con X^a Z^b). Bob tiene entonces el qubit α|1⟩ + β|0⟩. ¿Qué corrección aplica?"
+  options:
+    a: "X"
+    b: "Z"
+    c: "Ninguna"
+    d: "X y después Z"
+  explanation: "α|1⟩ + β|0⟩ = X(α|0⟩ + β|1⟩): basta aplicar X. Con (a, b) = (0, 1) el error sería Z, y con (1, 1) harían falta ambas. Aplicar Z o ambas puertas con (1, 0) dejaría un signo relativo erróneo."
+
+- id: q-quantum-teleportation-002
+  prompt: "¿Por qué la teleportación no permite transmitir información más rápido que la luz?"
+  options:
+    a: "Porque el estado de Bob cambia al instante, pero la relatividad solo prohíbe mover materia"
+    b: "Porque Alice puede elegir el resultado de su medida pero Bob tarda en leerlo"
+    c: "Porque Alice envía las amplitudes α y β por el canal clásico a velocidad menor que la de la luz"
+    d: "Porque el resultado de Alice es aleatorio y, antes de recibir los dos bits clásicos, el qubit de Bob es el estado completamente mezclado, independiente de α y β"
+  explanation: "Los cuatro resultados son equiprobables sea cual sea el estado, y el qubit de Bob antes de la corrección no depende de α ni de β. Hacen falta los dos bits clásicos, que viajan a una velocidad menor o igual que la luz, para que Bob corrija. Alice no controla su resultado, y los bits que envía no contienen el estado."
+
+- id: q-quantum-teleportation-003
+  prompt: "¿Qué recursos consume teleportar un qubit desconocido?"
+  options:
+    a: "Un e-bit (par de Bell) y dos bits clásicos"
+    b: "Dos e-bits y un bit clásico"
+    c: "Un e-bit y un bit clásico"
+    d: "Dos bits clásicos, sin necesidad de entrelazamiento"
+  explanation: "Teleportar un qubit gasta 1 e-bit y 2 bits clásicos (1 e-bit + 2 bits ≥ 1 qubit). Sin el e-bit, «medir y enviar» por un canal clásico da una fidelidad media de a lo sumo 2/3. Es el converso de la codificación superdensa."
+
+- id: q-quantum-teleportation-004
+  prompt: "Explica con tus palabras por qué la teleportación ni viola el teorema de no clonación ni permite comunicar más rápido que la luz."
+  model_answer: "No clona porque el original se destruye: tras la medida de Alice, el qubit Q queda en |b⟩ y A en |a⟩, sin entrelazamiento ni información del estado, y el e-bit se consume; la copia de Bob aparece solo después de que esa medida destruya el original. No señaliza más rápido que la luz porque el resultado de Alice (a, b) es uniformemente aleatorio sean cuales sean α y β, y antes de recibir esos dos bits clásicos, el qubit de Bob es el estado completamente mezclado, independiente de α y β. Solo cuando llegan los bits (a velocidad menor o igual que la de la luz) Bob puede corregir con I, X, Z o XZ. Los dos bits no contienen el estado."
+  rubric:
+    - "Explica que el original se destruye (la medida de Alice lo deja en |a⟩, |b⟩) y el e-bit se gasta, así que no hay dos copias"
+    - "Indica que el resultado de Alice es uniformemente aleatorio e independiente de α y β"
+    - "Dice que antes de recibir los bits el qubit de Bob es el estado completamente mezclado"
+    - "Menciona que la corrección depende de dos bits clásicos que no viajan más rápido que la luz"
+
+- id: q-quantum-teleportation-005
+  prompt: "¿Por qué, en el circuito de teleportación, medir en la base estándar tras CNOT y H sobre Q equivale a una medida de Bell?"
+  options:
+    a: "Porque H y CNOT miden directamente los estados de Bell sin necesitar medida posterior"
+    b: "Porque medir en la base estándar siempre equivale a medir en la base de Bell para dos qubits"
+    c: "Porque CNOT seguido de H es el inverso del circuito que fabrica pares de Bell: convierte la base de Bell en la base estándar"
+    d: "Porque CNOT y H copian el estado de Q en A antes de medir"
+  explanation: "El circuito de Bell (H y luego CNOT) lleva la base estándar a la base de Bell; su inverso (CNOT y luego H) lleva la base de Bell a la estándar, de modo que la medida estándar final identifica el estado de Bell de (Q, A). No hay copia ni medida «gratuita»: la medida sigue siendo necesaria, y la base estándar no coincide con la de Bell por sí sola."
+
+- id: q-quantum-teleportation-006
+  prompt: "En tu simulador, la teleportación de |ψ⟩ = α|0⟩ + β|1⟩ funciona bien «solo» en una de cada cuatro ejecuciones: el qubit de Bob coincide con |ψ⟩ en ~25 % de los casos. Un compañero dice que «el entrelazamiento solo funciona una vez de cada cuatro». ¿Cuál es el fallo más probable y qué te dice sobre el papel del canal clásico?"
+  model_answer: "Lo más probable es que falten las correcciones condicionadas por los bits clásicos (X si a = 1, Z si b = 1). Los cuatro resultados de Alice son equiprobables (1/4) y dejan a Bob con |ψ⟩, Z|ψ⟩, X|ψ⟩ o XZ|ψ⟩; sin corregir solo coincide con |ψ⟩ cuando (a, b) = (0, 0), es decir, en 1 de cada 4 casos. El entrelazamiento funciona siempre; lo que falta es la información clásica que dice a Bob cuál de las cuatro situaciones ocurrió. Esto muestra que el canal clásico es necesario: antes de recibirlo, el qubit de Bob es el estado completamente mezclado y no revela nada de |ψ⟩, y por eso la teleportación no es instantánea."
+  rubric:
+    - "Identifica la falta de correcciones condicionadas (X^a, Z^b) como causa"
+    - "Explica que los cuatro resultados son equiprobables y solo (0,0) deja a Bob sin error"
+    - "Aclara que el entrelazamiento funciona siempre: falta la información clásica"
+    - "Relaciona el hecho con la necesidad del canal clásico y con la ausencia de señales instantáneas"
+
+- id: q-quantum-teleportation-007
+  prompt: "Quieres enviar de Alice a Bob un registro de 3 qubits que está entrelazado con un cuarto qubit que Alice conserva (otro sistema R). Alice solo puede mandar bits clásicos. ¿Cómo lo haces, qué recursos necesitas y qué ocurre con el entrelazamiento con R?"
+  model_answer: "Se teleporta qubit a qubit: cada qubit consume un e-bit y dos bits clásicos, así que se necesitan 3 e-bits y 6 bits clásicos (n e-bits para n qubits). Como el qubit teleportado puede ser la mitad de otro par, el protocolo actúa como un canal identidad: tras teleportar, los qubits de Bob quedan entrelazados con R igual que lo estaban los originales. Los e-bits se consumen, hay que distribuirlos de antemano (por ejemplo con entanglement swapping) y generar entrelazamiento a distancia puede ser caro: en el experimento de Hensen et al. la probabilidad de éxito por intento era de unos 6,4×10⁻⁹. Por eso conviene contar cuántos e-bits gasta un protocolo."
+  rubric:
+    - "Propone teleportar qubit a qubit con 3 e-bits y 6 bits clásicos"
+    - "Indica que el entrelazamiento con R se conserva (canal identidad)"
+    - "Señala que los e-bits se consumen y deben estar distribuidos de antemano"
+    - "Menciona el coste de generar e-bits a distancia (por ejemplo, el experimento de Hensen)"
+
+- id: q-quantum-teleportation-008
+  prompt: "Dos laboratorios sin entrelazamiento compartido proponen enviarse un qubit desconocido: el emisor lo mide y manda por correo electrónico las amplitudes estimadas. ¿Qué límites tiene este esquema y qué cambia si distribuyen antes un par de Bell?"
+  model_answer: "Sin e-bit compartido, «medir y enviar» por un canal clásico alcanza una fidelidad media como mucho de 2/3: una sola medida no revela las amplitudes (hacen falta muchas copias en tres ejes) y no se puede copiar el qubit para medirlo varias veces; además, por no clonación, la información cuántica no se puede enviar solo por un canal clásico. Con un par de Bell distribuido de antemano, la teleportación alcanza fidelidad 1 consumiendo 1 e-bit y 2 bits clásicos, sin que el emisor necesite conocer el estado. El e-bit es lo que hace posible el protocolo, y los dos bits son resultados aleatorios que no contienen el estado."
+  rubric:
+    - "Indica que medir y enviar da como mucho fidelidad media 2/3"
+    - "Relaciona el límite con la no clonación (no se puede copiar el qubit ni enviarlo solo por canal clásico)"
+    - "Afirma que con un e-bit la teleportación alcanza fidelidad 1 con 2 bits clásicos"
+    - "Aclara que el emisor no necesita conocer el estado"
+
+- id: q-superdense-coding-001
+  prompt: "Alice y Bob comparten |φ⁺⟩ = (|00⟩+|11⟩)/√2 (A primero). Alice aplica X a su qubit A. ¿Qué estado tienen ahora y qué bits cd (c: X, d: Z) está codificando?"
+  options:
+    a: "|φ⁻⟩ = (|00⟩ − |11⟩)/√2, que codifica cd = 10"
+    b: "|ψ⁺⟩ = (|01⟩ + |10⟩)/√2, que codifica cd = 10"
+    c: "|ψ⁺⟩ = (|01⟩ + |10⟩)/√2, que codifica cd = 01"
+    d: "|φ⁺⟩ sin cambios, que codifica cd = 00"
+  explanation: "X sobre la mitad de Alice lleva |00⟩ a |10⟩ y |11⟩ a |01⟩: (|10⟩+|01⟩)/√2 = |ψ⁺⟩. En la codificación, c = 1 se logra con X y d = 1 con Z, así que X solo corresponde a cd = 10. |φ⁻⟩ sale de aplicar Z (cd = 01)."
+
+- id: q-superdense-coding-002
+  prompt: "Bob recibe el qubit de Alice y tiene los dos qubits (A, B). ¿Qué circuito usa para leer los dos bits?"
+  options:
+    a: "CNOT (control A, objetivo B), luego H sobre A, y mide ambos en la base estándar"
+    b: "H sobre A, luego CNOT (control A, objetivo B), y mide ambos"
+    c: "Mide solo el qubit A recibido en la base estándar"
+    d: "Aplica X a ambos qubits y mide"
+  explanation: "Es el inverso del circuito que fabrica pares de Bell: CNOT y después H convierten la base de Bell en la estándar. Aplicar H antes del CNOT es el orden del circuito de fabricación, no el de decodificación. Medir solo A da un bit aleatorio, porque la información está en las correlaciones."
+
+- id: q-superdense-coding-003
+  prompt: "El qubit que Alice envía a Bob lleva dos bits clásicos. ¿Por qué no contradice el límite de Holevo (un qubit lleva a lo sumo un bit clásico sin entrelazamiento)?"
+  options:
+    a: "Porque en el fondo Alice envía dos bits clásicos, no un qubit"
+    b: "Porque Holevo solo vale para canales con ruido"
+    c: "Porque el qubit enviado, por sí solo, tiene matriz densidad I/2 y no lleva información; la información está en las correlaciones con la mitad que Bob ya tenía (el e-bit enviado antes)"
+    d: "Porque el qubit de Alice se copia antes de enviarlo"
+  explanation: "El e-bit supone haber enviado antes la mitad de un par: en total se transmiten dos qubits y dos bits, coherente con la cota de Holevo. Un espía que capture solo el qubit en tránsito no obtiene nada (I/2). No hay copia (no clonación) ni nada que ver con el ruido."
+
+- id: q-superdense-coding-004
+  prompt: "Explica qué se gana y qué se gasta en la codificación superdensa, y cómo se relaciona con la teleportación."
+  model_answer: "Se envían dos bits clásicos mandando un solo qubit, a costa de un e-bit compartido previamente: Alice aplica a su mitad del par de Bell I, X, Z o XZ (según los bits), obteniendo los cuatro estados de Bell, que son ortogonales y que Bob distingue con una medida conjunta (CNOT, H y medida estándar). Sin el e-bit no se ganaría nada (Holevo: un qubit lleva a lo sumo un bit clásico), y con cualquier número de e-bits un qubit lleva como mucho dos bits. La teleportación es la tarea inversa: gasta un e-bit y dos bits clásicos para enviar un qubit (1 e-bit + 2 bits ≥ 1 qubit), mientras que la superdensa convierte un e-bit y un qubit en dos bits clásicos (1 e-bit + 1 qubit ≥ 2 bits)."
+  rubric:
+    - "Indica que se envían 2 bits con 1 qubit gastando 1 e-bit previamente compartido"
+    - "Describe que Alice elige uno de cuatro estados de Bell con una Pauli local y Bob los distingue con una medida conjunta"
+    - "Menciona que sin e-bit no hay ventaja (Holevo) y que 2 bits por qubit es el máximo"
+    - "Relaciona con la teleportación como protocolo conversor (1 e-bit + 2 bits ≥ 1 qubit)"
+
+- id: q-superdense-coding-005
+  prompt: "Una espía intercepta el qubit que Alice envía a Bob en un protocolo de codificación superdensa. ¿Qué información obtiene si lo mide? ¿Qué podría hacer en su lugar y qué le haría falta para leer el mensaje?"
+  model_answer: "El qubit que viaja, por sí solo, está en el estado completamente mezclado I/2: medirlo en cualquier base da un bit aleatorio y no revela nada del mensaje. Toda la información está en las correlaciones entre ese qubit y la mitad que ya tiene Bob, así que para leer los dos bits tendría que capturar los dos qubits y hacer una medida conjunta. Lo que sí puede hacer es interferir (jamming): sustituir o perturbar el qubit y estropear el mensaje que recibe Bob."
+  rubric:
+    - "Dice que medir el qubit interceptado da un bit aleatorio (estado I/2) sin información del mensaje"
+    - "Explica que la información está en las correlaciones y requiere los dos qubits y una medida conjunta"
+    - "Menciona que la espía aún puede interferir (jamming)"
+
+- id: q-superdense-coding-006
+  prompt: "Tu responsable propone usar codificación superdensa para duplicar el ancho de banda de un enlace óptico. Evalúa la propuesta: qué se gana, qué coste oculto tiene, cuál es el máximo posible y si merece la pena."
+  model_answer: "La codificación superdensa permite enviar dos bits clásicos con un solo qubit, pero solo si Alice y Bob ya comparten un e-bit, que hay que haber enviado antes (en total se transmiten dos qubits por dos bits, coherente con Holevo). El máximo es dos bits por qubit, con cualquier número de e-bits compartidos: no se puede mejorar. Además, Watrous señala que cambiar un qubit por dos bits al coste de un e-bit «apenas merece la pena» en la práctica y Aaronson lo llama un factor 2 modesto. Por tanto, sin una fuente barata de entrelazamiento distribuido, la propuesta no duplica realmente el ancho de banda."
+  rubric:
+    - "Indica que se envían 2 bits con 1 qubit gastando 1 e-bit compartido de antemano"
+    - "Explica que el e-bit hay que haberlo enviado antes (coste oculto)"
+    - "Indica que 2 bits por qubit es el máximo posible"
+    - "Concluye con cautela: la ganancia es un factor 2 modesto que apenas merece la pena"
+
+- id: q-superdense-coding-007
+  prompt: "Escribe el protocolo completo de codificación superdensa para el mensaje cd = 11 (qubits A y B, partiendo de |00⟩) y traza el estado paso a paso hasta el resultado que mide Bob."
+  model_answer: "Preparación del e-bit: H sobre A y CNOT (control A, objetivo B) dan |φ⁺⟩ = (|00⟩+|11⟩)/√2. Codificación para cd = 11: Alice aplica Z (d = 1) y luego X (c = 1) a A: Z da (|00⟩ − |11⟩)/√2 y X da (|10⟩ − |01⟩)/√2 = −|ψ⁻⟩. Alice envía A a Bob. Decodificación: CNOT (A → B) lleva (|10⟩−|01⟩)/√2 a (|11⟩−|01⟩)/√2 = ((|1⟩−|0⟩)/√2)⊗|1⟩; H sobre A convierte (|1⟩−|0⟩)/√2 en −|1⟩, con lo que el estado es −|11⟩. Bob mide A = 1 y B = 1, es decir, d = 1 (de A) y c = 1 (de B), que recupera cd = 11; el signo global no cambia nada."
+  rubric:
+    - "Prepara |φ⁺⟩ con H y CNOT"
+    - "Aplica Z y luego X para cd = 11 y obtiene (|10⟩−|01⟩)/√2 = −|ψ⁻⟩"
+    - "Decodifica con CNOT y H, llegando a −|11⟩ (con signo global irrelevante)"
+    - "Interpreta la medida: A = 1 da d y B = 1 da c, recuperando cd = 11"
+
+- id: q-bell-inequalities-001
+  prompt: "¿Por qué compartir aleatoriedad (una moneda compartida) no ayuda a Alice y Bob a superar 3/4 en el juego CHSH con estrategias clásicas?"
+  options:
+    a: "Porque la aleatoriedad compartida está prohibida por las reglas del juego"
+    b: "Porque una estrategia aleatoria es una mezcla de estrategias deterministas y un promedio nunca supera al máximo, que es 3/4"
+    c: "Porque con azar compartido pueden comunicarse y eso hace perder al equipo"
+    d: "Porque el azar compartido solo permite ganar el 1/2 de las veces"
+  explanation: "Hay 16 estrategias deterministas y la mejor gana 3 de 4 casos (por ejemplo, responder siempre 0). Una estrategia con variables ocultas locales cae en este análisis. Compartir azar de antemano no está prohibido, pero no permite superar el 3/4."
+
+- id: q-bell-inequalities-002
+  prompt: "En el juego CHSH, ¿con qué probabilidad gana la estrategia cuántica con un par de Bell y rotaciones de π/8, en cada pareja de preguntas?"
+  options:
+    a: "3/4 = 0,75, igual que la mejor estrategia clásica"
+    b: "1, porque el entrelazamiento da correlación perfecta"
+    c: "1/2, porque los resultados son aleatorios"
+    d: "cos²(π/8) = (2+√2)/4 ≈ 0,85"
+  explanation: "Para ángulos α (Alice) y β (Bob), las respuestas coinciden con probabilidad cos²(α−β) y difieren con sin²(α−β); en las cuatro parejas de preguntas la probabilidad de ganar es cos²(π/8). Es el máximo cuántico (Tsirelson), no 1. Cada resultado es aleatorio, pero las correlaciones no lo son."
+
+- id: q-bell-inequalities-003
+  prompt: "¿Qué descarta el teorema de Bell?"
+  options:
+    a: "La localidad por sí sola: demuestra que hay señales más rápidas que la luz"
+    b: "Las teorías de variables ocultas locales (la conjunción de localidad y realismo)"
+    c: "La mecánica cuántica: demuestra que sus predicciones son falsas"
+    d: "Cualquier correlación entre partículas lejanas"
+  explanation: "Bell muestra que las predicciones del entrelazamiento no se pueden reproducir con una teoría local y realista; refuta la conjunción, no la localidad sola, y los experimentos no prueban sin más la mecánica cuántica. No hay señales superlumínicas (las estadísticas de Bob no cambian)."
+
+- id: q-bell-inequalities-004
+  prompt: "En el juego CHSH, para x = y = 1, Alice usa el ángulo π/4 y Bob −π/8, y deben dar respuestas distintas. ¿Con qué probabilidad lo consiguen?"
+  options:
+    a: "sin²(3π/8) = cos²(π/8) ≈ 0,85"
+    b: "cos²(3π/8) ≈ 0,15"
+    c: "1/2"
+    d: "3/4"
+  explanation: "α − β = π/4 + π/8 = 3π/8, y las respuestas difieren con probabilidad sin²(α−β) = sin²(3π/8) = cos²(π/8). Usar cos² en vez de sin² (coincidir en lugar de diferir) da 0,15 y hace parecer que esta pareja pierde."
+
+- id: q-bell-inequalities-005
+  prompt: "Describe con tus palabras el juego CHSH, por qué ninguna estrategia clásica supera 3/4 y cómo consigue el entrelazamiento superarlo."
+  model_answer: "Un árbitro da a Alice y a Bob bits aleatorios x e y; ellos responden bits a y b sin comunicarse y ganan si a ⊕ b = x ∧ y (coinciden salvo cuando x = y = 1). Una estrategia clásica determinista es un par de funciones a(x), b(y); las cuatro condiciones de victoria sumadas módulo 2 dan 0 = 1, así que como máximo se ganan 3 de 4 entradas, y el azar compartido no mejora porque promedia deterministas. Con un par de Bell, cada uno gira su qubit un ángulo según su pregunta (Alice 0 o π/4, Bob π/8 o −π/8) y mide en la base estándar: las respuestas coinciden con probabilidad cos²(α − β), y en los cuatro casos se gana con probabilidad cos²(π/8) ≈ 0,85 > 3/4."
+  rubric:
+    - "Describe las reglas: preguntas x, y, respuestas a, b, condición a ⊕ b = x ∧ y y ausencia de comunicación"
+    - "Explica el límite clásico de 3/4 (las cuatro condiciones suman 0 = 1, o 16 estrategias deterministas) y que el azar compartido no ayuda"
+    - "Describe la estrategia cuántica: par de Bell y rotaciones según x e y"
+    - "Da la probabilidad cuántica cos²(π/8) ≈ 0,85 y la compara con 3/4"
+
+- id: q-bell-inequalities-006
+  prompt: "Un escéptico te dice: «el experimento de Hensen de 2015 solo hizo 245 ensayos y obtuvo p = 0,039; eso no demuestra nada, y además los tests de Bell siempre tenían lagunas». Respóndele: ¿qué mide el experimento, qué lagunas cierra y qué sigue asumiendo?"
+  model_answer: "El experimento (espines de electrones en centros NV en dos laboratorios separados 1280 m) evalúa la desigualdad CHSH, cuyo valor máximo con variables ocultas locales es 2: obtuvo S = 2,42 ± 0,20 en 245 ensayos (220 horas), con p = 0,039 en el análisis más general (memoria arbitraria de los dispositivos). La significación es modesta porque el entrelazamiento heraldado tiene una probabilidad de éxito de unos 6,4×10⁻⁹ por intento: pocos eventos por hora; pero es el primer test sin lagunas. Cierra la laguna de localidad (ventana de separación espacial de 4,27 µs, generador de números aleatorios rápido de 160 ns y lectura de 3,7 µs dentro de la ventana) y la de detección (lectura de un solo disparo con fidelidad del 97,1 % y 96,3 %). Aun así, asume que los generadores producen a tiempo un bit libre y que las salidas son definitivas una vez registradas; ningún test excluye todas las teorías locales realistas imaginables (queda, por ejemplo, el superdeterminismo)."
+  rubric:
+    - "Explica que se mide CHSH: el límite local es 2 y obtuvo S = 2,42 ± 0,20 (245 ensayos, p = 0,039)"
+    - "Explica que la significación es modesta por la baja tasa de éxito del entrelazamiento heraldado (≈ 6,4×10⁻⁹ por intento)"
+    - "Cita el cierre de las dos lagunas: localidad (1280 m, ventana de 4,27 µs, generador rápido) y detección (lectura de alta fidelidad)"
+    - "Menciona lo que se asume aún (bits libres, salidas definitivas; superdeterminismo)"
+
+- id: q-bell-inequalities-007
+  prompt: "En una charla alguien afirma: «los experimentos de Bell demuestran que la mecánica cuántica es cierta, que el entrelazamiento permite comunicarse más rápido que la luz y que la localidad queda refutada». Corrige cada una de las tres afirmaciones."
+  model_answer: "(1) Los experimentos de Bell descartan las teorías locales realistas (variables ocultas locales), no prueban la mecánica cuántica sin más, y con las salvedades de las lagunas experimentales. (2) El entrelazamiento no permite comunicar: ganar el juego CHSH no transmite ningún mensaje; las estadísticas de Bob no cambian según lo que mida Alice (teorema de no comunicación). (3) Lo que se refuta es la conjunción de localidad y realismo, no la localidad sola: un modelo no local, o uno sin realismo, es compatible con los resultados. Aaronson lo sitúa así: la mecánica cuántica queda entre el realismo local clásico y una utopía de comunicación más rápida que la luz."
+  rubric:
+    - "Corrige (1): se descartan teorías locales realistas, no se prueba la mecánica cuántica"
+    - "Corrige (2): no hay comunicación, las estadísticas de Bob no cambian"
+    - "Corrige (3): se refuta la conjunción de localidad y realismo, no la localidad sola"
+    - "Menciona la salvedad de las lagunas experimentales o el lugar de la mecánica cuántica entre ambos extremos"
+
+- id: q-bell-inequalities-008
+  prompt: "Revisas el diseño de un experimento de Bell con fotones: los detectores tienen una eficiencia del 75 %, se descartan los ensayos en los que algún detector no responde y los ajustes de los analizadores se fijan antes de que los fotones salgan de la fuente. ¿Qué lagunas quedan abiertas y qué cambiarías?"
+  model_answer: "Quedan abiertas las dos lagunas principales. (a) Laguna de detección: al descartar ensayos sin salida suponiendo un muestreo justo, las cajas podrían elegir qué ensayos se conservan según la entrada; para CHSH hace falta una eficiencia por encima del 82,84 %, y el 75 % no basta. (b) Laguna de localidad: si los ajustes se fijan antes de que salgan los fotones, podrían comunicarse; hay que elegir el ajuste de cada analizador (con un generador rápido) y registrar su salida dentro de una ventana espacialmente separada, de modo que ninguna señal a la velocidad de la luz alcance al otro lado, como hizo Aspect en 1982 al cambiar el analizador mientras los fotones estaban en vuelo. Habría que subir la eficiencia, o usar un sistema con lectura casi perfecta, y asegurar la separación espacial de elección y registro; el primer test que cerró ambas lagunas a la vez fue el de Hensen et al. (2015)."
+  rubric:
+    - "Señala la laguna de detección: descartar ensayos y eficiencia insuficiente (> 82,84 % para CHSH)"
+    - "Señala la laguna de localidad: elegir ajuste y registrar salida con separación espacial"
+    - "Propone cambios concretos (más eficiencia o lectura casi perfecta, elección rápida del analizador durante el vuelo)"
+    - "Menciona que ambas lagunas se cerraron a la vez por primera vez en el experimento de Hensen de 2015"

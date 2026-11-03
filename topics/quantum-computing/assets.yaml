@@ -39,3 +39,31 @@
   generator: diagrams/src/dephasing_bloch_density.py
   license: CC-BY-4.0
   concepts: [decoherence, density-matrices]
+
+- id: bloch-sphere
+  file: diagrams/bloch-sphere.{lang}.svg
+  origin: own
+  generator: diagrams/src/bloch_sphere.py
+  license: CC-BY-4.0
+  concepts: [bloch-sphere, qubit]
+
+- id: bell-circuit
+  file: diagrams/bell-circuit.{lang}.svg
+  origin: own
+  generator: diagrams/src/bell_circuit.py
+  license: CC-BY-4.0
+  concepts: [entanglement, quantum-circuits, two-qubit-gates]
+
+- id: teleportation-circuit
+  file: diagrams/teleportation-circuit.{lang}.svg
+  origin: own
+  generator: diagrams/src/teleportation_circuit.py
+  license: CC-BY-4.0
+  concepts: [quantum-teleportation, quantum-circuits]
+
+- id: chsh-game
+  file: diagrams/chsh-game.{lang}.svg
+  origin: own
+  generator: diagrams/src/chsh_game.py
+  license: CC-BY-4.0
+  concepts: [bell-inequalities]

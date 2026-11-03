@@ -1,6 +1,6 @@
 ---
 source: watrous-2025
-concepts: [complex-numbers, vectors-and-dirac-notation, inner-products-and-norms, matrices-and-linear-maps, unitary-and-hermitian-matrices, tensor-products, probability-basics, born-rule-measurement, density-matrices, decoherence, unitary-time-evolution]
+concepts: [complex-numbers, vectors-and-dirac-notation, inner-products-and-norms, matrices-and-linear-maps, unitary-and-hermitian-matrices, tensor-products, probability-basics, born-rule-measurement, density-matrices, decoherence, unitary-time-evolution, qubit, bloch-sphere, single-qubit-gates, multi-qubit-states, entanglement, two-qubit-gates, quantum-circuits, no-cloning, universal-gate-sets, quantum-teleportation, superdense-coding, bell-inequalities]
 ---
 
 Accessed: full text of arXiv:2507.11536v1 (extracted text), read Lessons 1, 2 and 3.2-3.3 (Unit I). Locations are given as "L<lesson>.<section>, PDF p. N". PDF page = book page + 6. Unit I does not contain a stand-alone linear-algebra review or appendix.
@@ -189,3 +189,146 @@ Accessed (this section): full text of Unit III, Lessons 9-12 (density matrices, 
 
 ## Level (quantum-mechanics section)
 University (advanced undergraduate / intro graduate), written for quantum computing. Proofs are included, and this part assumes comfort with the spectral theorem, partial trace and block matrices.
+
+## qubits-and-circuits
+
+Accessed (this section): full text of Unit I Lessons 3.1 and 4 (circuits, no-cloning, teleportation, superdense coding, CHSH game), Lesson 1.2 and 2.2 passages on qubits, gates and Bell states, Bloch sphere in L9.3, and the universal-gate-set passage in L6.2/L6.3. Locations as "L<lesson>.<section>, PDF p. N". Claims already in math-foundations are only referenced.
+
+### qubit
+- A qubit state is a unit vector alpha|0> + beta|1> with |alpha|^2 + |beta|^2 = 1. Examples: |0>, |1>, and the plus state (|0>+|1>)/sqrt2, whose standard-basis outcomes are 0 and 1 with probability 1/2 each (L1.2, PDF pp. 19-23) → qubit
+- The minus state (|0>-|1>)/sqrt2 gives the same standard-basis measurement statistics as plus, yet is a different state. The two behave differently under operations: H then measurement separates them with certainty (L1.2, PDF pp. 23-24, 27) → qubit
+- The states |+i> = (|0>+i|1>)/sqrt2 and |-i> = (|0>-i|1>)/sqrt2 form another basis. They sit on the +y and -y axes of the Bloch sphere (L9.3, PDF p. 279) → qubit
+- Measuring |0> gives 0 with certainty and |1> gives 1 with certainty, which links these states to the classical states of a bit (L1.2, PDF p. 24) → qubit
+- Every qubit state is equivalent up to global phase to one with a nonnegative real coefficient on |0> (L9.3, PDF p. 275) → qubit
+- Orthonormal bases of a qubit: {|0>,|1>} (standard) and {|+>,|->}. See math-foundations bullets on orthonormal bases (L3.2, PDF p. 83) → qubit
+- The real-amplitude qubit states |psi_theta> = cos(theta)|0> + sin(theta)|1> give |0>, |1>, |+>, |-> for theta = 0, pi/2, pi/4, -pi/4. The inner product of two of them is cos(difference of angles) (L4.3, PDF pp. 111, 118) → qubit
+- A qubit is a system with classical states {0,1}. See math-foundations bullet on qubit/qutrit/qudit (L1.2, PDF p. 19) → qubit
+
+### bloch-sphere
+- The Bloch sphere represents qubit states only. The analogous picture is no longer a sphere for three or more classical states (L9.3, PDF p. 275) → bloch-sphere
+- Up to global phase a pure qubit state is cos(theta/2)|0> + e^{i phi}sin(theta/2)|1>, with theta in [0, pi] and phi in [0, 2pi). Theta and phi are unique unless the state is |0> or |1>, where phi is irrelevant (L9.3, PDF pp. 275-276) → bloch-sphere
+- The density matrix of that state equals (I + sin(theta)cos(phi) X + sin(theta)sin(phi) Y + cos(theta) Z)/2. The coefficients form a unit vector, i.e. a point on the unit 2-sphere with polar angle theta and azimuth phi (L9.3, PDF pp. 276-277) → bloch-sphere
+- Six states: |0> at the north pole (0,0,1), |1> at the south pole, |+> and |-> at +x and -x, |+i> and |-i> at +y and -y. Orthogonal states are antipodal (L9.3, PDF pp. 278-279, 281) → bloch-sphere
+- Real-amplitude states |psi_alpha> = cos(alpha)|0> + sin(alpha)|1> lie in the x-z plane at Bloch vector (sin 2alpha, 0, cos 2alpha), so the Bloch angle is twice the Hilbert-space angle (L9.3, PDF p. 280) → bloch-sphere
+- The Bloch ball includes the interior. Points inside are mixed states from convex combinations, and the center is the completely mixed state I/2 (L9.3, PDF pp. 280-281) → bloch-sphere
+- The CHSH measurement matrix U_theta (a real rotation) is written as R_y(-2 theta), where R_y(t) has entries cos(t/2), sin(t/2). This is the only link to gates as rotations in the parts read (L4.3, PDF p. 119) → bloch-sphere
+- ⚠️ The source does not describe single-qubit gates (X, H, S, T) as Bloch-sphere rotations in the parts read. Only the R_y remark above was found. Another source is needed for "gates as rotations".
+
+### single-qubit-gates
+- Pauli matrices I, X = sigma_x, Y = sigma_y, Z = sigma_z. X is the bit flip or NOT (X|0> = |1>), Z the phase flip (Z|0> = |0>, Z|1> = -|1>) (L1.2, PDF pp. 25-26) → single-qubit-gates
+- Hadamard H = [[1,1],[1,-1]]/sqrt2 with H|0> = |+>, H|1> = |->, H|+> = |0>, H|-> = |1> (L1.2, PDF pp. 26-27) → single-qubit-gates
+- Phase operation P_theta = diag(1, e^{i theta}), with S = P_{pi/2}, T = P_{pi/4}, Z = P_pi, I = P_0. All are unitary (L1.2, PDF p. 26) → single-qubit-gates
+- Example computation: T|+> = (|0> + (1+i)/sqrt2 |1>)/sqrt2, obtained by linearity from T|0> = |0> and T|1> = (1+i)/sqrt2 |1> (L1.2, PDF pp. 27-28) → single-qubit-gates
+- The circuit T H S H applied to |0> gives ((1+i)/2)|0> + (1/sqrt2)|1> (L3.1, PDF p. 73) → single-qubit-gates
+- H S H squared equals X, so H S H is a square root of NOT, which has no classical single-bit analogue (L1.2, PDF pp. 28-29) → single-qubit-gates
+- In circuit diagrams, X, Y, Z, H, S, T are drawn as labelled boxes and X is sometimes drawn as a circle with a plus (L3.1, PDF p. 78) → single-qubit-gates
+- Rotation-type gates U_theta = cos/sin matrix are used in the CHSH strategy (L4.3, PDF p. 119) → single-qubit-gates
+
+### multi-qubit-states
+- The classical states of n systems are n-tuples, so n bits give 2^n classical states. 10 bits give 1024 states written as strings 0000000000 to 1111111111 (L2.1, PDF pp. 32-33) → multi-qubit-states
+- Qiskit orders qubits (q_{n-1}, ..., q_0), q_0 at the top of a circuit and rightmost in the tuple. See math-foundations bullet on the Qiskit ordering (L3.1, PDF p. 74) → multi-qubit-states
+- A state of n systems is a unit vector indexed by the Cartesian product of the classical states, and measuring all of them gives string a_{n-1}...a_0 with probability |<a_{n-1}...a_0|psi>|^2 (L2.2, PDF p. 55) → multi-qubit-states
+- Product states are tensor products of the individual state vectors. See math-foundations bullets on product states and the non-product example (L2.2, PDF pp. 51-53) → multi-qubit-states
+- Examples of three-qubit states: GHZ = (|000>+|111>)/sqrt2 and W = (|001>+|010>+|100>)/sqrt3. Neither is a product of three qubit states (L2.2, PDF p. 54) → multi-qubit-states
+- A one-qubit gate acting inside a larger circuit is the identity on the other qubits, e.g. I (x) H when the gate acts on the top qubit (L3.1, PDF p. 75) → multi-qubit-states
+- Measuring only one qubit of a joint state: outcome a has probability equal to the squared norm of the part of the vector attached to |a>, and the rest collapses to the normalized part. See math-foundations bullet on partial measurement (L2.2, PDF pp. 55-57) → multi-qubit-states
+
+### entanglement
+- The four Bell states are |phi+> = (|00>+|11>)/sqrt2, |phi-> = (|00>-|11>)/sqrt2, |psi+> = (|01>+|10>)/sqrt2, |psi-> = (|01>-|10>)/sqrt2. All are entangled and they form the orthonormal Bell basis (L2.2, PDF p. 53; L3.1, PDF p. 76) → entanglement
+- Entanglement is defined as non-classical quantum correlation, essentially a definition by what it is not. The source admits this is unsatisfying and that entanglement is hard to explain intuitively (L4, PDF p. 100) → entanglement
+- The classical state (1/2)|00> + (1/2)|11> (two perfectly correlated random bits) is not entangled. Remarks like "measuring one qubit affects the other" or "each has a memory of the other" are also true of this classical state, so they do not capture entanglement (L4, PDF pp. 100-101) → entanglement
+- What distinguishes entanglement is what can be done with it that no classical correlation allows. The three examples of Lesson 4 (teleportation, superdense coding, CHSH game) are of this kind (L4, PDF p. 101) → entanglement
+- Entanglement is treated as a resource. The state |phi+> counts as one e-bit even though it uses two qubits. "Sharing an e-bit" means Alice has qubit A, Bob has qubit B and (A,B) is in |phi+> (L4, PDF p. 101) → entanglement
+- The classical analogue of the e-bit resource is one bit of shared randomness, the state (1/2)|00> + (1/2)|11>, which is useful for cryptography but is not entangled (L4, PDF p. 101) → entanglement
+- Circuit H on the upper qubit followed by CNOT creates |phi+> from |00>. The full unitary maps |00>, |01>, |10>, |11> to |phi+>, |phi->, |psi+>, -|psi->, i.e. converts the standard basis into the Bell basis (L3.1, PDF pp. 74-76) → entanglement
+- For quantum state vectors, not a product state is equivalent to entangled. See math-foundations bullets on entangled states (L2.2, PDF p. 52) → entanglement
+- Reduced state of each qubit of a Bell pair is the completely mixed state. See density-matrices bullets (L9.4, PDF p. 286) → entanglement
+
+### two-qubit-gates
+- Controlled-NOT: acts on standard basis states as |a>|b> -> |a>|a XOR b>, with the first qubit the control and the second the target. Drawn as a filled circle joined to a circle with a plus (L3.1, PDF pp. 70, 72) → two-qubit-gates
+- The CNOT matrix is [[1,0,0,0],[0,0,0,1],[0,0,1,0],[0,1,0,0]] when the control is the second (top) qubit under Qiskit ordering, so which qubit is control changes the matrix (L3.1, PDF p. 75) → two-qubit-gates
+- Controlled gates have a filled-circle control joined to the controlled operation: controlled-NOT, Toffoli (controlled-controlled-NOT), controlled-swap (Fredkin), and controlled versions of any unitary U (L3.1, PDF pp. 72-73) → two-qubit-gates
+- Controlled-Z is like CNOT but applies Z to the target. A controlled-Z at the start of the Bell-state circuit, or a swap at the end, removes the -1 phase on the last output state (L3.1, PDF p. 76) → two-qubit-gates
+- Toffoli maps |a>|b>|c> to |a>|b>|c XOR (a AND b)> and is a query gate for AND. It can be built from H, T, T-dagger and CNOT gates (L6.3, PDF pp. 177-178) → two-qubit-gates
+- A SWAP can be built from three CNOT gates (L6.3, PDF pp. 180-181) → two-qubit-gates
+- CNOT copies standard basis states: with a target in |0>, |a>|0> becomes |a>|a>. It does not copy |+> (L3.3, PDF pp. 94-95) → two-qubit-gates
+- Matrix and Dirac forms of SWAP, controlled-U and Toffoli, and the fact that CNOT and SWAP are not tensor products of single-qubit gates, are in math-foundations (see the tensor-products bullets, L2.2, PDF pp. 66-68) → two-qubit-gates
+- A CNOT from the input qubit to a |0> workspace and discarding the copy gives complete dephasing (see decoherence bullets, L10.2, PDF pp. 305-307) → two-qubit-gates
+
+### quantum-circuits
+- A circuit is an acyclic network of wires and gates, with no feedback loops. Information flows left to right and gates are evaluated in that order (L3.1, PDF pp. 69-70) → quantum-circuits
+- In a quantum circuit the wires are qubits and the gates are unitary operations or standard-basis measurements. In the one-qubit example H, S, H, T from left to right, the whole circuit is the composition T H S H (L3.1, PDF p. 73) → quantum-circuits
+- Inputs and outputs can be written on the wires (e.g. |0> in and ((1+i)/2)|0> + (1/sqrt2)|1> out). Circuits often begin with all qubits in |0> but may start in other states (L3.1, PDF p. 73) → quantum-circuits
+- Reading order of qubits: the top wire is q_0 and the rightmost entry of the tuple (Qiskit convention). The source says this is a reversal of a more common convention and applies it throughout (L3.1, PDF p. 74) → quantum-circuits
+- A gate on a single qubit acts as the identity on all other qubits, so its two-qubit matrix is a tensor product with I (L3.1, PDF p. 75) → quantum-circuits
+- The unitary of a whole circuit is the product of the gate matrices in order (a later gate multiplies on the left). The Bell-state circuit is the product of the CNOT matrix and I (x) H (L3.1, PDF pp. 75-76) → quantum-circuits
+- Classical bit wires are drawn as double lines. A measurement gate writes the standard-basis outcome onto a classical bit and leaves the qubit in |0> or |1>. A compact form shows measurement as taking a qubit to a classical bit, with the measured qubit discarded (L3.1, PDF pp. 76-77) → quantum-circuits
+- Gates with classical controls are applied or not depending on the classical bit. This is used by Bob in teleportation (L4.1, PDF p. 98) → quantum-circuits
+- Circuits can be reversed: replace each gate by its inverse and reverse the order, giving the circuit for U-dagger. Toffoli, CNOT and NOT are their own inverses (L6.3, PDF p. 181) → quantum-circuits
+- Deferred measurement: a mid-circuit measurement can be postponed to the end by adding a workspace qubit and a CNOT, so a computation is a unitary part followed by a read-out (L6.2, PDF pp. 171-172) → quantum-circuits
+- Circuit size is the number of gates. Circuit depth is the minimum number of layers where gates in a layer act on different wires (L6.2, PDF pp. 172-173) → quantum-circuits
+- Workspace qubits initialized to |0> are common in circuits (L3.3, PDF p. 96) → quantum-circuits
+- Quantum circuits can simulate any Boolean circuit using NOT, CNOT and Toffoli gates plus workspace. Garbage qubits are removed by running the circuit in reverse, because garbage would ruin the interference that quantum algorithms need (L6.3, PDF pp. 177-181) → quantum-circuits
+
+### no-cloning
+- Theorem: no unitary U and fixed state |phi> satisfy U(|psi>|phi>) = |psi>|psi> for all quantum states |psi>. See math-foundations bullet on no-cloning for the linearity argument (L3.3, PDF pp. 93-94) → no-cloning
+- The sketch of the proof: if U cloned |a>, |b> and hence (|a>+|b>)/sqrt2, linearity would give (|aa>+|bb>)/sqrt2, but a true clone is (|aa>+|ab>+|ba>+|bb>)/2, a different vector (L3.3, PDF p. 94) → no-cloning
+- The theorem is absolute, about perfect cloning. It says nothing against approximate cloning with limited accuracy, which exists and has its own bounds (L3.3, PDF p. 94) → no-cloning
+- It concerns an arbitrary unknown state. A standard basis state is easy to copy with a CNOT onto |0>, but that circuit fails on |+> (L3.3, PDF pp. 94-95) → no-cloning
+- It is not specific to quantum information. An unknown probabilistic state cannot be cloned either, because cloning is non-linear and so no stochastic matrix does it. The example is a random number between 1 and 10 (L3.3, PDF pp. 94-95) → no-cloning
+- Consequence: quantum information cannot be sent by classical communication alone. If it could, a second receiver copying the classical message would get a copy of the qubit (L4.1, PDF p. 97) → no-cloning
+- Teleportation does not clone: the original qubit Q ends in |b> after Alice's measurement and the e-bit is used up (L4.1, PDF p. 98) → no-cloning
+- Related limit: non-orthogonal states cannot be perfectly discriminated (see inner-products-and-norms bullet, L3.3, PDF pp. 95-98) → no-cloning
+
+### universal-gate-sets
+- The default gate set adopted for quantum circuits: single-qubit gates X, Y, Z, H, S, S-dagger, T, T-dagger; controlled-NOT; single-qubit standard-basis measurements (L6.2, PDF p. 170) → universal-gate-sets
+- Alternative common choice: Toffoli, Hadamard and S as elementary gates, plus measurement. Allowing all single-qubit gates is often done but gives an unrealistically powerful model if accuracy is ignored (L6.2, PDF p. 170) → universal-gate-sets
+- The unitary gates of the default set form a universal gate set: any unitary on any number of qubits can be approximated to any accuracy by circuits from these gates alone (L6.2, PDF p. 170) → universal-gate-sets
+- The definition of universality puts no limit on the number of gates needed. A measure-based argument shows that most unitaries must have extremely high cost (L6.2, PDF p. 170) → universal-gate-sets
+- The proof of universality of quantum gate sets is not simple and is not given in the course (L6.2, PDF p. 170) → universal-gate-sets
+- Arbitrary multi-qubit unitaries are treated as non-elementary because assigning unit cost to a gate on millions of qubits gives no realistic cost measure (L6.2, PDF p. 170) → universal-gate-sets
+- AND, OR, NOT and FANOUT form a universal set for deterministic Boolean computation, so any function of fixed input and output length can be built from them (L6.2, PDF p. 171) → universal-gate-sets
+- Toffoli can be built from H, T, T-dagger and CNOT, and with NOT it implements AND, OR, with CNOT FANOUT, so these gates can simulate any Boolean circuit (L6.3, PDF pp. 177-179) → universal-gate-sets
+- ⚠️ The Solovay-Kitaev theorem and the explicit universality proof are not in the parts read. Approximation cost is only mentioned qualitatively.
+
+### quantum-teleportation
+- Goal: Alice sends the state of a qubit Q to Bob using a shared e-bit and two classical bits. Matter is not moved, only quantum information (L4.1, PDF p. 102) → quantum-teleportation
+- Set-up: Alice holds A and Bob holds B with (A,B) in |phi+>. The state of Q is unknown to both and may be entangled with other systems. Alice cannot send qubits directly, only classical bits (L4.1, PDF p. 102) → quantum-teleportation
+- Protocol: Alice applies CNOT (Q control, A target) then H on Q, measures A (outcome a) and Q (outcome b) in the standard basis and sends a and b to Bob. Bob applies X if a = 1 and Z if b = 1, so the possible corrections are I, Z, X, ZX (L4.1, PDF p. 104) → quantum-teleportation
+- Analysis for Q = alpha|0> + beta|1>: after CNOT and H the joint state can be regrouped so that each of the four outcomes ab (each probability 1/4) leaves B in alpha|0> + beta|1> up to the X or Z fix. The apparent dependence on alpha and beta before communication is only algebra (L4.1, PDF pp. 105-107) → quantum-teleportation
+- Alice's measurement result is uniformly random whatever alpha, beta are, so it reveals nothing about the state. This is essential, because extracting information from an unknown state generally disturbs it (L4.1, PDF p. 107) → quantum-teleportation
+- Why no faster-than-light signalling: Bob's qubit is only correct after he receives the classical bits a and b. Before that his qubit does not depend on alpha and beta, and the outcomes are random (L4.1, PDF pp. 106-107, derived from the source's remark that nothing magical has happened) → quantum-teleportation
+- General case: if Q is entangled with another system R, the protocol leaves (B,R) in the state that (Q,R) had. The source argues this follows because the protocol acts as the identity channel on one qubit (L4.1, PDF pp. 108-110) → quantum-teleportation
+- Costs: the e-bit is used up (A ends in |a>, unentangled), Q ends in |b>, so there is no cloning. Classical communication alone cannot send qubits, so the e-bit is needed (L4.1, PDF pp. 97-98) → quantum-teleportation
+- Teleportation is a protocol for quantum communication and not an application in itself. Related ideas: entanglement distillation and gate teleportation (L4.1, PDF p. 110) → quantum-teleportation
+
+### superdense-coding
+- Goal: Alice sends two classical bits c, d to Bob by sending one qubit, using a shared e-bit (L4.2, PDF pp. 110-111) → superdense-coding
+- It is described as the complement of teleportation: teleportation sends one qubit with two classical bits plus one e-bit, superdense coding sends two classical bits with one qubit plus one e-bit (L4.2, PDF p. 110) → superdense-coding
+- Alice's encoding: apply Z if d = 1, then X if c = 1, to her qubit A, and send A to Bob (L4.2, PDF p. 111) → superdense-coding
+- Bob's decoding: CNOT with A as control and B as target, then H on A, then standard-basis measurement of B (gives c) and of A (gives d) (L4.2, PDF p. 111) → superdense-coding
+- Analysis: Alice's gates map |phi+> to |phi+>, |phi->, |psi+>, |psi-> for cd = 00, 01, 10, 11 (I, Z, X, XZ). Bob's operations map these four Bell states to |00>, |01>, |10>, -|11>, so measurement reveals cd (the global -1 is irrelevant) (L4.2, PDF pp. 112-113) → superdense-coding
+- Interpretation: Alice picks one of four Bell states and Bob measures to find which one (L4.2, PDF p. 112) → superdense-coding
+- Holevo's theorem implies that without shared entanglement one qubit cannot carry more than one classical bit. Entanglement thus doubles the classical capacity of a qubit (L4.2, PDF p. 111) → superdense-coding
+- The source says trading one qubit for two bits at the cost of an e-bit seems hardly worth it in practice, but the protocol is a clear use of entanglement (L4.2, PDF p. 111) → superdense-coding
+
+### bell-inequalities
+- Nonlocal game: a referee asks Alice and Bob classical questions x, y chosen with known probabilities, they answer a, b without communicating, and win or lose by a fixed rule. They can prepare a strategy beforehand. No communication may be modelled by distance and the speed of light (L4.3, PDF pp. 113-114) → bell-inequalities
+- CHSH game: x, y, a, b are bits, questions chosen uniformly (probability 1/4 each), and they win iff a XOR b = x AND y. So answers must agree except for (x,y) = (1,1), where they must differ (L4.3, PDF pp. 115-116) → bell-inequalities
+- Classical deterministic strategies cannot win every time: winning on (0,0), (0,1), (1,0) forces a(0)=b(0)=a(1)=b(1)... and so a loss on (1,1). There are 16 deterministic strategies and the best wins 3 of 4 cases, e.g. always answer 0 (L4.3, PDF p. 116) → bell-inequalities
+- Classical bound is 3/4. Shared randomness and probabilistic strategies do not help because they are random choices among deterministic strategies and an average is never above the maximum (L4.3, PDF p. 117) → bell-inequalities
+- Quantum strategy: Alice and Bob share |phi+>. Alice applies U_0 if x = 0 and U_{pi/4} if x = 1, Bob applies U_{pi/8} if y = 0 and U_{-pi/8} if y = 1, each then measures in the standard basis and answers with the outcome. U_theta is a rotation by angle -theta mapping |psi_theta> to |0> (L4.3, PDF pp. 113-114, 119-120) → bell-inequalities
+- Key formula: for angles alpha (Alice) and beta (Bob), the answers agree with probability cos^2(alpha - beta) and differ with probability sin^2(alpha - beta). For (0,0), (0,1), (1,0) the angle difference is pi/8, so winning has probability cos^2(pi/8). For (1,1) the difference is 3pi/8 and winning needs a differing answer, sin^2(3pi/8) = cos^2(pi/8) (L4.3, PDF pp. 120-122, 126-128) → bell-inequalities
+- Winning probability is (2 + sqrt2)/4 = cos^2(pi/8), about 0.85, in every question case. This is clearly above the classical 3/4 (L4.3, PDF pp. 121-124) → bell-inequalities
+- Tsirelson's inequality: this is the best any quantum strategy can do, whatever entangled state or measurements (L4.3, PDF p. 124) → bell-inequalities
+- Meaning: it is an example of Bell test and of nonlocality. The essence of Bell's theorem is that quantum mechanics is incompatible with local hidden variable theories. The CHSH game is a clean demonstration (L4.3, PDF p. 129) → bell-inequalities
+- Experiments implement the CHSH game and confirm entanglement-based strategies. The 2022 Nobel Prize in Physics (Aspect, Clauser, Zeilinger) recognised Bell-test experiments on entangled photons (L4.3, PDF p. 129) → bell-inequalities
+- The source says CHSH is named after Clauser, Horne, Shimony, Holt (1969 paper, described as an experiment) and Tsirelson first formulated it as a game (L4.3, PDF pp. 113, 124) → bell-inequalities
+
+## Not covered (qubits-and-circuits section)
+- Single-qubit gates as Bloch-sphere rotations (R_x, R_y, R_z, Euler decompositions): not in the parts read except the R_y remark in the CHSH section.
+- Solovay-Kitaev and explicit universality proofs: stated as out of scope in L6.2.
+- Quantum circuits for the quantum Fourier transform or Grover (Unit II) were not read for this domain.
+
+## Level (qubits-and-circuits section)
+University (advanced undergraduate / intro graduate), but Lessons 3 to 4 are readable by a motivated beginner who has seen the linear algebra of Lessons 1 and 2.

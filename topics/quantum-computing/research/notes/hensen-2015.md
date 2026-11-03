@@ -1,0 +1,24 @@
+---
+source: hensen-2015
+concepts: [bell-inequalities]
+---
+
+Accessed: full text of arXiv 1508.05949v1 (8 pages, extracted text, pages cited as in the file).
+
+- In a CHSH test, each of two boxes receives a random binary input and returns a binary output (+1 or -1). Any local and realistic theory, with free random inputs and no communication between the boxes during a trial, satisfies S ≤ 2. Quantum theory predicts up to S = 2√2 for the entangled spin state |ψ−⟩ measured along suitably chosen directions. (p. 1, Eq. 1) → bell-inequalities
+- Locality loophole: if the boxes could communicate, a box could respond using both input settings and the inequality would no longer apply. To exclude this, light-speed signals must not be able to carry A's setting to B before B's output is recorded, and vice versa. The inputs must also not be able to influence preparation of the entangled state. (p. 3) → bell-inequalities
+- Detection (fair-sampling) loophole: if trials with no output are discarded (assuming fair sampling), the boxes could pick which trials to keep based on their input. The kept subset could then violate the inequality even though the full set of trials would not. (p. 3) → bell-inequalities
+- Earlier tests left a loophole open. Photon experiments at large separation with fast random settings closed locality, but detector inefficiency and photon loss left the detection loophole open. Other experiments closed detection, but not locality. The authors state that no earlier experiment closed all loopholes at once. (p. 3) → bell-inequalities
+- Detection loophole closed: each spin is read out in a single shot, with combined initialisation and readout fidelity of 97.1 ± 0.2 % (sample A) and 96.3 ± 0.3 % (sample B). Every trial yields an output. (pp. 3-4) → bell-inequalities
+- Locality closed: NV-centre electron spins sit in labs A and B, 1280 m apart, which gives a 4.27 µs window of space-like separation. A fast quantum random number generator (160 ns per basis choice) selects the readout basis, and the 3.7 µs readout fits in the window. The event-ready signal is also space-like separated from the basis choices. (pp. 3-4, Fig. 2) → bell-inequalities
+- Event-ready scheme (as Bell proposed): spin-photon entanglement is created at A and B, and the photons are interfered on a beam splitter at a third location C. Detecting one early and one late photon in different output ports (Barrett-Kok entanglement swapping) heralds the spins in |ψ−⟩. Only heralded trials count, so failed distribution events never enter the test. Success probability is about 6.4×10^-9 per attempt, which gives a few events per hour. (p. 3, p. 5) → bell-inequalities
+- Heralded-state fidelity: 0.92 ± 0.03 to the ideal state, with two-photon interference visibility of 0.90 ± 0.06. Expected S from characterisation is 2.30 ± 0.07. (p. 5) → bell-inequalities
+- Result: 245 trials over 220 hours gave S = 2.42 ± 0.20, with k = 196 (the count of trials whose outcome product matches the CHSH-favoured sign; number of trials and k are given in the Fig. 4 caption). (p. 1, p. 6, Fig. 4) → bell-inequalities
+- Significance: a "conventional" analysis assumes independent trials, perfect random bits and Gaussian statistics, and gives p = 0.019. The "complete" analysis allows arbitrary memory in the devices, accounts for partial predictability of the random bits and makes no distributional assumption. It gives p = 0.039 (the headline value). (p. 6, Fig. 4b) → bell-inequalities
+- Remaining assumptions: the result rules out local realist theories only if the random number generators timely produce a free bit and outputs are final once recorded. No Bell test can exclude every conceivable local realist theory, since one cannot prove when and where free inputs and outputs came into existence. The authors suggest bounding such theories by increasing the distance, using other random generators (e.g. humans) or repositioning the generators ("freedom of choice"). Their data already excludes models in which the inputs are fixed up to 690 ns before being recorded. (pp. 6-7) → bell-inequalities
+- Stated applications: loophole-free tests are critical for device-independent quantum key distribution and randomness certification, because in adversarial settings every loophole is a security risk. (p. 3, p. 7) → bell-inequalities
+- The distance between the entangled electrons is described as nearly two orders of magnitude larger than in any previous entangled-matter experiment. (pp. 5-6) → entanglement, not central; this claim is only relevant to the source's own comparison
+
+Not covered: the paper does not mention other loophole-free experiments, because it is the first and was posted in August 2015. The Supplementary Information and Methods are not included in the text provided.
+
+Requested but not covered: `entanglement` has only the single minor bullet above. Level: specialist (research paper, accessible to a university physics reader).

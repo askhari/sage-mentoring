@@ -62,3 +62,48 @@ def write(name: str, content: str) -> Path:
     p = OUT / name
     p.write_text(content, encoding="utf-8")
     return p
+
+
+# --- quantum-circuit helpers -------------------------------------------------
+
+GATE = 44   # gate box size
+
+
+def wire(x1, x2, y, classical=False) -> str:
+    """Quantum wire (single line) or classical wire (double line)."""
+    if classical:
+        return line(x1, y - 2.5, x2, y - 2.5, INK, 1.2) + line(x1, y + 2.5, x2, y + 2.5, INK, 1.2)
+    return line(x1, y, x2, y, INK, 1.5)
+
+
+def vwire(x, y1, y2, classical=False) -> str:
+    if classical:
+        return line(x - 2.5, y1, x - 2.5, y2, INK, 1.2) + line(x + 2.5, y1, x + 2.5, y2, INK, 1.2)
+    return line(x, y1, x, y2, INK, 1.5)
+
+
+def gate(x, y, label: str, fill="#dbe9f6", stroke=ACCENT) -> str:
+    """Gate box centred at (x, y)."""
+    h = GATE / 2
+    return rect(x - h, y - h, GATE, GATE, stroke, fill, 2, rx=5) + text(x, y + 7, label, 20, INK, weight="bold")
+
+
+def control(x, y) -> str:
+    return circle(x, y, 6, stroke=INK, fill=INK)
+
+
+def target(x, y) -> str:
+    r = 13
+    return circle(x, y, r, stroke=INK, fill="white", width=1.8) + line(x - r, y, x + r, y, INK, 1.8) + line(x, y - r, x, y + r, INK, 1.8)
+
+
+def cnot(x, yc, yt) -> str:
+    return vwire(x, yc, yt + (13 if yt > yc else -13)) + control(x, yc) + target(x, yt)
+
+
+def meter(x, y) -> str:
+    """Measurement box with a dial."""
+    h = GATE / 2
+    return (rect(x - h, y - h, GATE, GATE, INK, "#f2f2f2", 2, rx=5)
+            + path(f"M{x - 14:.1f},{y + 8:.1f} A16,16 0 0 1 {x + 14:.1f},{y + 8:.1f}", INK, width=1.6)
+            + line(x, y + 8, x + 10, y - 10, INK, 1.6))

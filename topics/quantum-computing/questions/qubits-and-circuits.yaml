@@ -1,0 +1,587 @@
+- id: q-qubit-001
+  concept: qubit
+  layer: 1
+  type: single-choice
+  sources: [watrous-2025]
+  correct: a
+
+- id: q-qubit-002
+  concept: qubit
+  layer: 1
+  type: single-choice
+  sources: [watrous-2025]
+  correct: b
+
+- id: q-qubit-003
+  concept: qubit
+  layer: 1
+  type: short-answer
+  sources: [watrous-2025]
+
+- id: q-qubit-004
+  concept: qubit
+  layer: 2
+  type: single-choice
+  sources: [aaronson-2018, preskill-ph219]
+  correct: c
+
+- id: q-qubit-005
+  concept: qubit
+  layer: 2
+  type: open
+  sources: [watrous-2025, aaronson-2018]
+
+- id: q-qubit-006
+  concept: qubit
+  layer: 3
+  type: case
+  sources: [aaronson-2018, de-wolf-2026, preskill-ph219]
+
+- id: q-qubit-007
+  concept: qubit
+  layer: 3
+  type: case
+  sources: [watrous-2025, aaronson-2018]
+
+- id: q-bloch-sphere-001
+  concept: bloch-sphere
+  layer: 1
+  type: single-choice
+  sources: [watrous-2025]
+  correct: d
+
+- id: q-bloch-sphere-002
+  concept: bloch-sphere
+  layer: 1
+  type: single-choice
+  sources: [watrous-2025]
+  correct: b
+
+- id: q-bloch-sphere-003
+  concept: bloch-sphere
+  layer: 1
+  type: short-answer
+  sources: [watrous-2025]
+
+- id: q-bloch-sphere-004
+  concept: bloch-sphere
+  layer: 2
+  type: single-choice
+  sources: [watrous-2025]
+  correct: a
+
+- id: q-bloch-sphere-005
+  concept: bloch-sphere
+  layer: 2
+  type: open
+  sources: [watrous-2025, aaronson-2018]
+
+- id: q-bloch-sphere-006
+  concept: bloch-sphere
+  layer: 3
+  type: case
+  sources: [de-wolf-2026, watrous-2025, preskill-ph219]
+
+- id: q-bloch-sphere-007
+  concept: bloch-sphere
+  layer: 3
+  type: case
+  sources: [preskill-ph219, watrous-2025]
+
+- id: q-single-qubit-gates-001
+  concept: single-qubit-gates
+  layer: 1
+  type: single-choice
+  sources: [watrous-2025]
+  correct: c
+
+- id: q-single-qubit-gates-002
+  concept: single-qubit-gates
+  layer: 1
+  type: short-answer
+  sources: [watrous-2025]
+
+- id: q-single-qubit-gates-003
+  concept: single-qubit-gates
+  layer: 1
+  type: single-choice
+  sources: [watrous-2025]
+  correct: d
+
+- id: q-single-qubit-gates-004
+  concept: single-qubit-gates
+  layer: 1
+  type: short-answer
+  sources: [watrous-2025]
+
+- id: q-single-qubit-gates-005
+  concept: single-qubit-gates
+  layer: 2
+  type: single-choice
+  sources: [preskill-ph219, watrous-2025]
+  correct: a
+
+- id: q-single-qubit-gates-006
+  concept: single-qubit-gates
+  layer: 2
+  type: open
+  sources: [watrous-2025, preskill-ph219, aaronson-2018]
+
+- id: q-single-qubit-gates-007
+  concept: single-qubit-gates
+  layer: 3
+  type: case
+  sources: [preskill-ph219]
+
+- id: q-single-qubit-gates-008
+  concept: single-qubit-gates
+  layer: 3
+  type: case
+  sources: [watrous-2025, aaronson-2018]
+
+- id: q-multi-qubit-states-001
+  concept: multi-qubit-states
+  layer: 1
+  type: single-choice
+  sources: [watrous-2025]
+  correct: d
+
+- id: q-multi-qubit-states-002
+  concept: multi-qubit-states
+  layer: 1
+  type: short-answer
+  sources: [watrous-2025]
+
+- id: q-multi-qubit-states-003
+  concept: multi-qubit-states
+  layer: 1
+  type: short-answer
+  sources: [watrous-2025, aaronson-2018]
+
+- id: q-multi-qubit-states-004
+  concept: multi-qubit-states
+  layer: 1
+  type: single-choice
+  sources: [watrous-2025]
+  correct: c
+
+- id: q-multi-qubit-states-005
+  concept: multi-qubit-states
+  layer: 2
+  type: single-choice
+  sources: [watrous-2025]
+  correct: b
+
+- id: q-multi-qubit-states-006
+  concept: multi-qubit-states
+  layer: 2
+  type: open
+  sources: [de-wolf-2026, watrous-2025]
+
+- id: q-multi-qubit-states-007
+  concept: multi-qubit-states
+  layer: 3
+  type: case
+  sources: [aaronson-2018, de-wolf-2026]
+
+- id: q-multi-qubit-states-008
+  concept: multi-qubit-states
+  layer: 3
+  type: case
+  sources: [watrous-2025]
+
+- id: q-entanglement-001
+  concept: entanglement
+  layer: 1
+  type: single-choice
+  sources: [watrous-2025, aaronson-2018]
+  correct: c
+
+- id: q-entanglement-002
+  concept: entanglement
+  layer: 1
+  type: single-choice
+  sources: [watrous-2025]
+  correct: d
+
+- id: q-entanglement-003
+  concept: entanglement
+  layer: 1
+  type: short-answer
+  sources: [watrous-2025, preskill-ph219]
+
+- id: q-entanglement-004
+  concept: entanglement
+  layer: 2
+  type: single-choice
+  sources: [watrous-2025, preskill-ph219]
+  correct: a
+
+- id: q-entanglement-005
+  concept: entanglement
+  layer: 2
+  type: single-choice
+  sources: [preskill-ph219, aaronson-2018]
+  correct: b
+
+- id: q-entanglement-006
+  concept: entanglement
+  layer: 2
+  type: open
+  sources: [de-wolf-2026, aaronson-2018, watrous-2025]
+
+- id: q-entanglement-007
+  concept: entanglement
+  layer: 3
+  type: case
+  sources: [watrous-2025, de-wolf-2026]
+
+- id: q-entanglement-008
+  concept: entanglement
+  layer: 3
+  type: case
+  sources: [aaronson-2018]
+
+- id: q-two-qubit-gates-001
+  concept: two-qubit-gates
+  layer: 1
+  type: short-answer
+  sources: [watrous-2025, de-wolf-2026]
+
+- id: q-two-qubit-gates-002
+  concept: two-qubit-gates
+  layer: 1
+  type: single-choice
+  sources: [watrous-2025]
+  correct: d
+
+- id: q-two-qubit-gates-003
+  concept: two-qubit-gates
+  layer: 1
+  type: single-choice
+  sources: [watrous-2025]
+  correct: b
+
+- id: q-two-qubit-gates-004
+  concept: two-qubit-gates
+  layer: 2
+  type: single-choice
+  sources: [aaronson-2018, preskill-ph219]
+  correct: c
+
+- id: q-two-qubit-gates-005
+  concept: two-qubit-gates
+  layer: 2
+  type: single-choice
+  sources: [preskill-ph219, watrous-2025]
+  correct: a
+
+- id: q-two-qubit-gates-006
+  concept: two-qubit-gates
+  layer: 2
+  type: open
+  sources: [de-wolf-2026, aaronson-2018]
+
+- id: q-two-qubit-gates-007
+  concept: two-qubit-gates
+  layer: 3
+  type: case
+  sources: [de-wolf-2026, preskill-ph219]
+
+- id: q-two-qubit-gates-008
+  concept: two-qubit-gates
+  layer: 3
+  type: case
+  sources: [watrous-2025, de-wolf-2026]
+
+- id: q-quantum-circuits-001
+  concept: quantum-circuits
+  layer: 1
+  type: single-choice
+  sources: [watrous-2025]
+  correct: b
+
+- id: q-quantum-circuits-002
+  concept: quantum-circuits
+  layer: 1
+  type: short-answer
+  sources: [watrous-2025]
+
+- id: q-quantum-circuits-003
+  concept: quantum-circuits
+  layer: 1
+  type: single-choice
+  sources: [watrous-2025, preskill-ph219]
+  correct: a
+
+- id: q-quantum-circuits-004
+  concept: quantum-circuits
+  layer: 2
+  type: single-choice
+  sources: [watrous-2025, de-wolf-2026]
+  correct: c
+
+- id: q-quantum-circuits-005
+  concept: quantum-circuits
+  layer: 2
+  type: single-choice
+  sources: [watrous-2025, de-wolf-2026]
+  correct: d
+
+- id: q-quantum-circuits-006
+  concept: quantum-circuits
+  layer: 2
+  type: open
+  sources: [de-wolf-2026, aaronson-2018]
+
+- id: q-quantum-circuits-007
+  concept: quantum-circuits
+  layer: 3
+  type: case
+  sources: [watrous-2025]
+
+- id: q-quantum-circuits-008
+  concept: quantum-circuits
+  layer: 3
+  type: case
+  sources: [de-wolf-2026, preskill-ph219]
+
+- id: q-no-cloning-001
+  concept: no-cloning
+  layer: 2
+  type: single-choice
+  sources: [watrous-2025, aaronson-2018]
+  correct: b
+
+- id: q-no-cloning-002
+  concept: no-cloning
+  layer: 2
+  type: single-choice
+  sources: [watrous-2025, aaronson-2018]
+  correct: d
+
+- id: q-no-cloning-003
+  concept: no-cloning
+  layer: 2
+  type: single-choice
+  sources: [aaronson-2018]
+  correct: c
+
+- id: q-no-cloning-004
+  concept: no-cloning
+  layer: 2
+  type: open
+  sources: [watrous-2025, aaronson-2018]
+
+- id: q-no-cloning-005
+  concept: no-cloning
+  layer: 2
+  type: single-choice
+  sources: [watrous-2025]
+  correct: a
+
+- id: q-no-cloning-006
+  concept: no-cloning
+  layer: 3
+  type: case
+  sources: [watrous-2025, preskill-ph219]
+
+- id: q-no-cloning-007
+  concept: no-cloning
+  layer: 3
+  type: case
+  sources: [aaronson-2018, preskill-ph219]
+
+- id: q-universal-gate-sets-001
+  concept: universal-gate-sets
+  layer: 2
+  type: single-choice
+  sources: [aaronson-2018, de-wolf-2026]
+  correct: b
+
+- id: q-universal-gate-sets-002
+  concept: universal-gate-sets
+  layer: 2
+  type: single-choice
+  sources: [aaronson-2018]
+  correct: c
+
+- id: q-universal-gate-sets-003
+  concept: universal-gate-sets
+  layer: 2
+  type: single-choice
+  sources: [aaronson-2018, preskill-ph219]
+  correct: d
+
+- id: q-universal-gate-sets-004
+  concept: universal-gate-sets
+  layer: 2
+  type: open
+  sources: [aaronson-2018]
+
+- id: q-universal-gate-sets-005
+  concept: universal-gate-sets
+  layer: 3
+  type: case
+  sources: [aaronson-2018, watrous-2025]
+
+- id: q-universal-gate-sets-006
+  concept: universal-gate-sets
+  layer: 3
+  type: case
+  sources: [preskill-ph219, de-wolf-2026, aaronson-2018]
+
+- id: q-universal-gate-sets-007
+  concept: universal-gate-sets
+  layer: 3
+  type: case
+  sources: [preskill-ph219, aaronson-2018]
+
+- id: q-quantum-teleportation-001
+  concept: quantum-teleportation
+  layer: 2
+  type: single-choice
+  sources: [watrous-2025, de-wolf-2026]
+  correct: a
+
+- id: q-quantum-teleportation-002
+  concept: quantum-teleportation
+  layer: 2
+  type: single-choice
+  sources: [watrous-2025, preskill-ph219]
+  correct: d
+
+- id: q-quantum-teleportation-003
+  concept: quantum-teleportation
+  layer: 2
+  type: single-choice
+  sources: [preskill-ph219]
+  correct: a
+
+- id: q-quantum-teleportation-004
+  concept: quantum-teleportation
+  layer: 2
+  type: open
+  sources: [watrous-2025, preskill-ph219, de-wolf-2026]
+
+- id: q-quantum-teleportation-005
+  concept: quantum-teleportation
+  layer: 2
+  type: single-choice
+  sources: [watrous-2025, preskill-ph219]
+  correct: c
+
+- id: q-quantum-teleportation-006
+  concept: quantum-teleportation
+  layer: 3
+  type: case
+  sources: [watrous-2025, preskill-ph219]
+
+- id: q-quantum-teleportation-007
+  concept: quantum-teleportation
+  layer: 3
+  type: case
+  sources: [aaronson-2018, watrous-2025, preskill-ph219]
+
+- id: q-quantum-teleportation-008
+  concept: quantum-teleportation
+  layer: 3
+  type: case
+  sources: [preskill-ph219, watrous-2025]
+
+- id: q-superdense-coding-001
+  concept: superdense-coding
+  layer: 2
+  type: single-choice
+  sources: [watrous-2025]
+  correct: b
+
+- id: q-superdense-coding-002
+  concept: superdense-coding
+  layer: 2
+  type: single-choice
+  sources: [watrous-2025, aaronson-2018]
+  correct: a
+
+- id: q-superdense-coding-003
+  concept: superdense-coding
+  layer: 2
+  type: single-choice
+  sources: [preskill-ph219, watrous-2025]
+  correct: c
+
+- id: q-superdense-coding-004
+  concept: superdense-coding
+  layer: 2
+  type: open
+  sources: [watrous-2025, preskill-ph219, aaronson-2018]
+
+- id: q-superdense-coding-005
+  concept: superdense-coding
+  layer: 3
+  type: case
+  sources: [preskill-ph219]
+
+- id: q-superdense-coding-006
+  concept: superdense-coding
+  layer: 3
+  type: case
+  sources: [watrous-2025, aaronson-2018, preskill-ph219]
+
+- id: q-superdense-coding-007
+  concept: superdense-coding
+  layer: 3
+  type: case
+  sources: [watrous-2025]
+
+- id: q-bell-inequalities-001
+  concept: bell-inequalities
+  layer: 2
+  type: single-choice
+  sources: [watrous-2025, aaronson-2018]
+  correct: b
+
+- id: q-bell-inequalities-002
+  concept: bell-inequalities
+  layer: 2
+  type: single-choice
+  sources: [watrous-2025, preskill-ph219]
+  correct: d
+
+- id: q-bell-inequalities-003
+  concept: bell-inequalities
+  layer: 2
+  type: single-choice
+  sources: [de-wolf-2026, aaronson-2018]
+  correct: b
+
+- id: q-bell-inequalities-004
+  concept: bell-inequalities
+  layer: 2
+  type: single-choice
+  sources: [watrous-2025]
+  correct: a
+
+- id: q-bell-inequalities-005
+  concept: bell-inequalities
+  layer: 2
+  type: open
+  sources: [watrous-2025, de-wolf-2026, aaronson-2018]
+
+- id: q-bell-inequalities-006
+  concept: bell-inequalities
+  layer: 3
+  type: case
+  sources: [hensen-2015, preskill-ph219, aaronson-2018]
+
+- id: q-bell-inequalities-007
+  concept: bell-inequalities
+  layer: 3
+  type: case
+  sources: [de-wolf-2026, aaronson-2018, watrous-2025]
+
+- id: q-bell-inequalities-008
+  concept: bell-inequalities
+  layer: 3
+  type: case
+  sources: [preskill-ph219, hensen-2015]
