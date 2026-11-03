@@ -1,0 +1,20 @@
+- id: complex-plane-unit-circle
+  file: diagrams/complex-plane-unit-circle.{lang}.svg
+  origin: own
+  generator: diagrams/src/complex_plane_unit_circle.py
+  license: CC-BY-4.0
+  concepts: [complex-numbers]
+
+- id: orthonormal-projection
+  file: diagrams/orthonormal-projection.{lang}.svg
+  origin: own
+  generator: diagrams/src/orthonormal_projection.py
+  license: CC-BY-4.0
+  concepts: [inner-products-and-norms]
+
+- id: kronecker-layout
+  file: diagrams/kronecker-layout.{lang}.svg
+  origin: own
+  generator: diagrams/src/kronecker_layout.py
+  license: CC-BY-4.0
+  concepts: [tensor-products]

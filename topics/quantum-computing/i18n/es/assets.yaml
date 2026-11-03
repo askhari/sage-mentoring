@@ -1,0 +1,11 @@
+- id: complex-plane-unit-circle
+  alt: "Plano complejo con el eje real horizontal y el imaginario vertical. Una flecha azul va del origen al punto z = a + bi; su longitud es el módulo r y forma un ángulo φ con el eje real. Líneas discontinuas marcan a y b en los ejes. Una circunferencia unidad discontinua pasa por 1, i, −1 y −i, y corta la flecha en un punto naranja rotulado e^(iφ) = cos φ + i sen φ."
+  caption: "Un número complejo en forma cartesiana (a + bi) y polar (r, φ). Con el mismo ángulo y módulo 1 se obtiene e^(iφ), un punto de la circunferencia unidad. Diagrama propio."
+
+- id: orthonormal-projection
+  alt: "Plano con los ejes estándar en gris y una base ortonormal verde, e₁ y e₂, girada respecto a ellos. Un vector azul v sale del origen. Dos flechas naranjas discontinuas, ⟨e₁, v⟩ e₁ a lo largo de e₁ y después ⟨e₂, v⟩ e₂ a lo largo de e₂, llegan a la punta de v y forman un ángulo recto. Arriba aparecen las fórmulas v = ⟨e₁, v⟩ e₁ + ⟨e₂, v⟩ e₂ y ‖v‖² = |⟨e₁, v⟩|² + |⟨e₂, v⟩|²."
+  caption: "En una base ortonormal, las coordenadas de un vector son sus productos interiores con los vectores de la base, y el cuadrado de su norma es la suma de los cuadrados de esas coordenadas (Pitágoras). Diagrama propio, en el plano real para que se pueda dibujar."
+
+- id: kronecker-layout
+  alt: "Izquierda: una matriz de 4×4 dividida en cuatro bloques de colores de 2×2; el bloque de la fila i y la columna j contiene a_ij multiplicado por cada entrada de B. Derecha: un vector de cuatro entradas en dos bloques; el primero contiene α₁·β₁ y α₁·β₂, y el segundo α₂·β₁ y α₂·β₂, rotulados a la derecha como |00⟩, |01⟩, |10⟩ y |11⟩."
+  caption: "El producto de Kronecker coloca una copia de B (o de β) por cada entrada de A (o de α). En los vectores, las entradas quedan en el orden 00, 01, 10, 11, que es el de los estados de base de dos qubits. Diagrama propio."

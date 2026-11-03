@@ -1,0 +1,387 @@
+# --- Mathematics ---
+- id: axler-2024
+  type: textbook
+  reliability: A
+  title: "Linear Algebra Done Right (4th ed.)"
+  authors: ["Sheldon Axler"]
+  year: 2024
+  language: en
+  identifiers: { isbn: "978-3-031-41026-0", url: "https://linear.axler.net/" }
+  access: open
+  accessed: 2026-11-03
+  notes: "full text. Open Access, CC BY-NC 4.0 (Springer)."
+
+# --- Core textbooks and courses on quantum computation ---
+- id: watrous-2025
+  type: textbook
+  reliability: A
+  title: "Understanding Quantum Information and Computation"
+  authors: ["John Watrous"]
+  year: 2025
+  language: en
+  identifiers: { url: "https://arxiv.org/abs/2507.11536" }
+  access: open
+  accessed: 2026-11-03
+  notes: "full text. CC BY-SA 4.0. Same material as the IBM Quantum Learning series (basics, algorithms, general formulation, error correction)."
+- id: de-wolf-2026
+  type: course
+  reliability: A
+  title: "Quantum Computing: Lecture Notes"
+  authors: ["Ronald de Wolf"]
+  year: 2026
+  language: en
+  identifiers: { url: "https://arxiv.org/abs/1907.09415" }
+  access: open
+  accessed: 2026-11-03
+  notes: "full text (arXiv PDF). University of Amsterdam / QuSoft; first version 2011; read v6 (27 Aug 2026, adds ch. 20 on stabilizer states)."
+- id: preskill-ph219
+  type: course
+  reliability: A
+  title: "Lecture Notes for Ph219/CS219: Quantum Information and Computation"
+  authors: ["John Preskill"]
+  year: 2015
+  language: en
+  identifiers: { url: "https://www.preskill.caltech.edu/ph219/" }
+  access: open
+  accessed: 2026-11-03
+  notes: "full text (chapter PDFs). Caltech; chapters written 1997–2020s, year approximate. Researcher must record which chapter and version was read."
+- id: shor-mit-2022
+  type: course
+  reliability: A
+  title: "Lecture Notes for 8.370/18.435 Quantum Computation (Fall 2022)"
+  authors: ["Peter W. Shor"]
+  year: 2022
+  language: en
+  identifiers: { url: "https://math.mit.edu/~shor/435-LN" }
+  access: open
+  accessed: 2026-11-03
+  notes: "full text (per-lecture notes, MIT). One lecture has no notes."
+- id: childs-qa
+  type: course
+  reliability: A
+  title: "Lecture Notes on Quantum Algorithms"
+  authors: ["Andrew M. Childs"]
+  year: 2025
+  language: en
+  identifiers: { url: "https://cs.umd.edu/~amchilds/qa" }
+  access: open
+  accessed: 2026-11-03
+  notes: "full text. University of Maryland; author calls them rough notes; year of latest revision approximate."
+- id: aaronson-2018
+  type: course
+  reliability: A
+  title: "Introduction to Quantum Information Science (lecture notes, CS378)"
+  authors: ["Scott Aaronson"]
+  year: 2018
+  language: en
+  identifiers: { url: "https://scottaaronson.blog/?p=3943" }
+  access: open
+  accessed: 2026-11-03
+  notes: "full text (per-lecture PDFs). UT Austin, Spring 2017 course; free for personal/academic use, no modification."
+- id: nielsen-chuang-2010
+  type: textbook
+  reliability: A
+  title: "Quantum Computation and Quantum Information (10th Anniversary ed.)"
+  authors: ["Michael A. Nielsen", "Isaac L. Chuang"]
+  year: 2010
+  language: en
+  identifiers: { isbn: "978-1-107-00217-3" }
+  access: paid
+  accessed: 2026-11-03
+  notes: "TOC only (publisher page, previews). Standard reference; further reading, not a claim source unless a legitimate preview is found."
+
+# --- Physics foundations ---
+- id: zwiebach-mit-8-04
+  type: course
+  reliability: A
+  title: "8.04 Quantum Physics I (Spring 2016), lecture notes"
+  authors: ["Barton Zwiebach"]
+  year: 2016
+  language: en
+  identifiers: { url: "https://ocw.mit.edu/courses/8-04-quantum-physics-i-spring-2016/" }
+  access: open
+  accessed: 2026-11-03
+  notes: "full text (MIT OpenCourseWare, CC BY-NC-SA). Basis of Zwiebach's 'Mastering Quantum Mechanics' (MIT Press, 2022)."
+- id: openstax-physics-3
+  type: textbook
+  reliability: A
+  title: "University Physics Volume 3"
+  authors: ["Samuel J. Ling", "Jeff Sanny", "William Moebs"]
+  year: 2016
+  language: en
+  identifiers: { url: "https://openstax.org/books/university-physics-volume-3/pages/preface" }
+  access: open
+  accessed: 2026-11-03
+  notes: "full text. CC BY 4.0. Chapters 6–7 (photons and matter waves; quantum mechanics)."
+
+# --- Programming (Qiskit) ---
+- id: qiskit-docs
+  type: docs
+  reliability: A
+  title: "Qiskit and IBM Quantum documentation (guides)"
+  authors: ["IBM Quantum"]
+  year: 2026
+  language: en
+  identifiers: { url: "https://quantum.cloud.ibm.com/docs/en/guides" }
+  access: open
+  accessed: 2026-11-03
+  notes: "full text. Official docs: circuits, transpilation, primitives, noise management. Living docs: record page and SDK version read."
+- id: ibm-quantum-learning
+  type: course
+  reliability: A
+  title: "IBM Quantum Learning courses (e.g. Variational algorithm design, Utility-scale quantum computing)"
+  authors: ["IBM Quantum"]
+  year: 2026
+  language: en
+  identifiers: { url: "https://quantum.cloud.ibm.com/learning/courses" }
+  access: open
+  accessed: 2026-11-03
+  notes: "full text (some exercises may need a free account). Use for hands-on Qiskit courses; the Watrous series is cited as watrous-2025."
+
+# --- Landmark papers (algorithms, NISQ) ---
+- id: shor-1997
+  type: paper
+  reliability: B
+  title: "Polynomial-Time Algorithms for Prime Factorization and Discrete Logarithms on a Quantum Computer"
+  authors: ["Peter W. Shor"]
+  year: 1997
+  language: en
+  identifiers: { doi: "10.1137/S0097539795293172", url: "https://arxiv.org/abs/quant-ph/9508027" }
+  access: open
+  accessed: 2026-11-03
+  notes: "full text (arXiv). SIAM J. Comput. 26, 1484 (1997); expanded version of FOCS 1994."
+- id: grover-1996
+  type: paper
+  reliability: B
+  title: "A fast quantum mechanical algorithm for database search"
+  authors: ["Lov K. Grover"]
+  year: 1996
+  language: en
+  identifiers: { url: "https://arxiv.org/abs/quant-ph/9605043" }
+  access: open
+  accessed: 2026-11-03
+  notes: "full text (arXiv). Proc. 28th ACM STOC, 212–219 (1996)."
+- id: preskill-2018
+  type: paper
+  reliability: B
+  title: "Quantum Computing in the NISQ era and beyond"
+  authors: ["John Preskill"]
+  year: 2018
+  language: en
+  identifiers: { doi: "10.22331/q-2018-08-06-79", url: "https://arxiv.org/abs/1801.00862" }
+  access: open
+  accessed: 2026-11-03
+  notes: "full text. Quantum 2, 79 (2018)."
+- id: cerezo-2021
+  type: paper
+  reliability: B
+  title: "Variational quantum algorithms"
+  authors: ["M. Cerezo", "Andrew Arrasmith", "Ryan Babbush", "et al."]
+  year: 2021
+  language: en
+  identifiers: { doi: "10.1038/s42254-021-00348-9", url: "https://arxiv.org/abs/2012.09265" }
+  access: open
+  accessed: 2026-11-03
+  notes: "full text (arXiv). Review, Nature Reviews Physics 3, 625–644."
+- id: peruzzo-2014
+  type: paper
+  reliability: B
+  title: "A variational eigenvalue solver on a photonic quantum processor"
+  authors: ["Alberto Peruzzo", "Jarrod McClean", "Peter Shadbolt", "et al."]
+  year: 2014
+  language: en
+  identifiers: { doi: "10.1038/ncomms5213", url: "https://arxiv.org/abs/1304.3061" }
+  access: open
+  accessed: 2026-11-03
+  notes: "full text (arXiv; Nature Communications 5, 4213). Original VQE paper."
+- id: farhi-2014
+  type: paper
+  reliability: B
+  title: "A Quantum Approximate Optimization Algorithm"
+  authors: ["Edward Farhi", "Jeffrey Goldstone", "Sam Gutmann"]
+  year: 2014
+  language: en
+  identifiers: { url: "https://arxiv.org/abs/1411.4028" }
+  access: open
+  accessed: 2026-11-03
+  notes: "full text (arXiv preprint). Original QAOA paper."
+- id: nist-fips-203
+  type: standard
+  reliability: A
+  title: "FIPS 203: Module-Lattice-Based Key-Encapsulation Mechanism Standard"
+  authors: ["National Institute of Standards and Technology"]
+  year: 2024
+  language: en
+  identifiers: { doi: "10.6028/NIST.FIPS.203", url: "https://nvlpubs.nist.gov/nistpubs/fips/nist.fips.203.pdf" }
+  access: open
+  accessed: 2026-11-03
+  notes: "full text. Final 13 Aug 2024 (ML-KEM, from CRYSTALS-Kyber); published with FIPS 204 and 205."
+
+# --- Hardware ---
+- id: divincenzo-2000
+  type: paper
+  reliability: B
+  title: "The Physical Implementation of Quantum Computation"
+  authors: ["David P. DiVincenzo"]
+  year: 2000
+  language: en
+  identifiers: { url: "https://arxiv.org/abs/quant-ph/0002077" }
+  access: open
+  accessed: 2026-11-03
+  notes: "full text (arXiv). Fortschritte der Physik 48 (2000)."
+- id: krantz-2019
+  type: paper
+  reliability: B
+  title: "A quantum engineer's guide to superconducting qubits"
+  authors: ["Philip Krantz", "Morten Kjaergaard", "Fei Yan", "Terry P. Orlando", "Simon Gustavsson", "William D. Oliver"]
+  year: 2019
+  language: en
+  identifiers: { doi: "10.1063/1.5089550", url: "https://arxiv.org/abs/1904.06560" }
+  access: open
+  accessed: 2026-11-03
+  notes: "full text (arXiv; MIT DSpace copy CC BY-NC-SA). Applied Physics Reviews 6, 021318."
+- id: kjaergaard-2020
+  type: paper
+  reliability: B
+  title: "Superconducting Qubits: Current State of Play"
+  authors: ["Morten Kjaergaard", "Mollie E. Schwartz", "Jochen Braumüller", "et al."]
+  year: 2020
+  language: en
+  identifiers: { doi: "10.1146/annurev-conmatphys-031119-050605", url: "https://arxiv.org/abs/1905.13641" }
+  access: open
+  accessed: 2026-11-03
+  notes: "full text (arXiv). Annual Review of Condensed Matter Physics 11, 369–395."
+- id: bruzewicz-2019
+  type: paper
+  reliability: B
+  title: "Trapped-ion quantum computing: Progress and challenges"
+  authors: ["Colin D. Bruzewicz", "John Chiaverini", "Robert McConnell", "Jeremy M. Sage"]
+  year: 2019
+  language: en
+  identifiers: { doi: "10.1063/1.5088164", url: "https://arxiv.org/abs/1904.04178" }
+  access: open
+  accessed: 2026-11-03
+  notes: "full text (arXiv). Applied Physics Reviews 6, 021314."
+- id: henriet-2020
+  type: paper
+  reliability: B
+  title: "Quantum computing with neutral atoms"
+  authors: ["Loïc Henriet", "Lucas Beguin", "Adrien Signoles", "et al."]
+  year: 2020
+  language: en
+  identifiers: { doi: "10.22331/q-2020-09-21-327", url: "https://arxiv.org/abs/2006.12326" }
+  access: open
+  accessed: 2026-11-03
+  notes: "full text. Quantum 4, 327 (open access). Authors from Pasqal (company): check for vendor bias."
+- id: burkard-2023
+  type: paper
+  reliability: B
+  title: "Semiconductor spin qubits"
+  authors: ["Guido Burkard", "Thaddeus D. Ladd", "Andrew Pan", "John M. Nichol", "Jason R. Petta"]
+  year: 2023
+  language: en
+  identifiers: { doi: "10.1103/RevModPhys.95.025003", url: "https://arxiv.org/abs/2112.08863" }
+  access: open
+  accessed: 2026-11-03
+  notes: "full text (arXiv). Reviews of Modern Physics 95, 025003."
+- id: slussarenko-2019
+  type: paper
+  reliability: B
+  title: "Photonic quantum information processing: A concise review"
+  authors: ["Sergei Slussarenko", "Geoff J. Pryde"]
+  year: 2019
+  language: en
+  identifiers: { doi: "10.1063/1.5115814", url: "https://arxiv.org/abs/1907.06331" }
+  access: open
+  accessed: 2026-11-03
+  notes: "full text (arXiv). Applied Physics Reviews 6, 041303."
+- id: bartolucci-2023
+  type: paper
+  reliability: B
+  title: "Fusion-based quantum computation"
+  authors: ["Sara Bartolucci", "Patrick Birchall", "Hector Bombín", "et al."]
+  year: 2023
+  language: en
+  identifiers: { doi: "10.1038/s41467-023-36493-1", url: "https://arxiv.org/abs/2101.09310" }
+  access: open
+  accessed: 2026-11-03
+  notes: "full text. Nature Communications 14, 912 (open access). Authors from PsiQuantum (company)."
+- id: nayak-2008
+  type: paper
+  reliability: B
+  title: "Non-Abelian anyons and topological quantum computation"
+  authors: ["Chetan Nayak", "Steven H. Simon", "Ady Stern", "Michael Freedman", "Sankar Das Sarma"]
+  year: 2008
+  language: en
+  identifiers: { doi: "10.1103/RevModPhys.80.1083", url: "https://arxiv.org/abs/0707.1889" }
+  access: open
+  accessed: 2026-11-03
+  notes: "full text (arXiv). Reviews of Modern Physics 80, 1083. Theory review; experimental status since 2008 needs a newer source."
+- id: arute-2019
+  type: paper
+  reliability: B
+  title: "Quantum supremacy using a programmable superconducting processor"
+  authors: ["Frank Arute", "Kunal Arya", "Ryan Babbush", "et al."]
+  year: 2019
+  language: en
+  identifiers: { doi: "10.1038/s41586-019-1666-5", url: "https://arxiv.org/abs/1910.11333" }
+  access: open
+  accessed: 2026-11-03
+  notes: "full text (arXiv). Nature 574, 505–510. The classical-time estimate was later challenged; look for the rebuttals."
+- id: eisert-2025
+  type: paper
+  reliability: B
+  title: "Mind the gaps (review of quantum hardware platforms)"
+  authors: ["Jens Eisert", "et al."]
+  year: 2025
+  language: en
+  identifiers: { url: "https://arxiv.org/abs/2510.19928" }
+  access: open
+  accessed: 2026-11-03
+  notes: "unconfirmed: found only via an aggregator; researcher must confirm title, authors and access, and whether it is peer-reviewed (else downgrade to C). Candidate for current hardware state."
+
+# --- Error correction ---
+- id: fowler-2012
+  type: paper
+  reliability: B
+  title: "Surface codes: Towards practical large-scale quantum computation"
+  authors: ["Austin G. Fowler", "Matteo Mariantoni", "John M. Martinis", "Andrew N. Cleland"]
+  year: 2012
+  language: en
+  identifiers: { doi: "10.1103/PhysRevA.86.032324", url: "https://arxiv.org/abs/1208.0928" }
+  access: open
+  accessed: 2026-11-03
+  notes: "full text (arXiv). Physical Review A 86, 032324."
+- id: google-2025
+  type: paper
+  reliability: B
+  title: "Quantum error correction below the surface code threshold"
+  authors: ["Google Quantum AI and Collaborators"]
+  year: 2025
+  language: en
+  identifiers: { doi: "10.1038/s41586-024-08449-y", url: "https://arxiv.org/abs/2408.13687" }
+  access: open
+  accessed: 2026-11-03
+  notes: "full text (arXiv). Nature 638 (2025), online Dec 2024 ('Willow'). DOI to confirm by the researcher."
+- id: bluvstein-2024
+  type: paper
+  reliability: B
+  title: "Logical quantum processor based on reconfigurable atom arrays"
+  authors: ["Dolev Bluvstein", "Simon J. Evered", "Alexandra A. Geim", "et al."]
+  year: 2024
+  language: en
+  identifiers: { doi: "10.1038/s41586-023-06927-3", url: "https://arxiv.org/abs/2312.03982" }
+  access: open
+  accessed: 2026-11-03
+  notes: "full text (arXiv). Nature 626 (2024). Several authors linked to QuEra (company). DOI to confirm by the researcher."
+- id: gidney-2025
+  type: paper
+  reliability: B
+  title: "How to factor 2048 bit RSA integers with less than a million noisy qubits"
+  authors: ["Craig Gidney"]
+  year: 2025
+  language: en
+  identifiers: { url: "https://arxiv.org/abs/2505.15917" }
+  access: open
+  accessed: 2026-11-03
+  notes: "full text (arXiv preprint, Google Quantum AI). Not peer-reviewed at access; resource estimate under stated hardware assumptions."

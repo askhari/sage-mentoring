@@ -1,0 +1,40 @@
+<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 860 520' width='860' height='520' font-family='Helvetica, Arial, sans-serif'>
+<rect width='100%' height='100%' fill='white'/>
+<defs><marker id='arrow-ink' viewBox='0 0 10 10' refX='9' refY='5' markerWidth='7' markerHeight='7' orient='auto-start-reverse'><path d='M0,0 L10,5 L0,10 z' fill='#222222'/></marker><marker id='arrow-a1' viewBox='0 0 10 10' refX='9' refY='5' markerWidth='7' markerHeight='7' orient='auto-start-reverse'><path d='M0,0 L10,5 L0,10 z' fill='#1f6fb2'/></marker><marker id='arrow-a2' viewBox='0 0 10 10' refX='9' refY='5' markerWidth='7' markerHeight='7' orient='auto-start-reverse'><path d='M0,0 L10,5 L0,10 z' fill='#c2571a'/></marker><marker id='arrow-a3' viewBox='0 0 10 10' refX='9' refY='5' markerWidth='7' markerHeight='7' orient='auto-start-reverse'><path d='M0,0 L10,5 L0,10 z' fill='#2e8b57'/></marker><marker id='arrow-muted' viewBox='0 0 10 10' refX='9' refY='5' markerWidth='7' markerHeight='7' orient='auto-start-reverse'><path d='M0,0 L10,5 L0,10 z' fill='#888888'/></marker></defs>
+<text x='220.0' y='40.0' font-size='20' fill='#222222' text-anchor='middle' font-weight='bold'>Matrices: A ⊗ B</text>
+<rect x='43.0' y='83.0' width='174.0' height='174.0' rx='6' stroke='#1f6fb2' fill='#dbe9f6' stroke-width='2.5'/>
+<text x='85.0' y='131.0' font-size='15' fill='#222222' text-anchor='middle' font-weight='normal'>a₁₁·b₁₁</text>
+<text x='175.0' y='131.0' font-size='15' fill='#222222' text-anchor='middle' font-weight='normal'>a₁₁·b₁₂</text>
+<text x='85.0' y='221.0' font-size='15' fill='#222222' text-anchor='middle' font-weight='normal'>a₁₁·b₂₁</text>
+<text x='175.0' y='221.0' font-size='15' fill='#222222' text-anchor='middle' font-weight='normal'>a₁₁·b₂₂</text>
+<rect x='223.0' y='83.0' width='174.0' height='174.0' rx='6' stroke='#c2571a' fill='#fde3d3' stroke-width='2.5'/>
+<text x='265.0' y='131.0' font-size='15' fill='#222222' text-anchor='middle' font-weight='normal'>a₁₂·b₁₁</text>
+<text x='355.0' y='131.0' font-size='15' fill='#222222' text-anchor='middle' font-weight='normal'>a₁₂·b₁₂</text>
+<text x='265.0' y='221.0' font-size='15' fill='#222222' text-anchor='middle' font-weight='normal'>a₁₂·b₂₁</text>
+<text x='355.0' y='221.0' font-size='15' fill='#222222' text-anchor='middle' font-weight='normal'>a₁₂·b₂₂</text>
+<rect x='43.0' y='263.0' width='174.0' height='174.0' rx='6' stroke='#2e8b57' fill='#dcefe2' stroke-width='2.5'/>
+<text x='85.0' y='311.0' font-size='15' fill='#222222' text-anchor='middle' font-weight='normal'>a₂₁·b₁₁</text>
+<text x='175.0' y='311.0' font-size='15' fill='#222222' text-anchor='middle' font-weight='normal'>a₂₁·b₁₂</text>
+<text x='85.0' y='401.0' font-size='15' fill='#222222' text-anchor='middle' font-weight='normal'>a₂₁·b₂₁</text>
+<text x='175.0' y='401.0' font-size='15' fill='#222222' text-anchor='middle' font-weight='normal'>a₂₁·b₂₂</text>
+<rect x='223.0' y='263.0' width='174.0' height='174.0' rx='6' stroke='#7b4fa0' fill='#efe3f5' stroke-width='2.5'/>
+<text x='265.0' y='311.0' font-size='15' fill='#222222' text-anchor='middle' font-weight='normal'>a₂₂·b₁₁</text>
+<text x='355.0' y='311.0' font-size='15' fill='#222222' text-anchor='middle' font-weight='normal'>a₂₂·b₁₂</text>
+<text x='265.0' y='401.0' font-size='15' fill='#222222' text-anchor='middle' font-weight='normal'>a₂₂·b₂₁</text>
+<text x='355.0' y='401.0' font-size='15' fill='#222222' text-anchor='middle' font-weight='normal'>a₂₂·b₂₂</text>
+<text x='220.0' y='474.0' font-size='14' fill='#888888' text-anchor='middle' font-weight='normal'>cada entrada aᵢⱼ de A multiplica a toda la matriz B</text>
+<text x='650.0' y='40.0' font-size='20' fill='#222222' text-anchor='middle' font-weight='bold'>Vectores: α ⊗ β</text>
+<rect x='590.0' y='83.0' width='120.0' height='134.0' rx='6' stroke='#1f6fb2' fill='#dbe9f6' stroke-width='2.5'/>
+<text x='650.0' y='121.0' font-size='16' fill='#222222' text-anchor='middle' font-weight='normal'>α₁·β₁</text>
+<text x='740.0' y='121.0' font-size='16' fill='#888888' text-anchor='middle' font-weight='normal'>|00⟩</text>
+<text x='650.0' y='191.0' font-size='16' fill='#222222' text-anchor='middle' font-weight='normal'>α₁·β₂</text>
+<text x='740.0' y='191.0' font-size='16' fill='#888888' text-anchor='middle' font-weight='normal'>|01⟩</text>
+<text x='570.0' y='156.0' font-size='15' fill='#1f6fb2' text-anchor='end' font-weight='normal' font-style='italic'>α₁·β</text>
+<rect x='590.0' y='223.0' width='120.0' height='134.0' rx='6' stroke='#7b4fa0' fill='#efe3f5' stroke-width='2.5'/>
+<text x='650.0' y='261.0' font-size='16' fill='#222222' text-anchor='middle' font-weight='normal'>α₂·β₁</text>
+<text x='740.0' y='261.0' font-size='16' fill='#888888' text-anchor='middle' font-weight='normal'>|10⟩</text>
+<text x='650.0' y='331.0' font-size='16' fill='#222222' text-anchor='middle' font-weight='normal'>α₂·β₂</text>
+<text x='740.0' y='331.0' font-size='16' fill='#888888' text-anchor='middle' font-weight='normal'>|11⟩</text>
+<text x='570.0' y='296.0' font-size='15' fill='#7b4fa0' text-anchor='end' font-weight='normal' font-style='italic'>α₂·β</text>
+<text x='650.0' y='394.0' font-size='14' fill='#888888' text-anchor='middle' font-weight='normal'>orden de las entradas: 00, 01, 10, 11</text>
+</svg>

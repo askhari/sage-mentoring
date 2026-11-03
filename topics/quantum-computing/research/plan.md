@@ -1,0 +1,32 @@
+# Build plan: quantum-computing
+Goal: partir de cero (programa; álgebra lineal oxidada) y llegar a nivel profesional. Enfoque principal: **programación y algoritmos** (qubits, circuitos, algoritmos, práctica con Qiskit, corrección de errores), con la **base matemática y física** que los sostiene y bastante peso en **cómo se construyen los ordenadores cuánticos actuales** con distintas tecnologías (superconductores, iones, átomos neutros, espines, fotones, topológicos).
+Content language: es
+
+## Domains
+- [x] math-foundations — sources: axler-2024, watrous-2025 (L1–L3 only; no eigenvalue material there), de-wolf-2026 (App. A–B, ch. 1) — status: done
+- [ ] quantum-mechanics — sources: zwiebach-mit-8-04, openstax-physics-3, preskill-ph219, watrous-2025 · TOC only: nielsen-chuang-2010 — status: pending
+- [ ] qubits-and-circuits — sources: watrous-2025, de-wolf-2026, aaronson-2018, preskill-ph219 — status: pending
+- [ ] quantum-algorithms — sources: watrous-2025, de-wolf-2026, childs-qa, shor-mit-2022, aaronson-2018, shor-1997, grover-1996, nist-fips-203, gidney-2025 — status: pending
+- [ ] qiskit-programming — sources: qiskit-docs, ibm-quantum-learning, preskill-2018, cerezo-2021, peruzzo-2014, farhi-2014 — status: pending
+- [ ] quantum-hardware — sources: divincenzo-2000, krantz-2019, kjaergaard-2020, bruzewicz-2019, henriet-2020, burkard-2023, slussarenko-2019, bartolucci-2023, nayak-2008, arute-2019, eisert-2025 (unconfirmed) — status: pending
+- [ ] error-correction — sources: watrous-2025, de-wolf-2026, preskill-ph219, fowler-2012, google-2025, bluvstein-2024, gidney-2025 — status: pending
+
+Concept titles (es): `i18n/es/concepts.yaml`.
+
+## Doubts to resolve
+- Hardware sources are mostly 2019–2020 reviews; the current state (2025–2026) rests on a few papers and the unconfirmed `eisert-2025`. Look for one more recent open A/B review per platform during the domain's research (especially trapped ions, neutral atoms, topological after the 2025 Microsoft claims).
+- Several hardware papers are written by companies (Pasqal, PsiQuantum, QuEra, Google); keep their claims attributed and cross-check with independent reviews.
+- `arute-2019`: the classical-simulation estimate was disputed afterwards; an A/B source for the rebuttals is still missing.
+- math-foundations gaps: no source on numerical linear algebra (Gram-Schmidt stability, eigenvalue computation); the rank-1 criterion for product states and the fidelity of pure states are [unverified] — look for support in watrous-2025 (Schmidt decomposition, Unit III) when researching later domains. Two forward links (hamiltonian-simulation, qiskit-programming index) resolve once those domains are written.
+- `qiskit-docs` change with each SDK version: notes must record the version, and code in the content must be checked against it.
+
+## Decisions
+- 2026-11-03 — Angle: programming and algorithms, plus physics/math foundations and hardware construction (user answer). Learner programs and has rusty linear algebra → a math refresher domain first.
+- 2026-11-03 — Map approved as proposed: hardware before error correction; quantum annealing and quantum machine learning stay out for now; `nielsen-chuang-2010` is further reading only (TOC).
+- 2026-11-03 — Large sources shared by several domains (watrous-2025, de-wolf-2026, preskill-ph219) are researched per domain: each domain's researcher appends its concepts to the existing note instead of reading the whole book at once.
+
+## Log
+- 2026-11-03 — map created (7 domains, 69 concepts, 34 sources)
+- 2026-11-03 — map approved; starting math-foundations
+- 2026-11-03 — `de-wolf-2023` renamed `de-wolf-2026` (the arXiv v6 of 27 Aug 2026 was read; nothing cited it yet)
+- 2026-11-03 — math-foundations done: 8 concepts (layers 1–3), 56 questions (layer 1: 24, layer 2: 16, layer 3: 16), 3 own diagrams (complex-plane-unit-circle, orthonormal-projection, kronecker-layout), 6 [unverified]

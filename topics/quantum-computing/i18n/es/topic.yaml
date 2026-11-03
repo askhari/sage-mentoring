@@ -1,0 +1,20 @@
+title: "Computación cuántica"
+description: >-
+  Computación cuántica desde cero hasta nivel profesional, con enfoque en
+  programación y algoritmos sin perder la base física y matemática: álgebra
+  lineal y mecánica cuántica necesarias, qubits y circuitos, algoritmos clave,
+  práctica con Qiskit, cómo se construyen los ordenadores cuánticos actuales
+  con distintas tecnologías y corrección de errores.
+layers:
+  0: "Orientación"
+  1: "Fundamentos"
+  2: "Comprensión"
+  3: "Profesional"
+domains:
+  math-foundations: "Matemáticas para lo cuántico"
+  quantum-mechanics: "Fundamentos de mecánica cuántica"
+  qubits-and-circuits: "Qubits, puertas y circuitos"
+  quantum-algorithms: "Algoritmos cuánticos"
+  qiskit-programming: "Programación con Qiskit"
+  quantum-hardware: "Cómo se construyen los ordenadores cuánticos"
+  error-correction: "Corrección de errores y tolerancia a fallos"

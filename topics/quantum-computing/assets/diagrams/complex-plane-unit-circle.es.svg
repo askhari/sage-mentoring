@@ -1,0 +1,30 @@
+<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 640 500' width='640' height='500' font-family='Helvetica, Arial, sans-serif'>
+<rect width='100%' height='100%' fill='white'/>
+<defs><marker id='arrow-ink' viewBox='0 0 10 10' refX='9' refY='5' markerWidth='7' markerHeight='7' orient='auto-start-reverse'><path d='M0,0 L10,5 L0,10 z' fill='#222222'/></marker><marker id='arrow-a1' viewBox='0 0 10 10' refX='9' refY='5' markerWidth='7' markerHeight='7' orient='auto-start-reverse'><path d='M0,0 L10,5 L0,10 z' fill='#1f6fb2'/></marker><marker id='arrow-a2' viewBox='0 0 10 10' refX='9' refY='5' markerWidth='7' markerHeight='7' orient='auto-start-reverse'><path d='M0,0 L10,5 L0,10 z' fill='#c2571a'/></marker><marker id='arrow-a3' viewBox='0 0 10 10' refX='9' refY='5' markerWidth='7' markerHeight='7' orient='auto-start-reverse'><path d='M0,0 L10,5 L0,10 z' fill='#2e8b57'/></marker><marker id='arrow-muted' viewBox='0 0 10 10' refX='9' refY='5' markerWidth='7' markerHeight='7' orient='auto-start-reverse'><path d='M0,0 L10,5 L0,10 z' fill='#888888'/></marker></defs>
+<line x1='40.0' y1='290.0' x2='610.0' y2='290.0' stroke='#222222' stroke-width='1.5' marker-end='url(#arrow-ink)'/>
+<line x1='300.0' y1='480.0' x2='300.0' y2='30.0' stroke='#222222' stroke-width='1.5' marker-end='url(#arrow-ink)'/>
+<text x='610.0' y='316.0' font-size='14' fill='#222222' text-anchor='end' font-weight='normal'>Re (parte real)</text>
+<text x='310.0' y='40.0' font-size='14' fill='#222222' text-anchor='start' font-weight='normal'>Im (parte imaginaria)</text>
+<circle cx='300.0' cy='290.0' r='150.0' stroke='#888888' fill='none' stroke-width='1.5' stroke-dasharray='5,4'/>
+<text x='205.0' y='449.9' font-size='13' fill='#888888' text-anchor='end' font-weight='normal'>circunferencia unidad (|z| = 1)</text>
+<circle cx='450.0' cy='290.0' r='4.0' stroke='#222222' fill='#222222' stroke-width='1.5'/>
+<text x='462.0' y='310.0' font-size='16' fill='#222222' text-anchor='middle' font-weight='normal' font-style='italic'>1</text>
+<circle cx='300.0' cy='140.0' r='4.0' stroke='#222222' fill='#222222' stroke-width='1.5'/>
+<text x='312.0' y='132.0' font-size='16' fill='#222222' text-anchor='middle' font-weight='normal' font-style='italic'>i</text>
+<circle cx='150.0' cy='290.0' r='4.0' stroke='#222222' fill='#222222' stroke-width='1.5'/>
+<text x='136.0' y='310.0' font-size='16' fill='#222222' text-anchor='middle' font-weight='normal' font-style='italic'>−1</text>
+<circle cx='300.0' cy='440.0' r='4.0' stroke='#222222' fill='#222222' stroke-width='1.5'/>
+<text x='314.0' y='458.0' font-size='16' fill='#222222' text-anchor='middle' font-weight='normal' font-style='italic'>−i</text>
+<line x1='496.6' y1='152.3' x2='496.6' y2='290.0' stroke='#888888' stroke-width='1.2' stroke-dasharray='4,4'/>
+<line x1='496.6' y1='152.3' x2='300.0' y2='152.3' stroke='#888888' stroke-width='1.2' stroke-dasharray='4,4'/>
+<text x='496.6' y='312.0' font-size='16' fill='#888888' text-anchor='middle' font-weight='normal' font-style='italic'>a</text>
+<text x='286.0' y='157.3' font-size='16' fill='#888888' text-anchor='middle' font-weight='normal' font-style='italic'>b</text>
+<line x1='300.0' y1='290.0' x2='496.6' y2='152.3' stroke='#1f6fb2' stroke-width='2.5' marker-end='url(#arrow-a1)'/>
+<circle cx='496.6' cy='152.3' r='4.5' stroke='#1f6fb2' fill='#1f6fb2' stroke-width='1.5'/>
+<text x='506.6' y='142.3' font-size='17' fill='#1f6fb2' text-anchor='start' font-weight='bold'>z = a + bi</text>
+<text x='413.9' y='192.7' font-size='15' fill='#1f6fb2' text-anchor='end' font-weight='normal'>r = |z|</text>
+<circle cx='422.9' cy='204.0' r='5.0' stroke='#c2571a' fill='#c2571a' stroke-width='1.5'/>
+<text x='436.9' y='226.0' font-size='15' fill='#c2571a' text-anchor='start' font-weight='normal'>e^(iφ) = cos φ + i sen φ</text>
+<path d='M348.0,290.0 A48.0,48.0 0 0 0 339.3,262.5' stroke='#222222' fill='none' stroke-width='1.3'/>
+<text x='359.1' y='276.4' font-size='17' fill='#222222' text-anchor='middle' font-weight='normal' font-style='italic'>φ</text>
+</svg>

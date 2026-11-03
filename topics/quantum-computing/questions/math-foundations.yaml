@@ -1,0 +1,359 @@
+- id: q-complex-numbers-001
+  concept: complex-numbers
+  layer: 1
+  type: single-choice
+  sources: [axler-2024]
+  correct: b
+
+- id: q-complex-numbers-002
+  concept: complex-numbers
+  layer: 1
+  type: single-choice
+  sources: [axler-2024]
+  correct: c
+
+- id: q-complex-numbers-003
+  concept: complex-numbers
+  layer: 1
+  type: short-answer
+  sources: [axler-2024]
+
+- id: q-complex-numbers-004
+  concept: complex-numbers
+  layer: 2
+  type: single-choice
+  sources: [watrous-2025]
+  correct: d
+
+- id: q-complex-numbers-005
+  concept: complex-numbers
+  layer: 2
+  type: open
+  sources: [watrous-2025]
+
+- id: q-complex-numbers-006
+  concept: complex-numbers
+  layer: 3
+  type: case
+  sources: [watrous-2025, de-wolf-2026]
+
+- id: q-complex-numbers-007
+  concept: complex-numbers
+  layer: 3
+  type: case
+  sources: [de-wolf-2026]
+
+- id: q-vectors-and-dirac-notation-001
+  concept: vectors-and-dirac-notation
+  layer: 1
+  type: single-choice
+  sources: [watrous-2025]
+  correct: a
+
+- id: q-vectors-and-dirac-notation-002
+  concept: vectors-and-dirac-notation
+  layer: 1
+  type: single-choice
+  sources: [watrous-2025]
+  correct: d
+
+- id: q-vectors-and-dirac-notation-003
+  concept: vectors-and-dirac-notation
+  layer: 1
+  type: short-answer
+  sources: [de-wolf-2026]
+
+- id: q-vectors-and-dirac-notation-004
+  concept: vectors-and-dirac-notation
+  layer: 2
+  type: single-choice
+  sources: [watrous-2025]
+  correct: c
+
+- id: q-vectors-and-dirac-notation-005
+  concept: vectors-and-dirac-notation
+  layer: 2
+  type: open
+  sources: [axler-2024, watrous-2025]
+
+- id: q-vectors-and-dirac-notation-006
+  concept: vectors-and-dirac-notation
+  layer: 3
+  type: case
+  sources: [de-wolf-2026, watrous-2025]
+
+- id: q-vectors-and-dirac-notation-007
+  concept: vectors-and-dirac-notation
+  layer: 3
+  type: case
+  sources: [watrous-2025]
+
+- id: q-inner-products-and-norms-001
+  concept: inner-products-and-norms
+  layer: 1
+  type: single-choice
+  sources: [de-wolf-2026, watrous-2025]
+  correct: b
+
+- id: q-inner-products-and-norms-002
+  concept: inner-products-and-norms
+  layer: 1
+  type: single-choice
+  sources: [de-wolf-2026, watrous-2025]
+  correct: c
+
+- id: q-inner-products-and-norms-003
+  concept: inner-products-and-norms
+  layer: 1
+  type: short-answer
+  sources: [watrous-2025]
+
+- id: q-inner-products-and-norms-004
+  concept: inner-products-and-norms
+  layer: 2
+  type: single-choice
+  sources: [axler-2024]
+  correct: d
+
+- id: q-inner-products-and-norms-005
+  concept: inner-products-and-norms
+  layer: 2
+  type: open
+  sources: [axler-2024, watrous-2025]
+
+- id: q-inner-products-and-norms-006
+  concept: inner-products-and-norms
+  layer: 3
+  type: case
+  sources: [axler-2024, de-wolf-2026]
+
+- id: q-inner-products-and-norms-007
+  concept: inner-products-and-norms
+  layer: 3
+  type: case
+  sources: [de-wolf-2026, axler-2024]
+
+- id: q-matrices-and-linear-maps-001
+  concept: matrices-and-linear-maps
+  layer: 1
+  type: single-choice
+  sources: [axler-2024, watrous-2025]
+  correct: a
+
+- id: q-matrices-and-linear-maps-002
+  concept: matrices-and-linear-maps
+  layer: 1
+  type: single-choice
+  sources: [watrous-2025]
+  correct: d
+
+- id: q-matrices-and-linear-maps-003
+  concept: matrices-and-linear-maps
+  layer: 1
+  type: short-answer
+  sources: [de-wolf-2026, watrous-2025]
+
+- id: q-matrices-and-linear-maps-004
+  concept: matrices-and-linear-maps
+  layer: 2
+  type: single-choice
+  sources: [axler-2024]
+  correct: b
+
+- id: q-matrices-and-linear-maps-005
+  concept: matrices-and-linear-maps
+  layer: 2
+  type: open
+  sources: [watrous-2025]
+
+- id: q-matrices-and-linear-maps-006
+  concept: matrices-and-linear-maps
+  layer: 3
+  type: case
+  sources: [axler-2024, watrous-2025]
+
+- id: q-matrices-and-linear-maps-007
+  concept: matrices-and-linear-maps
+  layer: 3
+  type: case
+  sources: [watrous-2025]
+
+- id: q-unitary-and-hermitian-matrices-001
+  concept: unitary-and-hermitian-matrices
+  layer: 1
+  type: single-choice
+  sources: [watrous-2025, de-wolf-2026]
+  correct: c
+
+- id: q-unitary-and-hermitian-matrices-002
+  concept: unitary-and-hermitian-matrices
+  layer: 1
+  type: single-choice
+  sources: [watrous-2025, de-wolf-2026]
+  correct: d
+
+- id: q-unitary-and-hermitian-matrices-003
+  concept: unitary-and-hermitian-matrices
+  layer: 1
+  type: short-answer
+  sources: [watrous-2025]
+
+- id: q-unitary-and-hermitian-matrices-004
+  concept: unitary-and-hermitian-matrices
+  layer: 2
+  type: single-choice
+  sources: [axler-2024]
+  correct: b
+
+- id: q-unitary-and-hermitian-matrices-005
+  concept: unitary-and-hermitian-matrices
+  layer: 2
+  type: open
+  sources: [watrous-2025, de-wolf-2026]
+
+- id: q-unitary-and-hermitian-matrices-006
+  concept: unitary-and-hermitian-matrices
+  layer: 3
+  type: case
+  sources: [watrous-2025]
+
+- id: q-unitary-and-hermitian-matrices-007
+  concept: unitary-and-hermitian-matrices
+  layer: 3
+  type: case
+  sources: [de-wolf-2026, watrous-2025]
+
+- id: q-eigenvalues-and-eigenvectors-001
+  concept: eigenvalues-and-eigenvectors
+  layer: 1
+  type: single-choice
+  sources: [watrous-2025]
+  correct: d
+
+- id: q-eigenvalues-and-eigenvectors-002
+  concept: eigenvalues-and-eigenvectors
+  layer: 1
+  type: single-choice
+  sources: [axler-2024]
+  correct: a
+
+- id: q-eigenvalues-and-eigenvectors-003
+  concept: eigenvalues-and-eigenvectors
+  layer: 1
+  type: short-answer
+  sources: [de-wolf-2026]
+
+- id: q-eigenvalues-and-eigenvectors-004
+  concept: eigenvalues-and-eigenvectors
+  layer: 2
+  type: single-choice
+  sources: [axler-2024]
+  correct: b
+
+- id: q-eigenvalues-and-eigenvectors-005
+  concept: eigenvalues-and-eigenvectors
+  layer: 2
+  type: open
+  sources: [de-wolf-2026, axler-2024]
+
+- id: q-eigenvalues-and-eigenvectors-006
+  concept: eigenvalues-and-eigenvectors
+  layer: 3
+  type: case
+  sources: [de-wolf-2026]
+
+- id: q-eigenvalues-and-eigenvectors-007
+  concept: eigenvalues-and-eigenvectors
+  layer: 3
+  type: case
+  sources: [de-wolf-2026]
+
+- id: q-tensor-products-001
+  concept: tensor-products
+  layer: 1
+  type: single-choice
+  sources: [watrous-2025]
+  correct: c
+
+- id: q-tensor-products-002
+  concept: tensor-products
+  layer: 1
+  type: single-choice
+  sources: [watrous-2025]
+  correct: a
+
+- id: q-tensor-products-003
+  concept: tensor-products
+  layer: 1
+  type: short-answer
+  sources: [de-wolf-2026, watrous-2025]
+
+- id: q-tensor-products-004
+  concept: tensor-products
+  layer: 2
+  type: single-choice
+  sources: [watrous-2025]
+  correct: c
+
+- id: q-tensor-products-005
+  concept: tensor-products
+  layer: 2
+  type: open
+  sources: [watrous-2025]
+
+- id: q-tensor-products-006
+  concept: tensor-products
+  layer: 3
+  type: case
+  sources: [watrous-2025]
+
+- id: q-tensor-products-007
+  concept: tensor-products
+  layer: 3
+  type: case
+  sources: [watrous-2025]
+
+- id: q-probability-basics-001
+  concept: probability-basics
+  layer: 1
+  type: single-choice
+  sources: [watrous-2025]
+  correct: c
+
+- id: q-probability-basics-002
+  concept: probability-basics
+  layer: 1
+  type: single-choice
+  sources: [watrous-2025]
+  correct: b
+
+- id: q-probability-basics-003
+  concept: probability-basics
+  layer: 1
+  type: short-answer
+  sources: [watrous-2025]
+
+- id: q-probability-basics-004
+  concept: probability-basics
+  layer: 2
+  type: single-choice
+  sources: [watrous-2025]
+  correct: a
+
+- id: q-probability-basics-005
+  concept: probability-basics
+  layer: 2
+  type: open
+  sources: [watrous-2025]
+
+- id: q-probability-basics-006
+  concept: probability-basics
+  layer: 3
+  type: case
+  sources: [de-wolf-2026]
+
+- id: q-probability-basics-007
+  concept: probability-basics
+  layer: 3
+  type: case
+  sources: [de-wolf-2026]

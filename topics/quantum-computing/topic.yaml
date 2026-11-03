@@ -1,0 +1,12 @@
+id: quantum-computing
+version: 1
+languages: [es]
+license: CC-BY-4.0
+domains:                    # in study order
+  - math-foundations
+  - quantum-mechanics
+  - qubits-and-circuits
+  - quantum-algorithms
+  - qiskit-programming
+  - quantum-hardware
+  - error-correction

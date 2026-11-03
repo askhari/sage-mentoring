@@ -1,0 +1,145 @@
+# math-foundations
+- id: complex-numbers
+  title: "Números complejos"
+- id: vectors-and-dirac-notation
+  title: "Vectores y notación de Dirac (bra-ket)"
+- id: inner-products-and-norms
+  title: "Producto interior, norma y ortogonalidad"
+- id: matrices-and-linear-maps
+  title: "Matrices y aplicaciones lineales"
+- id: unitary-and-hermitian-matrices
+  title: "Matrices unitarias y hermíticas"
+- id: eigenvalues-and-eigenvectors
+  title: "Valores y vectores propios"
+- id: tensor-products
+  title: "Producto tensorial"
+- id: probability-basics
+  title: "Probabilidad básica"
+# quantum-mechanics
+- id: quantization-and-wave-particle
+  title: "Cuantización y dualidad onda-partícula"
+- id: superposition-principle
+  title: "Principio de superposición"
+- id: state-vector-postulate
+  title: "El estado cuántico como vector"
+- id: born-rule-measurement
+  title: "Medida y regla de Born"
+- id: observables
+  title: "Observables"
+- id: unitary-time-evolution
+  title: "Evolución temporal unitaria (ecuación de Schrödinger)"
+- id: two-level-systems
+  title: "Sistemas de dos niveles (espín 1/2)"
+- id: uncertainty-and-noncommutativity
+  title: "Incertidumbre y no conmutatividad"
+- id: density-matrices
+  title: "Matrices densidad y estados mixtos"
+- id: decoherence
+  title: "Decoherencia"
+# qubits-and-circuits
+- id: qubit
+  title: "El qubit"
+- id: bloch-sphere
+  title: "Esfera de Bloch"
+- id: single-qubit-gates
+  title: "Puertas de un qubit (Pauli, Hadamard, fase)"
+- id: multi-qubit-states
+  title: "Estados de varios qubits"
+- id: entanglement
+  title: "Entrelazamiento"
+- id: two-qubit-gates
+  title: "Puertas de dos qubits (CNOT y controladas)"
+- id: quantum-circuits
+  title: "Circuitos cuánticos y medida"
+- id: no-cloning
+  title: "Teorema de no clonación"
+- id: universal-gate-sets
+  title: "Conjuntos universales de puertas"
+- id: quantum-teleportation
+  title: "Teleportación cuántica"
+- id: superdense-coding
+  title: "Codificación superdensa"
+- id: bell-inequalities
+  title: "Desigualdades de Bell y juego CHSH"
+# quantum-algorithms
+- id: query-model-and-oracles
+  title: "Modelo de consultas y oráculos"
+- id: phase-kickback
+  title: "Retroceso de fase (phase kickback)"
+- id: deutsch-jozsa
+  title: "Algoritmo de Deutsch-Jozsa"
+- id: bernstein-vazirani-and-simon
+  title: "Algoritmos de Bernstein-Vazirani y de Simon"
+- id: quantum-fourier-transform
+  title: "Transformada cuántica de Fourier"
+- id: phase-estimation
+  title: "Estimación de fase"
+- id: shor-algorithm
+  title: "Algoritmo de Shor (factorización)"
+- id: grover-search
+  title: "Búsqueda de Grover y amplificación de amplitud"
+- id: hamiltonian-simulation
+  title: "Simulación de hamiltonianos"
+- id: quantum-complexity
+  title: "Complejidad cuántica (BQP) y límites de la ventaja"
+- id: post-quantum-cryptography
+  title: "Impacto en la criptografía y criptografía poscuántica"
+# qiskit-programming
+- id: qiskit-circuits
+  title: "Construir circuitos en Qiskit"
+- id: simulators-and-statevectors
+  title: "Simuladores y vectores de estado"
+- id: transpilation
+  title: "Transpilación"
+- id: primitives-sampler-estimator
+  title: "Primitivas: Sampler y Estimator"
+- id: running-on-hardware
+  title: "Ejecutar en hardware real (IBM Quantum)"
+- id: error-mitigation
+  title: "Mitigación de errores"
+- id: variational-algorithms
+  title: "Algoritmos variacionales (VQE, QAOA)"
+- id: nisq-era
+  title: "La era NISQ"
+# quantum-hardware
+- id: divincenzo-criteria
+  title: "Criterios de DiVincenzo"
+- id: coherence-and-fidelity
+  title: "Coherencia (T1, T2) y fidelidad de puertas"
+- id: superconducting-qubits
+  title: "Qubits superconductores"
+- id: trapped-ion-qubits
+  title: "Qubits de iones atrapados"
+- id: neutral-atom-qubits
+  title: "Qubits de átomos neutros"
+- id: spin-qubits
+  title: "Qubits de espín en semiconductores"
+- id: photonic-qubits
+  title: "Qubits fotónicos"
+- id: topological-qubits
+  title: "Qubits topológicos"
+- id: quantum-advantage-experiments
+  title: "Experimentos de ventaja cuántica"
+- id: hardware-landscape
+  title: "Comparativa y estado actual del hardware"
+# error-correction
+- id: quantum-noise-channels
+  title: "Ruido cuántico y canales de error"
+- id: repetition-codes
+  title: "Códigos de repetición (bit-flip y phase-flip)"
+- id: shor-code
+  title: "Código de Shor de 9 qubits"
+- id: stabilizer-formalism
+  title: "Formalismo de estabilizadores"
+- id: threshold-theorem
+  title: "Teorema del umbral"
+- id: surface-code
+  title: "Código de superficie (surface code)"
+- id: decoding
+  title: "Decodificación"
+- id: fault-tolerant-gates
+  title: "Puertas tolerantes a fallos y estados mágicos"
+- id: logical-qubit-experiments
+  title: "Experimentos con qubits lógicos"
+- id: resource-estimation
+  title: "Estimación de recursos (p. ej., romper RSA)"

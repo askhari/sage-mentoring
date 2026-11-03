@@ -1,0 +1,289 @@
+# --- math-foundations ---
+- id: complex-numbers
+  domain: math-foundations
+  first_layer: 1
+  prerequisites: []
+- id: vectors-and-dirac-notation
+  domain: math-foundations
+  first_layer: 1
+  prerequisites: [complex-numbers]
+- id: inner-products-and-norms
+  domain: math-foundations
+  first_layer: 1
+  prerequisites: [vectors-and-dirac-notation]
+- id: matrices-and-linear-maps
+  domain: math-foundations
+  first_layer: 1
+  prerequisites: [vectors-and-dirac-notation]
+- id: unitary-and-hermitian-matrices
+  domain: math-foundations
+  first_layer: 1
+  prerequisites: [matrices-and-linear-maps, inner-products-and-norms]
+- id: eigenvalues-and-eigenvectors
+  domain: math-foundations
+  first_layer: 1
+  prerequisites: [matrices-and-linear-maps]
+- id: tensor-products
+  domain: math-foundations
+  first_layer: 1
+  prerequisites: [matrices-and-linear-maps]
+- id: probability-basics
+  domain: math-foundations
+  first_layer: 1
+  prerequisites: []
+
+# --- quantum-mechanics ---
+- id: quantization-and-wave-particle
+  domain: quantum-mechanics
+  first_layer: 1
+  prerequisites: []
+- id: superposition-principle
+  domain: quantum-mechanics
+  first_layer: 1
+  prerequisites: [quantization-and-wave-particle, vectors-and-dirac-notation]
+- id: state-vector-postulate
+  domain: quantum-mechanics
+  first_layer: 1
+  prerequisites: [superposition-principle, inner-products-and-norms]
+- id: born-rule-measurement
+  domain: quantum-mechanics
+  first_layer: 1
+  prerequisites: [state-vector-postulate, probability-basics]
+- id: observables
+  domain: quantum-mechanics
+  first_layer: 2
+  prerequisites: [born-rule-measurement, unitary-and-hermitian-matrices, eigenvalues-and-eigenvectors]
+- id: unitary-time-evolution
+  domain: quantum-mechanics
+  first_layer: 2
+  prerequisites: [state-vector-postulate, unitary-and-hermitian-matrices]
+- id: two-level-systems
+  domain: quantum-mechanics
+  first_layer: 1
+  prerequisites: [state-vector-postulate]
+- id: uncertainty-and-noncommutativity
+  domain: quantum-mechanics
+  first_layer: 2
+  prerequisites: [observables]
+- id: density-matrices
+  domain: quantum-mechanics
+  first_layer: 2
+  prerequisites: [born-rule-measurement, probability-basics]
+- id: decoherence
+  domain: quantum-mechanics
+  first_layer: 2
+  prerequisites: [density-matrices, unitary-time-evolution]
+
+# --- qubits-and-circuits ---
+- id: qubit
+  domain: qubits-and-circuits
+  first_layer: 1
+  prerequisites: [two-level-systems, born-rule-measurement]
+- id: bloch-sphere
+  domain: qubits-and-circuits
+  first_layer: 1
+  prerequisites: [qubit, complex-numbers]
+- id: single-qubit-gates
+  domain: qubits-and-circuits
+  first_layer: 1
+  prerequisites: [qubit, unitary-and-hermitian-matrices]
+- id: multi-qubit-states
+  domain: qubits-and-circuits
+  first_layer: 1
+  prerequisites: [qubit, tensor-products]
+- id: entanglement
+  domain: qubits-and-circuits
+  first_layer: 1
+  prerequisites: [multi-qubit-states]
+- id: two-qubit-gates
+  domain: qubits-and-circuits
+  first_layer: 1
+  prerequisites: [multi-qubit-states, single-qubit-gates]
+- id: quantum-circuits
+  domain: qubits-and-circuits
+  first_layer: 1
+  prerequisites: [single-qubit-gates, two-qubit-gates]
+- id: no-cloning
+  domain: qubits-and-circuits
+  first_layer: 2
+  prerequisites: [quantum-circuits]
+- id: universal-gate-sets
+  domain: qubits-and-circuits
+  first_layer: 2
+  prerequisites: [quantum-circuits]
+- id: quantum-teleportation
+  domain: qubits-and-circuits
+  first_layer: 2
+  prerequisites: [entanglement, quantum-circuits, no-cloning]
+- id: superdense-coding
+  domain: qubits-and-circuits
+  first_layer: 2
+  prerequisites: [entanglement, quantum-circuits]
+- id: bell-inequalities
+  domain: qubits-and-circuits
+  first_layer: 2
+  prerequisites: [entanglement]
+
+# --- quantum-algorithms ---
+- id: query-model-and-oracles
+  domain: quantum-algorithms
+  first_layer: 1
+  prerequisites: [quantum-circuits]
+- id: phase-kickback
+  domain: quantum-algorithms
+  first_layer: 2
+  prerequisites: [query-model-and-oracles]
+- id: deutsch-jozsa
+  domain: quantum-algorithms
+  first_layer: 1
+  prerequisites: [query-model-and-oracles]
+- id: bernstein-vazirani-and-simon
+  domain: quantum-algorithms
+  first_layer: 2
+  prerequisites: [deutsch-jozsa, phase-kickback]
+- id: quantum-fourier-transform
+  domain: quantum-algorithms
+  first_layer: 2
+  prerequisites: [quantum-circuits, complex-numbers]
+- id: phase-estimation
+  domain: quantum-algorithms
+  first_layer: 2
+  prerequisites: [quantum-fourier-transform, phase-kickback, eigenvalues-and-eigenvectors]
+- id: shor-algorithm
+  domain: quantum-algorithms
+  first_layer: 1
+  prerequisites: [phase-estimation]
+- id: grover-search
+  domain: quantum-algorithms
+  first_layer: 1
+  prerequisites: [query-model-and-oracles]
+- id: hamiltonian-simulation
+  domain: quantum-algorithms
+  first_layer: 3
+  prerequisites: [unitary-time-evolution, phase-estimation]
+- id: quantum-complexity
+  domain: quantum-algorithms
+  first_layer: 2
+  prerequisites: [shor-algorithm, grover-search]
+- id: post-quantum-cryptography
+  domain: quantum-algorithms
+  first_layer: 1
+  prerequisites: [shor-algorithm]
+
+# --- qiskit-programming ---
+- id: qiskit-circuits
+  domain: qiskit-programming
+  first_layer: 1
+  prerequisites: [quantum-circuits]
+- id: simulators-and-statevectors
+  domain: qiskit-programming
+  first_layer: 1
+  prerequisites: [qiskit-circuits]
+- id: transpilation
+  domain: qiskit-programming
+  first_layer: 2
+  prerequisites: [qiskit-circuits, universal-gate-sets]
+- id: primitives-sampler-estimator
+  domain: qiskit-programming
+  first_layer: 2
+  prerequisites: [qiskit-circuits, observables]
+- id: running-on-hardware
+  domain: qiskit-programming
+  first_layer: 2
+  prerequisites: [transpilation, primitives-sampler-estimator]
+- id: error-mitigation
+  domain: qiskit-programming
+  first_layer: 3
+  prerequisites: [running-on-hardware, decoherence]
+- id: variational-algorithms
+  domain: qiskit-programming
+  first_layer: 2
+  prerequisites: [primitives-sampler-estimator]
+- id: nisq-era
+  domain: qiskit-programming
+  first_layer: 1
+  prerequisites: [qiskit-circuits]
+
+# --- quantum-hardware ---
+- id: divincenzo-criteria
+  domain: quantum-hardware
+  first_layer: 1
+  prerequisites: [qubit, quantum-circuits]
+- id: coherence-and-fidelity
+  domain: quantum-hardware
+  first_layer: 1
+  prerequisites: [decoherence, qubit]
+- id: superconducting-qubits
+  domain: quantum-hardware
+  first_layer: 1
+  prerequisites: [divincenzo-criteria, coherence-and-fidelity]
+- id: trapped-ion-qubits
+  domain: quantum-hardware
+  first_layer: 1
+  prerequisites: [divincenzo-criteria, coherence-and-fidelity]
+- id: neutral-atom-qubits
+  domain: quantum-hardware
+  first_layer: 1
+  prerequisites: [divincenzo-criteria, coherence-and-fidelity]
+- id: spin-qubits
+  domain: quantum-hardware
+  first_layer: 2
+  prerequisites: [divincenzo-criteria, coherence-and-fidelity]
+- id: photonic-qubits
+  domain: quantum-hardware
+  first_layer: 1
+  prerequisites: [divincenzo-criteria]
+- id: topological-qubits
+  domain: quantum-hardware
+  first_layer: 2
+  prerequisites: [divincenzo-criteria, decoherence]
+- id: quantum-advantage-experiments
+  domain: quantum-hardware
+  first_layer: 2
+  prerequisites: [superconducting-qubits, quantum-complexity]
+- id: hardware-landscape
+  domain: quantum-hardware
+  first_layer: 3
+  prerequisites: [superconducting-qubits, trapped-ion-qubits, neutral-atom-qubits, spin-qubits, photonic-qubits]
+
+# --- error-correction ---
+- id: quantum-noise-channels
+  domain: error-correction
+  first_layer: 2
+  prerequisites: [density-matrices, coherence-and-fidelity]
+- id: repetition-codes
+  domain: error-correction
+  first_layer: 1
+  prerequisites: [quantum-circuits]
+- id: shor-code
+  domain: error-correction
+  first_layer: 2
+  prerequisites: [repetition-codes]
+- id: stabilizer-formalism
+  domain: error-correction
+  first_layer: 2
+  prerequisites: [shor-code, eigenvalues-and-eigenvectors]
+- id: threshold-theorem
+  domain: error-correction
+  first_layer: 2
+  prerequisites: [repetition-codes, quantum-noise-channels]
+- id: surface-code
+  domain: error-correction
+  first_layer: 2
+  prerequisites: [stabilizer-formalism, threshold-theorem]
+- id: decoding
+  domain: error-correction
+  first_layer: 3
+  prerequisites: [surface-code]
+- id: fault-tolerant-gates
+  domain: error-correction
+  first_layer: 3
+  prerequisites: [surface-code, universal-gate-sets]
+- id: logical-qubit-experiments
+  domain: error-correction
+  first_layer: 2
+  prerequisites: [surface-code, superconducting-qubits, neutral-atom-qubits]
+- id: resource-estimation
+  domain: error-correction
+  first_layer: 3
+  prerequisites: [fault-tolerant-gates, shor-algorithm]

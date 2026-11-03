@@ -1,0 +1,463 @@
+- id: q-complex-numbers-001
+  prompt: "¿Cuánto vale (1+2i)(3−i)?"
+  options:
+    a: "3 − 2i"
+    b: "5 + 5i"
+    c: "1 + 5i"
+    d: "5 − 5i"
+  explanation: "Se aplica la regla usual con i² = −1: 3 − i + 6i − 2i² = 3 + 5i + 2 = 5 + 5i. La opción 1 + 5i sale de usar i² = +1 por error, y 3 − 2i de multiplicar componente a componente, que no es el producto complejo."
+
+- id: q-complex-numbers-002
+  prompt: "¿Cuál es el módulo (valor absoluto) de z = 3 + 2i?"
+  options:
+    a: "13"
+    b: "√5"
+    c: "√13"
+    d: "5"
+  explanation: "|z| = √(3² + 2²) = √13, la distancia de (3,2) al origen. 13 es |z|² y se obtiene al olvidar la raíz; √5 sale de restar en vez de sumar los cuadrados."
+
+- id: q-complex-numbers-003
+  prompt: "Para z = 3 + 2i, ¿cuánto vale z · conj(z)? (da un número)"
+  accepted: ["13", "13.0", "trece"]
+
+- id: q-complex-numbers-004
+  prompt: "¿Cuál de estos pares de estados difiere en una fase RELATIVA (y por tanto no son el mismo estado)?"
+  options:
+    a: "|−⟩ y −|−⟩"
+    b: "|0⟩ y i|0⟩"
+    c: "|+⟩ y e^{iθ}|+⟩"
+    d: "|+⟩ y |−⟩"
+  explanation: "|+⟩ = (|0⟩+|1⟩)/√2 y |−⟩ = (|0⟩−|1⟩)/√2 se distinguen con certeza aplicando H y midiendo. En los demás pares un factor de módulo 1 multiplica todo el vector (fase global), que no tiene efecto observable. La tentación es pensar que cualquier signo es solo una fase global; solo lo es si afecta a todas las entradas."
+
+- id: q-complex-numbers-005
+  prompt: "Explica con tus palabras por qué |+⟩ y |−⟩ dan las mismas probabilidades al medir en la base estándar y, aun así, son estados distintos."
+  model_answer: "La regla de Born da la probabilidad de cada resultado como el módulo al cuadrado de la amplitud. En |+⟩ las amplitudes son 1/√2 y 1/√2, y en |−⟩ son 1/√2 y −1/√2; sus módulos al cuadrado son 1/2 en ambos casos, así que miden 0 y 1 con probabilidad 1/2. Pero el signo es una fase relativa entre las entradas y el estado es distinto: si se aplica H, |+⟩ pasa a |0⟩ y |−⟩ a |1⟩, y entonces la medida los distingue con certeza."
+  rubric:
+    - "Enuncia que la probabilidad es el módulo al cuadrado de la amplitud"
+    - "Calcula o afirma que ambos estados dan 1/2 y 1/2"
+    - "Explica que el signo (fase) no cambia el módulo pero sí el estado"
+    - "Menciona que aplicar H y medir distingue |+⟩ de |−⟩ con certeza (o que la fase relativa controla la interferencia)"
+
+- id: q-complex-numbers-006
+  prompt: "Dos circuitos que se supone que son equivalentes producen estos estados de un qubit: el circuito A, (|0⟩ + i|1⟩)/√2; el circuito B, (i|0⟩ − |1⟩)/√2. Un tercer circuito C produce (|0⟩ − i|1⟩)/√2. ¿Cuáles de ellos puedes considerar equivalentes entre sí? Justifícalo."
+  model_answer: "A y B son el mismo estado salvo fase global: i·(|0⟩ + i|1⟩)/√2 = (i|0⟩ + i²|1⟩)/√2 = (i|0⟩ − |1⟩)/√2, y |i| = 1, así que B = i·A. Un factor global de módulo 1 no cambia las probabilidades ni el comportamiento bajo ninguna unitaria, y carece de significado físico. C no es equivalente: su amplitud de |1⟩ es −i/√2 en lugar de i/√2, es decir, hay una fase relativa distinta entre las dos entradas, y las fases relativas sí importan (como |+⟩ frente a |−⟩)."
+  rubric:
+    - "Comprueba que B = i·A con aritmética compleja correcta (i² = −1)"
+    - "Identifica i como un factor de módulo 1, es decir una fase global"
+    - "Concluye que A y B son equivalentes salvo fase global y que la fase global no tiene efecto observable"
+    - "Explica que C difiere en una fase relativa y por eso no es equivalente a A"
+
+- id: q-complex-numbers-007
+  prompt: "En el análisis de un algoritmo, la amplitud de un resultado r es α_r = (1/4)·Σ_{j=0}^{3} ω^{jr}, con ω = e^{2πi/4} = i. Calcula α_r y la probabilidad de medir r para r = 0 y para r = 1, y explica qué fenómeno ilustra."
+  model_answer: "Para r = 0 todos los términos valen 1, luego α₀ = (1/4)·4 = 1 y la probabilidad es |1|² = 1. Para r = 1 la suma es 1 + i + (−1) + (−i) = 0, luego α₁ = 0 y la probabilidad es 0. Es el caso de una raíz de la unidad z = e^{2πir/N} con r ≠ 0: la suma geométrica sobre j = 0..N−1 es 0. Esa cancelación entre amplitudes es interferencia destructiva, y la probabilidad es el módulo al cuadrado de la amplitud resultante."
+  rubric:
+    - "Obtiene α₀ = 1 y probabilidad 1"
+    - "Obtiene α₁ = 0 (suma 1 + i − 1 − i) y probabilidad 0"
+    - "Cita que la suma de potencias de una raíz de la unidad distinta de 1 sobre un periodo completo es 0"
+    - "Nombra el fenómeno como interferencia destructiva y usa probabilidad = |amplitud|²"
+
+- id: q-vectors-and-dirac-notation-001
+  prompt: "¿Cuál es el bra ⟨ψ| del estado |ψ⟩ = (1+2i)/3 |0⟩ − (2/3)|1⟩?"
+  options:
+    a: "(1−2i)/3 ⟨0| − (2/3) ⟨1|"
+    b: "(1+2i)/3 ⟨0| − (2/3) ⟨1|"
+    c: "(1−2i)/3 ⟨0| + (2/3) ⟨1|"
+    d: "(−1+2i)/3 ⟨0| + (2/3) ⟨1|"
+  explanation: "El bra es el traspuesto conjugado: se conjuga cada entrada (1+2i pasa a 1−2i; −2/3, que es real, queda igual). La opción que deja 1+2i olvida el conjugado; las otras cambian el signo de entradas que no deben cambiar."
+
+- id: q-vectors-and-dirac-notation-002
+  prompt: "¿Qué vector columna es |+⟩ = (|0⟩ + |1⟩)/√2?"
+  options:
+    a: "(1, 1)ᵀ"
+    b: "(1/2, 1/2)ᵀ"
+    c: "(1/√2, −1/√2)ᵀ"
+    d: "(1/√2, 1/√2)ᵀ"
+  explanation: "|0⟩ = (1,0)ᵀ y |1⟩ = (0,1)ᵀ, así que la suma dividida por √2 es (1/√2, 1/√2)ᵀ. (1,1)ᵀ no tiene norma 1, (1/2,1/2)ᵀ tampoco (norma 1/√2), y (1/√2, −1/√2)ᵀ es |−⟩."
+
+- id: q-vectors-and-dirac-notation-003
+  prompt: "¿Cuántas componentes tiene el vector de estado de un registro de 3 qubits?"
+  accepted: ["8", "ocho", "2^3", "2³"]
+
+- id: q-vectors-and-dirac-notation-004
+  prompt: "¿Cuál es una ventaja real de la notación de Dirac frente a escribir columnas?"
+  options:
+    a: "Hace que los vectores sean automáticamente de norma 1"
+    b: "Convierte los productos de matrices en sumas, que son más fáciles de calcular"
+    c: "Permite describir vectores de dimensión arbitraria o parcialmente especificados, como la superposición uniforme, sin fijar un orden de los estados clásicos"
+    d: "Evita tener que conjugar al pasar de ket a bra"
+  explanation: "Watrous destaca que se puede escribir 1/√|Σ| por la suma de todos los |a⟩ sin fijar dimensión ni orden. La notación no normaliza nada por sí sola, no simplifica productos de matrices (a veces es peor que la matriz) y el bra sigue siendo un traspuesto conjugado."
+
+- id: q-vectors-and-dirac-notation-005
+  prompt: "Explica por qué {|+⟩, |−⟩} es una base de C² y escribe |0⟩ en esa base. ¿Qué significa que cambiar de base cambia las coordenadas pero no el vector?"
+  model_answer: "Una base es una lista linealmente independiente que genera el espacio, y C² tiene dimensión 2. |+⟩ y |−⟩ son dos vectores independientes (ninguno es múltiplo del otro), luego forman una base. Como |+⟩ + |−⟩ = (2/√2)|0⟩ = √2|0⟩, se tiene |0⟩ = (|+⟩ + |−⟩)/√2, con coordenadas (1/√2, 1/√2) en esa base y (1, 0) en la estándar. El vector es el mismo objeto; solo cambia la lista de números con la que lo describimos."
+  rubric:
+    - "Define base como lista independiente que genera y recuerda que dim C² = 2"
+    - "Justifica que |+⟩ y |−⟩ son independientes o generan C²"
+    - "Obtiene |0⟩ = (|+⟩+|−⟩)/√2"
+    - "Explica que el vector no cambia, solo sus coordenadas"
+
+- id: q-vectors-and-dirac-notation-006
+  prompt: "Revisas la documentación de un equipo y encuentras tres frases: (1) «el producto interior es ⟨u|(α|v⟩ + β|w⟩)⟩»; (2) «el estado inicial es |φ⟩|ψ⟩» sin ningún ⊗ en el resto del texto; (3) «el algoritmo usa un qubit de 5 qubits». ¿Qué corriges y por qué?"
+  model_answer: "(1) No se anidan kets dentro de un bra o un ket: la expresión no significa nada; lo correcto es escribir ⟨u|(α|v⟩ + β|w⟩) = α⟨u|v⟩ + β⟨u|w⟩, por linealidad. (2) Watrous define |φ⟩|ψ⟩ y |φ⊗ψ⟩ como |φ⟩⊗|ψ⟩, pero De Wolf avisa de que omitir ⊗ puede ser ambiguo; se recomienda escribirlo explícitamente cuando haya riesgo de confusión. (3) No conviene usar «qubit» como sustantivo para un registro de varios; se dice «un registro de 5 qubits»."
+  rubric:
+    - "Señala que la frase (1) no tiene sentido por anidar kets y la reescribe sin anidar"
+    - "Explica que en (2) el producto de kets significa ⊗ pero omitirlo puede ser ambiguo, y recomienda explicitarlo"
+    - "Corrige (3): «registro de 5 qubits», no «un qubit de 5 qubits»"
+    - "Atribuye las reglas a convenciones de escritura (De Wolf, Watrous) y no a la matemática en sí"
+
+- id: q-vectors-and-dirac-notation-007
+  prompt: "Tienes que documentar tres cosas: (a) depurar a mano un circuito de 2 qubits con números concretos, (b) describir el estado de superposición uniforme sobre todas las cadenas de n bits para n arbitrario, (c) una unitaria de 6×6 con solo 20 entradas no nulas. ¿Qué representación eliges para cada una (columnas y matrices, o notación de Dirac) y por qué?"
+  model_answer: "(a) Columnas y matrices: con sistemas pequeños y números concretos son transparentes. (b) Notación de Dirac: 1/√|Σ| por la suma de los |a⟩ describe el estado para cualquier n, algo que una columna concreta no puede hacer. (c) La matriz: escribirla con 20 términos |c⟩⟨d| es menos clara que mostrar la matriz de 6×6. La notación de Dirac no siempre es la mejor elección."
+  rubric:
+    - "Elige columnas/matrices para (a) con el argumento de claridad con números concretos"
+    - "Elige Dirac para (b) porque describe familias de estados con n arbitrario"
+    - "Elige matriz para (c) con el argumento de las 20 entradas no nulas"
+    - "Reconoce que la notación de Dirac no siempre es preferible"
+
+- id: q-inner-products-and-norms-001
+  prompt: "Sean ψ = (1, i)ᵀ y φ = (1, 1)ᵀ. Con la convención de física, ¿cuánto vale ⟨ψ|φ⟩?"
+  options:
+    a: "1 + i"
+    b: "1 − i"
+    c: "0"
+    d: "2"
+  explanation: "⟨ψ|φ⟩ = Σ conj(ψ_k)·φ_k = conj(1)·1 + conj(i)·1 = 1 − i. 1 + i es ⟨φ|ψ⟩ (el conjugado) o lo que sale al olvidar conjugar ψ. El producto no es simétrico: intercambiar los argumentos conjuga el resultado."
+
+- id: q-inner-products-and-norms-002
+  prompt: "¿Qué constante c hace que c·(3|0⟩ + 4i|1⟩) sea un vector de estado válido?"
+  options:
+    a: "1/7"
+    b: "1/25"
+    c: "1/5"
+    d: "1/√7"
+  explanation: "La norma es √(|3|² + |4i|²) = √(9+16) = 5, así que c = 1/5. 1/7 suma los módulos sin elevarlos al cuadrado, 1/25 olvida la raíz, y 1/√7 sale de tratar mal el factor i (por ejemplo 9 − 16)."
+
+- id: q-inner-products-and-norms-003
+  prompt: "¿Cuánto vale ⟨+|−⟩, el producto interior entre |+⟩ y |−⟩?"
+  accepted: ["0", "cero", "0.0"]
+
+- id: q-inner-products-and-norms-004
+  prompt: "¿Por qué las bases ortonormales son tan cómodas para calcular?"
+  options:
+    a: "Porque en una base ortonormal todos los vectores tienen norma 1"
+    b: "Porque solo existen en dimensión 2"
+    c: "Porque hacen que el producto interior sea simétrico"
+    d: "Porque las coordenadas de v en la base son simples productos interiores ⟨e_k|v⟩, sin resolver ningún sistema lineal"
+  explanation: "Con una base ortonormal, v = Σ⟨e_k|v⟩ e_k y ‖v‖² = Σ|⟨e_k|v⟩|² (Parseval). Es lo que usa la regla de Born en otra base. Que los vectores de la base tengan norma 1 es parte de la definición, no la ventaja; el producto interior sigue siendo simétrico conjugado, no simétrico."
+
+- id: q-inner-products-and-norms-005
+  prompt: "Explica por qué el producto interior complejo conjuga uno de los argumentos y qué pasa si intercambias los argumentos. ¿Por qué esa asimetría no afecta a las probabilidades de la regla de Born?"
+  model_answer: "Se conjuga para que ⟨v|v⟩ = Σ|v_k|² sea la norma al cuadrado, real y no negativa; sin conjugar, ⟨v,v⟩ = Σ v_k² podría ser incluso negativa o compleja. Como consecuencia, el producto es simétrico conjugado: ⟨ψ|φ⟩ = conj(⟨φ|ψ⟩), no simétrico. Las probabilidades de Born usan el módulo al cuadrado |⟨ψ|φ⟩|², y un número y su conjugado tienen el mismo módulo, así que el orden de los argumentos no importa para ellas."
+  rubric:
+    - "Relaciona la conjugación con que ⟨v|v⟩ sea Σ|v_k|² ≥ 0"
+    - "Afirma que intercambiar los argumentos conjuga el resultado"
+    - "Dice que las probabilidades usan |⟨ψ|φ⟩|²"
+    - "Concluye que un número y su conjugado tienen el mismo módulo, luego la probabilidad no depende del orden"
+
+- id: q-inner-products-and-norms-006
+  prompt: "Lees en Axler, con ⟨u,v⟩ = u₁·conj(v₁) + u₂·conj(v₂), el resultado de ⟨u,v⟩ para u = (1, i) y v = (1, 1). Tu código en notación de física calcula ⟨u|v⟩. ¿Obtienes el mismo número? ¿Cómo traduces la expresión de Axler a notación de física?"
+  model_answer: "Con la convención de Axler, ⟨u,v⟩ = 1·1 + i·1 = 1 + i. En notación de física, ⟨u|v⟩ = conj(1)·1 + conj(i)·1 = 1 − i, que es distinto (el conjugado). Axler es lineal en el primer argumento y conjuga el segundo; los físicos conjugan el primero. La traducción es ⟨u,v⟩_Axler = ⟨v|u⟩_física: se intercambian los argumentos, y ⟨v|u⟩ = 1 + i coincide con el resultado de Axler."
+  rubric:
+    - "Calcula ⟨u,v⟩_Axler = 1 + i"
+    - "Calcula ⟨u|v⟩_física = 1 − i y señala que no coinciden (son conjugados)"
+    - "Indica que Axler conjuga el segundo argumento y la física el primero"
+    - "Da la traducción ⟨u,v⟩_Axler = ⟨v|u⟩_física"
+
+- id: q-inner-products-and-norms-007
+  prompt: "El estado de un qubit es |φ⟩ = (3|0⟩ + 4|1⟩)/5 y lo mides en la base ortonormal {|+⟩, |−⟩}. Calcula la probabilidad de cada resultado y comprueba que son coherentes."
+  model_answer: "La probabilidad de medir en una base ortonormal {ψ_j} es |⟨ψ_j|φ⟩|². ⟨+|φ⟩ = (3/5 + 4/5)/√2 = 7/(5√2), luego P(+) = 49/50. ⟨−|φ⟩ = (3/5 − 4/5)/√2 = −1/(5√2), luego P(−) = 1/50. Suman 49/50 + 1/50 = 1, como exige Parseval para una base ortonormal (‖φ‖² = Σ|⟨ψ_j|φ⟩|² = 1)."
+  rubric:
+    - "Usa P = |⟨ψ_j|φ⟩|² con los vectores de la base {|+⟩,|−⟩}"
+    - "Calcula P(+) = 49/50"
+    - "Calcula P(−) = 1/50"
+    - "Comprueba que suman 1 y lo relaciona con Parseval / la norma 1 de φ"
+
+- id: q-matrices-and-linear-maps-001
+  prompt: "Con H = (1/√2)[[1,1],[1,−1]] y X = [[0,1],[1,0]], ¿cuánto vale el producto HX?"
+  options:
+    a: "(1/√2)[[1,1],[−1,1]]"
+    b: "(1/√2)[[1,−1],[1,1]]"
+    c: "(1/√2)[[1,1],[1,−1]]"
+    d: "(1/√2)[[−1,1],[1,1]]"
+  explanation: "HX cambia las columnas de H entre sí: (1/√2)[[1,1],[−1,1]]. La primera distractora, (1/√2)[[1,−1],[1,1]], es XH (cambia las filas): el producto no es conmutativo, y confundir el orden es el error típico."
+
+- id: q-matrices-and-linear-maps-002
+  prompt: "Un circuito aplica primero la operación M₁ y después M₂. ¿Qué matriz representa el circuito completo?"
+  options:
+    a: "M₁M₂"
+    b: "M₁ + M₂"
+    c: "M₂⁻¹M₁"
+    d: "M₂M₁"
+  explanation: "La última operación va a la izquierda: se aplica a M₁|ψ⟩, luego M₂(M₁|ψ⟩) = (M₂M₁)|ψ⟩. M₁M₂ sería el orden inverso, correcto solo si las matrices conmutan."
+
+- id: q-matrices-and-linear-maps-003
+  prompt: "¿De qué tamaño (filas × columnas) es la matriz de una puerta que actúa sobre 3 qubits?"
+  accepted: ["8×8", "8x8", "8 por 8", "8 × 8"]
+
+- id: q-matrices-and-linear-maps-004
+  prompt: "Al cambiar de base, ¿qué ocurre con una aplicación lineal T y con su matriz?"
+  options:
+    a: "Tanto la aplicación como la matriz cambian"
+    b: "La matriz cambia, según A = C⁻¹BC, pero la aplicación T sigue siendo la misma"
+    c: "La matriz no cambia, solo cambian los vectores"
+    d: "La matriz y la aplicación se transponen"
+  explanation: "La matriz depende de las bases elegidas; las matrices de la misma T en bases distintas están relacionadas por A = C⁻¹BC. Confundir la aplicación con su matriz es el error típico; la aplicación es independiente de la base."
+
+- id: q-matrices-and-linear-maps-005
+  prompt: "Explica cómo se construye la puerta NOT, X, como suma de productos exteriores a partir de la función f(a) = NOT a, y cómo actúa sobre |0⟩ con esa fórmula."
+  model_answer: "El producto exterior |b⟩⟨a| es la matriz con un único 1 en la fila b y columna a. Una función determinista f se representa como Σ_a |f(a)⟩⟨a|. Con f = NOT: X = |1⟩⟨0| + |0⟩⟨1|. Al aplicarla a |0⟩, cada término da |f(a)⟩⟨a|0⟩, y ⟨a|0⟩ vale 1 solo si a = 0; por tanto X|0⟩ = |1⟩⟨0|0⟩ = |1⟩."
+  rubric:
+    - "Define |b⟩⟨a| como columna por fila (un 1 en la fila b, columna a)"
+    - "Escribe la matriz de f como Σ|f(a)⟩⟨a| y obtiene X = |1⟩⟨0| + |0⟩⟨1|"
+    - "Usa ⟨a|b⟩ = 1 si a = b y 0 si no para aplicarla"
+    - "Concluye X|0⟩ = |1⟩"
+
+- id: q-matrices-and-linear-maps-006
+  prompt: "Un compañero dice que el circuito «primero X y luego H» sobre un qubit en |0⟩ se calcula con la matriz XH. ¿Es correcto? Calcula el estado final correcto y el que saldría con su matriz, y explica la consecuencia al medir después con otra H."
+  model_answer: "No es correcto: la última puerta va a la izquierda, así que la matriz es HX. HX|0⟩ = H|1⟩ = |−⟩. Con XH se obtendría XH|0⟩ = X|+⟩ = |+⟩, otro estado (las matrices no conmutan: HX = (1/√2)[[1,1],[−1,1]], XH = (1/√2)[[1,−1],[1,1]]). Ambos darían 1/2 y 1/2 al medir en la base estándar, pero si se aplica otra H, |−⟩ pasa a |1⟩ y |+⟩ a |0⟩: resultados opuestos con certeza."
+  rubric:
+    - "Dice que la matriz del circuito es HX (la última puerta a la izquierda)"
+    - "Obtiene |−⟩ como estado correcto y |+⟩ con el orden equivocado"
+    - "Indica que HX ≠ XH (no conmutativo)"
+    - "Explica que con otra H se obtendría |1⟩ frente a |0⟩, es decir, el error es observable"
+
+- id: q-matrices-and-linear-maps-007
+  prompt: "Debes especificar la operación «incremento módulo 8» (k → k+1 mod 8) sobre un registro de 3 qubits y también su inversa. ¿Qué representación eliges: matriz densa de 8×8 o suma de productos exteriores? ¿Cómo obtienes la inversa?"
+  model_answer: "La suma de productos exteriores, Σ_k |(k+1) mod 8⟩⟨k|, porque la matriz es dispersa y tiene estructura (un único 1 por columna) y la fórmula es compacta y legible; una matriz densa es mejor para pocos qubits o para verificar identidades a mano. La inversa es la adjunta (traspuesto conjugado), Σ_k |k⟩⟨(k+1) mod 8|, que es la operación «decremento» módulo 8."
+  rubric:
+    - "Elige la suma de productos exteriores y justifica con dispersión/estructura"
+    - "Escribe la fórmula Σ_k |(k+1) mod 8⟩⟨k|"
+    - "Obtiene la inversa como la adjunta Σ_k |k⟩⟨(k+1) mod 8|"
+    - "Reconoce cuándo es preferible la matriz densa (pocos qubits)"
+
+- id: q-unitary-and-hermitian-matrices-001
+  prompt: "¿Cuál de estas matrices es unitaria pero NO hermítica?"
+  options:
+    a: "Z = diag(1, −1)"
+    b: "H = (1/√2)[[1,1],[1,−1]]"
+    c: "S = diag(1, i)"
+    d: "X = [[0,1],[1,0]]"
+  explanation: "S† = diag(1, −i) ≠ S, luego no es hermítica, pero S†S = I. Z, H y X cumplen A = A† y son además unitarias. Por eso hermítica y unitaria son propiedades independientes."
+
+- id: q-unitary-and-hermitian-matrices-002
+  prompt: "¿Por qué las puertas cuánticas deben ser matrices unitarias?"
+  options:
+    a: "Porque sus valores propios deben ser reales"
+    b: "Porque deben ser iguales a su traspuesta conjugada"
+    c: "Porque cada columna debe sumar 1 como en una matriz estocástica"
+    d: "Porque conservan la norma del vector de amplitudes (las probabilidades siguen sumando 1) y son reversibles"
+  explanation: "Las unitarias son exactamente las aplicaciones lineales que llevan vectores de estado a vectores de estado, y son invertibles. Ser igual a su traspuesta conjugada es hermítica (otra propiedad); la suma de columnas igual a 1 caracteriza a las estocásticas, la analogía clásica, no a las cuánticas."
+
+- id: q-unitary-and-hermitian-matrices-003
+  prompt: "Si U es unitaria, ¿qué matriz es U† (en función de U)?"
+  accepted: ["U⁻¹", "la inversa", "la inversa de U", "U^-1", "U^{-1}", "inversa", "U inversa"]
+
+- id: q-unitary-and-hermitian-matrices-004
+  prompt: "Una matriz cuadrada tiene un valor propio igual a 2i. ¿Qué puedes concluir?"
+  options:
+    a: "Es unitaria, porque 2i es imaginario puro"
+    b: "No es hermítica (valores propios reales) ni unitaria (valores propios de módulo 1)"
+    c: "Es hermítica, porque 2i es un valor propio válido"
+    d: "No se puede concluir nada sobre ninguna de las dos propiedades"
+  explanation: "Los valores propios de una hermítica son reales y los de una unitaria tienen módulo 1; 2i no es real y |2i| = 2 ≠ 1. Sí se puede concluir algo: la matriz no puede ser de ninguno de los dos tipos."
+
+- id: q-unitary-and-hermitian-matrices-005
+  prompt: "Explica por qué una matriz cuadrada es unitaria si y solo si sus columnas forman una base ortonormal, y cómo se relaciona esto con conservar la norma."
+  model_answer: "La entrada (j,k) de U†U es el producto interior de la columna j con la columna k de U. U†U = I significa que ese producto vale 1 si j = k y 0 si no, es decir, que las columnas son ortonormales; como son n vectores ortonormales en dimensión n, forman una base ortonormal. Además ⟨Uψ|Uφ⟩ = ⟨ψ|U†U|φ⟩ = ⟨ψ|φ⟩, de modo que U conserva los productos interiores y en particular la norma ‖Uψ‖ = ‖ψ‖."
+  rubric:
+    - "Interpreta U†U como la matriz de productos interiores de las columnas"
+    - "Concluye que U†U = I equivale a columnas ortonormales (base ortonormal)"
+    - "Muestra que ⟨Uψ|Uφ⟩ = ⟨ψ|φ⟩ usando U†U = I"
+    - "Deduce la conservación de la norma"
+
+- id: q-unitary-and-hermitian-matrices-006
+  prompt: "Un compañero propone como puerta de un qubit la matriz U = (1/2)[[1,1],[1,−1]] (olvidó el factor 1/√2 de Hadamard). ¿La aceptas? Razona con un cálculo."
+  model_answer: "No. Comprobamos U†U: U es real y simétrica, así que U†U = U² = (1/4)[[2,0],[0,2]] = (1/2)I ≠ I; no es unitaria. Equivalentemente, U|0⟩ = (1/2, 1/2)ᵀ tiene norma √(1/4+1/4) = 1/√2 < 1, así que no conserva la norma y los estados dejarían de sumar probabilidad 1. La matriz correcta es H = (1/√2)[[1,1],[1,−1]], que sí cumple H†H = I."
+  rubric:
+    - "Calcula U†U (o U²) y obtiene ½·I"
+    - "Concluye que no es unitaria"
+    - "Da el contraejemplo de la norma: U|0⟩ tiene norma 1/√2, no 1"
+    - "Propone H con el factor 1/√2 como corrección"
+
+- id: q-unitary-and-hermitian-matrices-007
+  prompt: "Un hamiltoniano de un qubit es H = Z = |0⟩⟨0| − |1⟩⟨1|. Calcula la puerta e^{−iZt}, comprueba qué tipo de matriz es y compárala con la puerta de fase P_θ = diag(1, e^{iθ})."
+  model_answer: "Con la descomposición espectral Z = |0⟩⟨0| − |1⟩⟨1|, aplicar f(A) = Σ f(λ_j)|a_j⟩⟨a_j| da e^{−iZt} = e^{−it}|0⟩⟨0| + e^{it}|1⟩⟨1| = diag(e^{−it}, e^{it}). Como Z es hermítica, e^{−iZt} es unitaria (las entradas diagonales tienen módulo 1). Sacando el factor e^{−it}, queda e^{−it}·diag(1, e^{2it}) = e^{−it}·P_{2t}: una puerta de fase P_{2t} salvo fase global."
+  rubric:
+    - "Usa la descomposición espectral para obtener diag(e^{−it}, e^{it})"
+    - "Justifica que es unitaria porque Z es hermítica (o porque los módulos son 1)"
+    - "Extrae e^{−it} para identificarla con P_{2t}"
+    - "Indica que la equivalencia es salvo fase global"
+
+- id: q-eigenvalues-and-eigenvectors-001
+  prompt: "¿Cuáles son los valores propios de Z = diag(1, −1)?"
+  options:
+    a: "0 y 1"
+    b: "1 y i"
+    c: "+1 y +1"
+    d: "+1 y −1"
+  explanation: "Z|0⟩ = |0⟩ (valor +1) y Z|1⟩ = −|1⟩ (valor −1); en una matriz diagonal los valores propios son las entradas de la diagonal. 0 y 1 son los de un proyector, no los de Z."
+
+- id: q-eigenvalues-and-eigenvectors-002
+  prompt: "¿Por qué en la definición Av = λv se exige que el vector propio v sea no nulo?"
+  options:
+    a: "Porque A·0 = λ·0 se cumple para cualquier λ, así que v = 0 no aportaría información"
+    b: "Porque el vector cero no pertenece a ningún espacio vectorial"
+    c: "Porque entonces λ tendría que ser 0"
+    d: "Porque el vector cero no tiene norma"
+  explanation: "Con v = 0 todo escalar sería «valor propio». El vector cero sí pertenece al espacio, y sí tiene norma (0). Que el valor propio λ sea 0 es perfectamente posible; lo que no puede ser nulo es el vector."
+
+- id: q-eigenvalues-and-eigenvectors-003
+  prompt: "¿Cómo se llama el conjunto de todos los valores propios de una matriz?"
+  accepted: ["espectro", "spectrum", "el espectro"]
+
+- id: q-eigenvalues-and-eigenvectors-004
+  prompt: "Una rotación de 90° en R² no tiene valores propios reales. ¿Qué ocurre si se estudia sobre C?"
+  options:
+    a: "Sigue sin tener ninguno: la rotación nunca deja vectores en su recta"
+    b: "Tiene los valores propios i y −i, porque sobre C todo operador de dimensión finita no nula tiene al menos uno"
+    c: "Tiene el valor propio 1 y el valor propio −1"
+    d: "Tiene el valor propio 90 y el valor propio −90"
+  explanation: "Sobre C el teorema fundamental del álgebra garantiza un valor propio; para la rotación son i y −i. Es una razón más para trabajar con complejos. Los valores 1 y −1 serían de una identidad o una reflexión."
+
+- id: q-eigenvalues-and-eigenvectors-005
+  prompt: "Explica la diferencia entre una matriz diagonalizable y una unitariamente diagonalizable. Usa [[1,1],[0,2]] como ejemplo y di qué familia de matrices cuánticas siempre cumple lo segundo."
+  model_answer: "Diagonalizable: A = SDS⁻¹, lo que equivale a tener d vectores propios linealmente independientes (las columnas de S). Unitariamente diagonalizable: además los vectores propios pueden elegirse ortonormales, y eso ocurre si y solo si la matriz es normal. [[1,1],[0,2]] tiene valores propios distintos 1 y 2, luego es diagonalizable, pero no es normal, así que no se puede diagonalizar con una unitaria. Las matrices hermíticas y las unitarias (observables y puertas) son normales y siempre son unitariamente diagonalizables."
+  rubric:
+    - "Define diagonalizable como A = SDS⁻¹ / d vectores propios independientes"
+    - "Define unitariamente diagonalizable como base ortonormal de vectores propios, equivalente a ser normal"
+    - "Usa [[1,1],[0,2]] como ejemplo de diagonalizable pero no unitariamente"
+    - "Nombra hermíticas y/o unitarias como normales, siempre unitariamente diagonalizables"
+
+- id: q-eigenvalues-and-eigenvectors-006
+  prompt: "Un observable es X = |+⟩⟨+| − |−⟩⟨−| y el sistema está en |0⟩. ¿Qué resultados puede dar la medida y con qué probabilidades? Calcula además el valor esperado de dos maneras y comprueba que coinciden."
+  model_answer: "Los resultados posibles son los valores propios de X: +1 (vector propio |+⟩) y −1 (vector propio |−⟩). Con la regla de Born, P(+1) = |⟨+|0⟩|² = 1/2 y P(−1) = |⟨−|0⟩|² = 1/2. Valor esperado: Σ p_i x_i = (1/2)(1) + (1/2)(−1) = 0. Por la traza: Tr(X|0⟩⟨0|) = ⟨0|X|0⟩ = 0 (X|0⟩ = |1⟩ y ⟨0|1⟩ = 0). Coinciden."
+  rubric:
+    - "Identifica los resultados como los valores propios +1 y −1"
+    - "Calcula P(+1) = P(−1) = 1/2 con la regla de Born en la base de vectores propios"
+    - "Calcula E = 0 con Σ p_i x_i"
+    - "Calcula Tr(X|0⟩⟨0|) = ⟨0|X|0⟩ = 0 y comprueba la coincidencia"
+
+- id: q-eigenvalues-and-eigenvectors-007
+  prompt: "Un sistema con hamiltoniano H = X empieza en |0⟩. Usando la descomposición espectral, halla el estado en el instante t y di qué ocurre cuando t = π/2."
+  model_answer: "X = |+⟩⟨+| − |−⟩⟨−|, así que e^{−iXt} = e^{−it}|+⟩⟨+| + e^{it}|−⟩⟨−|. Escribimos |0⟩ = (|+⟩+|−⟩)/√2; el estado es (e^{−it}|+⟩ + e^{it}|−⟩)/√2 = cos t |0⟩ − i sin t |1⟩. Cada componente propio solo gira su fase a velocidad igual a su valor propio. En t = π/2 queda −i|1⟩, que es |1⟩ salvo fase global: la evolución ha realizado un NOT."
+  rubric:
+    - "Obtiene e^{−iXt} = Σ e^{−iλ_j t}|a_j⟩⟨a_j| con λ = ±1 y vectores |±⟩"
+    - "Descompone |0⟩ en la base propia y aplica las fases"
+    - "Llega a cos t |0⟩ − i sin t |1⟩"
+    - "Concluye que en t = π/2 el estado es |1⟩ salvo fase global"
+
+- id: q-tensor-products-001
+  prompt: "¿Cuánto vale el producto de Kronecker (1, 2)ᵀ ⊗ (3, 4)ᵀ?"
+  options:
+    a: "(3, 6, 4, 8)ᵀ"
+    b: "(3, 8)ᵀ"
+    c: "(3, 4, 6, 8)ᵀ"
+    d: "(3, 4, 5, 6)ᵀ"
+  explanation: "Se lista 1 por todo (3,4) y luego 2 por (3,4): (3, 4, 6, 8). (3, 6, 4, 8) invierte el orden del producto (equivale a (3,4)⊗(1,2)); (3, 8) multiplica componente a componente, que no es el producto tensorial."
+
+- id: q-tensor-products-002
+  prompt: "¿Qué vector columna es |0⟩ ⊗ |1⟩ = |01⟩?"
+  options:
+    a: "(0, 1, 0, 0)ᵀ"
+    b: "(0, 0, 1, 0)ᵀ"
+    c: "(1, 0, 0, 1)ᵀ"
+    d: "(0, 1)ᵀ"
+  explanation: "Los pares se ordenan 00, 01, 10, 11, con el símbolo de la izquierda más significativo; |01⟩ es el segundo, (0,1,0,0)ᵀ. (0,0,1,0)ᵀ es |10⟩ (orden invertido). El vector de dos componentes ignora que el producto tiene dimensión 2·2 = 4."
+
+- id: q-tensor-products-003
+  prompt: "¿De qué tamaño (filas × columnas) es la matriz H⊗I cuando H e I son de 2×2?"
+  accepted: ["4×4", "4x4", "4 por 4", "4 × 4"]
+
+- id: q-tensor-products-004
+  prompt: "¿Cuál de estos estados de dos qubits está entrelazado?"
+  options:
+    a: "|+⟩⊗|0⟩"
+    b: "(|00⟩ + |01⟩ + |10⟩ + |11⟩)/2"
+    c: "(|00⟩ + |11⟩)/√2"
+    d: "|0⟩⊗|1⟩"
+  explanation: "(a,b)⊗(c,d) = (ac, ad, bc, bd); para (1,0,0,1)/√2 haría falta ac ≠ 0, bd ≠ 0 pero ad = bc = 0, imposible. La opción de cuatro términos iguales es tentadora, pero es |+⟩⊗|+⟩, un estado producto."
+
+- id: q-tensor-products-005
+  prompt: "Demuestra que (3/5)|00⟩ + (4/5)|11⟩ es un estado entrelazado y explica por qué el valor concreto de los coeficientes no importa."
+  model_answer: "Un estado producto (a,b)⊗(c,d) tiene entradas (ac, ad, bc, bd). Para (3/5, 0, 0, 4/5) harían falta ac = 3/5 ≠ 0 y bd = 4/5 ≠ 0, de donde a, b, c, d son todos no nulos, pero entonces ad ≠ 0, contradiciendo que la segunda entrada es 0 (y análogamente bc). Luego no es producto, es decir, está entrelazado. Solo importa que los dos coeficientes de |00⟩ y |11⟩ sean no nulos mientras los de |01⟩ y |10⟩ son nulos; los valores 3/5 y 4/5 no intervienen en la contradicción."
+  rubric:
+    - "Escribe la forma general (ac, ad, bc, bd) de un estado producto"
+    - "Deduce que ac ≠ 0 y bd ≠ 0 obligan a ad ≠ 0 (o bc ≠ 0), contradiciendo las entradas nulas"
+    - "Concluye que no es producto, luego está entrelazado"
+    - "Explica que solo importa que los coeficientes de |00⟩ y |11⟩ sean no nulos"
+
+- id: q-tensor-products-006
+  prompt: "Ejecutas en Qiskit un circuito de 2 qubits en el que solo aplicas X al qubit q0 y obtienes counts {'01': 1024}. Un compañero concluye que la X actuó sobre el segundo qubit porque la cadena es «01». ¿Tiene razón? Indica el vector de estado y cómo lo escribirías con ⊗."
+  model_answer: "No. Qiskit etiqueta los qubits como (X_{n−1},…,X_0), con el índice más alto a la izquierda: en la cadena '01' el bit de la derecha es q0 y el de la izquierda es q1. Por tanto q0 = 1 y q1 = 0, que es lo esperado tras aplicar X a q0. En esa convención el estado es |q₁⟩⊗|q₀⟩ = |0⟩⊗|1⟩ = |01⟩ = (0,1,0,0)ᵀ y la operación es I⊗X. Watrous señala que esto invierte el orden más habitual y causa confusión, por lo que hay que verificar el orden de los factores al comparar con cálculos hechos a mano."
+  rubric:
+    - "Explica que Qiskit pone q0 en la posición más a la derecha de la cadena"
+    - "Concluye que '01' significa q1 = 0 y q0 = 1, consistente con X sobre q0"
+    - "Escribe el estado como |0⟩⊗|1⟩ = (0,1,0,0)ᵀ en el orden |q₁⟩⊗|q₀⟩"
+    - "Advierte de comprobar el orden de los factores al comparar con cálculos propios"
+
+- id: q-tensor-products-007
+  prompt: "Aplicas H al primer qubit de |00⟩ y después una CNOT con control en el primer qubit (Controlada-U = |0⟩⟨0|⊗I + |1⟩⟨1|⊗U con U = X). Escribe la matriz del circuito como producto, calcula el estado final y decide si es un estado producto."
+  model_answer: "El circuito es CNOT·(H⊗I): la puerta aplicada primero (H⊗I) va a la derecha. (H⊗I)|00⟩ = (|00⟩ + |10⟩)/√2. CNOT deja |0b⟩ igual y cambia |1b⟩ en |1,b⊕1⟩, luego |10⟩ pasa a |11⟩ y el estado final es (|00⟩ + |11⟩)/√2. Es el estado entrelazado visto antes: no se puede escribir como producto porque (ac, ad, bc, bd) exigiría ad = bc = 0 con ac, bd ≠ 0."
+  rubric:
+    - "Escribe el circuito como CNOT·(H⊗I), con la primera puerta a la derecha"
+    - "Obtiene (|00⟩ + |10⟩)/√2 tras H⊗I"
+    - "Obtiene (|00⟩ + |11⟩)/√2 tras la CNOT"
+    - "Concluye que está entrelazado con el argumento de las entradas ac, ad, bc, bd"
+
+- id: q-probability-basics-001
+  prompt: "¿Cuál de estos vectores es un vector de probabilidad válido?"
+  options:
+    a: "(1/2, 1/3)"
+    b: "(3/2, −1/2)"
+    c: "(3/4, 1/4)"
+    d: "(1/√2, 1/√2)"
+  explanation: "Un vector de probabilidad tiene entradas reales no negativas que suman 1: 3/4 + 1/4 = 1. (1/√2, 1/√2) es tentador, pero es un vector de amplitudes: sus cuadrados suman 1, no sus entradas."
+
+- id: q-probability-basics-002
+  prompt: "Un qubit está en |ψ⟩ = (1+2i)/3 |0⟩ − (2/3)|1⟩. ¿Con qué probabilidad se mide 0 en la base estándar?"
+  options:
+    a: "√5/3"
+    b: "5/9"
+    c: "1/3"
+    d: "4/9"
+  explanation: "P(0) = |(1+2i)/3|² = (1+4)/9 = 5/9. √5/3 es el módulo sin elevar al cuadrado; 4/9 es la probabilidad de medir 1, y 1/3 no corresponde a ningún cálculo correcto."
+
+- id: q-probability-basics-003
+  prompt: "¿Cuánto suma cada columna de una matriz estocástica?"
+  accepted: ["1", "uno", "1.0", "1,0"]
+
+- id: q-probability-basics-004
+  prompt: "Dos bits tienen estado conjunto (p₀₀, p₀₁, p₁₀, p₁₁). ¿Cuál de estos vectores corresponde a dos bits independientes?"
+  options:
+    a: "(1/6, 1/12, 1/2, 1/4)"
+    b: "(1/2, 0, 0, 1/2)"
+    c: "(1/4, 1/4, 1/2, 0)"
+    d: "(2/5, 1/10, 1/10, 2/5)"
+  explanation: "Es el producto tensorial (1/4, 3/4)⊗(2/3, 1/3), y la independencia equivale a que el vector conjunto sea un producto. (1/2, 0, 0, 1/2) tiene bits siempre iguales (correlados) y los otros dos no se factorizan: en (1/4, 1/4, 1/2, 0) falta p₁₁ aunque p₀₁ y p₁₀ no son nulos."
+
+- id: q-probability-basics-005
+  prompt: "Explica con tus palabras por qué las amplitudes no son probabilidades y qué diferencia hay entre una matriz estocástica y una unitaria."
+  model_answer: "Una probabilidad es real y no negativa y los vectores de probabilidad suman 1; una amplitud es un número complejo (puede tener signo o fase) y los módulos al cuadrado suman 1; la probabilidad de un resultado es |α|². Las fases no cambian las probabilidades de la base estándar pero sí el estado: aplicar H y medir distingue |+⟩ de |−⟩. Una matriz estocástica lleva vectores de probabilidad a vectores de probabilidad (entradas no negativas, columnas que suman 1); una unitaria lleva vectores de amplitudes a vectores de amplitudes (conserva la norma). Solo una matriz que sea ambas cosas es de permutación."
+  rubric:
+    - "Dice que la probabilidad es |α|² y que las amplitudes son complejas, con posible signo/fase"
+    - "Explica que la fase no cambia las probabilidades pero sí el estado (ejemplo |+⟩ y |−⟩)"
+    - "Caracteriza la matriz estocástica (probabilidad → probabilidad, columnas suman 1)"
+    - "Caracteriza la unitaria (amplitudes → amplitudes, conserva la norma)"
+
+- id: q-probability-basics-006
+  prompt: "Un algoritmo cuántico da la respuesta correcta (0 o 1) con probabilidad ≥ 2/3, y quieres un error ≤ 0,01 repitiéndolo con aleatoriedad fresca y votando por mayoría. ¿Cómo lo haces y cuántas repeticiones n bastan según Chernoff–Hoeffding, si Pr[|X−μ| ≥ αn] ≤ 2e^{−2α²n}?"
+  model_answer: "Se ejecuta n veces (n impar, para evitar empates) con aleatoriedad independiente y se devuelve el valor mayoritario. Con error 1/3 por ejecución, la mayoría falla solo si el número de aciertos se desvía al menos α = 1/6 de n de su media; Chernoff da error ≤ 2e^{−2(1/6)²n} = 2e^{−n/18}. Para que sea ≤ ε = 0,01 basta n ≥ 18 ln(2/ε) = 18 ln 200 ≈ 95,4, es decir n = 97 (impar). Es una cota suficiente, no necesariamente el mínimo; n crece solo como log(1/ε)."
+  rubric:
+    - "Propone repetir con aleatoriedad fresca/independiente y votar por mayoría (n impar)"
+    - "Aplica Chernoff con α = 1/6 para obtener 2e^{−n/18}"
+    - "Despeja n ≥ 18 ln(2/ε) ≈ 95 y elige n impar (≈ 97)"
+    - "Indica que es una cota suficiente y que n crece como log(1/ε)"
+
+- id: q-probability-basics-007
+  prompt: "Un algoritmo llama en serie a T = 10 subrutinas aleatorias, cada una con probabilidad de fallo ≤ 1/30. Los fallos pueden depender unos de otros. Tu compañero multiplica (1 − 1/30)^10 suponiendo independencia. ¿Qué puedes garantizar sin esa suposición y cómo?"
+  model_answer: "Sin independencia no vale multiplicar probabilidades. Por la cota de la unión, Pr[A₁∨…∨A_T] ≤ Σ Pr[A_i] = 10·(1/30) = 1/3, de modo que la probabilidad de que ninguna falle es ≥ 2/3, aunque los fallos sean dependientes. Esa garantía encaja con la convención habitual de error ≤ 1/3 en el peor caso. Con independencia saldría un valor mayor, pero esa hipótesis no está justificada aquí."
+  rubric:
+    - "Rechaza la multiplicación porque requiere independencia"
+    - "Cita la cota de la unión Pr[∨A_i] ≤ Σ Pr[A_i]"
+    - "Calcula 10·(1/30) = 1/3 y concluye éxito ≥ 2/3"
+    - "Indica que la cota vale con fallos dependientes"
