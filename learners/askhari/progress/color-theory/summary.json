@@ -1,0 +1,942 @@
+{
+  "topic": "color-theory",
+  "learner": "askhari",
+  "updated": "2026-11-03T10:26:47",
+  "attempts": 3,
+  "totals": {
+    "new": 109,
+    "learning": 0,
+    "weak": 0,
+    "mastered": 1
+  },
+  "concepts": {
+    "light-spectrum": {
+      "domain": "light-and-vision",
+      "layers": {
+        "1": {
+          "status": "mastered",
+          "attempts": 3,
+          "recent_avg": 1.0,
+          "last_at": "2026-11-03T10:26:46"
+        },
+        "2": {
+          "status": "new",
+          "attempts": 0,
+          "recent_avg": null,
+          "last_at": null
+        },
+        "3": {
+          "status": "new",
+          "attempts": 0,
+          "recent_avg": null,
+          "last_at": null
+        }
+      }
+    },
+    "light-matter-interaction": {
+      "domain": "light-and-vision",
+      "layers": {
+        "1": {
+          "status": "new",
+          "attempts": 0,
+          "recent_avg": null,
+          "last_at": null
+        },
+        "2": {
+          "status": "new",
+          "attempts": 0,
+          "recent_avg": null,
+          "last_at": null
+        },
+        "3": {
+          "status": "new",
+          "attempts": 0,
+          "recent_avg": null,
+          "last_at": null
+        }
+      }
+    },
+    "photoreceptors": {
+      "domain": "light-and-vision",
+      "layers": {
+        "1": {
+          "status": "new",
+          "attempts": 0,
+          "recent_avg": null,
+          "last_at": null
+        },
+        "2": {
+          "status": "new",
+          "attempts": 0,
+          "recent_avg": null,
+          "last_at": null
+        },
+        "3": {
+          "status": "new",
+          "attempts": 0,
+          "recent_avg": null,
+          "last_at": null
+        }
+      }
+    },
+    "trichromacy": {
+      "domain": "light-and-vision",
+      "layers": {
+        "1": {
+          "status": "new",
+          "attempts": 0,
+          "recent_avg": null,
+          "last_at": null
+        },
+        "2": {
+          "status": "new",
+          "attempts": 0,
+          "recent_avg": null,
+          "last_at": null
+        },
+        "3": {
+          "status": "new",
+          "attempts": 0,
+          "recent_avg": null,
+          "last_at": null
+        }
+      }
+    },
+    "opponent-process": {
+      "domain": "light-and-vision",
+      "layers": {
+        "2": {
+          "status": "new",
+          "attempts": 0,
+          "recent_avg": null,
+          "last_at": null
+        },
+        "3": {
+          "status": "new",
+          "attempts": 0,
+          "recent_avg": null,
+          "last_at": null
+        }
+      }
+    },
+    "color-vision-deficiency": {
+      "domain": "light-and-vision",
+      "layers": {
+        "2": {
+          "status": "new",
+          "attempts": 0,
+          "recent_avg": null,
+          "last_at": null
+        },
+        "3": {
+          "status": "new",
+          "attempts": 0,
+          "recent_avg": null,
+          "last_at": null
+        }
+      }
+    },
+    "illuminant-color": {
+      "domain": "light-and-vision",
+      "layers": {
+        "2": {
+          "status": "new",
+          "attempts": 0,
+          "recent_avg": null,
+          "last_at": null
+        },
+        "3": {
+          "status": "new",
+          "attempts": 0,
+          "recent_avg": null,
+          "last_at": null
+        }
+      }
+    },
+    "metamerism": {
+      "domain": "light-and-vision",
+      "layers": {
+        "2": {
+          "status": "new",
+          "attempts": 0,
+          "recent_avg": null,
+          "last_at": null
+        },
+        "3": {
+          "status": "new",
+          "attempts": 0,
+          "recent_avg": null,
+          "last_at": null
+        }
+      }
+    },
+    "hue": {
+      "domain": "color-attributes",
+      "layers": {
+        "1": {
+          "status": "new",
+          "attempts": 0,
+          "recent_avg": null,
+          "last_at": null
+        },
+        "2": {
+          "status": "new",
+          "attempts": 0,
+          "recent_avg": null,
+          "last_at": null
+        },
+        "3": {
+          "status": "new",
+          "attempts": 0,
+          "recent_avg": null,
+          "last_at": null
+        }
+      }
+    },
+    "value": {
+      "domain": "color-attributes",
+      "layers": {
+        "1": {
+          "status": "new",
+          "attempts": 0,
+          "recent_avg": null,
+          "last_at": null
+        },
+        "2": {
+          "status": "new",
+          "attempts": 0,
+          "recent_avg": null,
+          "last_at": null
+        },
+        "3": {
+          "status": "new",
+          "attempts": 0,
+          "recent_avg": null,
+          "last_at": null
+        }
+      }
+    },
+    "chroma": {
+      "domain": "color-attributes",
+      "layers": {
+        "1": {
+          "status": "new",
+          "attempts": 0,
+          "recent_avg": null,
+          "last_at": null
+        },
+        "2": {
+          "status": "new",
+          "attempts": 0,
+          "recent_avg": null,
+          "last_at": null
+        },
+        "3": {
+          "status": "new",
+          "attempts": 0,
+          "recent_avg": null,
+          "last_at": null
+        }
+      }
+    },
+    "color-wheel": {
+      "domain": "color-attributes",
+      "layers": {
+        "1": {
+          "status": "new",
+          "attempts": 0,
+          "recent_avg": null,
+          "last_at": null
+        },
+        "2": {
+          "status": "new",
+          "attempts": 0,
+          "recent_avg": null,
+          "last_at": null
+        },
+        "3": {
+          "status": "new",
+          "attempts": 0,
+          "recent_avg": null,
+          "last_at": null
+        }
+      }
+    },
+    "saturation-and-colorfulness": {
+      "domain": "color-attributes",
+      "layers": {
+        "2": {
+          "status": "new",
+          "attempts": 0,
+          "recent_avg": null,
+          "last_at": null
+        },
+        "3": {
+          "status": "new",
+          "attempts": 0,
+          "recent_avg": null,
+          "last_at": null
+        }
+      }
+    },
+    "color-wheel-models": {
+      "domain": "color-attributes",
+      "layers": {
+        "2": {
+          "status": "new",
+          "attempts": 0,
+          "recent_avg": null,
+          "last_at": null
+        },
+        "3": {
+          "status": "new",
+          "attempts": 0,
+          "recent_avg": null,
+          "last_at": null
+        }
+      }
+    },
+    "munsell-system": {
+      "domain": "color-attributes",
+      "layers": {
+        "2": {
+          "status": "new",
+          "attempts": 0,
+          "recent_avg": null,
+          "last_at": null
+        },
+        "3": {
+          "status": "new",
+          "attempts": 0,
+          "recent_avg": null,
+          "last_at": null
+        }
+      }
+    },
+    "cielab-basics": {
+      "domain": "color-attributes",
+      "layers": {
+        "3": {
+          "status": "new",
+          "attempts": 0,
+          "recent_avg": null,
+          "last_at": null
+        }
+      }
+    },
+    "additive-mixing": {
+      "domain": "color-mixing",
+      "layers": {
+        "1": {
+          "status": "new",
+          "attempts": 0,
+          "recent_avg": null,
+          "last_at": null
+        },
+        "2": {
+          "status": "new",
+          "attempts": 0,
+          "recent_avg": null,
+          "last_at": null
+        },
+        "3": {
+          "status": "new",
+          "attempts": 0,
+          "recent_avg": null,
+          "last_at": null
+        }
+      }
+    },
+    "subtractive-mixing": {
+      "domain": "color-mixing",
+      "layers": {
+        "1": {
+          "status": "new",
+          "attempts": 0,
+          "recent_avg": null,
+          "last_at": null
+        },
+        "2": {
+          "status": "new",
+          "attempts": 0,
+          "recent_avg": null,
+          "last_at": null
+        },
+        "3": {
+          "status": "new",
+          "attempts": 0,
+          "recent_avg": null,
+          "last_at": null
+        }
+      }
+    },
+    "complementary-colors": {
+      "domain": "color-mixing",
+      "layers": {
+        "1": {
+          "status": "new",
+          "attempts": 0,
+          "recent_avg": null,
+          "last_at": null
+        },
+        "2": {
+          "status": "new",
+          "attempts": 0,
+          "recent_avg": null,
+          "last_at": null
+        },
+        "3": {
+          "status": "new",
+          "attempts": 0,
+          "recent_avg": null,
+          "last_at": null
+        }
+      }
+    },
+    "tints-shades-tones": {
+      "domain": "color-mixing",
+      "layers": {
+        "1": {
+          "status": "new",
+          "attempts": 0,
+          "recent_avg": null,
+          "last_at": null
+        },
+        "2": {
+          "status": "new",
+          "attempts": 0,
+          "recent_avg": null,
+          "last_at": null
+        },
+        "3": {
+          "status": "new",
+          "attempts": 0,
+          "recent_avg": null,
+          "last_at": null
+        }
+      }
+    },
+    "primary-colors": {
+      "domain": "color-mixing",
+      "layers": {
+        "2": {
+          "status": "new",
+          "attempts": 0,
+          "recent_avg": null,
+          "last_at": null
+        },
+        "3": {
+          "status": "new",
+          "attempts": 0,
+          "recent_avg": null,
+          "last_at": null
+        }
+      }
+    },
+    "pigment-mixing-behavior": {
+      "domain": "color-mixing",
+      "layers": {
+        "2": {
+          "status": "new",
+          "attempts": 0,
+          "recent_avg": null,
+          "last_at": null
+        },
+        "3": {
+          "status": "new",
+          "attempts": 0,
+          "recent_avg": null,
+          "last_at": null
+        }
+      }
+    },
+    "optical-mixing": {
+      "domain": "color-mixing",
+      "layers": {
+        "2": {
+          "status": "new",
+          "attempts": 0,
+          "recent_avg": null,
+          "last_at": null
+        },
+        "3": {
+          "status": "new",
+          "attempts": 0,
+          "recent_avg": null,
+          "last_at": null
+        }
+      }
+    },
+    "target-color-mixing": {
+      "domain": "color-mixing",
+      "layers": {
+        "3": {
+          "status": "new",
+          "attempts": 0,
+          "recent_avg": null,
+          "last_at": null
+        }
+      }
+    },
+    "paint-composition": {
+      "domain": "paints-and-pigments",
+      "layers": {
+        "1": {
+          "status": "new",
+          "attempts": 0,
+          "recent_avg": null,
+          "last_at": null
+        },
+        "2": {
+          "status": "new",
+          "attempts": 0,
+          "recent_avg": null,
+          "last_at": null
+        },
+        "3": {
+          "status": "new",
+          "attempts": 0,
+          "recent_avg": null,
+          "last_at": null
+        }
+      }
+    },
+    "colour-index-names": {
+      "domain": "paints-and-pigments",
+      "layers": {
+        "1": {
+          "status": "new",
+          "attempts": 0,
+          "recent_avg": null,
+          "last_at": null
+        },
+        "2": {
+          "status": "new",
+          "attempts": 0,
+          "recent_avg": null,
+          "last_at": null
+        },
+        "3": {
+          "status": "new",
+          "attempts": 0,
+          "recent_avg": null,
+          "last_at": null
+        }
+      }
+    },
+    "transparency-opacity": {
+      "domain": "paints-and-pigments",
+      "layers": {
+        "1": {
+          "status": "new",
+          "attempts": 0,
+          "recent_avg": null,
+          "last_at": null
+        },
+        "2": {
+          "status": "new",
+          "attempts": 0,
+          "recent_avg": null,
+          "last_at": null
+        },
+        "3": {
+          "status": "new",
+          "attempts": 0,
+          "recent_avg": null,
+          "last_at": null
+        }
+      }
+    },
+    "tinting-strength": {
+      "domain": "paints-and-pigments",
+      "layers": {
+        "2": {
+          "status": "new",
+          "attempts": 0,
+          "recent_avg": null,
+          "last_at": null
+        },
+        "3": {
+          "status": "new",
+          "attempts": 0,
+          "recent_avg": null,
+          "last_at": null
+        }
+      }
+    },
+    "masstone-undertone": {
+      "domain": "paints-and-pigments",
+      "layers": {
+        "2": {
+          "status": "new",
+          "attempts": 0,
+          "recent_avg": null,
+          "last_at": null
+        },
+        "3": {
+          "status": "new",
+          "attempts": 0,
+          "recent_avg": null,
+          "last_at": null
+        }
+      }
+    },
+    "lightfastness": {
+      "domain": "paints-and-pigments",
+      "layers": {
+        "2": {
+          "status": "new",
+          "attempts": 0,
+          "recent_avg": null,
+          "last_at": null
+        },
+        "3": {
+          "status": "new",
+          "attempts": 0,
+          "recent_avg": null,
+          "last_at": null
+        }
+      }
+    },
+    "limited-palette": {
+      "domain": "paints-and-pigments",
+      "layers": {
+        "3": {
+          "status": "new",
+          "attempts": 0,
+          "recent_avg": null,
+          "last_at": null
+        }
+      }
+    },
+    "simultaneous-contrast": {
+      "domain": "color-interaction",
+      "layers": {
+        "1": {
+          "status": "new",
+          "attempts": 0,
+          "recent_avg": null,
+          "last_at": null
+        },
+        "2": {
+          "status": "new",
+          "attempts": 0,
+          "recent_avg": null,
+          "last_at": null
+        },
+        "3": {
+          "status": "new",
+          "attempts": 0,
+          "recent_avg": null,
+          "last_at": null
+        }
+      }
+    },
+    "afterimages": {
+      "domain": "color-interaction",
+      "layers": {
+        "2": {
+          "status": "new",
+          "attempts": 0,
+          "recent_avg": null,
+          "last_at": null
+        },
+        "3": {
+          "status": "new",
+          "attempts": 0,
+          "recent_avg": null,
+          "last_at": null
+        }
+      }
+    },
+    "color-constancy": {
+      "domain": "color-interaction",
+      "layers": {
+        "2": {
+          "status": "new",
+          "attempts": 0,
+          "recent_avg": null,
+          "last_at": null
+        },
+        "3": {
+          "status": "new",
+          "attempts": 0,
+          "recent_avg": null,
+          "last_at": null
+        }
+      }
+    },
+    "assimilation": {
+      "domain": "color-interaction",
+      "layers": {
+        "2": {
+          "status": "new",
+          "attempts": 0,
+          "recent_avg": null,
+          "last_at": null
+        },
+        "3": {
+          "status": "new",
+          "attempts": 0,
+          "recent_avg": null,
+          "last_at": null
+        }
+      }
+    },
+    "color-categories": {
+      "domain": "color-interaction",
+      "layers": {
+        "2": {
+          "status": "new",
+          "attempts": 0,
+          "recent_avg": null,
+          "last_at": null
+        },
+        "3": {
+          "status": "new",
+          "attempts": 0,
+          "recent_avg": null,
+          "last_at": null
+        }
+      }
+    },
+    "equiluminance": {
+      "domain": "color-interaction",
+      "layers": {
+        "3": {
+          "status": "new",
+          "attempts": 0,
+          "recent_avg": null,
+          "last_at": null
+        }
+      }
+    },
+    "color-schemes": {
+      "domain": "color-harmony",
+      "layers": {
+        "1": {
+          "status": "new",
+          "attempts": 0,
+          "recent_avg": null,
+          "last_at": null
+        },
+        "2": {
+          "status": "new",
+          "attempts": 0,
+          "recent_avg": null,
+          "last_at": null
+        },
+        "3": {
+          "status": "new",
+          "attempts": 0,
+          "recent_avg": null,
+          "last_at": null
+        }
+      }
+    },
+    "color-temperature": {
+      "domain": "color-harmony",
+      "layers": {
+        "1": {
+          "status": "new",
+          "attempts": 0,
+          "recent_avg": null,
+          "last_at": null
+        },
+        "2": {
+          "status": "new",
+          "attempts": 0,
+          "recent_avg": null,
+          "last_at": null
+        },
+        "3": {
+          "status": "new",
+          "attempts": 0,
+          "recent_avg": null,
+          "last_at": null
+        }
+      }
+    },
+    "value-structure": {
+      "domain": "color-harmony",
+      "layers": {
+        "2": {
+          "status": "new",
+          "attempts": 0,
+          "recent_avg": null,
+          "last_at": null
+        },
+        "3": {
+          "status": "new",
+          "attempts": 0,
+          "recent_avg": null,
+          "last_at": null
+        }
+      }
+    },
+    "dominance-and-accent": {
+      "domain": "color-harmony",
+      "layers": {
+        "2": {
+          "status": "new",
+          "attempts": 0,
+          "recent_avg": null,
+          "last_at": null
+        },
+        "3": {
+          "status": "new",
+          "attempts": 0,
+          "recent_avg": null,
+          "last_at": null
+        }
+      }
+    },
+    "color-meaning": {
+      "domain": "color-harmony",
+      "layers": {
+        "2": {
+          "status": "new",
+          "attempts": 0,
+          "recent_avg": null,
+          "last_at": null
+        },
+        "3": {
+          "status": "new",
+          "attempts": 0,
+          "recent_avg": null,
+          "last_at": null
+        }
+      }
+    },
+    "harmony-research": {
+      "domain": "color-harmony",
+      "layers": {
+        "3": {
+          "status": "new",
+          "attempts": 0,
+          "recent_avg": null,
+          "last_at": null
+        }
+      }
+    },
+    "local-vs-perceived-color": {
+      "domain": "color-in-painting",
+      "layers": {
+        "1": {
+          "status": "new",
+          "attempts": 0,
+          "recent_avg": null,
+          "last_at": null
+        },
+        "2": {
+          "status": "new",
+          "attempts": 0,
+          "recent_avg": null,
+          "last_at": null
+        },
+        "3": {
+          "status": "new",
+          "attempts": 0,
+          "recent_avg": null,
+          "last_at": null
+        }
+      }
+    },
+    "light-and-shadow-color": {
+      "domain": "color-in-painting",
+      "layers": {
+        "2": {
+          "status": "new",
+          "attempts": 0,
+          "recent_avg": null,
+          "last_at": null
+        },
+        "3": {
+          "status": "new",
+          "attempts": 0,
+          "recent_avg": null,
+          "last_at": null
+        }
+      }
+    },
+    "atmospheric-perspective": {
+      "domain": "color-in-painting",
+      "layers": {
+        "2": {
+          "status": "new",
+          "attempts": 0,
+          "recent_avg": null,
+          "last_at": null
+        },
+        "3": {
+          "status": "new",
+          "attempts": 0,
+          "recent_avg": null,
+          "last_at": null
+        }
+      }
+    },
+    "colored-light-unity": {
+      "domain": "color-in-painting",
+      "layers": {
+        "2": {
+          "status": "new",
+          "attempts": 0,
+          "recent_avg": null,
+          "last_at": null
+        },
+        "3": {
+          "status": "new",
+          "attempts": 0,
+          "recent_avg": null,
+          "last_at": null
+        }
+      }
+    },
+    "gamut-planning": {
+      "domain": "color-in-painting",
+      "layers": {
+        "3": {
+          "status": "new",
+          "attempts": 0,
+          "recent_avg": null,
+          "last_at": null
+        }
+      }
+    },
+    "judging-color": {
+      "domain": "color-in-painting",
+      "layers": {
+        "3": {
+          "status": "new",
+          "attempts": 0,
+          "recent_avg": null,
+          "last_at": null
+        }
+      }
+    }
+  },
+  "questions": {
+    "q-light-spectrum-001": {
+      "streak": 1,
+      "attempts": 1,
+      "last_at": "2026-11-03T10:24:20",
+      "last_score": 1.0,
+      "due": "2026-11-04T10:24:20"
+    },
+    "q-light-spectrum-002": {
+      "streak": 1,
+      "attempts": 1,
+      "last_at": "2026-11-03T10:25:57",
+      "last_score": 1.0,
+      "due": "2026-11-04T10:25:57"
+    },
+    "q-light-spectrum-003": {
+      "streak": 1,
+      "attempts": 1,
+      "last_at": "2026-11-03T10:26:46",
+      "last_score": 1.0,
+      "due": "2026-11-04T10:26:46"
+    }
+  }
+}
