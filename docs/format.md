@@ -309,4 +309,17 @@ En cada examen se priorizan las preguntas falladas y los conceptos que llevan m�
 
 ## Exportación a Anki
 
-Un script en `tools/` une la parte común y la de idioma de las preguntas y genera un mazo por tema, con subetiquetas por ámbito, capa y concepto. Las preguntas `open` y `case` salen como tarjetas con su respuesta modelo.
+`tools/export_anki.py` une la parte común y la de idioma de las preguntas y genera un mazo `.apkg` por tema e idioma, importable en Anki de escritorio, AnkiWeb y AnkiMobile.
+
+```bash
+uv run tools/export_anki.py color-theory                 # → exports/anki/color-theory.es.apkg
+uv run tools/export_anki.py color-theory --lang es --types single-choice,short-answer --out mazo.apkg
+```
+
+- **Solo lee `topics/`:** el mazo no lleva progreso ni nada de `learners/`. `exports/` no se versiona (se regenera).
+- **Barajas:** `<título del tema>::<n> <ámbito>`, una subbaraja por ámbito en orden de estudio.
+- **Etiquetas jerárquicas** con ids: `sage::<topic>::domain::<id>`, `::layer::<n>`, `::concept::<id>`, `::type::<tipo>`, `::source::<id>`. La capa se filtra por etiqueta.
+- **Tarjetas** (un único tipo de nota): `single-choice` muestra las opciones en su orden y, detrás, la correcta y la explicación; `short-answer`, la respuesta principal y las demás aceptadas; `open` y `case`, la respuesta modelo y la rúbrica como lista para autoevaluarse. Al pie, el nombre del concepto, el ámbito, la capa, el id de la pregunta y las fuentes (autores, año, título y URL, o ISBN/DOI).
+- **IDs estables:** el GUID de cada nota sale de `(topic, lang, id de pregunta)` y los ids del tipo de nota y de las barajas, de un hash del tema, idioma y ámbito. Reimportar un mazo regenerado actualiza las notas en vez de duplicarlas. No se deben renombrar los ids de pregunta ni cambiar los campos del tipo de nota.
+- **Enlace con el progreso:** el primer campo de la nota es `QuestionId`; servirá para importar los resultados de Anki a `attempts.jsonl` con `mode: anki` (hoja de ruta).
+- Los textos de las tarjetas (p. ej. «Comprueba que tu respuesta:») están en `LABELS` dentro del script; un idioma nuevo necesita su entrada.
