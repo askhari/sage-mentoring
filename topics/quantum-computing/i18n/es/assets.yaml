@@ -9,3 +9,15 @@
 - id: kronecker-layout
   alt: "Izquierda: una matriz de 4×4 dividida en cuatro bloques de colores de 2×2; el bloque de la fila i y la columna j contiene a_ij multiplicado por cada entrada de B. Derecha: un vector de cuatro entradas en dos bloques; el primero contiene α₁·β₁ y α₁·β₂, y el segundo α₂·β₁ y α₂·β₂, rotulados a la derecha como |00⟩, |01⟩, |10⟩ y |11⟩."
   caption: "El producto de Kronecker coloca una copia de B (o de β) por cada entrada de A (o de α). En los vectores, las entradas quedan en el orden 00, 01, 10, 11, que es el de los estados de base de dos qubits. Diagrama propio."
+
+- id: mach-zehnder-amplitudes
+  alt: "Esquema de un interferómetro de Mach-Zehnder. Un fotón entra por la izquierda con amplitudes (1, 0) en el divisor 1, que lo reparte en una rama superior y una inferior con amplitudes (1/√2, 1/√2). Dos espejos llevan las ramas al divisor 2; en la rama inferior hay un desfasador δ. Con δ = 0 la salida es (1, 0): el detector D0 recibe el fotón con probabilidad 1 y D1 con probabilidad 0. Al pie: con desfase δ, P(D0) = cos²(δ/2) y P(D1) = sen²(δ/2)."
+  caption: "Un fotón que interfiere consigo mismo. Los divisores se modelan como la matriz de Hadamard y el desfasador como diag(1, e^(iδ)); las amplitudes y las probabilidades están calculadas, no dibujadas a ojo. Diagrama propio."
+
+- id: stern-gerlach-zxz
+  alt: "Tres cajas de Stern-Gerlach en serie, z, x y z. De la primera sale un 50 % con + y un 50 % con −, que se bloquea. La segunda, orientada en x, separa el haz en 50 % + (bloqueado) y 50 % −. La tercera, otra vez en z, vuelve a separar 50 % + y 50 % −. Una nota indica que los porcentajes son del haz que entra en cada caja."
+  caption: "Medir x borra el resultado de la medida z anterior: los átomos que salen de la caja x vuelven a repartirse a partes iguales en z. Diagrama propio; los porcentajes salen de la regla de Born con |z;+⟩ = (|x;+⟩ + |x;−⟩)/√2."
+
+- id: dephasing-bloch-density
+  alt: "Izquierda: la matriz densidad de |+⟩ para Γt = 0, 1 y 3. Las entradas diagonales valen siempre 0,50 (en azul) y las de fuera de la diagonal bajan de 0,50 a 0,18 y a 0,02 (en naranja, cada vez más claro). Derecha: corte x–z de la bola de Bloch. El círculo exterior se convierte en elipses cada vez más estrechas alrededor del eje z, y el punto del estado se desplaza desde el borde del eje x hacia el centro."
+  caption: "Con el desfase (dephasing), las poblaciones no cambian y las coherencias decaen como e^(−Γt). En la esfera de Bloch, las componentes x e y se encogen y la bola se aplasta hacia el eje z. Diagrama propio, valores calculados."

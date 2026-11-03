@@ -18,3 +18,24 @@
   generator: diagrams/src/kronecker_layout.py
   license: CC-BY-4.0
   concepts: [tensor-products]
+
+- id: mach-zehnder-amplitudes
+  file: diagrams/mach-zehnder-amplitudes.{lang}.svg
+  origin: own
+  generator: diagrams/src/mach_zehnder_amplitudes.py
+  license: CC-BY-4.0
+  concepts: [superposition-principle]
+
+- id: stern-gerlach-zxz
+  file: diagrams/stern-gerlach-zxz.{lang}.svg
+  origin: own
+  generator: diagrams/src/stern_gerlach_zxz.py
+  license: CC-BY-4.0
+  concepts: [two-level-systems, superposition-principle]
+
+- id: dephasing-bloch-density
+  file: diagrams/dephasing-bloch-density.{lang}.svg
+  origin: own
+  generator: diagrams/src/dephasing_bloch_density.py
+  license: CC-BY-4.0
+  concepts: [decoherence, density-matrices]

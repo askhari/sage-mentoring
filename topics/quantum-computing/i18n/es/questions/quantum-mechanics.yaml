@@ -1,0 +1,662 @@
+- id: q-quantization-and-wave-particle-001
+  prompt: "En el efecto fotoeléctrico, si se aumenta la intensidad de la luz manteniendo su frecuencia por encima del umbral, ¿qué ocurre?"
+  options:
+    a: "Cada electrón sale con más energía, porque la onda luminosa es más intensa"
+    b: "No cambia nada, porque la corriente solo depende del material"
+    c: "Empieza a salir corriente aunque la frecuencia esté por debajo del umbral"
+    d: "Salen más electrones por segundo (más corriente), pero la energía de cada electrón no cambia"
+  explanation: "Más intensidad significa más fotones por segundo, no fotones más energéticos: la corriente crece, pero la energía de los electrones no depende de la intensidad. La opción de que cada electrón gane energía es la predicción de la imagen ondulatoria clásica, que es justo la que el experimento contradice."
+
+- id: q-quantization-and-wave-particle-002
+  prompt: "Según De Broglie, ¿cómo se relaciona la longitud de onda λ de una partícula con su impulso p?"
+  options:
+    a: "λ = h·p: cuanto mayor es el impulso, mayor es la longitud de onda"
+    b: "λ = h/p: cuanto mayor es el impulso, menor es la longitud de onda"
+    c: "λ no depende del impulso, solo de la carga de la partícula"
+    d: "λ = h/p solo vale para fotones; la materia no tiene longitud de onda"
+  explanation: "De Broglie propuso λ = h/p para toda partícula, y se ha confirmado con difracción de electrones e interferencia de moléculas. Es la misma relación p = h/λ que se usa para el fotón, vista desde la materia. Limitarla a los fotones ignora los experimentos de Davisson-Germer y de doble rendija con electrones."
+
+- id: q-quantization-and-wave-particle-003
+  prompt: "¿Cómo se llama el paquete indivisible de energía de la luz que Einstein propuso para explicar el efecto fotoeléctrico?"
+  accepted: ["fotón", "fotones", "photon", "photons", "cuanto de luz", "quantum of light", "cuanto"]
+
+- id: q-quantization-and-wave-particle-004
+  prompt: "En un experimento de doble rendija con electrones enviados de uno en uno, ¿qué se observa?"
+  options:
+    a: "Cada electrón llega a un punto concreto y, al acumularse muchos, aparecen poco a poco las franjas de interferencia"
+    b: "Cada electrón deja por sí solo una franja de interferencia completa en la pantalla"
+    c: "Al pasar de uno en uno no hay interferencia: solo dos manchas, una tras cada rendija"
+    d: "Los electrones llegan a puntos al azar y nunca se forma ningún patrón"
+  explanation: "Los impactos individuales son puntuales, pero su distribución estadística construye el patrón de interferencia aunque no coincidan en el tiempo. Una franja completa por electrón confunde la onda con una distribución de energía; dos manchas serían lo esperable de bolitas clásicas."
+
+- id: q-quantization-and-wave-particle-005
+  prompt: "¿Por qué no se nota la naturaleza ondulatoria de una pelota de baloncesto lanzada a 10 m/s?"
+  options:
+    a: "La mecánica cuántica deja de ser válida por encima de cierto tamaño, y la pelota lo supera"
+    b: "Los objetos macroscópicos tienen impulso nulo en promedio, y sin impulso no hay onda"
+    c: "Su longitud de onda de De Broglie (del orden de 10⁻³⁴ m) es muchísimo menor que cualquier obstáculo, así que los efectos ondulatorios son despreciables"
+    d: "En objetos grandes la constante h es nula, de modo que λ = h/p desaparece"
+  explanation: "Los efectos ondulatorios se notan cuando λ es comparable al obstáculo (cuando x·p no es mucho mayor que h). Para la pelota λ ≈ 10⁻³⁴ m, indetectable. No es que la teoría falle ni que h cambie: h es una constante universal y es el valor enorme del impulso lo que hace λ diminuta."
+
+- id: q-quantization-and-wave-particle-006
+  prompt: "Explica con tus palabras por qué el efecto fotoeléctrico (frecuencia umbral y energía de los electrones independiente de la intensidad) contradice la imagen ondulatoria clásica de la luz y cómo lo resuelve la hipótesis del fotón."
+  model_answer: "En la imagen clásica, una onda más intensa transporta más energía, de modo que debería arrancar electrones más energéticos y acabar arrancándolos a cualquier frecuencia. Se observa lo contrario: por debajo de una frecuencia umbral no sale corriente, y por encima la energía de los electrones no depende de la intensidad, solo de la frecuencia. Einstein lo explicó con cuantos de energía hν: la energía de cada fotón depende solo del color, y más intensidad significa más fotones por segundo, es decir, más corriente pero electrones con la misma energía. La energía máxima crece linealmente con la frecuencia, K_max = hf − φ, y Millikan lo confirmó en 1915."
+  rubric:
+    - "Indica que la energía de los electrones no depende de la intensidad y que existe una frecuencia umbral"
+    - "Explica que la imagen ondulatoria clásica predeciría lo contrario (más intensidad, electrones más energéticos)"
+    - "Explica que cada fotón lleva una energía hν que depende solo de la frecuencia"
+    - "Relaciona la intensidad con el número de fotones por segundo y por tanto con la corriente, no con la energía de cada electrón"
+
+- id: q-quantization-and-wave-particle-007
+  prompt: "Estás decidiendo qué sistemas de una lista necesitan un tratamiento cuántico: (a) una pelota de 0,65 kg a 10 m/s, (b) un electrón de 1 eV que atraviesa una rendija de unos nanómetros, (c) una molécula grande como el C₆₀ ante una red de difracción. Aplica un criterio de orden de magnitud y justifica cada decisión."
+  model_answer: "El criterio es comparar la longitud de onda de De Broglie, λ = h/p, con la escala del obstáculo: si λ es mucho menor, los efectos ondulatorios son despreciables; si es comparable, hace falta la mecánica cuántica. (a) La pelota tiene λ ≈ 10⁻³⁴ m, indetectable: basta la física clásica. (b) El electrón de 1 eV tiene λ ≈ 1,23 nm, comparable a la rendija: es imprescindible un tratamiento cuántico (difracción e interferencia). (c) Se ha observado interferencia con C₆₀ y con moléculas de cientos de átomos, así que la naturaleza ondulatoria no se limita a partículas elementales y un objeto grande no queda excluido por serlo; lo decide λ frente al obstáculo."
+  rubric:
+    - "Propone comparar λ = h/p con la escala del obstáculo (o x·p con h)"
+    - "Descarta la pelota por tener λ ≈ 10⁻³⁴ m, despreciable"
+    - "Concluye que el electrón de 1 eV (λ ≈ 1 nm) necesita tratamiento cuántico"
+    - "Menciona que se ha observado interferencia con C₆₀ o moléculas grandes, por lo que no basta decir que lo cuántico es solo para partículas elementales"
+
+- id: q-quantization-and-wave-particle-008
+  prompt: "Un compañero propone usar un divisor de haz para 'partir un fotón por la mitad' y tener así dos medios fotones, cada uno con la mitad de la energía, para un esquema con qubits ópticos. ¿Qué le respondes? Justifica con la física del fotón y di cómo se interpreta entonces lo que hace el divisor."
+  model_answer: "Un fotón es un paquete indivisible de energía e impulso, con E = hν que depende solo de su color: un 'medio fotón' tendría otra frecuencia, así que no existe. Cada fotón se absorbe o se transmite entero. Por eso el divisor no reparte la energía de un fotón: lo deja en una superposición de las dos ramas, con amplitudes complejas, y al detectarlo aparece entero en una de ellas con una probabilidad dada por el módulo al cuadrado de la amplitud. Lo que se reparte, de manera clásica, es la intensidad de un haz con muchísimos fotones (un campo clásico), no un fotón individual."
+  rubric:
+    - "Afirma que un fotón es indivisible y se absorbe o se transmite entero"
+    - "Justifica que un fotón fraccionario tendría otra frecuencia, pues E = hν depende solo del color"
+    - "Interpreta el divisor como creación de una superposición de ramas con probabilidades, no como un reparto de energía de un fotón"
+    - "Distingue ese caso del haz clásico intenso, formado por muchos fotones"
+
+- id: q-superposition-principle-001
+  prompt: "Un sistema puede estar en un estado A que siempre da el valor a al medirlo, o en un estado B que siempre da b. Si está en una superposición de A y B, ¿qué da la medida?"
+  options:
+    a: "Un valor intermedio entre a y b, ponderado por los coeficientes"
+    b: "El valor a o el valor b, nunca un valor intermedio; los coeficientes fijan las probabilidades"
+    c: "Siempre a y b a la vez, que el aparato muestra como un par de números"
+    d: "Siempre el valor del estado con el coeficiente de mayor módulo"
+  explanation: "Al medir se obtiene a o b; el peso de cada uno lo da el módulo al cuadrado de su amplitud, de modo que el resultado más probable no es el único posible. Un valor intermedio sería el promedio, que es el valor esperado y no un resultado de una sola medida."
+
+- id: q-superposition-principle-002
+  prompt: "¿Qué propiedad de la ecuación de Schrödinger garantiza que, si Ψ₁ y Ψ₂ son soluciones, también lo sea αΨ₁ + βΨ₂ para α y β complejos?"
+  options:
+    a: "Es de primer orden en el tiempo"
+    b: "Su operador de energía es hermítico"
+    c: "Es lineal"
+    d: "Es una ecuación de ondas como la de Maxwell, y toda ecuación de ondas admite sumas"
+  explanation: "La linealidad es lo que hace válidas las combinaciones de soluciones. Que sea de primer orden o que H sea hermítico son propiedades reales pero distintas (ligadas a la unicidad de la evolución y a la conservación de la probabilidad). Y no toda ecuación de ondas o de movimiento es lineal: las de Newton y la relatividad general no lo son."
+
+- id: q-superposition-principle-003
+  prompt: "¿Qué tipo de números son los coeficientes (amplitudes) de una superposición cuántica?"
+  accepted: ["complejos", "números complejos", "complex", "complex numbers", "amplitudes complejas"]
+
+- id: q-superposition-principle-004
+  prompt: "En un interferómetro de Mach-Zehnder con dos divisores de haz, un fotón llega a D0 con probabilidad 1 y a D1 con probabilidad 0. Si se bloquea una de las dos ramas, ¿cuál es la probabilidad de que llegue a D1?"
+  options:
+    a: "0: sin una rama el fotón solo puede ir por la otra y acaba en D0"
+    b: "1/2: cada rama aporta la mitad y el bloqueo solo elimina una"
+    c: "1: el bloqueo anula la interferencia y el fotón sale siempre por D1"
+    d: "1/4: quitar un camino aumenta la probabilidad de D1 respecto de 0"
+  explanation: "Con el bloqueo, 1/2 de los fotones se absorbe, 1/4 acaba en D0 y 1/4 en D1: ya no hay interferencia destructiva en D1. Pensar que solo queda un camino y por tanto 'todo va a D0' es razonar con probabilidades clásicas de camino; lo que ocurre es que la presencia de la segunda rama era la que anulaba D1."
+
+- id: q-superposition-principle-005
+  prompt: "Un haz de átomos está preparado en (|↑z⟩ + |↓z⟩)/√2 y otro en una mezcla estadística 50/50 de |↑z⟩ y |↓z⟩. ¿Cómo se diferencian al medir?"
+  options:
+    a: "Medidos en z dan lo mismo (50/50), pero en x la superposición da siempre «arriba» y la mezcla vuelve a dar 50/50"
+    b: "Se distinguen ya en z: la superposición da siempre «arriba» y la mezcla da 50/50"
+    c: "No se pueden distinguir con ninguna medida, porque ambos son «mitad y mitad»"
+    d: "En x la superposición da 50/50 y la mezcla da siempre «arriba»"
+  explanation: "Las dos preparaciones coinciden en las estadísticas de z, pero la superposición tiene una fase relativa definida y por eso es un estado propio de S_x. La mezcla no tiene fase relativa y da 50/50 en cualquier eje. Decir que no se distinguen confunde 'mismas estadísticas en z' con 'mismo estado'."
+
+- id: q-superposition-principle-006
+  prompt: "Explica con tus palabras por qué |x;+⟩ y |x;−⟩ son estados distintos aunque solo difieran en un signo, y qué diferencia hay entre ese signo y un factor global."
+  model_answer: "|x;±⟩ = (|z;+⟩ ± |z;−⟩)/√2. En la base z, ambos dan probabilidad 1/2 para cada resultado, pero el signo es una fase relativa entre las dos componentes y hace que |x;−⟩ sea ortogonal a |x;+⟩: son estados distinguibles con certeza midiendo S_x. En cambio, multiplicar todo el vector por un número complejo no nulo (una fase global) no cambia la física. Lo que importa para la interferencia es la fase relativa entre los términos de la superposición."
+  rubric:
+    - "Escribe o describe |x;±⟩ como superposiciones con amplitudes 1/√2 y signo relativo ± entre ellas"
+    - "Indica que el signo relativo hace que |x;−⟩ sea ortogonal a |x;+⟩ (distinguibles con certeza al medir S_x)"
+    - "Afirma que un factor global no nulo no cambia el estado físico"
+    - "Concluye que la fase relativa sí importa (es lo que controla la interferencia)"
+
+- id: q-superposition-principle-007
+  prompt: "Programas una simulación de un interferómetro de Mach-Zehnder. Tu código calcula, para cada detector, la suma de las probabilidades de cada camino (1/2·1/2 + 1/2·1/2 = 1/2). Con ambas ramas abiertas obtienes 1/2 en D0 y 1/2 en D1, pero el experimento da D0 = 1 y D1 = 0. ¿Cuál es el error y cómo lo corriges? Indica además qué predice el modelo correcto al bloquear una rama."
+  model_answer: "El código trata el fotón como una partícula que elige una rama al azar, es decir, una mezcla clásica. En cuántica hay que sumar las amplitudes (con sus fases) de los caminos que llevan al mismo detector y solo después elevar al cuadrado: en D1 las amplitudes de las dos ramas son opuestas y se cancelan (interferencia destructiva), y en D0 se suman. Se corrige representando el estado como un vector de dos amplitudes y aplicando como matrices 2×2 los divisores de haz (tipo Hadamard) y el desfasador. Con el modelo correcto, al bloquear una rama se pierde esa cancelación: 1/2 se absorbe en el bloqueo, 1/4 llega a D0 y 1/4 a D1."
+  rubric:
+    - "Identifica que sumar probabilidades por camino es el error (modelo de mezcla clásica)"
+    - "Indica que hay que sumar amplitudes antes de elevar al cuadrado, con interferencia destructiva en D1"
+    - "Propone una representación con vector de amplitudes y matrices 2×2 para divisor de haz y desfasador"
+    - "Predice con bloqueo: 1/2 absorbido, 1/4 en D0 y 1/4 en D1"
+
+- id: q-superposition-principle-008
+  prompt: "Te dan una caja con un fotón que puede tener en una rama de un Mach-Zehnder un detector-disparador de una bomba. La bomba puede estar defectuosa (el detector no actúa) o ser funcional. Solo puedes enviar fotones por el interferómetro. Describe qué resultados espera cada caso y cómo concluirías que la bomba es funcional sin que el fotón la haya 'tocado'."
+  model_answer: "Con la bomba defectuosa no hay bloqueo efectivo: la interferencia se mantiene y todos los fotones acaban en D0. Con la bomba funcional, la rama actúa como bloqueo: explota con probabilidad 1/2, y en los demás casos el fotón llega a D0 con 1/4 o a D1 con 1/4. Un clic en D1 es imposible si la bomba es defectuosa (probabilidad 0), de modo que certifica que es funcional, y lo hace sin explosión: la mera posibilidad de que el fotón hubiera ido por la rama con la bomba destruyó la interferencia destructiva en D1. La conclusión es que una rama bloqueable altera el resultado en otra rama."
+  rubric:
+    - "Con bomba defectuosa: todos los fotones en D0 (interferencia intacta)"
+    - "Con bomba funcional: explosión 1/2, D0 1/4, D1 1/4"
+    - "Concluye que un clic en D1 solo es posible con bomba funcional y por tanto la certifica"
+    - "Explica que la posibilidad de la rama bloqueada rompe la interferencia, aunque el fotón no pase por ella"
+
+- id: q-state-vector-postulate-001
+  prompt: "Según el primer postulado, ¿cómo se describe el estado de un sistema cuántico aislado?"
+  options:
+    a: "Con una lista de los valores que tomarían todos sus observables"
+    b: "Con un vector de un espacio vectorial complejo con producto interior (un espacio de Hilbert)"
+    c: "Con un vector real de probabilidades que suman 1"
+    d: "Con una función real de la posición y del tiempo"
+  explanation: "El estado es un vector de un espacio de Hilbert complejo; los estados se suman y se multiplican por números complejos, justo lo que define un espacio vectorial complejo. Un vector real de probabilidades describe un bit clásico aleatorio, y la ecuación de Schrödinger no admite soluciones reales."
+
+- id: q-state-vector-postulate-002
+  prompt: "El estado de un espín 1/2 es |Ψ⟩ = c₁|z;+⟩ + c₂|z;−⟩, con c₁ y c₂ complejos. ¿Qué condición de normalización deben cumplir?"
+  options:
+    a: "|c₁|² + |c₂|² = 1"
+    b: "|c₁| + |c₂| = 1"
+    c: "c₁ + c₂ = 1"
+    d: "|c₁|² − |c₂|² = 1"
+  explanation: "El producto interior da ⟨Ψ|Ψ⟩ = |c₁|² + |c₂|², y el estado debe tener norma 1 para que las probabilidades de los resultados sumen 1. Sumar los módulos sin elevar al cuadrado sería la confusión entre amplitud y probabilidad."
+
+- id: q-state-vector-postulate-003
+  prompt: "¿Cómo se llama el espacio vectorial complejo con producto interior en el que viven los estados cuánticos?"
+  accepted: ["espacio de Hilbert", "Hilbert", "Hilbert space", "espacio de hilbert"]
+
+- id: q-state-vector-postulate-004
+  prompt: "Para una función de onda Ψ(x,t), ¿qué cantidad da la densidad de probabilidad de encontrar la partícula en x? (Ψ no es directamente observable)"
+  accepted: ["|Ψ|²", "|Ψ|^2", "|ψ|²", "|ψ|^2", "módulo al cuadrado", "cuadrado del módulo", "el módulo al cuadrado de Ψ", "valor absoluto al cuadrado", "Ψ*Ψ", "modulus squared", "|Psi|^2"]
+
+- id: q-state-vector-postulate-005
+  prompt: "¿Cuál de estos pares de vectores describe el MISMO estado físico?"
+  options:
+    a: "(|0⟩ + |1⟩)/√2 y (|0⟩ − |1⟩)/√2"
+    b: "|0⟩ y (|0⟩ + |1⟩)/√2"
+    c: "|0⟩ y |1⟩"
+    d: "|ψ⟩ y e^{iα}|ψ⟩"
+  explanation: "Un estado es un rayo: vectores que difieren en un factor complejo no nulo representan lo mismo, y la fase global no tiene significado físico. En cambio, el signo entre las dos componentes de (|0⟩ ± |1⟩)/√2 es una fase relativa y da estados ortogonales."
+
+- id: q-state-vector-postulate-006
+  prompt: "Un qubit a|0⟩ + b|1⟩ tiene dos números complejos, es decir, cuatro reales. ¿Cuántos parámetros reales independientes definen realmente el estado?"
+  options:
+    a: "Cuatro: cada número real de las amplitudes es físicamente distinto"
+    b: "Tres: solo se descuenta la normalización"
+    c: "Dos: la normalización y la fase global quitan un parámetro cada una"
+    d: "Uno: solo importa la probabilidad de medir |0⟩"
+  explanation: "Normalizar fija |a|² + |b|² = 1 y la fase global es irrelevante, así que quedan dos parámetros reales (los ángulos polar y azimutal de la dirección del espín). Quedarse con uno ignora la fase relativa entre a y b, que es observable a través de la interferencia."
+
+- id: q-state-vector-postulate-007
+  prompt: "Explica con tus palabras la diferencia entre fase global y fase relativa de un estado, y por qué una no importa y la otra sí."
+  model_answer: "La fase global es un factor e^{iα} que multiplica todo el vector: |ψ⟩ y e^{iα}|ψ⟩ son el mismo estado (el mismo rayo) y no hay ninguna medida que los distinga. La fase relativa es la que hay entre los términos de una superposición a|φ⟩ + b|ψ⟩, es decir, entre las amplitudes a y b. Esa sí es físicamente significativa: cambia el estado (por ejemplo (|0⟩+|1⟩)/√2 frente a (|0⟩−|1⟩)/√2) y es el origen de la interferencia."
+  rubric:
+    - "Define la fase global como un factor que multiplica todo el vector"
+    - "Afirma que la fase global no es observable (mismo estado físico)"
+    - "Define la fase relativa como la diferencia entre las amplitudes de los términos de una superposición"
+    - "Indica que la fase relativa sí es significativa y está en el origen de la interferencia"
+
+- id: q-state-vector-postulate-008
+  prompt: "Comparas dos simuladores que preparan el mismo circuito. El simulador A devuelve el vector (|0⟩ + |1⟩)/√2 y el B devuelve −(|0⟩ + |1⟩)/√2. Un compañero abre un informe de error por el signo. ¿Hay un error? ¿Qué comprobarías y qué cantidad usarías para comparar estados? ¿Qué cambiaría si B devolviera (|0⟩ − |1⟩)/√2?"
+  model_answer: "No hay error: B = −A, un factor global de módulo 1, y los estados son rayos, de modo que describen la misma física. Para comparar estados de forma robusta se usa una cantidad insensible a la fase global, como |⟨φ|ψ⟩|: aquí vale 1. Si B devolviera (|0⟩ − |1⟩)/√2, el signo sería una fase relativa: |⟨A|B⟩| = 0, los estados son ortogonales y sí habría un error real, pues se distinguirían con certeza al medir en la base x. Además, ninguna fórmula única evita la ambigüedad de fase en estados propios, por lo que conviene no depender de una convención de signo."
+  rubric:
+    - "Concluye que −A es el mismo estado salvo fase global y que no hay error"
+    - "Propone comparar con |⟨φ|ψ⟩| (o equivalente insensible a la fase global) y obtiene 1"
+    - "Señala que con (|0⟩−|1⟩)/√2 el signo es relativo y sí es un error (estados ortogonales)"
+    - "Justifica que las convenciones de fase global son arbitrarias o no observables"
+
+- id: q-state-vector-postulate-009
+  prompt: "Diseñas una simulación de un registro de dos qubits en un estado entrelazado y un colega te pide que le des 'el vector de estado del primer qubit' para analizarlo por separado. ¿Se lo puedes dar? ¿Qué herramienta usarías y por qué no basta el vector?"
+  model_answer: "En general no. El postulado del vector de estado vale para un sistema aislado: el registro completo puede estar en un rayo, pero si solo se observa una parte, los estados no son rayos, las medidas no son proyecciones ortogonales y la evolución no es unitaria. Aunque el todo esté en un estado puro, un subsistema entrelazado en general no lo está. La descripción correcta del primer qubit es su matriz densidad (el estado reducido, obtenido trazando el otro qubit). El vector solo sirve si el sistema es cerrado y su estado puro es conocido."
+  rubric:
+    - "Responde que en general no se puede dar un vector de estado para un subsistema entrelazado"
+    - "Explica que el todo puede ser puro aunque el subsistema no lo sea"
+    - "Propone la matriz densidad (estado reducido) como la herramienta correcta"
+    - "Delimita cuándo vale el vector (sistema aislado y estado puro conocido)"
+
+- id: q-born-rule-measurement-001
+  prompt: "Un átomo de espín 1/2 preparado en |z;+⟩ se mide a lo largo del eje x. ¿Qué resultados se obtienen?"
+  options:
+    a: "Siempre +ħ/2, porque el átomo ya tiene espín positivo"
+    b: "El valor intermedio 0, porque el espín apunta perpendicular a x"
+    c: "+ħ/2 con probabilidad 3/4 y −ħ/2 con 1/4"
+    d: "+ħ/2 o −ħ/2, cada uno con probabilidad 1/2"
+  explanation: "Como ⟨x;±|z;+⟩ = 1/√2, la regla de Born da 1/2 para cada resultado. El valor intermedio 0 sería el valor esperado, pero el espín solo da ±ħ/2 en cualquier medida."
+
+- id: q-born-rule-measurement-002
+  prompt: "Un qubit está en el estado (3/5)|0⟩ + (4i/5)|1⟩. ¿Con qué probabilidad se obtiene 1 al medirlo en la base estándar?"
+  options:
+    a: "4/5"
+    b: "9/25"
+    c: "16/25"
+    d: "4i/5"
+  explanation: "La regla de Born da el módulo al cuadrado de la amplitud: |4i/5|² = 16/25 (y 9/25 para el 0, con suma 1). 4/5 es el módulo sin elevar al cuadrado, un error muy común; 4i/5 es la amplitud, que es compleja y no es una probabilidad."
+
+- id: q-born-rule-measurement-003
+  prompt: "Tras medir y obtener el resultado i, si se repite la misma medida de inmediato, ¿con qué probabilidad se obtiene otra vez i? (da el valor o una palabra)"
+  accepted: ["1", "100%", "100 %", "certeza", "con certeza", "seguro", "siempre", "uno", "1.0", "probabilidad 1"]
+
+- id: q-born-rule-measurement-004
+  prompt: "Un fotón polarizado a 60° del eje de un polarizador, ¿con qué probabilidad lo atraviesa?"
+  options:
+    a: "1/4, que es cos²60°"
+    b: "1/2, que es cos 60°"
+    c: "3/4, que es sen²60°"
+    d: "1, porque la polarización tiene componente en el eje"
+  explanation: "La probabilidad de transmisión es cos²α: cos²60° = 1/4. Usar cos α (1/2) es olvidar que la probabilidad es el cuadrado de la amplitud. 3/4 es la probabilidad de ser absorbido."
+
+- id: q-born-rule-measurement-005
+  prompt: "¿Por qué se ejecuta muchas veces el mismo circuito cuántico y se mide cada vez?"
+  options:
+    a: "El aparato de medida es imperfecto y al promediar varias medidas se cancela su ruido"
+    b: "Cada medida da un único resultado aleatorio que no revela las amplitudes; las probabilidades solo se obtienen repitiendo sobre copias idénticamente preparadas"
+    c: "Cada medida destruye el estado, y hay que volver a prepararlo para poder seguir calculando"
+    d: "Un único resultado sí revela las amplitudes, pero se repite para comprobar que no hay errores"
+  explanation: "Los resultados individuales son impredecibles, y solo la frecuencia con la que sale cada uno estima las probabilidades. La aleatoriedad no se debe a un aparato imperfecto: los intentos de explicarla con variables ocultas no han funcionado. Que la medida cambie el estado es cierto, pero no es la razón de repetir."
+
+- id: q-born-rule-measurement-006
+  prompt: "Tienes un único qubit en un estado desconocido a|0⟩ + b|1⟩ con a y b distintos de cero. ¿Puedes determinar a y b midiendo una vez?"
+  options:
+    a: "Sí: el resultado de la medida da directamente |a| y |b|"
+    b: "Sí, si se mide en la base correcta, que siempre existe"
+    c: "No: una medida solo da 0 o 1 al azar y además perturba irrevocablemente el estado"
+    d: "No, pero solo porque el aparato no tiene resolución suficiente"
+  explanation: "Una sola medida da un resultado de la base y el estado queda en el correspondiente estado propio, por lo que la información sobre a y b se pierde casi toda. No es un problema de resolución del aparato: es un rasgo de la regla de Born y del colapso."
+
+- id: q-born-rule-measurement-007
+  prompt: "Un qubit está en |+⟩ = (|0⟩ + |1⟩)/√2 y se mide en la base estándar. Explica con tus palabras cómo se calcula la probabilidad de cada resultado con proyectores y cuál es el estado del qubit después de la medida."
+  model_answer: "Se usan los proyectores Π₀ = |0⟩⟨0| y Π₁ = |1⟩⟨1|, que suman la identidad. La probabilidad del resultado a es ‖Πₐ|ψ⟩‖² = ⟨ψ|Πₐ|ψ⟩. Aquí Π₀|+⟩ = |0⟩/√2, de modo que la probabilidad es 1/2, y lo mismo para el resultado 1. Tras la medida, el estado es la proyección renormalizada: |0⟩ si salió 0 y |1⟩ si salió 1; repetir la medida da entonces el mismo resultado con certeza."
+  rubric:
+    - "Enuncia la probabilidad con proyectores como ⟨ψ|Πₐ|ψ⟩ o ‖Πₐ|ψ⟩‖²"
+    - "Obtiene 1/2 para cada resultado"
+    - "Indica que el estado posterior es la proyección renormalizada (|0⟩ o |1⟩)"
+    - "Menciona que una repetición inmediata da el mismo resultado"
+
+- id: q-born-rule-measurement-008
+  prompt: "Tu algoritmo codifica la respuesta en la fase relativa de un qubit: termina en (|0⟩ + e^{iφ}|1⟩)/√2. Si mides en la base estándar obtienes 50/50 con cualquier φ y no aprendes nada. ¿Qué cambias en el circuito y por qué funciona? ¿Cuántas bases necesitarías para reconstruir el estado a partir de muchas copias?"
+  model_answer: "Medir solo en la base z da |a| y |b| pero no la fase relativa. Hay que medir a lo largo de otro eje: medir según un eje n equivale a rotar n a z y medir en z, es decir, añadir una puerta de cambio de base (por ejemplo una Hadamard para el eje x) antes de la medida. Así la fase relativa se convierte en una diferencia de probabilidades: con φ = 0 se obtiene 0 con certeza al medir en x, con φ = π, 1, y con valores intermedios probabilidades intermedias. Para reconstruir el estado completo a partir de muchas copias hacen falta tres ejes."
+  rubric:
+    - "Explica que medir solo en z no da la fase relativa (solo |a| y |b|)"
+    - "Propone añadir una puerta de cambio de base antes de medir (p. ej. Hadamard para x)"
+    - "Justifica que medir según n equivale a rotar n a z y medir en z"
+    - "Indica que se necesitan tres ejes para reconstruir el estado"
+
+- id: q-born-rule-measurement-009
+  prompt: "Estás implementando una medida a mitad de circuito para corrección de errores. Un compañero propone describirla solo con las probabilidades Tr(Pₐρ) de un POVM porque 'ya dan todo lo que importa'. ¿Es suficiente? ¿Cuándo bastan las probabilidades y cuándo no?"
+  model_answer: "Las probabilidades p(a) = Tr(Pₐρ) de un POVM bastan si solo importan las estadísticas de la salida. Pero un POVM no fija el estado posterior a la medida: en medidas generales ese estado no es único y depende de la medida concreta (por ejemplo, de los operadores de medida Mₐ con ΣMₐ†Mₐ = I, o de las matrices de Kraus Aₐ, con estado posterior AₐρAₐ† normalizado), y las medidas generales no son repetibles ni dejan estados ortogonales. En una medida a mitad de circuito el qubit sigue usándose, así que hace falta el estado posterior de la medida concreta, no solo el POVM."
+  rubric:
+    - "Afirma que las probabilidades del POVM bastan solo para las estadísticas de salida"
+    - "Indica que un POVM no determina el estado posterior"
+    - "Menciona operadores de medida o Kraus como lo que sí fija el estado posterior"
+    - "Concluye que en una medida a mitad de circuito (el estado se sigue usando) hay que usar el estado posterior concreto"
+
+- id: q-two-level-systems-001
+  prompt: "En el experimento de Stern-Gerlach con átomos de plata, ¿qué se observa en la pantalla y qué implica?"
+  options:
+    a: "Dos picos separados: S_z solo toma dos valores, ±ħ/2"
+    b: "Una mancha continua: el momento magnético apunta en cualquier dirección"
+    c: "Un solo pico desviado: todos los átomos tienen el mismo espín"
+    d: "Tres picos: S_z toma los valores −ħ, 0 y +ħ"
+  explanation: "Clásicamente se esperaría una mancha continua; en cambio aparecen dos picos, de modo que S_z está cuantizado y solo toma los valores ±ħ/2. Eso define el espín 1/2."
+
+- id: q-two-level-systems-002
+  prompt: "Un haz con S_z = +ħ/2 pasa por una máquina x y se bloquea la salida S_x = +ħ/2. El haz S_x = −ħ/2 entra en otra máquina z. ¿Qué sale?"
+  options:
+    a: "Todo con S_z = +ħ/2, porque el átomo conserva el valor que ya tenía"
+    b: "La mitad con S_z = +ħ/2 y la otra mitad con S_z = −ħ/2"
+    c: "Todo con S_z = −ħ/2, porque se eligió la rama negativa en x"
+    d: "Nada: el átomo no puede tener ya ningún valor de S_z"
+  explanation: "El filtro en x no deja memoria del valor de S_z: una partícula no tiene a la vez valores definidos de S_x y S_z. Por eso vuelve a salir 50/50. Suponer que se conserva el S_z previo es la idea clásica de propiedades que se acumulan."
+
+- id: q-two-level-systems-003
+  prompt: "¿Qué valores puede dar una medida de una componente del espín de un electrón (espín 1/2)? (en unidades de ħ)"
+  accepted: ["±1/2", "+1/2 y −1/2", "1/2 y -1/2", "±ħ/2", "ħ/2 y −ħ/2", "ħ/2 y -ħ/2", "más y menos un medio", "mas menos un medio", "plus or minus one half", "+ħ/2 y -ħ/2", "1/2 y −1/2"]
+
+- id: q-two-level-systems-004
+  prompt: "¿Cuál es la expresión de |x;+⟩ en la base {|z;+⟩, |z;−⟩}?"
+  options:
+    a: "(|z;+⟩ + i|z;−⟩)/√2"
+    b: "(|z;+⟩ − |z;−⟩)/√2"
+    c: "|z;+⟩, pues el espín positivo es el mismo en cualquier eje"
+    d: "(|z;+⟩ + |z;−⟩)/√2"
+  explanation: "|x;±⟩ = (|z;+⟩ ± |z;−⟩)/√2: con el signo + se obtiene |x;+⟩. La opción con i es |y;+⟩ (por eso hacen falta números complejos) y la del signo menos es |x;−⟩."
+
+- id: q-two-level-systems-005
+  prompt: "¿Por qué los valores propios de cada matriz de Pauli σᵢ son +1 y −1?"
+  options:
+    a: "Porque son hermíticas, y las matrices hermíticas solo tienen valores propios ±1"
+    b: "Porque es una convención de normalización: se eligen así para que Sᵢ = (ħ/2)σᵢ dé ±ħ/2"
+    c: "Porque σᵢ² = 1 obliga a λ² = 1, y como la traza es cero, uno de cada signo"
+    d: "Porque son unitarias, y toda matriz unitaria 2×2 tiene valores propios +1 y −1"
+  explanation: "Si σᵢ² = 1, cada valor propio cumple λ² = 1, es decir ±1; y tr σᵢ = 0 exige que la suma sea cero, así que aparece uno de cada. Ser hermítica solo asegura que los valores propios sean reales, no que valgan ±1."
+
+- id: q-two-level-systems-006
+  prompt: "Se mide el espín de un átomo a lo largo de una dirección arbitraria n. ¿Qué resultados puede dar?"
+  options:
+    a: "Valores continuos entre −ħ/2 y +ħ/2, según el ángulo entre n y z"
+    b: "ħ/2 cos θ o −ħ/2 cos θ, con θ el ángulo entre n y el espín"
+    c: "Solo ±ħ/2 en los ejes x, y y z, y valores intermedios en las demás direcciones"
+    d: "Siempre +ħ/2 o −ħ/2, sea cual sea la dirección"
+  explanation: "S_n = n·S es hermítica con valores propios ±ħ/2 para cualquier n unitario, como exige que todas las direcciones sean físicamente equivalentes. El ángulo no cambia los posibles resultados, sino sus probabilidades. Los valores intermedios serían el valor esperado, no un resultado."
+
+- id: q-two-level-systems-007
+  prompt: "Explica con tus palabras por qué un qubit de espín 1/2 no se comporta como un bit clásico aleatorio. Usa el hecho de que |z;+⟩ da 50/50 al medir en x, pero una superposición adecuada de |x;+⟩ y |x;−⟩ da |z;+⟩ con certeza."
+  model_answer: "Un bit probabilístico clásico que fuese 'mitad 0, mitad 1' no podría volver a dar 0 con certeza tras mezclarse más. Con el espín, |z;+⟩ = (|x;+⟩ + |x;−⟩)/√2 es una superposición con amplitudes que interfieren: el estado da 50/50 en x, pero sumando de nuevo las dos ramas con la fase relativa adecuada se recupera |z;+⟩ y medir en z da +ħ/2 con certeza. Esto sucede porque el sistema se puede medir en distintas bases, y las amplitudes son complejas y llevan fase; un bit aleatorio solo tendría probabilidades que no pueden cancelarse."
+  rubric:
+    - "Describe que |z;+⟩ da 50/50 en x y que una superposición adecuada de |x;±⟩ devuelve |z;+⟩ con certeza"
+    - "Atribuye la diferencia a la interferencia entre amplitudes con fase relativa"
+    - "Indica que un bit clásico probabilístico no se comporta así (las probabilidades no se cancelan)"
+    - "Menciona que el sistema puede medirse en distintas bases (más de una forma de mirarlo)"
+
+- id: q-two-level-systems-008
+  prompt: "Un colega dice: 'un fotón polarizado es un sistema de dos niveles, luego es un espín 1/2, y todo lo que sabemos del electrón vale para él sin más'. ¿Qué parte es correcta y cuál hay que matizar? ¿Qué comparten realmente ambos como qubits?"
+  model_answer: "Es correcto que hay una equivalencia formal: la polarización del fotón y el espín del electrón comparten la misma estructura de dos estados (un estado general α|x⟩ + β|y⟩ donde solo importa el cociente β/α, como en el espín), y cualquier sistema de dos niveles es formalmente equivalente al espín 1/2, de modo que las matrices 2×2, las bases de medida y las rotaciones se aplican igual. Hay que matizar que no todo sistema de dos niveles se transforma como un espinor bajo rotaciones espaciales: el fotón, con espín 1 y sin masa, no lo es. Como qubits comparten el álgebra de las matrices 2×2 y la posibilidad de medir en distintas bases; lo que cambia en cada plataforma es qué observable físico hace de σ₃ y qué interacción hace de hamiltoniano."
+  rubric:
+    - "Reconoce la equivalencia formal de la estructura de dos estados (polarización del fotón y espín)"
+    - "Matiza que el fotón (espín 1, sin masa) no se transforma como un espinor bajo rotaciones espaciales"
+    - "Indica qué se comparte en la práctica (matrices 2×2, medidas en distintas bases, rotaciones)"
+    - "Señala que lo específico de cada plataforma es qué observable y qué interacción juegan los papeles de σ₃ y H"
+
+- id: q-two-level-systems-009
+  prompt: "Dispones de muchas copias idénticas de un qubit en un estado puro desconocido y tu aparato solo mide en la base estándar (Z). ¿Qué puedes saber del estado con esas medidas y qué no? ¿Qué harías para reconstruirlo por completo?"
+  model_answer: "Medir solo en Z da |a| y |b| (las probabilidades de 0 y 1) pero no la fase relativa entre las amplitudes. Para el resto hay que medir en otras bases: medir según un eje n equivale a rotar n a z y medir en z, y se necesitan tres ejes independientes para determinar el estado a partir de muchas copias. En la práctica se añaden puertas de rotación antes de medir (por ejemplo para los ejes x e y) y se repite cada configuración muchas veces para estimar las probabilidades."
+  rubric:
+    - "Indica que solo con Z se obtienen |a| y |b| y no la fase relativa"
+    - "Propone medir en otros ejes rotándolos a z antes de medir"
+    - "Afirma que hacen falta tres ejes"
+    - "Indica que hay que repetir sobre muchas copias para estimar probabilidades"
+
+- id: q-observables-001
+  prompt: "¿Por qué las magnitudes medibles se representan con operadores hermíticos?"
+  options:
+    a: "Porque sus valores propios son reales, y los resultados de una medida son números reales"
+    b: "Porque conservan la norma del estado, igual que las puertas cuánticas"
+    c: "Porque sus valores propios son siempre positivos, como corresponde a una energía"
+    d: "Porque son siempre diagonales en la base estándar"
+  explanation: "Un operador hermítico tiene valores propios reales, y también real su valor esperado; además sus estados propios de valores propios distintos son ortogonales y forman una base. Conservar la norma es la propiedad de los operadores unitarios, que describen la evolución y no la medida."
+
+- id: q-observables-002
+  prompt: "Un espín está en |x;+⟩ y se mide el observable S_z = (ħ/2)diag(1, −1). ¿Qué ocurre?"
+  options:
+    a: "Cada medida da 0, que es el valor medio del observable en ese estado"
+    b: "Cada medida da +ħ/2 o −ħ/2 con probabilidad 1/2; el valor esperado, 0, no es un resultado posible"
+    c: "Cada medida da +ħ/2, porque |x;+⟩ tiene espín positivo"
+    d: "Cada medida da un valor entre −ħ/2 y +ħ/2 según la amplitud de |z;+⟩"
+  explanation: "Los resultados posibles son los valores propios ±ħ/2, cada uno con probabilidad 1/2 por la regla de Born. El valor esperado ⟨S_z⟩ = 0 es un promedio ponderado por probabilidades y no tiene por qué ser un resultado posible."
+
+- id: q-observables-003
+  prompt: "Se mide un observable A = Σₙ aₙEₙ (con proyectores Eₙ) sobre un estado |ψ⟩. ¿Con qué probabilidad sale aₙ?"
+  options:
+    a: "aₙ, el propio valor propio"
+    b: "|⟨ψ|n⟩|, el módulo de la amplitud sin elevar al cuadrado"
+    c: "⟨ψ|A|ψ⟩, el valor esperado del observable"
+    d: "⟨ψ|Eₙ|ψ⟩, que es ‖Eₙ|ψ⟩‖²"
+  explanation: "La probabilidad es el módulo al cuadrado de la proyección, ⟨ψ|Eₙ|ψ⟩. El valor esperado ⟨ψ|A|ψ⟩ = Σ aₙ·Prob(aₙ) es el promedio, no la probabilidad de un resultado."
+
+- id: q-observables-004
+  prompt: "Explica con tus palabras la diferencia entre un observable, sus valores propios y su valor esperado, y por qué el valor esperado no tiene por qué ser un resultado posible de la medida."
+  model_answer: "El observable es el operador hermítico (por ejemplo S_z) que representa la magnitud. Los resultados posibles de una medida son sus valores propios (±ħ/2 para S_z). El valor esperado ⟨A⟩ = ⟨ψ|A|ψ⟩ = Σ aₙ Prob(aₙ) es el promedio de los resultados sobre muchas copias preparadas igual, ponderado por probabilidades. Como es un promedio, puede caer entre valores propios: para un espín en |x;+⟩, ⟨S_z⟩ = 0 aunque cada medida solo da ±ħ/2."
+  rubric:
+    - "Identifica el observable con el operador hermítico y no con el resultado"
+    - "Indica que los resultados posibles son los valores propios"
+    - "Define el valor esperado como promedio ponderado por probabilidades sobre muchas copias (⟨ψ|A|ψ⟩)"
+    - "Da una razón o ejemplo de que el promedio puede no ser un valor propio (p. ej. ⟨S_z⟩ = 0 en |x;+⟩)"
+
+- id: q-observables-005
+  prompt: "Tienes un registro de dos qubits en un estado entrelazado y solo mides el primer qubit en la base Z. ¿Qué operador representa esa medida sobre el registro, cómo calculas su valor esperado y por qué no puedes usar un vector de estado para el primer qubit?"
+  model_answer: "El observable es M_A ⊗ I_B = Z ⊗ I: actúa como Z sobre el primer qubit y como identidad sobre el segundo. Su valor esperado es tr(Z ρ_A), con ρ_A el estado reducido del primer qubit, obtenido trazando el segundo. Como el registro está entrelazado, ρ_A es en general mixto: aunque el todo sea puro, el subsistema no lo es, así que no existe un vector de estado para el primer qubit y hay que usar la matriz densidad."
+  rubric:
+    - "Escribe el operador como Z ⊗ I (M_A ⊗ I_B)"
+    - "Da el valor esperado como tr(M_A ρ_A) con ρ_A el estado reducido"
+    - "Explica que ρ_A se obtiene trazando el otro qubit"
+    - "Justifica que el subsistema de un estado entrelazado es en general mixto y no tiene vector de estado"
+
+- id: q-observables-006
+  prompt: "Simulas un qubit cuyo hamiltoniano es H = (ω/2)·Z (ħ = 1). Quieres saber qué observables de Pauli tienen valor esperado constante en el tiempo. ¿Cuáles y cómo lo razonas con conmutadores?"
+  model_answer: "Un operador que conmuta con el hamiltoniano se conserva: su valor esperado es constante. Z conmuta con H = (ω/2)Z, así que ⟨Z⟩ es constante (las poblaciones en la base estándar no cambian). X e Y no conmutan con Z ([X, Z] = −2iY y [Y, Z] = 2iX, distintos de cero; las matrices de Pauli anticonmutan por pares), de modo que ⟨X⟩ y ⟨Y⟩ evolucionan en general con el tiempo."
+  rubric:
+    - "Enuncia que un operador que conmuta con H se conserva"
+    - "Concluye que Z se conserva porque [Z, H] = 0"
+    - "Concluye que X e Y no se conservan porque no conmutan con Z (anticonmutan)"
+    - "Interpreta que las poblaciones son constantes mientras X e Y varían"
+
+- id: q-unitary-time-evolution-001
+  prompt: "¿Qué conserva una evolución unitaria U (con U†U = 1)?"
+  options:
+    a: "Las probabilidades de cada resultado concreto, que no cambian en el tiempo"
+    b: "Las amplitudes individuales de cada componente del estado"
+    c: "La norma del vector de estado, de modo que las probabilidades siguen sumando 1"
+    d: "El estado exacto, que permanece constante hasta que se mide"
+  explanation: "Unitaria significa U†U = 1, lo que conserva la norma. Las probabilidades de resultados concretos sí cambian: un divisor de haz o una puerta Hadamard las modifican. Y las amplitudes cambian, pues el estado evoluciona."
+
+- id: q-unitary-time-evolution-002
+  prompt: "¿Por qué las puertas cuánticas tienen que ser operaciones unitarias?"
+  options:
+    a: "Porque deben conservar la norma, de modo que las probabilidades sigan sumando 1, y porque son invertibles, con inversa U†"
+    b: "Porque deben dejar sin cambio las probabilidades de cada resultado de medida"
+    c: "Porque deben ser hermíticas, para que sus resultados sean números reales"
+    d: "Porque la medida de un qubit solo se puede describir con matrices unitarias"
+  explanation: "Las puertas se definen como las matrices que conservan la norma, lo que equivale a ser unitarias, y la inversa es U†, de ahí que un circuito sin medidas sea reversible. Ser hermítica es otra propiedad (la de los observables), y una puerta como H sí cambia las probabilidades."
+
+- id: q-unitary-time-evolution-003
+  prompt: "Si el hamiltoniano H es constante, ¿cuál es el operador de evolución U(t) (con ħ = 1)?"
+  options:
+    a: "U(t) = e^{−Ht}, que hace decaer las componentes con el tiempo"
+    b: "U(t) = e^{−iHt}"
+    c: "U(t) = e^{+iHt}, que evoluciona el estado hacia atrás en el tiempo"
+    d: "U(t) = I − iHt, que es exacta para cualquier tiempo"
+  explanation: "La solución es la exponencial de matriz U = e^{−iHt/ħ}. Sin el factor i no sería unitaria (las componentes decaerían), con signo opuesto evolucionaría hacia atrás, y I − iHt solo es unitaria a primer orden en un paso diminuto: la evolución finita es un producto de muchos pasos."
+
+- id: q-unitary-time-evolution-004
+  prompt: "Explica con tus palabras por qué la evolución con un hamiltoniano hermítico conserva la probabilidad total y qué le ocurre a cada componente de energía de un estado cuando H es constante."
+  model_answer: "La ecuación de Schrödinger iħ ∂|Ψ⟩/∂t = H|Ψ⟩ con H hermítico conserva la probabilidad total: la norma del estado permanece en 1, que es lo mismo que decir que el operador de evolución U = e^{−iHt/ħ} es unitario (U†U = 1). Escribiendo el estado en la base de estados propios de H, cada componente de energía solo gira su fase (se multiplica por e^{−iE_j t/ħ}) y no cambia su módulo; por eso las probabilidades de energía son constantes, aunque las probabilidades de otros observables sí cambian porque cambian las fases relativas."
+  rubric:
+    - "Relaciona H hermítico con la conservación de la probabilidad o norma (U unitaria)"
+    - "Escribe o describe U = e^{−iHt/ħ} para H constante"
+    - "Indica que cada componente de energía solo gira su fase"
+    - "Aclara que unitaria no implica que todas las probabilidades de resultado sean constantes"
+
+- id: q-unitary-time-evolution-005
+  prompt: "Quieres implementar una puerta con un pulso que activa el hamiltoniano H = (Ω/2)·X durante un tiempo t (ħ = 1). ¿Qué operador de evolución resulta? Elige t para obtener una puerta equivalente a X y calcula lo que hace al estado |0⟩, indicando qué factor puede ignorarse."
+  model_answer: "Es una rotación de espín: U = e^{−iΩtX/2} = cos(Ωt/2)·I − i sin(Ωt/2)·X, es decir, una rotación de ángulo Ωt alrededor del eje x. Con Ωt = π se obtiene U = −iX. Aplicada a |0⟩ da −i|1⟩, y medir en la base estándar da 1 con probabilidad 1. El factor −i es una fase global, sin efecto observable, de modo que U equivale a la puerta X salvo fase global."
+  rubric:
+    - "Obtiene U = cos(Ωt/2)I − i sin(Ωt/2)X (rotación alrededor de x)"
+    - "Elige Ωt = π y obtiene U = −iX"
+    - "Calcula U|0⟩ = −i|1⟩"
+    - "Identifica −i como fase global ignorable"
+
+- id: q-unitary-time-evolution-006
+  prompt: "Un compañero afirma: 'como la evolución cuántica es unitaria, mi qubit con ruido nunca puede pasar de un estado puro a uno mixto'. Evalúa la afirmación: ¿qué es cierto, qué falla y cómo se describe la evolución ruidosa del qubit?"
+  model_answer: "Es cierta para un sistema cerrado: sistema más entorno evoluciona con una unitaria. Pero el qubit con ruido es un subsistema abierto, y la evolución de un subsistema en general no es unitaria. La evolución ruidosa se modela como una unitaria sobre sistema más entorno vista solo desde el sistema (añadir una ancilla, aplicar una unitaria y descartar una parte). Al entrelazarse con el entorno, la matriz densidad reducida del qubit puede pasar de pura a mixta aunque el todo siga puro. Una unitaria pura es el caso particular de un canal con una sola matriz de Kraus."
+  rubric:
+    - "Distingue sistema cerrado (unitario) de subsistema abierto (no unitario en general)"
+    - "Describe el ruido como unitaria sobre sistema + entorno y descarte del entorno"
+    - "Afirma que el estado reducido del qubit puede pasar de puro a mixto aunque el todo siga puro"
+    - "Concluye que la afirmación es falsa para el qubit con ruido"
+
+- id: q-uncertainty-and-noncommutativity-001
+  prompt: "¿Cuánto vale el conmutador [σ₁, σ₂] de las matrices de Pauli?"
+  options:
+    a: "0, porque son matrices hermíticas"
+    b: "2σ₃, sin factor imaginario"
+    c: "−2iσ₃, porque el resultado se toma en el orden σ₂σ₁ − σ₁σ₂"
+    d: "2iσ₃"
+  explanation: "[σ₁,σ₂] = 2iσ₃ y cíclicas: las matrices de Pauli no conmutan. Que sean hermíticas no implica que conmuten (el producto AB solo es hermítico si A y B conmutan)."
+
+- id: q-uncertainty-and-noncommutativity-002
+  prompt: "En Stern-Gerlach, filtrar por S_x borra el valor anterior de S_z. ¿Qué expresa esto en términos de operadores?"
+  options:
+    a: "S_x y S_z no conmutan, así que no pueden tener ambos un valor definido a la vez"
+    b: "S_x y S_z conmutan, pero el aparato introduce un error aleatorio al medir"
+    c: "S_x y S_z tienen los mismos estados propios y por eso se confunden"
+    d: "Medir S_x siempre destruye el espín del átomo, de modo que después no queda ningún S_z"
+  explanation: "El valor de S_z antes del filtro no sobrevive porque un estado propio de S_z no lo es de S_x: ΔS_z = 0 no es compatible con ΔS_x = 0. No es un fallo del aparato ni una destrucción del espín: el átomo sigue teniendo S_z = ±ħ/2 al medirlo, solo que ya con probabilidad 1/2 cada uno."
+
+- id: q-uncertainty-and-noncommutativity-003
+  prompt: "Según el contenido, ¿de dónde viene el principio de incertidumbre ΔxΔp ≥ ħ/2?"
+  options:
+    a: "De que medir la posición perturba el momento por la acción del aparato"
+    b: "De la imprecisión de los instrumentos, que mejora con aparatos mejores"
+    c: "De la naturaleza ondulatoria de la materia (la relación entre anchuras de una función y su transformada de Fourier, con p = ħk)"
+    d: "De que la posición y el momento son magnitudes discretas y no continuas"
+  explanation: "Un Δk estrecho exige un Δx ancho (propiedad de la transformada de Fourier) y p = ħk convierte esto en ΔxΔp ≈ ħ. No es un defecto del aparato: una onda plana de momento definido tiene posición totalmente indeterminada."
+
+- id: q-uncertainty-and-noncommutativity-004
+  prompt: "Explica con tus palabras por qué no se pueden conocer con certeza a la vez los observables X, Y y Z de un qubit y qué consecuencia tiene para reconstruir un estado."
+  model_answer: "Las matrices de Pauli no conmutan (de hecho anticonmutan por pares), y no hay una base común de estados propios. Un estado propio de Z, con ΔZ = 0, no lo es de X: al medir X da ±1 con probabilidad 1/2 cada uno. Medir un observable borra la información de los otros, como muestra el experimento 3 de Stern-Gerlach. Por eso la información del estado, incluida la fase, solo se recupera midiendo en varias bases (tres ejes) sobre muchas copias idénticas."
+  rubric:
+    - "Indica que los observables de Pauli no conmutan (anticonmutan)"
+    - "Da el ejemplo de que un estado propio de Z da 50/50 en X"
+    - "Relaciona medir uno con perder la información de los otros (p. ej. Stern-Gerlach)"
+    - "Concluye que se necesitan medidas en varias bases con muchas copias"
+
+- id: q-uncertainty-and-noncommutativity-005
+  prompt: "Optimizas un circuito y la herramienta quiere intercambiar el orden de una rotación alrededor del eje x y otra alrededor del eje z de un mismo qubit porque 'son dos giros y el orden no debería importar'. ¿Aceptarías el cambio? ¿Qué criterio aplicas?"
+  model_answer: "No sin comprobarlo. Las rotaciones alrededor de ejes distintos no conmutan: sus generadores J_k cumplen [J_k, J_l] = iε_klm J_m, y las matrices de Pauli anticonmutan por pares, de modo que XZ ≠ ZX. En general el orden de dos puertas de un qubit importa, igual que el de dos matrices. El criterio es comprobar si las dos puertas conmutan ([A,B] = 0); solo si lo hacen se pueden intercambiar sin cambiar el resultado."
+  rubric:
+    - "Rechaza el cambio automático"
+    - "Fundamenta que rotaciones sobre ejes distintos no conmutan (álgebra de [J_k,J_l] o anticonmutación de Pauli)"
+    - "Propone comprobar el conmutador antes de intercambiar"
+    - "Concluye que solo se pueden intercambiar si conmutan"
+
+- id: q-uncertainty-and-noncommutativity-006
+  prompt: "Un compañero sostiene: 'con un aparato lo bastante preciso se pueden medir Z y X de un qubit a la vez con certeza; que no se pueda es solo una limitación técnica'. ¿Estás de acuerdo? Responde con el contenido sobre el origen de la incertidumbre."
+  model_answer: "No. La incertidumbre no viene de la imprecisión del aparato sino de la naturaleza ondulatoria de la materia y de la no conmutatividad de los observables. Z y X no conmutan: un estado propio de Z (ΔZ = 0) da X = ±1 con probabilidad 1/2, y no tiene valor definido de X. El experimento 3 de Stern-Gerlach lo muestra: filtrar por S_x borra el valor anterior de S_z. Mejores aparatos no cambian eso, porque no existe un estado con ambos valores definidos."
+  rubric:
+    - "Rechaza la afirmación de que es una limitación técnica"
+    - "Atribuye la incertidumbre a la naturaleza de la materia y no al aparato"
+    - "Argumenta con que Z y X no conmutan o un estado propio de Z no es propio de X"
+    - "Cita el experimento de Stern-Gerlach o ΔQ = 0 solo en estados propios"
+
+- id: q-density-matrices-001
+  prompt: "¿Qué condiciones debe cumplir una matriz ρ para ser una matriz densidad?"
+  options:
+    a: "Tener todas sus entradas no negativas y sumar 1"
+    b: "Ser semidefinida positiva y tener traza 1"
+    c: "Ser unitaria y de determinante 1"
+    d: "Ser hermítica con un único valor propio 1 y los demás 0"
+  explanation: "Una matriz densidad es semidefinida positiva con traza 1; semidefinida positiva no significa que las entradas sean no negativas (p. ej. las no diagonales pueden ser complejas). La última opción describe solo los estados puros, que son un caso particular."
+
+- id: q-density-matrices-002
+  prompt: "¿Cuál de estas condiciones caracteriza un estado PURO?"
+  options:
+    a: "tr ρ² < 1"
+    b: "ρ es diagonal en la base estándar"
+    c: "ρ² = ρ, es decir, tr ρ² = 1"
+    d: "ρ = I/d, con d la dimensión"
+  explanation: "Un estado puro es una proyección de rango 1 (ρ = |ψ⟩⟨ψ|) y cumple ρ² = ρ. Uno mixto, ρ = Σ pₐ|a⟩⟨a| con dos o más términos, tiene tr ρ² = Σ pₐ² < 1. Una matriz diagonal es un estado probabilístico clásico, que en general es mixto."
+
+- id: q-density-matrices-003
+  prompt: "Los dos qubits de un par de Bell |φ⁺⟩ = (|00⟩ + |11⟩)/√2 están entrelazados. ¿Cuál es el estado reducido de cada qubit?"
+  options:
+    a: "I/2: el estado maximalmente mixto"
+    b: "|0⟩⟨0|, porque en |φ⁺⟩ el primer qubit está en |0⟩"
+    c: "|φ⁺⟩⟨φ⁺|, porque el todo es puro y cada parte hereda su estado"
+    d: "|+⟩⟨+|, porque la superposición de |00⟩ y |11⟩ es de tipo x"
+  explanation: "Trazando el otro qubit, ρ_A = (|0⟩⟨0| + |1⟩⟨1|)/2 = I/2: un estado mixto aunque el todo sea puro. Un estado puro entrelazado siempre tiene reducido mixto, y los cuatro estados de Bell dan I/2 en cada qubit."
+
+- id: q-density-matrices-004
+  prompt: "¿Qué indican las entradas no diagonales de la matriz densidad de un qubit en la base estándar?"
+  options:
+    a: "La probabilidad de medir 1, mientras que las diagonales dan la fase"
+    b: "La correlación del qubit con un entorno externo"
+    c: "El error de normalización de la matriz, que debería ser cero"
+    d: "Cuánta superposición hay entre |0⟩ y |1⟩, con su fase relativa; si son cero, solo hay aleatoriedad clásica"
+  explanation: "Las diagonales son las probabilidades de la base estándar, y las no diagonales miden la coherencia (la superposición y su fase relativa). Una matriz diagonal es exactamente un estado probabilístico clásico."
+
+- id: q-density-matrices-005
+  prompt: "Explica con tus palabras por qué el estado maximalmente mixto I/2 puede obtenerse a partir de preparaciones distintas, y qué implica eso para distinguirlas con una medida, frente a lo que ocurre con un estado puro."
+  model_answer: "I/2 surge de la mezcla a partes iguales de |0⟩ y |1⟩, de |+⟩ y |−⟩ o de cualquier pareja de estados ortogonales: todas esas preparaciones dan la misma matriz densidad, y como las probabilidades de cualquier medida dependen solo de ρ, ninguna medida puede distinguirlas. Un estado mixto tiene infinitas descomposiciones en estados puros, a diferencia de una distribución clásica, que tiene una única. Un estado puro, en cambio, tiene una única preparación."
+  rubric:
+    - "Da al menos dos preparaciones distintas que producen I/2"
+    - "Explica que las estadísticas de toda medida dependen solo de ρ, así que no se distinguen"
+    - "Indica que un estado mixto tiene muchas descomposiciones"
+    - "Contrasta con el estado puro, que tiene una única preparación"
+
+- id: q-density-matrices-006
+  prompt: "Un colega afirma que una mezcla estadística 50/50 de |↑z⟩ y |↓z⟩ es lo mismo que el estado (|↑z⟩ + |↓z⟩)/√2, 'porque en z dan exactamente las mismas probabilidades'. Diseña una medida que los distinga y predice los resultados con la matriz densidad de cada uno."
+  model_answer: "La mezcla es ρ = I/2, que da probabilidad 1/2 para cada resultado en cualquier eje (⟨n·σ⟩ = 0 para todo n). La superposición es |x;+⟩, un estado puro, con vector de Bloch P = (1, 0, 0) y ⟨σ₁⟩ = +1. La medida que los distingue es la de σ₁ (el eje x): sobre |x;+⟩ da +1 con certeza, sobre la mezcla da ±1 con probabilidad 1/2. Medir solo en z no los distingue, porque las diagonales coinciden. La diferencia está en las entradas no diagonales: la fase relativa existe en la superposición y no en la mezcla."
+  rubric:
+    - "Propone medir en el eje x (σ₁), no en z"
+    - "Predice +1 con certeza para la superposición y 50/50 para la mezcla"
+    - "Escribe la mezcla como I/2 (o da 1/2 en todos los ejes) y la superposición como estado puro (|x;+⟩)"
+    - "Explica que en z coinciden y que la diferencia está en las entradas no diagonales (fase relativa)"
+
+- id: q-density-matrices-007
+  prompt: "Una rutina de tomografía te devuelve para un qubit el vector de Bloch P = (0,8; 0,5; 0,4), con ρ = (I + P·σ)/2. ¿Puede ser un estado válido? ¿Y P = (0,6; 0; 0)? Interpreta cada caso y di qué representan la superficie y el centro de la bola."
+  model_answer: "Para qubits, ρ(P) = (I + P·σ)/2 es una matriz densidad si y solo si |P| ≤ 1. Para (0,8; 0,5; 0,4), |P|² = 0,64 + 0,25 + 0,16 = 1,05 > 1, así que no es un estado válido (quedaría fuera de la bola, con un valor propio negativo). Para (0,6; 0; 0), |P| = 0,6 < 1: es un estado válido, mixto, dentro de la bola, con la dirección del eje x. La superficie |P| = 1 son los estados puros (los ortogonales son puntos antípodas) y el centro es I/2, el estado maximalmente mixto."
+  rubric:
+    - "Enuncia la condición |P| ≤ 1"
+    - "Calcula |P|² = 1,05 > 1 y rechaza el primer vector"
+    - "Acepta (0,6; 0; 0) como estado mixto válido dentro de la bola"
+    - "Identifica la superficie con los estados puros y el centro con I/2"
+
+- id: q-density-matrices-008
+  prompt: "Alice y Bob comparten un par de Bell. Bob decide medir su qubit en la base Z o en la base X, y afirma que 'así prepara a distancia un estado distinto para Alice, luego puede mandarle un mensaje'. ¿Es cierto? Justifica con matrices densidad."
+  model_answer: "No. Si Bob mide en Z, Alice queda con |0⟩ o |1⟩ a partes iguales; si mide en X, con |+⟩ o |−⟩ a partes iguales. Son conjuntos distintos, pero en ambos casos el estado promedio de Alice es el mismo, ρ_A = I/2 (la ambigüedad de la descomposición de un estado mixto). Sin el mensaje clásico de Bob que le diga el resultado, Alice no puede distinguir qué base se midió, de modo que el entrelazamiento no permite señales más rápidas que la luz. Es la única descripción coherente con la ausencia de señales para el par de Bell."
+  rubric:
+    - "Responde que no se puede enviar un mensaje así"
+    - "Indica que las dos elecciones de Bob preparan conjuntos distintos para Alice"
+    - "Indica que en ambos casos el estado de Alice es el mismo, ρ_A = I/2"
+    - "Concluye que sin la comunicación clásica de Bob no hay señal"
+
+- id: q-decoherence-001
+  prompt: "Un qubit en |+⟩ sufre un defasado completo (el canal que anula las entradas no diagonales). ¿Qué matriz densidad resulta?"
+  options:
+    a: "[[1, 0], [0, 0]]: el qubit colapsa al estado |0⟩"
+    b: "[[1/2, 0], [0, 1/2]]: las poblaciones se mantienen y desaparece la coherencia"
+    c: "[[1/2, 1/2], [1/2, 1/2]]: no cambia, porque las diagonales son las que importan"
+    d: "[[0, 0], [0, 1]]: el qubit pasa al estado |1⟩"
+  explanation: "El defasado deja las diagonales (poblaciones 1/2 y 1/2) y pone a cero las no diagonales, y el resultado es una mezcla clásica. La tentación es confundirlo con el colapso: el defasado no elige un resultado (0 o 1), solo borra la fase relativa y conserva las probabilidades."
+
+- id: q-decoherence-002
+  prompt: "Según Zurek, ¿cómo se distingue la decoherencia de la relajación y del ruido clásico?"
+  options:
+    a: "En la decoherencia se pierde energía del sistema; en la relajación se pierde solo la fase"
+    b: "La decoherencia es siempre más lenta que la relajación y se mide con otros instrumentos"
+    c: "No hay diferencia: son nombres del mismo proceso, que ocurre siempre a la vez"
+    d: "En la relajación y el ruido clásico el entorno perturba al sistema; en la decoherencia el sistema perturba al entorno, que queda con información sobre el sistema"
+  explanation: "Zurek separa ambas ideas aunque a menudo ocurran juntas: lo que define la decoherencia es que información sobre el sistema queda impresa en el entorno. Los otros dos procesos son perturbaciones del entorno sobre el sistema. Perder energía (relajación) y perder fase (decoherencia pura) son efectos distintos, y la decoherencia macroscópica es mucho más rápida que la relajación."
+
+- id: q-decoherence-003
+  prompt: "¿Qué dice Zurek sobre la relación entre decoherencia y colapso de la función de onda?"
+  options:
+    a: "Que son lo mismo: la decoherencia es el colapso, y el sistema pasa a un estado propio"
+    b: "Que la decoherencia es el mecanismo físico que elige qué resultado ocurre en cada medida"
+    c: "Que la decoherencia impone el colapso aparente (solo unos pocos estados conservan correlaciones útiles), pero no es una selección dinámica de un único resultado"
+    d: "Que la decoherencia solo ocurre cuando un observador mira el entorno"
+  explanation: "Zurek presenta la decoherencia como una restricción que deja solo los estados 'einseleccionados', no como una explicación de por qué sale un resultado concreto. Además, no hace falta que alguien mire: una medida no registrada también convierte ρ en Σ EₐρEₐ una vez entrelazado con el puntero. Equipararla con el colapso es el error frecuente."
+
+- id: q-decoherence-004
+  prompt: "Explica con tus palabras por qué, cuando un qubit se entrelaza con un entorno inaccesible, la interferencia desaparece aunque la información no se haya destruido. ¿Qué ocurre con la matriz densidad del qubit?"
+  model_answer: "Al entrelazarse con el entorno, la información sobre en qué estado estaba el qubit queda en el entorno, de modo que en principio está disponible y la interferencia desaparece. El estado conjunto sigue siendo puro, pero al trazar el entorno, los términos cruzados desaparecen: en el modelo mínimo de Zurek, si los estados del entorno son ortogonales, ρ reducida solo conserva las diagonales. En un qubit, las poblaciones |a|² y |b|² no cambian y solo se encoge el factor de las no diagonales (ab*·r(t)). La información no se destruye: queda impresa en el entorno."
+  rubric:
+    - "Explica que la información queda en el entorno (no se destruye)"
+    - "Indica que el estado conjunto sigue siendo puro y que se obtiene el reducido trazando el entorno"
+    - "Explica que desaparecen o se encogen los términos no diagonales"
+    - "Indica que las poblaciones (diagonales) se mantienen"
+
+- id: q-decoherence-005
+  prompt: "Una matriz densidad mixta puede deberse a ruido clásico o a entrelazamiento con un entorno. ¿Qué distingue ambos casos según Zurek?"
+  options:
+    a: "Con ruido clásico, cada realización sigue siendo pura y se podría restaurar si se conociera el ruido; en la decoherencia verdadera la información queda impresa en el entorno"
+    b: "Con ruido clásico el estado nunca vuelve a ser puro, mientras que la decoherencia siempre es reversible"
+    c: "Solo en la decoherencia el estado del qubit es mixto; con ruido clásico sigue siendo puro"
+    d: "Se distinguen mirando la matriz: el ruido clásico da siempre matrices diagonales y la decoherencia no"
+  explanation: "En el ruido clásico es ignorancia sobre qué estado puro hay; en la decoherencia el qubit está entrelazado con el entorno y el todo sigue puro. Para ingeniería ambos pueden parecer iguales y los códigos de corrección de errores tratan los dos. La opción de que el ruido clásico es irreversible está al revés: es el caso restaurable si se conoce."
+
+- id: q-decoherence-006
+  prompt: "Monitorizando un qubit observas que las entradas no diagonales de su matriz densidad se encogen, por ejemplo ρ = [[1/2, e^{−Γt}/2], [e^{−Γt}/2, 1/2]] a partir de |+⟩, mientras que las diagonales no cambian. ¿Qué proceso es? ¿Qué le ocurre al punto del estado en la bola de Bloch? ¿Es lo mismo que el colapso?"
+  model_answer: "Es defasado (dephasing), una forma de decoherencia: las poblaciones se mantienen y las coherencias decaen como e^{−Γt}. En la bola de Bloch, con ρ = (I + P·σ)/2, las entradas no diagonales corresponden a las componentes x e y de P y las diagonales a la z. Por tanto las componentes x e y se encogen y la z no cambia: el punto se mueve hacia el eje z, y a partir de |+⟩ (eje x) va hacia el centro, I/2, perdiendo pureza. No es colapso: el estado no pasa a |0⟩ o |1⟩ ni se elige un resultado, solo se pierde la fase relativa y el estado final es una mezcla clásica."
+  rubric:
+    - "Identifica el proceso como defasado (coherencias decaen, poblaciones constantes)"
+    - "Describe que las componentes x e y del vector de Bloch se encogen y z se mantiene (el punto va hacia el eje z)"
+    - "Indica que el estado pasa de puro a mixto (acaba en I/2 para |+⟩)"
+    - "Aclara que no es colapso: no se elige un resultado, solo se pierde la coherencia"
+
+- id: q-decoherence-007
+  prompt: "Dos qubits se comportan así: en el primero, las diagonales de ρ no cambian y solo decaen las no diagonales; en el segundo, la población excitada decae como e^{−Γt} y las no diagonales como e^{−Γt/2}. ¿De qué canal se trata en cada caso, dónde termina cada estado en la bola de Bloch y por qué un modelo de defasado puro no vale para el segundo?"
+  model_answer: "El primero es defasado: las poblaciones se mantienen y las coherencias decaen; los puntos se acercan al eje z. El segundo es amortiguamiento de amplitud (emisión espontánea): la población excitada decae como e^{−Γt} (T₁) y las no diagonales como e^{−Γt/2} (T₂), y T₂ = 2T₁ para amortiguamiento de amplitud puro; a tiempos largos el átomo acaba en el estado fundamental, un punto de la superficie de la bola (estado puro, el polo). El defasado no vale para el segundo porque no cambia las poblaciones, mientras que aquí hay pérdida de energía y la población excitada decae."
+  rubric:
+    - "Identifica el primero como defasado (poblaciones constantes)"
+    - "Identifica el segundo como amortiguamiento de amplitud (poblaciones decaen)"
+    - "Indica que el segundo acaba en el estado fundamental (estado puro, polo de la bola)"
+    - "Explica que el defasado puro no cambia las poblaciones y por eso no describe la pérdida de energía"
+
+- id: q-decoherence-008
+  prompt: "En una discusión, un compañero dice: 'la decoherencia ya resuelve del todo el problema de la medida y demuestra que Many Worlds es la interpretación correcta'. ¿Qué respondes según lo que dice Zurek? Distingue lo que la decoherencia explica de lo que deja abierto."
+  model_answer: "Zurek defiende que la decoherencia y la einselección explican la clasicalidad (por qué unos pocos estados puntero son los que se observan) sin modificar la teoría cuántica. Pero no la presenta como completa: enumera cuestiones abiertas (por ejemplo, qué cuenta como 'sistema'), y la presenta como una posición entre varias, no universalmente aceptada como solución completa del problema de la medida. Además, señala que encaja con Many Worlds (donde ayuda a definir las ramas) y también con Copenhague (donde ayuda a definir la frontera cuántico-clásica), así que no demuestra una interpretación concreta. Lo que sí aporta es una base preferida, que Many Worlds deja sin responder."
+  rubric:
+    - "Atribuye a Zurek que la decoherencia explica la clasicalidad sin modificar la teoría"
+    - "Indica que Zurek no la considera completa y que enumera cuestiones abiertas"
+    - "Indica que encaja con Many Worlds y con Copenhague, así que no demuestra una de ellas"
+    - "Menciona que no está universalmente aceptada como solución completa del problema de la medida"

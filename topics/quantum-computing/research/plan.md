@@ -4,7 +4,7 @@ Content language: es
 
 ## Domains
 - [x] math-foundations — sources: axler-2024, watrous-2025 (L1–L3 only; no eigenvalue material there), de-wolf-2026 (App. A–B, ch. 1) — status: done
-- [ ] quantum-mechanics — sources: zwiebach-mit-8-04, openstax-physics-3, preskill-ph219, watrous-2025 · TOC only: nielsen-chuang-2010 — status: pending
+- [x] quantum-mechanics — sources: zwiebach-mit-8-04 (LN1–9), zwiebach-mit-8-05 (ch. 2, 6), openstax-physics-3 (§6–7), preskill-ph219 (ch. 2–3), watrous-2025 (Unit III), zurek-2003 · not researched: nielsen-chuang-2010 (TOC only) — status: done
 - [ ] qubits-and-circuits — sources: watrous-2025, de-wolf-2026, aaronson-2018, preskill-ph219 — status: pending
 - [ ] quantum-algorithms — sources: watrous-2025, de-wolf-2026, childs-qa, shor-mit-2022, aaronson-2018, shor-1997, grover-1996, nist-fips-203, gidney-2025 — status: pending
 - [ ] qiskit-programming — sources: qiskit-docs, ibm-quantum-learning, preskill-2018, cerezo-2021, peruzzo-2014, farhi-2014 — status: pending
@@ -18,6 +18,7 @@ Concept titles (es): `i18n/es/concepts.yaml`.
 - Several hardware papers are written by companies (Pasqal, PsiQuantum, QuEra, Google); keep their claims attributed and cross-check with independent reviews.
 - `arute-2019`: the classical-simulation estimate was disputed afterwards; an A/B source for the rebuttals is still missing.
 - math-foundations gaps: no source on numerical linear algebra (Gram-Schmidt stability, eigenvalue computation); the rank-1 criterion for product states and the fidelity of pure states are [unverified] — look for support in watrous-2025 (Schmidt decomposition, Unit III) when researching later domains. Two forward links (hamiltonian-simulation, qiskit-programming index) resolve once those domains are written.
+- quantum-mechanics gaps: no source derives Larmor precession or the general bound ΔAΔB ≥ ½|⟨[A,B]⟩| (both [unverified]); amplitude damping only from Preskill; three "why it matters" claims (interference amplifies right answers, algorithms make the right answer likely) are [unverified] until the quantum-algorithms domain backs them.
 - `qiskit-docs` change with each SDK version: notes must record the version, and code in the content must be checked against it.
 
 ## Decisions
@@ -29,4 +30,7 @@ Concept titles (es): `i18n/es/concepts.yaml`.
 - 2026-11-03 — map created (7 domains, 69 concepts, 34 sources)
 - 2026-11-03 — map approved; starting math-foundations
 - 2026-11-03 — `de-wolf-2023` renamed `de-wolf-2026` (the arXiv v6 of 27 Aug 2026 was read; nothing cited it yet)
+- 2026-11-03 — quantum-mechanics: added zwiebach-mit-8-05 (spin 1/2, unitary dynamics) and zurek-2003 (decoherence); 8.04 covers neither spin nor decoherence
 - 2026-11-03 — math-foundations done: 8 concepts (layers 1–3), 56 questions (layer 1: 24, layer 2: 16, layer 3: 16), 3 own diagrams (complex-plane-unit-circle, orthonormal-projection, kronecker-layout), 6 [unverified]
+- 2026-11-03 — math-foundations: fidelity claim now backed by watrous-2025 (L12.2); one [unverified] fewer
+- 2026-11-03 — quantum-mechanics done: 10 concepts, 77 questions (layer 1: 19, layer 2: 36, layer 3: 22), 3 own diagrams (mach-zehnder-amplitudes, stern-gerlach-zxz, dephasing-bloch-density), 11 [unverified]

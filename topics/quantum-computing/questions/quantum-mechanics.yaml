@@ -1,0 +1,500 @@
+- id: q-quantization-and-wave-particle-001
+  concept: quantization-and-wave-particle
+  layer: 1
+  type: single-choice
+  sources: [zwiebach-mit-8-04]
+  correct: d
+
+- id: q-quantization-and-wave-particle-002
+  concept: quantization-and-wave-particle
+  layer: 1
+  type: single-choice
+  sources: [zwiebach-mit-8-04]
+  correct: b
+
+- id: q-quantization-and-wave-particle-003
+  concept: quantization-and-wave-particle
+  layer: 1
+  type: short-answer
+  sources: [zwiebach-mit-8-04]
+
+- id: q-quantization-and-wave-particle-004
+  concept: quantization-and-wave-particle
+  layer: 1
+  type: single-choice
+  sources: [openstax-physics-3]
+  correct: a
+
+- id: q-quantization-and-wave-particle-005
+  concept: quantization-and-wave-particle
+  layer: 2
+  type: single-choice
+  sources: [openstax-physics-3, zwiebach-mit-8-04]
+  correct: c
+
+- id: q-quantization-and-wave-particle-006
+  concept: quantization-and-wave-particle
+  layer: 2
+  type: open
+  sources: [zwiebach-mit-8-04, openstax-physics-3]
+
+- id: q-quantization-and-wave-particle-007
+  concept: quantization-and-wave-particle
+  layer: 3
+  type: case
+  sources: [openstax-physics-3, zwiebach-mit-8-04]
+
+- id: q-quantization-and-wave-particle-008
+  concept: quantization-and-wave-particle
+  layer: 3
+  type: case
+  sources: [zwiebach-mit-8-04]
+
+- id: q-superposition-principle-001
+  concept: superposition-principle
+  layer: 1
+  type: single-choice
+  sources: [zwiebach-mit-8-04]
+  correct: b
+
+- id: q-superposition-principle-002
+  concept: superposition-principle
+  layer: 1
+  type: single-choice
+  sources: [zwiebach-mit-8-04]
+  correct: c
+
+- id: q-superposition-principle-003
+  concept: superposition-principle
+  layer: 1
+  type: short-answer
+  sources: [zwiebach-mit-8-04]
+
+- id: q-superposition-principle-004
+  concept: superposition-principle
+  layer: 2
+  type: single-choice
+  sources: [zwiebach-mit-8-04]
+  correct: d
+
+- id: q-superposition-principle-005
+  concept: superposition-principle
+  layer: 2
+  type: single-choice
+  sources: [zwiebach-mit-8-04]
+  correct: a
+
+- id: q-superposition-principle-006
+  concept: superposition-principle
+  layer: 2
+  type: open
+  sources: [zwiebach-mit-8-05, zwiebach-mit-8-04]
+
+- id: q-superposition-principle-007
+  concept: superposition-principle
+  layer: 3
+  type: case
+  sources: [zwiebach-mit-8-04]
+
+- id: q-superposition-principle-008
+  concept: superposition-principle
+  layer: 3
+  type: case
+  sources: [zwiebach-mit-8-04]
+
+- id: q-state-vector-postulate-001
+  concept: state-vector-postulate
+  layer: 1
+  type: single-choice
+  sources: [preskill-ph219]
+  correct: b
+
+- id: q-state-vector-postulate-002
+  concept: state-vector-postulate
+  layer: 1
+  type: single-choice
+  sources: [zwiebach-mit-8-05]
+  correct: a
+
+- id: q-state-vector-postulate-003
+  concept: state-vector-postulate
+  layer: 1
+  type: short-answer
+  sources: [preskill-ph219]
+
+- id: q-state-vector-postulate-004
+  concept: state-vector-postulate
+  layer: 1
+  type: short-answer
+  sources: [zwiebach-mit-8-04]
+
+- id: q-state-vector-postulate-005
+  concept: state-vector-postulate
+  layer: 2
+  type: single-choice
+  sources: [preskill-ph219]
+  correct: d
+
+- id: q-state-vector-postulate-006
+  concept: state-vector-postulate
+  layer: 2
+  type: single-choice
+  sources: [preskill-ph219, zwiebach-mit-8-04]
+  correct: c
+
+- id: q-state-vector-postulate-007
+  concept: state-vector-postulate
+  layer: 2
+  type: open
+  sources: [preskill-ph219]
+
+- id: q-state-vector-postulate-008
+  concept: state-vector-postulate
+  layer: 3
+  type: case
+  sources: [preskill-ph219, zwiebach-mit-8-05]
+
+- id: q-state-vector-postulate-009
+  concept: state-vector-postulate
+  layer: 3
+  type: case
+  sources: [preskill-ph219]
+
+- id: q-born-rule-measurement-001
+  concept: born-rule-measurement
+  layer: 1
+  type: single-choice
+  sources: [zwiebach-mit-8-05]
+  correct: d
+
+- id: q-born-rule-measurement-002
+  concept: born-rule-measurement
+  layer: 1
+  type: single-choice
+  sources: [zwiebach-mit-8-04]
+  correct: c
+
+- id: q-born-rule-measurement-003
+  concept: born-rule-measurement
+  layer: 1
+  type: short-answer
+  sources: [zwiebach-mit-8-04]
+
+- id: q-born-rule-measurement-004
+  concept: born-rule-measurement
+  layer: 1
+  type: single-choice
+  sources: [zwiebach-mit-8-04]
+  correct: a
+
+- id: q-born-rule-measurement-005
+  concept: born-rule-measurement
+  layer: 2
+  type: single-choice
+  sources: [zwiebach-mit-8-04]
+  correct: b
+
+- id: q-born-rule-measurement-006
+  concept: born-rule-measurement
+  layer: 2
+  type: single-choice
+  sources: [preskill-ph219]
+  correct: c
+
+- id: q-born-rule-measurement-007
+  concept: born-rule-measurement
+  layer: 2
+  type: open
+  sources: [preskill-ph219, watrous-2025]
+
+- id: q-born-rule-measurement-008
+  concept: born-rule-measurement
+  layer: 3
+  type: case
+  sources: [preskill-ph219]
+
+- id: q-born-rule-measurement-009
+  concept: born-rule-measurement
+  layer: 3
+  type: case
+  sources: [preskill-ph219, watrous-2025]
+
+- id: q-two-level-systems-001
+  concept: two-level-systems
+  layer: 1
+  type: single-choice
+  sources: [zwiebach-mit-8-05]
+  correct: a
+
+- id: q-two-level-systems-002
+  concept: two-level-systems
+  layer: 1
+  type: single-choice
+  sources: [zwiebach-mit-8-05]
+  correct: b
+
+- id: q-two-level-systems-003
+  concept: two-level-systems
+  layer: 1
+  type: short-answer
+  sources: [zwiebach-mit-8-05]
+
+- id: q-two-level-systems-004
+  concept: two-level-systems
+  layer: 1
+  type: single-choice
+  sources: [zwiebach-mit-8-05]
+  correct: d
+
+- id: q-two-level-systems-005
+  concept: two-level-systems
+  layer: 2
+  type: single-choice
+  sources: [zwiebach-mit-8-05]
+  correct: c
+
+- id: q-two-level-systems-006
+  concept: two-level-systems
+  layer: 2
+  type: single-choice
+  sources: [zwiebach-mit-8-05]
+  correct: d
+
+- id: q-two-level-systems-007
+  concept: two-level-systems
+  layer: 2
+  type: open
+  sources: [preskill-ph219, zwiebach-mit-8-05]
+
+- id: q-two-level-systems-008
+  concept: two-level-systems
+  layer: 3
+  type: case
+  sources: [preskill-ph219, zwiebach-mit-8-04]
+
+- id: q-two-level-systems-009
+  concept: two-level-systems
+  layer: 3
+  type: case
+  sources: [preskill-ph219]
+
+- id: q-observables-001
+  concept: observables
+  layer: 2
+  type: single-choice
+  sources: [zwiebach-mit-8-04]
+  correct: a
+
+- id: q-observables-002
+  concept: observables
+  layer: 2
+  type: single-choice
+  sources: [zwiebach-mit-8-05, preskill-ph219, zwiebach-mit-8-04]
+  correct: b
+
+- id: q-observables-003
+  concept: observables
+  layer: 2
+  type: single-choice
+  sources: [preskill-ph219]
+  correct: d
+
+- id: q-observables-004
+  concept: observables
+  layer: 2
+  type: open
+  sources: [zwiebach-mit-8-04, preskill-ph219]
+
+- id: q-observables-005
+  concept: observables
+  layer: 3
+  type: case
+  sources: [preskill-ph219]
+
+- id: q-observables-006
+  concept: observables
+  layer: 3
+  type: case
+  sources: [zwiebach-mit-8-05]
+
+- id: q-unitary-time-evolution-001
+  concept: unitary-time-evolution
+  layer: 2
+  type: single-choice
+  sources: [zwiebach-mit-8-05]
+  correct: c
+
+- id: q-unitary-time-evolution-002
+  concept: unitary-time-evolution
+  layer: 2
+  type: single-choice
+  sources: [watrous-2025, zwiebach-mit-8-05]
+  correct: a
+
+- id: q-unitary-time-evolution-003
+  concept: unitary-time-evolution
+  layer: 2
+  type: single-choice
+  sources: [zwiebach-mit-8-05]
+  correct: b
+
+- id: q-unitary-time-evolution-004
+  concept: unitary-time-evolution
+  layer: 2
+  type: open
+  sources: [zwiebach-mit-8-05, zwiebach-mit-8-04]
+
+- id: q-unitary-time-evolution-005
+  concept: unitary-time-evolution
+  layer: 3
+  type: case
+  sources: [zwiebach-mit-8-05, preskill-ph219]
+
+- id: q-unitary-time-evolution-006
+  concept: unitary-time-evolution
+  layer: 3
+  type: case
+  sources: [preskill-ph219, watrous-2025]
+
+- id: q-uncertainty-and-noncommutativity-001
+  concept: uncertainty-and-noncommutativity
+  layer: 2
+  type: single-choice
+  sources: [zwiebach-mit-8-04]
+  correct: d
+
+- id: q-uncertainty-and-noncommutativity-002
+  concept: uncertainty-and-noncommutativity
+  layer: 2
+  type: single-choice
+  sources: [zwiebach-mit-8-05]
+  correct: a
+
+- id: q-uncertainty-and-noncommutativity-003
+  concept: uncertainty-and-noncommutativity
+  layer: 2
+  type: single-choice
+  sources: [openstax-physics-3, zwiebach-mit-8-04]
+  correct: c
+
+- id: q-uncertainty-and-noncommutativity-004
+  concept: uncertainty-and-noncommutativity
+  layer: 2
+  type: open
+  sources: [zwiebach-mit-8-05, preskill-ph219]
+
+- id: q-uncertainty-and-noncommutativity-005
+  concept: uncertainty-and-noncommutativity
+  layer: 3
+  type: case
+  sources: [preskill-ph219, zwiebach-mit-8-05]
+
+- id: q-uncertainty-and-noncommutativity-006
+  concept: uncertainty-and-noncommutativity
+  layer: 3
+  type: case
+  sources: [openstax-physics-3, zwiebach-mit-8-05, zwiebach-mit-8-04]
+
+- id: q-density-matrices-001
+  concept: density-matrices
+  layer: 2
+  type: single-choice
+  sources: [watrous-2025]
+  correct: b
+
+- id: q-density-matrices-002
+  concept: density-matrices
+  layer: 2
+  type: single-choice
+  sources: [preskill-ph219, watrous-2025]
+  correct: c
+
+- id: q-density-matrices-003
+  concept: density-matrices
+  layer: 2
+  type: single-choice
+  sources: [watrous-2025]
+  correct: a
+
+- id: q-density-matrices-004
+  concept: density-matrices
+  layer: 2
+  type: single-choice
+  sources: [watrous-2025]
+  correct: d
+
+- id: q-density-matrices-005
+  concept: density-matrices
+  layer: 2
+  type: open
+  sources: [watrous-2025, preskill-ph219]
+
+- id: q-density-matrices-006
+  concept: density-matrices
+  layer: 3
+  type: case
+  sources: [preskill-ph219]
+
+- id: q-density-matrices-007
+  concept: density-matrices
+  layer: 3
+  type: case
+  sources: [preskill-ph219, watrous-2025]
+
+- id: q-density-matrices-008
+  concept: density-matrices
+  layer: 3
+  type: case
+  sources: [preskill-ph219, watrous-2025]
+
+- id: q-decoherence-001
+  concept: decoherence
+  layer: 2
+  type: single-choice
+  sources: [preskill-ph219, watrous-2025]
+  correct: b
+
+- id: q-decoherence-002
+  concept: decoherence
+  layer: 2
+  type: single-choice
+  sources: [zurek-2003]
+  correct: d
+
+- id: q-decoherence-003
+  concept: decoherence
+  layer: 2
+  type: single-choice
+  sources: [zurek-2003]
+  correct: c
+
+- id: q-decoherence-004
+  concept: decoherence
+  layer: 2
+  type: open
+  sources: [zurek-2003, preskill-ph219]
+
+- id: q-decoherence-005
+  concept: decoherence
+  layer: 2
+  type: single-choice
+  sources: [zurek-2003]
+  correct: a
+
+- id: q-decoherence-006
+  concept: decoherence
+  layer: 3
+  type: case
+  sources: [preskill-ph219]
+
+- id: q-decoherence-007
+  concept: decoherence
+  layer: 3
+  type: case
+  sources: [preskill-ph219]
+
+- id: q-decoherence-008
+  concept: decoherence
+  layer: 3
+  type: case
+  sources: [zurek-2003]

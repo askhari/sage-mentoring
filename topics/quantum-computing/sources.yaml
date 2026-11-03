@@ -44,7 +44,7 @@
   identifiers: { url: "https://www.preskill.caltech.edu/ph219/" }
   access: open
   accessed: 2026-11-03
-  notes: "full text (chapter PDFs). Caltech; chapters written 1997–2020s, year approximate. Researcher must record which chapter and version was read."
+  notes: "full text (chapter PDFs). Caltech; chapters written 1997–2020s, year approximate. Read so far: chap2_15.pdf (2015, ch. 2 Foundations I) and chap3_15.pdf (header says updated October 2018, ch. 3 Foundations II). Page numbers are per chapter PDF."
 - id: shor-mit-2022
   type: course
   reliability: A
@@ -101,7 +101,29 @@
   identifiers: { url: "https://ocw.mit.edu/courses/8-04-quantum-physics-i-spring-2016/" }
   access: open
   accessed: 2026-11-03
-  notes: "full text (MIT OpenCourseWare, CC BY-NC-SA). Basis of Zwiebach's 'Mastering Quantum Mechanics' (MIT Press, 2022)."
+  notes: "full text (MIT OpenCourseWare, CC BY-NC-SA). Read: lecture notes 1–9 (key features, photon experiments, photoelectric/Compton/matter waves, Schrödinger equation, probability, observables, uncertainty). Basis of Zwiebach's 'Mastering Quantum Mechanics' (MIT Press, 2022)."
+- id: zwiebach-mit-8-05
+  type: course
+  reliability: A
+  title: "8.05 Quantum Physics II (Fall 2013), lecture notes"
+  authors: ["Barton Zwiebach"]
+  year: 2013
+  language: en
+  identifiers: { url: "https://ocw.mit.edu/courses/8-05-quantum-physics-ii-fall-2013/" }
+  access: open
+  accessed: 2026-11-03
+  notes: "full text (MIT OpenCourseWare, CC BY-NC-SA). Read: ch. 2 (spin one-half, bras, kets, operators) and ch. 6 (quantum dynamics: unitary time evolution, Heisenberg picture)."
+- id: zurek-2003
+  type: paper
+  reliability: B
+  title: "Decoherence, einselection, and the quantum origins of the classical"
+  authors: ["Wojciech H. Zurek"]
+  year: 2003
+  language: en
+  identifiers: { doi: "10.1103/RevModPhys.75.715", url: "https://arxiv.org/abs/quant-ph/0105127" }
+  access: open
+  accessed: 2026-11-03
+  notes: "full text (arXiv). Review, Reviews of Modern Physics 75, 715."
 - id: openstax-physics-3
   type: textbook
   reliability: A

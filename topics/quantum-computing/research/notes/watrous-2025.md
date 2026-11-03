@@ -1,6 +1,6 @@
 ---
 source: watrous-2025
-concepts: [complex-numbers, vectors-and-dirac-notation, inner-products-and-norms, matrices-and-linear-maps, unitary-and-hermitian-matrices, tensor-products, probability-basics]
+concepts: [complex-numbers, vectors-and-dirac-notation, inner-products-and-norms, matrices-and-linear-maps, unitary-and-hermitian-matrices, tensor-products, probability-basics, born-rule-measurement, density-matrices, decoherence, unitary-time-evolution]
 ---
 
 Accessed: full text of arXiv:2507.11536v1 (extracted text), read Lessons 1, 2 and 3.2-3.3 (Unit I). Locations are given as "L<lesson>.<section>, PDF p. N". PDF page = book page + 6. Unit I does not contain a stand-alone linear-algebra review or appendix.
@@ -111,3 +111,81 @@ Accessed: full text of arXiv:2507.11536v1 (extracted text), read Lessons 1, 2 an
 
 ## Level
 University (advanced undergraduate / intro graduate). Linear algebra is introduced as needed from a classical-probability analogy, so it is accessible to a programmer with some rusty linear algebra.
+
+## quantum-mechanics
+
+Accessed (this section): full text of Unit III, Lessons 9-12 (density matrices, channels, general measurements, purifications and fidelity), read in the extracted text (not all proofs; Lesson 10.3 and parts of 11.1/11.3 skimmed). Locations: "L<lesson>.<section>, PDF p. N" (PDF page = book page + 6). Measurement facts from Unit I reuse the locations already given above.
+
+### born-rule-measurement
+- Standard-basis measurement of a state vector gives outcome a with probability |<a|psi>|^2, which sums to 1 for a unit vector (L1.2, PDF pp. 23-24, as already noted above) → born-rule-measurement
+- Projective measurement: a family of projection matrices Pi_a with sum equal to the identity. Outcome a has probability ||Pi_a|psi>||^2. The post-measurement state is Pi_a|psi> renormalized. Standard-basis measurement is the case Pi_a = |a><a| (L3.2, PDF p. 87; restated in L11.1, PDF pp. 328-329) → born-rule-measurement
+- For a state given as a density matrix rho, the probability of outcome a of a projective measurement is Tr(Pi_a rho). For a pure state this equals ||Pi_a|psi>||^2, and by linearity it equals the average of the probabilities over any convex mixture of pure states (L11.1, PDF p. 329) → born-rule-measurement
+- General measurement (POVM in the usual name; the source does not use that name in the parts read): replace the projections by arbitrary positive semidefinite matrices P_0..P_{m-1} that sum to the identity. Outcome a has probability Tr(P_a rho). These probabilities are nonnegative and sum to 1 (L11.1, PDF p. 330) → born-rule-measurement
+- Every projective measurement is a general measurement. The standard-basis measurement of a qubit is P_0 = |0><0|, P_1 = |1><1|, and its probabilities are the diagonal entries <0|rho|0> and <1|rho|1> (L11.1, PDF p. 330) → born-rule-measurement
+- Non-projective examples: a two-outcome qubit measurement with non-projection matrices (outcome probabilities 5/6 and 1/6 on |+>), and the four-outcome "tetrahedral" measurement P_a = |phi_a><phi_a|/2 built from four states at the vertices of a regular tetrahedron on the Bloch sphere (L11.1, PDF pp. 331-333) → born-rule-measurement
+- Naimark's theorem: any general measurement can be implemented by adding an ancilla Y in |0>, applying a unitary U to (Y, X), and then measuring Y in the standard basis. The proof builds U with the square roots of the P_a as its first block column (L11.2, PDF pp. 341-343) → born-rule-measurement
+- Destructive measurement outputs only the outcome. Non-destructive measurement also gives the post-measurement state, which is sqrt(P_a) rho sqrt(P_a) / Tr(P_a rho) when taken from the Naimark construction. This state is not unique, because a unitary V_a after outcome a gives other valid choices with the same outcome probabilities. Equivalently, Kraus matrices A_a with sum A_a† A_a = I give outcome probability Tr(A_a rho A_a†) and post-state A_a rho A_a† / that probability (L11.2, PDF pp. 344-346) → born-rule-measurement
+- Measurements can be described as channels whose output is always diagonal (classical). Such a channel is the completely dephasing channel on the outcome register composed with the measurement, and the two descriptions (matrices, classical-output channels) are equivalent (L11.1, PDF pp. 327-329) → born-rule-measurement, decoherence
+
+### observables
+- ⚠️ Not covered: The parts of the book read describe measurements only through projections and positive semidefinite matrices summing to I, with no stand-alone Hermitian "observable" or expectation-value formalism. The nearest link is that projections are Hermitian (L3.2, PDF pp. 85-86, see above). The one eigen-based measurement in the parts read is state discrimination, where the optimal projective measurement uses the spectral decomposition of the weighted difference p rho_0 - (1-p) rho_1 (L11.3, PDF p. 348).
+
+### density-matrices
+- A quantum state of a system is a density matrix rho: a square matrix indexed by the classical states with two conditions, trace 1 and positive semidefinite (rho >= 0). The source calls this the "general formulation", which can describe noise and the state of an isolated part of a system (L9 intro, PDF pp. 261-262; L9.1, PDF p. 263) → density-matrices
+- Positive semidefinite means P = M†M for some M. It is equivalent to P being Hermitian with nonnegative eigenvalues, and to <psi|P|psi> >= 0 for all |psi>. It does not mean that the entries are nonnegative (L9.1, PDF pp. 263-264) → density-matrices
+- Informal reading of entries: the diagonal entries are the standard-basis measurement probabilities. The off-diagonal entries tell how much the two classical states are in superposition, with their relative phase (L9.1, PDF p. 265) → density-matrices
+- A state vector |psi> corresponds to the density matrix |psi><psi|, called a pure state. It is a rank-1 projection, with one eigenvalue 1 and the rest 0, so it carries no uncertainty. Not every density matrix is pure (L9.1, PDF pp. 265-267) → density-matrices
+- Density matrices remove the global-phase ambiguity: |psi> and e^{i theta}|psi> give the same matrix. In general two states give the same statistics for every measurement iff their density matrices are equal (a "faithful" representation) (L9.1, PDF pp. 267-268) → density-matrices
+- A random choice of states is the convex combination sum p_k rho_k. Averaging state vectors does not work (the result may not be a unit vector, and (|psi> + (-|psi>))/2 is zero). Example: (|0><0| + |+><+|)/2 = [[3/4,1/4],[1/4,1/4]] (L9.2, PDF pp. 268-269) → density-matrices
+- The same density matrix arises from different ensembles. The completely mixed state I/2 comes from {|0>,|1>}, from {|+>,|->}, or from any two orthogonal states. The two preparations cannot be told apart by any measurement, as shown with Parseval's identity (L9.2, PDF pp. 269-271) → density-matrices
+- Spectral theorem: every density matrix is a convex combination of orthonormal pure states, weighted by its eigenvalues (which are nonnegative and sum to 1 because the trace is 1). Other, non-orthogonal decompositions also exist. Example: [[3/4,1/4],[1/4,1/4]] has eigenvalues cos^2(pi/8) and sin^2(pi/8) (L9.2, PDF pp. 272-274) → density-matrices
+- Classical probabilistic states are exactly the diagonal density matrices, sum p_a |a><a|. With no off-diagonal terms there is only classical randomness and no superposition (L9.2, PDF pp. 271-272) → density-matrices
+- Bloch sphere (qubits only): up to global phase a pure qubit state is cos(theta/2)|0> + e^{i phi} sin(theta/2)|1>, and its density matrix is (I + x sigma_x + y sigma_y + z sigma_z)/2 with (x, y, z) a unit vector. |0>, |1> are the poles, |+>, |-> the x axis, |+i>, |-i> the y axis (L9.3, PDF pp. 275-279) → density-matrices
+- Bloch ball: convex combinations of points give points inside the sphere, which are the mixed states. The completely mixed state I/2 is the center, (0,0,0). Orthogonal states are antipodal points (L9.3, PDF pp. 280-281) → density-matrices
+- Multiple systems: tensor products of density matrices are product states (independence). Correlated classical states, classical-quantum states, and separable states sum p_k rho_k (x) sigma_k are the non-entangled cases. A state that is not separable is entangled. The Bell states as density matrices keep off-diagonal terms linking |00> and |11> (L9.4, PDF pp. 282-284) → density-matrices
+- Reduced state and partial trace: discarding system B leaves rho_A = Tr_B(rho). It is characterized by Tr_B(M (x) N) = Tr(N) M. For the e-bit |phi+> the reduced state of each qubit is the completely mixed state I/2, which is the only description consistent with no faster-than-light signalling (L9.4, PDF pp. 285-289) → density-matrices
+- For a pure entangled pair the local state is mixed. A pure state of the whole can have a mixed reduced state, as all four Bell states give I/2 on each qubit (L9.4, PDF p. 286; L12.1, PDF p. 364) → density-matrices
+- Purification: for any density matrix rho of X there is a pure state of (X, Y) with Tr_Y = rho, if Y has at least as many classical states as X (rank(rho) states suffice). One example is sum sqrt(p_a)|phi_a>|a>. Two purifications of the same rho differ by a unitary on Y alone (L12.1, PDF pp. 356-363) → density-matrices
+
+### decoherence
+- A channel is a linear map from density matrices to density matrices that must stay valid when applied to part of a larger system (trace-preserving and completely positive). The source says any physically realizable discrete-time change of state is described by a channel, including unitary gates and noise. Matrix transposition is a linear map that is not a channel (L10 intro, PDF p. 293; L10.1, PDF pp. 295-296) → decoherence
+- Completely dephasing channel Delta: it zeros the off-diagonal entries and keeps the diagonal. The source calls it an extreme form of decoherence, which essentially ruins superpositions and turns them into classical probabilistic states. It is also equivalent to a standard-basis measurement whose result is discarded or kept (L10.1, PDF pp. 300-301) → decoherence
+- Partial dephasing: Delta_eps = (1-eps) Id + eps Delta multiplies the off-diagonal entries by (1-eps) and leaves the diagonal alone (L10.1, PDF pp. 301-302) → decoherence
+- Dephasing applied to one half of an e-bit turns |phi+><phi+| into (|00><00| + |11><11|)/2, a classically correlated state with the entanglement removed (L10.1, PDF p. 301) → decoherence
+- Completely depolarizing channel Omega(rho) = Tr(rho) I/2 outputs the completely mixed state. The variant (1-eps) rho + eps Omega(rho) is the less extreme version. The qubit reset channel Tr(rho)|0><0| is another non-unitary example (L10.1, PDF pp. 299-302) → decoherence
+- Stinespring representation: any channel can be implemented as adding an initialized workspace, applying a unitary to the combined system, and tracing out (discarding) part of it. Phrased physically, noise comes from the system interacting with an environment that is then ignored (L10.2, PDF pp. 303-305) → decoherence, unitary-time-evolution
+- Dephasing by an environment: a CNOT from the input qubit to a |0> workspace copies the classical state, and discarding the copy collapses the input to a classical mixture, which is complete dephasing. The source gives an explicit matrix calculation (L10.2, PDF pp. 305-307) → decoherence
+- Dephasing is also a mixed-unitary (Pauli) channel: apply the identity or sigma_z with probability 1/2 each, i.e. rho/2 + sigma_z rho sigma_z/2. The same holds for the depolarizing channel, which is the Pauli average of I, X, Y, Z (L10.2, PDF pp. 309, 312-313) → decoherence
+- Kraus representation: Phi(rho) = sum A_k rho A_k† with the condition sum A_k† A_k = I (equivalent to trace preservation, while complete positivity is automatic). At most n*m Kraus matrices are needed for an n-input, m-output channel (L10.2, PDF p. 310) → decoherence
+- Kraus matrices for common channels: dephasing has A_0 = |0><0|, A_1 = |1><1| (or I/sqrt2 and sigma_z/sqrt2). Reset has |0><0| and |0><1|. Depolarizing needs at least four Kraus matrices, e.g. I, X, Y, Z each divided by 2 (L10.2, PDF pp. 311-313) → decoherence
+- Kraus and Stinespring forms are not unique. The Choi matrix J(Phi) = sum |a><b| (x) Phi(|a><b|) identifies a channel uniquely, and it is Phi applied to half of a maximally entangled state (times n) (L10.2, PDF pp. 313-315) → decoherence
+- ⚠️ Not covered: amplitude damping is not in the parts read (only reset, dephasing and depolarizing examples were found). No decay-time T1/T2 language was seen.
+
+### unitary-time-evolution
+- In the simplified formulation, operations on state vectors are unitary matrices, which are exactly the norm-preserving linear maps (L1.2, PDF p. 25, as noted above) → unitary-time-evolution
+- A unitary operation acts on density matrices as conjugation, Phi(rho) = U rho U†. This agrees with U|psi> being mapped to U|psi><psi|U†, and by linearity it extends to all rho (L10.1, PDF pp. 297-298) → unitary-time-evolution
+- Conjugation by a unitary is a valid channel, also when applied to one part of a joint system. Positive semidefiniteness is preserved because U rho U† = K†K, and the trace is preserved by the cyclic property (L10.1, PDF p. 298) → unitary-time-evolution
+- The identity channel (U = I) is the perfect noiseless channel or ideal memory (L10.1, PDF p. 298) → unitary-time-evolution
+- A unitary channel is a Kraus representation with a single Kraus matrix A_0 = U, and the Kraus condition reduces to U†U = I (L10.2, PDF p. 313) → unitary-time-evolution
+- Unitary operations are the building block of every channel: channels = add ancilla, unitary, trace out. Noisy evolution is therefore a unitary on system plus environment, seen from the system alone (L10.2, PDF pp. 303-305, 326) → unitary-time-evolution
+- Mixed unitary channels sum p_k U_k rho U_k† are random choices among unitaries, and Pauli channels use only Pauli matrices. They are generally not unitary channels (L10.1, PDF p. 299) → unitary-time-evolution
+- ⚠️ The source treats unitary evolution as discrete gates (time steps), not as a Schrodinger-equation or Hamiltonian evolution in the parts read. The word "time evolution" and the Hamiltonian were not found there.
+
+### extra for math-foundations
+- Schmidt decomposition of a pure state of (X, Y): |psi> = sum over a of sqrt(p_a) |x_a>|y_a>, with positive p_a summing to 1 and both sets orthonormal. The Schmidt coefficients are unique. It is built from an eigenbasis of the reduced state (L12.1, PDF pp. 358-362) → tensor-products
+- The number r of terms equals the rank of the reduced state. The nonzero eigenvalues of both reduced states equal the squared Schmidt coefficients, so both subsystems have the same randomness for a pure global state (L12.1, PDF pp. 361-362) → tensor-products
+- ⚠️ The source does not state the rank criterion (Schmidt rank 1 iff product state) in the parts read. It follows from the above (a product state has a pure reduced state), but that conclusion is not written in the source.
+- Entanglement for mixed states: states that are not separable (sum p_k rho_k (x) sigma_k) are entangled. For pure states this agrees with "not a product state", but the source says entanglement is more complicated for non-pure states (L9.4, PDF p. 284) → tensor-products
+- Fidelity between two pure states is |<phi|psi>|, between 0 (orthogonal) and 1 (equal up to global phase). The general definition for density matrices is F(rho, sigma) = Tr sqrt( sqrt(rho) sigma sqrt(rho) ), and the source warns that some authors define fidelity as the square of this (L12.2, PDF pp. 368-369) → inner-products-and-norms
+- Fidelity is symmetric. With one pure argument F = sqrt(<phi|sigma|phi>), and with both pure F = |<phi|psi>|. F = the trace norm of sqrt(sigma) sqrt(rho) (L12.2, PDF pp. 369-370) → inner-products-and-norms
+- Properties listed without proof: 0 <= F <= 1, F = 1 iff rho = sigma, F = 0 iff the images are orthogonal, F is multiplicative on product states, and F never decreases under a channel (L12.2, PDF p. 371) → inner-products-and-norms
+- Uhlmann's theorem: F(rho, sigma) is the maximum of |<phi|psi>| over purifications of rho and of sigma (Y at least as large as X). It uses the unitary equivalence of purifications (L12.2, PDF pp. 374-376) → inner-products-and-norms
+
+## Not covered (quantum-mechanics section)
+- observables: the book has no Hermitian-observable formalism in the parts read (see the placeholder above).
+- amplitude damping: not found. T1/T2 time language: not found.
+- Hamiltonians and continuous time evolution: not found (gate-based time steps only).
+- Trace distance, state discrimination, tomography and the gentle-measurement lemma exist in L11.3 and L12.2 (PDF pp. 347-348, 371-374) but were only skimmed and are not turned into claims.
+
+## Level (quantum-mechanics section)
+University (advanced undergraduate / intro graduate), written for quantum computing. Proofs are included, and this part assumes comfort with the spectral theorem, partial trace and block matrices.
