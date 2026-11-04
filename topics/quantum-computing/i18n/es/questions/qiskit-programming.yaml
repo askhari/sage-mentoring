@@ -1,0 +1,1078 @@
+- id: q-qiskit-circuits-001
+  prompt: ¿Qué es un objeto QuantumCircuit en Qiskit?
+  options:
+    a: Una matriz unitaria ya calculada que se aplica de golpe al estado inicial
+    b: Una conexión autenticada con un dispositivo cuántico al que se envían puertas
+    c: Un conjunto de qubits más una lista ordenada de instrucciones que actúan sobre ellos
+    d: Una lista de resultados de medida obtenidos tras ejecutar un algoritmo
+  explanation: 'El circuito es la pieza central de Qiskit: qubits más instrucciones en orden. No es una matriz ya calculada (eso sería un Operator), ni un backend, ni un resultado; se ejecuta después, mediante primitivas.'
+
+- id: q-qiskit-circuits-002
+  prompt: |-
+    Se ejecuta este código:
+
+    ```python
+    qc = QuantumCircuit(3)
+    qc.x(0)
+    qc.cx(0, 1)
+    print(Statevector(qc).probabilities_dict())
+    ```
+
+    ¿Qué cadena de bits aparece con probabilidad 1?
+  options:
+    a: '''011'', porque Qiskit escribe el qubit 0 en el extremo derecho'
+    b: '''110'', porque el qubit 0 se escribe a la izquierda y el 2 a la derecha'
+    c: '''010'', porque el CNOT no cambia el qubit objetivo si el control vale 1'
+    d: '''001'', porque solo la X ha cambiado un qubit y el CNOT no actúa sobre el estado'
+  explanation: 'La X voltea el qubit 0 y el CNOT, con control en 0 valiendo 1, voltea el qubit 1: quedan a 1 los qubits 0 y 1 y a 0 el 2. Con la convención little-endian se escribe q2 q1 q0 = 011. Leer de izquierda a derecha como q0 q1 q2 daría 110, el error típico.'
+
+- id: q-qiskit-circuits-003
+  prompt: ¿Cómo se llama la convención de Qiskit por la que el qubit 0 es el bit situado más a la derecha de la cadena de resultado?
+  accepted:
+  - little-endian
+  - little endian
+  - endian pequeño
+  - orden little-endian
+  - litle-endian
+
+- id: q-qiskit-circuits-004
+  prompt: ¿Qué hace exactamente qc.measure_all()?
+  options:
+    a: Mide solo los qubits sobre los que ya se ha aplicado alguna puerta, reutilizando los bits clásicos del circuito
+    b: Crea sus propios bits clásicos en un registro llamado meas, inserta antes una barrera y mide todos los qubits
+    c: Mide todos los qubits y los devuelve a |0⟩, dejando el circuito listo para otra ejecución
+    d: Añade una medida de cada qubit sobre los bits clásicos ya declarados y falla si no existen
+  explanation: measure_all crea el registro clásico meas por sí mismo y añade una barrera. La variante que mide solo qubits con operaciones es measure_active, y la que asigna qubits concretos a bits concretos es measure(qubits, bits).
+
+- id: q-qiskit-circuits-005
+  prompt: |-
+    Un compañero ejecuta este código y obtiene un error:
+
+    ```python
+    bell = QuantumCircuit(2); bell.h(0); bell.cx(0, 1); bell.measure_all()
+    StatevectorEstimator().run([(bell, SparsePauliOp("ZZ"))])
+    ```
+
+    ¿Cuál es la causa?
+  options:
+    a: El Estimator solo acepta circuitos de un qubit, y el par de Bell tiene dos
+    b: Falta transpilar el circuito a puertas nativas antes de pasarlo a un simulador de referencia
+    c: 'El observable ZZ no es válido: el Estimator solo acepta observables de la forma X, Y o Z de un qubit'
+    d: Los circuitos que se envían a un Estimator no deben tener medidas; las necesita el Sampler
+  explanation: 'Regla básica: el Sampler necesita medidas y el Estimator no debe tenerlas, porque calcula valores esperados del estado antes de medir. Los simuladores de referencia no requieren transpilar, y SparsePauliOp acepta productos de Pauli de varios qubits.'
+
+- id: q-qiskit-circuits-006
+  prompt: ¿Para qué sirve un Parameter en un circuito de Qiskit y por qué es útil en algoritmos variacionales?
+  options:
+    a: Marca los qubits que el transpilador no debe tocar al optimizar el circuito
+    b: 'Sustituye a las medidas: guarda el resultado de un qubit para usarlo después en una puerta'
+    c: Reduce el número de qubits necesarios al comprimir varias rotaciones en una sola
+    d: Deja un valor sin fijar para construir el circuito una vez y asignar ángulos distintos en cada evaluación
+  explanation: Parameter, assign_parameters y ParameterVector permiten reutilizar la misma plantilla miles de veces con valores distintos, que es justo lo que hace un bucle variacional. No tiene nada que ver con proteger qubits ni con ahorrar qubits.
+
+- id: q-qiskit-circuits-007
+  prompt: En Qiskit se habla de varios niveles de circuito. ¿Qué es un circuito ISA?
+  options:
+    a: Un circuito que usa solo las puertas nativas y las conexiones del dispositivo, resultado de transpilar
+    b: Un circuito con operaciones de alto nivel (QFT, unitarias) que se sintetizarán más tarde
+    c: Un circuito sin medidas que describe únicamente el estado final que se quiere preparar
+    d: Un circuito dinámico, con control de flujo sobre resultados de medidas intermedias
+  explanation: 'ISA es la arquitectura del conjunto de instrucciones del dispositivo: el circuito solo contiene instrucciones de su Target. Los operadores de alto nivel pertenecen a niveles superiores y se bajan a ISA durante la transpilación.'
+
+- id: q-qiskit-circuits-008
+  prompt: Un tutorial antiguo llama a execute(circuito, backend). ¿Qué debes saber al usarlo con Qiskit actual?
+  options:
+    a: Sigue funcionando, pero solo con simuladores de Aer y no con dispositivos reales
+    b: Sigue funcionando si se instala qiskit-terra en lugar de qiskit
+    c: 'execute se eliminó en Qiskit 1.0: se transpila el circuito y se ejecuta con una primitiva'
+    d: Está obsoleto pero se mantiene en 2.x con un aviso, igual que las primitivas V2 de Runtime
+  explanation: execute se eliminó en 1.0 y qiskit-terra quedó retirado como distribución. El flujo actual es transpilar a un circuito ISA y ejecutar con Sampler o Estimator.
+
+- id: q-qiskit-circuits-009
+  prompt: En Qiskit 2.x, ¿cómo se aplica una puerta X al qubit 1 solo si el bit clásico medido c[0] vale 1?
+  options:
+    a: Con qc.x(1).c_if(c[0], 1), la condición clásica de siempre
+    b: 'Con un bloque de control de flujo: with qc.if_test((c[0], 1)): qc.x(1)'
+    c: Con un if de Python sobre el resultado de measure al construir el circuito
+    d: Midiendo c[0] dos veces y repitiendo la puerta X mientras el valor sea 1
+  explanation: Los circuitos dinámicos usan if_test, for_loop y switch. c_if se eliminó en 2.0, y un if de Python se evalúa al construir el circuito, antes de que exista ningún resultado de medida.
+
+- id: q-qiskit-circuits-010
+  prompt: Explica con tus palabras la diferencia entre measure_all(), measure(qubits, bits) y measure_active(), y di cuándo usarías cada una.
+  model_answer: 'measure_all() crea por sí mismo un registro clásico llamado meas con un bit por qubit, inserta una barrera antes y mide todos los qubits: es cómodo para circuitos pequeños. measure(qubits, bits) asigna qubits concretos a bits clásicos concretos, de modo que se controla qué se mide y en qué registro queda: se usa cuando el circuito ya tiene registros propios o solo interesan algunos qubits. measure_active mide solo los qubits sobre los que hay operaciones. Un error frecuente es creer que las tres son lo mismo.'
+  rubric:
+  - Dice que measure_all crea sus propios bits clásicos (registro meas) y añade una barrera
+  - Dice que measure(qubits, bits) asigna qubits concretos a bits concretos
+  - Indica que measure_active mide solo qubits con operaciones
+  - Da un criterio de uso para al menos dos de ellas
+
+- id: q-qiskit-circuits-011
+  prompt: Un circuito de Qiskit puede contener más que puertas básicas. Explica qué otras cosas puede contener y cómo se relaciona esto con el circuito ISA que acaba en el hardware.
+  model_answer: 'En Qiskit un circuito es cualquier operación sobre datos cuánticos o clásicos: reinicios, medidas, control de flujo y también operadores de alto nivel como unitarias, Cliffords o transformadas de Fourier. Los niveles de abstracción se pueden mezclar y los circuitos se componen como bloques. Por eso hay varios niveles (problema, circuito abstracto, puertas de la biblioteca estándar y, al final, circuito ISA con las puertas nativas del dispositivo), y pasar de uno a otro es el trabajo de la transpilación.'
+  rubric:
+  - Menciona operaciones de alto nivel (unitarias, QFT, Cliffords) además de puertas
+  - Menciona medidas, reinicios o control de flujo
+  - Dice que los niveles de abstracción pueden mezclarse y componerse
+  - Identifica el circuito ISA como el nivel final con puertas nativas y a la transpilación como el paso que lo produce
+
+- id: q-qiskit-circuits-012
+  prompt: Vas a implementar la estimación de fase (con una QFT y potencias controladas) para un dispositivo concreto. Un compañero propone escribir a mano todas las puertas nativas desde el principio para controlar el resultado. ¿Qué le aconsejas?
+  model_answer: Conviene expresar el circuito al nivel más alto que tenga sentido (bloques abstractos como la QFT o las potencias controladas) y dejar la síntesis al transpilador. Qiskit retrasa deliberadamente la síntesis de operaciones de alto nivel hasta la transpilación, de modo que puede sintetizarlas directamente para el dispositivo sin pasos intermedios que alarguen la profundidad. Solo bajaría a puertas concretas donde necesite control sobre el resultado. Al final se inspecciona el circuito transpilado con las mismas herramientas (profundidad, recuento de puertas) para comprobar que el resultado es razonable.
+  rubric:
+  - Recomienda usar bloques de alto nivel y diferir la síntesis al transpilador
+  - Explica que así se evitan pasos intermedios que alargan la profundidad
+  - Reserva el bajar a puertas concretas para cuando se necesita control sobre el resultado
+  - Menciona que el circuito transpilado se puede inspeccionar y medir como cualquier otro
+
+- id: q-qiskit-circuits-013
+  prompt: Tu bucle variacional reconstruye el circuito con ángulos nuevos y lo transpila a optimization_level=3 en cada una de las 500 iteraciones, y la mayor parte del tiempo se va en compilar. ¿Cómo lo rediseñas?
+  model_answer: Construiría el ansatz una sola vez con Parameter o ParameterVector, lo transpilaría una vez a optimization_level=3 y en cada iteración solo asignaría valores (assign_parameters o pasando los valores al PUB de la primitiva). El observable se lleva al layout con apply_layout una sola vez. Así el coste de compilación se paga una vez y no 500, y la interfaz de primitivas ya contempla varias asignaciones de parámetros para una misma plantilla.
+  rubric:
+  - Propone parametrizar el circuito con Parameter/ParameterVector
+  - Propone transpilar una sola vez y solo asignar valores en cada iteración
+  - Menciona aplicar apply_layout al observable tras transpilar
+  - Justifica que el coste de compilar se paga una vez y no en cada iteración
+
+- id: q-qiskit-circuits-014
+  prompt: Heredas un script de 2022 que usa execute, bind_parameters, c_if, qiskit.extensions y from qiskit import Aer. Debes ponerlo a funcionar con Qiskit 2.x y que otros puedan repetirlo. Describe tu plan de migración.
+  model_answer: Crearía un entorno virtual nuevo en lugar de actualizar in situ y fijaría versiones (por ejemplo qiskit~=2.6 y qiskit-ibm-runtime~=0.51), comprobando la versión de cada página de documentación porque no son coherentes entre sí. Sustituiría execute por transpilación más una primitiva; bind_parameters por assign_parameters; qiskit.extensions por qiskit.circuit.library; c_if por if_test; y Aer por el paquete separado qiskit_aer (qiskit-aer se instala aparte). Después probaría el flujo en local con un simulador antes de gastar tiempo de dispositivo.
+  rubric:
+  - Propone entorno virtual nuevo y versiones fijadas
+  - Cambia execute por transpilar más una primitiva
+  - Cita al menos dos migraciones de nombres correctas (bind_parameters a assign_parameters, extensions a circuit.library, c_if a if_test)
+  - Indica que Aer es un paquete separado (qiskit_aer)
+
+- id: q-qiskit-circuits-015
+  prompt: Quieres usar un circuito dinámico (medir un qubit a mitad de circuito y reaccionar) en un circuito corto sobre un procesador tipo Heron, y también probarlo antes en un simulador de vector de estado. ¿Qué ventajas y qué límites tienes en cuenta?
+  model_answer: 'Ventajas: los circuitos dinámicos permiten medir a mitad de circuito y reaccionar (reinicio de ancillas con una X condicionada, repetir pasos), y en experimentos reales sustituir muchos if por un switch hizo constante la duración del circuito. Límites: en el ISA de Heron el modelo de ejecución serializa el control de flujo y no da tiempos para las expresiones clásicas, lo que perjudica sobre todo a los circuitos dinámicos cortos; por tanto compararía con una versión sin dinámica antes de decidir. Además, estos circuitos se ejecutan en hardware real y no en el simulador de vector de estado, así que la prueba previa debe hacerse con un simulador o dispositivo falso que soporte control de flujo. Los detalles describen Heron en 2024 y habría que comprobar el estado actual.'
+  rubric:
+  - Cita una ventaja de los circuitos dinámicos (medir y reaccionar, o switch con duración constante)
+  - Menciona que el modelo de ejecución de Heron serializa el control de flujo y no da tiempos a las expresiones clásicas
+  - Concluye que esto perjudica especialmente a circuitos dinámicos cortos
+  - Señala que no se ejecutan en el simulador de vector de estado y que la información es de 2024
+
+- id: q-simulators-and-statevectors-001
+  prompt: ¿Cuántas amplitudes guarda un simulador de vector de estado para un registro de n qubits?
+  options:
+    a: n amplitudes, una por qubit
+    b: 2ⁿ amplitudes, la lista completa de amplitudes del estado
+    c: 2n amplitudes, dos por qubit (parte real e imaginaria)
+    d: n² amplitudes, una por cada par de qubits
+  explanation: El estado de n qubits vive en un espacio de dimensión 2ⁿ y el simulador guarda todas sus amplitudes. Por eso añadir un qubit duplica la memoria necesaria.
+
+- id: q-simulators-and-statevectors-002
+  prompt: Un simulador de vector de estado simula 10 qubits. ¿Cuántas amplitudes complejas almacena?
+  accepted:
+  - '1024'
+  - 1 024
+  - 2^10
+  - 2**10
+  - '1.024'
+  - 2¹⁰
+
+- id: q-simulators-and-statevectors-003
+  prompt: ¿Qué puede hacer un simulador de vector de estado que un dispositivo real no puede?
+  options:
+    a: Ejecutar circuitos con más qubits que cualquier dispositivo real, sin límite de memoria
+    b: Predecir con certeza qué cadena de bits saldrá en el siguiente shot
+    c: Mostrar las amplitudes completas del estado, mientras que el dispositivo solo entrega una cadena de bits por shot
+    d: Reproducir con exactitud el ruido de cualquier procesador sin necesidad de calibración
+  explanation: El simulador permite leer el estado ideal (amplitudes y probabilidades). El hardware solo da muestras según la regla de Born. Por eso el simulador sirve para depurar, no es un modelo de lo que se obtendrá. Además su memoria crece como 2ⁿ, así que no supera a los dispositivos en tamaño.
+
+- id: q-simulators-and-statevectors-004
+  prompt: |-
+    Se ejecuta este código con StatevectorSampler (de qiskit.primitives):
+
+    ```python
+    c = QuantumCircuit(2); c.h(0); c.cx(0, 1)
+    StatevectorSampler().run([c], shots=10).result()[0].data
+    ```
+
+    ¿Qué ocurre?
+  options:
+    a: Devuelve diez cadenas aleatorias de dos bits, como si se hubiera medido todo al final
+    b: Devuelve exactamente cinco '00' y cinco '11', porque el simulador es exacto
+    c: Lanza un error porque el Sampler solo acepta circuitos de un qubit
+    d: Qiskit avisa de que el circuito no tiene registros clásicos de salida y el resultado viene vacío, porque falta medir
+  explanation: El Sampler devuelve los bits de los registros clásicos; sin medidas no hay registro de salida y el resultado queda vacío (con un aviso). No mide implícitamente al final.
+
+- id: q-simulators-and-statevectors-005
+  prompt: ¿Qué diferencia hay entre StatevectorEstimator con y sin el argumento precision?
+  options:
+    a: Sin precision es exacto; con precision añade un error de tipo ruido de disparo, de modo que la estimación puede incluso superar el máximo teórico
+    b: Sin precision usa una sola muestra y es muy ruidoso; con precision el resultado siempre es exacto
+    c: Con precision simula el ruido físico del dispositivo, no solo el muestreo
+    d: 'No hay diferencia: precision solo cambia el formato del resultado devuelto'
+  explanation: Los simuladores de referencia son exactos por defecto; precision introduce muestreo simulado. Por eso en el ejemplo del barrido de Ry una estimación puede salir 1,02 aunque el valor exacto esté acotado por 1. No modela ruido de hardware.
+
+- id: q-simulators-and-statevectors-006
+  prompt: 'En un ejemplo de IBM Quantum Learning, el valor esperado de 2X − Z en |+⟩ (exacto: 2) sale ligeramente distinto de 2 con un Sampler y exactamente 2 con un Estimator. ¿Por qué?'
+  options:
+    a: El Sampler no puede medir en la base X, de modo que su resultado es sistemáticamente erróneo
+    b: El Estimator corrige el ruido de hardware mediante mitigación de errores, y el Sampler no
+    c: El Sampler redondea las amplitudes a dos decimales antes de calcular el promedio
+    d: El Sampler estima desde conteos de un número finito de shots y arrastra ruido de muestreo; el Estimator de referencia calcula el valor esperado de forma exacta
+  explanation: Una estimación a partir de muestras tiene error estadístico; el Estimator de referencia es exacto por defecto. No hay ruido de dispositivo en ninguno de los dos, y las opciones de mitigación de IBM ni siquiera están disponibles en los simuladores de referencia.
+
+- id: q-simulators-and-statevectors-007
+  prompt: ¿Cuándo es adecuado el método stabilizer de AerSimulator?
+  options:
+    a: 'Cuando el circuito está formado solo por puertas Clifford: permite simular circuitos muy grandes'
+    b: Cuando se necesita simular ruido realista de un dispositivo concreto con pocos qubits
+    c: Cuando el circuito tiene muchas rotaciones arbitrarias pero pocas puertas de dos qubits
+    d: Cuando se quiere el vector de estado completo de un circuito de 40 qubits
+  explanation: El método stabilizer está pensado para circuitos Clifford, que se simulan de forma eficiente. Con rotaciones arbitrarias no aplica, y el vector de estado completo de 40 qubits no cabe en un portátil.
+
+- id: q-simulators-and-statevectors-008
+  prompt: 'Un compañero dice: «mi circuito da el resultado correcto en el simulador de referencia, así que funcionará en el dispositivo». ¿Qué le respondes?'
+  options:
+    a: Tiene razón siempre que el circuito esté transpilado, porque entonces ya es ISA
+    b: Tiene razón si usa suficientes shots, porque el ruido de hardware se promedia a cero
+    c: Los estados ideales no incluyen ruido ni la conectividad del chip, y el ruido de Aer probablemente es más suave que el real
+    d: Solo falla si el circuito usa más de 32 qubits; por debajo, simulador y dispositivo coinciden
+  explanation: El simulador ideal no modela el ruido, y ni siquiera el simulador con ruido es un reflejo fiel del dispositivo. Más shots reducen el ruido de muestreo, no el sesgo del hardware, y el desfase no depende de un umbral de 32 qubits.
+
+- id: q-simulators-and-statevectors-009
+  prompt: ¿Qué ocurrió con los simuladores antiguos de Qiskit al llegar la versión 1.0?
+  options:
+    a: Todos se unificaron dentro del paquete qiskit, que ahora incluye Aer sin instalación adicional
+    b: BasicAer pasó a qiskit.providers.basic_provider, los simuladores de vector de estado y unitaria se reemplazaron por quantum_info.Statevector y Operator, y Aer es el paquete separado qiskit_aer
+    c: 'Se eliminaron todos los simuladores locales: desde 1.0 solo se puede ejecutar en dispositivos reales'
+    d: Se mantuvieron igual, y solo cambió el nombre de las primitivas
+  explanation: 'En 1.0 se reorganizó: Statevector y Operator de quantum_info sustituyen a los simuladores de Python, BasicAer se movió y Aer sigue siendo un paquete independiente que se instala por separado.'
+
+- id: q-simulators-and-statevectors-010
+  prompt: Explica con tus palabras por qué la simulación con ruido es más costosa que la ideal y qué consecuencia tiene para el tamaño de circuito que puedes probar en tu portátil.
+  model_answer: 'El vector de estado ya crece de forma exponencial: añadir un qubit duplica el número de amplitudes. Con ruido el coste es todavía mayor y crece exponencialmente con el número de qubits, porque hay que seguir un estado mezclado o muchas trayectorias; según la documentación de IBM, la mayoría de portátiles no pasan mucho de unos 32 qubits. La consecuencia es que los circuitos grandes no pueden verificarse con simulación exacta ni con ruido, y se recurre a versiones reducidas, a circuitos Clifford (método stabilizer) o a observables con valor conocido.'
+  rubric:
+  - Dice que el vector de estado crece exponencialmente con los qubits
+  - Afirma que la simulación con ruido es todavía más cara y escala exponencialmente
+  - Menciona un orden de magnitud correcto del límite en un portátil (unas decenas de qubits)
+  - 'Da una consecuencia práctica: versiones reducidas, Clifford u observables conocidos'
+
+- id: q-simulators-and-statevectors-011
+  prompt: 'Compara Statevector con AerSimulator y un NoiseModel, y con un dispositivo falso (fake backend): qué te da cada uno y cuándo usarías cada uno al depurar un circuito.'
+  model_answer: 'Statevector da el estado ideal sin ruido y valores exactos: sirve para comprobar que el circuito hace lo que dice el algoritmo. AerSimulator con un NoiseModel permite ver cómo se degrada un resultado según el error por puerta (por ejemplo un error despolarizante en cada CX), con coste exponencial en los qubits. Un dispositivo falso añade además la conectividad, las puertas base y el ruido de un procesador concreto, y valida el flujo completo (transpilación, observables con apply_layout, opciones) antes de gastar tiempo de QPU. Ninguno sustituye al hardware real, cuyo ruido es probablemente más duro.'
+  rubric:
+  - Describe Statevector como estado ideal y exacto para comprobar el algoritmo
+  - Describe AerSimulator con NoiseModel como ruido sintético para ver la degradación
+  - Describe el dispositivo falso como instantánea de conectividad, puertas base y ruido de un procesador, útil para validar el flujo completo
+  - Aclara que ninguno sustituye al hardware real
+
+- id: q-simulators-and-statevectors-012
+  prompt: Vas a ejecutar un VQE en un dispositivo real y quieres evitar gastar tiempo de QPU en errores tontos. Propón una escalera de pruebas y di qué compruebas en cada escalón.
+  model_answer: 'Primero, ideal: StatevectorEstimator/StatevectorSampler para comprobar que el circuito hace lo que dice el algoritmo, con valores exactos. Segundo, ruido sintético: AerSimulator con un NoiseModel para ver cómo se degrada el resultado según el error por puerta. Tercero, un dispositivo falso: transpilar y ejecutar contra él para validar que el flujo completo (transpilación, observables con apply_layout, opciones) funciona antes de gastar QPU. Solo después, el dispositivo real. El modo local cambia solo el backend, así que el mismo código sirve en todos los escalones.'
+  rubric:
+  - 'Propone al menos tres escalones en orden: ideal, ruido sintético, dispositivo falso, y luego real'
+  - Asocia el escalón ideal con comprobar que el circuito hace lo que dice el algoritmo
+  - Dice que el dispositivo falso valida el flujo completo (transpilación, apply_layout, opciones)
+  - Indica que el mismo código se reutiliza cambiando solo el backend
+
+- id: q-simulators-and-statevectors-013
+  prompt: 'Tienes tres tareas: (a) probar un circuito de 60 qubits formado solo por puertas Clifford; (b) comprobar con exactitud un circuito de 22 qubits con rotaciones arbitrarias; (c) estudiar cómo se degrada un circuito de 40 qubits con rotaciones arbitrarias bajo un ruido realista. ¿Qué simulador eliges y qué esperas en cada caso?'
+  model_answer: '(a) El método stabilizer de AerSimulator, porque los circuitos solo Clifford se simulan eficientemente incluso a gran escala. (b) Statevector o un simulador de vector de estado exacto: con 22 qubits el vector tiene unos 4 millones de amplitudes, y es viable en un portátil; sirve para pruebas unitarias del circuito. (c) No es viable de forma exacta en un portátil: el vector de estado de 40 qubits ya no cabe y la simulación con ruido cuesta exponencialmente más, así que reduciría el problema (menos qubits) o usaría versiones casi Clifford o un observable de valor conocido. La elección es una decisión de coste.'
+  rubric:
+  - Elige stabilizer para el caso solo Clifford
+  - Elige un vector de estado exacto para 22 qubits y justifica que es viable
+  - Reconoce que 40 qubits con rotaciones y ruido no es viable en un portátil porque el coste es exponencial
+  - 'Propone una alternativa para (c): versión reducida, casi Clifford u observables conocidos'
+
+- id: q-simulators-and-statevectors-014
+  prompt: Tu equipo ejecuta un circuito de 100 qubits en un dispositivo y ya no puede compararlo con un simulador exacto. Alguien dice que «sin simulador no hay forma de saber si es correcto». ¿Cómo planteas la verificación?
+  model_answer: 'Es el régimen que describe Preskill: los dispositivos NISQ son imperfectos y puede ser difícil validar que la respuesta es correcta, sobre todo en simulación cuántica. Pero hay vías parciales: verificar versiones reducidas del problema que sí se pueden simular, medir observables con valor conocido y usar circuitos casi Clifford, que son simulables exactamente y sirven de referencia (también como datos de entrenamiento para mitigar). Hay que ser explícito en que se verifica un sustituto, no el resultado completo, y documentar la comparación.'
+  rubric:
+  - Reconoce que a este tamaño no se puede comprobar con un simulador exacto (y que Preskill señala la dificultad de validar)
+  - Propone versiones reducidas del problema
+  - Propone observables de valor conocido o circuitos casi Clifford como referencia
+  - Aclara que se verifica un sustituto y no el resultado completo
+
+- id: q-simulators-and-statevectors-015
+  prompt: Dos colegas ejecutan el mismo script con un modelo de ruido de Aer y obtienen valores esperados distintos en el tercer decimal. Uno de ellos dice que hay un error. ¿Qué compruebas y qué recomiendas para que sea reproducible?
+  model_answer: 'Primero, que la diferencia sea compatible con el ruido de muestreo: un simulador con ruido y un Estimator con precision finita dan resultados que varían entre ejecuciones. Para reproducir de forma exacta hay que fijar las semillas (seed_simulator y seed_transpiler) y las versiones de las bibliotecas, ya que el resultado depende de ambas, y documentar el dispositivo falso o el modelo de ruido usado. Si con las semillas y versiones fijadas siguen difiriendo, entonces sí hay que buscar un error real (otra transpilación, otro layout, otro modelo de ruido).'
+  rubric:
+  - Reconoce que una diferencia pequeña puede ser ruido de muestreo
+  - Recomienda fijar seed_simulator y seed_transpiler
+  - Recomienda fijar versiones y documentar el modelo de ruido o dispositivo falso
+  - Dice que, con todo fijado, una diferencia persistente indica un error real
+
+- id: q-transpilation-001
+  prompt: ¿Qué es un circuito ISA y quién lo exige?
+  options:
+    a: Un circuito sin medidas ni parámetros, que el dispositivo completa con valores por defecto
+    b: Un circuito ya optimizado a optimization_level=3, aunque use puertas que el dispositivo no tiene
+    c: Un circuito que solo usa instrucciones del Target del dispositivo y respeta su mapa de acoplamiento; los dispositivos de IBM exigen que los circuitos enviados lo sean
+    d: Un circuito escrito con las puertas de la biblioteca estándar de Qiskit; el dispositivo las traduce al recibirlas
+  explanation: 'ISA significa arquitectura del conjunto de instrucciones: puertas base, medidas, reinicios y control de flujo del Target, y conexiones permitidas por el CouplingMap. Si el circuito no es ISA, el dispositivo no lo acepta; no traduce por ti.'
+
+- id: q-transpilation-002
+  prompt: ¿Cuál de estas etapas del transpilador por defecto es la que inserta SWAP para que las puertas de dos qubits caigan sobre pares conectados?
+  options:
+    a: routing
+    b: layout
+    c: translation
+    d: scheduling
+  explanation: Layout asigna qubits virtuales a físicos; routing mueve el estado con SWAP cuando una puerta de dos qubits no cae sobre un par conectado; translation convierte a las puertas base; scheduling sólo se aplica si se indica un método.
+
+- id: q-transpilation-003
+  prompt: ¿Por qué importa tanto reducir las puertas de dos qubits al transpilar?
+  options:
+    a: Porque las puertas de un qubit no existen en el hardware y todo se compila a puertas de dos
+    b: Porque el límite de puertas de dos qubits por circuito lo fija el Target y se rechaza el trabajo si se supera
+    c: Porque las puertas de dos qubits son las únicas que el transpilador puede optimizar
+    d: Porque la mayoría de los errores de hardware ocurren en las puertas de dos qubits, y cada SWAP del routing añade más de ellas
+  explanation: El objetivo del transpilador es reducir profundidad y complejidad para limitar el ruido, y las puertas de dos qubits son las más ruidosas. Las de un qubit sí existen (SX, RZ, X), y el transpilador optimiza todo tipo de puertas.
+
+- id: q-transpilation-004
+  prompt: ¿Qué enseña la documentación sobre los niveles de optimización (optimization_level 0 a 3)?
+  options:
+    a: El nivel 3 es el predeterminado y garantiza el circuito óptimo
+    b: Los niveles altos tienden a dar mejores circuitos pero tardan más en compilar, y como el proceso es heurístico más esfuerzo no garantiza siempre un mejor circuito
+    c: El nivel 0 hace la optimización más agresiva; los niveles altos solo comprueban que el circuito sea ISA
+    d: Los niveles solo cambian el número de shots que se reservan para la ejecución
+  explanation: El nivel 1 es el predeterminado; el 0 hace lo mínimo para poder ejecutar; los niveles 2 y 3 añaden optimización de bloques de dos qubits. Al ser heurísticos, ningún nivel garantiza el óptimo.
+
+- id: q-transpilation-005
+  prompt: |-
+    Tras transpilar un circuito a un dispositivo, un alumno ejecuta:
+
+    ```python
+    isa = pm.run(circuito)
+    obs = SparsePauliOp("ZZ")
+    Estimator(mode=backend).run([(isa, obs)])
+    ```
+
+    El resultado es sospechoso. ¿Qué falta?
+  options:
+    a: Llevar el observable al layout físico con obs.apply_layout(isa.layout), porque el transpilador ha reasignado los qubits
+    b: Llamar a measure_all() sobre isa, porque el Estimator necesita medidas
+    c: Transpilar también el observable con generate_preset_pass_manager
+    d: Subir optimization_level a 3, que es el único nivel que conserva los observables
+  explanation: 'El layout asigna qubits virtuales a físicos; el observable, definido sobre los qubits virtuales, debe pasar al layout con apply_layout. El Estimator no debe tener medidas, y el observable no se transpila: se le aplica el layout.'
+
+- id: q-transpilation-006
+  prompt: ¿Cuál es la forma recomendada de transpilar en Qiskit 2.x?
+  options:
+    a: transpile(circuito, basis_gates=[...], coupling_map=...) con los valores escritos a mano
+    b: generate_preset_pass_manager(backend=..., optimization_level=...) y pm.run(circuito), en lugar de la función transpile()
+    c: execute(circuito, backend), que transpila y ejecuta en un solo paso
+    d: 'No hace falta transpilar: las primitivas de Runtime aceptan cualquier circuito'
+  explanation: 'Desde la 2.0 el transpilador no acepta basis_gates ni otras propiedades sueltas: se usa un target o un backend. Los dispositivos de IBM exigen circuitos ISA, y execute se eliminó en 1.0.'
+
+- id: q-transpilation-007
+  prompt: Un mismo circuito GHZ de 10 qubits se transpila a dos dispositivos distintos y el recuento de puertas de dos qubits es diferente en cada uno. Explica con tus palabras por qué ocurre.
+  model_answer: El resultado depende de la topología y de la puerta nativa del dispositivo. En cada chip solo ciertos pares de qubits están conectados, y cuando el algoritmo necesita una puerta entre qubits no adyacentes el routing inserta SWAP, que añaden puertas de dos qubits. Un GHZ en estrella exige que un qubit hable con todos, y en una red heavy-hex eso cuesta muchos SWAP. Además, la puerta nativa cambia (por ejemplo ECR o CZ), y el transpilador es heurístico, de modo que el layout y el routing elegidos pueden variar. Por eso hay que transpilar para el backend concreto que se usará.
+  rubric:
+  - Menciona que la conectividad limitada obliga al routing a insertar SWAP
+  - Relaciona los SWAP con más puertas de dos qubits
+  - Menciona que la topología (heavy-hex) y/o la puerta nativa difieren entre dispositivos
+  - Concluye que se debe transpilar para el backend concreto
+
+- id: q-transpilation-008
+  prompt: 'Un compañero afirma: «siempre uso optimization_level=3 porque más optimización es mejor». Matiza esa afirmación con tus palabras.'
+  model_answer: 'Los niveles altos suelen dar mejores circuitos, con menos profundidad y menos puertas de dos qubits, y en la práctica las lecciones de IBM recomiendan el nivel 3 para la mayoría de los casos. Pero tienen un coste: tardan más en compilar. Y como el transpilador es heurístico, más esfuerzo no siempre produce un circuito mejor. Por tanto, el nivel 3 es una buena opción por defecto cuando el circuito se compila una vez y se ejecuta muchas veces, pero conviene comprobar el resultado (profundidad y recuento de puertas) en vez de asumirlo.'
+  rubric:
+  - Reconoce que los niveles altos suelen dar mejores circuitos
+  - Dice que el tiempo de compilación crece con el nivel
+  - Dice que al ser heurístico no siempre mejora
+  - Recomienda comprobar el circuito resultante
+
+- id: q-transpilation-009
+  prompt: Tienes un ansatz con 24 parámetros que evaluarás 300 veces en un bucle variacional y, por otro lado, un circuito fijo que ejecutarás una sola vez en un dispositivo real caro. ¿Qué optimization_level y qué estrategia de transpilación eliges en cada caso?
+  model_answer: 'En el bucle variacional transpilaría el ansatz parametrizado una sola vez a optimization_level=3 y en cada iteración solo asignaría los valores (assign_parameters o los valores del PUB): repetir la transpilación 300 veces sería un despilfarro. En el circuito único en hardware caro también usaría el nivel 3, porque el tiempo de compilación es pequeño comparado con el coste del dispositivo y las lecciones de IBM lo recomiendan para la mayoría de los casos; después inspeccionaría la profundidad y las puertas de dos qubits. En ambos casos transpilaría para el backend ya elegido y llevaría el observable al layout con apply_layout.'
+  rubric:
+  - Transpila una sola vez el ansatz parametrizado en el bucle variacional
+  - Justifica el nivel 3 en el circuito único por la relación entre coste de compilar y de ejecutar
+  - Menciona transpilar para el backend elegido
+  - Menciona apply_layout para el observable
+
+- id: q-transpilation-010
+  prompt: Dos transpilaciones de tu circuito dan 90 y 45 puertas de dos qubits, y el error mediano de esa puerta en el dispositivo es del 0,5 %. Estima la probabilidad de que ninguna puerta falle en cada caso y decide qué haces.
+  model_answer: 'Con fallos independientes, la probabilidad de que no falle ninguna es (1−p)^G ≈ e^{−pG}. Con 90 puertas, e^{−0,45} ≈ 0,64; con 45 puertas, e^{−0,225} ≈ 0,80. Reducir a la mitad las puertas de dos qubits sube bastante la probabilidad de una ejecución limpia, así que me quedo con la transpilación de 45 puertas (y si compilar más ayuda, lo hago, porque el coste es de compilación, no de QPU). Es un cálculo orientativo: solo cuenta puertas de dos qubits y supone fallos independientes, sin errores de lectura ni de un qubit.'
+  rubric:
+  - Usa (1−p)^G o e^{−pG} con los datos del enunciado
+  - Obtiene valores aproximados correctos (≈0,64 y ≈0,80)
+  - Decide quedarse con el circuito de menos puertas de dos qubits
+  - Aclara las limitaciones del cálculo (solo dos qubits, fallos independientes)
+
+- id: q-transpilation-011
+  prompt: Has escrito un GHZ de 20 qubits «en estrella» (un qubit conectado a todos) y, tras transpilar a un chip heavy-hex, el recuento de puertas de dos qubits se multiplica. El transpilador ya está a nivel 3. ¿Qué haces?
+  model_answer: El transpilador no sustituye pensar en la topología al diseñar el circuito. La estrella obliga al routing a mover el estado con muchos SWAP en una red heavy-hex. Reescribiría el GHZ con una estructura que encaje con la conectividad (por ejemplo, una cadena lineal), que da un circuito más superficial con menos SWAP, y volvería a transpilar y a contar puertas de dos qubits y profundidad para confirmar la mejora. Si aun así el recuento supera lo que tolera el dispositivo, pensaría en mitigación o en replantear el circuito.
+  rubric:
+  - Explica que la estrella genera muchos SWAP en heavy-hex
+  - Propone un diseño que respete la conectividad (cadena lineal o similar)
+  - Dice que el transpilador no sustituye el diseño consciente de la topología
+  - Propone medir profundidad y puertas de dos qubits tras volver a transpilar
+
+- id: q-transpilation-012
+  prompt: Un compañero transpila con un dispositivo falso con puerta ECR, y el trabajo se envía a otro backend real cuyo conjunto de puertas base usa CZ porque tenía menos cola. ¿Qué problema ve y cómo se corrige?
+  model_answer: 'El circuito ISA es específico del Target del backend: cada familia tiene su base (por ejemplo Eagle usa ECR y Heron usa CZ), conectividad y propiedades, y la optimización depende del procesador. Un circuito transpilado para un dispositivo no es ISA para otro, así que no debe usarse. La corrección: decidir primero el backend (teniendo en cuenta no solo la cola, porque least_busy minimiza la espera pero no la calidad) y transpilar después para ese backend, aplicando apply_layout al observable.'
+  rubric:
+  - Dice que el circuito ISA depende del Target del backend concreto
+  - Menciona que las bases de puertas cambian entre familias (ECR/CZ)
+  - Indica que primero se elige el backend y después se transpila
+  - Señala que least_busy minimiza la espera pero no la calidad o menciona apply_layout
+
+- id: q-transpilation-013
+  prompt: Tu circuito, ya transpilado a nivel 3, tiene 3000 puertas de dos qubits y el error por puerta es del 0,1 %. Un compañero propone seguir probando semillas y niveles de transpilación hasta que «salga bien». ¿Qué le dices?
+  model_answer: Con p = 0,001 y G = 3000, pG = 3 y la probabilidad de una ejecución sin fallos es ≈ e^{−3} ≈ 0,05. El orden de magnitud útil de un circuito sin mitigación es 1/p ≈ 1000 puertas, así que estamos tres veces por encima. Ningún nivel de optimización salva un algoritmo que necesita muchas más puertas de dos qubits de las que el dispositivo soporta; unas semillas distintas pueden recortar algo, pero no cambian el orden de magnitud. Hay que replantear el circuito (otro ansatz u otra codificación con menos puertas) o mitigar errores, aceptando que la sobrecarga crece con el tamaño del circuito.
+  rubric:
+  - Calcula e^{−pG} ≈ 0,05 con los datos
+  - Compara con el orden de 1/p puertas
+  - Concluye que más optimización no resuelve un circuito demasiado grande
+  - Propone replantear el circuito o mitigar errores
+
+- id: q-primitives-sampler-estimator-001
+  prompt: ¿Qué devuelve cada primitiva de Qiskit?
+  options:
+    a: El Sampler devuelve valores esperados y el Estimator, cadenas de bits
+    b: Ambas devuelven el vector de estado, y la diferencia es solo el formato
+    c: El Sampler devuelve probabilidades exactas y el Estimator, el número de shots empleados
+    d: El Sampler devuelve bitstrings del registro de salida; el Estimator devuelve valores esperados ya postprocesados
+  explanation: El Sampler es para obtener cadenas de bits de medidas; el Estimator estima el valor esperado de un observable sobre el estado que prepara el circuito. Ninguna devuelve el vector de estado de un dispositivo real.
+
+- id: q-primitives-sampler-estimator-002
+  prompt: ¿Cómo es un PUB (primitive unified block) de entrada al Estimator?
+  options:
+    a: Una tupla (circuito, backend, número de shots)
+    b: Una tupla (circuito con medidas, valores de parámetros, shots opcionales)
+    c: Una tupla (circuito, observables, valores de parámetros, precisión opcional)
+    d: Una tupla (observables, backend, nivel de resiliencia)
+  explanation: La tupla con medidas y shots opcionales es la del Sampler. El Estimator trabaja con una precisión por PUB en lugar de shots, y su circuito no lleva medidas.
+
+- id: q-primitives-sampler-estimator-003
+  prompt: |-
+    Se ejecuta:
+
+    ```python
+    angles = np.linspace(0, np.pi, 5).reshape(5, 1)   # 5 conjuntos de 1 parámetro
+    res = StatevectorEstimator().run([(qc_ry, SparsePauliOp("Z"), angles)]).result()[0]
+    print(res.data.evs.shape)
+    ```
+
+    ¿Qué forma tiene evs?
+  options:
+    a: '(5, 1): los parámetros conservan la forma que se les dio'
+    b: '(1,): el Estimator promedia todos los conjuntos de parámetros'
+    c: '(): un único número, porque hay un solo observable'
+    d: '(5,): un valor esperado por cada conjunto de parámetros, porque un único SparsePauliOp cuenta como un elemento'
+  explanation: 'Los datos se combinan con las reglas de difusión de NumPy: un observable (forma ()) con parámetros de forma (5,) da (5,). El último eje de los parámetros es el número de parámetros del circuito, y no forma parte de la forma del resultado.'
+
+- id: q-primitives-sampler-estimator-004
+  prompt: |-
+    Se ejecuta:
+
+    ```python
+    obs = [SparsePauliOp("Z"), SparsePauliOp("X")]            # forma (2,)
+    angles = np.linspace(0, np.pi, 5).reshape(5, 1)           # forma (5,)
+    StatevectorEstimator().run([(qc_ry, obs, angles)])
+    ```
+
+    ¿Qué ocurre?
+  options:
+    a: Devuelve una matriz de forma (2, 5) con todas las combinaciones
+    b: Devuelve forma (5,) y usa solo el primer observable
+    c: 'Falla con un ValueError: las formas (2,) y (5,) no son difundibles'
+    d: Devuelve forma (2,) y descarta tres de los cinco conjuntos de parámetros
+  explanation: Las reglas de difusión de NumPy no combinan (2,) con (5,) automáticamente. Para obtener todas las combinaciones habría que dar al observable la forma (2, 1), de modo que (2, 1) con (5,) difunda a (2, 5).
+
+- id: q-primitives-sampler-estimator-005
+  prompt: ¿Qué diferencia hay entre precision y shots?
+  options:
+    a: 'Son sinónimos: ambos fijan el número de repeticiones del circuito en las dos primitivas'
+    b: El Estimator trabaja con una precisión por PUB, y el Sampler con un número de shots por PUB o en run()
+    c: precision es de Sampler y shots de Estimator
+    d: precision se usa solo en simuladores, y shots solo en dispositivos reales
+  explanation: El Estimator V2 añade el argumento precision (error objetivo del valor esperado), mientras que el Sampler cuenta repeticiones. Son magnitudes distintas aunque se relacionen.
+
+- id: q-primitives-sampler-estimator-006
+  prompt: ¿Qué ventaja da pasar por una interfaz de primitivas en lugar de llamar a backend.run?
+  options:
+    a: 'El código del usuario no cambia al pasar del simulador al hardware: cambia la implementación, y un ejecutor con mitigación incluida puede ofrecerse como primitiva'
+    b: Las primitivas garantizan resultados sin ruido en cualquier dispositivo
+    c: Las primitivas evitan transpilar, porque la implementación lo hace siempre por ti
+    d: Las primitivas ejecutan siempre en el lado del servidor, con lo que desaparece la cola
+  explanation: La abstracción separa qué se pide (muestras o valores esperados) de cómo se ejecuta. No elimina ruido ni la necesidad de circuitos ISA, y no quita la cola.
+
+- id: q-primitives-sampler-estimator-007
+  prompt: ¿Qué condición debe cumplir un observable para que el Estimator sea eficiente?
+  options:
+    a: El observable debe ser diagonal en la base de cómputo y tener un único término
+    b: El número de qubits debe ser menor de 50, el límite de los observables en Qiskit
+    c: Los coeficientes deben ser enteros, para que la suma ponderada sea exacta
+    d: El número de términos de Pauli no nulos debe crecer a lo sumo polinomialmente con el número de qubits
+  explanation: 'Un observable es una suma de productos de Pauli con coeficientes reales, y cada término se mide como un cálculo independiente: si el número de términos crece exponencialmente, el coste también.'
+
+- id: q-primitives-sampler-estimator-008
+  prompt: Explica con tus palabras cómo estima el Estimator el valor esperado de un hamiltoniano H = Σ cᵢ Pᵢ y por qué el circuito que le pasas no lleva medidas.
+  model_answer: 'Por linealidad, ⟨H⟩ es la suma ponderada de los valores esperados de cada producto de Pauli Pᵢ: cada término se mide como un cálculo cuántico independiente y el procesador clásico suma los resultados con sus coeficientes cᵢ. El Estimator se encarga él mismo de medir en la base adecuada para cada término, así que el circuito solo debe preparar el estado: si lleva medidas ya hechas, no se puede aplicar el observable y falla. Las medidas las pone el Sampler, cuando lo que interesa es la cadena de bits.'
+  rubric:
+  - 'Usa la linealidad: suma ponderada de los valores esperados de los términos de Pauli'
+  - Explica que cada término se mide por separado y la suma la hace el procesador clásico
+  - Dice que el Estimator gestiona las medidas y el circuito solo prepara el estado
+  - Contrasta con el Sampler, que sí necesita medidas
+
+- id: q-primitives-sampler-estimator-009
+  prompt: 'Tienes tres tareas: (a) leer el corte final de un QAOA, (b) calcular la energía de un VQE, (c) factorizar un número con Shor. Para cada una, ¿Sampler o Estimator, y qué implica para la mitigación de errores?'
+  model_answer: (a) El corte es una cadena de bits, así que Sampler; es eficiente sobre todo con distribuciones dispersas. (b) La energía es un valor esperado, así que Estimator. (c) Shor produce una salida de un solo disparo, que se obtiene con el Sampler. Como las técnicas de mitigación se aplican a valores esperados, la mitigación es una herramienta natural para el Estimator (b) y no sirve para salidas de un solo disparo como la estimación de fase o Shor (c).
+  rubric:
+  - Asigna Sampler a QAOA y Shor, y Estimator a VQE
+  - Justifica con la naturaleza de la salida (bitstring frente a valor esperado)
+  - Dice que la mitigación se aplica a valores esperados
+  - Indica que no sirve para salidas de un solo disparo como Shor o la estimación de fase
+
+- id: q-primitives-sampler-estimator-010
+  prompt: Estás estimando una energía con una precisión ε = 0,02 y necesitas bajarla a ε = 0,005. ¿Cuánto cambia el coste en shots y qué puedes hacer para contenerlo?
+  model_answer: 'El coste de estimar un valor esperado crece como O(1/ε²). Pasar de 0,02 a 0,005 divide ε entre 4, así que el número de medidas se multiplica por unas 16. Para contenerlo: agrupar términos de Pauli que comutan (qubit-wise commuting, el más simple) para compartir medidas; asignar los shots por término de forma no uniforme, proporcional a |cᵢ| por la desviación típica del término; y valorar las sombras clásicas. Si la precisión alta no es imprescindible durante la optimización, se puede usar una menos exigente.'
+  rubric:
+  - Aplica O(1/ε²) y obtiene un factor ≈16
+  - Propone agrupar términos que comutan
+  - Propone asignar shots no uniformemente (∝ |cᵢ|·σᵢ) o usar sombras clásicas
+  - Matiza que no siempre hace falta la máxima precisión
+
+- id: q-primitives-sampler-estimator-011
+  prompt: Un tutorial de internet usa `from qiskit_ibm_runtime import EstimatorV2` con `EstimatorV2(mode=backend)` y tu entorno emite un DeprecationWarning. ¿Qué haces y por qué?
+  model_answer: 'Ese es el nombre antiguo: en qiskit-ibm-runtime 0.50 y posteriores están obsoletas las V2, y las actuales son las primitivas del lado del cliente, qiskit_ibm_runtime.executor_estimator.Estimator y executor_sampler.Sampler, que ejecutan localmente la supresión y la mitigación. Cambiaría el import y el constructor (Estimator(mode=backend)), ajustaría las opciones a las de la nueva clase (por ejemplo default_shots) y probaría el flujo con un dispositivo falso antes de usar el dispositivo real. No ignoraría el aviso, porque indica el nombre que seguirá vivo.'
+  rubric:
+  - Identifica EstimatorV2/SamplerV2 de qiskit_ibm_runtime como el nombre antiguo, obsoleto desde 0.50
+  - Nombra las clases actuales executor_estimator.Estimator y executor_sampler.Sampler
+  - Indica que son del lado del cliente y ejecutan localmente supresión y mitigación
+  - Propone probar con un dispositivo falso tras el cambio
+
+- id: q-primitives-sampler-estimator-012
+  prompt: Tu equipo quiere pruebas automáticas (CI) del flujo de un VQE sin acceso a dispositivos y, a la vez, ejecutarlo luego en hardware. ¿Cómo estructuras la elección de primitiva?
+  model_answer: Aislaría la elección en una función de fábrica para poder sustituir la implementación en los tests. Las primitivas de referencia (StatevectorEstimator) son exactas y rápidas pero idealizadas, buenas para pruebas unitarias; las de Aer simulan ruido pero no aceptan todas las opciones de IBM (por ejemplo el nivel de resiliencia); las de Runtime añaden supresión y mitigación y cuestan tiempo de dispositivo. El resto del código (construcción del circuito, transpilación, PUBs) sería el mismo, y solo cambiaría la implementación.
+  rubric:
+  - Propone una función de fábrica que aísle la elección de primitiva
+  - Describe las de referencia como exactas e idealizadas
+  - Señala que las de Aer carecen de algunas opciones de IBM como la resiliencia
+  - Indica que las de Runtime añaden mitigación a cambio de tiempo de dispositivo
+
+- id: q-primitives-sampler-estimator-013
+  prompt: Tu Hamiltoniano tiene dos grupos de observables que comutan entre sí, y los has puesto en PUBs distintos. Alguien dice que da igual, porque el resultado es el mismo. ¿Es cierto y qué decides?
+  model_answer: 'El resultado es el mismo, pero el coste no: los observables que comutan y van en PUBs distintos se miden por separado; agruparlos en un mismo PUB permite compartir medidas. Agrupar términos de Pauli que comutan reduce el número de medidas; el reparto en grupos es un problema de coloreado de grafos o de recubrimiento por cliques. El agrupamiento qubit-wise commuting es el más simple pero no cambia la escala asintótica en química. Por tanto los agruparía, sabiendo que el ahorro es una constante y no un cambio de escala.'
+  rubric:
+  - Distingue entre mismo resultado y mismo coste
+  - Dice que los que comutan deben ir en el mismo PUB para compartir medidas
+  - Menciona que el reparto es un problema de coloreado de grafos o cliques
+  - Matiza que QWC no cambia la escala asintótica en química
+
+- id: q-running-on-hardware-001
+  prompt: ¿Cuáles son los cuatro pasos de los patrones de Qiskit (Qiskit patterns), en orden?
+  options:
+    a: Transpilar, mapear, ejecutar con una primitiva y mitigar
+    b: Mapear el problema, optimizar (transpilar a ISA), ejecutar con una primitiva y postprocesar
+    c: Mapear, ejecutar, transpilar y visualizar
+    d: Crear el circuito, medirlo, enviarlo a la cola y descargar los datos
+  explanation: Los patrones son map, optimize, execute, post-process. La transpilación es el segundo paso, no el primero, y el postprocesado incluye visualizar, mitigar la lectura, marginalizar o postseleccionar.
+
+- id: q-running-on-hardware-002
+  prompt: ¿Qué es un trabajo en modo Batch?
+  options:
+    a: Un conjunto de trabajos independientes enviados juntos, sin garantía de orden ni acceso exclusivo al dispositivo
+    b: Un trabajo que mantiene acceso exclusivo al dispositivo mientras dura, bloqueando la calibración
+    c: Una sola petición de primitiva que salta la cola
+    d: Una sesión interactiva con un TTL de 60 segundos entre trabajos
+  explanation: Batch está pensado para muchos circuitos independientes. El acceso exclusivo es de Session, y ni uno ni otro evitan la cola del primer trabajo.
+
+- id: q-running-on-hardware-003
+  prompt: Un alumno cree que abrir una Session le ahorra la cola. ¿Qué es cierto?
+  options:
+    a: Una sesión salta la cola en todos sus trabajos, incluido el primero
+    b: La sesión elimina la cola solo si se pasa max_time mayor que el TTL por defecto
+    c: En batch y session el primer trabajo espera igualmente en la cola normal; la sesión solo ayuda a los trabajos posteriores que dependen de los anteriores
+    d: La sesión reserva el dispositivo para ti desde el momento en que la solicitas, aunque tarde en empezar
+  explanation: Según la documentación de IBM, el primer trabajo de un batch o una sesión espera como cualquier otro, por lo que ninguno ayuda a un trabajo único. La sesión solo permite un intercambio frecuente clásico-cuántico sin volver a la cola en cada actualización.
+
+- id: q-running-on-hardware-004
+  prompt: ¿Cómo puedes ensayar un flujo de ejecución con las primitivas de Runtime sin tener cuenta de IBM?
+  options:
+    a: Usando el modo de prueba local con un dispositivo falso (fake_provider) o un AerSimulator como backend
+    b: 'No es posible: las primitivas de Runtime siempre exigen un token de IBM'
+    c: Con un trabajo de prueba (dry run), que no requiere ningún plan de pago
+    d: Enviando el circuito sin transpilar, porque el dispositivo falso lo transpila internamente
+  explanation: El modo local de qiskit-ibm-runtime permite ejecutar el mismo código cambiando solo el backend. Los dry run corren en un dispositivo simulado en la nube y requieren un plan de pago. El circuito debe seguir siendo ISA.
+
+- id: q-running-on-hardware-005
+  prompt: ¿Qué representa el Target de un backend?
+  options:
+    a: La cola de trabajos pendientes del dispositivo y el tiempo de espera estimado
+    b: El conjunto de observables que el dispositivo puede medir directamente
+    c: 'Un modelo abstracto del dispositivo: las instrucciones disponibles (la ISA), sus tiempos y sus tasas de error, y las restricciones'
+    d: El número máximo de shots que se pueden enviar en un trabajo
+  explanation: backend.target describe qué se puede ejecutar y con qué calidad; de él se obtiene, por ejemplo, un mapa de acoplamiento con build_coupling_map(). No incluye la cola.
+
+- id: q-running-on-hardware-006
+  prompt: Describe con tus palabras el flujo completo para ejecutar un par de Bell en un dispositivo real de IBM, nombrando los cuatro pasos y qué herramienta usas en cada uno.
+  model_answer: '1) Mapear: construyo el circuito de Bell (QuantumCircuit con h y cx, sin medidas si uso Estimator) y los observables como SparsePauliOp. 2) Optimizar: elijo el backend con QiskitRuntimeService y transpilo con generate_preset_pass_manager a un circuito ISA; llevo los observables al layout con apply_layout. 3) Ejecutar: creo una primitiva del lado del cliente (por ejemplo executor_estimator.Estimator con mode=backend) y llamo a run con el PUB (isa, observables); puedo usar Job, Batch o Session. 4) Postprocesar: leo evs y stds del resultado, y guardo el job_id para recuperar el trabajo después.'
+  rubric:
+  - Nombra los cuatro pasos correctos en orden (mapear, optimizar, ejecutar, postprocesar)
+  - Usa generate_preset_pass_manager para obtener un circuito ISA y apply_layout para los observables
+  - Usa una primitiva (Estimator/Sampler) con el PUB y menciona los modos de ejecución
+  - Menciona leer el resultado (evs/stds) o conservar el job_id
+
+- id: q-running-on-hardware-007
+  prompt: 'Tres trabajos: (1) un VQE con 300 iteraciones en el que un optimizador clásico llama al QPU en cada una; (2) un barrido de 200 circuitos independientes; (3) un único circuito de prueba. Tu cuenta es del plan Open. ¿Qué modo de ejecución eliges para cada uno?'
+  model_answer: 'Para el VQE, lo ideal sería una Session, porque permite el intercambio frecuente clásico-cuántico sin volver a la cola en cada actualización de parámetros; pero el plan Open no puede enviar trabajos de sesión, así que ahí usaría trabajos únicos o lotes. Para los 200 circuitos independientes, un Batch. Para el circuito único, el modo Job, porque ni batch ni sesión ayudan a un trabajo único: el primer trabajo espera igualmente en la cola.'
+  rubric:
+  - Asigna Session al bucle variacional por la interacción clásico-cuántica frecuente
+  - Asigna Batch al barrido de circuitos independientes
+  - Asigna modo Job al circuito único y explica que batch/session no ayudan
+  - Reconoce que el plan Open no admite sesiones
+
+- id: q-running-on-hardware-008
+  prompt: Abres una Session para un bucle variacional pero fijas max_time en 10 minutos, y a las 40 iteraciones los trabajos encolados empiezan a fallar. ¿Qué ha pasado y cómo lo corriges?
+  model_answer: Cuando termina el TTL de la sesión, los trabajos encolados fallan. Hay que fijar max_time mayor que el trabajo más largo que se prevea (el TTL máximo predeterminado es de 8 horas en Premium), y cerrar la sesión explícitamente con session.close() o un gestor de contexto cuando acabe. También hay que tener presente que una sesión bloquea los trabajos de calibración, lo que tiene un coste de oportunidad para otros usuarios, por lo que no conviene dejarla abierta de más ni reservar un TTL desproporcionado.
+  rubric:
+  - Explica que al terminar el TTL los trabajos encolados fallan
+  - Propone max_time mayor que el trabajo más largo
+  - Propone cerrar la sesión (close o gestor de contexto)
+  - Menciona que una sesión bloquea calibraciones, con coste de oportunidad
+
+- id: q-running-on-hardware-009
+  prompt: Para un experimento de 80 qubits, la opción least_busy te ofrece un dispositivo con poca cola, y otro con más cola tiene mejores puertas de dos qubits. ¿Cómo decides?
+  model_answer: 'least_busy minimiza la espera, no la calidad. El número de qubits tampoco es la única medida: cuentan la precisión de las puertas, su velocidad, la precisión de la medida, la conectividad y el rendimiento de fabricación. Compararía, para el circuito ya transpilado en cada candidato, el error de las puertas de dos qubits, el error de lectura y el tamaño de la región conectada con lo que necesita el circuito, y estimaría la probabilidad de una ejecución limpia con (1−p)^G. Si el circuito es sensible al ruido, preferiría el de mejores puertas aunque espere más; si es robusto, la cola menor.'
+  rubric:
+  - Dice que least_busy minimiza la espera pero no la calidad
+  - Menciona criterios como error de dos qubits, de lectura, conectividad
+  - Propone comparar con el circuito transpilado en cada candidato
+  - Llega a una decisión justificada según la sensibilidad del circuito al ruido
+
+- id: q-running-on-hardware-010
+  prompt: Debes lanzar un experimento caro en un dispositivo y quieres estimar el uso de tiempo antes de gastarlo, y reducir su coste. ¿Qué haces?
+  model_answer: 'Primero usaría un trabajo de prueba (dry run): corre en un dispositivo simulado en la nube, devuelve datos aleatorios con el esquema correcto e informa job.usage(), sin gastar hardware; requiere un plan de pago, mientras que el modo local no necesita cuenta. Para reducir el coste, empezaría por la transpilación (menos puertas de dos qubits) y después elegiría con cuidado la mitigación: por ejemplo, ZNE con tres factores de ruido cuesta aproximadamente 3 veces más, y PEC crece exponencialmente con la profundidad.'
+  rubric:
+  - Propone un dry run y menciona job.usage()
+  - Dice que el dry run requiere un plan de pago y no gasta hardware
+  - Reduce coste primero con la transpilación
+  - Cita el coste de la mitigación (ZNE ≈ 3×, PEC exponencial)
+
+- id: q-running-on-hardware-011
+  prompt: Ejecutas un QAOA de 5 nodos en hardware, y la cadena de bits más frecuente no es el mejor corte. Tu jefe pide «más shots para arreglarlo». ¿Qué respondes?
+  model_answer: 'Más shots solo reducen el error de muestreo. El resultado tiene al menos tres fuentes de error: el algoritmo es aproximado con pocas capas, el muestreo es finito y hay error de lectura (y ruido de puertas). Más shots no corrigen los otros. Habría que contar cada fuente: comparar con un simulador ideal para ver el efecto del algoritmo, subir las capas si el circuito lo tolera, y aplicar mitigación de lectura. Además, un hardware ruidoso da evaluaciones no deterministas del coste, que pueden impedir la convergencia del optimizador.'
+  rubric:
+  - Dice que más shots solo reducen el error de muestreo
+  - Enumera al menos otras dos fuentes (algoritmo aproximado con pocas capas, error de lectura, ruido)
+  - Propone comparar con un simulador o mitigar la lectura
+  - Menciona que el ruido da evaluaciones no deterministas del coste
+
+- id: q-running-on-hardware-012
+  prompt: Tu grupo duda entre usar una Qiskit Function de aplicación para un problema de optimización o escribir el flujo propio con primitivas. ¿Cuál es tu criterio?
+  model_answer: 'Las Qiskit Functions son servicios construidos por socios (de circuito y de aplicación, para optimización y química) y los addons ofrecen componentes para tu propio flujo. Si el problema encaja con una función de aplicación, sirve para empezar y obtener un resultado rápido. Para investigación o para comprender qué ocurre, el flujo propio con primitivas es más transparente, porque se controlan la transpilación, las opciones de mitigación y el postprocesado. Mi criterio: función si el objetivo es el resultado y el problema encaja; flujo propio si el objetivo es entender o investigar.'
+  rubric:
+  - Describe las Functions como servicios de socios y los addons como componentes
+  - Dice que una función de aplicación sirve para empezar si el problema encaja
+  - Dice que el flujo propio es más transparente para investigar o comprender
+  - Da un criterio de decisión explícito
+
+- id: q-error-mitigation-001
+  prompt: Según el uso de la documentación de IBM, ¿cuál es la diferencia entre supresión y mitigación de errores?
+  options:
+    a: La supresión codifica la información en códigos correctores y la mitigación la decodifica después
+    b: La supresión se aplica solo a la lectura y la mitigación solo a las puertas de dos qubits
+    c: 'Son sinónimos: ambas modifican la ejecución para que cada disparo individual tenga menos ruido'
+    d: La supresión reduce el efecto del ruido durante la ejecución (p. ej. desacoplo dinámico); la mitigación estima resultados más limpios a partir de ejecuciones ruidosas (p. ej. ZNE)
+  explanation: Supresión y mitigación no son corrección de errores. La corrección codifica la información para reducir el ruido en cada ejecución; la mitigación solo mejora el promedio de un conjunto de ejecuciones, con un nivel de ruido igual o mayor por ejecución.
+
+- id: q-error-mitigation-002
+  prompt: ¿A qué tipo de salida es aplicable la mitigación de errores, según Cai et al.?
+  options:
+    a: A cualquier salida, porque la mitigación corrige cada ejecución individualmente
+    b: A valores esperados (promedios de muchas ejecuciones), no a salidas de un solo disparo como la estimación de fase o Shor
+    c: Solo a cadenas de bits con distribución dispersa, como el resultado de Grover
+    d: A circuitos con medidas intermedias, y no a los que solo miden al final
+  explanation: La mitigación reduce el sesgo de un valor esperado postprocesando un conjunto de ejecuciones. En una salida de un solo disparo no hay promedio sobre el que actuar. Por eso encaja con el Estimator y los algoritmos variacionales.
+
+- id: q-error-mitigation-003
+  prompt: La mitigación de errores suele reducir el sesgo de un valor esperado. ¿Qué precio se paga normalmente?
+  options:
+    a: 'Aumenta la varianza: hace falta una sobrecarga de muestreo, es decir, más ejecuciones para el mismo ruido de disparo'
+    b: Aumenta el sesgo, porque la corrección introduce un error sistemático nuevo
+    c: Reduce el número de shots disponible, porque la mitigación consume parte del tiempo de QPU
+    d: 'Ninguno: la mitigación es gratuita con las primitivas de Runtime'
+  explanation: El error cuadrático medio es sesgo² + varianza. La mitigación ataca el sesgo, que más shots no eliminan, pero aumenta la varianza y por tanto el coste de muestreo C = Var[mitigado]/Var[ruidoso].
+
+- id: q-error-mitigation-004
+  prompt: ¿Qué técnica de mitigación ejecuta el circuito con ruido amplificado (por ejemplo plegando puertas) y extrapola el resultado al caso de ruido cero? Escribe su nombre o sus siglas.
+  accepted:
+  - ZNE
+  - zero-noise extrapolation
+  - zero noise extrapolation
+  - extrapolación a ruido cero
+  - extrapolacion a ruido cero
+  - extrapolación al ruido cero
+
+- id: q-error-mitigation-005
+  prompt: En el Estimator de Runtime, ¿qué añade resilience_level=2 respecto al nivel 1 predeterminado?
+  options:
+    a: Cancelación probabilística de errores (PEC) con un máximo de sobrecarga ilimitado
+    b: ZNE y twirling de puertas sobre la mitigación de lectura TREX, con coste medio y sin garantía de sesgo cero
+    c: Corrección de errores cuánticos con un código de superficie pequeño
+    d: 'Nada: solo cambia el número de shots por defecto'
+  explanation: El nivel 0 no mitiga; el 1 aplica TREX de coste mínimo; el 2 añade ZNE y twirling. PEC se activa con opciones explícitas (resilience.pec_mitigation con max_overhead), que prevalecen sobre el nivel. Los niveles están en beta.
+
+- id: q-error-mitigation-006
+  prompt: Con la hipótesis de Cai et al. de fallos de Pauli independientes, supón un circuito con λ = 1 fallo medio por ejecución (por ejemplo 200 puertas de dos qubits al 0,5 %). Con PEC la sobrecarga de muestreo es aproximadamente e^{4λ}. ¿Qué orden de magnitud tiene?
+  options:
+    a: Unas 2,7 veces, igual que descartar las ejecuciones con algún fallo
+    b: Unas 7 veces (e²), porque la sobrecarga crece con la raíz de λ
+    c: Unas 55 veces (e⁴ ≈ 55), frente a e ≈ 2,7 para la estrategia hipotética de descartar ejecuciones con fallos
+    d: Unas 3 000 veces (e⁸), porque hay que muestrear con γ²
+  explanation: 'e^{4λ} con λ = 1 da e⁴ ≈ 54,6. Descartar las ejecuciones con fallos costaría e^λ ≈ 2,7. Con λ mayor la diferencia se dispara: con λ = 5, PEC pide ≈ 5·10⁸ y descartar ≈ 150.'
+
+- id: q-error-mitigation-007
+  prompt: Tienes un VQE de 4 qubits con un ansatz que conserva el número de partículas, sobre un dispositivo con ruido moderado, y presupuesto limitado. Diseña la pila de supresión y mitigación y justifica el orden.
+  model_answer: 'Siempre: transpilación cuidadosa y mitigación de lectura (TREX), que es barata y casi universal. Si el circuito tiene huecos, desacoplo dinámico, comprobando que en circuitos densos no perjudique. Twirling de Pauli antes que otras técnicas si hay ruido coherente, porque lo convierte en ruido de Pauli, con el que funcionan mejor ZNE y PEC. Como el ansatz conserva una simetría, añadiría verificación de simetrías: es barata, muy usada en VQE y descarta ejecuciones que la violan. Para el valor esperado con circuito moderado, ZNE (sesgo posible, coste ≈ 3×); PEC solo si el circuito es corto y quiero evitar el sesgo. Recordaría que los costes se multiplican al combinar técnicas.'
+  rubric:
+  - Incluye mitigación de lectura como base barata
+  - Justifica twirling o DD según el tipo de ruido o de circuito
+  - Incluye verificación de simetrías aprovechando la conservación del ansatz
+  - Elige ZNE (o PEC si es corto) con su coste y advierte que los costes se multiplican al combinar
+
+- id: q-error-mitigation-008
+  prompt: Con la hipótesis de 0,5 % de fallo por puerta de dos qubits (λ = 0,005·G), un compañero dice que «con mitigación basta con esperar a que el hardware mejore y todo será viable». Evalúa su afirmación con los casos G = 17, 170 y 1000.
+  model_answer: 'Con λ = 0,005·G: G = 17 da λ ≈ 0,085 y PEC cuesta e^{4λ} ≈ 1,4, así que se mitiga casi gratis; G = 170 da λ ≈ 0,85 y PEC ≈ 30, todavía viable; G = 1000 da λ = 5 y PEC ≈ 5·10⁸ (descartar ejecuciones costaría ≈ 150), inviable. El coste de muestreo crece exponencialmente con el tamaño del circuito, así que la mitigación tiene un tamaño máximo práctico para cada hardware, y mejorar el hardware solo amplía ese tamaño; no lo elimina. Por eso no sustituye a la corrección de errores a gran escala; son complementarias, y la mitigación puede aplicarse sobre qubits lógicos con error residual. El argumento e^λ es una intuición y no una cota rigurosa.'
+  rubric:
+  - Calcula correctamente λ y e^{4λ} para los tres casos (≈1,4; ≈30; ≈5·10⁸)
+  - Concluye que el coste crece exponencialmente con el tamaño del circuito
+  - Dice que mejorar el hardware amplía el tamaño máximo pero no lo elimina
+  - Afirma que la mitigación no sustituye a la corrección de errores a gran escala (son complementarias)
+
+- id: q-error-mitigation-009
+  prompt: Un colega propone aplicar ZNE y mitigación de errores para mejorar un resultado de factorización con Shor en un dispositivo ruidoso. ¿Qué le dices?
+  model_answer: 'La mitigación apunta a valores esperados, promedios de muchas ejecuciones, no a salidas de un solo disparo como Shor o la estimación de fase. Por ejecución el ruido sigue igual o aumenta: la mitigación solo mejora el promedio de un conjunto. En Shor cada ejecución produce una única cadena de bits que debe ser correcta, por lo que no hay valor esperado que corregir. Además, un circuito de Shor necesita muchísimas más puertas que el orden de 1/p que tolera NISQ. Lo que cambia ese panorama es la corrección de errores.'
+  rubric:
+  - Dice que la mitigación se aplica a valores esperados, no a salidas de un solo disparo
+  - Explica que el ruido por ejecución no baja con mitigación (solo el promedio)
+  - Señala que Shor necesita muchas más puertas de las que tolera un dispositivo NISQ o que la solución es la corrección de errores
+  - Evita proponer una técnica de mitigación concreta como solución
+
+- id: q-error-mitigation-010
+  prompt: Usas ZNE con plegado de CX (factores 1, 3 y 5) en un circuito con ruido despolarizante. Con un ajuste lineal obtienes 0,988 y con uno exponencial 0,998, siendo 1,0 el valor ideal. Otro compañero extrapola con un polinomio de grado alto a ruidos grandes y obtiene un valor muy errático. ¿Qué lecciones sacas y qué decides?
+  model_answer: 'Primero, el valor extrapolado depende del modelo de ajuste: con ruido pequeño el lineal y el exponencial dan resultados cercanos, pero con ruido alto el valor esperado de Pauli decae hacia cero y el exponencial describe mejor el régimen. Segundo, un polinomio (Richardson) con M puntos tiene sesgo O(λᴹ) y una varianza que se dispara si los ruidos son grandes o muy próximos, y la teoría solo vale para λ pequeño. Tercero, el coste: 1 + 3 + 5 = 9 veces el número de CX de un solo circuito (los tres factores por defecto de IBM cuestan ≈ 3×). Decidiría usar pocos puntos, un ajuste exponencial si el ruido es alto, y comprobar la sensibilidad al modelo. El plegado está bien definido sobre todo para ruido despolarizante.'
+  rubric:
+  - Dice que el valor extrapolado depende del modelo de ajuste
+  - Explica que el polinomio de alto grado dispara la varianza y que la teoría vale para λ pequeño
+  - Calcula o menciona el coste de plegado (1+3+5 = 9 veces los CX)
+  - Recomienda un criterio (pocos puntos, exponencial en ruido alto, comprobar sensibilidad)
+
+- id: q-error-mitigation-011
+  prompt: Tienes un presupuesto fijo de tiempo de QPU para un Estimator de 100 PUBs. Comparas resilience_level 1, resilience_level 2 y PEC. ¿Cómo decides, y qué riesgo tiene el desacoplo dinámico en un circuito denso?
+  model_answer: El nivel 1 (TREX) tiene coste mínimo y es una buena base; el nivel 2 añade ZNE y twirling con coste medio (ZNE ≈ 3×) y suele reducir el sesgo sin garantizar sesgo cero; PEC da una estimación sin sesgo, pero su sobrecarga crece como γ² con γ exponencial en la profundidad, y exige caracterizar el ruido de las puertas, así que es mucho más cara. Con presupuesto fijo, empezaría por el nivel 1, subiría al 2 si el sesgo restante importa y el presupuesto aguanta ≈ 3×, y reservaría PEC para circuitos cortos donde la ausencia de sesgo compense. Las opciones explícitas prevalecen sobre el nivel. En circuitos densos el desacoplo dinámico puede no ayudar e incluso perjudicar, así que se comprueba.
+  rubric:
+  - Describe el coste creciente nivel 1 < nivel 2 (≈3×) < PEC (exponencial)
+  - Dice que PEC no tiene sesgo pero necesita caracterizar el ruido y es muy cara
+  - Propone una decisión escalonada ajustada al presupuesto
+  - Advierte que el desacoplo dinámico puede perjudicar en circuitos densos
+
+- id: q-error-mitigation-012
+  prompt: Tienes ruido coherente significativo en las puertas de dos qubits y quieres aplicar ZNE y PEC. Un compañero empieza directamente con ZNE. ¿Qué cambiarías?
+  model_answer: 'Aplicaría primero el twirling de Pauli: puertas de Pauli aleatorias alrededor de las puertas de dos qubits generan un conjunto de circuitos con el mismo efecto ideal y convierten el ruido en forma de Pauli. Convertir el ruido coherente en ruido de Pauli es de lo más eficaz, porque el ruido coherente se acumula más rápido y porque ayuda a ZNE y PEC (PEC rinde bien con ruido de Pauli y la escala del ruido de ZNE está mejor definida). Después aplicaría ZNE. Y tendría en cuenta que los costes se multiplican al combinar técnicas.'
+  rubric:
+  - Propone twirling antes de ZNE/PEC
+  - Explica que el twirling convierte ruido coherente en ruido de Pauli
+  - Dice que el ruido coherente se acumula más rápido o que ZNE y PEC funcionan mejor con ruido de Pauli
+  - Advierte que los costes se multiplican al combinar técnicas
+
+- id: q-error-mitigation-013
+  prompt: Un artículo de prensa afirma que la mitigación de errores hará innecesaria la corrección de errores. ¿Qué responde un profesional con lo que sabe?
+  model_answer: La mitigación y la corrección son complementarias, no sustitutas. Por ejecución, la mitigación deja el ruido igual o mayor, y solo mejora el promedio de un conjunto; la corrección lo reduce en cada ejecución. No hay umbral como en la corrección y el coste de muestreo crece exponencialmente con el tamaño del circuito, con un tamaño máximo práctico por hardware (mejorar el hardware solo lo amplía). Aplicable solo a valores esperados. Por otro lado, la mitigación puede aplicarse sobre qubits lógicos con error residual, y puede mitigar errores algorítmicos (ansatz limitado, error de Trotter), cosa que la corrección no hace.
+  rubric:
+  - Afirma que son complementarias
+  - Señala que la mitigación mejora solo el promedio y no cada ejecución
+  - Menciona el crecimiento exponencial del coste y un tamaño máximo práctico por hardware
+  - Menciona un uso conjunto (sobre qubits lógicos) o la mitigación de errores algorítmicos
+
+- id: q-error-mitigation-014
+  prompt: Quieres usar PEC con las primitivas del lado del cliente de qiskit-ibm-runtime 0.51. Un tutorial usa `NoiseLearner`, que ya no existe en tu entorno sin aviso. ¿Cómo planteas el flujo y qué dudas debes resolver antes?
+  model_answer: 'PEC y PEA necesitan caracterizar el ruido de las puertas, y con las primitivas del lado del cliente (0.50.0 en adelante) eso exige un trabajo aparte de aprendizaje de ruido. La herramienta actual es NoiseLearnerV3 (desde 0.47.0) y el antiguo NoiseLearner está obsoleto desde 0.51.0. En Runtime se activa resilience.pec_mitigation con max_overhead para acotar el coste. Antes de lanzarlo, estimaría γ y la sobrecarga: PEC crece como γ² con γ exponencial en la profundidad, así que solo se justifica en circuitos cortos; para circuitos largos, PEA con ZNE suele ser la mejor opción a escala de utilidad. El twirling ayuda porque PEC rinde bien con ruido de Pauli.'
+  rubric:
+  - Dice que PEC/PEA requieren aprendizaje de ruido en un trabajo aparte
+  - Nombra NoiseLearnerV3 como herramienta actual y el antiguo NoiseLearner como obsoleto
+  - Menciona max_overhead o la estimación de la sobrecarga antes de lanzar
+  - Elige PEC solo para circuitos cortos y PEA con ZNE para circuitos largos
+
+- id: q-variational-algorithms-001
+  prompt: En un algoritmo cuántico variacional, ¿qué reparto de tareas hay entre el ordenador cuántico y el clásico?
+  options:
+    a: El cuántico optimiza θ con una búsqueda de Grover y el clásico solo mide el resultado
+    b: El clásico prepara el estado y el cuántico calcula los gradientes, que son exponencialmente difíciles
+    c: Ambos ejecutan el mismo circuito y se comparan sus salidas para detectar errores
+    d: El cuántico prepara el estado según θ y estima el coste; el clásico actualiza θ con un optimizador, y se repite hasta converger
+  explanation: El bucle híbrido consiste en un ansatz parametrizado, una función de coste evaluada en el QPU y un optimizador clásico. No hay búsqueda de Grover en el bucle.
+
+- id: q-variational-algorithms-002
+  prompt: ¿Por qué se propusieron los algoritmos variacionales frente a la estimación de fase para hardware cercano?
+  options:
+    a: Porque la estimación de fase solo puede calcular energías de moléculas con dos electrones
+    b: 'Porque necesitan menos medidas: O(log(1/ε)) frente a O(1/ε²) de la estimación de fase'
+    c: Porque no necesitan un ordenador clásico y todo el cálculo se hace en el QPU
+    d: 'Cambian una evolución larga y coherente por muchos circuitos cortos: coherencia O(1) por medida, a cambio de O(1/ε²) repeticiones'
+  explanation: La estimación de fase necesita evolución totalmente coherente con coste O(log(1/ε)) en precisión, pero está muy por encima de lo que permite el hardware. VQE paga más medidas, O(1/ε²), para usar circuitos cortos. La opción de menos medidas está invertida.
+
+- id: q-variational-algorithms-003
+  prompt: ¿Por qué el valor que devuelve un VQE es una cota superior de la energía del estado fundamental, y qué implica sobre su exactitud?
+  options:
+    a: Porque el ruido de hardware siempre suma energía; con un simulador ideal el VQE daría exactamente E_G
+    b: Porque el optimizador siempre se detiene antes de llegar al mínimo, pero con suficientes iteraciones converge a E_G
+    c: Por el principio variacional, cualquier estado normalizado tiene energía esperada ≥ E_G; un ansatz que no contenga el estado fundamental no puede alcanzarlo
+    d: Porque la función de coste está acotada por la energía del estado más excitado
+  explanation: El principio de Rayleigh-Ritz da C(θ) ≥ E_G, con igualdad solo en el estado fundamental. Incluso sin ruido y con un buen optimizador, un ansatz limitado puede no incluir ese estado.
+
+- id: q-variational-algorithms-004
+  prompt: En QAOA con profundidad p, ¿cuántos ángulos variacionales hay y de dónde salen?
+  options:
+    a: 'p: uno por capa, porque el mezclador y el operador de fase comparten ángulo'
+    b: '2p: un γ por cada capa del operador de fase del problema y un β por cada capa del mezclador'
+    c: 'n: uno por cada nodo del grafo, independientemente de p'
+    d: 'p²: un ángulo por cada par de capas'
+  explanation: El circuito alterna U(C,γ₁), U(B,β₁), …, U(C,γ_p), U(B,β_p) sobre |s⟩. En el ejemplo de MaxCut con 2 capas hay 4 parámetros.
+
+- id: q-variational-algorithms-005
+  prompt: ¿Qué compromiso central hay al elegir entre un ansatz eficiente en hardware y uno inspirado en el problema (como UCC)?
+  options:
+    a: El eficiente en hardware ahorra el coste de compilar y cabe en el dispositivo, pero puede tener problemas de entrenabilidad o no contener la solución; el inspirado en el problema es más estructurado pero suele ser más profundo
+    b: El eficiente en hardware garantiza acceder al estado fundamental, y el inspirado en el problema no
+    c: El inspirado en el problema usa menos puertas y por eso no sufre ruido
+    d: 'No hay compromiso: ambos exploran el mismo espacio y solo cambia la notación'
+  explanation: Un ansatz heurístico intercambia velocidad (espacio pequeño), precisión (puede excluir la solución) y ruido (más profundidad, más ruido). Los de capas aleatorias pueden tener problemas de entrenabilidad.
+
+- id: q-variational-algorithms-006
+  prompt: ¿Por qué eligió Peruzzo el optimizador Nelder-Mead, y qué implica para elegir optimizador en general?
+  options:
+    a: Porque el descenso de gradiente no convergió con el ruido de su experimento; los métodos sin gradiente son más robustos con gradientes ruidosos, aunque requieren más evaluaciones en dimensión alta
+    b: Porque Nelder-Mead calcula el gradiente exacto mediante la regla de desplazamiento de parámetros
+    c: Porque es el único optimizador compatible con ansatz de química como el UCC
+    d: Porque necesita menos evaluaciones del coste que cualquier método de gradiente en alta dimensión
+  explanation: El descenso de gradiente no convergió con el ruido del experimento. Sin gradiente (Nelder-Mead, COBYLA, SPSA) se gana robustez a costa de más evaluaciones cuando hay muchos parámetros.
+
+- id: q-variational-algorithms-007
+  prompt: 'Un alumno dice: «con QAOA, cuantas más capas, mejor resultado en la práctica». ¿Qué matiz es correcto?'
+  options:
+    a: 'Es falso incluso en teoría: M_p decrece al aumentar p'
+    b: En teoría M_p no decrece con p, pero en la práctica más capas implican circuitos más profundos con más ruido y más coste; además p puede tener que crecer exponencialmente con n
+    c: Es cierto sin matices, porque las capas extra cancelan el ruido de las anteriores
+    d: Solo es cierto con p = 1, y para p ≥ 2 el resultado no puede mejorar
+  explanation: Farhi et al. muestran M_p ≥ M_{p−1} y convergencia al máximo cuando p → ∞, pero eso no garantiza que en hardware ruidoso sea mejor, y la garantía puede requerir un p enorme.
+
+- id: q-variational-algorithms-008
+  prompt: En el ejemplo de MaxCut, el Estimator se usa para optimizar los parámetros y el Sampler para ______.
+  options:
+    a: estimar el gradiente por la regla de desplazamiento de parámetros
+    b: mitigar el ruido del Estimator, que no puede mitigarse por sí mismo
+    c: 'leer la respuesta: muestrear cadenas de bits con los parámetros óptimos y tomar la más frecuente'
+    d: comprobar que el observable conmuta con el ansatz
+  explanation: El coste es una suma de valores esperados (Estimator), pero la solución del problema combinatorio es una cadena de bits, y esa se obtiene muestreando.
+
+- id: q-variational-algorithms-009
+  prompt: Explica con tus palabras cómo funciona el bucle VQE y por qué se dice que cambia profundidad por número de medidas.
+  model_answer: El ansatz es un circuito parametrizado que prepara un estado |ψ(θ)⟩. El coste es ⟨ψ(θ)|H|ψ(θ)⟩, una suma de valores esperados de términos de Pauli que el Estimator mide. Un optimizador clásico actualiza θ para minimizar el coste, y el bucle se repite hasta converger; por el principio variacional la energía es una cota superior de la del fundamental. A diferencia de la estimación de fase, que necesita una evolución larga y coherente, VQE usa circuitos cortos y poco profundos, con coherencia O(1) por medida; el precio es repetir muchas veces cada medida, con coste O(1/ε²) para precisión ε. Es el intercambio de un circuito profundo por muchos circuitos cortos, adecuado para hardware ruidoso.
+  rubric:
+  - 'Describe el bucle: ansatz, coste como valor esperado, optimizador clásico'
+  - Menciona que el coste es una suma de valores esperados de Pauli medidos con el Estimator
+  - Contrasta con la estimación de fase (circuito largo y coherente)
+  - Dice que el precio son más repeticiones, O(1/ε²)
+
+- id: q-variational-algorithms-010
+  prompt: Explica qué es un ansatz y cómo se elige en la práctica, nombrando el compromiso entre velocidad, precisión y ruido.
+  model_answer: Un ansatz es el circuito parametrizado que define qué estados puede explorar el algoritmo. Puede ser agnóstico o eficiente en hardware (usa las puertas nativas y la conectividad del dispositivo), inspirado en el problema (UCC en química, el ansatz alternante de QAOA) o de estructura variable (ADAPT-VQE). Un ansatz heurístico pequeño es rápido de optimizar, pero puede excluir la solución (se pierde precisión); uno más profundo es más expresivo, pero sufre más ruido. No contiene necesariamente el estado buscado, y el resultado del VQE depende de él.
+  rubric:
+  - Define el ansatz como el circuito parametrizado que determina los estados accesibles
+  - Menciona al menos dos tipos (eficiente en hardware, UCC, QAOA, estructura variable)
+  - Describe el compromiso velocidad/precisión/ruido
+  - Señala que el resultado depende del ansatz
+
+- id: q-variational-algorithms-011
+  prompt: 'Vas a ejecutar un VQE de 10 qubits en un dispositivo real. Describe tu plan práctico: transpilación, modo de ejecución, optimizador, shots y verificación.'
+  model_answer: Transpilaría una sola vez el ansatz parametrizado (nivel 3, con planificación y desacoplo dinámico si el circuito tiene huecos) y llevaría el observable al layout con apply_layout, reasignando solo los parámetros en cada paso. Ejecutaría en una Session, porque el bucle intercambia datos clásicos y cuánticos con frecuencia. Con evaluaciones ruidosas que pueden frenar la convergencia, elegiría un optimizador robusto al ruido (SPSA o COBYLA, como Peruzzo con Nelder-Mead) y ajustaría el número de shots por evaluación. Compararía con un simulador ideal (en un ejemplo de H₂ el hardware se alejó del simulador) y decidiría si hace falta mitigación; aprovecharía simetrías si las hay.
+  rubric:
+  - Transpila una vez el ansatz y reasigna parámetros
+  - Usa una Session para el bucle
+  - Elige un optimizador robusto al ruido y ajusta shots
+  - Compara con un simulador y decide si hace falta mitigación
+
+- id: q-variational-algorithms-012
+  prompt: Entrenas un VQE de 20 qubits con un ansatz profundo de capas aleatorias y una función de coste global. Los gradientes son prácticamente cero desde el inicio. ¿Qué ocurre y qué cambios pruebas?
+  model_answer: 'Es el síntoma de una meseta árida (barren plateau): las derivadas parciales se anulan exponencialmente con el tamaño del sistema y harían falta exponencialmente muchos shots para decidir una dirección, con métodos de gradiente o sin ellos. Las causas aquí son el ansatz profundo, aleatorio y poco estructurado (cercano a un 2-diseño) y el coste global. Probaría un ansatz estructurado e inspirado en el problema, una inicialización con patrones conocidos o entrenamiento capa a capa, un coste local con profundidad a lo sumo logarítmica, y reducir la profundidad; si hay ruido, también mitigarlo.'
+  rubric:
+  - Identifica meseta árida con gradientes que se anulan exponencialmente con el tamaño
+  - Señala el ansatz profundo/aleatorio como causa
+  - Señala el coste global como causa y propone costes locales
+  - 'Propone un remedio más: ansatz estructurado, inicialización, capa a capa o menos profundidad'
+
+- id: q-variational-algorithms-013
+  prompt: Te piden calcular la energía del estado fundamental de una molécula pequeña en un dispositivo con presupuesto de puertas limitado, y por otro lado resolver un MaxCut. ¿Qué ansatz y qué primitiva usas en cada caso?
+  model_answer: Para la molécula, un ansatz UCC (inspirado en el problema, con excitaciones simples y dobles sobre Hartree-Fock) si el presupuesto de puertas lo permite; si no, un ansatz eficiente en hardware, que usa las puertas nativas y la conectividad pero puede perder entrenabilidad y precisión. El coste es un valor esperado, así que Estimator. Para MaxCut, el ansatz alternante de QAOA, cuyo coste es una suma de ZZ con el Estimator para optimizar, y el Sampler para leer la cadena de bits del corte. En ambos casos comprobaría el presupuesto de puertas tras transpilar.
+  rubric:
+  - Propone UCC (o inspirado en el problema) y reconoce la alternativa eficiente en hardware con su coste
+  - Asigna Estimator al coste de la molécula
+  - Propone el ansatz de QAOA para MaxCut
+  - Usa Estimator para optimizar y Sampler para leer la respuesta
+
+- id: q-variational-algorithms-014
+  prompt: Una empresa afirma que su VQE/QAOA en hardware ruidoso logrará «ventaja cuántica» en 2 años. ¿Qué preguntas haces y qué postura tomas?
+  model_answer: 'Preguntaría contra qué línea base clásica se compara: la ventaja se mide frente al mejor algoritmo y hardware clásicos, que siguen mejorando. Preguntaría si el coste puede calcularse eficientemente de forma clásica (si sí, no hay ventaja), si hay mesetas áridas, si el coste de medida es eficiente y cómo se controla el ruido. Hay posturas distintas: Cerezo et al. consideran los VQA la estrategia más prometedora (es opinión de los autores y la revisión lista problemas abiertos), y Preskill dice que no se sabe si QAOA/VQE superarán a los buenos métodos clásicos aproximados. Para QAOA hay resultados de cautela, como que con p = 1 en grafos 3-regulares el peor caso garantiza 0,6924, peor que los algoritmos clásicos conocidos. Mi postura: plausible como línea de investigación, no una promesa demostrada.'
+  rubric:
+  - Exige comparar con el mejor método clásico
+  - Menciona que el coste no debe poder calcularse eficientemente de forma clásica
+  - Menciona al menos un problema abierto (mesetas áridas, coste de medida, ruido)
+  - Presenta ambas posiciones (Cerezo como opinión de los autores, Preskill como duda)
+
+- id: q-variational-algorithms-015
+  prompt: Tu hamiltoniano químico tiene unas n⁴ cadenas de Pauli y estimar la energía exige un número astronómico de medidas. ¿Cómo reduces el coste?
+  model_answer: 'Agrupar términos de Pauli que comutan para medirlos juntos: el agrupamiento qubit-wise commuting es el más simple pero no cambia la escala asintótica en química; con comutación general (con cuadráticamente más puertas) las medidas pasan a n³, y factorizando los tensores de dos electrones se llega a escala cuadrática o lineal. Además, asignar los shots por término de forma no uniforme (∝ |cᵢ|·σᵢ), o muestrear al azar con esas probabilidades, que da estimaciones sin sesgo, y las sombras clásicas, que hacen que cada shot contribuya a todos los observables de Pauli con un número de medidas logarítmico en el número de términos.'
+  rubric:
+  - Propone agrupar términos que comutan y distingue QWC de comutación general
+  - Menciona la mejora a n³ o a escala cuadrática/lineal con factorización
+  - Propone asignación no uniforme de shots
+  - Menciona las sombras clásicas
+
+- id: q-variational-algorithms-016
+  prompt: Debes decidir si el ruido de hardware es más problemático para un VQE o para un QAOA de tamaño similar. ¿Qué razonamiento sigues?
+  model_answer: 'Bajo ruido de Pauli local el coste se concentra exponencialmente en la profundidad hacia el valor del estado maximalmente mezclado. Esto no afecta a QAOA, porque su coste se calcula clásicamente tras muestrear las cadenas de bits, pero sí a la precisión de la energía de VQE, que se estima directamente de los valores esperados medidos: eso motiva la mitigación en VQE. En general el ruido ralentiza el entrenamiento, sesga el paisaje y corrompe el coste final. Hay además cierta resiliencia al ruido coherente: el optimizador puede compensar un error coherente sobre la marcha, siempre que se optimice más rápido que la deriva de calibración.'
+  rubric:
+  - Explica la concentración del coste hacia el estado maximalmente mezclado con la profundidad
+  - Dice que QAOA es menos afectado porque calcula el coste clásicamente tras muestrear
+  - Dice que VQE sí pierde precisión de energía y por eso motiva mitigación
+  - Menciona la resiliencia al ruido coherente o el efecto sobre el entrenamiento
+
+- id: q-nisq-era-001
+  prompt: ¿Qué significan las siglas NISQ?
+  options:
+    a: 'Non-Ideal Superconducting Qubit: qubit superconductor no ideal'
+    b: 'Noise-Insensitive Stabilized Quantum: cuántico estabilizado insensible al ruido'
+    c: 'Next-generation Integrated Silicon Qubits: qubits de silicio integrados de nueva generación'
+    d: 'Noisy Intermediate-Scale Quantum: cuántico ruidoso de escala intermedia'
+  explanation: El término lo acuñó John Preskill en 2018. «Intermedia» se refiere al número de qubits y «ruidoso» al control imperfecto sin corrección de errores.
+
+- id: q-nisq-era-002
+  prompt: ¿Quién acuñó el término NISQ en 2018?
+  accepted:
+  - Preskill
+  - John Preskill
+  - J. Preskill
+
+- id: q-nisq-era-003
+  prompt: ¿Qué significa «ruidoso» en NISQ?
+  options:
+    a: Que las puertas son imperfectas y no están protegidas por corrección de errores cuánticos
+    b: Que el hardware solo funciona si se aísla de todo sonido y vibración
+    c: Que los qubits no se pueden medir con fiabilidad, pero las puertas son perfectas
+    d: Que los algoritmos dependen de números aleatorios y dan resultados distintos cada vez
+  explanation: En la era NISQ las puertas fallan una pequeña fracción de veces y no hay corrección de errores. No es un problema solo de lectura ni de aleatoriedad algorítmica.
+
+- id: q-nisq-era-004
+  prompt: Según Preskill, ¿qué tamaño tienen los dispositivos «de escala intermedia» y por qué se considera hito el límite inferior?
+  options:
+    a: De 2 a 10 qubits, que es lo que cabe en un portátil con simulación exacta
+    b: De miles a millones de qubits, necesarios para corregir errores
+    c: Aproximadamente de 50 a unos pocos cientos de qubits; unos 50 qubits superan lo que los mayores supercomputadores simulan por fuerza bruta, aunque es un umbral difuso
+    d: Exactamente 50 qubits, el número a partir del cual desaparece todo el ruido
+  explanation: El límite de 50 es difuso porque el coste de simulación depende también de la profundidad. Los millones de qubits corresponden a la tolerancia a fallos completa, no a NISQ.
+
+- id: q-nisq-era-005
+  prompt: Ejecutas un par de Bell en un dispositivo real y, además de 00 y 11, ves un pequeño porcentaje de 01 y 10. ¿Qué indica?
+  options:
+    a: Que el circuito está mal construido y falta una puerta Hadamard
+    b: 'Ruido del dispositivo: las puertas y las lecturas fallan una pequeña fracción de veces, y un circuito ideal nunca daría esos resultados'
+    c: Que el par de Bell contiene en realidad esas cuatro cadenas con probabilidad pequeña
+    d: Que el simulador ideal habría dado lo mismo, porque la regla de Born es probabilista
+  explanation: Un par de Bell ideal solo da 00 y 11 con probabilidad 1/2 cada una. La aparición de 01 y 10 es la firma del ruido, que se acumula a lo largo del circuito.
+
+- id: q-nisq-era-006
+  prompt: Con un error de 0,1 % por puerta de dos qubits y supuesto de fallos independientes, ¿qué probabilidad aproximada hay de que un circuito de 2000 puertas de dos qubits no sufra ningún fallo?
+  options:
+    a: Alrededor del 37 %, que es la cifra de 1000 puertas
+    b: Alrededor del 80 %, porque el error por puerta es solo del 0,1 %
+    c: Alrededor del 0,7 %, que es la cifra de 5000 puertas
+    d: Alrededor del 13,5 %, porque (1−p)^G ≈ e^{−pG} = e^{−2}
+  explanation: pG = 0,001 · 2000 = 2, y e^{−2} ≈ 0,135. Con 1000 puertas sale ≈ 0,37 y con 5000 ≈ 0,007. Por eso el tamaño útil sin mitigación es del orden de 1/p puertas.
+
+- id: q-nisq-era-007
+  prompt: ¿Por qué el número de qubits no basta para comparar dispositivos NISQ?
+  options:
+    a: Porque el número de qubits solo importa en dispositivos de iones atrapados
+    b: Porque los qubits de más se desactivan automáticamente al transpilar
+    c: Porque las puertas son siempre perfectas y solo la lectura limita el tamaño
+    d: Porque también cuentan la precisión de las puertas, la velocidad, la precisión de la medida, la conectividad y el rendimiento de fabricación
+  explanation: Un dispositivo con más qubits pero puertas peor calibradas puede ejecutar circuitos más pequeños con fiabilidad. En Qiskit esto se traduce en que la transpilación y la elección del dispositivo importan tanto como su tamaño.
+
+- id: q-nisq-era-008
+  prompt: Según Preskill, ¿cuál de estas aplicaciones es probable que quede fuera del alcance de NISQ sin corrección de errores?
+  options:
+    a: La inversión de matrices (HHL) y la simulación precisa de moléculas y materiales grandes
+    b: La optimización híbrida cuántico-clásica, que es lo concreto a probar
+    c: Cualquier circuito de menos de 100 qubits
+    d: La exploración de la física de muchos cuerpos, que es la aplicación más natural
+  explanation: Preskill considera HHL, los recomendadores cuánticos y la simulación precisa de moléculas grandes como probablemente fuera de alcance. Los algoritmos híbridos y la física de muchos cuerpos son justo lo que espera explorar.
+
+- id: q-nisq-era-009
+  prompt: ¿Cómo distingue Preskill supremacía cuántica de ventaja cuántica (quantum speedup)?
+  options:
+    a: Son sinónimos; la diferencia es solo que supremacía es el término de marketing
+    b: La supremacía es una tarea que el dispositivo cuántico hace y ningún dispositivo clásico existente, sea útil o no; la ventaja suele significar vencer al mejor hardware y algoritmo clásicos, que siguen mejorando
+    c: La supremacía exige corrección de errores y la ventaja no
+    d: La ventaja es una tarea imposible para cualquier ordenador clásico, y la supremacía solo es más rápida
+  explanation: La supremacía es una definición operativa sin exigir utilidad; la ventaja compara con el mejor clásico, un objetivo móvil. Ninguna exige por definición corrección de errores.
+
+- id: q-nisq-era-010
+  prompt: Explica con tus palabras por qué un circuito sin mitigación solo es fiable hasta unas 1/p puertas de dos qubits, usando el modelo de fallos independientes.
+  model_answer: Si cada puerta de dos qubits falla con probabilidad p de forma independiente, la probabilidad de que ninguna falle en G puertas es P₀ = (1−p)^G ≈ e^{−pG} = e^{−λ}, donde λ = pG es el número medio de fallos por ejecución. Para pG pequeño casi todas las ejecuciones salen limpias (con 100 puertas al 0,1 %, el 90 %); para pG ≈ 1 solo el 37 %; para pG mucho mayor que 1 casi ninguna (5000 puertas, 0,7 %). Un solo fallo en cualquier punto puede arruinar el resultado, así que el circuito deja de ser fiable cuando p es mucho mayor que 1/G, es decir, cuando G supera del orden de 1/p. Es una regla de pulgar que puede ser demasiado pesimista para algunos algoritmos.
+  rubric:
+  - Plantea P₀ = (1−p)^G ≈ e^{−pG}
+  - Interpreta λ = pG como el número medio de fallos por ejecución
+  - Concluye que el límite práctico es del orden de G ≈ 1/p
+  - Matiza que es una regla de pulgar, posiblemente pesimista
+
+- id: q-nisq-era-011
+  prompt: Explica por qué verificar el resultado de un dispositivo NISQ puede ser difícil y por qué la ventaja cuántica es un «objetivo móvil».
+  model_answer: Los dispositivos NISQ son imperfectos, así que puede ser difícil validar que la respuesta es correcta, sobre todo en simulación cuántica, donde precisamente el simulador clásico deja de ser viable. La ventaja cuántica suele significar vencer al mejor hardware clásico con el mejor algoritmo clásico, y los ordenadores clásicos siguen mejorando; por tanto lo cuántico persigue un objetivo móvil. La supremacía, en cambio, solo pide una tarea que ningún dispositivo clásico existente pueda hacer, sea útil o no.
+  rubric:
+  - Dice que validar es difícil porque el dispositivo es imperfecto y no se puede simular clásicamente
+  - Define ventaja como vencer al mejor clásico con el mejor algoritmo
+  - Explica que los ordenadores clásicos mejoran (objetivo móvil)
+  - Distingue supremacía (sin exigir utilidad)
+
+- id: q-nisq-era-012
+  prompt: Una nota de prensa anuncia un resultado «más allá de la simulación clásica» en un circuito de 100 qubits. ¿Qué cinco preguntas haces antes de creerlo?
+  model_answer: 1) ¿Cuántas puertas de dos qubits tiene el circuito transpilado y cuál es el error por puerta? Con e^{−λ} se sabe qué fracción de ejecuciones es limpia; superar con holgura 1/p solo es creíble con mitigación y un razonamiento sobre el sesgo. 2) ¿La salida es un valor esperado? La mitigación no sirve para salidas de un solo disparo. 3) ¿Cuál es la línea base clásica? La ventaja se mide frente al mejor algoritmo y hardware clásicos. 4) ¿Cómo se verifica? Más allá de unas decenas de qubits no se simula con ruido, así que se comparan observables de valor conocido o versiones reducidas. 5) ¿Ha entrado en la cuenta el coste de mitigación? ZNE ≈ 3×, PEC exponencial en la profundidad.
+  rubric:
+  - Pregunta por el número de puertas de dos qubits y el error por puerta (e^{−λ})
+  - Pregunta si la salida es un valor esperado (donde se aplica la mitigación)
+  - Pregunta por la línea base clásica
+  - Pregunta por la verificación o por el coste de mitigación
+
+- id: q-nisq-era-013
+  prompt: Tu circuito transpilado tiene 800 puertas de dos qubits y el error por puerta es del 0,3 %. ¿Es viable ejecutarlo sin mitigación y qué decides?
+  model_answer: 'λ ≈ p·G = 0,003 · 800 = 2,4 y la probabilidad de una ejecución limpia es e^{−2,4} ≈ 0,09, es decir, solo un 9 % de las ejecuciones. Está por encima de 1/p ≈ 333 puertas, así que sin mitigación no es viable. Con λ = 2,4 la mitigación sí es plausible: descartar ejecuciones costaría e^λ ≈ 11, y PEC e^{4λ} ≈ 15 000 (demasiado), así que miraría mitigación barata (lectura, desacoplo dinámico, twirling) y ZNE para un valor esperado, y vigilaría el sesgo. También intentaría recortar puertas (transpilación, otro ansatz). El cálculo se hace con puertas tras transpilar, porque el routing añade SWAP.'
+  rubric:
+  - Calcula λ = 2,4 y e^{−λ} ≈ 0,09
+  - Concluye que supera 1/p y no es viable sin mitigación
+  - Distingue mitigación barata de PEC, que sería demasiado cara
+  - Cuenta las puertas tras transpilar o propone reducirlas
+
+- id: q-nisq-era-014
+  prompt: 'Tres proyectos: factorizar un número de 2048 bits con Shor, un VQE de 20 qubits en un hamiltoniano de juguete y la simulación precisa de una molécula grande. ¿Cuáles ejecutarías hoy como NISQ y cuáles esperarías?'
+  model_answer: 'Shor produce una salida de un solo disparo, donde la mitigación no sirve, y necesita muchas más puertas que las 1/p de NISQ; requiere tolerancia a fallos, con cientos de miles o millones de qubits físicos según el problema. La simulación precisa de moléculas grandes puede exigir corrección de errores, según Preskill. El VQE de 20 qubits es un buen candidato NISQ: circuitos cortos, un valor esperado al que se puede aplicar mitigación, y útil para aprender y prototipar aunque no se sepa si superará a los métodos clásicos. Y el código escrito hoy (circuitos y primitivas) seguirá sirviendo cuando mejore el hardware.'
+  rubric:
+  - Descarta Shor para NISQ y lo justifica (un solo disparo, demasiadas puertas, tolerancia a fallos)
+  - Dice que la simulación precisa de moléculas grandes puede requerir corrección de errores
+  - Considera el VQE pequeño un candidato NISQ razonable con mitigación
+  - Matiza que NISQ sirve para aprender/prototipar y que el código seguirá siendo útil
+
+- id: q-nisq-era-015
+  prompt: 'Dos colegas discuten: uno cita a Cerezo et al. («los algoritmos variacionales son la mejor esperanza de ventaja en NISQ») y otro cita a Preskill («no se sabe si QAOA/VQE superarán a los métodos clásicos»). Tu directora te pide una recomendación. ¿Cómo la planteas?'
+  model_answer: 'Presentaría ambas posiciones con sus hipótesis: Cerezo et al. sostienen que los VQA son la estrategia líder porque un enfoque de optimización puede tener en cuenta todas las restricciones y mantener circuitos poco profundos; es la opinión de los autores y la revisión lista problemas abiertos de entrenabilidad y de eficiencia de medida. Las condiciones para esa ventaja son evitar mesetas áridas, mantener eficiente el coste de medida y controlar el ruido, y exigen dispositivos mayores y mejores. Preskill dice que no se sabe y que los dispositivos iniciales pueden quedarse cortos. La recomendación: invertir en prototipos y aprendizaje, no en promesas de ventaja, midiendo siempre contra el mejor método clásico.'
+  rubric:
+  - Presenta las dos posiciones sin tomar una como hecho establecido
+  - Aclara que lo de Cerezo es la opinión de los autores y la revisión lista problemas abiertos
+  - Menciona condiciones para la ventaja (mesetas áridas, coste de medida, ruido)
+  - Da una recomendación coherente que compara con el mejor método clásico
+
+- id: q-nisq-era-016
+  prompt: Tu equipo quiere presentar un experimento de «escala de utilidad» (127 qubits, 60 capas, ZNE con amplificación probabilística de errores). ¿Qué haría creíble el resultado y qué límites reconocerías?
+  model_answer: 'Lo creíble sería elegir con cuidado circuito y observable (en el experimento de referencia, la dinámica de un modelo de Ising 2D con Trotter y el observable ⟨Z₆₂⟩), aplicar ZNE con PEA y comparar con simulaciones clásicas disponibles (Kim et al. mostraron acuerdo con la simulación clásica). Los límites: ruido que distorsiona fuertemente incluso con 27 qubits, PEA experimental y lenta, resultados que dependen del estado del dispositivo, y sobrecargas de mitigación (ZNE ≈ 3×, PEC exponencial en la profundidad) que acotan lo práctico. Además, «utilidad» se usa de manera informal y no equivale a ventaja cuántica, que sería un objetivo a más largo plazo.'
+  rubric:
+  - Menciona elegir circuito y observable con cuidado y compararlo con simulación clásica
+  - Menciona ZNE con PEA como técnica usada
+  - 'Reconoce límites: ruido, PEA lenta o dependencia del estado del dispositivo, sobrecargas de mitigación'
+  - Distingue utilidad de ventaja cuántica

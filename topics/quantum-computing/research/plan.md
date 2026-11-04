@@ -7,7 +7,7 @@ Content language: es
 - [x] quantum-mechanics — sources: zwiebach-mit-8-04 (LN1–9), zwiebach-mit-8-05 (ch. 2, 6), openstax-physics-3 (§6–7), preskill-ph219 (ch. 2–3), watrous-2025 (Unit III), zurek-2003 · not researched: nielsen-chuang-2010 (TOC only) — status: done
 - [x] qubits-and-circuits — sources: watrous-2025 (Unit I L1–L4, L6.2, L9.3), de-wolf-2026 (ch. 1–2, 13, 17), aaronson-2018 (lec. 3–5, 7, 9–10, 13–14, 16; prose only, PDF extraction lost formulas), preskill-ph219 (ch. 4 [2001], ch. 5 [2015]), hensen-2015 — status: done
 - [x] quantum-algorithms — sources: watrous-2025 (Unit II, L5–L8; no Hamiltonian simulation), de-wolf-2026 (ch. 2–7, 9, 11, 13, 18), childs-qa (17 Apr 2025 version), shor-mit-2022 (L16–L26), aaronson-2018 (lec. 17–25), shor-1997, grover-1996, nist-fips-203, nist-ir-8547, gidney-2025 — status: done
-- [ ] qiskit-programming — sources: qiskit-docs, ibm-quantum-learning, preskill-2018, cerezo-2021, peruzzo-2014, farhi-2014 — status: pending
+- [x] qiskit-programming — sources: qiskit-docs (Qiskit 2.6, runtime 0.51), ibm-quantum-learning (Variational algorithm design, Utility-scale QC, QC in practice; read via a summarizing fetcher), javadi-abhari-2024 (Qiskit 1.0 architecture), preskill-2018, cerezo-2021, peruzzo-2014, farhi-2014, cai-2023 — status: done
 - [ ] quantum-hardware — sources: divincenzo-2000, krantz-2019, kjaergaard-2020, bruzewicz-2019, henriet-2020, burkard-2023, slussarenko-2019, bartolucci-2023, nayak-2008, arute-2019, eisert-2025 (unconfirmed) — status: pending
 - [ ] error-correction — sources: watrous-2025, de-wolf-2026, preskill-ph219, fowler-2012, google-2025, bluvstein-2024, gidney-2025 — status: pending
 
@@ -21,12 +21,14 @@ Concept titles (es): `i18n/es/concepts.yaml`.
 - quantum-mechanics gaps: no source derives Larmor precession or the general bound ΔAΔB ≥ ½|⟨[A,B]⟩| (both [unverified]); amplitude damping only from Preskill.
 - qubits-and-circuits gaps: "two-qubit gates are the costliest on hardware" is [unverified] (back it in quantum-hardware); no source explains why the T count matters in fault tolerance (error-correction domain); preskill-ph219 ch. 4 is a 2001 draft (outdated on Bell loopholes; hensen-2015 added for the 2015 loophole-free test).
 - quantum-algorithms gaps: no source states the "double the symmetric key length because of Grover" rule (kept [unverified]; NIST IR 8547 only says ≥128-bit symmetric primitives need no transition); "approximate QFT saves the most error-prone two-qubit gates" is [unverified] (back it in quantum-hardware); phase kickback is derived only in watrous-2025; gidney-2025 is a preprint (recheck for a peer-reviewed version before the topic closes).
-- `qiskit-docs` change with each SDK version: notes must record the version, and code in the content must be checked against it.
+- qiskit-programming gaps: code tested with qiskit 2.6.1, qiskit-aer 0.18.2, qiskit-ibm-runtime 0.51.0 (recheck when IBM removes `SamplerV2`/`EstimatorV2`, deprecated since 0.50); no source explains how Sabre layout/routing works or defines each optimization level; no statevector memory formula; QuOps/CLOPS/EPLG definitions [unverified]; the 136-qubit QESEM run is known only from a search snippet; ibm-quantum-learning numbers (Eagle error medians, H2 energies) came through a summary and are flagged as such.
 
 ## Decisions
 - 2026-11-03 — Angle: programming and algorithms, plus physics/math foundations and hardware construction (user answer). Learner programs and has rusty linear algebra → a math refresher domain first.
 - 2026-11-03 — Map approved as proposed: hardware before error correction; quantum annealing and quantum machine learning stay out for now; `nielsen-chuang-2010` is further reading only (TOC).
 - 2026-11-03 — Large sources shared by several domains (watrous-2025, de-wolf-2026, preskill-ph219) are researched per domain: each domain's researcher appends its concepts to the existing note instead of reading the whole book at once.
+
+- 2026-11-04 — Qiskit code in the content targets the current SDK and is run locally (`uv run --no-project --with 'qiskit~=2.6.0' --with qiskit-aer --with qiskit-ibm-runtime`); outputs shown are real and marked as varying run to run.
 
 ## Log
 - 2026-11-03 — map created (7 domains, 69 concepts, 34 sources)
@@ -40,3 +42,5 @@ Concept titles (es): `i18n/es/concepts.yaml`.
 - 2026-11-03 — qubits-and-circuits done: 12 concepts, 91 questions (layer 1: 23, layer 2: 40, layer 3: 28), 4 own diagrams (bloch-sphere, bell-circuit, teleportation-circuit, chsh-game), 1 [unverified]
 - 2026-11-03 — quantum-algorithms: added nist-ir-8547 (final Oct 2026: transition timeline, FIPS 204/205, HQC); fips-203 alone had no timeline
 - 2026-11-03 — quantum-algorithms done: 11 concepts, 106 questions (layer 1: 23, layer 2: 48, layer 3: 35), 10 own diagrams (deutsch-jozsa-circuit, simon-circuit, qft-circuit, phase-estimation-circuit, shor-pipeline, grover-rotation, grover-amplitudes, trotter-steps, complexity-classes, kem-flow), 2 [unverified]; 3 [unverified] "why it matters" claims in quantum-mechanics now cited
+- 2026-11-04 — qiskit-programming: added cai-2023 (independent error-mitigation review) and javadi-abhari-2024 (Qiskit architecture); IBM sources alone were too thin for mitigation and transpilation
+- 2026-11-04 — qiskit-programming done: 8 concepts, 114 questions (layer 1: 14, layer 2: 51, layer 3: 49), 4 own diagrams (transpiler-stages, layout-routing-swap, variational-loop, zne-extrapolation), 5 [unverified]; 21 code blocks, 19 run with Qiskit 2.6.1

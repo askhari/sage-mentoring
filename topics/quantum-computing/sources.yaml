@@ -227,6 +227,28 @@
   access: open
   accessed: 2026-11-03
   notes: "full text (arXiv preprint). Original QAOA paper."
+- id: cai-2023
+  type: paper
+  reliability: B
+  title: "Quantum error mitigation"
+  authors: ["Zhenyu Cai", "Ryan Babbush", "Simon C. Benjamin", "et al."]
+  year: 2023
+  language: en
+  identifiers: { doi: "10.1103/RevModPhys.95.045005", url: "https://arxiv.org/abs/2210.00921" }
+  access: open
+  accessed: 2026-11-04
+  notes: "full text (arXiv). Review, Reviews of Modern Physics 95, 045005. Independent of IBM docs for error mitigation."
+- id: javadi-abhari-2024
+  type: paper
+  reliability: B
+  title: "Quantum computing with Qiskit"
+  authors: ["Ali Javadi-Abhari", "Matthew Treinish", "Kevin Krsulich", "et al."]
+  year: 2024
+  language: en
+  identifiers: { url: "https://arxiv.org/abs/2405.08810" }
+  access: open
+  accessed: 2026-11-04
+  notes: "full text (arXiv preprint). Design of the Qiskit SDK: circuits, transpiler passes, primitives. Written by IBM; describes Qiskit 1.x."
 - id: nist-fips-203
   type: standard
   reliability: A

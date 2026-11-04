@@ -77,3 +77,19 @@
 - id: kem-flow
   alt: "Dos columnas, Alicia y Bernardo. Alicia ejecuta KeyGen(), que da ek (pública) y dk (privada), y envía ek por un canal público. Bernardo ejecuta Encaps(ek), que da una clave K y un texto cifrado c, y envía c. Alicia ejecuta Decaps(dk, c) y obtiene K. Abajo: ambos tienen la misma clave K para cifrado simétrico (p. ej. AES)."
   caption: "Mecanismo de encapsulación de claves (KEM), como ML-KEM de FIPS 203. Diagrama propio."
+
+- id: transpiler-stages
+  alt: "Cadena horizontal: circuito abstracto, seis etapas (init: puertas de 3 o más qubits a puertas de 1 y 2; layout: qubits virtuales a físicos; routing: inserta SWAP donde no hay acoplamiento; translation: a las puertas nativas; optimization: simplifica y repite hasta una condición; scheduling: temporiza, opcional, por ejemplo desacoplo dinámico) y circuito ISA ejecutable. Debajo, el Target del backend (puertas nativas, conectividad, duraciones) alimenta las etapas de layout a scheduling."
+  caption: "Etapas de los gestores de pases predefinidos de Qiskit, según la guía de transpilación de la documentación de Qiskit. Diagrama propio."
+
+- id: layout-routing-swap
+  alt: "Izquierda: anillo de 12 qubits físicos (0 a 4 arriba, 5 y 6 como puentes laterales, 7 a 11 abajo). Los qubits virtuales a y b están en los físicos 0 y 2, que no están acoplados; el camino 0-1-2 está resaltado. Derecha arriba: el circuito lógico, un CX de 0 a 2, una puerta de dos qubits. Derecha abajo: tras el routing, un SWAP entre 0 y 1 y después un CX de 1 a 2; como un SWAP son tres CX, quedan cuatro puertas de dos qubits."
+  caption: "Routing: un CX entre qubits no acoplados se resuelve con un SWAP, que cuesta tres CX. El mapa es un fragmento al estilo de la red heavy-hex de IBM. Diagrama propio."
+
+- id: variational-loop
+  alt: "Arriba, una vez: ansatz U(θ) y observable H (SparsePauliOp), transpilados a ISA. Debajo, el bucle de cada iteración: el Estimator (QPU o simulador) prepara |ψ(θ)⟩ y estima ⟨ψ(θ)|H|ψ(θ)⟩; devuelve C(θ) al optimizador clásico (COBYLA, SPSA…), que propone un θ nuevo y lo devuelve al Estimator. Cuando converge, sale θ* con C(θ*), una cota superior de la energía mínima."
+  caption: "Bucle híbrido cuántico-clásico de un algoritmo variacional (VQE, QAOA). Diagrama propio."
+
+- id: zne-extrapolation
+  alt: "Gráfico de ⟨ZZZZ⟩ frente al factor de ruido λ (cada CX repetido λ veces). Tres puntos medidos: 0,940 en λ = 1, 0,834 en λ = 3 y 0,739 en λ = 5. Un ajuste lineal extrapola a 0,988 en λ = 0 y un ajuste exponencial a 0,998; la línea del valor ideal está en 1."
+  caption: "Extrapolación a ruido cero del caso trabajado: GHZ de 4 qubits con ruido despolarizante del 2 % por CX, simulado con Qiskit Aer (una ejecución). Diagrama propio."

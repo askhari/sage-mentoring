@@ -137,3 +137,31 @@
   generator: diagrams/src/kem_flow.py
   license: CC-BY-4.0
   concepts: [post-quantum-cryptography]
+
+- id: transpiler-stages
+  file: diagrams/transpiler-stages.{lang}.svg
+  origin: own
+  generator: diagrams/src/transpiler_stages.py
+  license: CC-BY-4.0
+  concepts: [transpilation]
+
+- id: layout-routing-swap
+  file: diagrams/layout-routing-swap.{lang}.svg
+  origin: own
+  generator: diagrams/src/layout_routing_swap.py
+  license: CC-BY-4.0
+  concepts: [transpilation]
+
+- id: variational-loop
+  file: diagrams/variational-loop.{lang}.svg
+  origin: own
+  generator: diagrams/src/variational_loop.py
+  license: CC-BY-4.0
+  concepts: [variational-algorithms]
+
+- id: zne-extrapolation
+  file: diagrams/zne-extrapolation.{lang}.svg
+  origin: own
+  generator: diagrams/src/zne_extrapolation.py
+  license: CC-BY-4.0
+  concepts: [error-mitigation]

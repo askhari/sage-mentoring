@@ -1,0 +1,902 @@
+- id: q-qiskit-circuits-001
+  concept: qiskit-circuits
+  layer: 1
+  type: single-choice
+  sources:
+  - qiskit-docs
+  correct: c
+
+- id: q-qiskit-circuits-002
+  concept: qiskit-circuits
+  layer: 1
+  type: single-choice
+  sources:
+  - javadi-abhari-2024
+  - qiskit-docs
+  correct: a
+
+- id: q-qiskit-circuits-003
+  concept: qiskit-circuits
+  layer: 1
+  type: short-answer
+  sources:
+  - javadi-abhari-2024
+
+- id: q-qiskit-circuits-004
+  concept: qiskit-circuits
+  layer: 1
+  type: single-choice
+  sources:
+  - qiskit-docs
+  correct: b
+
+- id: q-qiskit-circuits-005
+  concept: qiskit-circuits
+  layer: 1
+  type: single-choice
+  sources:
+  - qiskit-docs
+  correct: d
+
+- id: q-qiskit-circuits-006
+  concept: qiskit-circuits
+  layer: 2
+  type: single-choice
+  sources:
+  - qiskit-docs
+  correct: d
+
+- id: q-qiskit-circuits-007
+  concept: qiskit-circuits
+  layer: 2
+  type: single-choice
+  sources:
+  - javadi-abhari-2024
+  correct: a
+
+- id: q-qiskit-circuits-008
+  concept: qiskit-circuits
+  layer: 2
+  type: single-choice
+  sources:
+  - qiskit-docs
+  correct: c
+
+- id: q-qiskit-circuits-009
+  concept: qiskit-circuits
+  layer: 2
+  type: single-choice
+  sources:
+  - qiskit-docs
+  correct: b
+
+- id: q-qiskit-circuits-010
+  concept: qiskit-circuits
+  layer: 2
+  type: open
+  sources:
+  - qiskit-docs
+
+- id: q-qiskit-circuits-011
+  concept: qiskit-circuits
+  layer: 2
+  type: open
+  sources:
+  - javadi-abhari-2024
+
+- id: q-qiskit-circuits-012
+  concept: qiskit-circuits
+  layer: 3
+  type: case
+  sources:
+  - javadi-abhari-2024
+
+- id: q-qiskit-circuits-013
+  concept: qiskit-circuits
+  layer: 3
+  type: case
+  sources:
+  - qiskit-docs
+  - javadi-abhari-2024
+
+- id: q-qiskit-circuits-014
+  concept: qiskit-circuits
+  layer: 3
+  type: case
+  sources:
+  - qiskit-docs
+
+- id: q-qiskit-circuits-015
+  concept: qiskit-circuits
+  layer: 3
+  type: case
+  sources:
+  - javadi-abhari-2024
+
+- id: q-simulators-and-statevectors-001
+  concept: simulators-and-statevectors
+  layer: 1
+  type: single-choice
+  sources:
+  - watrous-2025
+  correct: b
+
+- id: q-simulators-and-statevectors-002
+  concept: simulators-and-statevectors
+  layer: 1
+  type: short-answer
+  sources:
+  - watrous-2025
+
+- id: q-simulators-and-statevectors-003
+  concept: simulators-and-statevectors
+  layer: 1
+  type: single-choice
+  sources:
+  - qiskit-docs
+  correct: c
+
+- id: q-simulators-and-statevectors-004
+  concept: simulators-and-statevectors
+  layer: 1
+  type: single-choice
+  sources:
+  - qiskit-docs
+  correct: d
+
+- id: q-simulators-and-statevectors-005
+  concept: simulators-and-statevectors
+  layer: 2
+  type: single-choice
+  sources:
+  - qiskit-docs
+  correct: a
+
+- id: q-simulators-and-statevectors-006
+  concept: simulators-and-statevectors
+  layer: 2
+  type: single-choice
+  sources:
+  - ibm-quantum-learning
+  - qiskit-docs
+  correct: d
+
+- id: q-simulators-and-statevectors-007
+  concept: simulators-and-statevectors
+  layer: 2
+  type: single-choice
+  sources:
+  - qiskit-docs
+  correct: a
+
+- id: q-simulators-and-statevectors-008
+  concept: simulators-and-statevectors
+  layer: 2
+  type: single-choice
+  sources:
+  - qiskit-docs
+  correct: c
+
+- id: q-simulators-and-statevectors-009
+  concept: simulators-and-statevectors
+  layer: 2
+  type: single-choice
+  sources:
+  - qiskit-docs
+  correct: b
+
+- id: q-simulators-and-statevectors-010
+  concept: simulators-and-statevectors
+  layer: 2
+  type: open
+  sources:
+  - qiskit-docs
+
+- id: q-simulators-and-statevectors-011
+  concept: simulators-and-statevectors
+  layer: 2
+  type: open
+  sources:
+  - qiskit-docs
+
+- id: q-simulators-and-statevectors-012
+  concept: simulators-and-statevectors
+  layer: 3
+  type: case
+  sources:
+  - qiskit-docs
+
+- id: q-simulators-and-statevectors-013
+  concept: simulators-and-statevectors
+  layer: 3
+  type: case
+  sources:
+  - qiskit-docs
+
+- id: q-simulators-and-statevectors-014
+  concept: simulators-and-statevectors
+  layer: 3
+  type: case
+  sources:
+  - preskill-2018
+  - cai-2023
+
+- id: q-simulators-and-statevectors-015
+  concept: simulators-and-statevectors
+  layer: 3
+  type: case
+  sources:
+  - qiskit-docs
+
+- id: q-transpilation-001
+  concept: transpilation
+  layer: 2
+  type: single-choice
+  sources:
+  - qiskit-docs
+  - javadi-abhari-2024
+  correct: c
+
+- id: q-transpilation-002
+  concept: transpilation
+  layer: 2
+  type: single-choice
+  sources:
+  - qiskit-docs
+  - ibm-quantum-learning
+  correct: a
+
+- id: q-transpilation-003
+  concept: transpilation
+  layer: 2
+  type: single-choice
+  sources:
+  - qiskit-docs
+  correct: d
+
+- id: q-transpilation-004
+  concept: transpilation
+  layer: 2
+  type: single-choice
+  sources:
+  - qiskit-docs
+  - ibm-quantum-learning
+  correct: b
+
+- id: q-transpilation-005
+  concept: transpilation
+  layer: 2
+  type: single-choice
+  sources:
+  - qiskit-docs
+  correct: a
+
+- id: q-transpilation-006
+  concept: transpilation
+  layer: 2
+  type: single-choice
+  sources:
+  - qiskit-docs
+  correct: b
+
+- id: q-transpilation-007
+  concept: transpilation
+  layer: 2
+  type: open
+  sources:
+  - ibm-quantum-learning
+  - qiskit-docs
+
+- id: q-transpilation-008
+  concept: transpilation
+  layer: 2
+  type: open
+  sources:
+  - ibm-quantum-learning
+  - qiskit-docs
+
+- id: q-transpilation-009
+  concept: transpilation
+  layer: 3
+  type: case
+  sources:
+  - qiskit-docs
+  - ibm-quantum-learning
+
+- id: q-transpilation-010
+  concept: transpilation
+  layer: 3
+  type: case
+  sources:
+  - ibm-quantum-learning
+  - qiskit-docs
+
+- id: q-transpilation-011
+  concept: transpilation
+  layer: 3
+  type: case
+  sources:
+  - ibm-quantum-learning
+  - javadi-abhari-2024
+
+- id: q-transpilation-012
+  concept: transpilation
+  layer: 3
+  type: case
+  sources:
+  - ibm-quantum-learning
+  - qiskit-docs
+
+- id: q-transpilation-013
+  concept: transpilation
+  layer: 3
+  type: case
+  sources:
+  - ibm-quantum-learning
+  - qiskit-docs
+
+- id: q-primitives-sampler-estimator-001
+  concept: primitives-sampler-estimator
+  layer: 2
+  type: single-choice
+  sources:
+  - qiskit-docs
+  - javadi-abhari-2024
+  correct: d
+
+- id: q-primitives-sampler-estimator-002
+  concept: primitives-sampler-estimator
+  layer: 2
+  type: single-choice
+  sources:
+  - qiskit-docs
+  correct: c
+
+- id: q-primitives-sampler-estimator-003
+  concept: primitives-sampler-estimator
+  layer: 2
+  type: single-choice
+  sources:
+  - qiskit-docs
+  correct: d
+
+- id: q-primitives-sampler-estimator-004
+  concept: primitives-sampler-estimator
+  layer: 2
+  type: single-choice
+  sources:
+  - qiskit-docs
+  correct: c
+
+- id: q-primitives-sampler-estimator-005
+  concept: primitives-sampler-estimator
+  layer: 2
+  type: single-choice
+  sources:
+  - qiskit-docs
+  correct: b
+
+- id: q-primitives-sampler-estimator-006
+  concept: primitives-sampler-estimator
+  layer: 2
+  type: single-choice
+  sources:
+  - javadi-abhari-2024
+  correct: a
+
+- id: q-primitives-sampler-estimator-007
+  concept: primitives-sampler-estimator
+  layer: 2
+  type: single-choice
+  sources:
+  - ibm-quantum-learning
+  correct: d
+
+- id: q-primitives-sampler-estimator-008
+  concept: primitives-sampler-estimator
+  layer: 2
+  type: open
+  sources:
+  - peruzzo-2014
+  - qiskit-docs
+
+- id: q-primitives-sampler-estimator-009
+  concept: primitives-sampler-estimator
+  layer: 3
+  type: case
+  sources:
+  - qiskit-docs
+  - cai-2023
+
+- id: q-primitives-sampler-estimator-010
+  concept: primitives-sampler-estimator
+  layer: 3
+  type: case
+  sources:
+  - cerezo-2021
+
+- id: q-primitives-sampler-estimator-011
+  concept: primitives-sampler-estimator
+  layer: 3
+  type: case
+  sources:
+  - qiskit-docs
+
+- id: q-primitives-sampler-estimator-012
+  concept: primitives-sampler-estimator
+  layer: 3
+  type: case
+  sources:
+  - qiskit-docs
+
+- id: q-primitives-sampler-estimator-013
+  concept: primitives-sampler-estimator
+  layer: 3
+  type: case
+  sources:
+  - qiskit-docs
+  - peruzzo-2014
+
+- id: q-running-on-hardware-001
+  concept: running-on-hardware
+  layer: 2
+  type: single-choice
+  sources:
+  - qiskit-docs
+  - javadi-abhari-2024
+  correct: b
+
+- id: q-running-on-hardware-002
+  concept: running-on-hardware
+  layer: 2
+  type: single-choice
+  sources:
+  - qiskit-docs
+  correct: a
+
+- id: q-running-on-hardware-003
+  concept: running-on-hardware
+  layer: 2
+  type: single-choice
+  sources:
+  - qiskit-docs
+  correct: c
+
+- id: q-running-on-hardware-004
+  concept: running-on-hardware
+  layer: 2
+  type: single-choice
+  sources:
+  - qiskit-docs
+  - ibm-quantum-learning
+  correct: a
+
+- id: q-running-on-hardware-005
+  concept: running-on-hardware
+  layer: 2
+  type: single-choice
+  sources:
+  - javadi-abhari-2024
+  - ibm-quantum-learning
+  correct: c
+
+- id: q-running-on-hardware-006
+  concept: running-on-hardware
+  layer: 2
+  type: open
+  sources:
+  - qiskit-docs
+  - javadi-abhari-2024
+
+- id: q-running-on-hardware-007
+  concept: running-on-hardware
+  layer: 3
+  type: case
+  sources:
+  - qiskit-docs
+
+- id: q-running-on-hardware-008
+  concept: running-on-hardware
+  layer: 3
+  type: case
+  sources:
+  - qiskit-docs
+
+- id: q-running-on-hardware-009
+  concept: running-on-hardware
+  layer: 3
+  type: case
+  sources:
+  - preskill-2018
+  - qiskit-docs
+
+- id: q-running-on-hardware-010
+  concept: running-on-hardware
+  layer: 3
+  type: case
+  sources:
+  - qiskit-docs
+
+- id: q-running-on-hardware-011
+  concept: running-on-hardware
+  layer: 3
+  type: case
+  sources:
+  - ibm-quantum-learning
+
+- id: q-running-on-hardware-012
+  concept: running-on-hardware
+  layer: 3
+  type: case
+  sources:
+  - qiskit-docs
+
+- id: q-error-mitigation-001
+  concept: error-mitigation
+  layer: 3
+  type: single-choice
+  sources:
+  - qiskit-docs
+  - ibm-quantum-learning
+  correct: d
+
+- id: q-error-mitigation-002
+  concept: error-mitigation
+  layer: 3
+  type: single-choice
+  sources:
+  - cai-2023
+  correct: b
+
+- id: q-error-mitigation-003
+  concept: error-mitigation
+  layer: 3
+  type: single-choice
+  sources:
+  - cai-2023
+  - ibm-quantum-learning
+  correct: a
+
+- id: q-error-mitigation-004
+  concept: error-mitigation
+  layer: 3
+  type: short-answer
+  sources:
+  - qiskit-docs
+  - cai-2023
+
+- id: q-error-mitigation-005
+  concept: error-mitigation
+  layer: 3
+  type: single-choice
+  sources:
+  - qiskit-docs
+  correct: b
+
+- id: q-error-mitigation-006
+  concept: error-mitigation
+  layer: 3
+  type: single-choice
+  sources:
+  - cai-2023
+  correct: c
+
+- id: q-error-mitigation-007
+  concept: error-mitigation
+  layer: 3
+  type: case
+  sources:
+  - cai-2023
+  - qiskit-docs
+
+- id: q-error-mitigation-008
+  concept: error-mitigation
+  layer: 3
+  type: case
+  sources:
+  - cai-2023
+
+- id: q-error-mitigation-009
+  concept: error-mitigation
+  layer: 3
+  type: case
+  sources:
+  - cai-2023
+
+- id: q-error-mitigation-010
+  concept: error-mitigation
+  layer: 3
+  type: case
+  sources:
+  - cai-2023
+  - qiskit-docs
+
+- id: q-error-mitigation-011
+  concept: error-mitigation
+  layer: 3
+  type: case
+  sources:
+  - qiskit-docs
+  - cai-2023
+
+- id: q-error-mitigation-012
+  concept: error-mitigation
+  layer: 3
+  type: case
+  sources:
+  - cai-2023
+  - qiskit-docs
+
+- id: q-error-mitigation-013
+  concept: error-mitigation
+  layer: 3
+  type: case
+  sources:
+  - cai-2023
+
+- id: q-error-mitigation-014
+  concept: error-mitigation
+  layer: 3
+  type: case
+  sources:
+  - qiskit-docs
+  - cai-2023
+
+- id: q-variational-algorithms-001
+  concept: variational-algorithms
+  layer: 2
+  type: single-choice
+  sources:
+  - cerezo-2021
+  correct: d
+
+- id: q-variational-algorithms-002
+  concept: variational-algorithms
+  layer: 2
+  type: single-choice
+  sources:
+  - peruzzo-2014
+  - cerezo-2021
+  correct: d
+
+- id: q-variational-algorithms-003
+  concept: variational-algorithms
+  layer: 2
+  type: single-choice
+  sources:
+  - cerezo-2021
+  - ibm-quantum-learning
+  correct: c
+
+- id: q-variational-algorithms-004
+  concept: variational-algorithms
+  layer: 2
+  type: single-choice
+  sources:
+  - farhi-2014
+  correct: b
+
+- id: q-variational-algorithms-005
+  concept: variational-algorithms
+  layer: 2
+  type: single-choice
+  sources:
+  - cerezo-2021
+  - ibm-quantum-learning
+  correct: a
+
+- id: q-variational-algorithms-006
+  concept: variational-algorithms
+  layer: 2
+  type: single-choice
+  sources:
+  - cerezo-2021
+  - peruzzo-2014
+  correct: a
+
+- id: q-variational-algorithms-007
+  concept: variational-algorithms
+  layer: 2
+  type: single-choice
+  sources:
+  - farhi-2014
+  - ibm-quantum-learning
+  correct: b
+
+- id: q-variational-algorithms-008
+  concept: variational-algorithms
+  layer: 2
+  type: single-choice
+  sources:
+  - cerezo-2021
+  correct: c
+
+- id: q-variational-algorithms-009
+  concept: variational-algorithms
+  layer: 2
+  type: open
+  sources:
+  - cerezo-2021
+  - peruzzo-2014
+
+- id: q-variational-algorithms-010
+  concept: variational-algorithms
+  layer: 2
+  type: open
+  sources:
+  - cerezo-2021
+  - ibm-quantum-learning
+
+- id: q-variational-algorithms-011
+  concept: variational-algorithms
+  layer: 3
+  type: case
+  sources:
+  - qiskit-docs
+  - ibm-quantum-learning
+  - peruzzo-2014
+
+- id: q-variational-algorithms-012
+  concept: variational-algorithms
+  layer: 3
+  type: case
+  sources:
+  - cerezo-2021
+
+- id: q-variational-algorithms-013
+  concept: variational-algorithms
+  layer: 3
+  type: case
+  sources:
+  - cerezo-2021
+  - peruzzo-2014
+
+- id: q-variational-algorithms-014
+  concept: variational-algorithms
+  layer: 3
+  type: case
+  sources:
+  - preskill-2018
+  - cerezo-2021
+  - farhi-2014
+
+- id: q-variational-algorithms-015
+  concept: variational-algorithms
+  layer: 3
+  type: case
+  sources:
+  - cerezo-2021
+
+- id: q-variational-algorithms-016
+  concept: variational-algorithms
+  layer: 3
+  type: case
+  sources:
+  - cerezo-2021
+
+- id: q-nisq-era-001
+  concept: nisq-era
+  layer: 1
+  type: single-choice
+  sources:
+  - preskill-2018
+  correct: d
+
+- id: q-nisq-era-002
+  concept: nisq-era
+  layer: 1
+  type: short-answer
+  sources:
+  - preskill-2018
+
+- id: q-nisq-era-003
+  concept: nisq-era
+  layer: 1
+  type: single-choice
+  sources:
+  - preskill-2018
+  correct: a
+
+- id: q-nisq-era-004
+  concept: nisq-era
+  layer: 1
+  type: single-choice
+  sources:
+  - preskill-2018
+  correct: c
+
+- id: q-nisq-era-005
+  concept: nisq-era
+  layer: 1
+  type: single-choice
+  sources:
+  - preskill-2018
+  correct: b
+
+- id: q-nisq-era-006
+  concept: nisq-era
+  layer: 2
+  type: single-choice
+  sources:
+  - preskill-2018
+  - cai-2023
+  correct: d
+
+- id: q-nisq-era-007
+  concept: nisq-era
+  layer: 2
+  type: single-choice
+  sources:
+  - preskill-2018
+  correct: d
+
+- id: q-nisq-era-008
+  concept: nisq-era
+  layer: 2
+  type: single-choice
+  sources:
+  - preskill-2018
+  correct: a
+
+- id: q-nisq-era-009
+  concept: nisq-era
+  layer: 2
+  type: single-choice
+  sources:
+  - preskill-2018
+  correct: b
+
+- id: q-nisq-era-010
+  concept: nisq-era
+  layer: 2
+  type: open
+  sources:
+  - preskill-2018
+  - cai-2023
+
+- id: q-nisq-era-011
+  concept: nisq-era
+  layer: 2
+  type: open
+  sources:
+  - preskill-2018
+
+- id: q-nisq-era-012
+  concept: nisq-era
+  layer: 3
+  type: case
+  sources:
+  - preskill-2018
+  - cai-2023
+
+- id: q-nisq-era-013
+  concept: nisq-era
+  layer: 3
+  type: case
+  sources:
+  - preskill-2018
+  - cai-2023
+
+- id: q-nisq-era-014
+  concept: nisq-era
+  layer: 3
+  type: case
+  sources:
+  - preskill-2018
+  - cai-2023
+
+- id: q-nisq-era-015
+  concept: nisq-era
+  layer: 3
+  type: case
+  sources:
+  - cerezo-2021
+  - preskill-2018
+
+- id: q-nisq-era-016
+  concept: nisq-era
+  layer: 3
+  type: case
+  sources:
+  - ibm-quantum-learning
+  - cai-2023
