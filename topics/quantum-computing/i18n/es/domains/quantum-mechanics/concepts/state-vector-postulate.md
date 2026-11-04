@@ -15,7 +15,7 @@ title: "El estado cuántico como vector"
 
 **Normalización.** La partícula debe encontrarse en algún sitio: `∫|Ψ|² dx = 1` [@openstax-physics-3, §7.1]. En un vector, es el análogo de que tenga norma 1 (ver [producto interior y norma](../../math-foundations/concepts/inner-products-and-norms.md)).
 
-**Por qué importa en computación cuántica.** Todo el cálculo cuántico se escribe con este objeto: el estado de un registro de qubits es un vector de amplitudes complejas de norma 1, y los simuladores de estados exactos almacenan ese vector `[unverified]`. Las puertas son operaciones que transforman este vector ([evolución unitaria](unitary-time-evolution.md)) y la medida lo convierte en probabilidades ([regla de Born](born-rule-measurement.md)).
+**Por qué importa en computación cuántica.** Todo el cálculo cuántico se escribe con este objeto: el estado de un registro de qubits es un vector de amplitudes complejas de norma 1, y los simuladores de estados exactos almacenan ese vector [@aaronson-2018, Lec16, p. 2]. Las puertas son operaciones que transforman este vector ([evolución unitaria](unitary-time-evolution.md)) y la medida lo convierte en probabilidades ([regla de Born](born-rule-measurement.md)).
 
 ## Comprensión {#layer-2}
 

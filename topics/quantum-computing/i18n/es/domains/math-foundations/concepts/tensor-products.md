@@ -53,4 +53,4 @@ Para matrices: `(A⊗B)* = A*⊗B*` (sin cambiar el orden de factores), distribu
 
 **Varios factores.** `V₁⊗…⊗V_m` se define análogamente con funcionales multilineales y su dimensión es el producto de las dimensiones [@axler-2024, 9.85-9.88, PDF pp. 396-397]; el producto de `n` estados se define recursivamente [@watrous-2025, L2.1, pp. 39-40]. Axler solo da definiciones y enunciados aquí y no trata el producto de operadores ni Kronecker [@axler-2024, 9.85-9.88, PDF pp. 396-397].
 
-**Coste de representación.** La dimensión `2^n` del producto es la causa por la que simular clásicamente un registro de `n` qubits exige un vector exponencialmente grande [unverified].
+**Coste de representación.** La dimensión `2^n` del producto es la causa por la que simular clásicamente un registro de `n` qubits exige un vector exponencialmente grande [@aaronson-2018, Lec16, pp. 1-3].
