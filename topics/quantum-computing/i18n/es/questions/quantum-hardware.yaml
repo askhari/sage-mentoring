@@ -1,0 +1,1024 @@
+- id: q-coherence-and-fidelity-001
+  prompt: ¿Qué mide el tiempo de relajación T1 de un qubit?
+  options:
+    a: Cuánto dura la fase relativa de una superposición antes de desvanecerse
+    b: Cuánto tarda en ejecutarse una puerta de dos qubits sobre ese qubit
+    c: Cuánto tarda el qubit en perder su energía y caer al estado |0⟩ (decaimiento longitudinal)
+    d: Cuánto tiempo puede pasar entre dos calibraciones sin que caiga la fidelidad
+  explanation: 'T1 es la escala de la relajación: el qubit preparado en |1⟩ cae a |0⟩ al perder energía. La pérdida de fase de una superposición es T2 (decaimiento transversal), la tentación más habitual por llamarse ambos «tiempo de coherencia».'
+
+- id: q-coherence-and-fidelity-002
+  prompt: ¿Cómo se llama el tiempo que mide cuánto dura la fase relativa de una superposición (decaimiento transversal)? Responde con su símbolo o su nombre.
+  accepted:
+  - T2
+  - t2
+  - tiempo de coherencia
+  - tiempo de coherencia (T2)
+  - coherence time
+  - T2 (tiempo de coherencia)
+
+- id: q-coherence-and-fidelity-003
+  prompt: ¿Qué relación entre T1 y T2 se cumple siempre?
+  options:
+    a: T2 ≤ 2·T1, con igualdad cuando no hay desfase puro
+    b: T2 ≥ 2·T1, porque la fase siempre dura más que la energía
+    c: T2 = T1 siempre, porque ambos miden lo mismo con distinto nombre
+    d: 'No hay relación: son dos procesos físicos totalmente independientes'
+  explanation: La fase puede perderse por relajación y además por desfase puro, así que nunca dura más del doble que T1. Decir que T2 = T1 ignora el desfase puro, que hace T2 menor.
+
+- id: q-coherence-and-fidelity-004
+  prompt: Un qubit tiene una coherencia de un segundo, pero sus puertas tardan un segundo. ¿Qué número permite decir si es un buen qubit?
+  options:
+    a: 'El tiempo de coherencia absoluto: cuanto mayor, mejor el qubit'
+    b: El cociente entre el tiempo de coherencia y el tiempo de puerta, no cada tiempo por separado
+    c: El tiempo de puerta más corto, con independencia de la coherencia
+    d: El número de qubits del chip, porque fija cuánto cálculo cabe
+  explanation: DiVincenzo planteó el requisito como una razón entre decoherencia y tiempo de puerta, y Stano y colaboradores insisten en que un tiempo aislado dice poco. Un segundo de coherencia no sirve si cada puerta consume otro segundo.
+
+- id: q-coherence-and-fidelity-005
+  prompt: En 2019, el chip Sycamore de Google tenía una T1 mediana de 15,54 µs y una puerta de dos qubits de 12 ns. ¿Cuántas puertas de dos qubits caben aproximadamente en un T1? (Redondea a las centenas.)
+  accepted:
+  - '1300'
+  - '1.300'
+  - unas 1300
+  - ~1300
+  - ≈1300
+  - '1295'
+  - '1.295'
+  - unas 1.300
+  - 1300 puertas
+
+- id: q-coherence-and-fidelity-006
+  prompt: ¿Por qué se cumple siempre T2 ≤ 2·T1?
+  options:
+    a: Porque el eco de Hahn duplica como mucho el T1 medido y nunca más
+    b: Porque T2 se mide con dos pulsos π y T1 con uno, lo que limita la razón a 2
+    c: Porque el ruido 1/f impide que la fase dure más del doble que la energía
+    d: 'Porque Γ₂ = Γ₁/2 + Γφ: la relajación ya aporta la mitad de Γ₁ a la pérdida de fase y el desfase puro solo suma más'
+  explanation: Perder energía destruye también la fase, con tasa Γ₁/2; el desfase puro (Γφ) es un extra. Por eso T2 llega a 2·T1 solo si Γφ = 0. El eco de Hahn alarga T2 frente a Ramsey pero no es la razón de la cota.
+
+- id: q-coherence-and-fidelity-007
+  prompt: Un transmon de ejemplo tiene T1 = 85 µs, T2* (Ramsey) ≈ 95 µs y T2 con eco de Hahn = 120 µs. ¿Por qué el eco da un valor mayor que Ramsey?
+  options:
+    a: El pulso π a mitad de la evolución refocaliza el ruido de baja frecuencia, casi estático, que acorta el decaimiento de Ramsey
+    b: El eco devuelve energía al qubit y alarga físicamente su T1
+    c: El eco elimina todo el desfase puro y por eso T2 alcanza justo 2·T1
+    d: El eco enfría el chip durante la medida y reduce el ruido térmico
+  explanation: T2* es sensible al ruido casi estático y el eco lo refocaliza. No alcanza 2·T1 = 170 µs (da 120 µs), de modo que el desfase puro no desaparece; y el eco no cambia T1.
+
+- id: q-coherence-and-fidelity-008
+  prompt: ¿Por qué el benchmarking aleatorizado (RB) separa el error de las puertas del error de lectura?
+  options:
+    a: Porque mide la lectura aparte con un detector independiente y la resta
+    b: Porque las secuencias son tan cortas que la lectura no llega a fallar
+    c: Porque compara el estado final con el ideal usando la fidelidad de estados |⟨ψg|ψe⟩|²
+    d: Porque los parámetros A y B de A·pᵐ + B absorben los errores de preparación y medida (SPAM) y la fidelidad sale de la pendiente p
+  explanation: En RB la supervivencia decae como A·pᵐ + B; los errores de SPAM modifican A y B, no la pendiente p, de donde se extrae la infidelidad de puerta. Comparar estados finales no aísla el SPAM.
+
+- id: q-coherence-and-fidelity-009
+  prompt: Un proveedor presenta una infidelidad de RB de dos qubits muy baja. Si vas a usar el dispositivo para corrección de errores, ¿qué advierten las fuentes?
+  options:
+    a: 'Nada: la infidelidad de RB es exactamente el parámetro que entra en el teorema del umbral'
+    b: Que RB sobreestima siempre el error, así que el umbral real es más holgado
+    c: Que la infidelidad de RB no es el parámetro del teorema del umbral y puede diferir de él en órdenes de magnitud
+    d: Que RB no está definido para dos qubits y solo vale para un qubit
+  explanation: Stano y colaboradores avisan de que sirve solo como indicador aproximado de progreso. Es peligroso suponer que RB equivale al parámetro del umbral o que siempre sobreestima.
+
+- id: q-coherence-and-fidelity-010
+  prompt: Explica con tus palabras por qué la fidelidad de una puerta no es una propiedad fija de la puerta. Da al menos dos ejemplos de la experiencia del chip Sycamore (2019).
+  model_answer: 'La fidelidad depende del contexto en que se ejecuta la puerta. En Sycamore (2019) el error mediano de la puerta de dos qubits pasó de 0,30 % cuando se ejecutaba aislada a 0,60 % cuando se ejecutaban puertas en paralelo en todo el chip, sobre todo por diafonía e interacciones parásitas. Además, la fidelidad derivó con el tiempo: la de un parche de qubits cambió durante 17,4 horas sin recalibrar, y T1 varía con la frecuencia y el tiempo por los defectos de dos niveles (TLS). Por eso una cifra de fidelidad solo vale con sus condiciones y su fecha de calibración.'
+  rubric:
+  - Afirma que la fidelidad depende del contexto (paralelismo, calibración, tiempo)
+  - Cita el aumento del error de dos qubits de 0,30 % (aislada) a 0,60 % (en paralelo) o el efecto de la diafonía
+  - Cita la deriva durante horas sin recalibrar (17,4 h) o la variación de T1 por TLS
+  - Concluye que una cifra de fidelidad debe ir acompañada de sus condiciones y fecha
+
+- id: q-coherence-and-fidelity-011
+  prompt: Las puertas de dos qubits son las más propensas a error. Explica qué dicen las fuentes sobre el error y sobre el tiempo de estas puertas frente a las de un qubit, y por qué conviene separar ambas cuestiones.
+  model_answer: 'En el error la regularidad es sólida: en iones y en espines las puertas de dos qubits tienen al menos un orden de magnitud más de infidelidad que las de un qubit, y en Sycamore (2019) la mediana es 2 a 4 veces peor (0,30-0,60 % frente a 0,13-0,14 %). Una lectura razonable de la causa es que una puerta de dos qubits necesita una interacción extra entre sistemas, con sus propios canales de ruido. En el tiempo, en cambio, depende de la plataforma: en iones la de dos qubits es de 10-100 µs frente a µs de la de uno, en átomos neutros ambas son de µs o menos y en espines en silicio son comparables. Por eso «más costosa» es seguro para el error pero no siempre para la duración.'
+  rubric:
+  - Dice que el error de dos qubits es mayor que el de uno, con al menos un dato de plataforma (iones, espines o Sycamore)
+  - Matiza que la diferencia puede ir de un factor 2-4 (Sycamore) a un orden de magnitud o más (iones, espines)
+  - Dice que en tiempo depende de la plataforma y da un ejemplo (iones lentas, átomos y espines comparables)
+  - Explica que por eso hay que distinguir error y duración al comparar costes
+
+- id: q-coherence-and-fidelity-012
+  prompt: 'Un proveedor ficticio publica en su web: «Fidelidad de puertas del 99,9 %». Eres la persona que debe decidir si el dispositivo sirve para tu proyecto. Enumera las preguntas que harías antes de aceptar esa cifra y di por qué cada una importa.'
+  model_answer: 'Preguntaría: (1) a qué puerta se refiere: un qubit, dos qubits o lectura, porque suelen diferir en un orden de magnitud o más; (2) qué métrica es: error de Pauli, infidelidad media de RB, fidelidad de Clifford o error efectivo de sistema, con factores de conversión de 1,9 a 2,6 o más; (3) si es mediana, media o el mejor par, porque los valores «representativos» o récord conviven con otros mucho peores; (4) si se mide con la puerta aislada o en paralelo, como en Sycamore, donde el error pasó de 0,30 % a 0,60 %; (5) qué incluye (memoria, transporte, lectura) y si es de componente o de sistema; (6) la fecha, el dispositivo y la calibración. Sin esas respuestas la cifra no es comparable ni sirve para predecir mi circuito.'
+  rubric:
+  - Pregunta qué puerta es (un qubit, dos qubits o lectura)
+  - Pregunta qué métrica es (Pauli, RB, Clifford, efectiva) o su factor de conversión
+  - Pregunta si es mediana, media o mejor valor
+  - Pregunta si es aislada o en paralelo, o qué incluye (componente frente a sistema)
+  - Menciona la fecha o dispositivo y justifica al menos dos preguntas
+
+- id: q-coherence-and-fidelity-013
+  prompt: Debes estimar si un GHZ de 5 qubits en cadena (1 Hadamard, 4 CNOT y lectura de los 5 qubits) saldrá bien en un dispositivo ficticio con error de puerta de un qubit del 0,1 %, de dos qubits del 0,5 % y de lectura del 2 % por qubit. Calcula la probabilidad de éxito con la regla del producto de fidelidades, di qué término pierde más y qué ocurriría si el circuito tuviera 200 puertas de dos qubits (con los mismos errores).
+  model_answer: 'Éxito ≈ 0,999 × 0,995⁴ × 0,98⁵ ≈ 0,999 × 0,980 × 0,904 ≈ 0,885. El término que más pierde es la lectura (0,98⁵ ≈ 0,90, frente a 0,98 de las cuatro CNOT y 0,999 de la puerta de un qubit): en un circuito pequeño la lectura puede dominar, como en Sycamore (2019). Con 200 puertas de dos qubits, solo ese factor es 0,995²⁰⁰ ≈ 0,37, y entonces dominan las puertas de dos qubits. La regla del producto es una primera aproximación y no incluye errores de espera ni de transporte.'
+  rubric:
+  - 'Aplica la regla del producto: multiplica (1−e) por cada puerta y cada lectura'
+  - Obtiene aproximadamente 0,885 para el GHZ-5
+  - Identifica la lectura (≈0,90) como el término que más pierde en el circuito pequeño
+  - Calcula que con 200 puertas de dos qubits el factor es ≈0,37 y que entonces dominan las puertas de dos qubits
+  - Señala que es una aproximación que no incluye errores de espera o transporte
+
+- id: q-coherence-and-fidelity-014
+  prompt: 'Dos dispositivos ficticios: el A tiene T2 = 100 µs y una puerta de dos qubits de 50 ns; el B tiene T2 = 1 s y una puerta de dos qubits de 100 µs. Calcula cuántas puertas caben en un T2 en cada uno, interpreta el resultado y di qué otras dos cosas necesitas saber antes de elegir.'
+  model_answer: 'A: 100 µs / 50 ns = 2000 puertas. B: 1 s / 100 µs = 10 000 puertas. El B tiene un cociente cinco veces mayor aunque sus puertas sean 2000 veces más lentas, lo que ilustra que importa el cociente y no los tiempos absolutos. Pero el cociente es solo una cota: hay que conocer la fidelidad real de las puertas de dos qubits (el error de control, la fuga y la diafonía pueden dominar sobre la decoherencia) y el tiempo por disparo que necesita la carga de trabajo, porque el B hará muchas menos ejecuciones por segundo.'
+  rubric:
+  - Calcula 2000 puertas para A y 10 000 para B
+  - Concluye que el cociente es mayor en B pese a su lentitud, y que importa el cociente
+  - Dice que necesita la fidelidad de las puertas de dos qubits (control, fuga, diafonía)
+  - Dice que necesita la velocidad o el tiempo por disparo para la carga de trabajo
+
+- id: q-coherence-and-fidelity-015
+  prompt: 'Una nota de prensa de 2025 sobre átomos neutros dice: «coherencia de segundos y puertas de un microsegundo: un millón de puertas por coherencia». Evalúa la afirmación como lo haría una persona profesional.'
+  model_answer: La división segundos / microsegundos da 10⁶, pero usa la coherencia del qubit en el estado fundamental y no la del estado en que se hace la puerta. Durante la puerta Rydberg el átomo está en un estado de Rydberg de vida corta; por eso existe una cota de infidelidad ≈ 2/(V·τ_R) (Saffman, unos 7,5·10⁻⁶ para Cs 68p a 2,5 µm, con 198 µs a temperatura ambiente). El tiempo relevante es el de ese estado, no el del qubit en reposo. Pediría la fidelidad de la puerta de dos qubits medida, la vida del estado de Rydberg y el estado en el que se hace la puerta, además de los canales de fuga y pérdida del átomo.
+  rubric:
+  - Reconoce que dividir la coherencia del estado fundamental entre el tiempo de puerta da 10⁶
+  - Explica que la puerta se hace en un estado de Rydberg de vida corta, que es el tiempo relevante
+  - Menciona la cota de infidelidad ≈ 2/(V·τ_R) o su orden de magnitud
+  - Pide datos de fidelidad medida de la puerta o de pérdida y fuga
+
+- id: q-coherence-and-fidelity-016
+  prompt: Tu equipo quiere ejecutar un código de superficie en un dispositivo y el proveedor (empresa) presenta una infidelidad de RB de dos qubits del 0,3 %. ¿Es suficiente para decidir? ¿Qué pedirías además?
+  model_answer: No es suficiente. Según Stano y colaboradores, la infidelidad de RB no es el parámetro del teorema del umbral y puede diferir en órdenes de magnitud, así que solo es un indicador aproximado. Pediría la tasa de error del circuito de extracción de síndromes (un protocolo de puerta optimizado para eso puede rendir mejor que uno optimizado para la fidelidad, según Saffman), el error en paralelo (diafonía), la fuga, y una medida a escala de dispositivo como el factor Λ del experimento de Google (2024), que es una propiedad medida del dispositivo entero y no de una puerta. Como la cifra es del proveedor, buscaría también reproducción independiente.
+  rubric:
+  - Dice que la fidelidad de RB no es el parámetro del teorema del umbral y puede diferir mucho
+  - Pide la tasa de error del circuito de síndrome o una medida a escala de dispositivo (por ejemplo Λ)
+  - Menciona el error en paralelo, la diafonía o la fuga
+  - Señala que la cifra es del proveedor y pide verificación independiente
+
+- id: q-divincenzo-criteria-001
+  prompt: ¿Cuántos requisitos incluyen los criterios de DiVincenzo para computar y cuántos más para comunicar información cuántica?
+  options:
+    a: Siete para computar y ninguno adicional para comunicar
+    b: Cinco para computar y dos más para comunicar
+    c: Tres para computar y cuatro más para comunicar
+    d: Cinco para computar y cinco más para comunicar
+  explanation: Los cinco primeros bastan para computar; el sexto y el séptimo (convertir qubits estacionarios en voladores y transmitirlos) solo hacen falta para comunicar.
+
+- id: q-divincenzo-criteria-002
+  prompt: ¿En qué año publicó David DiVincenzo su lista de criterios para un ordenador cuántico?
+  accepted:
+  - '2000'
+  - el 2000
+  - año 2000
+  - en 2000
+
+- id: q-divincenzo-criteria-003
+  prompt: ¿Qué exige el criterio sobre los tiempos de decoherencia?
+  options:
+    a: Que superen un segundo en términos absolutos
+    b: Que sean iguales al tiempo de una puerta, para que todo esté sincronizado
+    c: Que sean mucho más largos que el tiempo que tarda una puerta
+    d: Que sean más cortos que el tiempo de medida, para leer sin perturbar
+  explanation: 'El criterio es relativo: importa que el qubit aguante para hacer muchas operaciones. No fija un valor absoluto ni pide igualdad.'
+
+- id: q-divincenzo-criteria-004
+  prompt: ¿Qué partículas son casi siempre los qubits «voladores» de los criterios 6 y 7?
+  accepted:
+  - fotones
+  - fotón
+  - los fotones
+  - photons
+  - photon
+
+- id: q-divincenzo-criteria-005
+  prompt: ¿Por qué la inicialización (criterio 2) no se puede resolver solo esperando a que el sistema se termalice?
+  options:
+    a: Porque la termalización deja el sistema siempre en un estado excitado y aleatorio
+    b: Porque solo hace falta inicializar una vez al principio y la termalización no se puede repetir
+    c: Porque medir calienta el sistema y por eso nunca se usa para inicializar
+    d: Porque la termalización natural nunca es más rápida que la decoherencia, así que es demasiado lenta para dar los qubits frescos que consume la corrección de errores; enfriar midiendo es mucho más rápido
+  explanation: La corrección de errores consume un suministro continuo de qubits de baja entropía, y esperar a la termalización es más lento que la decoherencia. Medir (una forma de enfriar) puede ser mucho más rápido; la idea de que la inicialización es de una sola vez es errónea.
+
+- id: q-divincenzo-criteria-006
+  prompt: Los iones cumplen los cinco criterios de DiVincenzo desde 2004, y en 2019 el mayor registro completamente controlado era de 20 iones. ¿Qué conclusión se extrae?
+  options:
+    a: 'Que cumplir los cinco criterios no basta: escalar exige además modularidad, integración, corrección de errores, conectividad y control escalable'
+    b: Que los iones no cumplen realmente el criterio 1 de escalabilidad
+    c: Que los criterios están mal formulados y hacen falta diez, no cinco
+    d: Que los iones quedan descartados frente a las demás plataformas
+  explanation: Los criterios son requisitos necesarios para el qubit y sus operaciones, no una garantía de ordenador útil. La revisión de 2019 añade los requisitos de ingeniería de escala; no concluye que los iones se descarten.
+
+- id: q-divincenzo-criteria-007
+  prompt: DiVincenzo dio en 2000 un error tolerable por puerta de unos 10⁻⁴ a 10⁻⁵. Hoy se cita para el código de superficie un umbral del orden de 10⁻². ¿Cómo debe leerse esa diferencia?
+  options:
+    a: El valor de 2000 sigue siendo el umbral aceptado y el 10⁻² es un error de la simulación
+    b: Las cifras de 2000 son estimaciones de su época; los umbrales actuales dependen del código y del modelo de ruido, así que no se pueden comparar sin más
+    c: Los dos describen el mismo umbral con distinta normalización y se convierten directamente
+    d: El 10⁻² vale para cualquier código, pues DiVincenzo lo hacía depender solo de la plataforma
+  explanation: El umbral depende del código de corrección y del ruido, y las estimaciones de 2000 son solo de ese año. Tratarlas como la misma magnitud o convertirlas directamente es el error.
+
+- id: q-divincenzo-criteria-008
+  prompt: Explica con tus palabras para qué sirven los criterios de DiVincenzo y por qué no permiten decir qué plataforma ganará.
+  model_answer: 'Sirven como herramienta de comparación: cuando se propone un tipo de qubit se comprueba cuáles de los cinco puntos cumple bien y cuál es su cuello de botella (escalabilidad en iones, fabricación en espines, puertas deterministas y pérdida en fotones). No predicen un ganador porque son requisitos cualitativos, solo el criterio 3 lleva una cifra (un cociente estimado en 2000) y cumplirlos no basta para un ordenador útil (los iones los cumplen desde 2004 y en 2019 controlaban 20 iones). El propio DiVincenzo escribió que nadie puede decir qué tecnología ganará, y revisores posteriores de iones y espines opinan que aún es pronto.'
+  rubric:
+  - Dice que sirven para comparar plataformas e identificar el criterio más difícil de cada una
+  - Da al menos un ejemplo de cuello de botella por plataforma
+  - Explica que cumplir los criterios no basta para un ordenador útil (ejemplo de los iones)
+  - Menciona que DiVincenzo o los revisores consideran prematuro decidir un ganador
+
+- id: q-divincenzo-criteria-009
+  prompt: Una empresa ficticia anuncia «un procesador de 1000 qubits» sin más datos. Usando los criterios de DiVincenzo, ¿qué dice el anuncio y qué te falta? Indica qué pedirías.
+  model_answer: 'Un número de qubits solo habla del criterio 1 (escalabilidad). Faltan la fidelidad de las puertas de uno y dos qubits y la de lectura (criterios 4 y 5), y el cociente entre coherencia y tiempo de puerta (criterio 3): un qubit muy coherente con puertas lentas, o muy rápido sin coherencia, no es bueno. Pediría los errores de puerta de dos qubits (con estadístico y condiciones), el error de lectura, T1/T2 con el tiempo de puerta, la conectividad y el rendimiento de fabricación, que Preskill citaba ya en 2018 como medidas de calidad además del número de qubits, y la fecha del dispositivo.'
+  rubric:
+  - Identifica que el número de qubits cubre solo el criterio 1 (escalabilidad)
+  - Pide fidelidades de puertas y de lectura (criterios 4 y 5)
+  - Pide el cociente coherencia / tiempo de puerta (criterio 3), no cifras sueltas
+  - Menciona conectividad, fabricación o fecha como información adicional
+
+- id: q-divincenzo-criteria-010
+  prompt: Un titular afirma que una empresa «ya tiene un qubit topológico». Aplica los criterios de DiVincenzo para decidir qué exigirías para llamarlo qubit de computación. ¿Qué criterio cuestiona la primera pregunta?
+  model_answer: 'La primera pregunta es el criterio 1: si existe un qubit bien caracterizado. Después exigiría inicialización, coherencia frente a tiempo de puerta (criterio 3), un conjunto de puertas (criterio 4) y medida específica de cada qubit (criterio 5). Un «qubit» sin demostración de puertas ni de lectura no es todavía un qubit de computación. En las fuentes consultadas, el artículo de Microsoft reporta una medida de paridad en un prototipo, no una operación de qubit, y sus propios autores dicen que la medida por sí sola no distingue sin ambigüedad el efecto topológico de otros; por tanto, no se debe aceptar el titular tal cual.'
+  rubric:
+  - Dice que la primera pregunta es si existe un qubit bien caracterizado (criterio 1)
+  - Exige puertas y lectura demostradas (criterios 4 y 5), además de coherencia (criterio 3)
+  - Dice que una medida de paridad no es una operación de qubit
+  - No afirma que el qubit topológico exista ni que esté refutado
+
+- id: q-divincenzo-criteria-011
+  prompt: Vas a planificar un experimento de corrección de errores en una plataforma de iones o de átomos neutros. Los cinco criterios de DiVincenzo no mencionan un requisito que te preocupa. ¿Cuál es, por qué es un problema en esas plataformas y qué soluciones citan las fuentes?
+  model_answer: Es la medida a mitad de circuito con reinicio de los qubits ancilla, que la corrección de errores necesita repetidamente. En iones y átomos, medir una ancilla por fluorescencia dispersa luz que perturba a los qubits de datos vecinos. Las soluciones citadas son usar una segunda especie, transportar la ancilla a una zona de lectura (como en el H2 de Quantinuum o en el experimento de Harvard/QuEra) o esconder los qubits de datos, con errores añadidos. En átomos la lectura por imagen es además órdenes de magnitud más lenta que las puertas, lo que limita las rondas de síndrome.
+  rubric:
+  - Identifica la medida a mitad de circuito y reinicio como requisito extra
+  - Explica que la fluorescencia de la ancilla perturba a los vecinos
+  - Cita al menos dos soluciones (segunda especie, transporte a zona de lectura, esconder datos)
+  - Menciona que en átomos la lectura lenta limita las rondas
+
+- id: q-divincenzo-criteria-012
+  prompt: Comparas dos plataformas. En Sycamore (2019) hubo que ajustar más de 100 parámetros por qubit, con unas 36 horas de puesta en marcha tras enfriar y unas 4 horas diarias de mantenimiento; los iones de una misma especie son idénticos. ¿Qué requisitos de ingeniería, ajenos a los cinco criterios, deberías evaluar y qué implican esos datos?
+  model_answer: 'Habría que evaluar la carga de calibración (los superconductores varían de qubit a qubit por la fabricación, mientras que los iones de una misma especie necesitan la misma frecuencia, lo que reduce la calibración) y el apoyo clásico: el decodificador en tiempo real debe seguir el ritmo del hardware o el ordenador se frena. También la conectividad y la medida a mitad de circuito. Los datos de Sycamore indican que la calibración es parte del coste de operar el chip, y que una fidelidad medida hace horas puede no ser la de ahora.'
+  rubric:
+  - Menciona la carga de calibración como requisito de ingeniería
+  - Contrasta la variabilidad entre qubits superconductores con la identidad de los iones de una especie
+  - Menciona el decodificador clásico en tiempo real como requisito
+  - Relaciona los datos de Sycamore con el coste operativo o la caducidad de las cifras
+
+- id: q-superconducting-qubits-001
+  prompt: ¿Por qué un circuito LC simple (bobina y condensador) no sirve como qubit?
+  options:
+    a: Porque no se puede enfriar a milikelvin sin que se destruya el circuito
+    b: Porque sus niveles de energía están igualmente espaciados, así que un pulso resonante sube por todos y no se puede aislar un par de niveles
+    c: Porque su frecuencia natural es demasiado alta para controlarla con microondas
+    d: Porque disipa energía por resistencia y pierde el estado al instante
+  explanation: Un oscilador armónico tiene peldaños iguales, de modo que no existe una transición direccionable por separado. La solución es un elemento no lineal; la resistencia no es el problema en un circuito superconductor.
+
+- id: q-superconducting-qubits-002
+  prompt: ¿Qué aporta la unión Josephson a un circuito superconductor?
+  options:
+    a: Se comporta como una bobina sin pérdidas pero no lineal, lo que hace desiguales los niveles y permite direccionar cada transición
+    b: Aporta la superconductividad, sin la cual el circuito tendría resistencia
+    c: Actúa como amplificador que permite leer el qubit en un solo disparo
+    d: Aísla el chip del ruido térmico exterior dentro del refrigerador
+  explanation: La no linealidad sin pérdidas de la unión rompe el espaciado regular del oscilador. La amplificación en un disparo la hacen amplificadores paramétricos aparte, y el aislamiento térmico lo da el refrigerador de dilución.
+
+- id: q-superconducting-qubits-003
+  prompt: ¿Cómo se llama el tipo de qubit superconductor más extendido para computación basada en puertas (un circuito con una unión Josephson y un condensador grande en paralelo)?
+  accepted:
+  - transmon
+  - el transmon
+  - qubit transmon
+  - transmón
+
+- id: q-superconducting-qubits-004
+  prompt: ¿Qué perfil describe a los qubits superconductores según las cifras de 2019-2020?
+  options:
+    a: Puertas de dos qubits de decenas de µs, coherencia de segundos y conectividad total
+    b: Puertas de ms, coherencia de decenas de µs y conectividad arbitraria sin cables
+    c: Puertas de dos qubits de decenas de nanosegundos, coherencia moderada (decenas de µs) y conectividad local entre vecinos
+    d: Puertas de ns, funcionamiento a temperatura ambiente y conectividad local
+  explanation: Son rápidos pero con coherencia moderada, y necesitan refrigerador de dilución. Las otras opciones mezclan perfiles de iones o plantean un funcionamiento a temperatura ambiente que no es el caso.
+
+- id: q-superconducting-qubits-005
+  prompt: ¿Qué problema de la anarmonicidad débil del transmon ataca la técnica DRAG?
+  options:
+    a: El ruido de carga, que DRAG elimina aumentando el cociente E_J/E_C
+    b: Las cuasipartículas, que DRAG retira del superconductor al pulsar
+    c: La lectura lenta, que DRAG acelera con un filtro Purcell
+    d: Que un pulso corto tiene ancho de banda suficiente para excitar la transición 1→2 (fuga) y producir errores de fase; DRAG añade un pulso en derivada en la otra cuadratura
+  explanation: La anarmonicidad de ~200 MHz limita lo corto que puede ser un pulso sin excitar niveles superiores; DRAG reduce fuga y errores de fase. El ruido de carga lo reduce E_J/E_C alto (transmon), no DRAG.
+
+- id: q-superconducting-qubits-006
+  prompt: ¿Qué compensación tiene la puerta de resonancia cruzada frente a una CPHASE con qubits ajustables en frecuencia?
+  options:
+    a: Es más rápida y no depende de la fabricación, pero exige flujo magnético
+    b: Es igual de rápida pero necesita un acoplador ajustable en cada par
+    c: Elimina la fuga por completo, a costa de un refrigerador más potente
+    d: Solo necesita microondas y los qubits de frecuencia fija viven más, pero es más lenta (300-400 ns frente a 30-60 ns) y el acoplamiento está siempre encendido
+  explanation: Con frecuencia fija se evita el ruido de flujo pero se pierde velocidad y se deja el acoplo permanentemente encendido. Las otras opciones invierten las ventajas.
+
+- id: q-superconducting-qubits-007
+  prompt: ¿Por qué en el recuento de costes de un circuito superconductor la puerta rz se considera gratis?
+  options:
+    a: Porque el transpilador siempre la elimina del circuito antes de ejecutarlo
+    b: 'Porque las rotaciones Z se hacen desplazando la fase de todos los pulsos siguientes: no cuestan tiempo y son nominalmente perfectas'
+    c: Porque se calcula por ordenador clásico tras la medida y no usa el chip
+    d: Porque tiene un error menor que cualquier otra puerta pero igual consume un pulso
+  explanation: Con una X_{π/2} física y la Z virtual se tiene cualquier puerta de un qubit; el presupuesto de error lo marcan las puertas de dos qubits y la lectura.
+
+- id: q-superconducting-qubits-008
+  prompt: Explica con tus palabras por qué la puerta de dos qubits de 12 ns de Sycamore (2019) es un compromiso y no simplemente «lo más rápido posible».
+  model_answer: Una puerta más lenta acumula más error por decoherencia (T1 y T2) durante su duración, y una más rápida tiene un espectro de pulso más ancho que excita transiciones a niveles superiores del transmon (fuga) y produce errores de fase, porque la anarmonicidad es débil. Google eligió 12 ns como compromiso entre ambos efectos. Técnicas como DRAG reducen la fuga y los errores de fase, pero no eliminan el compromiso.
+  rubric:
+  - Dice que una puerta lenta pierde fidelidad por decoherencia
+  - Dice que una puerta rápida provoca fuga a niveles superiores o errores de fase
+  - Relaciona la fuga con la anarmonicidad débil del transmon
+  - Concluye que existe un tiempo óptimo intermedio (el compromiso de 12 ns)
+
+- id: q-superconducting-qubits-009
+  prompt: Explica cómo cambia el comportamiento del qubit según el cociente E_J/E_C y por qué el transmon usa E_J ≫ E_C.
+  model_answer: 'Si E_J ≤ E_C (caja de pares de Cooper, qubit de carga) la anarmonicidad es grande (más de 10 GHz), pero el qubit es muy sensible al ruido de carga y varía entre dispositivos. Si E_J ≫ E_C (transmon, E_J/E_C ≥ 50) un condensador grande en paralelo reduce E_C: la sensibilidad a la carga cae exponencialmente con E_J/E_C, mientras que la anarmonicidad cae solo como una potencia débil. El precio es una anarmonicidad pequeña (unos −200 MHz sobre 5 GHz), por lo que los niveles superiores existen y hay que manejar la fuga.'
+  rubric:
+  - Dice que E_J ≤ E_C da gran anarmonicidad pero gran sensibilidad al ruido de carga
+  - Dice que E_J ≫ E_C reduce exponencialmente la sensibilidad a la carga
+  - Menciona que la anarmonicidad cae solo como potencia débil, y queda pequeña (~200 MHz)
+  - 'Menciona la consecuencia: niveles superiores accesibles y fuga'
+
+- id: q-superconducting-qubits-010
+  prompt: 'Una ficha ficticia de un chip superconductor dice: «156 qubits, error de dos qubits 0,3 %, T1 medio 200 µs». Eres quien decide si compra tiempo de uso. ¿Qué información falta para estimar el éxito de tu circuito y cuáles son los fallos habituales de una ficha así?'
+  model_answer: 'Falta: si el 0,3 % es mediana, media o mejor par; si se mide con la puerta aislada o en paralelo (en Sycamore pasó de 0,30 % a 0,60 %); el error de lectura, que en superconductores suele ser la parte más ruidosa; el error de un qubit; el tiempo de puerta para relacionarlo con T1; la conectividad (rejilla de vecinos próximos, con SWAP añadidos); el tamaño de la región conectada y la fecha de calibración. T1 «medio» sin fecha ni distribución también engaña, porque T1 fluctúa por los defectos de dos niveles.'
+  rubric:
+  - Pide estadístico (mediana, media, mejor) y condiciones (aislada o en paralelo) del error de dos qubits
+  - Pide el error de lectura y el de un qubit
+  - Pide el tiempo de puerta para contextualizar T1 o la fecha de calibración
+  - Menciona conectividad local y coste en SWAP
+
+- id: q-superconducting-qubits-011
+  prompt: Tu algoritmo pide interacciones entre pares arbitrarios en un chip superconductor de rejilla con error de dos qubits del 0,60 % (cifra de 2019, ficticia para tu chip). El transpilador añade 100 puertas de dos qubits. ¿Cómo cambia la fidelidad del circuito y qué opciones tendrías?
+  model_answer: 'Cada puerta extra multiplica la fidelidad por (1 − 0,006): 0,994¹⁰⁰ ≈ 0,55, es decir, las puertas añadidas por sí solas dejan la fidelidad a la mitad. Opciones: elegir una disposición de qubits que reduzca el enrutado, reescribir el algoritmo para vecindad local, usar un dispositivo con otra conectividad (iones con conectividad total, a costa de tiempo de transporte) o, si el circuito sigue siendo viable, mitigar errores a costa de más muestras. Hay que contar las puertas después de transpilar.'
+  rubric:
+  - Calcula 0,994¹⁰⁰ ≈ 0,55
+  - Concluye que el recuento de puertas debe hacerse después de transpilar
+  - 'Propone al menos una opción: reducir enrutado, cambiar de conectividad o mitigar errores'
+  - Relaciona la desventaja con la conectividad de vecinos próximos de los superconductores
+
+- id: q-superconducting-qubits-012
+  prompt: 'Un preprint de Google (2024) informa de una memoria de código de superficie de distancia 7 con Λ = 2,14 y una vida lógica 2,4 veces la del mejor qubit físico. Una compañera dice: «Entonces los superconductores ya tienen computación tolerante a fallos». Responde con matices.'
+  model_answer: 'Según los autores (todos de Google), el resultado es una memoria por debajo del umbral: añadir qubits reduce el error lógico y el qubit lógico supera al mejor físico. Pero es solo una memoria; no demuestra puertas lógicas, que los propios autores listan como reto abierto junto con escalar la calibración, la decodificación en tiempo real y los compiladores lógicos. El decodificador en tiempo real se probó a distancia 5 con latencia media de 63 ± 17 µs frente a un ciclo de 1,1 µs, y hay ráfagas de error correlacionado que no entienden. Además es un preprint de la empresa y conviene esperar réplica independiente.'
+  rubric:
+  - Reconoce el resultado (memoria por debajo del umbral, Λ = 2,14) como una afirmación de los autores
+  - Dice que es solo una memoria y no demuestra puertas lógicas
+  - 'Menciona otra limitación: decodificación en tiempo real, errores correlacionados o calibración a escala'
+  - Señala que es un preprint de la propia empresa
+
+- id: q-superconducting-qubits-013
+  prompt: Un proveedor ficticio promete 1000 qubits superconductores el año próximo. Sycamore (2019) usaba 54 líneas de microondas, 54 de flujo de qubit, 88 de flujo de acoplador y 9 de lectura para 53 qubits. Estima el cableado para 1000 qubits con esa densidad y valora la promesa.
+  model_answer: Sycamore usaba unas 205 líneas para 53 qubits, casi 4 por qubit; a esa densidad 1000 qubits requerirían unas 3900 líneas (cálculo a partir de los datos). La revisión de 2019-20 estima que las técnicas actuales escalan hasta unos 1000 qubits y que más allá hacen falta electrónica de control y lectura criogénica en el refrigerador y decodificadores en línea. El refrigerador de dilución es un producto comercial, pero el cableado y el enrutado de señales a gran escala no lo son todavía. La promesa es un reto de ingeniería criogénica y de cableado, y cuenta poco sin fidelidades y calibración.
+  rubric:
+  - Calcula unas 205 líneas para 53 qubits (≈4 por qubit) y del orden de 4000 para 1000 qubits
+  - Cita que las técnicas actuales llegan a ~1000 qubits y que más allá hace falta electrónica criogénica
+  - Dice que el cableado/enrutado a gran escala es un problema de ingeniería no resuelto
+  - Dice que el número de qubits sin fidelidades ni calibración dice poco
+
+- id: q-trapped-ion-qubits-001
+  prompt: ¿Qué es un qubit de ion atrapado?
+  options:
+    a: Un átomo ionizado, mantenido flotando en vacío con campos eléctricos, del que se eligen dos niveles internos como |0⟩ y |1⟩
+    b: Un átomo neutro sujeto por un haz láser muy enfocado, con dos niveles de Rydberg
+    c: Un circuito superconductor cuyos niveles de energía dependen del diseño
+    d: Un fotón que viaja por una guía de ondas y puede estar en dos modos
+  explanation: El ion es un átomo con carga, atrapado con campos eléctricos. Las otras opciones describen átomos neutros en pinzas, superconductores y qubits fotónicos.
+
+- id: q-trapped-ion-qubits-002
+  prompt: ¿Cómo se lee el estado de un qubit de iones?
+  options:
+    a: Midiendo el desplazamiento de frecuencia de un resonador acoplado al ion
+    b: Mediante tunelamiento selectivo del espín a un depósito de carga
+    c: 'Por fluorescencia dependiente del estado: un estado dispersa muchos fotones de un láser y el otro casi ninguno'
+    d: Con un interferómetro de Mach-Zehnder y detectores de nanohilos
+  explanation: El estado «brillante» dispersa fotones y el «oscuro» no; contando fotones se distinguen |0⟩ y |1⟩. Las otras opciones son métodos de superconductores, espines y fotónica.
+
+- id: q-trapped-ion-qubits-003
+  prompt: ¿Qué técnica óptica deja al ion en un estado inicial conocido (y que, junto con el enfriamiento láser, prepara el qubit)?
+  accepted:
+  - bombeo óptico
+  - optical pumping
+  - el bombeo óptico
+  - bombeo
+
+- id: q-trapped-ion-qubits-004
+  prompt: ¿Cuál es el perfil de los iones atrapados según la revisión de 2019?
+  options:
+    a: Puertas más rápidas que las superconductoras (ns) pero con menor fidelidad
+    b: Mejor cociente entre coherencia y tiempo de puerta (~10⁶) y fidelidades muy altas, pero puertas de dos qubits lentas (10-100 µs)
+    c: Peor cociente coherencia/puerta que los superconductores, pero puertas más rápidas
+    d: Coherencia de microsegundos y puertas de dos qubits de decenas de nanosegundos
+  explanation: 'Los iones ganan en coherencia y fidelidad y pierden en velocidad: lo contrario de lo que sugieren las otras opciones.'
+
+- id: q-trapped-ion-qubits-005
+  prompt: ¿Qué ventaja tiene la puerta de Mølmer-Sørensen frente a la de Cirac-Zoller?
+  options:
+    a: No necesita enfriar el movimiento al estado fundamental y puede usar haces globales; es la base de las mejores puertas de dos qubits
+    b: Es la única que no usa el movimiento colectivo de la cadena
+    c: Es mucho más rápida, de decenas de nanosegundos en 2019
+    d: Exige direccionar cada ion por separado, lo que mejora la fidelidad
+  explanation: MS usa luz bicromática que da una fuerza dependiente del estado y un lazo cerrado en el espacio de fases. Sigue usando el movimiento y no es de nanosegundos; es Cirac-Zoller la que exige estado fundamental y direccionamiento individual.
+
+- id: q-trapped-ion-qubits-006
+  prompt: ¿Por qué las puertas de dos qubits se enlentecen al alargar la cadena de iones?
+  options:
+    a: Porque los iones de una cadena larga pierden la identidad entre sí
+    b: Porque la cadena larga calienta los electrodos hasta el límite del criostato
+    c: Porque la lectura de la cadena obliga a esperar a que se enfríen todos los iones
+    d: Porque disminuye el parámetro de Lamb-Dicke, se debilita el acoplo y los modos de movimiento se aglomeran
+  explanation: Con más iones hay más modos de movimiento y más juntos, y el acoplo se debilita; por eso se pasa a varias zonas (QCCD) y a enlaces entre módulos. Los iones de una especie siguen siendo idénticos.
+
+- id: q-trapped-ion-qubits-007
+  prompt: En el H2 de Quantinuum (2023) un qubit puede interactuar con otro cualquiera sin puertas SWAP. ¿Qué precio tiene esa conectividad, según el artículo del fabricante?
+  options:
+    a: 'Ninguno: la conectividad total en iones es gratis'
+    b: Una fidelidad de puerta de dos qubits peor que en un chip de vecinos próximos
+    c: El transporte de los iones, que ocupa de media ~60 % del tiempo del circuito y aumenta el error de memoria
+    d: Un número máximo de 8 qubits por circuito
+  explanation: Mover iones cuesta tiempo (60 % del circuito en promedio; en el circuito de volumen cuántico el 52 % es transporte) y error de memoria. «Es gratis» es el error frecuente.
+
+- id: q-trapped-ion-qubits-008
+  prompt: Explica con tus palabras los tres caminos para escalar los iones atrapados más allá de una cadena corta y el límite principal de cada uno.
+  model_answer: '(1) Cadena larga con conectividad total: funcionó con 3 y 5 qubits, pero al crecer la cadena los modos de movimiento se aglomeran y las puertas se enlentecen. (2) QCCD: una red 2D de trampas segmentadas donde los iones se transportan entre zonas de memoria, interacción, medida y carga, como en el H2; el límite es el tiempo de transporte (~60 % del circuito) y el error de memoria, además del número de electrodos y fuentes de voltaje. (3) Enlaces fotónicos entre módulos: iones de comunicación emiten fotones entrelazados; en 2019 la tasa era de ~5 Hz por la baja eficiencia de colección.'
+  rubric:
+  - Nombra los tres caminos (cadena larga, QCCD, enlaces fotónicos)
+  - Da el límite de la cadena larga (aglomeración de modos, puertas lentas)
+  - Da el límite de QCCD (transporte, tiempo o error de memoria, electrodos)
+  - Da el límite de los enlaces fotónicos (tasa baja por eficiencia de colección)
+
+- id: q-trapped-ion-qubits-009
+  prompt: Tu algoritmo variacional necesita 100 000 ejecuciones (disparos). Un dispositivo superconductor tarda unos 0,2 ms por muestra (Sycamore, 2019) y un dispositivo de iones tarda 0,72-1,23 s por disparo en sus benchmarks de 32 qubits (H2, 2023). Calcula el tiempo total en cada caso y decide qué importa más para tu carga.
+  model_answer: 'Superconductor: 10⁵ × 0,2 ms = 20 s. Iones: 10⁵ × (0,72 a 1,23 s) ≈ 72 000 a 123 000 s, es decir, unas 20 a 34 horas. La diferencia es un factor de miles. Para un bucle variacional con muchos disparos pesa tanto o más que la fidelidad, y favorece al superconductor; para un circuito profundo que se ejecuta pocas veces pesa la fidelidad, que favorece a los iones. Los circuitos, máquinas y años son distintos, así que es un orden de magnitud, no una comparación exacta.'
+  rubric:
+  - Calcula ≈20 s para el superconductor
+  - Calcula ≈20-34 horas para los iones
+  - Dice que para muchos disparos pesa la velocidad y para circuitos profundos pocas veces pesa la fidelidad
+  - Advierte que las cifras son de máquinas y años distintos
+
+- id: q-trapped-ion-qubits-010
+  prompt: Según el artículo de Quantinuum (2023), el error de la puerta nativa de dos qubits U_ZZ(θ) del H2 sigue ε(θ) = (2,9·θ/π + 0,46)·10⁻³. Tu algoritmo es una QFT con muchas fases controladas pequeñas. Calcula el error para θ = π/2 y θ = π/10 y explica cómo influye en elegir esta plataforma.
+  model_answer: 'Para θ = π/2: 2,9 × 0,5 + 0,46 = 1,91, es decir, ≈ 1,9·10⁻³. Para θ = π/10: 2,9 × 0,1 + 0,46 = 0,75, es decir, ≈ 0,75·10⁻³, unas 2,5 veces menos. Como el error baja casi linealmente al reducir el ángulo, los algoritmos con muchas rotaciones pequeñas (fases de la QFT, pasos de Trotter, QAOA) salen más baratos con esta puerta que con una CNOT fija, según los datos del fabricante en esa máquina de 2023. Es un argumento a favor de los iones, a comparar con el tiempo por disparo y con una réplica independiente.'
+  rubric:
+  - Calcula ≈1,9·10⁻³ para θ = π/2
+  - Calcula ≈0,75·10⁻³ para θ = π/10 (≈2,5 veces menos)
+  - Concluye que las rotaciones pequeñas salen más baratas que con una CNOT fija
+  - Indica que son datos del fabricante en una máquina de 2023
+
+- id: q-trapped-ion-qubits-011
+  prompt: 'El fabricante de una máquina de iones (Quantinuum, H2, 2023) publica: puerta de dos qubits 1,84·10⁻³ (RB), SPAM 1,6·10⁻³ por qubit, error efectivo por puerta de dos qubits 2,6·10⁻³ en 32 qubits y volumen cuántico 2¹⁶. Quieres predecir un circuito tuyo de 200 puertas de dos qubits. ¿Qué cifra usas y qué advertencias haces sobre las demás?'
+  model_answer: Para un circuito de sistema real, el error efectivo (2,6·10⁻³) es más honesto que el de componente, porque incluye puertas de un qubit, memoria y transporte; con él 0,9974²⁰⁰ ≈ 0,59, frente a ≈ 0,69 con 1,84·10⁻³ solo. Los autores advierten de que los benchmarks de componentes pueden dar una imagen engañosa si hay diafonía o ruido no markoviano. El volumen cuántico (2¹⁶) es una afirmación de los autores de que implica buen rendimiento en muchos circuitos, y para mi circuito es mejor usar el producto de fidelidades. Son cifras del fabricante, así que buscaría réplica independiente.
+  rubric:
+  - Prefiere el error efectivo (2,6·10⁻³) y explica por qué incluye memoria y transporte
+  - Calcula ≈0,59 con el efectivo y ≈0,69 con el de componente
+  - Advierte que los benchmarks de componentes pueden engañar
+  - Trata el volumen cuántico como afirmación de los autores y las cifras como del fabricante
+
+- id: q-trapped-ion-qubits-012
+  prompt: 'Una nota de prensa dice: «Nuestro ordenador de iones tiene conectividad total, 32 qubits y fidelidad GHZ de 0,82, es decir, ventaja cuántica». Sigue una lista de comprobación de lo que sabes de iones y señala los puntos débiles.'
+  model_answer: '«Conectividad total» no dice el coste de transporte (≈60 % del circuito en el H2) ni su error de memoria. La fidelidad GHZ de 0,82(1) con 32 qubits no está corregida de SPAM; una fidelidad mayor que 0,5 solo indica entrelazamiento multipartito. Los propios autores del H2 no reclaman ventaja cuántica: 32 qubits está dentro de lo simulable clásicamente. El volumen cuántico no debe ser el único dato, ni el benchmark de componentes sin el efectivo del sistema; y las cifras son del fabricante, sin réplica independiente.'
+  rubric:
+  - Señala que conectividad total tiene un coste de transporte y de memoria
+  - Señala que GHZ 0,82 no está corregida de SPAM y que >0,5 solo indica entrelazamiento multipartito
+  - Señala que los autores no reclaman ventaja y que 32 qubits son simulables clásicamente
+  - Menciona que las cifras son del fabricante y piden réplica independiente
+
+- id: q-neutral-atom-qubits-001
+  prompt: En una plataforma de átomos neutros, ¿qué sujeta a cada átomo?
+  options:
+    a: 'Una pinza óptica: un haz láser muy enfocado, de aproximadamente 1 µm, que retiene como mucho un átomo'
+    b: Un campo de radiofrecuencia oscilante dentro de una trampa de Paul
+    c: Un electrodo de puerta que define un punto cuántico de ~100 nm
+    d: Una guía de ondas integrada en un chip de silicio
+  explanation: Las pinzas ópticas son haces láser enfocados. La radiofrecuencia sujeta iones, los electrodos de puerta definen puntos cuánticos de espín y las guías de ondas llevan fotones.
+
+- id: q-neutral-atom-qubits-002
+  prompt: ¿Cómo se llama el fenómeno por el cual, si un átomo está excitado a un estado de Rydberg, el vecino cercano ya no puede excitarse con el mismo láser?
+  accepted:
+  - bloqueo de Rydberg
+  - Rydberg blockade
+  - bloqueo
+  - blockade
+  - bloqueo de rydberg
+
+- id: q-neutral-atom-qubits-003
+  prompt: Dos átomos en el estado fundamental, separados unos micrómetros, apenas interactúan. ¿Cómo se consigue que lo hagan?
+  options:
+    a: Acercándolos a menos de un nanómetro con las pinzas hasta que se toquen
+    b: Ionizándolos y usando el movimiento colectivo de la cadena como bus
+    c: Excitando uno a un estado de Rydberg, cuyo momento dipolar es unas 1000 veces mayor, de modo que su interacción desplaza el nivel del vecino
+    d: Acoplándolos a un resonador de microondas a 10 mK
+  explanation: El estado de Rydberg es muy excitado y su fuerte interacción da el bloqueo, del que sale la puerta de dos qubits. El bus de movimiento es de iones y el resonador, de superconductores.
+
+- id: q-neutral-atom-qubits-004
+  prompt: ¿Qué perfil tienen los átomos neutros según los autores de las fuentes (ligados a empresas del sector)?
+  options:
+    a: Registros de unos 10 qubits fijos y ciclos de microsegundos
+    b: Qubits que hay que fabricar uno a uno con litografía, con puertas de ns
+    c: Conectividad solo entre vecinos y ciclos de nanosegundos
+    d: Geometría reconfigurable y registros de cientos o miles de átomos, pero un ciclo de carga y lectura lento (~200 ms en 2020)
+  explanation: Los átomos son idénticos por naturaleza, se pueden recolocar y llegan a cientos o miles, a costa de ciclos lentos. Son afirmaciones de autores ligados a Pasqal e Infleqtion.
+
+- id: q-neutral-atom-qubits-005
+  prompt: Con la convención de Henriet y colaboradores (los láseres acoplan |0⟩ con |r⟩ y el estado |11⟩ no se ve afectado por ningún pulso), la secuencia π–2π–π del bloqueo da fase −1 a |00⟩, |01⟩ y |10⟩ y ninguna a |11⟩. ¿Por qué eso es una puerta CZ?
+  options:
+    a: 'No lo es: una CZ no puede tener fase −1 en tres estados, sería una puerta de un qubit'
+    b: 'Porque diag(−1, −1, −1, 1) = −diag(1, 1, 1, −1): salvo una fase global, solo |11⟩ recibe una fase relativa de −1'
+    c: Lo es porque el estado de Rydberg |r⟩ queda poblado al final y marca el |11⟩
+    d: Lo es porque el pulso 2π siempre da fase −1 a los cuatro estados de la base
+  explanation: Una fase global no es observable, y quitarla deja la CZ habitual. En esta convención es |11⟩ el que no se ve afectado, y los demás reciben −1.
+
+- id: q-neutral-atom-qubits-006
+  prompt: ¿Qué tres canales de error nuevos añaden los átomos neutros a los errores de puerta?
+  options:
+    a: Relajación T1, desfase puro y cuasipartículas
+    b: Calentamiento, fuga y pérdida del átomo
+    c: Pérdida de fotones, multipares y cuentas oscuras
+    d: Diafonía, deriva de calibración y fuga de carga
+  explanation: Saffman los llama HLL (heating, leakage, loss). Una fuga detectada en un sitio conocido se convierte en error de borrado, que ayuda a los códigos.
+
+- id: q-neutral-atom-qubits-007
+  prompt: El qubit hiperfino tiene una vida de decenas de años y T2 > 1 s. ¿Por qué eso no basta para afirmar que caben ~10⁶ puertas en el tiempo de coherencia?
+  options:
+    a: Porque el qubit hiperfino pierde la coherencia en cuanto se enciende el láser de pinza
+    b: Porque la puerta dura segundos y no microsegundos
+    c: Porque durante la puerta el átomo está en un estado de Rydberg de vida corta; el tiempo que cuenta es el de ese estado
+    d: Porque el estado de Rydberg tiene una vida más larga que el estado fundamental
+  explanation: La vida del estado fundamental es larga, el de Rydberg no, y la puerta se hace en este último. De ahí la cota de infidelidad ≈ 2/(V·τ_R).
+
+- id: q-neutral-atom-qubits-008
+  prompt: Explica con tus palabras cómo se prepara un registro de átomos sin huecos y por qué eso hace lento el ciclo de una plataforma de átomos neutros.
+  model_answer: 'Una nube fría de ~10⁶ átomos se carga en las pinzas, pero la carga es aleatoria y solo se llena ~50 % de ellas. Una imagen de fluorescencia indica qué pinzas están ocupadas; un algoritmo calcula los movimientos y pinzas móviles dirigidas por deflectores acusto-ópticos reordenan los átomos hasta formar un subregistro sin defectos. Cada ciclo repite carga, imagen, reordenamiento y lectura, que son lentas: un ciclo completo duró unos 200 ms (5 Hz) en 2020, y la imagen en espacio libre tarda órdenes de magnitud más que una puerta.'
+  rubric:
+  - Dice que la carga es aleatoria (~50 % de ocupación) y se detecta por imagen de fluorescencia
+  - Dice que se reordenan con pinzas móviles (AOD) hasta formar un registro sin defectos
+  - Dice que el registro se reconstruye en cada ciclo
+  - Relaciona imagen, reordenamiento y lectura con el ciclo de ~200 ms (2020) y la lentitud frente a las puertas
+
+- id: q-neutral-atom-qubits-009
+  prompt: 'Un titular de 2025 dice: «Procesador de átomos neutros con 6100 qubits». La ficha técnica indica 6100 átomos cargados de media en 12 000 sitios y 2000 reordenados. ¿Qué responderías al titular y qué preguntarías antes de usarlo?'
+  model_answer: 'El titular puede referirse a átomos cargados, no a qubits utilizables: en el trabajo de Saffman (Infleqtion) se cargan de media 6100 átomos en 12 000 sitios pero solo 2000 se reordenan de forma determinista en patrones sin huecos. Preguntaría cuántos están conectados y se usan en un circuito, qué fidelidad de puerta de dos qubits (mejor par o promedio, y de qué elemento) y qué fidelidad de lectura tienen, cuánto tarda el ciclo y la medida, y cómo es la pérdida de átomos. Como el autor está ligado a una empresa, la cifra es de su propio grupo.'
+  rubric:
+  - Distingue átomos cargados (6100) de átomos reordenados y utilizables (2000)
+  - Pregunta por la fidelidad de dos qubits y si es del mejor par o promedio
+  - Pregunta por el tiempo de ciclo/lectura o por la pérdida de átomos
+  - Señala que la cifra viene de un autor ligado a una empresa
+
+- id: q-neutral-atom-qubits-010
+  prompt: 'Un artículo de Harvard/QuEra (2023) informa de 48 qubits lógicos y de un GHZ lógico tolerante a fallos con una fidelidad del 99,85 %. Léelo con espíritu crítico: ¿qué letra pequeña debes buscar?'
+  model_answer: 'El 99,85 % se obtiene al poseleccionar sobre todos los estabilizadores lógicos, descartando datos; sin poseleccionar, la fidelidad del GHZ con decodificación correlacionada es del 72(2) %, y descartando ~50 % de los datos se llega a ~90 %. Es detección de errores con poselección, no corrección completa y repetida: el resultado de código de superficie usa una sola ronda de medida de estabilizadores, y Eisert y Preskill señalan que los demostradores atómicos tienen pocas rondas de síndrome y que la poselección no escalará. Los propios autores listan como pendientes la corrección repetida y la reposición de átomos. Los autores pertenecen en parte a QuEra.'
+  rubric:
+  - Identifica que el 99,85 % depende de poselección (descartar datos)
+  - Da la cifra sin poselección (72 %) o con descarte parcial (~90 %)
+  - Distingue detección de errores con poselección de corrección repetida
+  - Menciona la perspectiva de Eisert y Preskill o los límites que listan los autores
+
+- id: q-neutral-atom-qubits-011
+  prompt: Quieres resolver un problema de conjunto independiente máximo en un grafo de discos unitarios y simular un modelo de espín. Según los autores de Pasqal (2020), ¿por qué los átomos neutros encajan, qué modo usarías y qué cautela tendrías?
+  model_answer: 'En el modo analógico, los láseres realizan directamente un hamiltoniano de Ising (Rabi, detuning e interacción de van der Waals ∝ 1/r⁶) y el bloqueo hace que se resuelva de forma natural el conjunto independiente máximo en grafos de discos unitarios; con dos estados de Rydberg sale el modelo XY. Además, la geometría es reconfigurable. La cautela es que esa idoneidad la afirman los autores, que son de Pasqal, que el modo analógico no es el digital universal, y que la fidelidad o el volumen cuántico no siempre son el criterio adecuado para procesadores de tarea específica (según ellos): hay que pedir el criterio concreto de rendimiento.'
+  rubric:
+  - Elige el modo analógico y explica el hamiltoniano de Ising con interacción 1/r⁶
+  - Relaciona el bloqueo con el conjunto independiente máximo en grafos de discos unitarios
+  - Menciona la geometría reconfigurable
+  - 'Aplica la cautela: afirmación de un fabricante y modo no universal'
+
+- id: q-neutral-atom-qubits-012
+  prompt: Quieres ejecutar corrección de errores repetida. En átomos neutros, según Saffman, medidas de alta fidelidad requieren al menos unos milisegundos, mientras que el ciclo del código de superficie de Google (2024) era de 1,1 µs. Compara los ritmos de ciclo y di qué implica para tu proyecto.
+  model_answer: 'Un ciclo de síndrome de 1,1 µs permite del orden de 10⁶ rondas por segundo (1/1,1 µs ≈ 9·10⁵), mientras que una medida de 1 ms limita a unas 10³ rondas por segundo: unas 900 veces menos. Saffman estima un ciclo lógico de ~1 kHz en el mejor caso para 100 qubits lógicos, y Eisert y Preskill dicen que los sistemas de Rydberg tienen un ciclo lógico órdenes de magnitud más lento por el movimiento y la lectura lentos. Implica que el tiempo de la operación pesa mucho más que la fidelidad de la puerta, que para algoritmos largos habría que ver la cuenta de tiempo y que los átomos tienen otras ventajas (tamaño, conectividad, puertas transversales). Son cifras de fuentes ligadas a empresas o de un cálculo de Saffman.'
+  rubric:
+  - Calcula el cociente ≈ 900 entre una medida de 1 ms y un ciclo de 1,1 µs
+  - Dice que el ciclo lógico de Rydberg es órdenes de magnitud más lento (Saffman, Eisert y Preskill)
+  - Concluye que el tiempo de ciclo y de medida limita las rondas de corrección posibles
+  - Menciona que hay compensaciones (tamaño, conectividad) o que son cifras de fuentes interesadas
+
+- id: q-neutral-atom-qubits-013
+  prompt: Los autores de Pasqal (2020) escriben que los átomos son «idénticos por naturaleza» y que la fidelidad o el volumen cuántico no siempre son el mejor criterio para un procesador de tarea específica. ¿Cómo tratas esas dos afirmaciones?
+  model_answer: 'Ambas son afirmaciones de un fabricante, no hechos independientes. Lo de la identidad por naturaleza es una ventaja real frente a circuitos fabricados, pero los átomos añaden calentamiento, fuga y pérdida (Saffman). La segunda puede ser cierta para el modo analógico, pero la leo con cuidado: pediría el criterio concreto con el que miden el rendimiento y compararía con otras plataformas con métricas comunes. Las contrastaría con revisiones independientes o con réplicas.'
+  rubric:
+  - Identifica ambas como afirmaciones de un fabricante (Pasqal)
+  - Matiza que identidad no elimina calentamiento, fuga y pérdida
+  - Reconoce que la segunda puede valer para el modo analógico pero pide el criterio concreto
+  - Propone contrastar con fuentes independientes
+
+- id: q-photonic-qubits-001
+  prompt: ¿Qué es la codificación de doble raíl (dual-rail) de un qubit fotónico?
+  options:
+    a: Un solo fotón que puede estar en uno de dos modos (por ejemplo, dos polarizaciones o dos caminos); el qubit es en cuál de ellos
+    b: Dos fotones que viajan por la misma fibra con polarizaciones opuestas
+    c: Un fotón cuyo número es 0 o 1 en un único modo
+    d: Un fotón que cambia de color al pasar por un divisor de haz
+  explanation: En doble raíl el qubit está en cuál de los dos modos va un fotón. La codificación por número de fotones en un solo modo es otra distinta, y el color no es la codificación habitual.
+
+- id: q-photonic-qubits-002
+  prompt: ¿Por qué atraen los fotones como qubits?
+  options:
+    a: Porque interactúan fuertemente entre sí, lo que facilita las puertas de dos qubits
+    b: Porque se almacenan durante segundos en una memoria sin pérdidas
+    c: Porque se pueden detectar con una eficiencia del 100 % a temperatura ambiente
+    d: 'Viajan a la velocidad de la luz y casi no interactúan con el entorno: son qubits «voladores» limpios para redes y computación distribuida'
+  explanation: Su poca interacción es a la vez virtud (aislamiento) y problema (puertas de dos qubits). Los detectores no son ideales y los SNSPD requieren 0,8-3 K.
+
+- id: q-photonic-qubits-003
+  prompt: ¿Por qué es difícil una puerta de dos qubits entre fotones?
+  options:
+    a: Porque los fotones se destruyen al atravesar un divisor de haz
+    b: Porque la polarización de un fotón no se puede cambiar sin pérdida
+    c: Porque los fotones no pueden estar en superposición
+    d: Porque necesita una fase condicional de π entre fotones, un efecto no lineal muy débil a nivel de un fotón; con óptica lineal la puerta es probabilística
+  explanation: Es la débil interacción fotón-fotón. Los divisores de haz, las rotaciones de un qubit y las superposiciones funcionan bien (y con alta fidelidad).
+
+- id: q-photonic-qubits-004
+  prompt: Según los autores de la revisión de 2019, ¿cuál es la principal fuente de ruido en óptica cuántica?
+  accepted:
+  - pérdida
+  - la pérdida
+  - pérdida de fotones
+  - perdida
+  - perdida de fotones
+  - loss
+  - photon loss
+
+- id: q-photonic-qubits-005
+  prompt: ¿Qué mostraron Knill, Laflamme y Milburn (2001)?
+  options:
+    a: Que basta óptica lineal, detección de fotones individuales y realimentación clásica para computar, con puertas no deterministas que se repiten hasta tener éxito
+    b: Que hace falta un medio no lineal fuerte para cualquier puerta de dos fotones
+    c: Que un ordenador fotónico tolerante a fallos es construible con tecnología de 2001
+    d: Que los fotones pueden almacenarse indefinidamente en cavidades
+  explanation: KLM demostró que el procesado óptico es escalable, pero la sobrecarga de fotones auxiliares es grande, y una máquina completa con corrección de errores no era construible entonces.
+
+- id: q-photonic-qubits-006
+  prompt: En la computación basada en fusión (PsiQuantum), una fusión de Bell por óptica lineal puede fallar. ¿Qué ocurre cuando falla y cómo lo trata el esquema?
+  options:
+    a: Corrompe el estado de recurso y hay que reiniciar todo el cálculo
+    b: Se repite la fusión hasta tener éxito, igual que en KLM
+    c: El fallo se anuncia, no crea entrelazamiento ni añade ruido, y da solo medidas de un qubit; el código de corrección trata el no determinismo junto con los demás errores
+    d: Se detecta solo al final del cálculo y se descarta toda la ejecución
+  explanation: 'Bartolucci y colaboradores no repiten hasta tener éxito: el fallo anunciado se incorpora al código. Son resultados de simulación de un fabricante.'
+
+- id: q-photonic-qubits-007
+  prompt: Alguien dice que la fotónica «no necesita criogenia porque funciona con óptica a temperatura ambiente». ¿Qué matiz es correcto?
+  options:
+    a: Todos los detectores fotónicos eficientes funcionan a temperatura ambiente
+    b: Los detectores de nanohilos superconductores (SNSPD) funcionan a 0,8-3 K, así que la óptica puede ser ambiente pero los detectores no
+    c: Solo las fuentes de fotones necesitan criogenia, no los detectores
+    d: La fotónica necesita 10 mK, como los superconductores
+  explanation: Los SNSPD, con eficiencias ~0,93-0,95, se operan a 0,8-3 K; los fotodiodos de avalancha de Si trabajan a temperatura ambiente pero con ~65 % de eficiencia.
+
+- id: q-photonic-qubits-008
+  prompt: Explica con tus palabras la diferencia entre un ordenador fotónico universal por puertas y una máquina de muestreo de bosones como Jiuzhang (2020), y por qué importa al leer un anuncio.
+  model_answer: 'Un ordenador universal por puertas ejecutaría circuitos programables arbitrarios y todavía no existe a escala. Jiuzhang es una máquina de muestreo de bosones gaussianos de propósito especial: usa estados comprimidos, un interferómetro fijo de 100 modos y detectores, y no ejecuta circuitos programables. Importa porque un resultado de muestreo no implica que haya un ordenador fotónico universal ni que sirva para otras tareas; hay que preguntar si el anuncio es de propósito especial o universal.'
+  rubric:
+  - Dice que el universal ejecutaría circuitos programables y no existe aún a escala
+  - Dice que Jiuzhang es de propósito especial con un interferómetro fijo
+  - Concluye que muestreo de bosones no es lo mismo que ordenador cuántico fotónico
+  - Indica que al leer un anuncio hay que preguntar si es de propósito especial o universal
+
+- id: q-photonic-qubits-009
+  prompt: PsiQuantum publica que su esquema de computación basada en fusión tolera ~2,7 % de pérdida por fotón. ¿Cómo evalúas ese resultado y qué le preguntarías a la empresa?
+  model_answer: El resultado es de simulaciones Monte Carlo con emparejamiento de peso mínimo y de un fabricante, no de hardware. Los propios autores subrayan que los esquemas son pedagógicos y no están optimizados. Le preguntaría cuál es la pérdida total medida en un chip real y cómo se reparte entre fuentes, enrutado y detección, la pureza e indistinguibilidad de las fuentes, las especificaciones de los detectores y si hay réplica independiente. En las fuentes no hay una demostración experimental de un qubit lógico fotónico.
+  rubric:
+  - Dice que el resultado es de simulación y de un fabricante, no de hardware
+  - Menciona que los autores lo describen como pedagógico/no optimizado
+  - Pide un presupuesto de pérdida medido y desglosado
+  - Dice que no hay demostración experimental de un qubit lógico fotónico en las fuentes
+
+- id: q-photonic-qubits-010
+  prompt: En Jiuzhang (2020) la colección de la fuente es ~0,628, la transmisión del interferómetro 0,977, el acoplo de salida ~0,90 y la eficiencia de detección 0,81. Suponiendo factores independientes, calcula la probabilidad de que un fotón sobreviva y compárala con la tolerancia de ~2,7 % de pérdida por fotón de la simulación de PsiQuantum. ¿Qué cautelas pones?
+  model_answer: '0,628 × 0,977 × 0,90 × 0,81 ≈ 0,45: sobrevive aproximadamente el 45 % de los fotones, es decir, una pérdida de ~55 % por fotón frente a ~2,7 % de la simulación, unas 20 veces más. La comparación solo es orientativa porque las tareas y los modelos de pérdida son distintos (muestreo de 2020 frente a tolerancia a fallos), y el cálculo supone independencia. Sirve para ver el orden de magnitud entre un experimento de muestreo y los requisitos de una simulación tolerante a fallos.'
+  rubric:
+  - Calcula ≈0,45 de supervivencia
+  - Compara con ~2,7 % de pérdida por fotón y concluye que la distancia es grande
+  - 'Pone cautelas: tareas y modelos de pérdida distintos, factores supuestamente independientes'
+  - Indica que sirve como orden de magnitud
+
+- id: q-photonic-qubits-011
+  prompt: Tu empresa quiere conectar procesadores cuánticos de distintos laboratorios. ¿Por qué la fotónica aparece en la decisión, aunque no sea tu plataforma de cálculo?
+  model_answer: 'Porque el fotón es el portador natural de enlace entre nodos: viaja a la velocidad de la luz y casi no interactúa con el entorno, y un procesador fotónico no necesita convertir qubits estacionarios en voladores. Las demás plataformas necesitan interconversión y quizá ajuste de longitud de onda; por ejemplo, los iones usan enlaces fotónicos, aunque en 2019 la tasa era de ~5 Hz por la baja eficiencia de colección (~0,005). La pérdida de fotones sigue siendo el problema principal, de modo que pediría el presupuesto de pérdida del enlace.'
+  rubric:
+  - Dice que el fotón es el portador natural de enlace (redes, computación distribuida)
+  - Dice que otras plataformas necesitan interconversión, por ejemplo con enlaces fotónicos en iones
+  - Da el límite de la tasa de enlace (≈5 Hz, eficiencia de colección) o la pérdida
+  - Pide un presupuesto de pérdida
+
+- id: q-photonic-qubits-012
+  prompt: Un grupo anuncia una máquina de muestreo de bosones gaussianos con 76 clics y dice que simularla clásicamente tardaría 2500 millones de años. ¿Qué puede y qué no puede validarse, y cómo tratas la cifra?
+  model_answer: Los autores (USTC, 2020) estiman que Sunway TaihuLight tardaría ~8·10¹⁶ s (2500 millones de años) en generar lo que su máquina obtuvo en 200 s; es una estimación a partir de benchmarks de un torontoniano, no una ejecución. La salida completa de un GBS grande no se puede certificar (se conjetura intratable); los métodos de validación dejan de ser viables por encima de ~30 clics (la versión revisada llegó a 40), de modo que con 76 clics solo hay evidencia circunstancial al descartar hipótesis alternativas. Es además una máquina de propósito especial, y las notas no incluyen refutaciones clásicas posteriores, así que no se puede decir cómo ha evolucionado la cifra.
+  rubric:
+  - Dice que los 2500 millones de años son una estimación de los autores
+  - Dice que la validación completa es intratable por encima de ~30-40 clics
+  - Menciona que hay evidencia circunstancial (descartar hipótesis alternativas)
+  - Menciona que es de propósito especial o que no hay refutaciones posteriores en las notas
+
+- id: q-spin-qubits-001
+  prompt: ¿Por qué el silicio es un material atractivo para los qubits de espín, frente al GaAs?
+  options:
+    a: Porque está formado mayoritariamente por isótopos sin espín nuclear (28Si, 30Si) y se puede enriquecer, mientras que todos los isótopos del GaAs tienen espín nuclear y dan un ruido hiperfino fuerte
+    b: Porque no tiene valles de banda de conducción, a diferencia del GaAs
+    c: Porque su acoplamiento espín-órbita es mucho mayor que el del GaAs
+    d: Porque el silicio no sufre ruido de carga 1/f
+  explanation: El ruido hiperfino de los espines nucleares se puede eliminar con enriquecimiento isotópico en silicio. Al contrario de la tercera opción, el silicio tiene seis valles; es el germanio el que no los tiene. El ruido de carga 1/f no se puede eliminar por completo en dispositivos semiconductores.
+
+- id: q-spin-qubits-002
+  prompt: ¿Cómo se lee casi siempre el estado de un qubit de espín en un semiconductor?
+  options:
+    a: Contando los fotones que dispersa el electrón al iluminarlo con un láser
+    b: Midiendo directamente el momento magnético del espín con un SQUID
+    c: Convirtiendo el espín en carga (espín a carga) y detectando una sola carga elemental con un sensor
+    d: Interfiriendo el electrón consigo mismo en un interferómetro de Mach-Zehnder
+  explanation: 'La medida del espín es indirecta: pasa por detectar una carga, lo que tarda ~100 ns con la sensibilidad típica y marca el límite inferior del tiempo de medida.'
+
+- id: q-spin-qubits-003
+  prompt: ¿Qué indica el factor de calidad Q = f_R · T2* en los qubits de espín y por qué se usa?
+  options:
+    a: La temperatura a la que puede operar el qubit sin perder la coherencia
+    b: La fidelidad de lectura de espín a carga en porcentaje
+    c: El número de espines nucleares que rodean al electrón
+    d: 'El número de oscilaciones discernibles: un qubit rápido no es automáticamente bueno, y T2* aislado dice poco, así que se compara con la frecuencia de Rabi'
+  explanation: Q combina velocidad y coherencia; los valores están sobre todo entre unas pocas unidades y ~100, con 558 como máximo (ST en 28Si/SiGe, 2024). No es una temperatura ni una lectura.
+
+- id: q-spin-qubits-004
+  prompt: Alguien afirma que «los qubits de espín ya compiten en tamaño de procesador con los superconductores». Según la clasificación de Stano y colaboradores, ¿qué es correcto?
+  options:
+    a: Hay procesadores de espín de cientos de qubits, solo que menos fieles
+    b: Los mayores arreglos son de nivel de dispositivo (hasta 12 qubits en 2024); solo hay operación a nivel de procesador con 3 qubits
+    c: Un «procesador» de espín es cualquier arreglo con sensado de carga, sin importar el tamaño
+    d: Los espines ya ejecutan algoritmos de decenas de qubits, pero no se publican
+  explanation: Stano clasifica en dispositivo, simulador y procesador; este último exige control en dos ejes, lectura, interacción ajustable y poder ejecutar algoritmos de N qubits, y solo se muestran 3 qubits.
+
+- id: q-spin-qubits-005
+  prompt: Explica con tus palabras en qué se diferencian los qubits de un espín (Loss-DiVincenzo), de dos espines (singlete-triplete) y de tres espines (exchange-only) en cómo se controlan y se leen.
+  model_answer: El qubit de un espín usa un campo magnético alterno transversal para girar el espín y el intercambio J entre puntos vecinos para las puertas de dos qubits; se lee por tunelamiento selectivo del espín a un depósito. El singlete-triplete codifica el qubit en dos electrones de un doble punto y se controla con pulsos de tensión en banda base (J), con un gradiente de campo para el segundo eje; se lee por bloqueo de espín de Pauli, que convierte singlete/triplete en una configuración de carga. El exchange-only usa tres espines con espín total 1/2 y solo el intercambio da control universal, con dos ejes a 120°, sin campos oscilantes ni micromagnetos; se lee como el ST, aunque el bloqueo de espín no distingue el estado fugado S = 3/2 del |1⟩.
+  rubric:
+  - Describe el control del qubit de un espín (campo alterno, intercambio J) y su lectura (tunelamiento selectivo)
+  - Describe el singlete-triplete (pulsos de tensión en banda base) y su lectura (bloqueo de espín de Pauli)
+  - Describe el exchange-only (solo intercambio, sin campos oscilantes)
+  - Indica una ventaja o limitación de al menos dos tipos
+
+- id: q-spin-qubits-006
+  prompt: 'Un artículo presenta «el récord de fidelidad de un qubit de espín: 99,992 %». Lees la tabla de Stano y colaboradores: 1Q 99,992 % (hueco en Ge/SiGe, 2023) y 2Q 99,3 % (julio de 2024), además de entradas de 2Q de 83-93 % en otros dispositivos. ¿Cómo lo interpretas?'
+  model_answer: 99,992 % es la fidelidad de una puerta de un qubit, la mejor de la tabla; la de dos qubits en ese mismo material es 99,3 %, y como regla las infidelidades de dos qubits están al menos un orden de magnitud por encima de las de uno. Además son los mejores valores de una compilación donde los autores eligen un valor «representativo» por experimento (algo reconocidamente subjetivo), no medianas de dispositivo, y otras entradas de 2Q de la misma tabla están en 83-93 %. No debe compararse con medianas de Google (2019) o promedios de Quantinuum (2023) sin decir que son otro tipo de dato.
+  rubric:
+  - Identifica 99,992 % como puerta de un qubit y contrasta con la de dos qubits (99,3 %)
+  - Dice que las infidelidades de dos qubits suelen ser al menos un orden de magnitud mayores
+  - Dice que son mejores valores seleccionados, no medianas
+  - Advierte contra compararlos directamente con medianas o promedios de otras plataformas
+
+- id: q-spin-qubits-007
+  prompt: Un compañero propone usar qubits de espín en la nube para tu algoritmo de 15 qubits la próxima semana. ¿Qué le respondes con lo que sabes de la escala y de la madurez de la plataforma?
+  model_answer: Las notas del tema no describen acceso en la nube a dispositivos de espín, y los resultados citados son experimentos de laboratorio. Según Stano y colaboradores, los mayores arreglos (hasta 12 qubits en Si/SiO₂ en 2024) son de nivel de dispositivo y solo hay operación a nivel de procesador con 3 qubits (un GHZ y una Toffoli); escalar es «el mayor reto actual». Para una carga práctica son una plataforma que seguir, no una que usar hoy. Los resultados de Burkard son de una revisión de preprint de diciembre de 2021, sin los resultados de 2022-24.
+  rubric:
+  - Dice que no consta acceso en la nube y los resultados son de laboratorio
+  - 'Da la escala: hasta 12 qubits a nivel de dispositivo y 3 a nivel de procesador'
+  - Menciona que el escalado es el mayor reto o que las matrices 2D son necesarias
+  - Concluye que hoy es plataforma que seguir, no que usar
+
+- id: q-spin-qubits-008
+  prompt: 'Un artículo informa para un qubit de espín de silicio: frecuencia de Rabi f_R = 5 MHz y T2* = 20 µs. Calcula el factor de calidad Q, la infidelidad que da el modelo simple 1 − F ≈ 1/(4Q) y di cómo debes interpretar el resultado.'
+  model_answer: 'Q = f_R · T2* = 5·10⁶ Hz × 20·10⁻⁶ s = 100. La infidelidad estimada es 1/(4 × 100) = 0,25 %. El resultado es solo una cota inferior en un modelo sencillo de desfase exponencial: los propios autores avisan de que los errores unitarios bajan la fidelidad sin cambiar Q, y además el T2* con ruido 1/f no es una propiedad intrínseca (depende del tiempo de promediado). Debe acompañarse de la secuencia (Ramsey, eco, desacoplamiento) y de la fidelidad medida por RB.'
+  rubric:
+  - Calcula Q = 100
+  - Calcula una infidelidad de ≈0,25 %
+  - Dice que es una cota o modelo sencillo (errores unitarios no aparecen)
+  - Menciona que T2* con ruido 1/f no es intrínseco o que hay que dar la secuencia
+
+- id: q-spin-qubits-009
+  prompt: Lees una nota de prensa que dice que un «procesador de espín de silicio» logra «lectura del 99,975 %». ¿Qué comprobarías, según las señales de alarma que conoces?
+  model_answer: Comprobaría si la fidelidad de lectura incluye o excluye la preparación (la de 99,975 % para un qubit EO incluye ambas, según la tabla de Stano), si la fidelidad de dos qubits es de un par seleccionado, si T2* se cita con su secuencia y tiempo de promediado, y si el «procesador» lo es según la clasificación de Stano (control en dos ejes, lectura, interacción por pares ajustable y capaz de ejecutar algoritmos de N qubits) o es un dispositivo. También si la cifra es una de las mejores entradas de una compilación y de qué fecha.
+  rubric:
+  - Pregunta si la lectura incluye o excluye la preparación
+  - Pregunta si la cifra es de un par/dispositivo seleccionado o un valor mejor
+  - Cuestiona si es un procesador o un dispositivo según la clasificación
+  - Pide la secuencia y el tiempo de promediado de T2* o la fecha
+
+- id: q-topological-qubits-001
+  prompt: ¿Por qué los anyones solo aparecen en sistemas bidimensionales?
+  options:
+    a: Porque en 3D los anyones son inestables y se desintegran en fermiones
+    b: Porque las partículas bidimensionales no tienen espín
+    c: Porque en 2D dar una vuelta completa de una partícula alrededor de otra no se puede deshacer, así que intercambiar partículas idénticas puede dar una fase arbitraria
+    d: Porque en 2D los electrones se comportan como bosones
+  explanation: En tres dimensiones esa vuelta se puede deshacer y solo hay bosones y fermiones. Los anyones son cuasipartículas emergentes de un sistema de muchos cuerpos 2D; los electrones siguen siendo fermiones.
+
+- id: q-topological-qubits-002
+  prompt: Según Nayak y colaboradores, ¿por qué un qubit topológico ideal tendría menos errores?
+  options:
+    a: Porque se almacena en un solo átomo aislado a temperatura cero
+    b: Porque la información se guarda de forma no local en cuasipartículas lejanas, y el ruido local no tiene elementos de matriz dentro del espacio de estados fundamentales degenerado
+    c: Porque las puertas son rotaciones continuas que se corrigen por software
+    d: Porque se fabrica con superconductores sin impurezas
+  explanation: 'Es el caso ideal: protección frente al ruido local y puertas que dependen solo de la clase topológica de la trenza. Quedan errores por cuasipartículas térmicas o atrapadas, y los autores llaman demasiado optimista su estimación sencilla.'
+
+- id: q-topological-qubits-003
+  prompt: Con anyones de Ising, ¿es suficiente trenzar para realizar cualquier computación cuántica?
+  options:
+    a: 'No: el trenzado solo genera un conjunto finito de rotaciones de tipo 90°, y hace falta una puerta de fase π/8 no topológica y una medida de paridad de dos qubits'
+    b: 'Sí: el trenzado de Majoranas es universal si se hace con suficiente precisión'
+    c: Sí, pero solo si la temperatura es mayor que el gap del sistema
+    d: No, porque el trenzado no puede realizar ninguna puerta, solo medidas
+  explanation: La puerta de fase π/8 se obtiene acercando cuasipartículas, una operación no topológica y no exacta que requiere cierta corrección de errores. Los anyones de Fibonacci sí serían universales por trenzado.
+
+- id: q-topological-qubits-004
+  prompt: ¿Qué midió el artículo de Aghaee y colaboradores (Microsoft, versión de 2024 del preprint)?
+  options:
+    a: La coherencia de un qubit topológico con un tiempo T2 de milisegundos
+    b: El trenzado de dos pares de modos de Majorana con una puerta de fase
+    c: La corrección de errores de un qubit lógico topológico
+    d: La paridad fermiónica de un estado de energía casi cero en un nanohilo de InAs-Al, mediante un interferómetro de puntos cuánticos; no muestran operaciones de qubit
+  explanation: Lo medido es una lectura de paridad, no una operación de qubit. Los propios autores dicen que la medida por sí sola no separa sin ambigüedad los MZM de los estados de Andreev finamente sintonizados de la fase trivial.
+
+- id: q-topological-qubits-005
+  prompt: Explica con tus palabras qué se puede decir con honestidad hoy sobre el experimento de Microsoft (paridad en un nanohilo) y la crítica de Legg, sin afirmar que exista ni que esté refutado un qubit topológico.
+  model_answer: El artículo de Aghaee y colaboradores (todos de Microsoft) reporta una medida de paridad en un dispositivo prototipo, con señal bimodal periódica en flujo y un tiempo de permanencia de ~2 ms; no reporta control coherente, trenzado, coherencia de qubit ni corrección de errores. Los propios autores dicen que la medida por sí sola no distingue sin ambigüedad los modos de Majorana de estados de Andreev ligados en la fase trivial. Legg, en un comentario de arXiv no revisado por pares, reanaliza los datos públicos y sostiene que el protocolo del gap topológico no es fiable; no dice que haya demostrado que no existan Majorana, sino que discute si hay gap. Ninguna operación de qubit se ha mostrado; faltan réplica independiente y una respuesta publicada.
+  rubric:
+  - Dice que el artículo reporta una medida de paridad y no una operación de qubit
+  - Dice que los autores admiten que la medida sola no prueba la topología
+  - Describe la crítica de Legg (TGP, gap) y que no está revisada por pares ni refuta la existencia de Majorana
+  - Evita afirmar que el qubit topológico existe o que está refutado
+
+- id: q-topological-qubits-006
+  prompt: 'Un titular dice: «Microsoft ha creado el primer qubit topológico». Usa la escalera de evidencia (gap, modos de energía cero, lectura de paridad, coherencia, trenzado o fusión, puertas universales, corrección de errores) para situar el anuncio y redactar una respuesta.'
+  model_answer: Según el texto leído, el artículo de Microsoft está en el escalón de la lectura de paridad de un solo disparo (SNR 4,9 en 90 µs, error de asignación del 1 %), con los escalones del gap y de los modos de energía cero en discusión. No muestra coherencia de un qubit de paridad, ni trenzado o fusión, ni puertas ni corrección de errores. Los propios autores hablan de «progreso hacia» un qubit topológico y de una medida «consistente con» Majoranas. Un crítico cuestiona el protocolo con el que se eligieron los puntos de operación. El titular exagera; tampoco debe decirse que esté refutado.
+  rubric:
+  - Sitúa el artículo en la lectura de paridad (escalón 3), con los escalones 1 y 2 en discusión
+  - Dice que no se muestran coherencia, trenzado o fusión, puertas ni corrección de errores
+  - Cita el lenguaje cauteloso de los autores («progreso hacia», «consistente con»)
+  - No afirma que esté refutado y menciona la crítica como discusión abierta
+
+- id: q-topological-qubits-007
+  prompt: 'Lees el comentario de Legg (arXiv, marzo de 2025, v1) sobre los datos públicos de Microsoft. Un colega concluye: «Legg ha demostrado que los Majorana no existen». ¿Qué respondes y qué haría falta para cerrar la cuestión según cada parte?'
+  model_answer: Legg dice explícitamente que no discute si la región es topológica, solo si tiene gap; sostiene que el resultado del protocolo del gap topológico cambia con la ventana de campo y con el «cutter», que el dispositivo B tiene otras regiones que pasan el protocolo sin comprobar reproducibilidad, y que los datos de conductancia no mostrados indican desorden. Es un comentario no revisado por pares, de una persona, sin confirmación independiente en las notas ni respuesta de Microsoft en esa versión. Legg pediría mostrar el gap en la conductancia local y no local sin antisimetrizar, probar la lectura en todas las regiones que pasan el protocolo y reportar completo su resultado. Microsoft aplaza la correlación entre capacidad y protocolo a un artículo en preparación. Falta una réplica independiente.
+  rubric:
+  - 'Corrige: Legg no dice que los Majorana no existan, sino que discute si hay gap'
+  - Señala que es un comentario no revisado por pares, sin confirmación independiente
+  - Resume lo que Legg pediría (gap en conductancia, otras regiones, resultado completo del protocolo)
+  - Menciona que faltan la correlación pendiente de Microsoft y una réplica independiente
+
+- id: q-topological-qubits-008
+  prompt: Tu empresa decide si incluir hardware topológico en una hoja de ruta a cinco años. ¿Qué recomiendas y con qué condiciones lo revisarías?
+  model_answer: 'Recomendaría tratarlo como un riesgo de investigación y no como una opción de ingeniería: hoy no hay una operación de qubit demostrada (solo una lectura de paridad en un prototipo, que sus autores dicen que no basta por sí sola), la evidencia de topología está discutida y no hay réplica independiente. Para programar no cambia nada hoy; de existir, aparecería como un qubit con muy bajo error físico, lo que reduciría la sobrecarga de corrección. Lo revisaría cuando haya operaciones de qubit demostradas (coherencia, puerta o fusión) con datos públicos y replicables, revisión por pares y réplica independiente.'
+  rubric:
+  - Recomienda tratarlo como riesgo de investigación, sin operación de qubit demostrada
+  - Menciona que la evidencia de topología está discutida y falta réplica independiente
+  - Dice que hoy no afecta a la programación y, de existir, reduciría la sobrecarga
+  - Fija condiciones de revisión (operaciones de qubit, datos públicos, réplica)
+
+- id: q-topological-qubits-009
+  prompt: Te piden una lista breve de preguntas que aplicar a cualquier anuncio de «qubit topológico». Redáctala y justifica cada pregunta con lo que sabes.
+  model_answer: (1) ¿Se muestra una operación de qubit (coherencia, puerta, fusión) o solo una lectura? En el artículo de Microsoft solo hay lectura de paridad. (2) ¿La evidencia de topología es independiente de la elección del punto de operación? Legg cuestiona el protocolo del gap topológico. (3) ¿Hay réplica independiente? No consta. (4) ¿Se ha hecho pública la conductancia completa? (5) ¿La publicación está revisada por pares y qué versión? Legg es un comentario no revisado por pares, y Legg cita el artículo de Microsoft como publicado en Nature en 2025. Además, ¿se menciona cómo se logrará la universalidad? Con anyones de Ising hace falta una puerta de fase π/8 no topológica.
+  rubric:
+  - Pregunta si hay operación de qubit o solo lectura
+  - Pregunta si la evidencia de topología depende del punto de operación o del protocolo
+  - Pregunta por réplica independiente o datos completos
+  - Pregunta por el estado de revisión por pares o la versión
+
+- id: q-quantum-advantage-experiments-001
+  prompt: En el experimento de Sycamore (2019), ¿qué mide la fidelidad XEB y por qué se usa?
+  options:
+    a: 'Es un proxy: promedia D·p_s(q) − 1 sobre las cadenas medidas (0 si son uniformes, 1 si el muestreo es ideal) porque no se puede verificar la distribución completa de más de 2⁵⁰ salidas'
+    b: Mide directamente la fidelidad de estado entre el estado de 53 qubits y el ideal
+    c: Es el tiempo que tarda el supercomputador clásico en simular el circuito
+    d: Es la fracción de puertas de dos qubits que no fallan en el chip
+  explanation: XEB necesita simular clásicamente las probabilidades ideales de las cadenas medidas; por eso no se puede aplicar a los circuitos más difíciles y se estima desde circuitos más fáciles.
+
+- id: q-quantum-advantage-experiments-002
+  prompt: La cifra de «10 000 años» para simular el experimento de Sycamore con 20 ciclos, ¿qué es?
+  options:
+    a: El tiempo medido en que Summit completó la simulación
+    b: Una cota inferior demostrada para todos los algoritmos clásicos posibles
+    c: Una extrapolación de los autores a partir de un método de Schrödinger-Feynman, no una ejecución medida
+    d: El tiempo que tarda Sycamore en obtener las muestras
+  explanation: Los autores aclaran que es una extrapolación a 10⁶ núcleos desde 1000 caminos de ~246 s. Sycamore tardó unos 200 s en un millón de muestras.
+
+- id: q-quantum-advantage-experiments-003
+  prompt: ¿Cómo reduce el método de Pan y colaboradores (2022) el coste de la simulación clásica y cómo estiman la fidelidad?
+  options:
+    a: Simula todo el vector de estado en la RAM de Summit y mide la fidelidad por XEB
+    b: Rompe aristas de una red tensorial para cambiar fidelidad por coste, y estima la fidelidad (~0,0037) analíticamente, validándola con circuitos más pequeños, no con XEB sobre las muestras de 53 qubits
+    c: Usa un ordenador cuántico propio para generar las muestras de referencia
+    d: Cambia el circuito por uno más fácil y mide la fidelidad XEB del nuevo circuito
+  explanation: Romper K aristas elimina K/2 puertas de dos qubits y reduce la fidelidad en torno a 2⁻ᴷ. Verificar con XEB las muestras de 53 qubits costaría demasiado, por eso se valida en 30, 38 y 45 qubits.
+
+- id: q-quantum-advantage-experiments-004
+  prompt: Jiuzhang (USTC, 2020) es una máquina de muestreo de bosones gaussianos. ¿Qué la caracteriza?
+  options:
+    a: Es un ordenador fotónico universal programable de 76 qubits
+    b: Resuelve el problema de factorización con luz comprimida
+    c: Usa 76 qubits superconductores con detectores de umbral
+    d: 'Es de propósito especial: ejecuta un único interferómetro fijo y no circuitos programables'
+  explanation: Los autores la llaman plataforma fotónica de propósito especial. Los 76 son clics de detección, no qubits programables.
+
+- id: q-quantum-advantage-experiments-005
+  prompt: 'Alguien dice: «Los 10 000 años se refutaron, así que Google nunca logró ventaja cuántica». Explica con tus palabras por qué esa conclusión es demasiado fuerte y qué matiz se debe hacer.'
+  model_answer: Pan y colaboradores resuelven clásicamente el problema de muestreo tal como estaba definido con una estimación analítica de fidelidad (0,0037) y una extrapolación del tiempo (15 h en 512 GPU medidas y la comparación con una máquina de exaflops no ejecutada), pero no presentan su trabajo como una refutación general de la ventaja cuántica. La cifra de 10 000 años era una extrapolación de los autores para un método concreto y no una cota para todos los algoritmos, y la referencia clásica es un objetivo móvil. Además, Eisert y Preskill (preprint) sostienen que el muestreo de circuitos aleatorios ha ido arguably más allá de la simulación clásica con circuitos mayores, aunque sin aplicación útil más allá de un benchmark.
+  rubric:
+  - Dice que Pan resuelve el problema tal como está definido y no es una refutación general
+  - Dice que los 10 000 años eran una extrapolación para un método concreto
+  - Menciona que la referencia clásica es un objetivo móvil
+  - Menciona que Eisert y Preskill sitúan hoy el RCS más allá de la simulación clásica con circuitos mayores (y es un preprint)
+
+- id: q-quantum-advantage-experiments-006
+  prompt: Explica con tus palabras por qué los experimentos de ventaja cuántica usan tareas de muestreo y no, por ejemplo, el algoritmo de Shor.
+  model_answer: Ejecutar Shor requiere una máquina tolerante a fallos, un objetivo a largo plazo. Las tareas de muestreo, como el muestreo de circuitos aleatorios o de bosones gaussianos, se pueden hacer con dispositivos ruidosos de la era NISQ. La dureza clásica del muestreo se apoya en suposiciones de complejidad ampliamente creídas, aunque los resultados son asintóticos y exigen una cercanía estricta de las distribuciones. El precio es que el muestreo tiene poca utilidad práctica fuera de servir como benchmark.
+  rubric:
+  - Dice que Shor requiere tolerancia a fallos y el muestreo se puede hacer con dispositivos ruidosos (NISQ)
+  - Menciona que la dureza del muestreo se apoya en suposiciones de complejidad
+  - Menciona que los resultados son asintóticos o que se exige cercanía estricta
+  - Menciona la utilidad limitada del muestreo
+
+- id: q-quantum-advantage-experiments-007
+  prompt: 'Una nota de prensa afirma: «Nuestro ordenador es mil millones de veces más rápido que cualquier superordenador». Enumera las preguntas que harías para evaluar la afirmación de ventaja.'
+  model_answer: 'Preguntaría: cuál es la tarea y si la salida se puede verificar (RCS por proxy, GBS grande es intratable de certificar); a qué fidelidad se hizo y si la referencia clásica se calcula a esa fidelidad (el coste escala ~1/F); si la cifra clásica es medida o extrapolada (10 000 años y 2500 millones de años son estimaciones de los autores); qué algoritmos clásicos y hardware se probaron (la referencia es una diana móvil); si la brecha depende del tamaño de la muestra; si crece con el tamaño del problema; si se explota la estructura del circuito; si se usa poselección; si la respuesta es útil; y quién firma y en qué estado está (fabricante, preprint, réplica independiente).'
+  rubric:
+  - Pregunta por la fidelidad y si la comparación clásica se hace a esa fidelidad
+  - Pregunta si la cifra clásica es medida o extrapolada y quién la calculó
+  - Pregunta qué algoritmos clásicos se probaron (objetivo móvil)
+  - Pregunta por la verificación de la salida o el tamaño de muestra
+  - Pregunta por la utilidad de la tarea o por quién firma y el estado de revisión
+
+- id: q-quantum-advantage-experiments-008
+  prompt: Una empresa ficticia anuncia un chip de 100 qubits que ejecuta un circuito con 1000 puertas de dos qubits de error del 1 % y dice que hay «ventaja cuántica». Usa la regla del producto solo con las puertas de dos qubits para estimar la fidelidad y comenta qué implica.
+  model_answer: 0,99¹⁰⁰⁰ ≈ 4,3·10⁻⁵ (equivalente a exp(−ε·V_eff) con ε = 0,01 y V_eff ≈ 1000, unos 10 en el exponente). Es una fidelidad de orden 10⁻⁵, mucho menor que el ~2·10⁻³ de Sycamore (2019), de modo que casi toda la salida sería ruido y la señal sería una fracción mínima; habría que ver si esa fidelidad se puede medir y si la simulación clásica a esa fidelidad (cuyo coste baja ~1/F) sigue siendo difícil. Saffman concluye que lo que sube el coste de simulación clásica es la fidelidad, no el número de qubits. Ni el número de qubits ni las puertas bastan para justificar la ventaja.
+  rubric:
+  - Calcula ≈4·10⁻⁵ para 0,99¹⁰⁰⁰
+  - Compara con la fidelidad ~2·10⁻³ de Sycamore y concluye que casi todo es ruido
+  - Relaciona el coste clásico con la fidelidad (~1/F) o con exp(−ε·V_eff)
+  - Concluye que el número de qubits o de puertas no basta para justificar ventaja
+
+- id: q-quantum-advantage-experiments-009
+  prompt: 'Para el experimento de Sycamore, calcula la brecha entre el tiempo clásico y los 200 s de muestreo de Sycamore en dos casos: los 10 000 años estimados por Google y las 15 horas de Pan y colaboradores. ¿Qué dicen estos números y qué no?'
+  model_answer: '10 000 años ≈ 3,2·10¹¹ s; dividido por 200 s da una brecha de ~1,6·10⁹. 15 horas son 5,4·10⁴ s; dividido por 200 s da ~270. La brecha, tal como la presentaba cada parte, pasó de unas 10⁹ veces a unas 10² veces. Pero con salvedades: las 15 horas son tiempo medido en 512 GPU con una fidelidad estimada (no medida por XEB sobre las muestras) de 0,0037, la afirmación sobre exaflops es una extrapolación, las muestras y las fidelidades no son idénticas y los 10 000 años son una extrapolación de los autores de Google. Los autores de Pan no lo presentan como una refutación general.'
+  rubric:
+  - Calcula ≈1,6·10⁹ y ≈270
+  - Concluye que la brecha pasó de ~10⁹ a ~10²
+  - Dice que la fidelidad de Pan es estimada y la comparación tiene salvedades
+  - Dice que no es una refutación general
+
+- id: q-quantum-advantage-experiments-010
+  prompt: 'Evalúa la afirmación de Jiuzhang (2020): hasta 76 clics, muestreo ~10¹⁴ veces más rápido y 2500 millones de años para Sunway TaihuLight. Di quién la hace, qué es medido y qué estimado, y qué limita la validación.'
+  model_answer: 'La hacen los autores del propio experimento (USTC). Lo medido: 200 s de muestreo con hasta 76 clics. Estimado: el tiempo de simulación clásica (~8·10¹⁶ s para Sunway TaihuLight) a partir de benchmarks, no una ejecución. La validación completa de un GBS grande se conjetura intratable y los métodos viables llegan hasta ~30 clics (40 en la versión revisada), así que para el resto hay evidencia circunstancial que descarta hipótesis alternativas (estados térmicos, fotones distinguibles, muestreo uniforme). Es de propósito especial, y los autores señalan que la ventaja de Sycamore depende del tamaño de muestra. Las notas no incluyen refutaciones posteriores, de modo que no puedo decir cómo ha evolucionado la cifra de 10¹⁴.'
+  rubric:
+  - Dice que la hacen los autores del experimento y que la cifra clásica es una estimación
+  - Dice que la validación completa es intratable (viable hasta ~30-40 clics)
+  - Menciona la evidencia circunstancial (hipótesis alternativas descartadas)
+  - Menciona propósito especial o que no hay refutaciones posteriores en las notas
+
+- id: q-quantum-advantage-experiments-011
+  prompt: Un blog cita a Eisert y Preskill (preprint, versión de mayo de 2026) para afirmar que «la ventaja cuántica ya es útil». Valora la cita y di qué dicen realmente las fuentes sobre el muestreo de circuitos aleatorios, y qué reclaman Quantinuum y Harvard/QuEra.
+  model_answer: Eisert y Preskill resumen que el RCS ha ido arguably más allá de la simulación clásica (superconductores con más de 100 qubits y 40 capas, iones con más de 50 qubits y 10 capas, átomos neutros con circuitos lógicos poseleccionados), pero lo califican de hito científico importante de utilidad práctica limitada, salvo como benchmark. Piden tres criterios para una aplicación (algoritmo eficiente, dureza clásica convincente, respuesta útil) y dicen que el RCS solo cumple el segundo en un sentido estrecho. Es un preprint no revisado por pares, y las cifras vienen de los autores de cada experimento. Quantinuum (H2, 32 qubits) dice expresamente que no reclama ventaja (simulable clásicamente) y Harvard/QuEra describe sus circuitos como cercanos al límite de la simulación exacta.
+  rubric:
+  - Dice que Eisert y Preskill califican el RCS como hito pero de utilidad limitada (benchmark)
+  - Menciona los tres criterios de una aplicación y que el RCS cumple solo el segundo
+  - Señala que es un preprint y los resultados son de los autores de cada experimento
+  - Dice que Quantinuum no reclama ventaja y que Harvard/QuEra habla de explorar el límite de simulación
+
+- id: q-hardware-landscape-001
+  prompt: 'Una ficha ficticia de un proveedor dice: «256 qubits, hasta 99,9 % de fidelidad, T1 medio 250 µs». Redacta la lista de lo que falta antes de poder comparar este dispositivo con otro, indicando cuál es la métrica ausente más importante para un circuito pequeño y por qué.'
+  model_answer: 'Falta: a qué puerta se refiere el 99,9 % (un qubit, dos qubits o lectura); si «hasta» significa el mejor par en lugar de una mediana; si es aislada o en paralelo; la métrica (Pauli, RB, Clifford, efectiva); qué incluye (memoria, transporte); el error de lectura y de preparación; el tiempo de puerta frente a T1; la conectividad y su coste; cuántos qubits son utilizables; la fecha de calibración y el dispositivo. Para un circuito pequeño, la lectura puede dominar (2,83-3,50 % en Sycamore frente a 1,6·10⁻³ de SPAM en el H2), así que su ausencia es crítica. T1 «medio» sin gate time no dice cuántas puertas caben.'
+  rubric:
+  - Pregunta a qué puerta se refiere (1Q, 2Q o lectura) y si «hasta» es el mejor valor frente a la mediana
+  - Pregunta si es aislada o en paralelo, o la métrica
+  - Identifica el error de lectura/SPAM como métrica ausente importante y justifica con un dato
+  - Pide el tiempo de puerta (para T1), la conectividad o la fecha
+
+- id: q-hardware-landscape-002
+  prompt: Debes elegir plataforma para un circuito de 20 qubits con 200 puertas de dos qubits entre pares arbitrarios y una lectura final. Con los datos de un chip superconductor de 2019 (error de dos qubits 0,60 %, lectura 3,5 %) y una máquina de iones de 2023 (1,84·10⁻³, SPAM 1,6·10⁻³), calcula la fidelidad de las puertas de dos qubits y comenta qué cambia la cuenta y qué decidirías.
+  model_answer: 'Solo puertas de dos qubits: 0,994²⁰⁰ ≈ 0,30 para el chip de 2019 y 0,99816²⁰⁰ ≈ 0,69 para los iones de 2023; con la lectura de 20 qubits baja a ≈ 0,15 y ≈ 0,67. La comparación no es justa: los datos son de años y fabricantes distintos. La conectividad cambia la cuenta: en una rejilla de vecinos próximos el transpilador añade puertas (100 extra a 0,60 % multiplican por ≈0,55), mientras que en iones con transporte el coste es de tiempo y de error de memoria. La velocidad también decide: milisegundos frente a segundos por disparo. No hay respuesta única: depende de la fidelidad que necesites, del número de ejecuciones y de la disponibilidad; para decidir hay que consultar fichas actuales.'
+  rubric:
+  - Calcula ≈0,30 (superconductor 2019) y ≈0,69 (iones 2023) para las puertas
+  - Advierte que la comparación es injusta por años y fabricantes distintos
+  - Explica el efecto de la conectividad (SWAP extra frente a transporte)
+  - Menciona el tiempo por disparo o la disponibilidad y concluye que no hay respuesta única
+
+- id: q-hardware-landscape-003
+  prompt: 'Tienes dos cargas: (A) un bucle variacional de cientos de miles de ejecuciones; (B) un circuito profundo de pocos qubits con alta fidelidad que se ejecuta pocas veces. Con lo que sabes del tiempo por disparo y de la fidelidad, ¿qué plataforma mirarías primero en cada caso y qué cautelas harías?'
+  model_answer: 'Para A pesan las muestras: los superconductores tardan del orden de 0,2 ms por muestra (Sycamore, 2019) frente a 0,7-1,2 s por disparo en iones (H2, 2023), un factor de miles, y además la mitigación de errores cuesta más muestras. Miraría primero superconductores. Para B pesa la fidelidad y la conectividad total: iones (también átomos si hay que mover). Cautelas: las cifras son de máquinas, años y fabricantes distintos, es mi criterio y no una taxonomía de las fuentes, y la disponibilidad de las máquinas (nube y política de acceso) no consta y es parte de la decisión.'
+  rubric:
+  - Para A elige superconductores y justifica con el tiempo por muestra (~0,2 ms frente a ~1 s)
+  - Para B elige iones por la fidelidad y la conectividad total
+  - Menciona el coste de muestreo de la mitigación o el número de disparos
+  - 'Pone cautelas: cifras de distintos años/fabricantes y disponibilidad'
+
+- id: q-hardware-landscape-004
+  prompt: 'Un blog compara las «mejores fidelidades de dos qubits»: iones 99,9 % (2019), átomos neutros 99,71 % en Sr (2025), espines 99,81 % en Si (2022). Concluye: «ganan los iones». Evalúa la conclusión.'
+  model_answer: 'Las cifras son mejores valores de fuentes distintas, años distintos y condiciones distintas (la de espín sale de una compilación de valores «representativos»; la de átomos es la mejor entre cuatro elementos), no medianas de dispositivo ni del mismo tipo de dato (RB, Clifford, error efectivo). La tendencia importa más: los átomos y espines se acercan con el tiempo, y los iones en 2023 en el H2 dan 99,82 % por RB y 99,74 % de error efectivo, de otro tipo de dato. Ninguna fuente dice qué plataforma ganará; Bruzewicz (2019) ya decía que la modalidad ganadora seguía lejos de ser segura. Además, la fidelidad no es el único criterio: velocidad, escala y conectividad cuentan.'
+  rubric:
+  - Dice que son mejores valores, no medianas, y que son de años y métricas distintos
+  - Dice que la tendencia importa más que el valor
+  - Dice que ninguna fuente declara un ganador
+  - Menciona otros criterios (velocidad, escala, conectividad)
+
+- id: q-hardware-landscape-005
+  prompt: 'Se te pide ordenar tres resultados de «qubits lógicos»: (a) superconductores, memoria de código de superficie de distancia 7 con Λ = 2,14 (preprint de Google, 2024); (b) átomos neutros, hasta 48 qubits lógicos en 280 átomos (Harvard/QuEra, 2023); (c) iones, 12 qubits lógicos en una trampa de 56 qubits. ¿Se pueden ordenar? ¿Qué letra pequeña debe acompañar a cada uno?'
+  model_answer: 'No son directamente comparables. (a) Es una memoria por debajo del umbral: sin puertas lógicas, preprint y autores de Google, decodificador en tiempo real probado a distancia 5. (b) Se apoya en detección de errores con poselección, con una sola ronda de medida de estabilizadores en el resultado de código de superficie, y faltan rondas repetidas de corrección; los autores incluyen a QuEra. (c) Pocas rondas de síndrome y poselección, según Eisert y Preskill. Para cualquier «qubit lógico» hay que preguntar la distancia, el número de rondas, si es memoria o puertas, y si se descartan ejecuciones. Ninguno muestra todavía computación lógica universal repetida.'
+  rubric:
+  - Dice que no se pueden ordenar porque miden cosas distintas (memoria frente a detección con poselección)
+  - 'Da la letra pequeña de (a): solo memoria, sin puertas lógicas, preprint de Google'
+  - 'Da la letra pequeña de (b) o (c): poselección, pocas rondas de síndrome'
+  - Enumera qué preguntar (distancia, rondas, memoria o puertas, poselección)
+
+- id: q-hardware-landscape-006
+  prompt: 'Lees esta nota de prensa ficticia: «Con 1000 qubits y fidelidades del 99,9 %, nuestro procesador logra una ventaja cuántica de millones de años y ya incluye un qubit topológico y qubits lógicos». Señala las señales de alarma que reconoces.'
+  model_answer: 'Señales: un titular de número de qubits sin error ni conectividad; «99,9 %» sin decir si es de un qubit, dos qubits o lectura (ni si es el mejor valor presentado como mediana); una ventaja basada en una cifra de años sin el algoritmo clásico ni la fidelidad (estimación de los autores, objetivo móvil); un «qubit topológico» sin operación de qubit demostrada (solo se tiene una medida de paridad en un prototipo discutida); «qubits lógicos» sin distancia, rondas ni decir si se descartan ejecuciones (poselección presentada como corrección); y cifras del fabricante sin réplica independiente ni fecha de la medida.'
+  rubric:
+  - Señala el número de qubits sin error/conectividad y el «99,9 %» sin especificar 1Q/2Q/lectura
+  - Señala la cifra de años de ventaja sin algoritmo clásico ni fidelidad
+  - Señala el qubit topológico sin operación de qubit demostrada
+  - Señala los qubits lógicos sin distancia, rondas ni poselección
+  - Señala que son cifras del fabricante sin réplica independiente o fecha

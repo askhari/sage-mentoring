@@ -165,3 +165,38 @@
   generator: diagrams/src/zne_extrapolation.py
   license: CC-BY-4.0
   concepts: [error-mitigation]
+
+- id: t1-t2-decay
+  file: diagrams/t1-t2-decay.{lang}.svg
+  origin: own
+  generator: diagrams/src/t1_t2_decay.py
+  license: CC-BY-4.0
+  concepts: [coherence-and-fidelity]
+
+- id: transmon-levels
+  file: diagrams/transmon-levels.{lang}.svg
+  origin: own
+  generator: diagrams/src/transmon_levels.py
+  license: CC-BY-4.0
+  concepts: [superconducting-qubits]
+
+- id: rydberg-blockade
+  file: diagrams/rydberg-blockade.{lang}.svg
+  origin: own
+  generator: diagrams/src/rydberg_blockade.py
+  license: CC-BY-4.0
+  concepts: [neutral-atom-qubits]
+
+- id: advantage-timeline
+  file: diagrams/advantage-timeline.{lang}.svg
+  origin: own
+  generator: diagrams/src/advantage_timeline.py
+  license: CC-BY-4.0
+  concepts: [quantum-advantage-experiments]
+
+- id: platform-gate-time-vs-error
+  file: diagrams/platform-gate-time-vs-error.{lang}.svg
+  origin: own
+  generator: diagrams/src/platform_gate_time_vs_error.py
+  license: CC-BY-4.0
+  concepts: [hardware-landscape]

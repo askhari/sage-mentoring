@@ -1,0 +1,59 @@
+---
+source: eisert-2025
+concepts: [quantum-advantage-experiments, hardware-landscape, nisq-era, error-mitigation, threshold-theorem, logical-qubit-experiments, resource-estimation]
+---
+
+Accessed: full text of arXiv:2510.19928v3 (21 May 2026), perspective article by Eisert (FU Berlin) and Preskill (Caltech / AWS); page numbers are the arXiv pages. Not peer-reviewed as read (preprint). Hardware numbers are as of the 2025-26 literature the authors cite.
+
+## Quantum advantage experiments
+- Authors' summary: random circuit sampling (RCS) has arguably already gone beyond classical simulation. Superconducting geometrically local circuits with more than 100 qubits and over 40 layers of two-qubit gates; trapped-ion nonlocal circuits with more than 50 qubits and over 10 layers; a claim of classically hard sampling for post-selected logical circuits on neutral atoms (p. 6, Sec. IV) → quantum-advantage-experiments
+- They call RCS an important scientific milestone but of limited practical use, except as a benchmark of the machine's performance (p. 6, Sec. IV; p. 7, Box 3) → quantum-advantage-experiments
+- The hardness of sampling rests on widely believed complexity assumptions. The claims are asymptotic and need strict closeness of distributions, yet present superconducting devices are in a regime where direct classical simulation is infeasible (p. 7, Box 3) → quantum-advantage-experiments
+- Attempts to validate the classical hardness of RCS drove sizable improvements in classical circuit-simulation methods (p. 7, Box 3) → quantum-advantage-experiments
+- Google Quantum AI (Willow, superconducting) extracted a usable RCS signal with 103 qubits and 40 layers of two-qubit gates (p. 2, Sec. II). Note Preskill is affiliated with AWS, Eisert is independent of Google → quantum-advantage-experiments
+- Useful-advantage caveat: a proposed application should meet three criteria (efficient quantum algorithm with reachable resources; persuasive classical hardness; a useful answer). RCS meets the second only in a narrow sense (p. 1, Sec. I) → quantum-advantage-experiments
+- Quantum-vs-classical back-and-forth in simulation. IBM's 127-qubit kicked Ising experiment, first presented as quantum utility, was quickly matched classically by tensor-network and sparse Pauli dynamics methods. A D-Wave quench spin-glass simulation, reported as beyond classical reach, was partly reproduced by tensor networks (p. 8, Sec. V) → quantum-advantage-experiments
+- Fair comparison is subtle. Classical simulations are limited in size and quantum ones in accuracy, and more information can be extracted from a classical simulation output than from a quantum one (p. 8, Sec. V) → quantum-advantage-experiments
+- Google's 103-qubit out-of-time-order-correlator (OTOC) computation is described as arguably hard to simulate classically. It is qualitatively informative, but quantitatively useful data will likely need fault tolerance (p. 8, Sec. V) → quantum-advantage-experiments
+- Variational algorithms: advantage is not firmly established, and barren plateaus and local minima create a tension between trainability and advantage. Reduced-expressivity circuits tend to be classically simulable (p. 6, Sec. IV; p. 7, Box 3) → quantum-advantage-experiments
+- The authors say credible near-term advantage is more plausible in nonequilibrium quantum dynamics than in ground-state problems, and that demonstrating it for physically relevant systems remains open (p. 9, Box 4) → quantum-advantage-experiments
+
+## Hardware landscape (Box 1, p. 3, and Sec. III)
+- Most advanced platforms are trapped ions, superconducting circuits and neutral atoms. All have hundred-qubit-scale control but differ in gate speed, connectivity and technological demands (Box 1, p. 3) → hardware-landscape
+- Trapped ions: entangling gates use collective vibrational modes and take tens of microseconds. Strengths are long coherence, high fidelity and non-local connectivity via ion motion. Weaknesses are slow gates and limited transport speed. Modular scaling by optical links or shuttling (Box 1, p. 3) → hardware-landscape
+- Superconducting: transmons in a 2D grid with nearest-neighbor coupling. Microwave gates are fast, with entangling operations in tens of nanoseconds. Nearest-neighbor connectivity is a disadvantage. Wiring reduction would help scaling (Box 1, p. 3) → hardware-landscape
+- Neutral atoms: tweezer or lattice arrays, Rydberg-state entangling gates on sub-microsecond timescales, reconfigurable connectivity. Challenges are slow atom motion, measurement latency and the need for continuous reloading (Box 1, p. 3) → hardware-landscape
+- Across the three platforms, tens to hundreds of qubits have been demonstrated, with two-qubit gate error rates below 0.5% and approaching 0.1% in some cases (Box 1, p. 3) → hardware-landscape
+- Superconducting devices sample more circuits because they are faster, which helps error mitigation. Ions and atoms have higher connectivity, which widens applications and cuts QEC overhead (p. 3, Sec. II) → hardware-landscape
+- Rydberg platforms have a logical cycle time orders of magnitude longer than superconducting ones because of slow movement and readout (p. 4, Sec. III) → hardware-landscape
+- It is far from clear which modality will reach broadly useful machines. Rydberg atoms were not widely seen as promising a few years ago yet now lead early fault-tolerant demonstrations. Photonic and spin qubits may lag now but could leap forward (p. 5, Sec. III) → hardware-landscape
+- Alternative superconducting qubits are explored for lower gate errors. Fluxonium has large anharmonicity and low two-qubit error. Cat qubits suppress bit-flips. Dual-rail encodings make the dominant errors detectable. GKP bosonic encodings have exceeded the resonator's natural lifetime. Topological qubits are the earliest proposed route to intrinsic robustness (p. 5, Sec. III) → hardware-landscape
+- Today's most capable NISQ machines run fewer than 10^4 two-qubit operations. A broadly useful FASQ machine may need about 10^12 (a "teraquop"), via the megaquop (~10^6) and gigaquop (~10^9) regimes (p. 2, Sec. I) → hardware-landscape
+
+## NISQ era and error mitigation
+- Definitions: NISQ machines are not error corrected. FASQ (fault-tolerant application-scale quantum) machines are the target. The authors stress four gaps from NISQ to FASQ (abstract, p. 1) → nisq-era
+- High gate error rates limit NISQ power, and no immediate practical use has emerged. NISQ is described as impressive engineering, but practically useful and economically viable computations are not yet achieved (p. 1, Sec. I) → nisq-era
+- Current processors run circuits with thousands of entangling operations on about 100 qubits. IBM Heron reported mirrored kicked Ising circuits with up to 5000 gates (p. 2, Sec. II) → nisq-era
+- Without error correction, the sampling cost for noisy circuits grows exponentially with circuit volume, and this is fundamental. Under depolarizing noise, states drift to the maximally mixed state with depth (p. 2, Sec. II) → nisq-era
+- Error mitigation (QEM) means sampling a family of circuits and classically post-processing. Examples are zero-noise extrapolation (ZNE), probabilistic error cancellation (PEC, which needs a characterized noise model), subspace expansion, and readout-bias mitigation (p. 2, Sec. II) → error-mitigation
+- QEM is essential when gate count times error per gate is about 1. It becomes impractical for deep circuits because overhead can be exponential in circuit depth times width. The rigorous lower bounds scale with the backward lightcone volume of the observable, which can be much smaller for shallow local circuits (p. 2-3, Sec. II) → error-mitigation
+- With QEM, circuits of 10,000 or more gates might soon be reachable without hardware improvement, and width-100 by depth-100 circuits could give scientific insight into out-of-equilibrium dynamics (p. 3, Sec. II) → error-mitigation
+- QEM versus QEC overhead: QEM needs no extra qubits but its sampling cost is exponential. QEC overhead scales polylogarithmically in circuit volume but needs far more qubits than available today. QEM stays useful in the FASQ era, to extend reachable circuit size and mitigate compilation errors (p. 3, Sec. II) → error-mitigation
+
+## Error correction and fault tolerance
+- Threshold theorem (informal statement): if all physical error probabilities are below a constant accuracy threshold and errors are only weakly correlated, logical error rates can be made arbitrarily small, so arbitrarily long computations run reliably. First QEC codes date from 1995 and fault-tolerance schemes from 1996 (p. 4, Sec. III) → threshold-theorem
+- Overhead: simulating L ideal logical gates takes O(L polylog L) physical gates if noise is sufficiently weak and not too correlated (p. 4, Sec. III) → threshold-theorem
+- Surface-code scaling rule from numerical simulations: P_logical ≈ 0.1 (p_phys/p_thresh)^((d+1)/2), with p_thresh ≈ 10^-2 for two-qubit gate error and n = d² physical qubits per logical qubit (Box 2, p. 5) → threshold-theorem
+- A distance-d code corrects up to (d-1)/2 errors. Notation [[n,k,d]] (Box 2, p. 5) → threshold-theorem
+- Worked estimate: P_logical = 10^-11 (suitable for 10^3 logical qubits over 10^8 time steps) with p_phys = 10^-3 needs d ≈ 19. That is roughly 10^3 physical qubits per logical qubit including ancillas and gate overhead, so about 10^6 physical qubits in total (Box 2, p. 5) → resource-estimation
+- Useful fault-tolerant computations may need billions of logical operations on thousands of logical qubits. QEC also inflates runtime through repeated noisy syndrome rounds and limited logical parallelism (p. 4, Sec. III) → resource-estimation
+- Real-time decoding must keep up with the hardware, or the logical clock slows. Decoding gets harder as codes grow, so a fault-tolerant machine is a hybrid needing heavy classical processing (p. 4-5, Sec. III, Box 2) → resource-estimation
+- Estimates (refs. cited by the authors) say high-rate qLDPC codes with nonlocal connectivity in atomic processors could cut qubit overhead by orders of magnitude versus nearest-neighbor architectures. Example [[144,12,12]] code encodes 12 logical qubits where a surface code of the same distance and length encodes one. Their syndrome measurement needs geometrically non-local operations, which is hard on solid-state chips (p. 4, Sec. III) → resource-estimation
+- Google Willow (superconducting) surface-code memory with one logical qubit: millions of syndrome rounds of about 1 microsecond each. The logical error rate per round improved by a factor Λ ≈ 2 for each step of code distance 3→5→7 (p. 4, Sec. III) → logical-qubit-experiments
+- Atomic fault-tolerant demonstrations: 48 logical qubits on a 280-qubit Rydberg tweezer array, and 12 logical qubits on a 56-qubit ion trap. Caveats: only a few syndrome rounds, and postselection discards runs where errors are detected, which will not scale (p. 4, Sec. III) → logical-qubit-experiments
+- The authors expect that further hardware progress yields larger Λ and eventually logical two-qubit gates better than physical gates. Fault tolerance would then reach the megaquop regime (circuits of 10^6 or more two-qubit gates) (p. 4 and p. 6, Sec. III) → logical-qubit-experiments
+
+## Not covered / level
+- Requested but absent: no detail on coherence times, individual platform specs beyond Box 1, or the Sycamore/Jiuzhang experiments by name (no boson sampling coverage). No mention of a Quantinuum or Google-specific advantage number beyond those listed.
+- Level: specialist perspective, accessible to a university reader; high-level and citation-driven (the cited refs are not read here).
+- ⚠️ The article's claim that the surface-code threshold is about 10^-2 is an approximate simulation-based figure (Box 2); do not treat Eq. 1 as exact.

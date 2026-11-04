@@ -352,6 +352,17 @@
   access: open
   accessed: 2026-11-03
   notes: "full text (arXiv). Reviews of Modern Physics 95, 025003."
+- id: stano-2022
+  type: paper
+  reliability: B
+  title: "Review of performance metrics of spin qubits in gated semiconducting nanostructures"
+  authors: ["Peter Stano", "Daniel Loss"]
+  year: 2022
+  language: en
+  identifiers: { doi: "10.1038/s42254-022-00484-w", url: "https://arxiv.org/abs/2107.06485" }
+  access: open
+  accessed: 2026-11-04
+  notes: "full text (arXiv v9, 24 Mar 2025, values reported up to Sep 2024; Nature Reviews Physics 4, 672). Curated table of spin-qubit coherence, speed and fidelity."
 - id: slussarenko-2019
   type: paper
   reliability: B
@@ -399,14 +410,80 @@
 - id: eisert-2025
   type: paper
   reliability: B
-  title: "Mind the gaps (review of quantum hardware platforms)"
-  authors: ["Jens Eisert", "et al."]
+  title: "Mind the gaps: The fraught road to quantum advantage"
+  authors: ["Jens Eisert", "John Preskill"]
   year: 2025
   language: en
   identifiers: { url: "https://arxiv.org/abs/2510.19928" }
   access: open
-  accessed: 2026-11-03
-  notes: "unconfirmed: found only via an aggregator; researcher must confirm title, authors and access, and whether it is peer-reviewed (else downgrade to C). Candidate for current hardware state."
+  accessed: 2026-11-04
+  notes: "full text (arXiv preprint, v3 of 21 May 2026; no journal reference at access). Confirmed title and authors. Four transitions from NISQ to fault tolerance; not a platform-by-platform review."
+- id: moses-2023
+  type: paper
+  reliability: B
+  title: "A Race-Track Trapped-Ion Quantum Processor"
+  authors: ["S. A. Moses", "C. H. Baldwin", "M. S. Allman", "et al."]
+  year: 2023
+  language: en
+  identifiers: { doi: "10.1103/PhysRevX.13.041052", url: "https://arxiv.org/abs/2305.03828" }
+  access: open
+  accessed: 2026-11-04
+  notes: "full text (arXiv; Physical Review X 13, 041052). Quantinuum H2 (QCCD). Authors from Quantinuum (company)."
+- id: saffman-2025
+  type: paper
+  reliability: B
+  title: "Quantum computing with atomic qubit arrays: confronting the cost of connectivity"
+  authors: ["M. Saffman"]
+  year: 2025
+  language: en
+  identifiers: { url: "https://arxiv.org/abs/2505.11218" }
+  access: open
+  accessed: 2026-11-04
+  notes: "full text (arXiv v3, Nov 2025). Lecture notes to appear in the Proceedings of the Enrico Fermi School, Course 214 (Varenna 2024). Recent neutral-atom review."
+- id: aghaee-2025
+  type: paper
+  reliability: B
+  title: "Interferometric single-shot parity measurement in InAs–Al hybrid devices"
+  authors: ["Microsoft Azure Quantum", "M. Aghaee", "et al."]
+  year: 2025
+  language: en
+  identifiers: { doi: "10.1038/s41586-024-08445-2", url: "https://arxiv.org/abs/2401.09549" }
+  access: open
+  accessed: 2026-11-04
+  notes: "full text (arXiv v4; Nature 638, 651–655). Authors from Microsoft (company). The authors say the measurement alone does not establish the states are topological; see legg-2025 for a critique."
+- id: legg-2025
+  type: paper
+  reliability: B
+  title: "Comment on \"Interferometric single-shot parity measurement in InAs-Al hybrid devices\", Microsoft Quantum, Nature 638, 651-655 (2025)"
+  authors: ["Henry F. Legg"]
+  year: 2025
+  language: en
+  identifiers: { url: "https://arxiv.org/abs/2503.08944" }
+  access: open
+  accessed: 2026-11-04
+  notes: "full text (arXiv preprint). Critique of the topological gap protocol behind aghaee-2025; check whether it was published as a Matters Arising."
+- id: pan-2022
+  type: paper
+  reliability: B
+  title: "Solving the Sampling Problem of the Sycamore Quantum Circuits"
+  authors: ["Feng Pan", "Keyang Chen", "Pan Zhang"]
+  year: 2022
+  language: en
+  identifiers: { doi: "10.1103/PhysRevLett.129.090502", url: "https://arxiv.org/abs/2111.03011" }
+  access: open
+  accessed: 2026-11-04
+  notes: "full text (arXiv; Physical Review Letters 129, 090502). Classical tensor-network sampling of the arute-2019 circuits."
+- id: zhong-2020
+  type: paper
+  reliability: B
+  title: "Quantum computational advantage using photons"
+  authors: ["Han-Sen Zhong", "Hui Wang", "Yu-Hao Deng", "et al."]
+  year: 2020
+  language: en
+  identifiers: { doi: "10.1126/science.abe8770", url: "https://arxiv.org/abs/2012.01625" }
+  access: open
+  accessed: 2026-11-04
+  notes: "full text (arXiv; Science 370, 1460–1463). Gaussian boson sampling with 76 detected photons (Jiuzhang)."
 
 # --- Error correction ---
 - id: fowler-2012

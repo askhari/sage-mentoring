@@ -1,0 +1,932 @@
+- id: q-coherence-and-fidelity-001
+  concept: coherence-and-fidelity
+  layer: 1
+  type: single-choice
+  sources:
+  - krantz-2019
+  - stano-2022
+  correct: c
+
+- id: q-coherence-and-fidelity-002
+  concept: coherence-and-fidelity
+  layer: 1
+  type: short-answer
+  sources:
+  - krantz-2019
+  - stano-2022
+
+- id: q-coherence-and-fidelity-003
+  concept: coherence-and-fidelity
+  layer: 1
+  type: single-choice
+  sources:
+  - krantz-2019
+  correct: a
+
+- id: q-coherence-and-fidelity-004
+  concept: coherence-and-fidelity
+  layer: 1
+  type: single-choice
+  sources:
+  - divincenzo-2000
+  - stano-2022
+  correct: b
+
+- id: q-coherence-and-fidelity-005
+  concept: coherence-and-fidelity
+  layer: 1
+  type: short-answer
+  sources:
+  - arute-2019
+
+- id: q-coherence-and-fidelity-006
+  concept: coherence-and-fidelity
+  layer: 2
+  type: single-choice
+  sources:
+  - krantz-2019
+  - stano-2022
+  correct: d
+
+- id: q-coherence-and-fidelity-007
+  concept: coherence-and-fidelity
+  layer: 2
+  type: single-choice
+  sources:
+  - krantz-2019
+  correct: a
+
+- id: q-coherence-and-fidelity-008
+  concept: coherence-and-fidelity
+  layer: 2
+  type: single-choice
+  sources:
+  - stano-2022
+  - bruzewicz-2019
+  correct: d
+
+- id: q-coherence-and-fidelity-009
+  concept: coherence-and-fidelity
+  layer: 2
+  type: single-choice
+  sources:
+  - stano-2022
+  correct: c
+
+- id: q-coherence-and-fidelity-010
+  concept: coherence-and-fidelity
+  layer: 2
+  type: open
+  sources:
+  - arute-2019
+
+- id: q-coherence-and-fidelity-011
+  concept: coherence-and-fidelity
+  layer: 2
+  type: open
+  sources:
+  - bruzewicz-2019
+  - stano-2022
+  - arute-2019
+  - moses-2023
+
+- id: q-coherence-and-fidelity-012
+  concept: coherence-and-fidelity
+  layer: 3
+  type: case
+  sources:
+  - arute-2019
+  - stano-2022
+  - moses-2023
+
+- id: q-coherence-and-fidelity-013
+  concept: coherence-and-fidelity
+  layer: 3
+  type: case
+  sources:
+  - arute-2019
+  - moses-2023
+  - eisert-2025
+
+- id: q-coherence-and-fidelity-014
+  concept: coherence-and-fidelity
+  layer: 3
+  type: case
+  sources:
+  - divincenzo-2000
+  - bruzewicz-2019
+  - arute-2019
+
+- id: q-coherence-and-fidelity-015
+  concept: coherence-and-fidelity
+  layer: 3
+  type: case
+  sources:
+  - saffman-2025
+  - henriet-2020
+
+- id: q-coherence-and-fidelity-016
+  concept: coherence-and-fidelity
+  layer: 3
+  type: case
+  sources:
+  - stano-2022
+  - google-2025
+  - saffman-2025
+
+- id: q-divincenzo-criteria-001
+  concept: divincenzo-criteria
+  layer: 1
+  type: single-choice
+  sources:
+  - divincenzo-2000
+  correct: b
+
+- id: q-divincenzo-criteria-002
+  concept: divincenzo-criteria
+  layer: 1
+  type: short-answer
+  sources:
+  - divincenzo-2000
+
+- id: q-divincenzo-criteria-003
+  concept: divincenzo-criteria
+  layer: 1
+  type: single-choice
+  sources:
+  - divincenzo-2000
+  correct: c
+
+- id: q-divincenzo-criteria-004
+  concept: divincenzo-criteria
+  layer: 1
+  type: short-answer
+  sources:
+  - divincenzo-2000
+
+- id: q-divincenzo-criteria-005
+  concept: divincenzo-criteria
+  layer: 2
+  type: single-choice
+  sources:
+  - divincenzo-2000
+  correct: d
+
+- id: q-divincenzo-criteria-006
+  concept: divincenzo-criteria
+  layer: 2
+  type: single-choice
+  sources:
+  - bruzewicz-2019
+  correct: a
+
+- id: q-divincenzo-criteria-007
+  concept: divincenzo-criteria
+  layer: 2
+  type: single-choice
+  sources:
+  - divincenzo-2000
+  - krantz-2019
+  - eisert-2025
+  correct: b
+
+- id: q-divincenzo-criteria-008
+  concept: divincenzo-criteria
+  layer: 2
+  type: open
+  sources:
+  - divincenzo-2000
+  - bruzewicz-2019
+  - burkard-2023
+
+- id: q-divincenzo-criteria-009
+  concept: divincenzo-criteria
+  layer: 3
+  type: case
+  sources:
+  - divincenzo-2000
+  - stano-2022
+  - preskill-2018
+
+- id: q-divincenzo-criteria-010
+  concept: divincenzo-criteria
+  layer: 3
+  type: case
+  sources:
+  - divincenzo-2000
+  - aghaee-2025
+  - nayak-2008
+
+- id: q-divincenzo-criteria-011
+  concept: divincenzo-criteria
+  layer: 3
+  type: case
+  sources:
+  - bruzewicz-2019
+  - saffman-2025
+  - moses-2023
+
+- id: q-divincenzo-criteria-012
+  concept: divincenzo-criteria
+  layer: 3
+  type: case
+  sources:
+  - arute-2019
+  - bruzewicz-2019
+  - eisert-2025
+  - google-2025
+
+- id: q-superconducting-qubits-001
+  concept: superconducting-qubits
+  layer: 1
+  type: single-choice
+  sources:
+  - krantz-2019
+  - kjaergaard-2020
+  correct: b
+
+- id: q-superconducting-qubits-002
+  concept: superconducting-qubits
+  layer: 1
+  type: single-choice
+  sources:
+  - kjaergaard-2020
+  - krantz-2019
+  correct: a
+
+- id: q-superconducting-qubits-003
+  concept: superconducting-qubits
+  layer: 1
+  type: short-answer
+  sources:
+  - kjaergaard-2020
+  - krantz-2019
+
+- id: q-superconducting-qubits-004
+  concept: superconducting-qubits
+  layer: 1
+  type: single-choice
+  sources:
+  - krantz-2019
+  - kjaergaard-2020
+  - eisert-2025
+  correct: c
+
+- id: q-superconducting-qubits-005
+  concept: superconducting-qubits
+  layer: 2
+  type: single-choice
+  sources:
+  - krantz-2019
+  correct: d
+
+- id: q-superconducting-qubits-006
+  concept: superconducting-qubits
+  layer: 2
+  type: single-choice
+  sources:
+  - krantz-2019
+  correct: d
+
+- id: q-superconducting-qubits-007
+  concept: superconducting-qubits
+  layer: 2
+  type: single-choice
+  sources:
+  - krantz-2019
+  - kjaergaard-2020
+  correct: b
+
+- id: q-superconducting-qubits-008
+  concept: superconducting-qubits
+  layer: 2
+  type: open
+  sources:
+  - arute-2019
+  - krantz-2019
+
+- id: q-superconducting-qubits-009
+  concept: superconducting-qubits
+  layer: 2
+  type: open
+  sources:
+  - krantz-2019
+  - kjaergaard-2020
+
+- id: q-superconducting-qubits-010
+  concept: superconducting-qubits
+  layer: 3
+  type: case
+  sources:
+  - arute-2019
+  - eisert-2025
+  - kjaergaard-2020
+
+- id: q-superconducting-qubits-011
+  concept: superconducting-qubits
+  layer: 3
+  type: case
+  sources:
+  - arute-2019
+  - eisert-2025
+
+- id: q-superconducting-qubits-012
+  concept: superconducting-qubits
+  layer: 3
+  type: case
+  sources:
+  - google-2025
+  - eisert-2025
+
+- id: q-superconducting-qubits-013
+  concept: superconducting-qubits
+  layer: 3
+  type: case
+  sources:
+  - arute-2019
+  - kjaergaard-2020
+  - krantz-2019
+
+- id: q-trapped-ion-qubits-001
+  concept: trapped-ion-qubits
+  layer: 1
+  type: single-choice
+  sources:
+  - bruzewicz-2019
+  correct: a
+
+- id: q-trapped-ion-qubits-002
+  concept: trapped-ion-qubits
+  layer: 1
+  type: single-choice
+  sources:
+  - bruzewicz-2019
+  correct: c
+
+- id: q-trapped-ion-qubits-003
+  concept: trapped-ion-qubits
+  layer: 1
+  type: short-answer
+  sources:
+  - bruzewicz-2019
+
+- id: q-trapped-ion-qubits-004
+  concept: trapped-ion-qubits
+  layer: 1
+  type: single-choice
+  sources:
+  - bruzewicz-2019
+  correct: b
+
+- id: q-trapped-ion-qubits-005
+  concept: trapped-ion-qubits
+  layer: 2
+  type: single-choice
+  sources:
+  - bruzewicz-2019
+  correct: a
+
+- id: q-trapped-ion-qubits-006
+  concept: trapped-ion-qubits
+  layer: 2
+  type: single-choice
+  sources:
+  - bruzewicz-2019
+  correct: d
+
+- id: q-trapped-ion-qubits-007
+  concept: trapped-ion-qubits
+  layer: 2
+  type: single-choice
+  sources:
+  - moses-2023
+  correct: c
+
+- id: q-trapped-ion-qubits-008
+  concept: trapped-ion-qubits
+  layer: 2
+  type: open
+  sources:
+  - bruzewicz-2019
+  - moses-2023
+
+- id: q-trapped-ion-qubits-009
+  concept: trapped-ion-qubits
+  layer: 3
+  type: case
+  sources:
+  - moses-2023
+  - arute-2019
+  - henriet-2020
+
+- id: q-trapped-ion-qubits-010
+  concept: trapped-ion-qubits
+  layer: 3
+  type: case
+  sources:
+  - moses-2023
+
+- id: q-trapped-ion-qubits-011
+  concept: trapped-ion-qubits
+  layer: 3
+  type: case
+  sources:
+  - moses-2023
+
+- id: q-trapped-ion-qubits-012
+  concept: trapped-ion-qubits
+  layer: 3
+  type: case
+  sources:
+  - moses-2023
+  - bruzewicz-2019
+
+- id: q-neutral-atom-qubits-001
+  concept: neutral-atom-qubits
+  layer: 1
+  type: single-choice
+  sources:
+  - henriet-2020
+  correct: a
+
+- id: q-neutral-atom-qubits-002
+  concept: neutral-atom-qubits
+  layer: 1
+  type: short-answer
+  sources:
+  - henriet-2020
+
+- id: q-neutral-atom-qubits-003
+  concept: neutral-atom-qubits
+  layer: 1
+  type: single-choice
+  sources:
+  - henriet-2020
+  correct: c
+
+- id: q-neutral-atom-qubits-004
+  concept: neutral-atom-qubits
+  layer: 1
+  type: single-choice
+  sources:
+  - henriet-2020
+  - saffman-2025
+  correct: d
+
+- id: q-neutral-atom-qubits-005
+  concept: neutral-atom-qubits
+  layer: 2
+  type: single-choice
+  sources:
+  - henriet-2020
+  correct: b
+
+- id: q-neutral-atom-qubits-006
+  concept: neutral-atom-qubits
+  layer: 2
+  type: single-choice
+  sources:
+  - saffman-2025
+  correct: b
+
+- id: q-neutral-atom-qubits-007
+  concept: neutral-atom-qubits
+  layer: 2
+  type: single-choice
+  sources:
+  - henriet-2020
+  - saffman-2025
+  correct: c
+
+- id: q-neutral-atom-qubits-008
+  concept: neutral-atom-qubits
+  layer: 2
+  type: open
+  sources:
+  - henriet-2020
+  - saffman-2025
+
+- id: q-neutral-atom-qubits-009
+  concept: neutral-atom-qubits
+  layer: 3
+  type: case
+  sources:
+  - saffman-2025
+
+- id: q-neutral-atom-qubits-010
+  concept: neutral-atom-qubits
+  layer: 3
+  type: case
+  sources:
+  - bluvstein-2024
+  - eisert-2025
+
+- id: q-neutral-atom-qubits-011
+  concept: neutral-atom-qubits
+  layer: 3
+  type: case
+  sources:
+  - henriet-2020
+
+- id: q-neutral-atom-qubits-012
+  concept: neutral-atom-qubits
+  layer: 3
+  type: case
+  sources:
+  - saffman-2025
+  - google-2025
+  - eisert-2025
+
+- id: q-neutral-atom-qubits-013
+  concept: neutral-atom-qubits
+  layer: 3
+  type: case
+  sources:
+  - henriet-2020
+
+- id: q-photonic-qubits-001
+  concept: photonic-qubits
+  layer: 1
+  type: single-choice
+  sources:
+  - slussarenko-2019
+  correct: a
+
+- id: q-photonic-qubits-002
+  concept: photonic-qubits
+  layer: 1
+  type: single-choice
+  sources:
+  - slussarenko-2019
+  - divincenzo-2000
+  correct: d
+
+- id: q-photonic-qubits-003
+  concept: photonic-qubits
+  layer: 1
+  type: single-choice
+  sources:
+  - slussarenko-2019
+  correct: d
+
+- id: q-photonic-qubits-004
+  concept: photonic-qubits
+  layer: 1
+  type: short-answer
+  sources:
+  - slussarenko-2019
+
+- id: q-photonic-qubits-005
+  concept: photonic-qubits
+  layer: 2
+  type: single-choice
+  sources:
+  - slussarenko-2019
+  correct: a
+
+- id: q-photonic-qubits-006
+  concept: photonic-qubits
+  layer: 2
+  type: single-choice
+  sources:
+  - bartolucci-2023
+  correct: c
+
+- id: q-photonic-qubits-007
+  concept: photonic-qubits
+  layer: 2
+  type: single-choice
+  sources:
+  - slussarenko-2019
+  correct: b
+
+- id: q-photonic-qubits-008
+  concept: photonic-qubits
+  layer: 2
+  type: open
+  sources:
+  - slussarenko-2019
+  - zhong-2020
+
+- id: q-photonic-qubits-009
+  concept: photonic-qubits
+  layer: 3
+  type: case
+  sources:
+  - bartolucci-2023
+  - zhong-2020
+
+- id: q-photonic-qubits-010
+  concept: photonic-qubits
+  layer: 3
+  type: case
+  sources:
+  - zhong-2020
+  - bartolucci-2023
+
+- id: q-photonic-qubits-011
+  concept: photonic-qubits
+  layer: 3
+  type: case
+  sources:
+  - slussarenko-2019
+  - bruzewicz-2019
+
+- id: q-photonic-qubits-012
+  concept: photonic-qubits
+  layer: 3
+  type: case
+  sources:
+  - zhong-2020
+
+- id: q-spin-qubits-001
+  concept: spin-qubits
+  layer: 2
+  type: single-choice
+  sources:
+  - burkard-2023
+  correct: a
+
+- id: q-spin-qubits-002
+  concept: spin-qubits
+  layer: 2
+  type: single-choice
+  sources:
+  - stano-2022
+  - burkard-2023
+  correct: c
+
+- id: q-spin-qubits-003
+  concept: spin-qubits
+  layer: 2
+  type: single-choice
+  sources:
+  - stano-2022
+  correct: d
+
+- id: q-spin-qubits-004
+  concept: spin-qubits
+  layer: 2
+  type: single-choice
+  sources:
+  - stano-2022
+  correct: b
+
+- id: q-spin-qubits-005
+  concept: spin-qubits
+  layer: 2
+  type: open
+  sources:
+  - burkard-2023
+  - stano-2022
+
+- id: q-spin-qubits-006
+  concept: spin-qubits
+  layer: 3
+  type: case
+  sources:
+  - stano-2022
+  - burkard-2023
+
+- id: q-spin-qubits-007
+  concept: spin-qubits
+  layer: 3
+  type: case
+  sources:
+  - stano-2022
+  - burkard-2023
+
+- id: q-spin-qubits-008
+  concept: spin-qubits
+  layer: 3
+  type: case
+  sources:
+  - stano-2022
+
+- id: q-spin-qubits-009
+  concept: spin-qubits
+  layer: 3
+  type: case
+  sources:
+  - stano-2022
+  - burkard-2023
+
+- id: q-topological-qubits-001
+  concept: topological-qubits
+  layer: 2
+  type: single-choice
+  sources:
+  - nayak-2008
+  correct: c
+
+- id: q-topological-qubits-002
+  concept: topological-qubits
+  layer: 2
+  type: single-choice
+  sources:
+  - nayak-2008
+  correct: b
+
+- id: q-topological-qubits-003
+  concept: topological-qubits
+  layer: 2
+  type: single-choice
+  sources:
+  - nayak-2008
+  correct: a
+
+- id: q-topological-qubits-004
+  concept: topological-qubits
+  layer: 2
+  type: single-choice
+  sources:
+  - aghaee-2025
+  correct: d
+
+- id: q-topological-qubits-005
+  concept: topological-qubits
+  layer: 2
+  type: open
+  sources:
+  - aghaee-2025
+  - legg-2025
+
+- id: q-topological-qubits-006
+  concept: topological-qubits
+  layer: 3
+  type: case
+  sources:
+  - aghaee-2025
+  - legg-2025
+  - nayak-2008
+
+- id: q-topological-qubits-007
+  concept: topological-qubits
+  layer: 3
+  type: case
+  sources:
+  - legg-2025
+  - aghaee-2025
+
+- id: q-topological-qubits-008
+  concept: topological-qubits
+  layer: 3
+  type: case
+  sources:
+  - aghaee-2025
+  - preskill-2018
+
+- id: q-topological-qubits-009
+  concept: topological-qubits
+  layer: 3
+  type: case
+  sources:
+  - aghaee-2025
+  - legg-2025
+  - nayak-2008
+
+- id: q-quantum-advantage-experiments-001
+  concept: quantum-advantage-experiments
+  layer: 2
+  type: single-choice
+  sources:
+  - arute-2019
+  correct: a
+
+- id: q-quantum-advantage-experiments-002
+  concept: quantum-advantage-experiments
+  layer: 2
+  type: single-choice
+  sources:
+  - arute-2019
+  correct: c
+
+- id: q-quantum-advantage-experiments-003
+  concept: quantum-advantage-experiments
+  layer: 2
+  type: single-choice
+  sources:
+  - pan-2022
+  correct: b
+
+- id: q-quantum-advantage-experiments-004
+  concept: quantum-advantage-experiments
+  layer: 2
+  type: single-choice
+  sources:
+  - zhong-2020
+  correct: d
+
+- id: q-quantum-advantage-experiments-005
+  concept: quantum-advantage-experiments
+  layer: 2
+  type: open
+  sources:
+  - pan-2022
+  - eisert-2025
+  - arute-2019
+
+- id: q-quantum-advantage-experiments-006
+  concept: quantum-advantage-experiments
+  layer: 2
+  type: open
+  sources:
+  - zhong-2020
+  - kjaergaard-2020
+
+- id: q-quantum-advantage-experiments-007
+  concept: quantum-advantage-experiments
+  layer: 3
+  type: case
+  sources:
+  - arute-2019
+  - zhong-2020
+  - pan-2022
+  - eisert-2025
+
+- id: q-quantum-advantage-experiments-008
+  concept: quantum-advantage-experiments
+  layer: 3
+  type: case
+  sources:
+  - arute-2019
+  - saffman-2025
+
+- id: q-quantum-advantage-experiments-009
+  concept: quantum-advantage-experiments
+  layer: 3
+  type: case
+  sources:
+  - pan-2022
+  - arute-2019
+
+- id: q-quantum-advantage-experiments-010
+  concept: quantum-advantage-experiments
+  layer: 3
+  type: case
+  sources:
+  - zhong-2020
+
+- id: q-quantum-advantage-experiments-011
+  concept: quantum-advantage-experiments
+  layer: 3
+  type: case
+  sources:
+  - eisert-2025
+  - moses-2023
+  - bluvstein-2024
+
+- id: q-hardware-landscape-001
+  concept: hardware-landscape
+  layer: 3
+  type: case
+  sources:
+  - arute-2019
+  - stano-2022
+  - moses-2023
+
+- id: q-hardware-landscape-002
+  concept: hardware-landscape
+  layer: 3
+  type: case
+  sources:
+  - arute-2019
+  - moses-2023
+  - eisert-2025
+
+- id: q-hardware-landscape-003
+  concept: hardware-landscape
+  layer: 3
+  type: case
+  sources:
+  - arute-2019
+  - moses-2023
+  - eisert-2025
+
+- id: q-hardware-landscape-004
+  concept: hardware-landscape
+  layer: 3
+  type: case
+  sources:
+  - stano-2022
+  - bruzewicz-2019
+  - saffman-2025
+
+- id: q-hardware-landscape-005
+  concept: hardware-landscape
+  layer: 3
+  type: case
+  sources:
+  - google-2025
+  - bluvstein-2024
+  - eisert-2025
+
+- id: q-hardware-landscape-006
+  concept: hardware-landscape
+  layer: 3
+  type: case
+  sources:
+  - moses-2023
+  - aghaee-2025
+  - arute-2019
+  - saffman-2025

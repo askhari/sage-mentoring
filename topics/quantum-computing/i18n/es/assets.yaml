@@ -93,3 +93,23 @@
 - id: zne-extrapolation
   alt: "Gráfico de ⟨ZZZZ⟩ frente al factor de ruido λ (cada CX repetido λ veces). Tres puntos medidos: 0,940 en λ = 1, 0,834 en λ = 3 y 0,739 en λ = 5. Un ajuste lineal extrapola a 0,988 en λ = 0 y un ajuste exponencial a 0,998; la línea del valor ideal está en 1."
   caption: "Extrapolación a ruido cero del caso trabajado: GHZ de 4 qubits con ruido despolarizante del 2 % por CX, simulado con Qiskit Aer (una ejecución). Diagrama propio."
+
+- id: t1-t2-decay
+  alt: "Dos gráficas frente al tiempo de 0 a 300 µs. Izquierda: la población de |1⟩ cae como una exponencial con T1 = 85 µs. Derecha: una señal de Ramsey que oscila con una envolvente que decae con T2* ≈ 95 µs, y la señal con eco de Hahn, que decae más despacio, con T2E = 120 µs; una línea vertical discontinua en 170 µs marca la cota 2·T1."
+  caption: "Relajación (T1) y desfase (T2*, T2E) de un mismo transmon, con las cifras de Krantz et al. 2019; la frecuencia de las franjas de Ramsey es ilustrativa. Diagrama propio."
+
+- id: transmon-levels
+  alt: "Izquierda: potencial parabólico de un oscilador armónico con cuatro niveles equiespaciados, todas las transiciones a 5,0 GHz. Derecha: potencial coseno de un transmon con cuatro niveles cuyas transiciones bajan: f01 ≈ 5,0 GHz, f12 ≈ 4,8 GHz y f23 ≈ 4,6 GHz; la anarmonicidad es α ≈ −200 MHz, y los niveles |0⟩ y |1⟩ forman el qubit."
+  caption: "Por qué el transmon es un qubit: su anarmonicidad permite excitar solo la transición 0–1. Niveles con la aproximación habitual para EJ ≫ EC, ajustada a f01 = 5 GHz y α = −200 MHz (Kjaergaard et al. 2020). Diagrama propio."
+
+- id: rydberg-blockade
+  alt: "Panel A: dos átomos en pinzas ópticas, con niveles |1⟩, |0⟩ y el de Rydberg |r⟩. El átomo de control está en |r⟩ y desplaza el nivel de Rydberg del objetivo, de modo que el láser ya no es resonante y el objetivo no puede excitarse. Panel B: la puerta CZ en tres pulsos sobre dos líneas: π en el control, 2π en el objetivo y π en el control. Texto: el láser acopla |0⟩ con |r⟩; |11⟩ no cambia y |00⟩, |01⟩ y |10⟩ toman fase −1, que es una CZ salvo una fase global."
+  caption: "Bloqueo de Rydberg y puerta CZ, según el recuadro de Henriet et al. 2020 (autores de Pasqal). Esquema propio, sin escala."
+
+- id: advantage-timeline
+  alt: "Línea temporal con dos carriles. Arriba, reclamaciones cuánticas: Sycamore 2019 (53 qubits, 20 ciclos, 200 s frente a 10 000 años, extrapolación de los autores); Jiuzhang 2020 (muestreo de bosones, 76 clics, 200 s frente a 2500 millones de años, estimación de los autores); más tarde, el RCS de Google con 103 qubits y 40 capas, y el experimento de IBM de Ising con patada de 127 qubits. Abajo, respuestas clásicas: IBM propone guardar el estado en Summit (2019); Pan, Chen y Zhang 2022, unas 15 h en 512 GPU con fidelidad estimada de 0,0037 frente a 0,002; y el experimento de IBM reproducido con redes tensoriales y dinámica de Pauli."
+  caption: "El ida y vuelta entre reclamaciones de ventaja cuántica y simulaciones clásicas, según Arute et al. 2019, Zhong et al. 2020, Pan et al. 2022 y Eisert y Preskill (2025-26). Diagrama propio."
+
+- id: platform-gate-time-vs-error
+  alt: "Dispersión en escala logarítmica del tiempo de la puerta de dos qubits (de 1 ns a 1 ms) frente a su error (de 0,05 % a 10 %). Superconductores: Sycamore 2019, 12 ns con 0,30 % aislada y 0,60 % en paralelo; CZ 2020, 60 ns y 0,3 %. Iones (2019): 30 µs y 0,09 %, 100 µs y 0,1 %, y 1,6 µs y 0,2 %. Átomos neutros: 1 µs y 5,9 % (2018), y una barra para 2024-25 con 0,29 % y puertas de menos de 1 µs. Espines en silicio 2022: 40 ns y 0,19 %. Una banda gris entre 0,1 % y 0,5 % marca el estado de 2025 según Eisert y Preskill."
+  caption: "Tiempo frente a error de las puertas de dos qubits por plataforma, con cifras de años y dispositivos distintos: no es un ranking. Datos de Arute et al. 2019, Kjaergaard et al. 2020, Bruzewicz et al. 2019, Henriet et al. 2020, Saffman 2025, Stano y Loss 2022 y Eisert y Preskill 2025-26. Diagrama propio."

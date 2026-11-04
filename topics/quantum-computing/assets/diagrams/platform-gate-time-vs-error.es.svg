@@ -1,0 +1,67 @@
+<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1180 600' width='1180' height='600' font-family='Helvetica, Arial, sans-serif'>
+<rect width='100%' height='100%' fill='white'/>
+<defs><marker id='arrow-ink' viewBox='0 0 10 10' refX='9' refY='5' markerWidth='7' markerHeight='7' orient='auto-start-reverse'><path d='M0,0 L10,5 L0,10 z' fill='#222222'/></marker><marker id='arrow-a1' viewBox='0 0 10 10' refX='9' refY='5' markerWidth='7' markerHeight='7' orient='auto-start-reverse'><path d='M0,0 L10,5 L0,10 z' fill='#1f6fb2'/></marker><marker id='arrow-a2' viewBox='0 0 10 10' refX='9' refY='5' markerWidth='7' markerHeight='7' orient='auto-start-reverse'><path d='M0,0 L10,5 L0,10 z' fill='#c2571a'/></marker><marker id='arrow-a3' viewBox='0 0 10 10' refX='9' refY='5' markerWidth='7' markerHeight='7' orient='auto-start-reverse'><path d='M0,0 L10,5 L0,10 z' fill='#2e8b57'/></marker><marker id='arrow-muted' viewBox='0 0 10 10' refX='9' refY='5' markerWidth='7' markerHeight='7' orient='auto-start-reverse'><path d='M0,0 L10,5 L0,10 z' fill='#888888'/></marker></defs>
+<rect x='110.0' y='317.5' width='760.0' height='127.6' rx='0' stroke='none' fill='#eeeeee' stroke-width='0'/>
+<text x='862.0' y='333.5' font-size='12' fill='#888888' text-anchor='end' font-weight='normal'>2025: &lt; 0,5 % y acercándose a 0,1 % en las mejores plataformas (Eisert y Preskill)</text>
+<line x1='110.0' y1='500.0' x2='870.0' y2='500.0' stroke='#222222' stroke-width='1.3'/>
+<line x1='110.0' y1='500.0' x2='110.0' y2='80.0' stroke='#222222' stroke-width='1.3'/>
+<line x1='110.0' y1='500.0' x2='110.0' y2='506.0' stroke='#222222' stroke-width='1'/>
+<text x='110.0' y='522.0' font-size='12' fill='#222222' text-anchor='middle' font-weight='normal'>1 ns</text>
+<line x1='236.7' y1='500.0' x2='236.7' y2='506.0' stroke='#222222' stroke-width='1'/>
+<text x='236.7' y='522.0' font-size='12' fill='#222222' text-anchor='middle' font-weight='normal'>10 ns</text>
+<line x1='363.3' y1='500.0' x2='363.3' y2='506.0' stroke='#222222' stroke-width='1'/>
+<text x='363.3' y='522.0' font-size='12' fill='#222222' text-anchor='middle' font-weight='normal'>100 ns</text>
+<line x1='490.0' y1='500.0' x2='490.0' y2='506.0' stroke='#222222' stroke-width='1'/>
+<text x='490.0' y='522.0' font-size='12' fill='#222222' text-anchor='middle' font-weight='normal'>1 µs</text>
+<line x1='616.7' y1='500.0' x2='616.7' y2='506.0' stroke='#222222' stroke-width='1'/>
+<text x='616.7' y='522.0' font-size='12' fill='#222222' text-anchor='middle' font-weight='normal'>10 µs</text>
+<line x1='743.3' y1='500.0' x2='743.3' y2='506.0' stroke='#222222' stroke-width='1'/>
+<text x='743.3' y='522.0' font-size='12' fill='#222222' text-anchor='middle' font-weight='normal'>100 µs</text>
+<line x1='870.0' y1='500.0' x2='870.0' y2='506.0' stroke='#222222' stroke-width='1'/>
+<text x='870.0' y='522.0' font-size='12' fill='#222222' text-anchor='middle' font-weight='normal'>1 ms</text>
+<line x1='104.0' y1='500.0' x2='110.0' y2='500.0' stroke='#222222' stroke-width='1'/>
+<text x='100.0' y='504.0' font-size='12' fill='#222222' text-anchor='end' font-weight='normal'>0,05</text>
+<line x1='104.0' y1='445.1' x2='110.0' y2='445.1' stroke='#222222' stroke-width='1'/>
+<text x='100.0' y='449.1' font-size='12' fill='#222222' text-anchor='end' font-weight='normal'>0,1</text>
+<line x1='104.0' y1='390.1' x2='110.0' y2='390.1' stroke='#222222' stroke-width='1'/>
+<text x='100.0' y='394.1' font-size='12' fill='#222222' text-anchor='end' font-weight='normal'>0,2</text>
+<line x1='104.0' y1='317.5' x2='110.0' y2='317.5' stroke='#222222' stroke-width='1'/>
+<text x='100.0' y='321.5' font-size='12' fill='#222222' text-anchor='end' font-weight='normal'>0,5</text>
+<line x1='104.0' y1='262.5' x2='110.0' y2='262.5' stroke='#222222' stroke-width='1'/>
+<text x='100.0' y='266.5' font-size='12' fill='#222222' text-anchor='end' font-weight='normal'>1</text>
+<line x1='104.0' y1='207.6' x2='110.0' y2='207.6' stroke='#222222' stroke-width='1'/>
+<text x='100.0' y='211.6' font-size='12' fill='#222222' text-anchor='end' font-weight='normal'>2</text>
+<line x1='104.0' y1='134.9' x2='110.0' y2='134.9' stroke='#222222' stroke-width='1'/>
+<text x='100.0' y='138.9' font-size='12' fill='#222222' text-anchor='end' font-weight='normal'>5</text>
+<line x1='104.0' y1='80.0' x2='110.0' y2='80.0' stroke='#222222' stroke-width='1'/>
+<text x='100.0' y='84.0' font-size='12' fill='#222222' text-anchor='end' font-weight='normal'>10</text>
+<text x='490.0' y='548.0' font-size='13' fill='#888888' text-anchor='middle' font-weight='normal'>tiempo de la puerta de dos qubits (escala logarítmica)</text>
+<text x='100.0' y='64.0' font-size='13' fill='#888888' text-anchor='start' font-weight='normal'>error de la puerta de dos qubits (%)</text>
+<line x1='401.5' y1='360.7' x2='490.0' y2='360.7' stroke='#2e8b57' stroke-width='5'/>
+<text x='401.5' y='350.7' font-size='12' fill='#2e8b57' text-anchor='start' font-weight='normal'>átomos 2024-25: CZ con 0,29 % (Sr), puertas &lt; 1 µs</text>
+<circle cx='246.7' cy='358.0' r='7.0' stroke='#1f6fb2' fill='#1f6fb2' stroke-width='1.5'/>
+<text x='256.7' y='350.0' font-size='12' fill='#1f6fb2' text-anchor='start' font-weight='normal'>Sycamore 2019, aislada</text>
+<circle cx='246.7' cy='303.0' r='7.0' stroke='#1f6fb2' fill='#1f6fb2' stroke-width='1.5'/>
+<text x='256.7' y='295.0' font-size='12' fill='#1f6fb2' text-anchor='start' font-weight='normal'>Sycamore 2019, en paralelo</text>
+<circle cx='335.2' cy='358.0' r='7.0' stroke='#1f6fb2' fill='#1f6fb2' stroke-width='1.5'/>
+<text x='345.2' y='372.0' font-size='12' fill='#1f6fb2' text-anchor='start' font-weight='normal'>CZ 2020</text>
+<circle cx='677.1' cy='453.4' r='7.0' stroke='#c2571a' fill='#c2571a' stroke-width='1.5'/>
+<text x='687.1' y='467.4' font-size='12' fill='#c2571a' text-anchor='start' font-weight='normal'>⁹Be⁺ 2019</text>
+<circle cx='743.3' cy='445.1' r='7.0' stroke='#c2571a' fill='#c2571a' stroke-width='1.5'/>
+<text x='753.3' y='437.1' font-size='12' fill='#c2571a' text-anchor='start' font-weight='normal'>⁴³Ca⁺ 2019</text>
+<circle cx='515.9' cy='390.1' r='7.0' stroke='#c2571a' fill='#c2571a' stroke-width='1.5'/>
+<text x='525.9' y='406.1' font-size='12' fill='#c2571a' text-anchor='start' font-weight='normal'>⁴³Ca⁺ rápida 2019</text>
+<circle cx='490.0' cy='121.8' r='7.0' stroke='#2e8b57' fill='#2e8b57' stroke-width='1.5'/>
+<text x='500.0' y='125.8' font-size='12' fill='#2e8b57' text-anchor='start' font-weight='normal'>2018</text>
+<circle cx='312.9' cy='394.2' r='7.0' stroke='#7b4fa0' fill='#7b4fa0' stroke-width='1.5'/>
+<text x='302.9' y='384.2' font-size='12' fill='#7b4fa0' text-anchor='end' font-weight='normal'>Si 2022</text>
+<circle cx='907.0' cy='120.0' r='7.0' stroke='#1f6fb2' fill='#1f6fb2' stroke-width='1.5'/>
+<text x='922.0' y='125.0' font-size='13' fill='#222222' text-anchor='start' font-weight='normal'>superconductores</text>
+<circle cx='907.0' cy='150.0' r='7.0' stroke='#c2571a' fill='#c2571a' stroke-width='1.5'/>
+<text x='922.0' y='155.0' font-size='13' fill='#222222' text-anchor='start' font-weight='normal'>iones atrapados</text>
+<circle cx='907.0' cy='180.0' r='7.0' stroke='#2e8b57' fill='#2e8b57' stroke-width='1.5'/>
+<text x='922.0' y='185.0' font-size='13' fill='#222222' text-anchor='start' font-weight='normal'>átomos neutros</text>
+<circle cx='907.0' cy='210.0' r='7.0' stroke='#7b4fa0' fill='#7b4fa0' stroke-width='1.5'/>
+<text x='922.0' y='215.0' font-size='13' fill='#222222' text-anchor='start' font-weight='normal'>espines en silicio</text>
+<text x='590.0' y='590.0' font-size='13' fill='#888888' text-anchor='middle' font-weight='normal'>Cifras de años y dispositivos distintos: no es un ranking. Cada punto lleva su año.</text>
+</svg>
