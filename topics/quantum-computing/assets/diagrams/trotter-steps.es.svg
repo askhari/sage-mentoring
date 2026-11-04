@@ -1,0 +1,31 @@
+<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1000 380' width='1000' height='380' font-family='Helvetica, Arial, sans-serif'>
+<rect width='100%' height='100%' fill='white'/>
+<defs><marker id='arrow-ink' viewBox='0 0 10 10' refX='9' refY='5' markerWidth='7' markerHeight='7' orient='auto-start-reverse'><path d='M0,0 L10,5 L0,10 z' fill='#222222'/></marker><marker id='arrow-a1' viewBox='0 0 10 10' refX='9' refY='5' markerWidth='7' markerHeight='7' orient='auto-start-reverse'><path d='M0,0 L10,5 L0,10 z' fill='#1f6fb2'/></marker><marker id='arrow-a2' viewBox='0 0 10 10' refX='9' refY='5' markerWidth='7' markerHeight='7' orient='auto-start-reverse'><path d='M0,0 L10,5 L0,10 z' fill='#c2571a'/></marker><marker id='arrow-a3' viewBox='0 0 10 10' refX='9' refY='5' markerWidth='7' markerHeight='7' orient='auto-start-reverse'><path d='M0,0 L10,5 L0,10 z' fill='#2e8b57'/></marker><marker id='arrow-muted' viewBox='0 0 10 10' refX='9' refY='5' markerWidth='7' markerHeight='7' orient='auto-start-reverse'><path d='M0,0 L10,5 L0,10 z' fill='#888888'/></marker></defs>
+<text x='80.0' y='50.0' font-size='16' fill='#222222' text-anchor='start' font-weight='bold'>Evolución exacta: e^(−i(A+B)t)</text>
+<rect x='80.0' y='65.0' width='840.0' height='46.0' rx='6' stroke='#222222' fill='#ececec' stroke-width='1.6'/>
+<text x='500.0' y='95.0' font-size='18' fill='#222222' text-anchor='middle' font-weight='bold'>A + B</text>
+<text x='80.0' y='160.0' font-size='16' fill='#222222' text-anchor='start' font-weight='bold'>Aproximación con r = 4 pasos: (e^(−iAt/r) e^(−iBt/r))^r</text>
+<rect x='80.0' y='175.0' width='105.0' height='46.0' rx='6' stroke='#1f6fb2' fill='#dbe9f6' stroke-width='1.6'/>
+<text x='132.5' y='205.0' font-size='18' fill='#1f6fb2' text-anchor='middle' font-weight='bold'>A</text>
+<rect x='185.0' y='175.0' width='105.0' height='46.0' rx='6' stroke='#c2571a' fill='#fde3d3' stroke-width='1.6'/>
+<text x='237.5' y='205.0' font-size='18' fill='#c2571a' text-anchor='middle' font-weight='bold'>B</text>
+<rect x='290.0' y='175.0' width='105.0' height='46.0' rx='6' stroke='#1f6fb2' fill='#dbe9f6' stroke-width='1.6'/>
+<text x='342.5' y='205.0' font-size='18' fill='#1f6fb2' text-anchor='middle' font-weight='bold'>A</text>
+<rect x='395.0' y='175.0' width='105.0' height='46.0' rx='6' stroke='#c2571a' fill='#fde3d3' stroke-width='1.6'/>
+<text x='447.5' y='205.0' font-size='18' fill='#c2571a' text-anchor='middle' font-weight='bold'>B</text>
+<rect x='500.0' y='175.0' width='105.0' height='46.0' rx='6' stroke='#1f6fb2' fill='#dbe9f6' stroke-width='1.6'/>
+<text x='552.5' y='205.0' font-size='18' fill='#1f6fb2' text-anchor='middle' font-weight='bold'>A</text>
+<rect x='605.0' y='175.0' width='105.0' height='46.0' rx='6' stroke='#c2571a' fill='#fde3d3' stroke-width='1.6'/>
+<text x='657.5' y='205.0' font-size='18' fill='#c2571a' text-anchor='middle' font-weight='bold'>B</text>
+<rect x='710.0' y='175.0' width='105.0' height='46.0' rx='6' stroke='#1f6fb2' fill='#dbe9f6' stroke-width='1.6'/>
+<text x='762.5' y='205.0' font-size='18' fill='#1f6fb2' text-anchor='middle' font-weight='bold'>A</text>
+<rect x='815.0' y='175.0' width='105.0' height='46.0' rx='6' stroke='#c2571a' fill='#fde3d3' stroke-width='1.6'/>
+<text x='867.5' y='205.0' font-size='18' fill='#c2571a' text-anchor='middle' font-weight='bold'>B</text>
+<line x1='80.0' y1='240.0' x2='290.0' y2='240.0' stroke='#888888' stroke-width='1.2' marker-end='url(#arrow-muted)'/>
+<line x1='290.0' y1='240.0' x2='80.0' y2='240.0' stroke='#888888' stroke-width='1.2' marker-end='url(#arrow-muted)'/>
+<text x='185.0' y='258.0' font-size='13' fill='#888888' text-anchor='middle' font-weight='normal'>un paso: t/r</text>
+<line x1='80.0' y1='280.0' x2='950.0' y2='280.0' stroke='#222222' stroke-width='1.2' marker-end='url(#arrow-ink)'/>
+<text x='950.0' y='300.0' font-size='13' fill='#888888' text-anchor='end' font-weight='normal'>tiempo</text>
+<text x='500.0' y='330.0' font-size='14' fill='#888888' text-anchor='middle' font-weight='normal'>Si A y B no conmutan, cada paso comete un error de orden (t/r)² debido a [A, B];</text>
+<text x='500.0' y='352.0' font-size='14' fill='#888888' text-anchor='middle' font-weight='normal'>al aumentar r el error total disminuye (si [A, B] = 0, la fórmula es exacta).</text>
+</svg>

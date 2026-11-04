@@ -67,3 +67,73 @@
   generator: diagrams/src/chsh_game.py
   license: CC-BY-4.0
   concepts: [bell-inequalities]
+
+- id: deutsch-jozsa-circuit
+  file: diagrams/deutsch-jozsa-circuit.{lang}.svg
+  origin: own
+  generator: diagrams/src/deutsch_jozsa_circuit.py
+  license: CC-BY-4.0
+  concepts: [deutsch-jozsa, query-model-and-oracles]
+
+- id: simon-circuit
+  file: diagrams/simon-circuit.{lang}.svg
+  origin: own
+  generator: diagrams/src/simon_circuit.py
+  license: CC-BY-4.0
+  concepts: [bernstein-vazirani-and-simon]
+
+- id: qft-circuit
+  file: diagrams/qft-circuit.{lang}.svg
+  origin: own
+  generator: diagrams/src/qft_circuit.py
+  license: CC-BY-4.0
+  concepts: [quantum-fourier-transform]
+
+- id: phase-estimation-circuit
+  file: diagrams/phase-estimation-circuit.{lang}.svg
+  origin: own
+  generator: diagrams/src/phase_estimation_circuit.py
+  license: CC-BY-4.0
+  concepts: [phase-estimation, phase-kickback]
+
+- id: shor-pipeline
+  file: diagrams/shor-pipeline.{lang}.svg
+  origin: own
+  generator: diagrams/src/shor_pipeline.py
+  license: CC-BY-4.0
+  concepts: [shor-algorithm]
+
+- id: grover-rotation
+  file: diagrams/grover-rotation.{lang}.svg
+  origin: own
+  generator: diagrams/src/grover_rotation.py
+  license: CC-BY-4.0
+  concepts: [grover-search]
+
+- id: grover-amplitudes
+  file: diagrams/grover-amplitudes.{lang}.svg
+  origin: own
+  generator: diagrams/src/grover_amplitudes.py
+  license: CC-BY-4.0
+  concepts: [grover-search]
+
+- id: trotter-steps
+  file: diagrams/trotter-steps.{lang}.svg
+  origin: own
+  generator: diagrams/src/trotter_steps.py
+  license: CC-BY-4.0
+  concepts: [hamiltonian-simulation]
+
+- id: complexity-classes
+  file: diagrams/complexity-classes.{lang}.svg
+  origin: own
+  generator: diagrams/src/complexity_classes.py
+  license: CC-BY-4.0
+  concepts: [quantum-complexity]
+
+- id: kem-flow
+  file: diagrams/kem-flow.{lang}.svg
+  origin: own
+  generator: diagrams/src/kem_flow.py
+  license: CC-BY-4.0
+  concepts: [post-quantum-cryptography]

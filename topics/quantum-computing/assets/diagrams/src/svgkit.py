@@ -107,3 +107,44 @@ def meter(x, y) -> str:
     return (rect(x - h, y - h, GATE, GATE, INK, "#f2f2f2", 2, rx=5)
             + path(f"M{x - 14:.1f},{y + 8:.1f} A16,16 0 0 1 {x + 14:.1f},{y + 8:.1f}", INK, width=1.6)
             + line(x, y + 8, x + 10, y - 10, INK, 1.6))
+
+
+def multigate(x, y1, y2, label: str, width=GATE + 16, fill="#dbe9f6", stroke=ACCENT, size=20) -> str:
+    """Gate box centred at x spanning wires from y1 (top) to y2 (bottom)."""
+    h = GATE / 2
+    return (rect(x - width / 2, y1 - h, width, (y2 - y1) + GATE, stroke, fill, 2, rx=5)
+            + text(x, (y1 + y2) / 2 + 7, label, size, INK, weight="bold"))
+
+
+def slash(x, y, label: str = "") -> str:
+    """Register marker: short slash across a wire, with an optional size label above."""
+    out = line(x - 7, y + 9, x + 7, y - 9, INK, 1.5)
+    if label:
+        out += text(x, y + 26, label, 13, MUTED, anchor="middle", italic=True)
+    return out
+
+
+def swap(x, y1, y2) -> str:
+    def cross(y):
+        return line(x - 8, y - 8, x + 8, y + 8, INK, 2) + line(x - 8, y + 8, x + 8, y - 8, INK, 2)
+    return vwire(x, y1, y2) + cross(y1) + cross(y2)
+
+
+def block(x, y, w, h, lines: list[str], fill="#f2f2f2", stroke=INK, size=15, title: str = "", title_color=MUTED) -> str:
+    """Rounded box with centred multi-line text; optional small title above the text."""
+    out = rect(x, y, w, h, stroke, fill, 1.8, rx=10)
+    n = len(lines) + (1 if title else 0)
+    lh = size * 1.35
+    y0 = y + h / 2 - (n - 1) * lh / 2 + size * 0.35
+    k = 0
+    if title:
+        out += text(x + w / 2, y0, title, size - 2, title_color, weight="bold")
+        k = 1
+    for i, s in enumerate(lines):
+        out += text(x + w / 2, y0 + (i + k) * lh, s, size)
+    return out
+
+
+def ellipse(cx, cy, rx, ry, stroke=INK, fill="none", width=1.8, opacity=1.0) -> str:
+    return (f"<ellipse cx='{cx:.1f}' cy='{cy:.1f}' rx='{rx:.1f}' ry='{ry:.1f}' stroke='{stroke}' "
+            f"fill='{fill}' fill-opacity='{opacity}' stroke-width='{width}'/>")

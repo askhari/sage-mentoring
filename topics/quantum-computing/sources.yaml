@@ -239,6 +239,18 @@
   accessed: 2026-11-03
   notes: "full text. Final 13 Aug 2024 (ML-KEM, from CRYSTALS-Kyber); published with FIPS 204 and 205."
 
+- id: nist-ir-8547
+  type: standard
+  reliability: A
+  title: "NIST IR 8547: Transition to Post-Quantum Cryptography Standards"
+  authors: ["Dustin Moody", "Ray Perlner", "Andrew Regenscheid", "Angela Robinson", "David Cooper"]
+  year: 2026
+  language: en
+  identifiers: { doi: "10.6028/NIST.IR.8547", url: "https://nvlpubs.nist.gov/nistpubs/ir/2026/NIST.IR.8547.pdf" }
+  access: open
+  accessed: 2026-11-03
+  notes: "full text. Final October 2026 (initial public draft Nov 2024). Transition timeline for quantum-vulnerable algorithms."
+
 - id: hensen-2015
   type: paper
   reliability: B

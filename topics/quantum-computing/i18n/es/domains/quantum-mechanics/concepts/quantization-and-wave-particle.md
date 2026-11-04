@@ -15,7 +15,7 @@ La física clásica trata la luz como una onda continua y la materia como partí
 
 **Idea central.** "Onda o partícula" no son dos tipos de objeto, sino dos comportamientos de un mismo objeto cuántico; según el experimento aparece uno u otro [@openstax-physics-3, §6.6].
 
-**Por qué importa en computación cuántica.** Este concepto explica por qué existe una teoría nueva: la energía se intercambia en paquetes discretos y los objetos pequeños interfieren como ondas. La interferencia, que se desarrolla en el [principio de superposición](superposition-principle.md), es la herramienta con la que los algoritmos cuánticos amplifican respuestas correctas [unverified]. Los fotones, además, son uno de los candidatos físicos a qubit (ver [sistemas de dos niveles](two-level-systems.md)).
+**Por qué importa en computación cuántica.** Este concepto explica por qué existe una teoría nueva: la energía se intercambia en paquetes discretos y los objetos pequeños interfieren como ondas. La interferencia, que se desarrolla en el [principio de superposición](superposition-principle.md), es la herramienta con la que los algoritmos cuánticos amplifican respuestas correctas, ordenando las amplitudes para que las erróneas se cancelen y la correcta se refuerce [@aaronson-2018, Lec16, p. 3; Lec18, pp. 1-2]. Los fotones, además, son uno de los candidatos físicos a qubit (ver [sistemas de dos niveles](two-level-systems.md)).
 
 ## Comprensión {#layer-2}
 

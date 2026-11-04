@@ -17,7 +17,7 @@ title: "Principio de superposición"
 
 ![Interferómetro de Mach-Zehnder con las amplitudes en cada tramo](../../../../../assets/diagrams/mach-zehnder-amplitudes.es.svg)
 
-**Por qué importa en computación cuántica.** La superposición y la interferencia son los ingredientes de los algoritmos cuánticos: preparar muchas posibilidades a la vez y hacer que las amplitudes se refuercen o se anulen para que la respuesta buscada sea la probable [unverified]. Los detalles están en el ámbito de algoritmos. Aquí aprendes el fenómeno físico; la forma matemática del estado está en [el estado cuántico como vector](state-vector-postulate.md) y la versión para un qubit en [el qubit](../../qubits-and-circuits/concepts/qubit.md).
+**Por qué importa en computación cuántica.** La superposición y la interferencia son los ingredientes de los algoritmos cuánticos: preparar muchas posibilidades a la vez y hacer que las amplitudes se refuercen o se anulen para que la respuesta buscada sea la probable [@aaronson-2018, Lec16, p. 3; Lec18, pp. 1-2]. Los detalles están en el ámbito de algoritmos. Aquí aprendes el fenómeno físico; la forma matemática del estado está en [el estado cuántico como vector](state-vector-postulate.md) y la versión para un qubit en [el qubit](../../qubits-and-circuits/concepts/qubit.md).
 
 ## Comprensión {#layer-2}
 

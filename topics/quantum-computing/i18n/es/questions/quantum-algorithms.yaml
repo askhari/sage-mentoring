@@ -1,0 +1,923 @@
+- id: q-query-model-and-oracles-001
+  prompt: "¿Qué caracteriza al modelo de consultas (query model)?"
+  options:
+    a: "La entrada se da completa en memoria y el coste es el número de instrucciones de CPU ejecutadas"
+    b: "La entrada es un estado cuántico desconocido que solo puede medirse una vez y el coste es el número de copias"
+    c: "La entrada es una lista de qubits y el coste es el número de qubits empleados en el circuito"
+    d: "La entrada solo es accesible como una función que se puede evaluar en argumentos elegidos, y el coste es el número de evaluaciones"
+  explanation: "En el modelo de consultas la entrada es una caja negra: solo se aprende evaluándola, y cada evaluación cuesta una unidad; lo demás no se cuenta. Contar instrucciones de CPU o qubits mide otra cosa (el modelo estándar de circuitos con entrada explícita)."
+
+- id: q-query-model-and-oracles-002
+  prompt: "¿Por qué la puerta de consulta cuántica estándar es U_f|x⟩|y⟩ = |x⟩|y ⊕ f(x)⟩ y no simplemente |x⟩ → |f(x)⟩?"
+  options:
+    a: "Porque los qubits no pueden almacenar el valor de una función, solo su signo"
+    b: "Porque para algunas f la asignación |x⟩ → |f(x)⟩ no sería unitaria; conservar x y sumar f(x) con XOR a un registro auxiliar siempre lo es"
+    c: "Porque la medida destruiría la superposición de x antes de poder calcular f"
+    d: "Porque un ordenador cuántico solo puede evaluar f una vez por ejecución del algoritmo"
+  explanation: "Una puerta cuántica debe ser reversible (unitaria). Si f no es inyectiva, |x⟩ → |f(x)⟩ pierde información. U_f es una matriz de permutación, luego unitaria y autoinversa. No hay límite de una evaluación por ejecución ni problema de medir: U_f actúa sobre superposiciones sin medir."
+
+- id: q-query-model-and-oracles-003
+  prompt: "¿Cómo se llama (en español o en inglés) la entrada de un problema cuando solo puede consultarse evaluándola y su descripción interna está oculta?"
+  accepted: ["oráculo", "oraculo", "oracle", "caja negra", "black box", "black-box"]
+
+- id: q-query-model-and-oracles-004
+  prompt: "Una caja negra guarda N = 2^20 = 1 048 576 bits. ¿Cuántos bits n de dirección hacen falta para indexarlos en una consulta?"
+  options:
+    a: "n = 20, porque n = log₂ N"
+    b: "n = 1 048 576, un bit de dirección por cada bit guardado"
+    c: "n = 2^20, la dirección tiene que poder escribirse en unario"
+    d: "n = 1 024, porque n = √N"
+  explanation: "Los N bits de la entrada y los n = log₂ N bits de dirección son cosas distintas; confundirlos es el error de principiante que señala De Wolf. Con 2^20 posiciones bastan 20 bits para direccionarlas."
+
+- id: q-query-model-and-oracles-005
+  prompt: "¿Cómo se obtiene el oráculo de fase |x⟩ → (−1)^{f(x)}|x⟩ a partir de la puerta estándar U_f?"
+  options:
+    a: "Con dos consultas a U_f: una para calcular f(x) y otra para deshacer el registro auxiliar"
+    b: "No se puede: el oráculo de fase necesita una caja negra distinta de la estándar"
+    c: "Con una sola consulta a U_f y un qubit auxiliar en |−⟩, que queda en |−⟩ y puede reutilizarse (retroceso de fase)"
+    d: "Con una consulta, pero el auxiliar acaba entrelazado con x y hay que descartarlo"
+  explanation: "Con el auxiliar en |−⟩ el XOR con f(x) solo cambia su signo global, que 'retrocede' a la fase de |x⟩. El auxiliar vuelve a |−⟩ sin entrelazarse y los dos tipos de oráculo se simulan mutuamente sin consultas extra."
+
+- id: q-query-model-and-oracles-006
+  prompt: "Al convertir un circuito booleano pequeño de f en U_f, se ejecuta el circuito, se copia la respuesta con CNOT y se ejecuta el circuito al revés. ¿Para qué sirve este último paso?"
+  options:
+    a: "Para ahorrar una consulta al oráculo, ya que la segunda mitad reutiliza resultados de la primera"
+    b: "Para borrar la basura de los cálculos intermedios: si quedara entrelazada con el qubit útil, impediría la interferencia que necesita el algoritmo"
+    c: "Para que U_f sea reversible; sin él el circuito de f no podría escribirse con puertas cuánticas"
+    d: "Para medir la basura y comprobar que el cálculo de f no tuvo errores"
+  explanation: "La copia con CNOT es legítima porque la respuesta es clásica, pero la basura restante quedaría entrelazada con el registro y destruiría los patrones de interferencia. Revertir el cómputo la devuelve a |0⟩. La reversibilidad del cálculo de f ya se logra con puertas reversibles; no se mide la basura."
+
+- id: q-query-model-and-oracles-007
+  prompt: "Un artículo demuestra una separación exponencial entre algoritmos cuánticos y clásicos en complejidad de consultas. ¿Qué se puede concluir?"
+  options:
+    a: "Que el algoritmo cuántico será exponencialmente más rápido en tiempo real en cualquier implementación"
+    b: "Que queda demostrado que BQP es estrictamente mayor que BPP"
+    c: "Que hay ventaja en consultas, pero eso no implica por sí solo una separación exponencial en el modelo estándar de circuitos con entrada explícita"
+    d: "Que el oráculo puede construirse sin coste adicional, así que la ventaja se mantiene al implementarlo"
+  explanation: "El modelo de consultas ignora el coste de construir el oráculo y da la entrada como caja negra; las propias notas de De Wolf insisten en que sus separaciones no separan por sí solas las clases de circuitos. En el modelo estándar es mucho más difícil demostrar ventajas."
+
+- id: q-query-model-and-oracles-008
+  prompt: "Explica con tus palabras la diferencia entre el oráculo estándar U_f y el oráculo de fase, cómo se pasa de uno a otro y por qué se dice que son equivalentes."
+  model_answer: "El oráculo estándar actúa como U_f|x⟩|y⟩ = |x⟩|y ⊕ f(x)⟩: deja x intacto y suma f(x) por XOR a un registro auxiliar. El oráculo de fase actúa como |x⟩ → (−1)^{f(x)}|x⟩: escribe f(x) en el signo de la amplitud y no tiene análogo clásico. Se obtiene el de fase a partir de U_f con una sola consulta, poniendo el auxiliar en |−⟩: el XOR con f(x) solo multiplica |−⟩ por (−1)^{f(x)}, que retrocede a la fase de |x⟩, y el auxiliar queda en |−⟩ y puede reutilizarse. Se dice que son equivalentes porque cada uno puede simular al otro sin consultas extra."
+  rubric:
+    - "Define U_f como |x⟩|y⟩ → |x⟩|y ⊕ f(x)⟩ y el oráculo de fase como |x⟩ → (−1)^{f(x)}|x⟩"
+    - "Indica que el de fase se obtiene del estándar con una consulta y un auxiliar en |−⟩ (retroceso de fase)"
+    - "Señala que el auxiliar queda en |−⟩ y puede reutilizarse"
+    - "Afirma que cada tipo de oráculo simula al otro sin consultas adicionales"
+
+- id: q-query-model-and-oracles-009
+  prompt: "Un colega dice: «este algoritmo cuántico necesita exponencialmente menos consultas, así que será exponencialmente más rápido». Explica por qué esa inferencia no es válida sin más."
+  model_answer: "El coste en el modelo de consultas es solo el número de evaluaciones del oráculo, cada una a coste unitario; el resto de puertas no se cuenta y tampoco el coste de construir el oráculo, que se considera parte de preparar la entrada. Es un instrumento teórico para mostrar ventajas potenciales, no una contabilidad completa de recursos. Además, en el modelo estándar la entrada se da explícita y es mucho más difícil demostrar ventajas, de modo que las separaciones exponenciales en consultas no dan por sí solas separaciones exponenciales en el modelo de circuitos."
+  rubric:
+    - "Dice que el modelo de consultas solo cuenta evaluaciones del oráculo, no el resto de operaciones"
+    - "Menciona que el coste de construir el oráculo no se cuenta"
+    - "Distingue el modelo de consultas del modelo estándar de circuitos con entrada explícita"
+    - "Concluye que una ventaja en consultas no se traduce automáticamente en ventaja de tiempo"
+
+- id: q-query-model-and-oracles-010
+  prompt: "Un proveedor te ofrece acelerar la búsqueda en una base de datos física de 10^9 registros con «Grover: O(√N) consultas». Antes de comprar, ¿qué comprobaciones haces sobre el resultado de consultas y qué le preguntas al proveedor?"
+  model_answer: "Primero, si existe acceso cuántico a la base de datos: Grover exige aplicar U_f sobre superposiciones, lo que para una base física requeriría una RAM cuántica, un problema de hardware aparte. Segundo, el coste de construir el oráculo, que el modelo de consultas ignora pero es parte del coste real (y, si f es un circuito, hay que sumar la limpieza de la basura). Tercero, contra qué clásico se compara: la ventaja es cuadrática como mucho, y hay que medirla frente a la mejor solución clásica (índices, hashing) y con las constantes reales de las puertas cuánticas. Cuarto, que el número de consultas no es tiempo de ejecución. Con estas respuestas decidiría; si no hay memoria cuántica de acceso aleatorio, la ventaja no es utilizable."
+  rubric:
+    - "Identifica la necesidad de acceso cuántico a f (RAM cuántica) como hipótesis real"
+    - "Señala que el coste de construir el oráculo no entra en el recuento de consultas pero sí en el coste real"
+    - "Exige comparar con el mejor algoritmo clásico y no con el ingenuo, y recuerda que la ventaja de Grover es solo cuadrática"
+    - "Distingue número de consultas de tiempo de ejecución"
+
+- id: q-query-model-and-oracles-011
+  prompt: "Tienes que justificar ante tu equipo que «no se puede calcular el OR de n bits con menos de unas √n consultas, ni siquiera con un ordenador cuántico». ¿Por qué esta afirmación se puede demostrar en el modelo de consultas pero casi nunca en el de circuitos, y con qué herramientas la demostrarías?"
+  model_answer: "En complejidad de circuitos solo se conocen cotas superiores o cotas inferiores condicionadas a hipótesis de dureza; en consultas, en cambio, se pueden demostrar cotas inferiores incondicionales porque lo único que se cuenta es el acceso al oráculo. Las dos herramientas estándar: el método polinómico (la probabilidad de aceptación de un algoritmo de t consultas es un polinomio de grado como mucho 2t en los bits de entrada, así que t ≥ grado-aproximado/2) y el método del adversario (la versión simple de Ambainis da Ω(√(m₀m₁/(ℓ₀ℓ₁)))). Para OR, el resultado conocido es Θ(√n) cuántico frente a Θ(n) clásico aleatorio. Hay que decir que es una cota en consultas, no en tiempo."
+  rubric:
+    - "Explica que las cotas inferiores incondicionales son posibles en consultas y no en circuitos"
+    - "Nombra el método polinómico (grado ≤ 2t) y/o el del adversario"
+    - "Cita el resultado: OR es Θ(√n) cuántico frente a Θ(n) clásico"
+    - "Aclara que la cota es en consultas y no se traduce automáticamente a tiempo"
+
+- id: q-query-model-and-oracles-012
+  prompt: "Un compañero propone «acelerar exponencialmente» el cálculo de la paridad de 1000 bits con el truco de Deutsch por parejas. Evalúa la propuesta: ¿cuántas consultas necesita, es óptimo y qué ventaja real hay?"
+  model_answer: "El truco divide la entrada en bloques de 2 bits, aplica Deutsch a cada bloque (una consulta por bloque) y combina las respuestas clásicamente: n/2 = 500 consultas para n = 1000. Esto es óptimo, pues Parity necesita al menos n/2 consultas incluso con error acotado y con algoritmos cuánticos. Frente a las n = 1000 consultas clásicas la ventaja es un factor 2, no exponencial. La propuesta es correcta como optimización modesta, pero la afirmación de ventaja exponencial es falsa."
+  rubric:
+    - "Calcula 500 consultas (n/2) con el truco por parejas"
+    - "Indica que n/2 es óptimo incluso con error acotado"
+    - "Concluye que la ventaja es solo un factor 2 frente a las n consultas clásicas"
+    - "Rechaza la afirmación de ventaja exponencial"
+
+- id: q-deutsch-jozsa-001
+  prompt: "En el problema de Deutsch (f: {0,1} → {0,1}, decidir si f es constante o equilibrada), ¿cuántas consultas necesitan el mejor algoritmo clásico y el cuántico?"
+  options:
+    a: "Clásico: 1, porque f(0) ya determina si f es constante; cuántico: 1"
+    b: "Clásico: 2; cuántico: 2, la ventaja solo aparece al crecer n"
+    c: "Clásico: 4, una por cada fila de la tabla de verdad; cuántico: 1"
+    d: "Clásico: 2 (un solo valor no dice nada de la paridad); cuántico: 1, con certeza"
+  explanation: "Con n = 1 hay solo dos entradas: clásicamente hay que consultar ambas, porque f(0) por sí solo es compatible con f constante y con equilibrada. El circuito cuántico usa una consulta y acierta con probabilidad 1. Watrous califica la ventaja de modesta."
+
+- id: q-deutsch-jozsa-002
+  prompt: "¿Qué se promete sobre f en el problema de Deutsch-Jozsa (f: {0,1}ⁿ → {0,1})?"
+  options:
+    a: "Que f es constante o equilibrada (vale 1 en exactamente la mitad de las entradas)"
+    b: "Que f vale 1 en exactamente una de las 2ⁿ entradas"
+    c: "Que existe una cadena s tal que f(x) = s·x para todo x"
+    d: "Que f es periódica con un periodo XOR oculto s"
+  explanation: "Las otras opciones describen otros problemas: la búsqueda única (Grover), Bernstein-Vazirani y Simon. Cualquier f que no sea constante ni equilibrada queda fuera de la promesa y el algoritmo puede hacer lo que quiera."
+
+- id: q-deutsch-jozsa-003
+  prompt: "En el circuito de Deutsch-Jozsa se miden los n primeros qubits y todos dan 0. ¿Qué se concluye sobre f?"
+  accepted: ["constante", "es constante", "f es constante", "constant", "f constante", "f es constante"]
+
+- id: q-deutsch-jozsa-004
+  prompt: "Para n = 10, ¿cuántas consultas necesita en el peor caso un algoritmo clásico determinista para resolver Deutsch-Jozsa?"
+  options:
+    a: "512 = 2⁹: basta ver la mitad de las entradas, pues el resto se deduce"
+    b: "513 = 2⁹ + 1: tras ver 2⁹ valores iguales todavía son posibles ambos casos"
+    c: "11 = n + 1: una consulta por bit de la entrada más una de comprobación"
+    d: "1024 = 2¹⁰: hay que consultar todas las entradas para estar seguro"
+  explanation: "La promesa es que f es constante o equilibrada: tras 2⁹ valores iguales, una f equilibrada aún podría tener todos los 1 (o 0) restantes, así que hace falta una consulta más: 2^{n−1}+1. No hace falta consultarlas todas."
+
+- id: q-deutsch-jozsa-005
+  prompt: "¿Por qué la ventaja de Deutsch-Jozsa se considera modesta frente a los algoritmos clásicos probabilísticos?"
+  options:
+    a: "Porque un clásico aleatorio con unas pocas consultas (por ejemplo 11) ya acierta con probabilidad superior al 99,9 %, sea cual sea n"
+    b: "Porque el algoritmo cuántico también necesita del orden de 2^{n/2} consultas"
+    c: "Porque el algoritmo cuántico solo acierta con probabilidad cercana a 1/2"
+    d: "Porque el clásico aleatorio es siempre exacto cuando f es equilibrada"
+  explanation: "Si se consultan k cadenas al azar y se responde «constante» cuando coinciden, el error en las equilibradas es 2^{−k+1}; con k = 11 es menor que 0,1 %. La separación exponencial es solo frente a clásicos deterministas exactos."
+
+- id: q-deutsch-jozsa-006
+  prompt: "En Deutsch-Jozsa, ¿por qué se mide 0ⁿ con certeza si f es constante y nunca si f es equilibrada?"
+  options:
+    a: "Porque la consulta evalúa f en todas las entradas y devuelve directamente cuántas valen 1"
+    b: "Porque la segunda capa de Hadamard deshace la primera y el oráculo no cambia el estado"
+    c: "Porque el auxiliar en |−⟩ almacena la mayoría de los valores de f y se mide al final"
+    d: "Porque la amplitud de |0ⁿ⟩ es 2⁻ⁿ Σ_x (−1)^{f(x)}: vale ±1 si f es constante y 0 si es equilibrada, pues los términos +1 y −1 se cancelan"
+  explanation: "Es interferencia: tras el retroceso de fase el estado es la superposición con signos (−1)^{f(x)} y la última Hadamard proyecta sobre 0ⁿ la suma de esos signos. No hay evaluación 'de todas a la vez' que se pueda leer; el auxiliar no se mide."
+
+- id: q-deutsch-jozsa-007
+  prompt: "En el circuito de Deutsch-Jozsa, ¿qué papel cumple el qubit auxiliar inicializado en |1⟩ al que se aplica Hadamard?"
+  options:
+    a: "Almacena el resultado final del algoritmo, que se mide junto con los demás qubits"
+    b: "Actúa como control de una puerta de corrección que anula los errores de fase"
+    c: "Lo deja en |−⟩, de modo que U_f produce el factor (−1)^{f(x)} en la amplitud de |x⟩ (retroceso de fase) y el auxiliar no cambia"
+    d: "Reduce el ruido porque |−⟩ es un estado que no se ve afectado por ninguna puerta"
+  explanation: "Con el objetivo en |−⟩, U_f|x⟩|−⟩ = (−1)^{f(x)}|x⟩|−⟩. El auxiliar no se mide ni almacena resultado: su función es convertir la consulta de bits en una de fase."
+
+- id: q-deutsch-jozsa-008
+  prompt: "¿Frente a qué algoritmos clásicos es válida la separación exponencial de Deutsch-Jozsa?"
+  options:
+    a: "Frente a cualquier algoritmo clásico, determinista o aleatorio"
+    b: "Solo frente a clásicos que conocen la forma de la función f"
+    c: "Frente a clásicos aleatorios, pero no frente a los deterministas"
+    d: "Solo frente a clásicos deterministas sin error; un clásico aleatorio con error acotado la elimina"
+  explanation: "De Wolf: un clásico que mira dos posiciones al azar y dice «constante» si coinciden acierta siempre en constantes y la mitad de las veces en equilibradas; permitir error elimina la separación."
+
+- id: q-deutsch-jozsa-009
+  prompt: "Explica con tus palabras por qué el circuito de Deutsch-Jozsa distingue constante de equilibrada con una sola consulta. ¿Es cierto que «se prueban todas las entradas a la vez»?"
+  model_answer: "Se aplica Hadamard a los n qubits y se obtiene la superposición uniforme de las 2ⁿ cadenas. Con el auxiliar en |−⟩, la única consulta U_f imprime f(x) en el signo de cada amplitud (retroceso de fase). La segunda capa de Hadamard hace que las 2ⁿ contribuciones interfieran: la amplitud de 0ⁿ es 2⁻ⁿ Σ(−1)^{f(x)}, que vale ±1 si f es constante y 0 si es equilibrada. Medir da 0ⁿ solo en el primer caso. No es cierto que se 'prueben todas a la vez' en un sentido útil: la consulta es una sola y medir una superposición da una única salida; lo que cuenta es la interferencia entre las contribuciones."
+  rubric:
+    - "Describe la superposición uniforme inicial y la consulta de fase con el auxiliar en |−⟩"
+    - "Explica que la amplitud de 0ⁿ es 2⁻ⁿ Σ(−1)^{f(x)}"
+    - "Concluye ±1 para constante y 0 para equilibrada (cancelación)"
+    - "Aclara que no se leen todas las evaluaciones: la ventaja viene de la interferencia"
+
+- id: q-deutsch-jozsa-010
+  prompt: "Tu director quiere citar Deutsch-Jozsa en una presentación como «prueba de que los ordenadores cuánticos son exponencialmente más rápidos». ¿Qué le dices? Evalúa la ventaja: frente a qué clásico, en qué modelo y qué valor tiene realmente el algoritmo."
+  model_answer: "La separación existe solo frente a algoritmos clásicos deterministas y exactos (2^{n−1}+1 consultas frente a 1). Un clásico aleatorio con 20-30 consultas falla con probabilidad ínfima, así que frente a él la ventaja es modesta; Shor dice que no es una prueba convincente de ventaja cuántica. Además es una separación de complejidad de consultas, no de circuitos, y exige la promesa de constante o equilibrada. Su valor real es pedagógico y de método: la plantilla Hadamard, oráculo de fase, Hadamard, medir reaparece en Bernstein-Vazirani, Simon y Grover, y Deutsch-Jozsa condujo al algoritmo de Simon. Recomendaría citar Simon (exponencial incluso frente a aleatorios, en consultas) como ejemplo más sólido, aclarando el modelo."
+  rubric:
+    - "Señala que la separación exponencial es solo frente a clásicos deterministas exactos y que un aleatorio con pocas consultas la iguala"
+    - "Indica que es una separación de consultas con promesa, no de circuitos"
+    - "Reconoce el valor del algoritmo como plantilla (Hadamard, oráculo de fase, Hadamard, medir) y precursor de Simon"
+    - "No presenta Deutsch-Jozsa como prueba de ventaja cuántica general"
+
+- id: q-deutsch-jozsa-011
+  prompt: "Vas a escribir tests para tu implementación de Deutsch-Jozsa con n = 3 en un simulador. ¿Qué oráculos usarías, qué resultado esperas en cada caso y qué ocurre si pasas f que vale 1 solo en 1 de las 8 entradas?"
+  model_answer: "Con f constante (por ejemplo f(x) = 0 o f(x) = 1) se debe medir siempre 000. Con una f equilibrada (4 unos y 4 ceros, por ejemplo la paridad de un bit de x) no se mide nunca 000; si la f es lineal f(x) = s·x, el mismo circuito da exactamente la cadena s (Bernstein-Vazirani). Para f que vale 1 en una sola entrada, la promesa no se cumple y el algoritmo no garantiza nada: la amplitud de 000 es 2⁻³(7 − 1) = 6/8, así que se mediría 000 con probabilidad 9/16 y se diría 'constante' erróneamente con esa probabilidad. Conviene que el test de ese caso compruebe la probabilidad calculada con la fórmula y no el 'veredicto'."
+  rubric:
+    - "Predice 000 con certeza para f constante y nunca 000 para f equilibrada"
+    - "Menciona que una f lineal da la cadena s (mismo circuito que Bernstein-Vazirani)"
+    - "Identifica que f con un solo 1 viola la promesa y no hay garantía"
+    - "Calcula la amplitud 6/8 (probabilidad 9/16) de 000 para ese caso, usando 2⁻ⁿ Σ(−1)^{f(x)}"
+
+- id: q-phase-kickback-001
+  prompt: "Con el objetivo en |−⟩ = (|0⟩ − |1⟩)/√2, ¿cuánto vale U_f|x⟩|−⟩?"
+  options:
+    a: "|x⟩|f(x)⟩: el objetivo almacena el valor de la función"
+    b: "|x⟩|−⟩ sin cambios, porque |−⟩ no se ve afectado por ninguna puerta"
+    c: "(−1)^{f(x)} |x⟩|−⟩: el objetivo no cambia y f(x) pasa a la fase de |x⟩"
+    d: "(−1)^{f(x)} |x⟩|+⟩: el objetivo pasa a |+⟩ si f(x) = 1"
+  explanation: "La identidad |0⊕a⟩ − |1⊕a⟩ = (−1)^a (|0⟩ − |1⟩) da el factor de signo. El objetivo sigue en |−⟩, pero el control sí cambia: 'nada pasa en el objetivo' no significa 'nada pasa'."
+
+- id: q-phase-kickback-002
+  prompt: "¿Qué ocurre si el qubit objetivo de U_f se prepara en |+⟩ en lugar de |−⟩?"
+  options:
+    a: "No hay retroceso de fase: U_f|i⟩|+⟩ = |i⟩|+⟩ para cualquier f"
+    b: "También hay retroceso: la fase es (−1)^{f(x)} igual que con |−⟩"
+    c: "Hay retroceso, pero con fase i^{f(x)} en vez de (−1)^{f(x)}"
+    d: "El estado del objetivo se convierte en |−⟩ cuando f(x) = 1"
+  explanation: "|+⟩ es vector propio de X con valor propio +1, así que X^{f(x)}|+⟩ = |+⟩ para cualquier f. Lo importante es que el objetivo sea vector propio de la operación controlada con valor propio ≠ 1: |−⟩ lo es (−1), |+⟩ no."
+
+- id: q-phase-kickback-003
+  prompt: "En estimación de fase, el qubit de control se pone en |+⟩ antes de la puerta controlled-U. ¿Por qué hace falta la superposición?"
+  options:
+    a: "Para que controlled-U sea una puerta unitaria, ya que con |0⟩ o |1⟩ no lo sería"
+    b: "Si el control fuera |0⟩ o |1⟩, la fase e^{2πiθ} sería global y no afectaría a las probabilidades; en |+⟩ es una fase relativa observable tras otra Hadamard"
+    c: "Para que el vector propio |ψ⟩ cambie de valor propio y así se pueda medir"
+    d: "Porque la fase e^{2πiθ} solo existe cuando el control está en |+⟩, no en la base estándar"
+  explanation: "Una fase global no tiene efecto medible. Con el control en superposición, la fase 'retrocede' como diferencia entre las amplitudes de |0⟩ y |1⟩; y aún hace falta una segunda Hadamard para convertir esa fase relativa en probabilidad. controlled-U es unitaria para cualquier control."
+
+- id: q-phase-kickback-004
+  prompt: "¿Cuál de estos algoritmos NO se apoya en el retroceso de fase?"
+  options:
+    a: "El de Deutsch-Jozsa, que usa el auxiliar en |−⟩"
+    b: "La construcción del oráculo de fase de Grover"
+    c: "El de Simon: los qubits inferiores entran en U_f en |0⟩ y el resultado se deja en un registro aparte"
+    d: "La estimación de fase con un qubit de control"
+  explanation: "Simon usa Hadamard-consulta-Hadamard sin vector propio en el segundo registro. Aun así, ese registro no es adorno: sin la consulta las dos capas de Hadamard se cancelarían. Los otros tres usan un registro en vector propio para pasar información a la fase."
+
+- id: q-phase-kickback-005
+  prompt: "Explica con tus palabras qué es el retroceso de fase (phase kickback), por qué ocurre y qué papel juega que |−⟩ sea vector propio de X."
+  model_answer: "En una operación controlada, si el objetivo está en un vector propio de la operación, no cambia, pero el valor propio se multiplica en la rama del control que activa la operación: el control recibe esa fase. Para el oráculo, U_f(|ψ⟩|a⟩) = (X^{f(a)}|ψ⟩)|a⟩ y |−⟩ es vector propio de X con valor propio −1, luego X^{f(a)}|−⟩ = (−1)^{f(a)}|−⟩: f(a) pasa a la fase de |a⟩. En general, con |ψ⟩ vector propio de U con valor propio e^{2πiθ} y el control en |+⟩, controlled-U deja el control en (|0⟩ + e^{2πiθ}|1⟩)/√2. Para que la fase sea relativa (y no global) el control debe estar en superposición. Es el mecanismo detrás de los oráculos de fase y de la estimación de fase."
+  rubric:
+    - "Dice que el objetivo (vector propio) no cambia y la fase pasa al control"
+    - "Usa que |−⟩ es vector propio de X con valor propio −1 para obtener (−1)^{f(a)}"
+    - "Generaliza a controlled-U con vector propio y valor propio e^{2πiθ}"
+    - "Menciona que el control debe estar en superposición para que la fase sea relativa"
+
+- id: q-phase-kickback-006
+  prompt: "Tienes un circuito U_f (con consulta estándar) y debes construir el oráculo de fase Z_f para una implementación de Grover. Describe los pasos, qué debe garantizarse al terminar y qué coste en consultas tiene."
+  model_answer: "Se reserva un qubit auxiliar y se prepara en |−⟩ (X seguido de H sobre |0⟩). Se aplica U_f con los qubits de búsqueda como primer registro y el auxiliar como objetivo: el resultado es (−1)^{f(x)}|x⟩|−⟩, es decir, el oráculo de fase. Una sola consulta basta; no se duplica el coste del oráculo. Al terminar, el auxiliar debe estar de nuevo en |−⟩ (o desharse y reutilizarse en la siguiente iteración) y cualquier registro de trabajo usado dentro de U_f debe haberse devuelto a |0⟩; si quedara entrelazado con basura, se perdería la interferencia que Grover necesita. El auxiliar puede reutilizarse en cada iteración."
+  rubric:
+    - "Prepara el auxiliar en |−⟩ y aplica U_f con él como objetivo"
+    - "Indica que cuesta una sola consulta a U_f por oráculo de fase"
+    - "Exige que el auxiliar quede en |−⟩ y pueda reutilizarse"
+    - "Exige que los registros de trabajo vuelvan a |0⟩ para no entrelazarse con basura"
+
+- id: q-phase-kickback-007
+  prompt: "Un compañero implementa un circuito H – controlled-U – medida sobre el control (sin segunda Hadamard) para varios U y siempre obtiene 50 % de 0 y 50 % de 1. Concluye que todas las θ valen 1/2. ¿Qué está pasando y cómo lo corriges?"
+  model_answer: "Antes de la segunda Hadamard el control está en (|0⟩ + e^{2πiθ}|1⟩)/√2: la fase θ ha retrocedido al control, pero es relativa y no cambia las probabilidades de la base estándar, que son 1/2 y 1/2 para cualquier θ. No dice nada de θ. Hay que aplicar una Hadamard al control antes de medir: entonces p₀ = cos²(πθ) y p₁ = sin²(πθ), y la fase se convierte en probabilidad por interferencia. Para más bits de precisión se usan controles adicionales con U^{2^k} y la QFT inversa. Su conclusión θ = 1/2 es incorrecta (con θ = 1/2 se mediría 1 con certeza tras la segunda Hadamard)."
+  rubric:
+    - "Explica que sin la segunda Hadamard la fase relativa no afecta a las probabilidades (1/2 y 1/2 para cualquier θ)"
+    - "Propone añadir la Hadamard final antes de medir"
+    - "Da p₀ = cos²(πθ) y p₁ = sin²(πθ) tras la corrección"
+    - "Rechaza la conclusión θ = 1/2"
+
+- id: q-bernstein-vazirani-and-simon-001
+  prompt: "En el problema de Bernstein-Vazirani (f(x) = s·x, hay que hallar s ∈ {0,1}ⁿ), ¿cuántas consultas necesitan el mejor algoritmo cuántico y el clásico?"
+  options:
+    a: "Cuántico: 1; clásico: n (basta consultar las n cadenas con un solo 1)"
+    b: "Cuántico: n/2; clásico: n, la misma ventaja que en el cálculo de la paridad"
+    c: "Cuántico: 1; clásico: 2ⁿ⁻¹ + 1, igual que en Deutsch-Jozsa"
+    d: "Cuántico: √n; clásico: n, como en una búsqueda de Grover"
+  explanation: "Cada consulta clásica da un bit de s, y s tiene n bits. El cuántico es el circuito de Deutsch-Jozsa sin el postproceso con OR: tras la consulta el estado es |−⟩ ⊗ 2^{−n/2}Σ(−1)^{s·x}|x⟩ y las Hadamard finales lo llevan a |s⟩. La ventaja es polinómica (1 frente a n), no exponencial."
+
+- id: q-bernstein-vazirani-and-simon-002
+  prompt: "En el algoritmo de Simon, cada medida del primer registro da una cadena y. ¿Qué información aporta?"
+  options:
+    a: "Directamente la cadena secreta s con alta probabilidad"
+    b: "Una ecuación lineal y·s = 0 (mod 2); hacen falta unas n ejecuciones y resolver el sistema por eliminación gaussiana"
+    c: "Una de las dos entradas x o x ⊕ s que comparten salida; con dos medidas se obtiene s"
+    d: "Una ecuación y·s = 1 (mod 2), que se resuelve con una búsqueda de Grover"
+  explanation: "Con s ≠ 0ⁿ, y es uniforme sobre las cadenas con y·s = 0 y nunca cumple y·s = 1. Medir directamente el primer registro (sin la Hadamard final) daría solo una entrada, que no dice nada; y cada y es solo una ecuación, no s."
+
+- id: q-bernstein-vazirani-and-simon-003
+  prompt: "¿Qué ventaja tiene el algoritmo de Simon frente a los algoritmos clásicos, y con qué matiz?"
+  options:
+    a: "Cuadrática: n frente a n², igual que Grover frente a la búsqueda clásica"
+    b: "Exponencial, y además demuestra que BQP es estrictamente mayor que BPP en el modelo de circuitos"
+    c: "Exponencial frente a los clásicos deterministas, pero un clásico aleatorio de error acotado también necesita solo O(n)"
+    d: "Lineal en n frente a Ω(√(2ⁿ)) consultas clásicas aleatorias: la primera separación exponencial demostrada con error acotado, pero solo en consultas"
+  explanation: "El clásico necesita Ω(√(2ⁿ)) por la paradoja del cumpleaños (esperar una colisión). Es una separación en el modelo de consultas; no separa por sí misma BQP de BPP. Y vale incluso frente a aleatorios, a diferencia de Deutsch-Jozsa."
+
+- id: q-bernstein-vazirani-and-simon-004
+  prompt: "Explica con tus palabras cómo el algoritmo de Simon recupera la cadena s, incluyendo qué se mide, qué se hace con los resultados y por qué no basta medir el primer registro directamente tras la consulta."
+  model_answer: "Se aplica Hadamard a n qubits, se consulta U_f con un segundo registro en |0⟩, se aplica otra Hadamard a los n primeros y se miden. El resultado y cumple y·s = 0 (mod 2): es uniforme sobre las 2^{n−1} cadenas ortogonales a s. Cada ejecución da una ecuación lineal sobre Z₂; tras unas n (por ejemplo n + 10) se forma la matriz binaria y su espacio nulo por eliminación gaussiana módulo 2 contiene solo 0ⁿ y s con probabilidad alta (≥ 1 − 2^{−r} con n + r ejecuciones). Medir el primer registro sin la Hadamard final daría solo una de las dos entradas x o x ⊕ s de la misma salida, que no revela s: la interferencia de la Hadamard final es la que concentra la información."
+  rubric:
+    - "Describe el circuito Hadamard, U_f con segundo registro, Hadamard y medida"
+    - "Indica que cada medida da una ecuación y·s = 0 mod 2"
+    - "Explica el postproceso: unas n ejecuciones y eliminación gaussiana módulo 2"
+    - "Explica que medir directamente el primer registro daría una entrada aislada sin información sobre s"
+
+- id: q-bernstein-vazirani-and-simon-005
+  prompt: "Un proveedor te ofrece un «servicio Simon» para encontrar el periodo XOR oculto de tu función concreta, que es la multiplicación por una matriz booleana de rango n−1 que tú mismo conoces. ¿Lo contratarías? Razona."
+  model_answer: "No. La ventaja exponencial de Simon se demuestra en el modelo de caja negra, donde el algoritmo clásico solo puede consultar f. Pero si la función es una matriz booleana conocida, un algoritmo clásico que ve la matriz calcula su espacio nulo mediante eliminación gaussiana en tiempo polinómico (O(n³)), así que la ventaja desaparece. Aaronson subraya que no se conoce una aplicación natural del problema de Simon. Lo que hay que preguntarse es si el oráculo es realmente una caja negra o si un algoritmo clásico que ve el código pierde la ventaja; aquí la pierde. Su valor es como molde: el mismo patrón sirve para Shor."
+  rubric:
+    - "Responde que no lo contrataría: la ventaja es en caja negra y no se mantiene si se conoce la matriz"
+    - "Indica que el espacio nulo se calcula clásicamente en tiempo polinómico (eliminación gaussiana)"
+    - "Señala que no se conoce una aplicación natural de Simon"
+    - "Distingue la ventaja demostrada en consultas de la utilidad práctica"
+
+- id: q-bernstein-vazirani-and-simon-006
+  prompt: "Te dan una función f sobre un grupo abeliano finito G, con la promesa de que es constante y distinta en las cosets de un subgrupo oculto H. Describe el algoritmo cuántico estándar, cuántas muestras necesitas aproximadamente y cuándo un algoritmo clásico bastaría."
+  model_answer: "Algoritmo estándar del subgrupo oculto abeliano (el molde de Simon y Shor): preparar la superposición uniforme sobre G, calcular f en un registro auxiliar, descartar o medir esa salida para dejar un estado de coclase de H, aplicar la QFT de G y medir un carácter que es trivial sobre H. Cada muestra está en H^⊥; la intersección de los núcleos de O(log|G|) muestras recupera H (cada muestra reduce el candidato con probabilidad ≥ 1/2). Simon es G = Z₂ⁿ, H = {0,s}; Shor es G = Z_{φ(N)}. Clásicamente, sin estructura en el rango, hace falta una colisión: Ω(√(|G|/|H|)) consultas por la paradoja del cumpleaños. Si G tiene pocos subgrupos (por ejemplo Z_p), los algoritmos clásicos bastan. Para grupos no abelianos no hay algoritmo eficiente general."
+  rubric:
+    - "Describe superposición, cálculo de f, estado de coclase, QFT de G y medida"
+    - "Estima O(log|G|) muestras y que se recupera H como intersección de núcleos"
+    - "Contrasta con el coste clásico √(|G|/|H|) por colisiones"
+    - "Indica cuándo el clásico basta (pocos subgrupos) o que el caso no abeliano no está resuelto en general"
+
+- id: q-grover-search-001
+  prompt: "Para buscar una entrada x con f(x) = 1 en una función sin estructura con N = 2ⁿ entradas, ¿qué ventaja da el algoritmo de Grover?"
+  options:
+    a: "Exponencial: O(log N) evaluaciones de f frente a O(N) clásicas"
+    b: "Ninguna en consultas; solo reduce el tiempo de CPU por consulta"
+    c: "Cuadrática: O(√N) evaluaciones de f frente a O(N) clásicas"
+    d: "Polinómica de grado 1/3: O(N^{1/3}) frente a O(√N) clásicas"
+  explanation: "Grover pasa de ≈ N a ≈ √N consultas (un millón de pasos a mil). No es exponencial; y además es óptima en consultas. El N^{1/3} es el resultado del problema de la colisión, no de la búsqueda."
+
+- id: q-grover-search-002
+  prompt: "¿Cuál es la receta general del algoritmo de Grover?"
+  options:
+    a: "Medir cada qubit tras cada consulta para descartar candidatos hasta que quede uno"
+    b: "Aplicar el oráculo una sola vez a la superposición uniforme y medir; repetir si falla"
+    c: "Repetir oráculo y difusión sin límite hasta que la probabilidad de éxito sea 1 y entonces medir"
+    d: "Hadamard en todos los qubits; repetir t veces (oráculo de fase + difusión); medir; comprobar la salida con una consulta a f"
+  explanation: "La superposición uniforme se amplifica en la amplitud de las soluciones con cada par oráculo-difusión; hay que parar a tiempo (t ≈ π/(4θ)). Medir entre iteraciones colapsaría la superposición. Una sola consulta no basta salvo casos muy pequeños."
+
+- id: q-grover-search-003
+  prompt: "Con N = 4 entradas y una única solución, ¿cuántas iteraciones de Grover bastan para encontrarla con probabilidad 1?"
+  accepted: ["1", "una", "1 iteración", "una iteración", "1 sola"]
+
+- id: q-grover-search-004
+  prompt: "¿Qué pasa con la probabilidad de éxito de Grover si se sigue iterando más allá del número recomendado?"
+  options:
+    a: "Vuelve a bajar: oscila, como un soufflé que sube y se hunde"
+    b: "Sigue subiendo hasta llegar a 1 y ahí se mantiene"
+    c: "Se mantiene en el máximo alcanzado, porque el estado ya no cambia"
+    d: "Baja porque el oráculo deja de funcionar tras muchas aplicaciones"
+  explanation: "La probabilidad es sin²((2t+1)θ): el estado sigue rotando y pasa de largo. El oráculo funciona igual en cada iteración; es la rotación la que oscila."
+
+- id: q-grover-search-005
+  prompt: "Para N = 16 y una sola solución, θ = arcsin(1/4) ≈ 0,2527. Con el valor recomendado t = ⌊π/(4θ)⌋, ¿qué t se usa y qué probabilidad de éxito se obtiene?"
+  options:
+    a: "t = 4 (= √16) y éxito exactamente 100 %"
+    b: "t = 3 y éxito ≈ 96 % (sin²(7θ))"
+    c: "t = 3 y éxito exactamente 100 %"
+    d: "t = 12 y éxito ≈ 100 %"
+  explanation: "π/(4θ) ≈ 3,1, luego t = 3 y la probabilidad es sin²((2·3+1)θ) = sin²(7θ) ≈ 0,961. No es exacta (solo lo es en casos como N = 4). Con t = 4 baja a ≈ 58 % y con t = 12 a ≈ 0,1 %, porque el estado se pasa."
+
+- id: q-grover-search-006
+  prompt: "Un equipo calcula t para N = 64 suponiendo una solución (t = 6), pero la función tiene en realidad s = 4 soluciones. ¿Qué ocurre?"
+  options:
+    a: "Mejora: más soluciones siempre dan mayor probabilidad con el mismo t"
+    b: "El estado gira el doble de rápido y se pasa: la probabilidad de éxito cae a ≈ 2 %"
+    c: "Es igual que con s = 1: la probabilidad solo depende de N"
+    d: "Se obtiene una solución con probabilidad exactamente 1, porque hay más soluciones"
+  explanation: "Con s = 4 y N = 64, θ = arcsin(1/4) y (2·6+1)θ ≈ 3,28, cuyo seno al cuadrado es ≈ 0,02. El t correcto es ⌊π/(4θ)⌋ = 3. Usar el t de s = 1 con s mayor es catastrófico."
+
+- id: q-grover-search-007
+  prompt: "No conoces el número de soluciones s. ¿Qué estrategia permite aun así encontrar una con O(√(N/s)) consultas?"
+  options:
+    a: "Duplicar la cota T en cada ronda, que es lo que garantiza la complejidad correcta"
+    b: "Usar siempre t = ⌊π√N/4⌋, porque con más soluciones el éxito solo mejora"
+    c: "Medir el estado tras cada iteración y parar cuando una medida dé una solución"
+    d: "Elegir t al azar en {1,…,⌊π√N/4⌋} (éxito > 40 %) o aumentar la cota T geométricamente, por ejemplo T → ⌈5T/4⌉, comprobando cada salida con una consulta"
+  explanation: "Watrous indica que T → ⌈5T/4⌉ funciona y duplicar no. Usar siempre el t de s = 1 falla para s grande (se pasa). Medir tras cada iteración destruye la amplificación. La verificación con una consulta permite repetir con fallo 2^{-m}."
+
+- id: q-grover-search-008
+  prompt: "¿Qué se sabe sobre si se puede hacer mejor que Grover en consultas para búsqueda sin estructura?"
+  options:
+    a: "Se cree pero no está demostrado: podría existir un O(log N) aún no encontrado"
+    b: "Sí: con memoria cuántica se logra O(log N) consultas"
+    c: "No: ningún algoritmo de consultas usa asintóticamente menos de O(√N), ni siquiera para la búsqueda única (cota anterior al algoritmo, de Bennett-Bernstein-Brassard-Vazirani)"
+    d: "Solo si f tiene estructura de grupo; entonces un algoritmo tipo Simon baja a O(n)"
+  explanation: "La optimalidad de Ω(√N) está demostrada (e incluso se conocía antes de Grover). Un algoritmo mejor exige explotar estructura de f, que Grover no supone."
+
+- id: q-grover-search-009
+  prompt: "Explica con tus palabras por qué la iteración de Grover funciona como una rotación y cómo se deduce el número de iteraciones."
+  model_answer: "El estado inicial |u⟩ = cos θ |A₀⟩ + sin θ |A₁⟩ vive en el plano real generado por las superposiciones uniformes de no-soluciones y soluciones, con sin θ = √(s/N). El oráculo de fase Z_f es una reflexión en ese plano y la difusión 2|u⟩⟨u| − I es otra reflexión; el producto de dos reflexiones es una rotación del doble del ángulo entre sus ejes, aquí 2θ. Así G^t|u⟩ = cos((2t+1)θ)|A₀⟩ + sin((2t+1)θ)|A₁⟩ y la probabilidad de medir una solución es sin²((2t+1)θ). Hay que acercar (2t+1)θ a π/2, luego t ≈ π/(4θ) − 1/2, con t = ⌊π/(4θ)⌋; con s = 1 son unas (π/4)√N iteraciones. Si se itera de más, el estado sigue girando y la probabilidad baja."
+  rubric:
+    - "Describe el plano de dos dimensiones |A₀⟩, |A₁⟩ y el ángulo θ con sin θ = √(s/N)"
+    - "Explica que el oráculo y la difusión son reflexiones y su producto una rotación de 2θ"
+    - "Da la probabilidad sin²((2t+1)θ)"
+    - "Deduce t ≈ π/(4θ) y ≈ (π/4)√(N/s), y que pasarse reduce la probabilidad"
+
+- id: q-grover-search-010
+  prompt: "Tu jefe pregunta si Grover resuelve en tiempo polinómico un problema SAT con n = 80 variables. Estima el coste de Grover, compáralo con la mejor alternativa clásica conocida para 3SAT y recomienda."
+  model_answer: "Grover aplicado a la fuerza bruta necesita del orden de 2^{n/2} = 2⁴⁰ ≈ 10¹² iteraciones (por poly(n)), cada una con una evaluación del circuito de la fórmula (oráculo U_φ, Z y U_φ⁻¹ para limpiar). Es una ventaja cuadrática como mucho, no un algoritmo polinómico. Para 3SAT los mejores algoritmos clásicos cuestan del orden de 1,3ⁿ: 1,3⁸⁰ ≈ 1,3·10⁹ ≈ 2³⁰, es decir, mucho menos que 2⁴⁰. Así que Grover directamente no gana a los métodos clásicos con estructura. Recomendación: no apostar por Grover solo; si acaso, combinarlo con trucos clásicos que exploten estructura, y desconfiar de afirmaciones de que los cuánticos resuelven NP-completos en tiempo polinómico."
+  rubric:
+    - "Estima Grover como ≈ 2^{n/2}·poly(n) = 2⁴⁰ y lo califica de ventaja cuadrática como mucho, no de algoritmo polinómico"
+    - "Compara con ≈ 1,3ⁿ clásico (≈ 2³⁰) y concluye que el clásico con estructura gana"
+    - "Menciona que el oráculo se construye con U_φ, Z y U_φ⁻¹"
+    - "Recomienda combinar con técnicas clásicas o no usar Grover solo"
+
+- id: q-grover-search-011
+  prompt: "Vas a buscar en N = 2³⁰ candidatos una solución de una función cuyo número de soluciones s es desconocido (puede ser 0). Cada consulta es cara. Diseña el plan: qué número de iteraciones usas, cómo verificas, cómo detectas que no hay solución y cuánto cuesta."
+  model_answer: "Con s desconocido no se puede fijar t. Tengo √N = 2¹⁵ = 32 768, y el máximo razonable es ⌊π√N/4⌋ ≈ 25 735. Opción 1: elegir t al azar en {1,…,25 735}, que da una solución con probabilidad > 40 % por intento. Opción 2: empezar con una cota T pequeña y aumentarla geométricamente con T → ⌈5T/4⌉ (duplicar no sirve), hasta O(√(N/s)) consultas. Tras cada ejecución se mide y se comprueba con una consulta clásica f(x) = 1; así basta una probabilidad ≥ 1/2 por intento y tras m ejecuciones el fallo es ≤ 2^{−m}. Si no hay solución, tras O(√N) consultas de reintentos sin éxito se concluye con alta confianza que s = 0. Advertencia: usar t = 25 735 como si s = 1 es catastrófico si en realidad s es grande."
+  rubric:
+    - "Reconoce que t no puede fijarse sin conocer s y que √N = 2¹⁵ (máximo ≈ 25 735)"
+    - "Propone t aleatorio (éxito > 40 %) o crecimiento geométrico de T con factor 5/4"
+    - "Verifica cada salida con una consulta clásica y acota el fallo con 2^{−m}"
+    - "Explica la detección de s = 0 con O(√N) y avisa del riesgo de usar el t de s = 1"
+
+- id: q-grover-search-012
+  prompt: "Tienes un algoritmo cuántico heurístico A (unitario, sin medidas) que devuelve una solución correcta con probabilidad p = 1 % y una comprobación eficiente de la solución. ¿Cuántas ejecuciones necesitas por el método clásico y con amplificación de amplitud? ¿Qué requisitos tiene A?"
+  model_answer: "Clásicamente, repitiendo A y comprobando, hacen falta del orden de 1/p = 100 ejecuciones. Con amplificación de amplitud bastan O(1/√p) ≈ 10 ejecuciones de A y de A⁻¹, combinando una reflexión respecto al estado malo con una reflexión respecto a A|0⟩ (cada par rota 2θ con θ = arcsin√p). Grover es el caso A = H^{⊗n}. Requisitos: A debe ser unitaria y sin medidas, porque hace falta A⁻¹; y debe haber una forma eficiente de reconocer los estados buenos. Si p se desconoce, se prueba con conjeturas decrecientes de forma exponencial. La ganancia es de raíz cuadrada, no más."
+  rubric:
+    - "Da 1/p = 100 ejecuciones clásicas frente a O(1/√p) ≈ 10 con amplificación de amplitud"
+    - "Describe las dos reflexiones (estado malo y A|0⟩) y el uso de A y A⁻¹"
+    - "Exige que A sea unitaria, sin medidas, y con comprobación eficiente de la solución"
+    - "Menciona cómo manejar p desconocida o que la ganancia es cuadrática"
+
+- id: q-grover-search-013
+  prompt: "Las puertas cuánticas de tu plataforma son 10⁶ veces más lentas que una consulta clásica equivalente. ¿A partir de qué tamaño de problema merece la pena Grover para una búsqueda sin estructura? ¿Y si el problema tiene estructura?"
+  model_answer: "Si cada consulta cuántica cuesta C = 10⁶ c y la clásica c, Grover cuesta ≈ C√N y la búsqueda clásica ≈ cN. Compensa cuando C√N < cN, es decir √N > C/c = 10⁶, N > 10¹². Antes de ese tamaño, la ventaja cuadrática no basta. Esto es un cálculo simplificado: ignora la constante π/4 y los gastos de la corrección de errores. Si el problema tiene estructura, un clásico bien elegido suele ganar: por ejemplo, el viajante con Held-Karp (2ⁿ·poly) supera a Grover aplicado a fuerza bruta. Grover conviene cuando hay comprobación eficiente y no hay estructura que aprovechar."
+  rubric:
+    - "Plantea la comparación C√N frente a cN con las constantes dadas"
+    - "Obtiene N > (C/c)² = 10¹² como umbral aproximado"
+    - "Reconoce que el cálculo es simplificado y que las constantes reales importan"
+    - "Señala que con estructura un clásico (p. ej. Held-Karp) suele ganar"
+
+- id: q-quantum-fourier-transform-001
+  prompt: "¿Cuál es la diferencia esencial entre la FFT clásica y la transformada cuántica de Fourier (QFT)?"
+  options:
+    a: "La QFT no escribe los coeficientes en ninguna parte: solo existen como amplitudes del estado; a cambio cuesta O(n²) puertas, exponencialmente menos que la FFT"
+    b: "La QFT calcula la misma lista de salida en O(n²) pasos, así que sustituye a la FFT en cualquier programa"
+    c: "La QFT es la FFT ejecutada sobre una memoria cuántica, con el mismo coste O(N log N)"
+    d: "La QFT solo está definida para N = 2^m, mientras que la FFT sirve para cualquier N"
+  explanation: "Los coeficientes de Fourier aparecen como amplitudes; al medir se obtiene solo una muestra. La QFT está definida para cualquier N (aunque N = 2^m basta para la mayoría de usos) y no reemplaza a la FFT: es una subrutina dentro de algoritmos mayores."
+
+- id: q-quantum-fourier-transform-002
+  prompt: "Con ω₄ = i, ¿cuál es la fila de índice x = 1 de la matriz QFT₄ (entrada (y,x) = ω₄^{xy}/2)?"
+  options:
+    a: "(1/2)·(1, −1, 1, −1)"
+    b: "(1/2)·(1, −i, −1, i)"
+    c: "(1/2)·(1, i, 1, i)"
+    d: "(1/2)·(1, i, −1, −i)"
+  explanation: "La fila x = 1 tiene entradas ω₄^{y} = 1, i, −1, −i para y = 0,1,2,3. La fila (1,−1,1,−1)/2 es la de x = 2; la (1,−i,−1,i)/2 es la de x = 3, y la (1, i, 1, i)/2 no corresponde a ninguna fila (ni siquiera es ortogonal a la fila (1, 1, 1, 1)/2)."
+
+- id: q-quantum-fourier-transform-003
+  prompt: "¿De qué puertas se compone el circuito de la QFT sobre n qubits?"
+  options:
+    a: "Hadamards y puertas de fase controlada R_s = diag(1, e^{2πi/2^s}), seguidas de swaps que invierten el orden de los qubits"
+    b: "Solo Hadamards y CNOT, sin ninguna puerta de fase"
+    c: "Puertas Toffoli y T, porque las fases requieren la base de Clifford+T"
+    d: "Hadamards, fase controlada y un registro auxiliar que se mide al final para leer los coeficientes"
+  explanation: "El estado QFT|k⟩ es un estado producto con fases dadas por fracciones binarias; se construye con H y R_s controladas, más swaps para ordenar los qubits. No hay registro auxiliar medido: la salida no es una lista de coeficientes."
+
+- id: q-quantum-fourier-transform-004
+  prompt: "Explica con tus palabras qué hace la QFT con las amplitudes de un estado, por qué es la herramienta natural para detectar periodos y por qué no puedes «leer» el resultado como una lista de coeficientes."
+  model_answer: "La QFT es la transformada discreta de Fourier convertida en operación unitaria: |x⟩ → N^{−1/2} Σ_y ω_N^{xy}|y⟩. Actúa sobre las amplitudes: si el estado tiene amplitudes periódicas, las contribuciones a los índices múltiplos de N/r interfieren constructivamente y las demás se cancelan, como una chincheta sobre relojes de distinto periodo que solo se mueve de forma coherente cuando los periodos encajan. Por eso, al medir tras la QFT, se obtienen con mayor probabilidad valores relacionados con el periodo. Pero los coeficientes de Fourier solo existen como amplitudes del estado final: medir da una sola muestra, no la lista. A cambio, la QFT cuesta O(n²) puertas."
+  rubric:
+    - "Define la QFT como la DFT aplicada a las amplitudes de forma unitaria"
+    - "Explica la interferencia constructiva en múltiplos del periodo y destructiva en el resto"
+    - "Aclara que los coeficientes existen solo como amplitudes y medir da una muestra"
+    - "Menciona el coste polilogarítmico (O(n²) puertas)"
+
+- id: q-quantum-fourier-transform-005
+  prompt: "Diseñas una QFT de n = 30 qubits para una estimación de fase. Las puertas R_s con s grande aplican fases del orden de 2⁻³⁰, difíciles de realizar con precisión. ¿Qué haces y cuánto ahorras?"
+  model_answer: "Se usa la QFT aproximada: se omiten las puertas R_s con s mucho mayor que log n (Coppersmith), porque aplican fases casi triviales (P_α está muy cerca de la identidad para α pequeño). Quedan O(log n) puertas por qubit y O(n log n) en total, en lugar de n² (≈ 900 puertas), con un error pequeño, del orden de 1/poly(n). Es además la respuesta a la objeción de que Shor es «no físico» por exigir rotaciones minúsculas. La QFT exacta sigue siendo preferible si se quiere un circuito sencillo y fácil de depurar; la aproximada es la opción cuando la precisión de las rotaciones es el problema."
+  rubric:
+    - "Propone omitir R_s con s ≫ log n (QFT aproximada de Coppersmith)"
+    - "Da el coste resultante O(log n) por qubit y O(n log n) en total, frente a O(n²)"
+    - "Menciona que el error resultante es pequeño (1/poly(n))"
+    - "Relaciona la solución con la objeción de rotaciones no físicas o con la elección frente a la exacta"
+
+- id: q-quantum-fourier-transform-006
+  prompt: "Has escrito tu propia QFT y al compararla con la matriz de referencia los resultados salen con los bits en orden inverso. ¿Por qué ocurre, cómo lo corriges y qué tests automáticos escribirías?"
+  model_answer: "El circuito estándar produce la salida con los qubits en orden inverso (los bits de la fracción binaria se generan al revés): se corrige añadiendo swaps al final o leyendo los resultados en orden inverso; hay que alinearlo con la convención de orden de bits de la biblioteca. Tests: (1) comparar con la matriz QFT_N con entradas ω^{xy}/√N para N = 2, 4, 8 (QFT₂ debe ser la Hadamard); (2) comprobar unitariedad; (3) F_N⁴ = I, una comprobación útil de corrección; (4) que la inversa (circuito invertido con puertas inversas) devuelva el estado inicial; (5) con entradas periódicas, ver que la distribución concentra la probabilidad en múltiplos de N/r."
+  rubric:
+    - "Explica que el circuito da la salida con bits invertidos y propone swaps finales o lectura en orden inverso"
+    - "Propone comparar con la matriz de referencia (p. ej. QFT₂ = H, QFT₄ del enunciado)"
+    - "Incluye al menos un test de propiedad, como F_N⁴ = I, unitariedad o inversa"
+    - "Menciona la convención de orden de qubits de la biblioteca"
+
+- id: q-quantum-fourier-transform-007
+  prompt: "Necesitas una QFT sobre Z_N con N = 1000 (no es potencia de 2) y además tu algoritmo trabaja sobre Z₁₀₀₀ × Z₂₅₆. ¿Cómo la implementas?"
+  model_answer: "Para un N general, la QFT sobre Z_N se implementa aproximadamente con estimación de fase sobre la operación «sumar 1 módulo N», cuyos vectores propios son la base de Fourier; basta precisión de n = O(log N) bits y se borra el registro auxiliar corriendo el cálculo al revés. Para un grupo abeliano finito cualquiera, la QFT es el producto tensorial de las QFT de sus factores cíclicos: aquí, QFT sobre Z₁₀₀₀ (aproximada) ⊗ QFT sobre Z₂₅₆ (exacta, con 8 qubits). Hay que tener presente que la QFT sobre Z₂ⁿ (que es H^{⊗n}) es muy distinta de la de Z_{2ⁿ}."
+  rubric:
+    - "Indica estimación de fase sobre «sumar 1 mod N» para N general, con precisión O(log N) bits"
+    - "Aplica la regla del producto tensorial para el grupo Z₁₀₀₀ × Z₂₅₆"
+    - "Menciona el borrado del registro auxiliar o la naturaleza aproximada"
+    - "Distingue la QFT de Z_{2ⁿ} de la de Z₂ⁿ (H^{⊗n})"
+
+- id: q-phase-estimation-001
+  prompt: "En estimación de fase, dada una unitaria U y un vector propio |ψ⟩ con U|ψ⟩ = e^{2πiθ}|ψ⟩, ¿qué se pide estimar?"
+  options:
+    a: "El valor propio e^{2πiθ} como número complejo, directamente"
+    b: "El vector propio |ψ⟩ del que se parte, escrito en la base estándar"
+    c: "El exponente θ ∈ [0,1), la fase del valor propio"
+    d: "El menor número de veces que hay que aplicar U para obtener la identidad"
+  explanation: "El resultado es una aproximación de θ en binario (con m bits). El vector propio es una entrada del problema, no una salida, y el registro que lo contiene no cambia durante la estimación."
+
+- id: q-phase-estimation-002
+  prompt: "¿Cuál es el circuito general de estimación de fase con m qubits de control?"
+  options:
+    a: "Hadamard en cada control; controlled-U repetido m veces desde cada control; QFT directa; medir el registro de |ψ⟩"
+    b: "Hadamard en cada control; controlled-U^{2^k} sobre el control k; QFT inversa de 2^m dimensiones sobre los controles; medir los controles"
+    c: "Hadamard en el registro de |ψ⟩; controlled-U^{k} sobre cada control; QFT inversa; medir |ψ⟩"
+    d: "Controlled-U^{2^k} sobre el control k, sin Hadamard iniciales; QFT inversa; medir los controles"
+  explanation: "Las Hadamard preparan la superposición sobre la que actúa el retroceso de fase; las potencias U^{2^k} dan cada bit de precisión; la QFT inversa convierte la fase en un resultado medible en los controles. El registro de |ψ⟩ no se mide ni cambia."
+
+- id: q-phase-estimation-003
+  prompt: "Con m = 3 qubits de control y U|ψ⟩ = e^{2πiθ}|ψ⟩ con θ = 3/8, ¿qué se obtiene al medir los controles?"
+  options:
+    a: "y = 3 con probabilidad ≈ 40 %, porque la estimación solo es aproximada"
+    b: "y = 3 (011) con probabilidad 1, porque θ = y/2^m exactamente"
+    c: "y = 6, ya que hay que duplicar el resultado para obtener θ"
+    d: "Un resultado uniforme entre 0 y 7, porque θ no es 0 ni 1/2"
+  explanation: "Si θ = y/2^m exactamente, el estado de los controles es QFT|y⟩ y la QFT inversa da |y⟩ con certeza. Los ≈ 40 % (4/π²) son el mínimo cuando θ no cabe en m bits."
+
+- id: q-phase-estimation-004
+  prompt: "Con m = 10 qubits de control, calculando U^{2^k} repitiendo U, ¿cuántas aplicaciones controladas de U se usan en total?"
+  options:
+    a: "10, una por cada qubit de control"
+    b: "1024 = 2¹⁰, una por cada valor de x"
+    c: "1023 = 1 + 2 + … + 512 = 2¹⁰ − 1"
+    d: "100, porque cada uno de los 10 controles usa 10 aplicaciones"
+  explanation: "El control k usa U^{2^k}, es decir, 2^k aplicaciones: la suma es 2^m − 1. Por eso la precisión cuesta exponencialmente en m salvo que U^{2^k} tenga un circuito más eficiente."
+
+- id: q-phase-estimation-005
+  prompt: "Explica con tus palabras qué ocurre cuando θ no es exactamente un múltiplo de 2^{−m} y cómo se consigue una estimación fiable de todos modos."
+  model_answer: "La probabilidad de cada resultado y es p_y = |2^{−m} Σ_x e^{2πix(θ − y/2^m)}|². Si y/2^m es una de las dos mejores aproximaciones de m bits de θ, entonces p_y ≥ 4/π² ≈ 0,405 para todo m; si el resultado se aleja de θ en más de 2^{−m}, la probabilidad es como mucho 1/4 (cota cruda; en la práctica mucho menor). Así que las aproximaciones cercanas son probables y las lejanas improbables. Para ganar fiabilidad se repite el circuito unas pocas veces y se toma el resultado más frecuente: el error baja exponencialmente con el número de repeticiones, y como el vector propio no se perturba, se reutiliza."
+  rubric:
+    - "Dice que con θ no representable el resultado es probabilístico"
+    - "Cita que las dos mejores aproximaciones de m bits tienen p_y ≥ 4/π² ≈ 0,405"
+    - "Indica que las aproximaciones alejadas son poco probables"
+    - "Explica que se repite y se elige el resultado más común, reutilizando el vector propio"
+
+- id: q-phase-estimation-006
+  prompt: "En Shor no sabes preparar el vector propio |ψ₁⟩ de M_a (el que da θ = 1/r) y tampoco quieres iterar M_a 2^k veces. ¿Qué haces en cada caso y qué obtienes al medir?"
+  model_answer: "En lugar de |ψ₁⟩ se usa |1⟩ = r^{−1/2} Σ_k |ψ_k⟩, que es fácil de preparar: la estimación equivale a tomar k ∈ {0,…,r−1} al azar y estimar k/r. Se obtiene así una fracción cercana a k/r, que tras fracciones continuas da k/r reducida; repitiendo y tomando el mínimo común múltiplo de los denominadores se obtiene r. Para M_a^{2^k} no se itera M_a: se calcula clásicamente b = a^{2^k} mod N por cuadrados repetidos y se usa el circuito de M_b, con coste polinómico. Esta posibilidad no existe para una U general, donde habría que repetir U y el coste sería exponencial en m. Con m = 2 lg N + 1 control qubits hay alta probabilidad de éxito."
+  rubric:
+    - "Usa |1⟩ = r^{−1/2} Σ|ψ_k⟩ y explica que equivale a estimar k/r con k aleatorio"
+    - "Menciona fracciones continuas y el mcm de denominadores para obtener r"
+    - "Calcula b = a^{2^k} mod N clásicamente y usa M_b en vez de iterar M_a"
+    - "Indica que para una U general no existe ese atajo, y m ≈ 2 lg N + 1"
+
+- id: q-phase-estimation-007
+  prompt: "Quieres estimar la energía del estado fundamental de un hamiltoniano con error ±2⁻¹² (en la fase). Tienes un circuito que implementa U = e^{iH} y una forma de preparar un estado inicial. ¿Cuántos qubits de control usas, cuántas aplicaciones de U si U^k se hace repitiendo U y qué condiciones debe cumplir el estado inicial?"
+  model_answer: "Para error ±ε se necesitan m = ⌈log₂(1/ε)⌉ = 12 bits. Si U^{2^k} se construye repitiendo U, se usan 2^m − 1 = 4095 aplicaciones controladas de U, es decir O(1/ε); la precisión cuesta exponencialmente en m salvo que U^{2^k} tenga un circuito más eficiente. Como el estado de entrada no es un vector propio exacto, el resultado corresponde a un valor propio aleatorio con peso en la descomposición del estado: para obtener la energía fundamental hace falta un estado inicial con buen solapamiento con el estado fundamental. Con poco solapamiento, el resultado será casi siempre otro valor propio y no la energía fundamental."
+  rubric:
+    - "Calcula m = ⌈log₂(1/ε)⌉ = 12 qubits de control"
+    - "Obtiene 2¹² − 1 = 4095 aplicaciones, es decir O(1/ε) si U^{2^k} se hace repitiendo U"
+    - "Explica que la entrada no vector propio da un valor propio aleatorio según el peso en el estado"
+    - "Exige buen solapamiento con el estado fundamental"
+
+- id: q-phase-estimation-008
+  prompt: "Quieres saber cuántos de los N = 2⁴⁰ elementos marcados hay (M), con precisión multiplicativa ρ = 1 %, y tienes oráculo de Grover. ¿Qué técnica usas, qué coste esperas y qué no puedes pedir?"
+  model_answer: "Conteo cuántico: estimación de fase sobre la operación de Grover, cuyos valores propios son ±arccos(1−p) ≈ ±√(2p), con p = M/N. Estima |M| con precisión multiplicativa ρ en O(√(N/|M|)/ρ) consultas; por ejemplo, con |M| ≈ 2²⁰ resulta √(N/M) = 2¹⁰ y con ρ = 0,01 son del orden de 10⁵ consultas (salvo constantes). Lo que no se puede pedir es el conteo exacto: exige Ω(N) consultas, porque determinaría la paridad. Es un uso de la estimación de fase como rutina de lectura de valores propios dentro de otro algoritmo (Grover)."
+  rubric:
+    - "Propone estimación de fase sobre la cadena de Grover (conteo cuántico)"
+    - "Cita el coste O(√(N/|M|)/ρ) y lo aplica a los datos"
+    - "Indica que el conteo exacto requiere Ω(N) consultas"
+    - "Relaciona fase y número de soluciones (valores propios ±arccos(1−p) ≈ ±√(2p))"
+
+- id: q-quantum-complexity-001
+  prompt: "¿Qué cadena de inclusiones entre clases de complejidad está demostrada?"
+  options:
+    a: "P ⊆ BPP ⊆ BQP ⊆ PSPACE"
+    b: "P ⊆ BQP ⊆ NP ⊆ PSPACE"
+    c: "NP ⊆ BQP ⊆ BPP ⊆ PSPACE"
+    d: "BPP ⊆ P ⊆ BQP ⊆ PSPACE"
+  explanation: "BPP ⊆ BQP porque un ordenador cuántico genera monedas con Hadamards; P ⊆ BQP porque las Toffoli simulan cómputo clásico; BQP ⊆ PSPACE por la suma sobre caminos. No se sabe si BQP ⊆ NP ni si NP ⊆ BQP; se cree que son incomparables."
+
+- id: q-quantum-complexity-002
+  prompt: "¿Por qué es tan difícil demostrar que BQP ≠ BPP (por ejemplo, que factorizar no está en BPP)?"
+  options:
+    a: "Porque BQP no tiene una definición formal y no se pueden comparar clases"
+    b: "Porque ya se demostró que BQP = BPP, aunque nadie lo usa"
+    c: "Porque no existe ningún problema que un ordenador cuántico resuelva más rápido"
+    d: "Porque implicaría P ≠ PSPACE, un problema abierto desde los años sesenta"
+  explanation: "Como BPP ⊆ BQP ⊆ PSPACE, separar BQP de BPP separaría P de PSPACE. BQP sí tiene definición formal (familias uniformes de circuitos cuánticos de tamaño polinómico) y Shor ofrece un candidato a ventaja, pero no una demostración."
+
+- id: q-quantum-complexity-003
+  prompt: "¿Cuál es la evidencia de que los problemas NP-completos probablemente no están en BQP?"
+  options:
+    a: "Shor demuestra que ningún problema NP-completo puede resolverse en tiempo polinómico cuántico"
+    b: "La cota inferior de Grover: tratados como caja negra, solo permiten ganar una raíz cuadrada; es evidencia, no prueba, porque podría haber métodos que exploten estructura"
+    c: "Se ha demostrado que NP ⊄ BQP usando el método del adversario"
+    d: "Los NP-completos se simulan en BQP con Toffoli, lo que exigiría P = NP"
+  explanation: "No hay demostración de NP ⊄ BQP (ni de BQP ⊄ NP). La evidencia principal es que el enfoque genérico de búsqueda solo da una ventaja cuadrática. Shor ataca un problema con estructura (periodo), no NP-completos."
+
+- id: q-quantum-complexity-004
+  prompt: "¿Qué está demostrado sobre la ventaja del algoritmo de Shor?"
+  options:
+    a: "Que factorizar no está en BPP, con lo que BQP ≠ BPP queda probado"
+    b: "Que ningún algoritmo clásico puede factorizar en tiempo polinómico, aunque sea con estructura"
+    c: "Que la factorización es NP-completa, y Shor resuelve un NP-completo"
+    d: "La aceleración del cálculo de periodos frente a algoritmos clásicos que usan la función como caja negra; que factorizar en sí sea más difícil clásicamente es conjetural"
+  explanation: "Los mejores métodos clásicos de factorización explotan estructura adicional y no se ha demostrado P ≠ NP ni la dureza clásica de factorizar. La factorización no se sabe NP-completa."
+
+- id: q-quantum-complexity-005
+  prompt: "Explica con tus palabras por qué una separación exponencial en complejidad de consultas (como la de Simon) no demuestra por sí sola que BQP sea más potente que BPP."
+  model_answer: "Las separaciones de Deutsch-Jozsa, Bernstein-Vazirani, Simon o Grover son de complejidad de consultas: se cuenta el número de evaluaciones del oráculo, y el oráculo es una caja negra. La clase BQP se define con circuitos de tamaño polinómico y entrada explícita. De Wolf insiste en que la separación de Simon frente a los aleatorios de error acotado está demostrada para consultas, no para BQP frente a BPP. Además, demostrar BQP ≠ BPP implicaría P ≠ PSPACE. En el modelo estándar es mucho más difícil probar ventajas, de ahí que los resultados en consultas sean evidencia del potencial pero no una separación de clases."
+  rubric:
+    - "Distingue complejidad de consultas (caja negra) de la definición de BQP por circuitos"
+    - "Dice que la separación de Simon está demostrada solo en consultas"
+    - "Menciona que BQP ≠ BPP implicaría P ≠ PSPACE o que la entrada explícita hace más difícil demostrar ventajas"
+    - "Concluye que estos resultados son evidencia del potencial, no una separación de clases"
+
+- id: q-quantum-complexity-006
+  prompt: "Una startup anuncia «ventaja cuántica exponencial» para dos productos: (1) resolver el viajante con Grover y (2) un algoritmo para isomorfismo de grafos. Aplica una lista de comprobación para evaluar ambos anuncios."
+  model_answer: "Comprobaciones: (a) ¿En qué modelo? Consultas, circuito o hardware real. (b) ¿Frente a qué clásico? El mejor conocido, no el ingenuo. (1) Grover aplicado a fuerza bruta en el viajante pierde frente a Held-Karp (2ⁿ·poly), y como mucho da ventaja cuadrática. (2) El isomorfismo de grafos dejó de ser candidato a ventaja exponencial cuando Babai (2016) dio un algoritmo clásico cuasi-polinómico. (c) ¿Demostrada o conjeturada? (d) ¿Qué estructura se explota? Sin estructura, a lo sumo cuadrática; con estructura abeliana, exponencial; no hay algoritmo general para HSP no abeliano. (e) ¿Constantes? La ventaja cuadrática solo compensa a partir de cierto tamaño. (f) ¿Se supone tolerancia a fallos? Ninguno de los dos anuncios justifica «exponencial» sin más."
+  rubric:
+    - "Comprueba el modelo (consultas, circuito o hardware) y exige comparar con el mejor clásico conocido"
+    - "Identifica que Grover frente al viajante pierde con Held-Karp y solo da ventaja cuadrática como mucho"
+    - "Cita a Babai (2016) para el isomorfismo de grafos y la falta de algoritmo general para HSP no abeliano"
+    - "Menciona la distinción demostrada/conjeturada y el papel de las constantes o la tolerancia a fallos"
+
+- id: q-quantum-complexity-007
+  prompt: "Clasifica la ventaja cuántica esperable (y su tipo) en estos cuatro problemas: (a) OR de n bits sin estructura; (b) colisión en una función 2 a 1; (c) periodo oculto en un grupo abeliano; (d) una función total booleana arbitraria. Justifica."
+  model_answer: "(a) OR sin estructura: cuadrática, Θ(√n) cuánticas frente a Θ(n) clásicas aleatorias, óptimo (Grover/BBBV). (b) Colisión: Θ(n^{1/3}) cuánticas frente a Θ(√n) clásicas, una ganancia polinómica que viene de una estructura modesta. (c) Periodo en un grupo abeliano (Simon, Shor): ventaja exponencial en consultas (en Simon, demostrada frente a aleatorios; en Shor, para factorizar es conjetural). (d) Para cualquier función total, la ventaja es a lo sumo de potencia 6 (cuadrática si es simétrica); las exponenciales exigen problemas con promesa. La estructura explotada determina el tipo de ventaja: sin estructura, cuadrática; con estructura abeliana, exponencial."
+  rubric:
+    - "Clasifica (a) como cuadrática (√n frente a n)"
+    - "Clasifica (b) como n^{1/3} frente a √n, polinómica modesta"
+    - "Clasifica (c) como exponencial en consultas por estructura de grupo abeliano"
+    - "Indica que para (d) funciones totales la ventaja es como mucho de potencia 6, y que las exponenciales requieren promesa"
+
+- id: q-quantum-complexity-008
+  prompt: "Tu equipo debe decidir si basar un nuevo diseño criptográfico en retículos porque «los ordenadores cuánticos no pueden con ellos». ¿Qué sabes realmente sobre el riesgo?"
+  model_answer: "Los criptosistemas de retículos están entre los pocos que no se sabe romper ni con un ordenador cuántico, y las funciones unidireccionales genéricas no parecen amenazadas; pero eso es una creencia basada en no haber encontrado ataques, no un teorema. El riesgo conocido es que un algoritmo de subgrupo oculto eficiente para el grupo diedral (Regev) rompería los de retículos; nadie lo ha logrado, y para HSP no abeliano no hay algoritmo general eficiente, aunque la complejidad de consultas sea polinómica. La decisión razonable: usar retículos (como el estándar ML-KEM) con agilidad criptográfica para poder cambiar si aparece un ataque, y no presentar la seguridad como demostrada."
+  rubric:
+    - "Distingue creencia (ningún ataque conocido) de demostración"
+    - "Cita el riesgo concreto: un HSP diedral eficiente rompería los de retículos y nadie lo ha logrado"
+    - "Menciona que para HSP no abeliano no hay algoritmo eficiente general"
+    - "Recomienda una decisión prudente (agilidad criptográfica o equivalente)"
+
+- id: q-shor-algorithm-001
+  prompt: "¿Cómo está estructurado el algoritmo de Shor para factorizar N?"
+  options:
+    a: "Prueba en paralelo todos los divisores posibles de N en una superposición y mide el que divide a N"
+    b: "Aplica Grover a los candidatos a divisor de N y resuelve así los NP-completos en tiempo polinómico"
+    c: "Una parte clásica reduce factorizar N a hallar el orden de un número a módulo N, y una parte cuántica halla el orden con estimación de fase y QFT"
+    d: "Aplica la QFT directamente a N y lee los factores como los picos de la distribución"
+  explanation: "Probar todos los divisores en paralelo es una idea de divulgación errónea; Shor explota la interferencia para hallar un periodo. Grover daría solo √N intentos, no un coste polinómico. La reducción al orden es el paso clásico clave."
+
+- id: q-shor-algorithm-002
+  prompt: "¿Cuál es el orden de 7 módulo 15 (el menor r > 0 con 7^r ≡ 1 mod 15)?"
+  accepted: ["4", "cuatro", "r = 4", "r=4"]
+
+- id: q-shor-algorithm-003
+  prompt: "Con N = 33 y a = 5 el orden es r = 10 y 5⁵ ≡ 23 (mod 33). ¿Qué factor de 33 se obtiene con mcd(23 − 1, 33)?"
+  accepted: ["11", "once", "mcd(22,33) = 11", "mcd = 11"]
+
+- id: q-shor-algorithm-004
+  prompt: "Por tanteo a mano para N = 15 con a = 7 (orden r = 4, que es par): ¿qué factores se obtienen?"
+  options:
+    a: "3 y 5: 7² = 49 ≡ 4 (mod 15), mcd(4 − 1, 15) = 3 y mcd(4 + 1, 15) = 5"
+    b: "1 y 15: el intento falla porque 7² + 1 ≡ 0 (mod 15)"
+    c: "5 y 7: mcd(7, 15) = 1 y el resto de factores se obtienen por división"
+    d: "2 y 13: son los valores a^{r/2} − 1 y a^{r/2} + 1 sin necesidad del mcd"
+  explanation: "Como r es par, se calcula a^{r/2} = 49 ≡ 4 y los mcd con 15: mcd(3,15) = 3 y mcd(5,15) = 5. El intento solo fallaría si a^{r/2} ≡ −1 (mod N) o r fuera impar, y 4 ≢ −1 = 14."
+
+- id: q-shor-algorithm-005
+  prompt: "Con N = 33 y a = 2 el orden también es 10, pero el intento falla. ¿Por qué?"
+  options:
+    a: "Porque el orden de 2 módulo 33 es impar y r debe ser par"
+    b: "Porque mcd(2, 33) > 1, así que 2 no es coprimo con 33"
+    c: "Porque a debe ser mayor que √33 para que el método funcione"
+    d: "Porque 2⁵ + 1 = 33 ≡ 0 (mod 33): a^{r/2} ≡ −1, así que mcd(2⁵ − 1, 33) = 1 y mcd(2⁵ + 1, 33) = 33, factores triviales"
+  explanation: "El método necesita r par y a^{r/2} ≢ −1 (mod N). Aquí a^{r/2} = 32 ≡ −1 y no se obtiene factor no trivial; hay que probar otro a. mcd(2,33) = 1 y el orden es 10 (par)."
+
+- id: q-shor-algorithm-006
+  prompt: "Para un a elegido al azar, ¿con qué probabilidad falla un intento de la reducción clásica (r impar o a^{r/2} ≡ −1)?"
+  options:
+    a: "Como mucho 1/2 (en general ≤ 2^{−(m−1)} con m primos distintos), de modo que tras t intentos el éxito es al menos 1 − 2^{−t}"
+    b: "Con probabilidad ≈ 1 − 1/N: casi siempre falla, por lo que la parte clásica es costosa"
+    c: "Nunca falla si mcd(a, N) = 1"
+    d: "Con probabilidad ≥ 1/2, por lo que se necesitan del orden de N intentos"
+  explanation: "Es un algoritmo de Las Vegas/Monte Carlo con éxito constante por intento. El fallo puede ocurrir aunque mcd(a,N) = 1 (r impar o a^{r/2} ≡ −1). No hacen falta N intentos: bastan unos pocos."
+
+- id: q-shor-algorithm-007
+  prompt: "En Shor se ejecuta la estimación de fase sobre |1⟩ en vez de sobre un vector propio de M_a. ¿Qué se obtiene al medir?"
+  options:
+    a: "Siempre el valor propio θ = 1/r, porque |1⟩ es un vector propio con valor propio e^{2πi/r}"
+    b: "Es equivalente a tomar un k ∈ {0,…,r−1} al azar y estimar k/r: se aprende una fracción k/r, no r directamente"
+    c: "Directamente el orden r, porque |1⟩ codifica el periodo"
+    d: "El valor a^r mod N, que equivale a 1 y confirma el orden"
+  explanation: "|1⟩ = r^{−1/2} Σ_k |ψ_k⟩ es una superposición de vectores propios, cada uno con valor propio e^{2πik/r}. El resultado corresponde a un k aleatorio; |1⟩ es vector propio solo para k = 0 (valor propio 1)."
+
+- id: q-shor-algorithm-008
+  prompt: "Al medir se obtiene una aproximación a k/r, que con fracciones continuas da k/r reducida. ¿Cómo se obtiene r?"
+  options:
+    a: "Cada ejecución da r exactamente; repetir solo sirve para reducir el ruido"
+    b: "Se obtiene φ(N) y r se deduce resolviendo una ecuación cuadrática"
+    c: "Cada ejecución da un divisor de r (nada si k = 0); el mínimo común múltiplo de los denominadores de unas pocas ejecuciones da r con alta probabilidad"
+    d: "Se toma el denominador más grande de todas las ejecuciones; el mcm no hace falta"
+  explanation: "Como k/r se obtiene en forma irreducible, si mcd(k,r) > 1 solo se aprende un divisor de r. El mcm de varios denominadores lo recupera con probabilidad creciente. φ(N) es una cantidad distinta (y conocerla equivaldría a factorizar)."
+
+- id: q-shor-algorithm-009
+  prompt: "¿Qué parte de Shor domina el coste total: O(n³) puertas para N de n bits?"
+  options:
+    a: "La QFT inversa, por sus puertas de fase controlada de ángulos minúsculos"
+    b: "Las fracciones continuas, que son exponenciales en el número de bits"
+    c: "Preparar el estado |1⟩, que requiere O(2ⁿ) puertas"
+    d: "Las exponenciaciones modulares controladas, O(n²) cada una y O(n) de ellas; la QFT inversa añade solo O(n²)"
+  explanation: "Hay m = O(n) operaciones controladas M_a^{2^k}, cada una O(n²): O(n³). La QFT inversa cuesta O(n²). Las fracciones continuas son O((lg N)³), polinómicas. Preparar |1⟩ es trivial."
+
+- id: q-shor-algorithm-010
+  prompt: "Para N = 15, φ(N) = 8 y el número a = 7 tiene orden 4. ¿Qué conclusión sobre la relación entre el orden y φ(N) es correcta?"
+  options:
+    a: "Hay un error: el orden de a siempre debe ser igual a φ(N)"
+    b: "El orden divide a φ(N) pero no tiene por qué ser igual a φ(N) (aquí 4 divide a 8)"
+    c: "Hay un error: el orden siempre es mayor que φ(N)"
+    d: "Es correcto porque el orden siempre es φ(N)/2 si es par"
+  explanation: "El periodo de a^x mod N solo divide a φ(N). Saber φ(N) daría p y q resolviendo una cuadrática, pero Shor calcula el orden de un a concreto, que es otra cosa."
+
+- id: q-shor-algorithm-011
+  prompt: "Explica con tus palabras el algoritmo de Shor de principio a fin: reducción clásica, parte cuántica y postproceso, y por qué no basta medir tras la exponenciación modular sin aplicar la QFT."
+  model_answer: "Se elige a al azar; si mcd(a,N) > 1 ya hay un factor. Si no, se halla el orden r de a módulo N, que es el periodo de a^x mod N. Si r es par, mcd(a^{r/2} − 1, N) da un factor no trivial con probabilidad ≥ 1/2 por intento (porque (a^{r/2} − 1)(a^{r/2} + 1) es múltiplo de N). La parte cuántica estima la fase de la multiplicación M_a con control de unos 2 lg N qubits: Hadamard, M_a^{2^k} controladas (con b = a^{2^k} mod N calculado clásicamente) y QFT inversa; entrando |1⟩ se obtiene una aproximación a k/r con k aleatorio. El postproceso usa fracciones continuas para obtener k/r reducida y el mcm de los denominadores de varias ejecuciones da r. Medir directamente tras la exponenciación daría un estado con desfase aleatorio que no informa del periodo; se necesita la QFT para que la interferencia concentre la información."
+  rubric:
+    - "Describe la reducción clásica: a aleatorio, mcd, orden r par, mcd(a^{r/2} − 1, N)"
+    - "Describe la parte cuántica: estimación de fase de M_a con |1⟩ y M_a^{2^k} por cuadrados repetidos"
+    - "Describe el postproceso con fracciones continuas y mcm de denominadores"
+    - "Explica que sin la QFT la medida da un desfase aleatorio sin información sobre el periodo"
+
+- id: q-shor-algorithm-012
+  prompt: "Traza a mano Shor para N = 15 con a = 7 (r = 4) usando una estimación de fase con m = 8 qubits de control. Dos ejecuciones dan y = 192 e y = 128. ¿Qué aprendes de cada una, cuánto vale r y qué factores salen? ¿Qué pasaría con y = 0?"
+  model_answer: "Las fracciones y/2⁸: 192/256 = 3/4 y 128/256 = 1/2. La primera da k/r reducida = 3/4: denominador 4, candidato r = 4. La segunda da 1/2: denominador 2, un divisor de r. El mínimo común múltiplo de 4 y 2 es 4, y se comprueba 7⁴ = 2401 = 160·15 + 1 ≡ 1 (mod 15): r = 4 es par. Entonces 7² = 49 ≡ 4, mcd(3,15) = 3 y mcd(5,15) = 5: los factores son 3 y 5. Con y = 0 se tiene k = 0 (fracción 0/1): no da información sobre r y hay que repetir. (En general las fracciones continuas dan la única fracción u/v con denominador menor que N cercana a y/2^m.)"
+  rubric:
+    - "Interpreta 192/256 = 3/4 y 128/256 = 1/2 con sus denominadores 4 y 2"
+    - "Combina con el mcm para obtener r = 4 y verifica que 7⁴ ≡ 1 (mod 15)"
+    - "Calcula 7² ≡ 4 y los mcd con 15 para llegar a 3 y 5"
+    - "Explica que y = 0 (k = 0) no da información y hay que repetir"
+
+- id: q-shor-algorithm-013
+  prompt: "Quieres factorizar N = 33 a mano con la reducción de Shor, sabiendo el orden de los números: 5 y 7 tienen orden 10, 2 tiene orden 10 y 10 tiene orden 2. Para cada a ∈ {2, 3, 5, 10} indica si funciona y qué factores da."
+  model_answer: "Primero siempre se calcula mcd(a,33). a = 3: mcd(3,33) = 3 > 1, así que ya se tiene el factor 3 (y 11) sin parte cuántica. a = 2: mcd = 1, r = 10 es par, pero 2⁵ = 32 ≡ −1 (mod 33), luego mcd(31,33) = 1 y mcd(33,33) = 33 son factores triviales: falla y hay que probar otro a. a = 5: r = 10, 5⁵ = 3125 ≡ 23, mcd(22,33) = 11 y mcd(24,33) = 3: funciona y da 11 y 3. a = 10: mcd(10,33) = 1, r = 2, a^{r/2} = 10, mcd(9,33) = 3 y mcd(11,33) = 11: funciona. En conjunto, la probabilidad de fallo por a aleatorio es ≤ 1/2 por intento, así que se repite hasta tener éxito."
+  rubric:
+    - "Empieza con mcd(a,33) y resuelve a = 3 como factor directo"
+    - "Explica que a = 2 falla porque 2⁵ ≡ −1 (mod 33)"
+    - "Obtiene 11 y 3 para a = 5 (5⁵ ≡ 23, mcd(22,33) y mcd(24,33))"
+    - "Obtiene 3 y 11 para a = 10 (r = 2) y recuerda que el fallo es ≤ 1/2 por intento"
+
+- id: q-shor-algorithm-014
+  prompt: "Un directivo lee un titular: «RSA-2048 se rompe con menos de un millón de qubits». Explica qué afirma realmente la fuente (Gidney, 2025), con qué supuestos y con qué cautelas debe presentarse a la dirección."
+  model_answer: "Gidney (2025) es un preprint sin revisión por pares y estima que RSA-2048 podría factorizarse con menos de un millón de qubits físicos ruidosos en menos de una semana (cálculo detallado: 897 864 qubits, ≈ 4,96 días), frente a las 8 horas con 20 millones de qubits del trabajo de Gidney y Ekerå de 2019 bajo las mismas hipótesis. Supuestos: rejilla cuadrada con vecinos próximos, tasa de error de puerta de 0,1 %, ciclo del código de superficie de 1 µs y tiempo de reacción del control de 10 µs. Depende además de heurísticas no demostradas y de una variante (Ekerå-Håstad) válida solo para enteros RSA. Es una estimación, no una máquina: no dice cuándo existirá el hardware. El propio autor no ve cómo recortar otro orden de magnitud con las mismas hipótesis. Lo que sí informa es que el coste del ataque baja con el tiempo («los ataques siempre mejoran») y que hay que migrar sin depender de un progreso lento."
+  rubric:
+    - "Atribuye la cifra a Gidney (2025) y la presenta como preprint sin revisión por pares"
+    - "Enumera los supuestos de hardware: error 0,1 %, ciclo de 1 µs, reacción de 10 µs, rejilla cuadrada"
+    - "Aclara que es una estimación bajo heurísticas y no una máquina existente ni una fecha"
+    - "Recoge la comparación con la estimación anterior (20 millones, 8 horas) o la advertencia de que los ataques mejoran"
+
+- id: q-shor-algorithm-015
+  prompt: "Vas a escribir una implementación didáctica de Shor en tu lenguaje favorito. ¿Cómo separas las capas, dónde crees que está el coste real y qué casos usas como tests?"
+  model_answer: "Se separan tres capas. (1) Reducción clásica: elegir a, calcular mcd, descartar N par o potencia de primo, comprobar r par y a^{r/2} ≢ −1, y obtener los factores con mcd(a^{r/2} ± 1, N). (2) Circuito cuántico de estimación de fase con la multiplicación modular M_a, usando b = a^{2^k} mod N calculado clásicamente para cada potencia, con unos 2 lg N qubits de control. (3) Postproceso clásico: fracciones continuas sobre y/2^m y mcm de los denominadores de varias ejecuciones. El coste real está en la aritmética modular reversible (la exponenciación modular, O(n³)), no en la QFT. Tests: N = 15 con a = 7 (r = 4, factores 3 y 5) y N = 33 con a = 5 (r = 10, factores 11 y 3) y a = 2 (falla por 2⁵ ≡ −1); casos con mcd(a,N) > 1 y con r impar."
+  rubric:
+    - "Separa reducción clásica, circuito de estimación de fase y postproceso con fracciones continuas"
+    - "Usa b = a^{2^k} mod N calculado clásicamente para M_a^{2^k}"
+    - "Identifica la exponenciación modular/aritmética como el cuello de botella frente a la QFT"
+    - "Propone tests concretos como N = 15 (a = 7) y N = 33 (a = 5 funciona, a = 2 falla)"
+
+- id: q-post-quantum-cryptography-001
+  prompt: "¿Qué criptografía de clave pública de uso común rompería un ordenador cuántico criptográficamente relevante ejecutando el algoritmo de Shor?"
+  options:
+    a: "Solo RSA; la curva elíptica y Diffie-Hellman resisten porque no dependen de factorizar"
+    b: "Todo el cifrado, incluyendo AES y las funciones hash, que dejarían de ser utilizables"
+    c: "RSA, Diffie-Hellman y la criptografía de curva elíptica (ECDSA, EdDSA y los esquemas de claves basados en ellos)"
+    d: "Solo los esquemas de firma; el establecimiento de claves queda a salvo"
+  explanation: "Shor resuelve factorización y logaritmo discreto (y con él curva elíptica). NIST indica que ECDSA, EdDSA, RSA y los establecimientos de claves de DH y RSA son vulnerables. Los estándares simétricos son 'significativamente menos vulnerables'."
+
+- id: q-post-quantum-cryptography-002
+  prompt: "¿Qué es la criptografía poscuántica (PQC)?"
+  options:
+    a: "Algoritmos clásicos que corren en ordenadores normales y están diseñados para resistir ataques de ordenadores clásicos y cuánticos"
+    b: "Criptografía que usa efectos cuánticos (como BB84) y exige ordenadores cuánticos a los usuarios"
+    c: "Cifrado que solo funciona cuando existe un ordenador cuántico capaz de ejecutarlo"
+    d: "Cualquier algoritmo que sea más rápido en un ordenador cuántico que en uno clásico"
+  explanation: "PQC es criptografía clásica con otra base de dureza (retículos, por ejemplo). La criptografía cuántica (distribución cuántica de claves) es distinta: usa fenómenos cuánticos y necesita hardware cuántico incluso en los usuarios honrados."
+
+- id: q-post-quantum-cryptography-003
+  prompt: "¿Qué estándar FIPS de NIST define ML-KEM, el mecanismo de encapsulación de claves derivado de CRYSTALS-Kyber?"
+  accepted: ["FIPS 203", "203", "fips-203", "FIPS203"]
+
+- id: q-post-quantum-cryptography-004
+  prompt: "Según el plan de NIST (NIST IR 8547), ¿cuáles son los plazos para los algoritmos de clave pública vulnerables (RSA, ECDSA, DH...)?"
+  options:
+    a: "Prohibirlos después de 2030 y deprecarlos después de 2035"
+    b: "Deprecarlos después de 2025 y prohibirlos después de 2030"
+    c: "No hay plazos: NIST esperará a que exista el ordenador cuántico"
+    d: "Deprecarlos después de 2030 y prohibirlos después de 2035"
+  explanation: "El plan es deprecar tras 2030 y prohibir tras 2035. La transición empieza antes de que exista el ordenador, por el riesgo de recolectar ahora y descifrar después."
+
+- id: q-post-quantum-cryptography-005
+  prompt: "En un KEM (mecanismo de encapsulación de claves) como ML-KEM, ¿cómo acuerdan Alicia y Bernardo una clave secreta compartida?"
+  options:
+    a: "Alicia cifra directamente el mensaje con la clave de desencapsulación y Bernardo lo descifra con la de encapsulación"
+    b: "Ambos generan K de forma independiente y la comparan por un canal público"
+    c: "Alicia publica la clave de encapsulación; Bernardo ejecuta Encaps y obtiene una clave K y un texto cifrado que envía; Alicia ejecuta Decaps con su clave privada y recupera K"
+    d: "Bernardo envía su clave privada cifrada con la pública de Alicia y ella la usa como K"
+  explanation: "El flujo es KeyGen, Encaps (con la clave pública) y Decaps (con la privada). K tiene siempre 256 bits y se usa luego con cifrado simétrico. La clave de desencapsulación nunca se comparte."
+
+- id: q-post-quantum-cryptography-006
+  prompt: "Un colega afirma que «hay que migrar todo AES-128 a otro cifrado por culpa de los ordenadores cuánticos». ¿Qué dice NIST?"
+  options:
+    a: "Las primitivas simétricas aprobadas con al menos 128 bits de seguridad se creen al menos de categoría 1 y no se prevé abandonarlas; solo las de 112 bits se deshabilitarán en 2030"
+    b: "Tiene razón: NIST prohíbe AES-128 después de 2030 y exige 256 bits"
+    c: "Tiene razón: los simétricos son tan vulnerables como RSA frente a Shor"
+    d: "NIST no dice nada sobre algoritmos simétricos en la transición"
+  explanation: "Los estándares simétricos son 'significativamente menos vulnerables' que los de clave pública; las primitivas con ≥ 128 bits no necesitan transición. Lo que sí desaparece en 2030 son las de 112 bits."
+
+- id: q-post-quantum-cryptography-007
+  prompt: "¿Por qué Shor rompe Diffie-Hellman y la criptografía de curva elíptica además de RSA?"
+  options:
+    a: "Porque en realidad todos se reducen a factorizar enteros, que es lo único que hace Shor"
+    b: "Porque todos se apoyan en problemas de estructura abeliana oculta (logaritmo discreto o factorización), justo lo que Shor resuelve en tiempo polinómico"
+    c: "Porque Shor es un algoritmo de fuerza bruta que prueba todas las claves"
+    d: "Porque Diffie-Hellman y ECC usan claves más cortas que RSA, y el ordenador cuántico las agota"
+  explanation: "El logaritmo discreto es el mismo molde (subgrupo oculto abeliano) que el cálculo de periodos. ECC se considera más segura frente a ataques clásicos por tamaño de clave, pero no frente a Shor, que necesita un número comparable de pasos."
+
+- id: q-post-quantum-cryptography-008
+  prompt: "¿En qué se basa la seguridad de ML-KEM?"
+  options:
+    a: "En la dificultad de factorizar enteros grandes, porque Shor no puede con módulos de retículo"
+    b: "En la dureza supuesta del problema Module-LWE (aprendizaje con errores en módulos de retículos), que se cree resistente también a ordenadores cuánticos, pero es una creencia y no una prueba"
+    c: "En un teorema que demuestra que ningún algoritmo cuántico puede resolver problemas de retículos"
+    d: "En el logaritmo discreto sobre curvas elípticas, con claves mucho más largas que las actuales"
+  explanation: "ML-KEM se construye sobre MLWE, generalización del LWE de Regev, con transformada de Fujisaki-Okamoto para IND-CCA2. FIPS 203 dice que se 'cree' seguro frente a adversarios cuánticos; no hay prueba."
+
+- id: q-post-quantum-cryptography-009
+  prompt: "¿Por qué NIST describe la seguridad poscuántica con cinco «categorías» y no con bits de seguridad?"
+  options:
+    a: "Porque los ataques cuánticos hacen que los bits de seguridad pierdan significado en cualquier algoritmo"
+    b: "Porque cada categoría corresponde a una versión de Shor con distinto número de qubits"
+    c: "Para simplificar la elección, ya que las categorías se ordenan según la longitud del texto cifrado"
+    d: "Por la incertidumbre al predecir costes, velocidad y memoria de los futuros ordenadores cuánticos; cada categoría se ancla a una referencia como la búsqueda de claves de AES-128"
+  explanation: "Las referencias son AES-128 (cat. 1), colisión de SHA-256 (cat. 2), AES-192 (cat. 3), SHA3-384 (cat. 4) y AES-256 (cat. 5). La razón dada es la incertidumbre al estimar los futuros ordenadores cuánticos."
+
+- id: q-post-quantum-cryptography-010
+  prompt: "Explica con tus palabras qué es el ataque «recolectar ahora, descifrar después» (HNDL) y por qué justifica empezar a migrar antes de que exista el ordenador cuántico."
+  model_answer: "En HNDL un adversario guarda hoy comunicaciones cifradas con RSA o Diffie-Hellman para descifrarlas cuando exista un ordenador cuántico criptográficamente relevante. Como los datos sensibles mantienen su valor años, el daño ocurre aunque el ordenador no exista aún: lo que se cifre hoy con clave pública vulnerable podría quedar expuesto. Por eso la transición debe empezar antes de que exista el ordenador y es especialmente urgente para el establecimiento de claves (confidencialidad), no tanto para la autenticación, que sigue segura mientras los algoritmos lo sean en el momento de autenticar. Las transiciones criptográficas pasadas tardaron de 10 a 20 años, otro motivo para empezar pronto."
+  rubric:
+    - "Define HNDL: guardar datos cifrados hoy para descifrarlos en el futuro"
+    - "Explica que el riesgo existe aunque el ordenador no exista aún (los datos mantienen su valor)"
+    - "Distingue confidencialidad (urgente) de autenticación (menos expuesta a HNDL)"
+    - "Menciona que las transiciones criptográficas tardan 10-20 años o que la migración debe empezar antes"
+
+- id: q-post-quantum-cryptography-011
+  prompt: "Tu organización tiene tres sistemas: (A) una API TLS que transmite historiales médicos que deben permanecer secretos 25 años, con una migración estimada de 8 años; (B) firmware de dispositivos con firma digital y vida útil de 15 años sin posibilidad de actualizar el verificador; (C) tokens de sesión internos de 1 hora. Prioriza la migración con el teorema de Mosca y justifica."
+  model_answer: "El teorema de Mosca dice que hay que empezar a migrar antes de que X + Y supere a Z, con X los años de secreto, Y los de la transición y Z los años hasta el ordenador relevante. (A) X + Y = 25 + 8 = 33 años: es el caso más urgente (confidencialidad, sujeta a HNDL), pues el atacante puede almacenar hoy y descifrar después; se migra primero con TLS 1.3 con intercambio híbrido ML-KEM + clásico. (B) Las firmas no son vulnerables a HNDL, pero un dispositivo que sobrevivirá a un ordenador relevante y no pueda actualizar su verificación debe diseñarse ya para exigir firmas resistentes (ML-DSA, SLH-DSA o firmas con estado); es prioridad alta de diseño. (C) Vida corta: X ≈ 0, la autenticación puede seguir hasta que aparezca el ordenador y entonces cambiar; prioridad baja, aunque conviene tener agilidad criptográfica. Antes de todo, hacer un inventario criptográfico."
+  rubric:
+    - "Enuncia el teorema de Mosca (X + Y frente a Z) y lo aplica a (A) con 25 + 8"
+    - "Prioriza (A) por confidencialidad y HNDL, proponiendo vía TLS 1.3 híbrido"
+    - "Trata (B) como diseño que debe exigir firmas resistentes por no poder actualizarse"
+    - "Trata (C) como baja prioridad y menciona inventario o agilidad criptográfica"
+
+- id: q-post-quantum-cryptography-012
+  prompt: "Debes elegir el conjunto de parámetros de ML-KEM para un protocolo nuevo: servicios web normales y, aparte, sensores con ancho de banda muy limitado. Compara ML-KEM-512, 768 y 1024 y recomienda."
+  model_answer: "Por defecto, ML-KEM-768 (categoría 3): clave de encapsulación 1184 B, texto cifrado 1088 B, clave de desencapsulación 2400 B y clave compartida de 32 B; es la recomendación de NIST por su margen de seguridad a coste razonable. ML-KEM-512 (categoría 1) es más pequeño (800 B / 768 B) y ML-KEM-1024 (categoría 5) más grande (1568 B / 1568 B). Para servicios web, 768 por defecto, o 1024 si los datos se protegen por primera vez y se quiere evitar transiciones futuras. Para los sensores, el coste de ≈ 1 KB por mensaje afecta al ancho de banda: habría que valorar el 512 solo si el análisis de riesgo lo permite, y en cualquier caso mantener la agilidad criptográfica. Además, las garantías del KEM solo valen bajo las condiciones de SP 800-227 (aleatoriedad y secreto de claves)."
+  rubric:
+    - "Recomienda ML-KEM-768 como valor por defecto con datos de tamaño (1184 B y 1088 B)"
+    - "Contrasta 512 (cat. 1) y 1024 (cat. 5) con sus tamaños"
+    - "Relaciona el ancho de banda de los sensores con los tamaños y la elección"
+    - "Menciona condiciones de seguridad (SP 800-227) o agilidad criptográfica"
+
+- id: q-post-quantum-cryptography-013
+  prompt: "En la reunión de dirección, una persona dice: «Gidney (2025) demuestra que RSA-2048 caerá hacia 2030, hay que parar todo y migrar ya». Otra: «es un preprint, esperamos a que se confirme». ¿Cómo respondes?"
+  model_answer: "Ninguna de las dos posturas es correcta. Gidney (2025) es un preprint sin revisión por pares: estima, bajo hipótesis concretas de hardware (error de puerta 0,1 %, ciclo de 1 µs, rejilla cuadrada) y con heurísticas no demostradas, que RSA-2048 caería con menos de un millón de qubits ruidosos en menos de una semana; no predice una fecha ni demuestra que el hardware vaya a existir. El propio autor presenta su trabajo como una «señal de referencia» y apoya los plazos de NIST (deprecar tras 2030, prohibir tras 2035) no porque espere el ordenador en 2030, sino porque la seguridad no debe depender de un progreso lento. La decisión debe basarse en Mosca: X + Y frente a Z. Si los datos deben mantenerse secretos años y la migración tarda años, hay que empezar ya por la confidencialidad (HNDL), haciendo inventario criptográfico y adoptando agilidad, sin esperar a confirmar un titular."
+  rubric:
+    - "Atribuye las cifras a Gidney (2025) como preprint sin revisión por pares y bajo supuestos"
+    - "Aclara que no es una predicción de fecha ni una demostración (rechaza la postura de que caerá en 2030)"
+    - "Explica que la razón para migrar es que la seguridad no dependa de un progreso lento, y rechaza esperar a confirmar"
+    - "Aplica el criterio de Mosca (X + Y frente a Z) y la urgencia de la confidencialidad por HNDL"
+
+- id: q-post-quantum-cryptography-014
+  prompt: "El equipo de plataforma propone tres opciones para el intercambio de claves: (1) ML-KEM puro, (2) un híbrido ML-KEM + intercambio clásico, (3) negociar un algoritmo por sesión según lo que soporte cada cliente. Evalúa las opciones."
+  model_answer: "Un híbrido combina algoritmos resistentes con otros vulnerables y se mantiene seguro si al menos uno lo es; sus motivos son cubrir fallos de un componente y mantener compatibilidad con normas que aún exigen algoritmos heredados, y sus costes son complejidad y riesgo; se espera que sea temporal, con una segunda transición a PQC puro. La opción (3), negociar un algoritmo por sesión, no es un híbrido: no combina nada. La opción (1) es la más simple y es la única aprobada por NIST para establecimiento de claves poscuántico, pero depende por completo de una creencia de seguridad. Para claves, SP 800-56C permite combinar secretos concatenándolos (Z' = Z||T); y un KEM combinado que incluya ML-KEM podría no ser IND-CCA2, así que hay que evaluarlo antes de usarlo. En TLS 1.3 el híbrido ML-KEM + clásico es una vía a corto plazo. Recomendación: (2) a corto plazo, con agilidad criptográfica, evaluando la seguridad de la combinación."
+  rubric:
+    - "Define un híbrido: seguro si al menos un componente lo es, con sus motivos y costes"
+    - "Aclara que negociar un algoritmo por sesión no es un híbrido"
+    - "Menciona la combinación de secretos de SP 800-56C y la advertencia sobre IND-CCA2 de KEM combinados"
+    - "Da una recomendación justificada (p. ej. híbrido temporal con agilidad criptográfica)"
+
+- id: q-hamiltonian-simulation-001
+  prompt: "Quieres simular una cadena local de n espines (H = Σ de m términos de dos espines) en un dispositivo con pocos qubits y sin auxiliares. Hoy tu error objetivo es ε = 10⁻², pero quieres pasar a 10⁻⁴ y a duplicar el tiempo t. Compara el coste con Trotter de primer y segundo orden y decide."
+  model_answer: "Trotter no necesita qubits auxiliares y en la práctica es competitivo, así que es la opción natural para hardware escaso. Primer orden: r = O(m²t²/ε) y O(m³t²/ε) puertas de dos qubits. Si ε pasa de 10⁻² a 10⁻⁴ el coste se multiplica por 100 (dependencia 1/ε) y si t se duplica se multiplica por 4 (t²): en total ×400. Segundo orden (fórmula simétrica): O(t^{1,5}/√ε); el factor por ε es ×10 (1/√ε) y por duplicar t, 2^{1,5} ≈ 2,8: en total ≈ ×28. Por eso elegiría el segundo orden (o uno mayor, con coste O(t^{1+δ})) para ese objetivo, a cambio de más complejidad. Las cotas son asintóticas; las constantes dependen de la descomposición en términos."
+  rubric:
+    - "Elige Trotter por no necesitar auxiliares y por su buen comportamiento práctico"
+    - "Calcula que el primer orden escala como 1/ε y t²: ×100 por ε y ×4 por t"
+    - "Calcula que el segundo orden escala como 1/√ε y t^{1,5}: ×10 y ≈ ×2,8"
+    - "Concluye que conviene el segundo orden (u órdenes mayores) y señala que las cotas son asintóticas"
+
+- id: q-hamiltonian-simulation-002
+  prompt: "Debes simular un hamiltoniano disperso (s entradas no nulas por columna, con acceso eficiente) con error ε = 10⁻¹² para un tiempo largo t. Se exige coste asintóticamente óptimo y puedes usar qubits auxiliares. ¿Qué método eliges, por qué, y qué no puedes mejorar?"
+  model_answer: "Elijo codificación en bloques con procesamiento de señal cuántica (qubitización/QSP): para H s-disperso cuesta O(st + log(1/ε)) consultas a H y O(n(st + log(1/ε))) puertas de dos qubits, aditivo en t y logarítmico en 1/ε, y es óptimo en consultas tanto en t como en ε. Trotter, con dependencia polinómica en 1/ε, sería caro para 10⁻¹². LCU (Taylor) también es logarítmico en 1/ε y lineal en t casi, pero con amplificación de amplitud oblivious y auxiliares; es la opción cuando H ya es una suma de unitarias. Lo que no se puede mejorar es la dependencia en t: no hay avance rápido (fast-forwarding); con o(t) consultas es imposible para hamiltonianos dispersos (reducción desde la paridad). Es lo que se normaliza con ‖H‖ ≤ 1."
+  rubric:
+    - "Elige QSP/qubitización y justifica el coste O(st + log(1/ε))"
+    - "Descarta o pospone Trotter por su dependencia polinómica en 1/ε"
+    - "Sitúa LCU como alternativa logarítmica en 1/ε cuando H es suma de unitarias"
+    - "Indica que la dependencia lineal en t no se puede mejorar (sin avance rápido)"
+
+- id: q-hamiltonian-simulation-003
+  prompt: "Un compañero propone: (1) «para simular más rápido, sustituimos H por 100·H»; y (2) «con un ordenador cuántico podremos obtener la energía del estado fundamental de cualquier hamiltoniano». Evalúa ambas afirmaciones."
+  model_answer: "(1) Es un error de normalización: e^{−iH't} con H' = 100H es la misma unitaria que e^{−iH(100t)}; solo se ha reescalado el tiempo físico, no el coste de simulación, y por eso se normaliza ‖H‖ ≤ 1 al hablar de coste. Además, no existe avance rápido: en general el coste no puede ser sublineal en t. (2) Es falso en general: hallar la energía del estado fundamental es QMA-difícil incluso para hamiltonianos 2-locales, y para sumas de términos de pocos qubits es NP-difícil (se codifica 3SAT con un término de penalización por cláusula violada). La simulación de hamiltonianos generales es BQP-difícil. Con estimación de fase solo se obtiene la energía fundamental si se dispone de un estado inicial con buen solapamiento con el fundamental."
+  rubric:
+    - "Explica que H' = 100H solo reescala el tiempo y que se normaliza ‖H‖ ≤ 1; no hay avance rápido"
+    - "Indica que la energía fundamental es QMA-difícil (2-local) y NP-difícil para sumas de términos locales"
+    - "Menciona que simular hamiltonianos generales es BQP-difícil"
+    - "Exige un estado inicial con buen solapamiento si se usa estimación de fase"
+
+- id: q-hamiltonian-simulation-004
+  prompt: "Debes simular el modelo de Ising transversal H = Σ σᶻ_j σᶻ_{j+1} − g Σ σˣ_j. ¿Por qué no basta multiplicar las exponenciales de todos los términos, cómo descompones H y cuántos pasos de Trotter de primer orden necesitas?"
+  model_answer: "En general e^{A+B} ≠ e^A e^B, y el error de e^A e^B es de orden t² por el conmutador [A,B]. Se descompone H = A + B con A = Σ σᶻσᶻ y B = −g Σ σˣ: todos los términos de A conmutan entre sí y los de B también, así que e^{iAt} y e^{iBt} se aplican exactamente como producto de exponenciales de términos de uno y dos qubits (puertas de dos qubits). Para el error se parte el tiempo en r trozos: U ≈ (e^{iAt/r}e^{iBt/r})^r. Con m términos, a primer orden r = O(m²t²/ε) y O(m³t²/ε) puertas (con 2 grupos conmutantes, O(t²/ε) pasos). La fórmula simétrica de segundo orden e^{iηA/2}e^{iηB}e^{iηA/2} reduce el error a O(η³). La receta general es: discretizar, descomponer en términos simples de una o dos partículas y aplicar Trotter."
+  rubric:
+    - "Explica que e^{A+B} ≠ e^A e^B y que el error depende del conmutador [A,B]"
+    - "Descompone H = A + B con términos conmutantes dentro de cada grupo"
+    - "Plantea el producto de r trozos y da r = O(m²t²/ε) o O(t²/ε) para dos grupos"
+    - "Menciona la fórmula simétrica de segundo orden o la receta general de simulación"
+
+- id: q-hamiltonian-simulation-005
+  prompt: "Una publicación afirma que el algoritmo adiabático resuelve rápidamente problemas NP-completos, y otra que los paseos cuánticos continuos dan separaciones exponenciales. ¿Qué dices de cada una?"
+  model_answer: "El algoritmo adiabático (Farhi-Goldstone-Gutmann-Sipser) intenta aprovechar la estructura de problemas NP-completos, pero no tiene garantía rigurosa de velocidad para todos los casos y no siempre es rápido; su valor práctico se desconoce hasta que haya ordenadores grandes. Además, tratar un problema NP como caja negra solo da la ventaja de Grover. Los paseos cuánticos continuos sí tienen una separación exponencial demostrada en consultas en el problema de los árboles pegados (glued trees): un paseo cuántico continuo lo recorre en tiempo polinómico mientras que ningún clásico puede. Ambos usan la simulación hamiltoniana como motor. La separación es en consultas, no en el modelo estándar de circuitos."
+  rubric:
+    - "Dice que el adiabático no tiene garantía rigurosa para NP-completos y su valor práctico se desconoce"
+    - "Recuerda que un enfoque de caja negra para NP solo obtiene la ventaja de Grover"
+    - "Cita árboles pegados como separación exponencial de consultas con paseos cuánticos continuos"
+    - "Indica que la simulación hamiltoniana es el motor y que la separación es en consultas"

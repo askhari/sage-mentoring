@@ -13,7 +13,7 @@ title: "Medida y regla de Born"
 
 **Ejemplo con espín.** Un átomo con espín en `|z;+⟩` medido a lo largo de `x` da `±ħ/2` con probabilidad 1/2 cada uno, porque `⟨x;±|z;+⟩ = 1/√2` [@zwiebach-mit-8-05, ch.2 §2, p. 12, ec. 2.34]. Para un qubit en `a|0⟩ + b|1⟩` medido en la base `{|0⟩,|1⟩}` los resultados tienen probabilidad `|a|²` y `|b|²`, y no se pueden determinar `a` y `b` a partir de una sola medida [@preskill-ph219, ch.2 §2.2, p. 8].
 
-**Por qué importa en computación cuántica.** Un programa cuántico termina midiendo, y la salida es aleatoria. Como una sola medida no revela las amplitudes, los circuitos se ejecutan muchas veces y se estiman las probabilidades a partir de la frecuencia de cada resultado: son las repeticiones (*shots*) que verás en [programación con Qiskit](../../qiskit-programming/index.md). Un buen algoritmo cuántico se diseña para que la respuesta correcta tenga probabilidad alta [unverified].
+**Por qué importa en computación cuántica.** Un programa cuántico termina midiendo, y la salida es aleatoria. Como una sola medida no revela las amplitudes, los circuitos se ejecutan muchas veces y se estiman las probabilidades a partir de la frecuencia de cada resultado: son las repeticiones (*shots*) que verás en [programación con Qiskit](../../qiskit-programming/index.md). Un buen algoritmo cuántico se diseña para que la respuesta correcta tenga probabilidad alta: la clase `BQP` exige error `≤ 1/3` en toda entrada [@de-wolf-2026, §13.2, p. 123], y por ejemplo Deutsch-Jozsa acierta con probabilidad 1 si se cumple la promesa [@watrous-2025, L5.3, PDF p. 147].
 
 ## Comprensión {#layer-2}
 

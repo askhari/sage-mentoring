@@ -37,3 +37,43 @@
 - id: chsh-game
   alt: "Un árbitro envía el bit x a Alice y el bit y a Bob, y cada uno devuelve una respuesta, a y b. Una pared discontinua entre Alice y Bob indica que no se comunican; una línea punteada verde indica que pueden compartir un par entrelazado. Abajo: ganan si a ⊕ b = x ∧ y; la mejor estrategia clásica gana el 75 % de las veces y la cuántica, cos²(π/8) ≈ 85,4 %."
   caption: "El juego CHSH. Diagrama propio; el 75 % se obtiene probando todas las estrategias clásicas deterministas y el 85,4 % es cos²(π/8)."
+
+- id: deutsch-jozsa-circuit
+  alt: "Circuito de dos cables. Arriba, un registro de n qubits en |0ⁿ⟩; abajo, un qubit auxiliar en |1⟩. Ambos pasan por puertas de Hadamard (H⊗ⁿ arriba, H abajo), luego por una caja U_f que abarca los dos y que se marca como una sola consulta; después, otra capa H⊗ⁿ en el registro superior y una medida. Debajo: si el resultado es 0ⁿ la función es constante; en otro caso, equilibrada."
+  caption: "Deutsch-Jozsa: una sola consulta al oráculo distingue constante de equilibrada. Diagrama propio."
+
+- id: simon-circuit
+  alt: "Registro superior de n qubits en |0ⁿ⟩ con H⊗ⁿ, una caja U_f, otra H⊗ⁿ y una medida que da un y con y · s = 0 (mod 2). El registro inferior de m qubits en |0ᵐ⟩ solo entra en U_f. Una línea clásica lleva y a un recuadro verde, «Paso clásico»: repetir unas n veces (n + 10 en Watrous) y resolver el sistema lineal módulo 2 para obtener s."
+  caption: "Algoritmo de Simon: cada ejecución cuántica da una ecuación lineal sobre s; el resto es álgebra lineal clásica módulo 2. Diagrama propio."
+
+- id: qft-circuit
+  alt: "Cuatro cables con entradas |k₁⟩ a |k₄⟩. En el primero, una H y tres puertas de fase R₂, R₃ y R₄, controladas por los qubits 2, 3 y 4; en el segundo, H, R₂ y R₃, controladas por los qubits 3 y 4; en el tercero, H y R₂, controlada por el 4; en el cuarto, solo H. Al final, dos swaps intercambian los qubits 1 y 4 y los qubits 2 y 3. A la derecha, el estado de salida de cada cable, de arriba abajo: |0⟩ + e^(2πi·0.k₄)|1⟩, |0⟩ + e^(2πi·0.k₃k₄)|1⟩, |0⟩ + e^(2πi·0.k₂k₃k₄)|1⟩ y |0⟩ + e^(2πi·0.k₁k₂k₃k₄)|1⟩, sin normalizar. Nota: 10 puertas y 2 swaps para n = 4."
+  caption: "QFT de 4 qubits en escalera, con R_s = diag(1, e^(2πi/2^s)). Diagrama propio; las fases de salida se calculan a partir de la forma producto con fracciones binarias, y el número de puertas, n(n+1)/2, es cálculo propio (las fuentes dan la cota de como mucho n²)."
+
+- id: phase-estimation-circuit
+  alt: "Varios qubits de control en |0⟩, cada uno con una Hadamard (se dibujan tres, con puntos suspensivos para el resto), y un registro inferior de n qubits en |ψ⟩. El primer control activa una U, el segundo una U², y el último una U^(2^(m−1)), todas sobre |ψ⟩. Una línea discontinua marca el estado intermedio de los controles, 2^(−m/2) Σₓ e^(2πixθ)|x⟩. Luego una caja QFT⁻¹ sobre los controles y medidas que dan y, con θ ≈ y/2ᵐ. El registro |ψ⟩ no cambia. Debajo: U|ψ⟩ = e^(2πiθ)|ψ⟩."
+  caption: "Estimación de fase: el retroceso de fase escribe θ en las fases de los controles y la QFT inversa lo convierte en un número medible. Diagrama propio."
+
+- id: shor-pipeline
+  alt: "Cuatro bloques de izquierda a derecha. Clásico: elegir a al azar en {2, …, N − 1} y comprobar si mcd(a, N) > 1 (si es así, ya es un factor). Cuántico: estimación de fase de M_a: |x⟩ → |ax mod N⟩ sobre |1⟩, que da y/2ᵐ ≈ k/r. Clásico: fracciones continuas → k/r irreducible; el mcm de varias ejecuciones da r. Clásico: si r es par, d = mcd(a^(r/2) − 1, N); si 1 < d < N, es un factor. Una flecha de vuelta indica que, si falla (r impar o d trivial), se prueba otro a; el éxito es al menos 1/2 por intento."
+  caption: "Shor como tubería: solo el cálculo del orden es cuántico. Diagrama propio."
+
+- id: grover-rotation
+  alt: "Plano con eje horizontal |A₀⟩ (no soluciones) y eje vertical |A₁⟩ (soluciones). El estado inicial |u⟩ forma un ángulo θ con |A₀⟩; su reflejo respecto a |A₀⟩, Z_f|u⟩, aparece discontinuo por debajo del eje. Un arco marca el giro de 2θ hasta el estado tras una iteración. Hay flechas para t = 1, 2, 3 y 4; la de t = 4 queda casi sobre |A₁⟩. Arriba: N = 40, s = 1, θ = arcsin √(s/N) ≈ 9,1°. Abajo: con t = 4 la probabilidad de éxito es sin²(9θ) ≈ 0,980."
+  caption: "Cada iteración de Grover son dos reflexiones, que equivalen a girar 2θ; tras t iteraciones el ángulo es (2t+1)θ. Diagrama propio; ángulos y probabilidad calculados para N = 40 y una solución."
+
+- id: grover-amplitudes
+  alt: "Tres gráficos de barras con las 8 amplitudes, una por elemento del 0 al 7; el elemento 5 está marcado. 1: tras H⊗ⁿ todas valen +0,35. 2: tras el oráculo la marcada vale −0,35, y una línea discontinua marca la media. 3: tras la difusión, la marcada sube a +0,88 y las demás bajan a +0,18. Nota: la probabilidad de la marcada pasa de 0,125 a 0,781."
+  caption: "La difusión invierte cada amplitud respecto a la media: v → 2·media − v. Diagrama propio; amplitudes calculadas exactamente para N = 8."
+
+- id: trotter-steps
+  alt: "Arriba, una barra única «A + B» representa la evolución exacta e^(−i(A+B)t). Debajo, la misma duración partida en r = 4 pasos, cada uno con un tramo A seguido de un tramo B, que representa (e^(−iAt/r) e^(−iBt/r))^r; una flecha marca la duración de un paso, t/r. Nota: si A y B no conmutan, cada paso comete un error de orden (t/r)² debido a [A, B], y al aumentar r el error total disminuye."
+  caption: "Fórmula de producto de Trotter: se alternan evoluciones cortas con cada término. Diagrama propio."
+
+- id: complexity-classes
+  alt: "Una elipse grande, PSPACE, contiene dos elipses que se solapan: BQP a la izquierda y NP a la derecha. Dentro de BQP está BPP, que corta el borde de NP, y dentro de BPP está P, en la zona común con NP. Un punto, «factorización», está en la zona común de BQP y NP, fuera de BPP. En la parte de NP fuera de BQP: NP-completos (SAT, viajante…). Notas: demostrado P ⊆ BPP ⊆ BQP ⊆ PSPACE; creencia no demostrada: BQP y NP son incomparables y los NP-completos quedan fuera de BQP; la factorización está en BQP y no se sabe si está en BPP."
+  caption: "Inclusiones conocidas y creídas entre clases. Diagrama propio, según el diagrama de Venn de Shor (MIT, L17) y De Wolf §13.2. Que la factorización (como problema de decisión) está en NP se deduce de la definición de NP: un factor sirve de testigo comprobable."
+
+- id: kem-flow
+  alt: "Dos columnas, Alicia y Bernardo. Alicia ejecuta KeyGen(), que da ek (pública) y dk (privada), y envía ek por un canal público. Bernardo ejecuta Encaps(ek), que da una clave K y un texto cifrado c, y envía c. Alicia ejecuta Decaps(dk, c) y obtiene K. Abajo: ambos tienen la misma clave K para cifrado simétrico (p. ej. AES)."
+  caption: "Mecanismo de encapsulación de claves (KEM), como ML-KEM de FIPS 203. Diagrama propio."

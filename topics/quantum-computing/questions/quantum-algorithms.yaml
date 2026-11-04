@@ -1,0 +1,689 @@
+- id: q-query-model-and-oracles-001
+  concept: query-model-and-oracles
+  layer: 1
+  type: single-choice
+  sources: [watrous-2025]
+  correct: d
+
+- id: q-query-model-and-oracles-002
+  concept: query-model-and-oracles
+  layer: 1
+  type: single-choice
+  sources: [watrous-2025, aaronson-2018]
+  correct: b
+
+- id: q-query-model-and-oracles-003
+  concept: query-model-and-oracles
+  layer: 1
+  type: short-answer
+  sources: [watrous-2025]
+
+- id: q-query-model-and-oracles-004
+  concept: query-model-and-oracles
+  layer: 1
+  type: single-choice
+  sources: [de-wolf-2026]
+  correct: a
+
+- id: q-query-model-and-oracles-005
+  concept: query-model-and-oracles
+  layer: 2
+  type: single-choice
+  sources: [watrous-2025, de-wolf-2026]
+  correct: c
+
+- id: q-query-model-and-oracles-006
+  concept: query-model-and-oracles
+  layer: 2
+  type: single-choice
+  sources: [aaronson-2018]
+  correct: b
+
+- id: q-query-model-and-oracles-007
+  concept: query-model-and-oracles
+  layer: 2
+  type: single-choice
+  sources: [watrous-2025, de-wolf-2026]
+  correct: c
+
+- id: q-query-model-and-oracles-008
+  concept: query-model-and-oracles
+  layer: 2
+  type: open
+  sources: [watrous-2025, aaronson-2018]
+
+- id: q-query-model-and-oracles-009
+  concept: query-model-and-oracles
+  layer: 2
+  type: open
+  sources: [watrous-2025, de-wolf-2026]
+
+- id: q-query-model-and-oracles-010
+  concept: query-model-and-oracles
+  layer: 3
+  type: case
+  sources: [aaronson-2018, watrous-2025]
+
+- id: q-query-model-and-oracles-011
+  concept: query-model-and-oracles
+  layer: 3
+  type: case
+  sources: [childs-qa, aaronson-2018]
+
+- id: q-query-model-and-oracles-012
+  concept: query-model-and-oracles
+  layer: 3
+  type: case
+  sources: [childs-qa, aaronson-2018]
+
+- id: q-deutsch-jozsa-001
+  concept: deutsch-jozsa
+  layer: 1
+  type: single-choice
+  sources: [watrous-2025]
+  correct: d
+
+- id: q-deutsch-jozsa-002
+  concept: deutsch-jozsa
+  layer: 1
+  type: single-choice
+  sources: [watrous-2025]
+  correct: a
+
+- id: q-deutsch-jozsa-003
+  concept: deutsch-jozsa
+  layer: 1
+  type: short-answer
+  sources: [watrous-2025]
+
+- id: q-deutsch-jozsa-004
+  concept: deutsch-jozsa
+  layer: 1
+  type: single-choice
+  sources: [watrous-2025, de-wolf-2026]
+  correct: b
+
+- id: q-deutsch-jozsa-005
+  concept: deutsch-jozsa
+  layer: 1
+  type: single-choice
+  sources: [watrous-2025]
+  correct: a
+
+- id: q-deutsch-jozsa-006
+  concept: deutsch-jozsa
+  layer: 2
+  type: single-choice
+  sources: [watrous-2025, de-wolf-2026]
+  correct: d
+
+- id: q-deutsch-jozsa-007
+  concept: deutsch-jozsa
+  layer: 2
+  type: single-choice
+  sources: [watrous-2025]
+  correct: c
+
+- id: q-deutsch-jozsa-008
+  concept: deutsch-jozsa
+  layer: 2
+  type: single-choice
+  sources: [de-wolf-2026]
+  correct: d
+
+- id: q-deutsch-jozsa-009
+  concept: deutsch-jozsa
+  layer: 2
+  type: open
+  sources: [watrous-2025, de-wolf-2026, aaronson-2018]
+
+- id: q-deutsch-jozsa-010
+  concept: deutsch-jozsa
+  layer: 3
+  type: case
+  sources: [shor-mit-2022, de-wolf-2026, watrous-2025]
+
+- id: q-deutsch-jozsa-011
+  concept: deutsch-jozsa
+  layer: 3
+  type: case
+  sources: [watrous-2025, de-wolf-2026]
+
+- id: q-phase-kickback-001
+  concept: phase-kickback
+  layer: 2
+  type: single-choice
+  sources: [watrous-2025, de-wolf-2026]
+  correct: c
+
+- id: q-phase-kickback-002
+  concept: phase-kickback
+  layer: 2
+  type: single-choice
+  sources: [de-wolf-2026, aaronson-2018]
+  correct: a
+
+- id: q-phase-kickback-003
+  concept: phase-kickback
+  layer: 2
+  type: single-choice
+  sources: [watrous-2025]
+  correct: b
+
+- id: q-phase-kickback-004
+  concept: phase-kickback
+  layer: 2
+  type: single-choice
+  sources: [watrous-2025]
+  correct: c
+
+- id: q-phase-kickback-005
+  concept: phase-kickback
+  layer: 2
+  type: open
+  sources: [watrous-2025, shor-mit-2022]
+
+- id: q-phase-kickback-006
+  concept: phase-kickback
+  layer: 3
+  type: case
+  sources: [watrous-2025, aaronson-2018]
+
+- id: q-phase-kickback-007
+  concept: phase-kickback
+  layer: 3
+  type: case
+  sources: [watrous-2025]
+
+- id: q-bernstein-vazirani-and-simon-001
+  concept: bernstein-vazirani-and-simon
+  layer: 2
+  type: single-choice
+  sources: [watrous-2025, de-wolf-2026]
+  correct: a
+
+- id: q-bernstein-vazirani-and-simon-002
+  concept: bernstein-vazirani-and-simon
+  layer: 2
+  type: single-choice
+  sources: [watrous-2025, aaronson-2018]
+  correct: b
+
+- id: q-bernstein-vazirani-and-simon-003
+  concept: bernstein-vazirani-and-simon
+  layer: 2
+  type: single-choice
+  sources: [de-wolf-2026, watrous-2025]
+  correct: d
+
+- id: q-bernstein-vazirani-and-simon-004
+  concept: bernstein-vazirani-and-simon
+  layer: 2
+  type: open
+  sources: [watrous-2025, de-wolf-2026, aaronson-2018]
+
+- id: q-bernstein-vazirani-and-simon-005
+  concept: bernstein-vazirani-and-simon
+  layer: 3
+  type: case
+  sources: [aaronson-2018]
+
+- id: q-bernstein-vazirani-and-simon-006
+  concept: bernstein-vazirani-and-simon
+  layer: 3
+  type: case
+  sources: [childs-qa, de-wolf-2026]
+
+- id: q-grover-search-001
+  concept: grover-search
+  layer: 1
+  type: single-choice
+  sources: [watrous-2025, grover-1996]
+  correct: c
+
+- id: q-grover-search-002
+  concept: grover-search
+  layer: 1
+  type: single-choice
+  sources: [watrous-2025, grover-1996]
+  correct: d
+
+- id: q-grover-search-003
+  concept: grover-search
+  layer: 1
+  type: short-answer
+  sources: [watrous-2025]
+
+- id: q-grover-search-004
+  concept: grover-search
+  layer: 1
+  type: single-choice
+  sources: [aaronson-2018, de-wolf-2026]
+  correct: a
+
+- id: q-grover-search-005
+  concept: grover-search
+  layer: 2
+  type: single-choice
+  sources: [watrous-2025]
+  correct: b
+
+- id: q-grover-search-006
+  concept: grover-search
+  layer: 2
+  type: single-choice
+  sources: [watrous-2025]
+  correct: b
+
+- id: q-grover-search-007
+  concept: grover-search
+  layer: 2
+  type: single-choice
+  sources: [watrous-2025, de-wolf-2026]
+  correct: d
+
+- id: q-grover-search-008
+  concept: grover-search
+  layer: 2
+  type: single-choice
+  sources: [watrous-2025, aaronson-2018]
+  correct: c
+
+- id: q-grover-search-009
+  concept: grover-search
+  layer: 2
+  type: open
+  sources: [watrous-2025]
+
+- id: q-grover-search-010
+  concept: grover-search
+  layer: 3
+  type: case
+  sources: [aaronson-2018, de-wolf-2026]
+
+- id: q-grover-search-011
+  concept: grover-search
+  layer: 3
+  type: case
+  sources: [watrous-2025, de-wolf-2026]
+
+- id: q-grover-search-012
+  concept: grover-search
+  layer: 3
+  type: case
+  sources: [de-wolf-2026]
+
+- id: q-grover-search-013
+  concept: grover-search
+  layer: 3
+  type: case
+  sources: [de-wolf-2026, aaronson-2018]
+
+- id: q-quantum-fourier-transform-001
+  concept: quantum-fourier-transform
+  layer: 2
+  type: single-choice
+  sources: [de-wolf-2026, aaronson-2018]
+  correct: a
+
+- id: q-quantum-fourier-transform-002
+  concept: quantum-fourier-transform
+  layer: 2
+  type: single-choice
+  sources: [watrous-2025]
+  correct: d
+
+- id: q-quantum-fourier-transform-003
+  concept: quantum-fourier-transform
+  layer: 2
+  type: single-choice
+  sources: [de-wolf-2026, watrous-2025]
+  correct: a
+
+- id: q-quantum-fourier-transform-004
+  concept: quantum-fourier-transform
+  layer: 2
+  type: open
+  sources: [aaronson-2018, de-wolf-2026]
+
+- id: q-quantum-fourier-transform-005
+  concept: quantum-fourier-transform
+  layer: 3
+  type: case
+  sources: [watrous-2025, de-wolf-2026, childs-qa, shor-1997]
+
+- id: q-quantum-fourier-transform-006
+  concept: quantum-fourier-transform
+  layer: 3
+  type: case
+  sources: [shor-1997, de-wolf-2026, watrous-2025]
+
+- id: q-quantum-fourier-transform-007
+  concept: quantum-fourier-transform
+  layer: 3
+  type: case
+  sources: [childs-qa]
+
+- id: q-phase-estimation-001
+  concept: phase-estimation
+  layer: 2
+  type: single-choice
+  sources: [watrous-2025]
+  correct: c
+
+- id: q-phase-estimation-002
+  concept: phase-estimation
+  layer: 2
+  type: single-choice
+  sources: [watrous-2025, de-wolf-2026]
+  correct: b
+
+- id: q-phase-estimation-003
+  concept: phase-estimation
+  layer: 2
+  type: single-choice
+  sources: [watrous-2025]
+  correct: b
+
+- id: q-phase-estimation-004
+  concept: phase-estimation
+  layer: 2
+  type: single-choice
+  sources: [de-wolf-2026]
+  correct: c
+
+- id: q-phase-estimation-005
+  concept: phase-estimation
+  layer: 2
+  type: open
+  sources: [watrous-2025, childs-qa]
+
+- id: q-phase-estimation-006
+  concept: phase-estimation
+  layer: 3
+  type: case
+  sources: [watrous-2025]
+
+- id: q-phase-estimation-007
+  concept: phase-estimation
+  layer: 3
+  type: case
+  sources: [de-wolf-2026, watrous-2025]
+
+- id: q-phase-estimation-008
+  concept: phase-estimation
+  layer: 3
+  type: case
+  sources: [childs-qa]
+
+- id: q-quantum-complexity-001
+  concept: quantum-complexity
+  layer: 2
+  type: single-choice
+  sources: [de-wolf-2026, aaronson-2018]
+  correct: a
+
+- id: q-quantum-complexity-002
+  concept: quantum-complexity
+  layer: 2
+  type: single-choice
+  sources: [de-wolf-2026, aaronson-2018]
+  correct: d
+
+- id: q-quantum-complexity-003
+  concept: quantum-complexity
+  layer: 2
+  type: single-choice
+  sources: [de-wolf-2026, shor-mit-2022]
+  correct: b
+
+- id: q-quantum-complexity-004
+  concept: quantum-complexity
+  layer: 2
+  type: single-choice
+  sources: [aaronson-2018]
+  correct: d
+
+- id: q-quantum-complexity-005
+  concept: quantum-complexity
+  layer: 2
+  type: open
+  sources: [de-wolf-2026, watrous-2025]
+
+- id: q-quantum-complexity-006
+  concept: quantum-complexity
+  layer: 3
+  type: case
+  sources: [de-wolf-2026, aaronson-2018, watrous-2025]
+
+- id: q-quantum-complexity-007
+  concept: quantum-complexity
+  layer: 3
+  type: case
+  sources: [childs-qa, de-wolf-2026]
+
+- id: q-quantum-complexity-008
+  concept: quantum-complexity
+  layer: 3
+  type: case
+  sources: [aaronson-2018, childs-qa]
+
+- id: q-shor-algorithm-001
+  concept: shor-algorithm
+  layer: 1
+  type: single-choice
+  sources: [watrous-2025, shor-1997]
+  correct: c
+
+- id: q-shor-algorithm-002
+  concept: shor-algorithm
+  layer: 1
+  type: short-answer
+  sources: [watrous-2025]
+
+- id: q-shor-algorithm-003
+  concept: shor-algorithm
+  layer: 1
+  type: short-answer
+  sources: [shor-mit-2022]
+
+- id: q-shor-algorithm-004
+  concept: shor-algorithm
+  layer: 1
+  type: single-choice
+  sources: [watrous-2025, shor-mit-2022]
+  correct: a
+
+- id: q-shor-algorithm-005
+  concept: shor-algorithm
+  layer: 1
+  type: single-choice
+  sources: [shor-mit-2022]
+  correct: d
+
+- id: q-shor-algorithm-006
+  concept: shor-algorithm
+  layer: 2
+  type: single-choice
+  sources: [watrous-2025, de-wolf-2026]
+  correct: a
+
+- id: q-shor-algorithm-007
+  concept: shor-algorithm
+  layer: 2
+  type: single-choice
+  sources: [watrous-2025]
+  correct: b
+
+- id: q-shor-algorithm-008
+  concept: shor-algorithm
+  layer: 2
+  type: single-choice
+  sources: [watrous-2025, aaronson-2018]
+  correct: c
+
+- id: q-shor-algorithm-009
+  concept: shor-algorithm
+  layer: 2
+  type: single-choice
+  sources: [watrous-2025, shor-1997]
+  correct: d
+
+- id: q-shor-algorithm-010
+  concept: shor-algorithm
+  layer: 2
+  type: single-choice
+  sources: [aaronson-2018]
+  correct: b
+
+- id: q-shor-algorithm-011
+  concept: shor-algorithm
+  layer: 2
+  type: open
+  sources: [watrous-2025, aaronson-2018]
+
+- id: q-shor-algorithm-012
+  concept: shor-algorithm
+  layer: 3
+  type: case
+  sources: [watrous-2025, aaronson-2018]
+
+- id: q-shor-algorithm-013
+  concept: shor-algorithm
+  layer: 3
+  type: case
+  sources: [shor-mit-2022, watrous-2025]
+
+- id: q-shor-algorithm-014
+  concept: shor-algorithm
+  layer: 3
+  type: case
+  sources: [gidney-2025, shor-1997, de-wolf-2026]
+
+- id: q-shor-algorithm-015
+  concept: shor-algorithm
+  layer: 3
+  type: case
+  sources: [shor-1997, watrous-2025, gidney-2025]
+
+- id: q-post-quantum-cryptography-001
+  concept: post-quantum-cryptography
+  layer: 1
+  type: single-choice
+  sources: [nist-ir-8547, de-wolf-2026]
+  correct: c
+
+- id: q-post-quantum-cryptography-002
+  concept: post-quantum-cryptography
+  layer: 1
+  type: single-choice
+  sources: [nist-ir-8547, de-wolf-2026]
+  correct: a
+
+- id: q-post-quantum-cryptography-003
+  concept: post-quantum-cryptography
+  layer: 1
+  type: short-answer
+  sources: [nist-fips-203]
+
+- id: q-post-quantum-cryptography-004
+  concept: post-quantum-cryptography
+  layer: 1
+  type: single-choice
+  sources: [nist-ir-8547]
+  correct: d
+
+- id: q-post-quantum-cryptography-005
+  concept: post-quantum-cryptography
+  layer: 1
+  type: single-choice
+  sources: [nist-fips-203]
+  correct: c
+
+- id: q-post-quantum-cryptography-006
+  concept: post-quantum-cryptography
+  layer: 2
+  type: single-choice
+  sources: [nist-ir-8547]
+  correct: a
+
+- id: q-post-quantum-cryptography-007
+  concept: post-quantum-cryptography
+  layer: 2
+  type: single-choice
+  sources: [aaronson-2018, de-wolf-2026]
+  correct: b
+
+- id: q-post-quantum-cryptography-008
+  concept: post-quantum-cryptography
+  layer: 2
+  type: single-choice
+  sources: [nist-fips-203]
+  correct: b
+
+- id: q-post-quantum-cryptography-009
+  concept: post-quantum-cryptography
+  layer: 2
+  type: single-choice
+  sources: [nist-ir-8547]
+  correct: d
+
+- id: q-post-quantum-cryptography-010
+  concept: post-quantum-cryptography
+  layer: 2
+  type: open
+  sources: [nist-ir-8547]
+
+- id: q-post-quantum-cryptography-011
+  concept: post-quantum-cryptography
+  layer: 3
+  type: case
+  sources: [nist-ir-8547]
+
+- id: q-post-quantum-cryptography-012
+  concept: post-quantum-cryptography
+  layer: 3
+  type: case
+  sources: [nist-fips-203, nist-ir-8547]
+
+- id: q-post-quantum-cryptography-013
+  concept: post-quantum-cryptography
+  layer: 3
+  type: case
+  sources: [gidney-2025, nist-ir-8547]
+
+- id: q-post-quantum-cryptography-014
+  concept: post-quantum-cryptography
+  layer: 3
+  type: case
+  sources: [nist-ir-8547, nist-fips-203]
+
+- id: q-hamiltonian-simulation-001
+  concept: hamiltonian-simulation
+  layer: 3
+  type: case
+  sources: [de-wolf-2026, childs-qa, shor-mit-2022]
+
+- id: q-hamiltonian-simulation-002
+  concept: hamiltonian-simulation
+  layer: 3
+  type: case
+  sources: [childs-qa, de-wolf-2026]
+
+- id: q-hamiltonian-simulation-003
+  concept: hamiltonian-simulation
+  layer: 3
+  type: case
+  sources: [de-wolf-2026, childs-qa, aaronson-2018]
+
+- id: q-hamiltonian-simulation-004
+  concept: hamiltonian-simulation
+  layer: 3
+  type: case
+  sources: [shor-mit-2022, aaronson-2018, de-wolf-2026]
+
+- id: q-hamiltonian-simulation-005
+  concept: hamiltonian-simulation
+  layer: 3
+  type: case
+  sources: [aaronson-2018, childs-qa]
