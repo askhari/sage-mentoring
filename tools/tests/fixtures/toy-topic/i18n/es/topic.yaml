@@ -6,3 +6,10 @@ layers:
   3: "Profesional"
 domains:
   basics: "Lo básico"
+sections:
+  key-idea: "Idea clave"
+  explanation: "Explicación"
+  example: "Ejemplo"
+  pitfalls: "Errores frecuentes"
+  disagreements: "Las fuentes discrepan"
+  next: "Para seguir"

@@ -37,7 +37,7 @@ Tema piloto: **teoría del color**, desde cero hasta nivel profesional.
 - **No hay infraestructura de despliegue** por ahora; todo en local.
 
 ## Formato de datos
-Decidido y especificado en [docs/format.md](docs/format.md): `topics/` (contenido compartible, parte común + `i18n/<lang>/`) separado de `learners/` (progreso personal), un fichero por concepto con secciones por capa, índices por capa generados, citas Pandoc, diagramas propios generados por código y registro de intentos en el que solo se añaden líneas.
+Decidido y especificado en [docs/format.md](docs/format.md): `topics/` (contenido compartible, parte común + `i18n/<lang>/`) separado de `learners/` (progreso personal), un fichero por concepto con secciones por capa, índices por capa generados, citas Pandoc, diagramas propios generados por código y registro de intentos en el que solo se añaden líneas. Los conceptos siguen una **plantilla de capa** común a todos los temas (`format: 2`: idea clave, explicación, ejemplo, errores frecuentes, las fuentes discrepan, para seguir) y se leen por capas con `uv run tools/build_reader.py <topic>` (HTML con Pandoc en `exports/reader/`).
 
 ## Plan de trabajo
 1. ~~Alcance del producto~~ y ~~formato de datos~~ (hechos).
@@ -45,4 +45,5 @@ Decidido y especificado en [docs/format.md](docs/format.md): `topics/` (contenid
 3. ~~Piloto: teoría del color~~ (hecho): 7 ámbitos (enfoque pintura y arte), 49 conceptos, 372 preguntas; overview, índices por capa y validación final hechos. Pendiente: probar `topic-examiner` con el piloto y repasar las afirmaciones `[unverified]`. Estado en `topics/color-theory/research/plan.md`.
 4. ~~Exportador a Anki~~ (hecho): `uv run tools/export_anki.py <topic>` genera `exports/anki/<topic>.<lang>.apkg` (subbarajas por ámbito, etiquetas por ámbito/capa/concepto/tipo/fuente, GUID estables por id de pregunta); uso en `docs/format.md`. Tests: `uv run tools/tests/test_export_anki.py`. Pendiente: probar la importación en AnkiWeb/AnkiMobile.
 5. ~~Segundo tema: computación cuántica~~ (hecho): 7 ámbitos (enfoque programación y algoritmos, con base física y matemática, hardware y corrección de errores), 69 conceptos, 690 preguntas; overview, índices por capa y validación final hechos. Pendiente: repasar las 13 afirmaciones `[unverified]` y las dudas abiertas (fuentes que envejecen, preprints). Estado en `topics/quantum-computing/research/plan.md`.
-6. Aplicación: volver al pipeline Navigate (`architect` → …).
+6. Mejora didáctica del formato (en curso): plantilla de capa `format: 2` y lector por capas (`tools/build_reader.py`; tests: `uv run tools/tests/test_build_reader.py`). Piloto: ámbito *Mezcla de color*. Pendiente: migrar el resto de ámbitos de los dos temas.
+7. Aplicación: volver al pipeline Navigate (`architect` → …).

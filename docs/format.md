@@ -97,6 +97,13 @@ layers:                     # nombres de las capas
   3: "Profesional"
 domains:                    # título de cada ámbito de topic.yaml
   perception: "Percepción"
+sections:                   # nombres de las subsecciones de la plantilla de capa (format: 2)
+  key-idea: "Idea clave"
+  explanation: "Explicación"
+  example: "Ejemplo"
+  pitfalls: "Errores frecuentes"
+  disagreements: "Las fuentes discrepan"
+  next: "Para seguir"
 ```
 
 ### `i18n/es/concepts.yaml`: títulos de los conceptos
@@ -132,6 +139,85 @@ title: "Matiz (hue)"
 
 - **Términos técnicos:** en español y con el original entre paréntesis la primera vez que aparecen.
 - **Imágenes:** con ruta relativa a `assets/`.
+
+#### Plantilla de capa (`format: 2`)
+
+Todos los temas usan la misma plantilla didáctica dentro de cada capa. Lo fijo es la estructura; lo que va dentro depende del tema (en color, un ejemplo es una mezcla de paleta; en computación cuántica, un cálculo o un fragmento de código). Un fichero la adopta declarando `format: 2` en el frontmatter; los ficheros sin esa clave siguen el formato anterior y el validador solo avisa de que están por migrar.
+
+```markdown
+---
+concept: complementary-colors
+title: "Colores complementarios"
+format: 2
+---
+
+## Fundamentos {#layer-1}
+
+### Idea clave
+Una o dos frases con lo esencial de la capa, con su cita al final [@fuente, p. 1].
+
+### Explicación
+La idea desarrollada paso a paso…
+
+### Ejemplo
+Un caso resuelto o una situación concreta…
+
+### Errores frecuentes
+- *"Creencia errónea."* Por qué no es así…
+
+### Las fuentes discrepan
+Qué dice cada fuente y qué se recomienda hacer…
+
+### Para seguir
+Qué leer después y por qué.
+
+## Comprensión {#layer-2}
+…
+```
+
+Subsecciones de cada capa, en este orden (los nombres salen de `sections` en `i18n/<lang>/topic.yaml`):
+
+| Clave | Nombre (es) | ¿Obligatoria? | Para qué |
+|---|---|---|---|
+| `key-idea` | Idea clave | sí | Lo esencial en una o dos frases (≤ 60 palabras). Quien solo lea esto debe llevarse lo principal. |
+| `explanation` | Explicación | sí | La idea desarrollada con un hilo: cada párrafo parte de lo anterior. |
+| `example` | Ejemplo | sí | Capa 1: ejemplo cotidiano o de trabajo. Capa 2: caso que muestra el porqué. Capa 3: situación profesional y cómo decidir. |
+| `pitfalls` | Errores frecuentes | no | Ideas erróneas habituales y por qué fallan. |
+| `disagreements` | Las fuentes discrepan | no | Desacuerdos entre fuentes, cifras que no coinciden, debates abiertos. Así no se mezclan con la explicación. |
+| `next` | Para seguir | sí | Una o dos frases: qué leer después (siguiente concepto o siguiente capa) y qué aporta. Hace de puente cuando la capa se lee de forma seguida. |
+
+Dos piezas de la lectura **no se escriben a mano**; las añade `tools/build_reader.py` al generar la versión legible:
+
+- **Antes conviene:** los prerrequisitos de `concepts.yaml`.
+- **Compruébalo:** una o dos preguntas del banco para ese concepto y esa capa, con la respuesta plegada.
+
+Reglas de redacción:
+
+- **Se explica la idea, no al autor.** La cita va al final de la frase o del párrafo, nunca a mitad de la frase. Se nombra a un autor solo cuando su postura importa, por ejemplo en *Las fuentes discrepan*. Escribir "Los complementarios se neutralizan en gris [@munsell-1905, ¶61]", no "Munsell explica que…". El validador avisa de las citas a mitad de frase.
+- **Cada capa se puede leer seguida.** La capa N de un concepto solo da por sabido lo que hay en las capas ≤ N de sus prerrequisitos. Por tanto, fuera de *Para seguir* solo enlaza a conceptos cuyo `first_layer` sea ≤ N, y nunca a una sección `#layer-M` con M > N. El validador lo comprueba.
+- **Sin repetir.** La capa N+1 parte de la N y no la resume de nuevo.
+
+#### Índice del ámbito con `format: 2`
+
+Además de la introducción, el orden de estudio y las lecturas complementarias, el `index.md` de un ámbito con `format: 2` lleva un texto de paso por cada capa en la que el ámbito tiene conceptos:
+
+```markdown
+## Fundamentos {#layer-1}
+Qué se va a ver en esta capa del ámbito, en qué orden y en qué se apoya (un párrafo).
+```
+
+Al leer una capa de forma seguida, este texto abre el ámbito antes de sus conceptos.
+
+### Lectura por capas: `tools/build_reader.py`
+
+El contenido se **guarda por concepto**, porque preguntas, progreso y Anki apuntan a *concepto + capa*. Para **leerlo**, `tools/build_reader.py` monta un documento HTML por capa. Cada uno incluye, por ámbito y en orden de estudio: el texto de paso del ámbito, la sección de esa capa de cada concepto, *Antes conviene* y *Compruébalo*. Las citas pasan a notas al pie numeradas (al pasar el cursor por el número se ve la fuente) y al final va la bibliografía. El script no redacta nada: solo monta piezas ya escritas.
+
+```bash
+uv run tools/build_reader.py color-theory              # → exports/reader/color-theory/es/{index,layer-1,layer-2,layer-3}.html
+uv run tools/build_reader.py color-theory --layer 1 --out lectura/
+```
+
+Necesita `pandoc` (≥ 3) instalado en el sistema. Los enlaces entre conceptos se reescriben para que apunten al documento de la capa que corresponda, y las imágenes se incrustan para que cada HTML sea autocontenido.
 
 ### Índices por capa: `i18n/<lang>/layers/layer-N.md`
 

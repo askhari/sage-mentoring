@@ -200,5 +200,52 @@ class ValidatorTest(unittest.TestCase):
         self.assertNotIn("link 'light.md'", warns)
         self.assertNotIn("missing.md", self.errors())
 
+    # Layer template (format: 2)
+    LIGHT = "i18n/es/domains/basics/concepts/light.md"
+
+    def test_template_missing_required_subsection(self):
+        self.edit(self.LIGHT, "### Ejemplo\nUn caso [@src-a, p. 2].\n\n", "")
+        self.assertCaught("#layer-2: missing subsection '### Ejemplo'")
+
+    def test_template_unknown_subsection(self):
+        self.edit(self.LIGHT, "### Errores frecuentes", "### Curiosidades")
+        self.assertCaught("unknown subsection '### Curiosidades'")
+
+    def test_template_out_of_order(self):
+        self.edit(self.LIGHT, "### Idea clave\nLa luz es radiación electromagnética visible [@src-a, p. 1].\n\n"
+                              "### Explicación\nLa luz… [@src-a, p. 1].",
+                  "### Explicación\nLa luz… [@src-a, p. 1].\n\n"
+                  "### Idea clave\nLa luz es radiación electromagnética visible [@src-a, p. 1].")
+        self.assertCaught("#layer-1: subsections out of order")
+
+    def test_template_forward_concept_link(self):
+        self.edit(self.LIGHT, "La luz… [@src-a, p. 1].", "La luz y el [matiz](hue.md) [@src-a, p. 1].")
+        self.assertCaught("layer-1 links to 'hue', which starts at layer 2")
+
+    def test_template_forward_layer_anchor(self):
+        self.edit(self.LIGHT, "Más detalle [@src-a, p. 2]. Se", "Más detalle [@src-a, p. 2]. Ver [aquí](#layer-3). Se")
+        self.assertCaught("layer-2 links to a later section #layer-3")
+
+    def test_template_forward_link_allowed_in_next(self):
+        errs = self.errors()
+        self.assertNotIn("links to", errs)  # 'next' of layers 1 and 2 points ahead on purpose
+
+    def test_template_mid_sentence_citation_warns(self):
+        self.edit(self.LIGHT, "La luz… [@src-a, p. 1].", "La luz [@src-a, p. 1] es visible.")
+        self.assertIn("1 citation(s) in the middle of a sentence", self.warnings())
+        self.assertEqual(self.errors(), "")
+
+    def test_template_long_key_idea_warns(self):
+        self.edit(self.LIGHT, "Aplicación [unverified].\n\n### Explicación",
+                  " ".join(["palabra"] * 70) + " [unverified].\n\n### Explicación")
+        self.assertIn("key idea has 71 words", self.warnings())
+
+    def test_template_missing_domain_bridge(self):
+        self.edit("i18n/es/domains/basics/index.md", "## Comprensión {#layer-2}\nQué se ve en la capa 2 [@src-a].\n", "")
+        self.assertCaught("missing bridge section {#layer-2}")
+
+    def test_template_old_format_warns(self):
+        self.assertIn("1 concept file(s) in the old format", self.warnings())
+
 if __name__ == "__main__":
     unittest.main(verbosity=1)

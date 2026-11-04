@@ -26,8 +26,9 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 import build_layer_index  # noqa: E402
 from topiclib import (  # noqa: E402
-    ID_RE, IMAGE_RE, LAYERS, Topic, citation_keys, layer_sections,
-    load_topic, load_yaml, resolve_topic, split_frontmatter,
+    CITATION_BLOCK_RE, ID_RE, IMAGE_RE, LAYERS, MD_LINK_RE, REQUIRED_SECTIONS, TEMPLATE_SECTIONS,
+    Topic, citation_keys, layer_bodies, layer_sections, load_topic, load_yaml, resolve_topic,
+    section_names, split_frontmatter, subsections,
 )
 
 SOURCE_TYPES = {"textbook", "course", "standard", "paper", "docs", "article"}
@@ -238,6 +239,88 @@ def check_markdown_refs(path: Path, body: str, source_ids: set, rep: Report, whe
             rep.warn(where, f"link '{ref}' not found")
 
 
+KEY_IDEA_MAX_WORDS = 60
+# A citation ends a sentence or clause when followed by punctuation, another citation,
+# a closing bracket or the end of the line.
+CITATION_END_OK_RE = re.compile(r"\s*(?:$|[.;:)\]\u2014]|\[)", re.MULTILINE)
+
+
+def is_format2(meta: dict) -> bool:
+    return str(meta.get("format", "")) == "2"
+
+
+def domain_layers(t: Topic, domain: str) -> list[int]:
+    firsts = [int(c.get("first_layer", 1)) for c in t.concepts
+              if isinstance(c, dict) and c.get("domain") == domain]
+    return [n for n in LAYERS if firsts and n >= min(firsts)]
+
+
+def mid_sentence_citations(text: str) -> int:
+    count = 0
+    for m in CITATION_BLOCK_RE.finditer(text):
+        if not CITATION_END_OK_RE.match(text, m.end()):
+            count += 1
+    return count
+
+
+def check_layer_links(path: Path, layer: int, text: str, concepts: dict, rep: Report, where: str) -> None:
+    """Layer N may only rely on layers <= N: no links to later concepts or later layer anchors."""
+    for ref, anchor in MD_LINK_RE.findall(text):
+        if ref.startswith(("http://", "https://")):
+            continue
+        if ref and not ref.endswith(".md"):
+            continue
+        target = (path.parent / ref).resolve() if ref else path.resolve()
+        if target.parent.name == "concepts" and target.stem in concepts:
+            first = int(concepts[target.stem].get("first_layer", 1))
+            if first > layer:
+                rep.error(where, f"layer-{layer} links to '{target.stem}', which starts at layer "
+                                 f"{first} (only allowed in the 'next' subsection)")
+        m = re.fullmatch(r"#layer-(\d)", anchor or "")
+        if m and int(m.group(1)) > layer:
+            rep.error(where, f"layer-{layer} links to a later section #layer-{m.group(1)} "
+                             f"(only allowed in the 'next' subsection)")
+
+
+def check_template(t: Topic, path: Path, body: str, names: dict, rep: Report, where: str) -> None:
+    """Layer template (format: 2): subsections, key idea length, layer rule, citation placement."""
+    concepts = t.concept_map()
+    mid = 0
+    for layer, text in sorted(layer_bodies(body).items()):
+        lwhere = f"{where} #layer-{layer}"
+        parts = subsections(text, names)
+        keys = [k for k, _, _ in parts]
+        for k, heading, _ in parts:
+            if k is None:
+                rep.error(lwhere, f"unknown subsection '### {heading}' (see 'sections' in topic.yaml)")
+        for k in REQUIRED_SECTIONS:
+            if k not in keys:
+                rep.error(lwhere, f"missing subsection '### {names.get(k, k)}'")
+        known = [k for k in keys if k is not None]
+        if len(set(known)) != len(known):
+            rep.error(lwhere, "repeated subsection")
+        elif known != sorted(known, key=TEMPLATE_SECTIONS.index):
+            rep.error(lwhere, "subsections out of order (" + " → ".join(
+                names.get(k, k) for k in TEMPLATE_SECTIONS) + ")")
+        for k, _, sub in parts:
+            if k == "key-idea":
+                words = len(re.sub(r"\[[^\[\]]*@[^\[\]]*\]", "", sub).split())
+                if words > KEY_IDEA_MAX_WORDS:
+                    rep.warn(lwhere, f"key idea has {words} words (aim for <= {KEY_IDEA_MAX_WORDS})")
+            if k != "next":
+                check_layer_links(path, layer, sub, concepts, rep, lwhere)
+            mid += mid_sentence_citations(sub)
+    if mid:
+        rep.warn(where, f"{mid} citation(s) in the middle of a sentence (put them at the end)")
+
+
+def check_domain_bridges(t: Topic, domain: str, body: str, rep: Report, where: str) -> None:
+    present = set(layer_sections(body))
+    for n in domain_layers(t, domain):
+        if n not in present:
+            rep.error(where, f"missing bridge section {{#layer-{n}}} (format: 2)")
+
+
 def check_questions(t: Topic, domains: list, concept_ids: set, source_ids: set, rep: Report) -> None:
     cmap = t.concept_map()
     all_ids: set = set()
@@ -346,6 +429,16 @@ def check_language_meta(t: Topic, lang: str, concept_ids: set, rep: Report) -> N
             rep.error(f"{base}/topic.yaml", f"missing title for domain '{d}'")
     for d in sorted(set(dnames) - set(t.domains)):
         rep.error(f"{base}/topic.yaml", f"domain '{d}' not in topic.yaml")
+    snames = lmeta.get("sections")
+    if snames is not None:
+        if not isinstance(snames, dict):
+            rep.error(f"{base}/topic.yaml", "'sections' must map template keys to names")
+        else:
+            for k in TEMPLATE_SECTIONS:
+                if not snames.get(k):
+                    rep.error(f"{base}/topic.yaml", f"missing sections name for '{k}'")
+            for k in sorted(set(snames) - set(TEMPLATE_SECTIONS)):
+                rep.error(f"{base}/topic.yaml", f"unknown sections key '{k}'")
 
     cwhere = f"{base}/concepts.yaml"
     if not (ldir / "concepts.yaml").exists():
@@ -367,6 +460,7 @@ def check_language(t: Topic, lang: str, domains: list, stage: str, source_ids: s
     ldir = t.lang_dir(lang)
     base = f"i18n/{lang}"
     domain_titles, concept_titles = lang_titles(t, lang)
+    names = section_names(t, lang)
 
     if stage == "final":
         ov = ldir / "overview.md"
@@ -388,6 +482,9 @@ def check_language(t: Topic, lang: str, domains: list, stage: str, source_ids: s
                 rep.error(iwhere, f"title differs from {base}/topic.yaml domains.{domain}: "
                                   f"'{meta['title']}' vs '{domain_titles[domain]}'")
             check_markdown_refs(idx, body, source_ids, rep, iwhere)
+            if is_format2(meta):
+                check_domain_bridges(t, domain, body, rep, iwhere)
+        old_format = 0
         for c in t.concepts:
             if not isinstance(c, dict) or c.get("domain") != domain:
                 continue
@@ -413,6 +510,16 @@ def check_language(t: Topic, lang: str, domains: list, stage: str, source_ids: s
                 if n < first:
                     rep.error(cwhere, f"section layer-{n} is below first_layer {first}")
             check_markdown_refs(cf, body, source_ids, rep, cwhere)
+            if is_format2(meta):
+                if not names:
+                    rep.error(f"{base}/topic.yaml", "missing 'sections' (needed by format: 2)")
+                else:
+                    check_template(t, cf, body, names, rep, cwhere)
+            else:
+                old_format += 1
+        if old_format:
+            rep.warn(f"{base}/domains/{domain}",
+                     f"{old_format} concept file(s) in the old format (no 'format: 2'): migrate to the layer template")
 
     amap = load_yaml(ldir / "assets.yaml", []) or []
     texts = {a["id"]: a for a in amap if isinstance(a, dict) and "id" in a}

@@ -1,6 +1,7 @@
 ---
 domain: color-mixing
 title: "Mezcla de color"
+format: 2
 ---
 
 # Mezcla de color
@@ -21,6 +22,18 @@ Mezclar color parece una sola actividad, pero hay al menos tres fenómenos disti
 ## Orden de estudio recomendado
 
 Los cuatro primeros conceptos son de capa 1 y se leen en este orden: aditiva, sustractiva, complementarios y aclarar/oscurecer (este último puede leerse en cualquier momento tras matiz, valor y croma). Los tres siguientes empiezan en la capa 2: primarios y comportamiento de los pigmentos se entienden mejor tras la sustractiva; la mezcla óptica pide haber leído las dos mezclas anteriores. El último concepto es de capa 3 y conviene dejarlo para el final, después de leer las capas 2 de pigmentos y complementarios. La capa 3 de los demás conceptos añade datos y criterios de taller y puede leerse en paralelo.
+
+## Fundamentos {#layer-1}
+
+La capa de fundamentos separa los dos primeros fenómenos: primero la suma de luces (mezcla aditiva), después la mezcla de materiales que absorben luz (mezcla sustractiva), y con ella la advertencia de que la pintura solo es aproximadamente sustractiva. Sobre esa base se estudian los colores complementarios, que muestran cómo mezclar quita croma, y las formas de aclarar, oscurecer y agrisar un color. Se apoya en la visión tricromática, en por qué los objetos tienen color, en la rueda de color y en el valor y el croma.
+
+## Comprensión {#layer-2}
+
+La capa de comprensión explica por qué la regla sustractiva simple no basta. Empieza por el mito de los primarios perfectos, sigue con el modelo de Kubelka-Munk (absorción y dispersión) para entender cómo se mezclan de verdad los pigmentos, y termina con la mezcla óptica, que pide haber leído las dos mezclas anteriores. Se apoya en la capa de fundamentos de este ámbito y en las ruedas de color.
+
+## Profesional {#layer-3}
+
+La capa profesional lleva todo lo anterior al taller. Añade datos y criterios a los conceptos ya vistos (cómo elegir un trío de primarios, aprender los complementarios por pigmento, hacer escaleras de tinte, usar veladuras) y cierra con un procedimiento para mezclar un color objetivo, que reúne el ámbito entero y el sistema Munsell. Se apoya en las capas anteriores.
 
 ## Lecturas complementarias
 

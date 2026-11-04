@@ -17,3 +17,10 @@ domains:
   color-interaction: "Interacción del color"
   color-harmony: "Armonía y composición del color"
   color-in-painting: "Color y luz en la pintura"
+sections:
+  key-idea: "Idea clave"
+  explanation: "Explicación"
+  example: "Ejemplo"
+  pitfalls: "Errores frecuentes"
+  disagreements: "Las fuentes discrepan"
+  next: "Para seguir"

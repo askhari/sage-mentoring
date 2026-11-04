@@ -18,3 +18,10 @@ domains:
   qiskit-programming: "Programación con Qiskit"
   quantum-hardware: "Cómo se construyen los ordenadores cuánticos"
   error-correction: "Corrección de errores y tolerancia a fallos"
+sections:
+  key-idea: "Idea clave"
+  explanation: "Explicación"
+  example: "Ejemplo"
+  pitfalls: "Errores frecuentes"
+  disagreements: "Las fuentes discrepan"
+  next: "Para seguir"

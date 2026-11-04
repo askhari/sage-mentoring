@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Note style for tools/build_reader.py: each citation becomes a footnote "Author, year, locator."
+     Locators reach pandoc as literal suffixes (see normalize_citation), so none is parsed here. -->
+<style xmlns="http://purl.org/net/xbiblio/csl" class="note" version="1.0" demote-non-dropping-particle="never">
+  <info>
+    <title>Sage Mentoring notes</title>
+    <id>sage-mentoring-notes</id>
+    <updated>2026-11-04T00:00:00+00:00</updated>
+  </info>
+  <macro name="author-short">
+    <names variable="author">
+      <name form="short" and="text" delimiter=", " et-al-min="3" et-al-use-first="1"/>
+      <substitute><text variable="title" form="short"/></substitute>
+    </names>
+  </macro>
+  <macro name="year">
+    <choose>
+      <if variable="issued"><date variable="issued"><date-part name="year"/></date></if>
+      <else><text term="no date" form="short"/></else>
+    </choose>
+  </macro>
+  <citation>
+    <layout suffix="." delimiter="; ">
+      <group delimiter=", ">
+        <text macro="author-short"/>
+        <text macro="year"/>
+      </group>
+    </layout>
+  </citation>
+  <bibliography>
+    <sort><key macro="author-short"/><key macro="year"/></sort>
+    <layout suffix=".">
+      <group delimiter=". ">
+        <names variable="author"><name delimiter=", " and="text"/></names>
+        <text macro="year"/>
+        <text variable="title" font-style="italic"/>
+        <text variable="note"/>
+        <choose>
+          <if variable="DOI"><text variable="DOI" prefix="https://doi.org/"/></if>
+          <else-if variable="URL"><text variable="URL"/></else-if>
+          <else-if variable="ISBN"><text variable="ISBN" prefix="ISBN "/></else-if>
+        </choose>
+      </group>
+    </layout>
+  </bibliography>
+</style>

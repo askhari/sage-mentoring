@@ -1,0 +1,26 @@
+<script>
+// Show the footnote text next to its number on hover or focus, so the source can be checked without jumping.
+(function () {
+  var pop = null;
+  function hide() { if (pop) { pop.remove(); pop = null; } }
+  document.querySelectorAll('a.footnote-ref').forEach(function (a) {
+    var li = document.getElementById(a.getAttribute('href').slice(1));
+    if (!li) return;
+    var text = li.textContent.replace('↩︎', '').trim();
+    function show() {
+      hide();
+      pop = document.createElement('div');
+      pop.className = 'note-pop';
+      pop.textContent = text;
+      document.body.appendChild(pop);
+      var r = a.getBoundingClientRect();
+      pop.style.left = Math.max(8, Math.min(r.left + window.scrollX, window.scrollX + document.documentElement.clientWidth - pop.offsetWidth - 8)) + 'px';
+      pop.style.top = (r.bottom + window.scrollY + 4) + 'px';
+    }
+    a.addEventListener('mouseenter', show);
+    a.addEventListener('focus', show);
+    a.addEventListener('mouseleave', hide);
+    a.addEventListener('blur', hide);
+  });
+})();
+</script>

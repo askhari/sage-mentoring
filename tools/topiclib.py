@@ -112,3 +112,40 @@ def citation_keys(text: str) -> list[str]:
 def layer_sections(body: str) -> dict[int, str]:
     """layer number -> section heading title."""
     return {int(n): title for title, n in LAYER_ANCHOR_RE.findall(body)}
+
+
+# Layer template (format: 2, see docs/format.md "Plantilla de capa").
+TEMPLATE_SECTIONS = ("key-idea", "explanation", "example", "pitfalls", "disagreements", "next")
+REQUIRED_SECTIONS = ("key-idea", "explanation", "example", "next")
+SUBSECTION_RE = re.compile(r"^###\s+(.+?)\s*$", re.MULTILINE)
+# Markdown link (not image) with optional path and optional anchor: [text](path.md#anchor) or [text](#anchor).
+MD_LINK_RE = re.compile(r"(?<!!)\[[^\]]*\]\(([^)\s#]*)(#[^)\s]*)?\)")
+
+
+def layer_bodies(body: str) -> dict[int, str]:
+    """layer number -> text of that layer section (without its heading)."""
+    matches = list(LAYER_ANCHOR_RE.finditer(body))
+    out = {}
+    for i, m in enumerate(matches):
+        end = matches[i + 1].start() if i + 1 < len(matches) else len(body)
+        out[int(m.group(2))] = body[m.end():end]
+    return out
+
+
+def section_names(t: "Topic", lang: str) -> dict[str, str]:
+    """template key -> heading name in this language (from i18n/<lang>/topic.yaml `sections`)."""
+    lmeta = load_yaml(t.lang_dir(lang) / "topic.yaml", {}) or {}
+    names = lmeta.get("sections")
+    return dict(names) if isinstance(names, dict) else {}
+
+
+def subsections(text: str, names: dict[str, str]) -> list[tuple[str | None, str, str]]:
+    """Split a layer section into (template key or None if unknown, heading, text)."""
+    by_name = {v: k for k, v in names.items()}
+    matches = list(SUBSECTION_RE.finditer(text))
+    out = []
+    for i, m in enumerate(matches):
+        end = matches[i + 1].start() if i + 1 < len(matches) else len(text)
+        heading = m.group(1)
+        out.append((by_name.get(heading), heading, text[m.end():end]))
+    return out
