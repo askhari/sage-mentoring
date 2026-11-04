@@ -1,0 +1,47 @@
+<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1120 430' width='1120' height='430' font-family='Helvetica, Arial, sans-serif'>
+<rect width='100%' height='100%' fill='white'/>
+<defs><marker id='arrow-ink' viewBox='0 0 10 10' refX='9' refY='5' markerWidth='7' markerHeight='7' orient='auto-start-reverse'><path d='M0,0 L10,5 L0,10 z' fill='#222222'/></marker><marker id='arrow-a1' viewBox='0 0 10 10' refX='9' refY='5' markerWidth='7' markerHeight='7' orient='auto-start-reverse'><path d='M0,0 L10,5 L0,10 z' fill='#1f6fb2'/></marker><marker id='arrow-a2' viewBox='0 0 10 10' refX='9' refY='5' markerWidth='7' markerHeight='7' orient='auto-start-reverse'><path d='M0,0 L10,5 L0,10 z' fill='#c2571a'/></marker><marker id='arrow-a3' viewBox='0 0 10 10' refX='9' refY='5' markerWidth='7' markerHeight='7' orient='auto-start-reverse'><path d='M0,0 L10,5 L0,10 z' fill='#2e8b57'/></marker><marker id='arrow-muted' viewBox='0 0 10 10' refX='9' refY='5' markerWidth='7' markerHeight='7' orient='auto-start-reverse'><path d='M0,0 L10,5 L0,10 z' fill='#888888'/></marker></defs>
+<circle cx='70.0' cy='60.0' r='6.0' stroke='#c2571a' fill='#fde3d3' stroke-width='1.6'/>
+<line x1='78.0' y1='60.0' x2='300.0' y2='180.0' stroke='#c2571a' stroke-width='0.8'/>
+<circle cx='70.0' cy='78.0' r='6.0' stroke='#c2571a' fill='#fde3d3' stroke-width='1.6'/>
+<line x1='78.0' y1='78.0' x2='300.0' y2='180.0' stroke='#c2571a' stroke-width='0.8'/>
+<circle cx='70.0' cy='96.0' r='6.0' stroke='#c2571a' fill='#fde3d3' stroke-width='1.6'/>
+<line x1='78.0' y1='96.0' x2='300.0' y2='180.0' stroke='#c2571a' stroke-width='0.8'/>
+<circle cx='70.0' cy='114.0' r='6.0' stroke='#c2571a' fill='#fde3d3' stroke-width='1.6'/>
+<line x1='78.0' y1='114.0' x2='300.0' y2='180.0' stroke='#c2571a' stroke-width='0.8'/>
+<circle cx='70.0' cy='132.0' r='6.0' stroke='#c2571a' fill='#fde3d3' stroke-width='1.6'/>
+<line x1='78.0' y1='132.0' x2='300.0' y2='180.0' stroke='#c2571a' stroke-width='0.8'/>
+<circle cx='70.0' cy='150.0' r='6.0' stroke='#c2571a' fill='#fde3d3' stroke-width='1.6'/>
+<line x1='78.0' y1='150.0' x2='300.0' y2='180.0' stroke='#c2571a' stroke-width='0.8'/>
+<circle cx='70.0' cy='168.0' r='6.0' stroke='#c2571a' fill='#fde3d3' stroke-width='1.6'/>
+<line x1='78.0' y1='168.0' x2='300.0' y2='180.0' stroke='#c2571a' stroke-width='0.8'/>
+<circle cx='70.0' cy='186.0' r='6.0' stroke='#c2571a' fill='#fde3d3' stroke-width='1.6'/>
+<line x1='78.0' y1='186.0' x2='300.0' y2='180.0' stroke='#c2571a' stroke-width='0.8'/>
+<circle cx='70.0' cy='204.0' r='6.0' stroke='#c2571a' fill='#fde3d3' stroke-width='1.6'/>
+<line x1='78.0' y1='204.0' x2='300.0' y2='180.0' stroke='#c2571a' stroke-width='0.8'/>
+<circle cx='70.0' cy='222.0' r='6.0' stroke='#c2571a' fill='#fde3d3' stroke-width='1.6'/>
+<line x1='78.0' y1='222.0' x2='300.0' y2='180.0' stroke='#c2571a' stroke-width='0.8'/>
+<circle cx='70.0' cy='240.0' r='6.0' stroke='#c2571a' fill='#fde3d3' stroke-width='1.6'/>
+<line x1='78.0' y1='240.0' x2='300.0' y2='180.0' stroke='#c2571a' stroke-width='0.8'/>
+<circle cx='70.0' cy='258.0' r='6.0' stroke='#c2571a' fill='#fde3d3' stroke-width='1.6'/>
+<line x1='78.0' y1='258.0' x2='300.0' y2='180.0' stroke='#c2571a' stroke-width='0.8'/>
+<circle cx='70.0' cy='276.0' r='6.0' stroke='#c2571a' fill='#fde3d3' stroke-width='1.6'/>
+<line x1='78.0' y1='276.0' x2='300.0' y2='180.0' stroke='#c2571a' stroke-width='0.8'/>
+<circle cx='70.0' cy='294.0' r='6.0' stroke='#c2571a' fill='#fde3d3' stroke-width='1.6'/>
+<line x1='78.0' y1='294.0' x2='300.0' y2='180.0' stroke='#c2571a' stroke-width='0.8'/>
+<circle cx='70.0' cy='312.0' r='6.0' stroke='#c2571a' fill='#fde3d3' stroke-width='1.6'/>
+<line x1='78.0' y1='312.0' x2='300.0' y2='180.0' stroke='#c2571a' stroke-width='0.8'/>
+<text x='20.0' y='350.0' font-size='13' fill='#c2571a' text-anchor='start' font-weight='normal'>15 estados T ruidosos, error ε</text>
+<text x='70.0' y='40.0' font-size='14' fill='#222222' text-anchor='middle' font-weight='bold'>ronda 1</text>
+<rect x='300.0' y='120.0' width='260.0' height='120.0' rx='10' stroke='#1f6fb2' fill='#dbe9f6' stroke-width='1.8'/><text x='430.0' y='166.0' font-size='14' fill='#222222' text-anchor='middle' font-weight='normal'>código de 15 qubits:</text><text x='430.0' y='184.9' font-size='14' fill='#222222' text-anchor='middle' font-weight='normal'>solo puertas Clifford</text><text x='430.0' y='203.8' font-size='14' fill='#222222' text-anchor='middle' font-weight='normal'>y medidas de estabilizadores</text>
+<line x1='562.0' y1='160.0' x2='700.0' y2='120.0' stroke='#2e8b57' stroke-width='2' marker-end='url(#arrow-a3)'/>
+<text x='640.0' y='110.0' font-size='12' fill='#2e8b57' text-anchor='middle' font-weight='normal'>síndrome trivial → se conserva</text>
+<line x1='562.0' y1='210.0' x2='700.0' y2='260.0' stroke='#888888' stroke-width='1.6' stroke-dasharray='4 3' marker-end='url(#arrow-muted)'/>
+<text x='640.0' y='285.0' font-size='12' fill='#888888' text-anchor='middle' font-weight='normal'>otro síndrome → se descarta</text>
+<circle cx='720.0' cy='120.0' r='9.0' stroke='#2e8b57' fill='#e3f2e8' stroke-width='2'/>
+<text x='740.0' y='116.0' font-size='14' fill='#2e8b57' text-anchor='start' font-weight='bold'>1 estado T, error ≈ 35ε³</text>
+<text x='740.0' y='136.0' font-size='12' fill='#888888' text-anchor='start' font-weight='normal'>éxito ≈ 1 − 15ε</text>
+<text x='740.0' y='190.0' font-size='13' fill='#222222' text-anchor='start' font-weight='normal'>ronda 2 (15 salidas de la ronda 1)</text>
+<text x='740.0' y='214.0' font-size='14' fill='#1f6fb2' text-anchor='start' font-weight='bold'>ε = 1 %  →  3,5·10⁻⁵  →  ≈ 1,5·10⁻¹²</text>
+<text x='560.0' y='416.0' font-size='12' fill='#888888' text-anchor='middle' font-weight='normal'>Según Bravyi y Kitaev (2005; su «tipo H» es el estado T actual) y Fowler et al. (2012). Cada ronda consume 15 estados por cada uno que sale.</text>
+</svg>

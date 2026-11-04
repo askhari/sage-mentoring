@@ -1,0 +1,1014 @@
+- id: q-quantum-noise-channels-001
+  concept: quantum-noise-channels
+  layer: 2
+  type: single-choice
+  sources:
+  - de-wolf-2026
+  - watrous-2025
+  correct: a
+
+- id: q-quantum-noise-channels-002
+  concept: quantum-noise-channels
+  layer: 2
+  type: short-answer
+  sources:
+  - de-wolf-2026
+  - watrous-2025
+
+- id: q-quantum-noise-channels-003
+  concept: quantum-noise-channels
+  layer: 2
+  type: single-choice
+  sources:
+  - de-wolf-2026
+  correct: b
+
+- id: q-quantum-noise-channels-004
+  concept: quantum-noise-channels
+  layer: 2
+  type: short-answer
+  sources:
+  - de-wolf-2026
+
+- id: q-quantum-noise-channels-005
+  concept: quantum-noise-channels
+  layer: 2
+  type: single-choice
+  sources:
+  - watrous-2025
+  correct: c
+
+- id: q-quantum-noise-channels-006
+  concept: quantum-noise-channels
+  layer: 2
+  type: open
+  sources:
+  - de-wolf-2026
+  - watrous-2025
+
+- id: q-quantum-noise-channels-007
+  concept: quantum-noise-channels
+  layer: 2
+  type: short-answer
+  sources:
+  - fowler-2012
+
+- id: q-quantum-noise-channels-008
+  concept: quantum-noise-channels
+  layer: 3
+  type: case
+  sources:
+  - google-2025
+
+- id: q-quantum-noise-channels-009
+  concept: quantum-noise-channels
+  layer: 3
+  type: single-choice
+  sources:
+  - google-2025
+  correct: d
+
+- id: q-quantum-noise-channels-010
+  concept: quantum-noise-channels
+  layer: 3
+  type: short-answer
+  sources:
+  - google-2025
+
+- id: q-quantum-noise-channels-011
+  concept: quantum-noise-channels
+  layer: 3
+  type: case
+  sources:
+  - fowler-2012
+
+- id: q-quantum-noise-channels-012
+  concept: quantum-noise-channels
+  layer: 3
+  type: case
+  sources:
+  - cai-2023
+  - bluvstein-2024
+
+- id: q-quantum-noise-channels-013
+  concept: quantum-noise-channels
+  layer: 3
+  type: single-choice
+  sources:
+  - fowler-2012
+  correct: b
+
+- id: q-repetition-codes-001
+  concept: repetition-codes
+  layer: 1
+  type: single-choice
+  sources:
+  - watrous-2025
+  correct: a
+
+- id: q-repetition-codes-002
+  concept: repetition-codes
+  layer: 1
+  type: short-answer
+  sources:
+  - watrous-2025
+
+- id: q-repetition-codes-003
+  concept: repetition-codes
+  layer: 1
+  type: single-choice
+  sources:
+  - watrous-2025
+  correct: c
+
+- id: q-repetition-codes-004
+  concept: repetition-codes
+  layer: 1
+  type: single-choice
+  sources:
+  - de-wolf-2026
+  correct: d
+
+- id: q-repetition-codes-005
+  concept: repetition-codes
+  layer: 1
+  type: single-choice
+  sources:
+  - watrous-2025
+  correct: a
+
+- id: q-repetition-codes-006
+  concept: repetition-codes
+  layer: 1
+  type: short-answer
+  sources:
+  - watrous-2025
+
+- id: q-repetition-codes-007
+  concept: repetition-codes
+  layer: 1
+  type: single-choice
+  sources:
+  - watrous-2025
+  correct: d
+
+- id: q-repetition-codes-008
+  concept: repetition-codes
+  layer: 1
+  type: short-answer
+  sources:
+  - watrous-2025
+
+- id: q-repetition-codes-009
+  concept: repetition-codes
+  layer: 2
+  type: single-choice
+  sources:
+  - watrous-2025
+  correct: c
+
+- id: q-repetition-codes-010
+  concept: repetition-codes
+  layer: 2
+  type: single-choice
+  sources:
+  - watrous-2025
+  correct: b
+
+- id: q-repetition-codes-011
+  concept: repetition-codes
+  layer: 2
+  type: short-answer
+  sources:
+  - watrous-2025
+
+- id: q-repetition-codes-012
+  concept: repetition-codes
+  layer: 2
+  type: open
+  sources:
+  - watrous-2025
+
+- id: q-repetition-codes-013
+  concept: repetition-codes
+  layer: 2
+  type: single-choice
+  sources:
+  - watrous-2025
+  correct: c
+
+- id: q-repetition-codes-014
+  concept: repetition-codes
+  layer: 2
+  type: short-answer
+  sources:
+  - de-wolf-2026
+
+- id: q-repetition-codes-015
+  concept: repetition-codes
+  layer: 3
+  type: case
+  sources:
+  - watrous-2025
+
+- id: q-repetition-codes-016
+  concept: repetition-codes
+  layer: 3
+  type: single-choice
+  sources:
+  - google-2025
+  correct: d
+
+- id: q-repetition-codes-017
+  concept: repetition-codes
+  layer: 3
+  type: case
+  sources:
+  - fowler-2012
+
+- id: q-repetition-codes-018
+  concept: repetition-codes
+  layer: 3
+  type: short-answer
+  sources:
+  - google-2025
+
+- id: q-repetition-codes-019
+  concept: repetition-codes
+  layer: 3
+  type: case
+  sources:
+  - watrous-2025
+
+- id: q-shor-code-001
+  concept: shor-code
+  layer: 2
+  type: single-choice
+  sources:
+  - watrous-2025
+  correct: a
+
+- id: q-shor-code-002
+  concept: shor-code
+  layer: 2
+  type: short-answer
+  sources:
+  - watrous-2025
+
+- id: q-shor-code-003
+  concept: shor-code
+  layer: 2
+  type: single-choice
+  sources:
+  - watrous-2025
+  correct: b
+
+- id: q-shor-code-004
+  concept: shor-code
+  layer: 2
+  type: single-choice
+  sources:
+  - watrous-2025
+  correct: b
+
+- id: q-shor-code-005
+  concept: shor-code
+  layer: 2
+  type: single-choice
+  sources:
+  - watrous-2025
+  correct: d
+
+- id: q-shor-code-006
+  concept: shor-code
+  layer: 2
+  type: short-answer
+  sources:
+  - watrous-2025
+  - de-wolf-2026
+
+- id: q-shor-code-007
+  concept: shor-code
+  layer: 2
+  type: open
+  sources:
+  - watrous-2025
+  - de-wolf-2026
+
+- id: q-shor-code-008
+  concept: shor-code
+  layer: 3
+  type: short-answer
+  sources:
+  - watrous-2025
+
+- id: q-shor-code-009
+  concept: shor-code
+  layer: 3
+  type: case
+  sources:
+  - watrous-2025
+  - fowler-2012
+
+- id: q-shor-code-010
+  concept: shor-code
+  layer: 3
+  type: single-choice
+  sources:
+  - watrous-2025
+  correct: a
+
+- id: q-shor-code-011
+  concept: shor-code
+  layer: 3
+  type: single-choice
+  sources:
+  - watrous-2025
+  correct: c
+
+- id: q-shor-code-012
+  concept: shor-code
+  layer: 3
+  type: case
+  sources:
+  - bluvstein-2024
+  - watrous-2025
+
+- id: q-stabilizer-formalism-001
+  concept: stabilizer-formalism
+  layer: 2
+  type: single-choice
+  sources:
+  - watrous-2025
+  correct: d
+
+- id: q-stabilizer-formalism-002
+  concept: stabilizer-formalism
+  layer: 2
+  type: single-choice
+  sources:
+  - watrous-2025
+  correct: b
+
+- id: q-stabilizer-formalism-003
+  concept: stabilizer-formalism
+  layer: 2
+  type: short-answer
+  sources:
+  - watrous-2025
+
+- id: q-stabilizer-formalism-004
+  concept: stabilizer-formalism
+  layer: 2
+  type: single-choice
+  sources:
+  - watrous-2025
+  correct: c
+
+- id: q-stabilizer-formalism-005
+  concept: stabilizer-formalism
+  layer: 2
+  type: short-answer
+  sources:
+  - watrous-2025
+
+- id: q-stabilizer-formalism-006
+  concept: stabilizer-formalism
+  layer: 2
+  type: single-choice
+  sources:
+  - watrous-2025
+  correct: a
+
+- id: q-stabilizer-formalism-007
+  concept: stabilizer-formalism
+  layer: 2
+  type: short-answer
+  sources:
+  - watrous-2025
+
+- id: q-stabilizer-formalism-008
+  concept: stabilizer-formalism
+  layer: 2
+  type: short-answer
+  sources:
+  - de-wolf-2026
+
+- id: q-stabilizer-formalism-009
+  concept: stabilizer-formalism
+  layer: 2
+  type: open
+  sources:
+  - watrous-2025
+  - de-wolf-2026
+
+- id: q-stabilizer-formalism-010
+  concept: stabilizer-formalism
+  layer: 3
+  type: case
+  sources:
+  - bravyi-2024
+
+- id: q-stabilizer-formalism-011
+  concept: stabilizer-formalism
+  layer: 3
+  type: case
+  sources:
+  - bravyi-2024
+
+- id: q-stabilizer-formalism-012
+  concept: stabilizer-formalism
+  layer: 3
+  type: short-answer
+  sources:
+  - bravyi-2024
+
+- id: q-stabilizer-formalism-013
+  concept: stabilizer-formalism
+  layer: 3
+  type: single-choice
+  sources:
+  - fowler-2012
+  correct: b
+
+- id: q-stabilizer-formalism-014
+  concept: stabilizer-formalism
+  layer: 3
+  type: single-choice
+  sources:
+  - de-wolf-2026
+  correct: a
+
+- id: q-stabilizer-formalism-015
+  concept: stabilizer-formalism
+  layer: 3
+  type: case
+  sources:
+  - bravyi-2024
+  - de-wolf-2026
+
+- id: q-threshold-theorem-001
+  concept: threshold-theorem
+  layer: 2
+  type: single-choice
+  sources:
+  - watrous-2025
+  correct: c
+
+- id: q-threshold-theorem-002
+  concept: threshold-theorem
+  layer: 2
+  type: short-answer
+  sources:
+  - watrous-2025
+
+- id: q-threshold-theorem-003
+  concept: threshold-theorem
+  layer: 2
+  type: short-answer
+  sources:
+  - watrous-2025
+
+- id: q-threshold-theorem-004
+  concept: threshold-theorem
+  layer: 2
+  type: single-choice
+  sources:
+  - watrous-2025
+  correct: d
+
+- id: q-threshold-theorem-005
+  concept: threshold-theorem
+  layer: 2
+  type: single-choice
+  sources:
+  - google-2025
+  correct: b
+
+- id: q-threshold-theorem-006
+  concept: threshold-theorem
+  layer: 2
+  type: single-choice
+  sources:
+  - bravyi-2024
+  - fowler-2012
+  - eisert-2025
+  correct: d
+
+- id: q-threshold-theorem-007
+  concept: threshold-theorem
+  layer: 2
+  type: single-choice
+  sources:
+  - bravyi-2024
+  correct: c
+
+- id: q-threshold-theorem-008
+  concept: threshold-theorem
+  layer: 2
+  type: short-answer
+  sources:
+  - fowler-2012
+
+- id: q-threshold-theorem-009
+  concept: threshold-theorem
+  layer: 2
+  type: open
+  sources:
+  - watrous-2025
+  - de-wolf-2026
+
+- id: q-threshold-theorem-010
+  concept: threshold-theorem
+  layer: 2
+  type: open
+  sources:
+  - watrous-2025
+  - fowler-2012
+
+- id: q-threshold-theorem-011
+  concept: threshold-theorem
+  layer: 3
+  type: short-answer
+  sources:
+  - eisert-2025
+
+- id: q-threshold-theorem-012
+  concept: threshold-theorem
+  layer: 3
+  type: short-answer
+  sources:
+  - eisert-2025
+  - google-2025
+
+- id: q-threshold-theorem-013
+  concept: threshold-theorem
+  layer: 3
+  type: case
+  sources:
+  - google-2025
+
+- id: q-threshold-theorem-014
+  concept: threshold-theorem
+  layer: 3
+  type: case
+  sources:
+  - google-2025
+
+- id: q-threshold-theorem-015
+  concept: threshold-theorem
+  layer: 3
+  type: case
+  sources:
+  - fowler-2012
+
+- id: q-threshold-theorem-016
+  concept: threshold-theorem
+  layer: 3
+  type: case
+  sources:
+  - bravyi-2024
+  - fowler-2012
+
+- id: q-threshold-theorem-017
+  concept: threshold-theorem
+  layer: 3
+  type: short-answer
+  sources:
+  - google-2025
+
+- id: q-surface-code-001
+  concept: surface-code
+  layer: 2
+  type: single-choice
+  sources:
+  - fowler-2012
+  correct: a
+
+- id: q-surface-code-002
+  concept: surface-code
+  layer: 2
+  type: short-answer
+  sources:
+  - google-2025
+
+- id: q-surface-code-003
+  concept: surface-code
+  layer: 2
+  type: short-answer
+  sources:
+  - fowler-2012
+
+- id: q-surface-code-004
+  concept: surface-code
+  layer: 2
+  type: short-answer
+  sources:
+  - watrous-2025
+
+- id: q-surface-code-005
+  concept: surface-code
+  layer: 2
+  type: single-choice
+  sources:
+  - fowler-2012
+  correct: b
+
+- id: q-surface-code-006
+  concept: surface-code
+  layer: 2
+  type: single-choice
+  sources:
+  - watrous-2025
+  correct: c
+
+- id: q-surface-code-007
+  concept: surface-code
+  layer: 2
+  type: single-choice
+  sources:
+  - fowler-2012
+  correct: d
+
+- id: q-surface-code-008
+  concept: surface-code
+  layer: 2
+  type: open
+  sources:
+  - fowler-2012
+  - watrous-2025
+
+- id: q-surface-code-009
+  concept: surface-code
+  layer: 2
+  type: single-choice
+  sources:
+  - fowler-2012
+  correct: a
+
+- id: q-surface-code-010
+  concept: surface-code
+  layer: 3
+  type: short-answer
+  sources:
+  - gidney-2025
+
+- id: q-surface-code-011
+  concept: surface-code
+  layer: 3
+  type: short-answer
+  sources:
+  - saffman-2025
+
+- id: q-surface-code-012
+  concept: surface-code
+  layer: 3
+  type: case
+  sources:
+  - bravyi-2024
+
+- id: q-surface-code-013
+  concept: surface-code
+  layer: 3
+  type: single-choice
+  sources:
+  - bravyi-2024
+  correct: d
+
+- id: q-surface-code-014
+  concept: surface-code
+  layer: 3
+  type: case
+  sources:
+  - google-2025
+  - gidney-2025
+
+- id: q-surface-code-015
+  concept: surface-code
+  layer: 3
+  type: case
+  sources:
+  - bluvstein-2024
+  - saffman-2025
+  - google-2025
+
+- id: q-decoding-001
+  concept: decoding
+  layer: 3
+  type: single-choice
+  sources:
+  - bravyi-2024
+  - fowler-2012
+  correct: a
+
+- id: q-decoding-002
+  concept: decoding
+  layer: 3
+  type: short-answer
+  sources:
+  - google-2025
+
+- id: q-decoding-003
+  concept: decoding
+  layer: 3
+  type: case
+  sources:
+  - google-2025
+  - gidney-2025
+
+- id: q-decoding-004
+  concept: decoding
+  layer: 3
+  type: single-choice
+  sources:
+  - google-2025
+  correct: c
+
+- id: q-decoding-005
+  concept: decoding
+  layer: 3
+  type: case
+  sources:
+  - bluvstein-2024
+
+- id: q-decoding-006
+  concept: decoding
+  layer: 3
+  type: single-choice
+  sources:
+  - bravyi-2024
+  correct: b
+
+- id: q-decoding-007
+  concept: decoding
+  layer: 3
+  type: short-answer
+  sources:
+  - google-2025
+
+- id: q-fault-tolerant-gates-001
+  concept: fault-tolerant-gates
+  layer: 3
+  type: single-choice
+  sources:
+  - watrous-2025
+  - bluvstein-2024
+  correct: a
+
+- id: q-fault-tolerant-gates-002
+  concept: fault-tolerant-gates
+  layer: 3
+  type: single-choice
+  sources:
+  - bravyi-kitaev-2005
+  correct: c
+
+- id: q-fault-tolerant-gates-003
+  concept: fault-tolerant-gates
+  layer: 3
+  type: short-answer
+  sources:
+  - bravyi-kitaev-2005
+
+- id: q-fault-tolerant-gates-004
+  concept: fault-tolerant-gates
+  layer: 3
+  type: short-answer
+  sources:
+  - bravyi-kitaev-2005
+  - fowler-2012
+
+- id: q-fault-tolerant-gates-005
+  concept: fault-tolerant-gates
+  layer: 3
+  type: short-answer
+  sources:
+  - fowler-2012
+
+- id: q-fault-tolerant-gates-006
+  concept: fault-tolerant-gates
+  layer: 3
+  type: short-answer
+  sources:
+  - bravyi-kitaev-2005
+
+- id: q-fault-tolerant-gates-007
+  concept: fault-tolerant-gates
+  layer: 3
+  type: short-answer
+  sources:
+  - gidney-2025
+
+- id: q-fault-tolerant-gates-008
+  concept: fault-tolerant-gates
+  layer: 3
+  type: case
+  sources:
+  - bluvstein-2024
+  - watrous-2025
+  - fowler-2012
+
+- id: q-fault-tolerant-gates-009
+  concept: fault-tolerant-gates
+  layer: 3
+  type: case
+  sources:
+  - gidney-2025
+
+- id: q-fault-tolerant-gates-010
+  concept: fault-tolerant-gates
+  layer: 3
+  type: short-answer
+  sources:
+  - fowler-2012
+
+- id: q-logical-qubit-experiments-001
+  concept: logical-qubit-experiments
+  layer: 2
+  type: single-choice
+  sources:
+  - google-2025
+  correct: b
+
+- id: q-logical-qubit-experiments-002
+  concept: logical-qubit-experiments
+  layer: 2
+  type: single-choice
+  sources:
+  - google-2025
+  correct: d
+
+- id: q-logical-qubit-experiments-003
+  concept: logical-qubit-experiments
+  layer: 2
+  type: short-answer
+  sources:
+  - google-2025
+
+- id: q-logical-qubit-experiments-004
+  concept: logical-qubit-experiments
+  layer: 2
+  type: single-choice
+  sources:
+  - google-2025
+  correct: d
+
+- id: q-logical-qubit-experiments-005
+  concept: logical-qubit-experiments
+  layer: 2
+  type: single-choice
+  sources:
+  - bluvstein-2024
+  - eisert-2025
+  correct: a
+
+- id: q-logical-qubit-experiments-006
+  concept: logical-qubit-experiments
+  layer: 2
+  type: short-answer
+  sources:
+  - google-2025
+
+- id: q-logical-qubit-experiments-007
+  concept: logical-qubit-experiments
+  layer: 2
+  type: open
+  sources:
+  - bluvstein-2024
+  - eisert-2025
+
+- id: q-logical-qubit-experiments-008
+  concept: logical-qubit-experiments
+  layer: 2
+  type: open
+  sources:
+  - google-2025
+  - eisert-2025
+
+- id: q-logical-qubit-experiments-009
+  concept: logical-qubit-experiments
+  layer: 3
+  type: case
+  sources:
+  - bluvstein-2024
+  - eisert-2025
+
+- id: q-logical-qubit-experiments-010
+  concept: logical-qubit-experiments
+  layer: 3
+  type: case
+  sources:
+  - google-2025
+
+- id: q-logical-qubit-experiments-011
+  concept: logical-qubit-experiments
+  layer: 3
+  type: short-answer
+  sources:
+  - google-2025
+
+- id: q-logical-qubit-experiments-012
+  concept: logical-qubit-experiments
+  layer: 3
+  type: single-choice
+  sources:
+  - bluvstein-2024
+  correct: c
+
+- id: q-logical-qubit-experiments-013
+  concept: logical-qubit-experiments
+  layer: 3
+  type: case
+  sources:
+  - eisert-2025
+  - cai-2023
+
+- id: q-logical-qubit-experiments-014
+  concept: logical-qubit-experiments
+  layer: 3
+  type: short-answer
+  sources:
+  - eisert-2025
+
+- id: q-logical-qubit-experiments-015
+  concept: logical-qubit-experiments
+  layer: 3
+  type: case
+  sources:
+  - google-2025
+  - bluvstein-2024
+
+- id: q-resource-estimation-001
+  concept: resource-estimation
+  layer: 3
+  type: short-answer
+  sources:
+  - fowler-2012
+
+- id: q-resource-estimation-002
+  concept: resource-estimation
+  layer: 3
+  type: short-answer
+  sources:
+  - fowler-2012
+
+- id: q-resource-estimation-003
+  concept: resource-estimation
+  layer: 3
+  type: short-answer
+  sources:
+  - fowler-2012
+
+- id: q-resource-estimation-004
+  concept: resource-estimation
+  layer: 3
+  type: single-choice
+  sources:
+  - fowler-2012
+  - gidney-2025
+  correct: b
+
+- id: q-resource-estimation-005
+  concept: resource-estimation
+  layer: 3
+  type: case
+  sources:
+  - gidney-2025
+
+- id: q-resource-estimation-006
+  concept: resource-estimation
+  layer: 3
+  type: short-answer
+  sources:
+  - gidney-2025
+
+- id: q-resource-estimation-007
+  concept: resource-estimation
+  layer: 3
+  type: case
+  sources:
+  - fowler-2012
+  - gidney-2025
+
+- id: q-resource-estimation-008
+  concept: resource-estimation
+  layer: 3
+  type: short-answer
+  sources:
+  - fowler-2012
+  - eisert-2025
+
+- id: q-resource-estimation-009
+  concept: resource-estimation
+  layer: 3
+  type: case
+  sources:
+  - gidney-2025
+
+- id: q-resource-estimation-010
+  concept: resource-estimation
+  layer: 3
+  type: case
+  sources:
+  - fowler-2012
+  - gidney-2025

@@ -519,6 +519,28 @@
   access: open
   accessed: 2026-11-03
   notes: "full text (arXiv). Nature 626 (2024). Several authors linked to QuEra (company). DOI to confirm by the researcher."
+- id: bravyi-kitaev-2005
+  type: paper
+  reliability: B
+  title: "Universal quantum computation with ideal Clifford gates and noisy ancillas"
+  authors: ["Sergey Bravyi", "Alexei Kitaev"]
+  year: 2005
+  language: en
+  identifiers: { doi: "10.1103/PhysRevA.71.022316", url: "https://arxiv.org/abs/quant-ph/0403025" }
+  access: open
+  accessed: 2026-11-04
+  notes: "full text (arXiv v2; Physical Review A 71, 022316). Magic states and their distillation."
+- id: bravyi-2024
+  type: paper
+  reliability: B
+  title: "High-threshold and low-overhead fault-tolerant quantum memory"
+  authors: ["Sergey Bravyi", "Andrew W. Cross", "Jay M. Gambetta", "et al."]
+  year: 2024
+  language: en
+  identifiers: { doi: "10.1038/s41586-024-07107-7", url: "https://arxiv.org/abs/2308.07915" }
+  access: open
+  accessed: 2026-11-04
+  notes: "full text (arXiv; Nature 627, 778–782). Bivariate bicycle qLDPC codes. Authors from IBM (company)."
 - id: gidney-2025
   type: paper
   reliability: B
@@ -529,4 +551,4 @@
   identifiers: { url: "https://arxiv.org/abs/2505.15917" }
   access: open
   accessed: 2026-11-03
-  notes: "full text (arXiv preprint, Google Quantum AI). Not peer-reviewed at access; resource estimate under stated hardware assumptions."
+  notes: "full text (arXiv preprint, Google Quantum AI). Not peer-reviewed at access; still a single arXiv v1 with no journal reference on 2026-11-04; resource estimate under stated hardware assumptions."

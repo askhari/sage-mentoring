@@ -113,3 +113,23 @@
 - id: platform-gate-time-vs-error
   alt: "Dispersión en escala logarítmica del tiempo de la puerta de dos qubits (de 1 ns a 1 ms) frente a su error (de 0,05 % a 10 %). Superconductores: Sycamore 2019, 12 ns con 0,30 % aislada y 0,60 % en paralelo; CZ 2020, 60 ns y 0,3 %. Iones (2019): 30 µs y 0,09 %, 100 µs y 0,1 %, y 1,6 µs y 0,2 %. Átomos neutros: 1 µs y 5,9 % (2018), y una barra para 2024-25 con 0,29 % y puertas de menos de 1 µs. Espines en silicio 2022: 40 ns y 0,19 %. Una banda gris entre 0,1 % y 0,5 % marca el estado de 2025 según Eisert y Preskill."
   caption: "Tiempo frente a error de las puertas de dos qubits por plataforma, con cifras de años y dispositivos distintos: no es un ranking. Datos de Arute et al. 2019, Kjaergaard et al. 2020, Bruzewicz et al. 2019, Henriet et al. 2020, Saffman 2025, Stano y Loss 2022 y Eisert y Preskill 2025-26. Diagrama propio."
+
+- id: bit-flip-code-circuit
+  alt: "Circuito de cinco líneas: q0 con α|0⟩+β|1⟩, q1 y q2 en |0⟩, y dos ancillas a1 y a2. Dos CNOT desde q0 codifican el estado en α|000⟩+β|111⟩. Un bloque E representa un posible error X en un qubit. Cuatro CNOT copian las paridades q0⊕q1 en a1 y q1⊕q2 en a2, que se miden y dan el síndrome (s1, s2). Puertas X condicionales corrigen: 00 nada, 10 X en q0, 11 X en q1, 01 X en q2."
+  caption: "Código de repetición de 3 qubits contra inversiones de bit: las ancillas miden solo paridades, sin medir ni copiar el estado codificado. Diagrama propio."
+
+- id: surface-code-d3
+  alt: "Rejilla de 3×3 qubits de datos. Entre ellos, cuatro plaquetas de cuatro qubits alternan estabilizadores X y Z como un tablero de ajedrez, y cuatro medias plaquetas de dos qubits en los bordes: X arriba y abajo, Z a izquierda y derecha. Cada estabilizador tiene su qubit de medida. Una columna resaltada marca el X lógico y una fila el Z lógico."
+  caption: "Código de superficie rotado de distancia 3: 9 qubits de datos y 8 de medida, 17 = 2d² − 1. El generador comprueba que los estabilizadores conmutan y que los operadores lógicos son válidos. Diagrama propio."
+
+- id: threshold-crossing
+  alt: "Gráfico logarítmico del error lógico por ciclo frente al error físico p, de 0,01 % a 1 %, para distancias 3, 5, 7, 9 y 11. Todas las rectas se cruzan en el umbral p_th ≈ 0,57 %. Por debajo, más distancia da menos error: con p = 0,1 %, de 9,2·10⁻⁴ (d = 3) a 8,7·10⁻⁷ (d = 11). Por encima del umbral, en discontinuo, más distancia empeora."
+  caption: "Por qué existe un umbral: el ajuste de Fowler et al. (2012), P_L ≈ 0,03·(p/p_th)^⌊(d+1)/2⌋, calculado aquí. Es un modelo de 2012, no una medida. Diagrama propio."
+
+- id: google-lambda
+  alt: "Gráfico del error lógico por ciclo, en escala logarítmica, frente a la distancia del código. Punto medido en d = 7: 1,43·10⁻³. Puntos derivados con Λ = 2,14: 3,1·10⁻³ en d = 5 y 6,5·10⁻³ en d = 3. Una recta discontinua llega a la extrapolación de los autores: 7,1·10⁻⁷ en d = 27, con 1457 qubits."
+  caption: "Supresión exponencial del error lógico con la distancia en el procesador de 105 qubits de Google (2024, preprint): cada +2 de distancia divide el error por Λ ≈ 2,14. Diagrama propio."
+
+- id: distillation-15-to-1
+  alt: "Quince estados T ruidosos, con error ε, entran en un bloque que usa el código de 15 qubits con solo puertas Clifford y medidas de estabilizadores. Si el síndrome es trivial, sale un estado T con error ≈ 35ε³ (éxito ≈ 1 − 15ε); si no, se descarta. Dos rondas desde ε = 1 % dan 3,5·10⁻⁵ y después ≈ 1,5·10⁻¹²."
+  caption: "Destilación de estados mágicos 15 a 1, según Bravyi y Kitaev (2005) y Fowler et al. (2012). Diagrama propio."

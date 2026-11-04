@@ -200,3 +200,38 @@
   generator: diagrams/src/platform_gate_time_vs_error.py
   license: CC-BY-4.0
   concepts: [hardware-landscape]
+
+- id: bit-flip-code-circuit
+  file: diagrams/bit-flip-code-circuit.{lang}.svg
+  origin: own
+  generator: diagrams/src/bit_flip_code_circuit.py
+  license: CC-BY-4.0
+  concepts: [repetition-codes]
+
+- id: surface-code-d3
+  file: diagrams/surface-code-d3.{lang}.svg
+  origin: own
+  generator: diagrams/src/surface_code_d3.py
+  license: CC-BY-4.0
+  concepts: [surface-code]
+
+- id: threshold-crossing
+  file: diagrams/threshold-crossing.{lang}.svg
+  origin: own
+  generator: diagrams/src/threshold_crossing.py
+  license: CC-BY-4.0
+  concepts: [threshold-theorem]
+
+- id: google-lambda
+  file: diagrams/google-lambda.{lang}.svg
+  origin: own
+  generator: diagrams/src/google_lambda.py
+  license: CC-BY-4.0
+  concepts: [logical-qubit-experiments]
+
+- id: distillation-15-to-1
+  file: diagrams/distillation-15-to-1.{lang}.svg
+  origin: own
+  generator: diagrams/src/distillation_15_to_1.py
+  license: CC-BY-4.0
+  concepts: [fault-tolerant-gates]

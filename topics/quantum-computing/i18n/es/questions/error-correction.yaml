@@ -1,0 +1,1196 @@
+- id: q-quantum-noise-channels-001
+  prompt: ¿Por qué basta con que un código corrija los errores X y Z de un qubit para corregir cualquier error unitario sobre ese qubit?
+  options:
+    a: Porque I, X, Y y Z generan todas las matrices 2×2, así que el error es una combinación lineal de Paulis y la medida del síndrome lo colapsa a uno de ellos
+    b: Porque en la práctica los errores reales son siempre volteos de bit o de fase y nunca rotaciones intermedias
+    c: Porque el síndrome mide el ángulo de la rotación y el decodificador aplica la rotación inversa con precisión analógica
+    d: Porque los errores pequeños se promedian entre sí y su suma se anula antes de afectar al qubit lógico
+  explanation: 'Al escribir E = a₀I + a₁X + a₂Y + a₃Z, medir el síndrome colapsa el estado a uno en el que ocurrió un Pauli concreto (o ninguno), y entonces se deshace. La tentación de pensar que solo existen volteos discretos es falsa: los errores son continuos, y es la medida la que los discretiza.'
+
+- id: q-quantum-noise-channels-002
+  prompt: ¿Qué matriz de Pauli representa un volteo de fase (phase-flip)? Responde con su letra.
+  accepted:
+  - Z
+  - z
+  - Pauli Z
+  - puerta Z
+  - σz
+  - σ_z
+  - sigma z
+
+- id: q-quantum-noise-channels-003
+  prompt: De Wolf da tres motivos por los que corregir errores cuánticos es más difícil que corregir los clásicos. ¿Cuál de estos es uno de ellos?
+  options:
+    a: Las puertas cuánticas no son reversibles, así que un error no se puede deshacer
+    b: Mirar el estado para comprobar si hay un error puede colapsarlo
+    c: Los qubits no se pueden medir nunca sin destruir toda la información
+    d: Los errores cuánticos son siempre más probables que los de un bit clásico
+  explanation: 'Los tres motivos son: no clonación, un continuo de errores posibles y que medir puede colapsar el estado. Las puertas cuánticas sí son unitarias (reversibles) y los qubits sí se miden; el problema es qué se mide.'
+
+- id: q-quantum-noise-channels-004
+  prompt: En un canal despolarizante con probabilidad p = 0,2, los coeficientes de X, Y y Z de la matriz de densidad se encogen por el factor 1 − p. ¿Cuánto vale ese factor? Responde con un número.
+  accepted:
+  - 0,8
+  - '0.8'
+  - 80 %
+  - 80%
+  - 4/5
+  - 0,80
+
+- id: q-quantum-noise-channels-005
+  prompt: Una CNOT perfecta recibe una X en su qubit de control justo antes de aplicarse. ¿Qué error hay después de la puerta?
+  options:
+    a: Una X solo en el qubit objetivo
+    b: Una Z en el qubit de control
+    c: Una X en el control y otra X en el objetivo
+    d: Ninguno, porque la puerta es perfecta y no propaga errores
+  explanation: 'Las puertas de dos qubits copian errores de un qubit a otro: la X del control se propaga al objetivo. Que la puerta sea perfecta no impide que propague el error ya existente; por eso hay que contar todos los lugares donde algo puede fallar.'
+
+- id: q-quantum-noise-channels-006
+  prompt: Explica con tus palabras por qué no hacen falta correcciones analógicas para un error que es una rotación pequeña y continua, y qué papel tiene la medida del síndrome.
+  model_answer: 'Cualquier error de un qubit se escribe como combinación de I, X, Y y Z. Al medir el síndrome, el estado colapsa a una situación en la que ocurrió un error de Pauli concreto, con probabilidad igual al módulo al cuadrado de su coeficiente, o ningún error. Entonces basta aplicar la corrección discreta de ese Pauli. Por eso un código que corrige X y Z corrige cualquier error de un qubit, y el error pequeño no se acumula hasta alterar el estado lógico: o se proyecta a I o a un Pauli que se corrige.'
+  rubric:
+  - Dice que el error se escribe como combinación lineal de I, X, Y y Z (discretización).
+  - Explica que medir el síndrome colapsa el estado a un error de Pauli concreto (o ninguno).
+  - 'Concluye que la corrección es discreta: se deshace ese Pauli, sin ajustes continuos.'
+  - Menciona que corregir X y Z (y por tanto Y) basta para cualquier error de un qubit.
+
+- id: q-quantum-noise-channels-007
+  prompt: En el modelo de ruido de circuito de Fowler, una CNOT defectuosa es una CNOT ideal más uno de los 15 Paulis de dos qubits no triviales a partes iguales. Si la CNOT falla con probabilidad p = 0,3 %, ¿qué probabilidad tiene cada uno de esos 15 Paulis? Responde en tanto por uno.
+  accepted:
+  - 0,0002
+  - '0.0002'
+  - 2·10⁻⁴
+  - 2e-4
+  - 0,02 %
+  - 0.02%
+  - 2×10⁻⁴
+
+- id: q-quantum-noise-channels-008
+  prompt: Un compañero propone usar la probabilidad de detección de eventos como indicador único de lo bueno que será Λ al escalar la distancia. En el procesador de 72 qubits de Google (según los autores), quitar la fuga de los qubits de datos apenas cambia el código de distancia 3, pero sube Λ un 35 % en el de distancia 5, mientras la probabilidad de detección baja solo un 12 %. ¿Qué le respondes y qué medirías además?
+  model_answer: 'El indicador solo sirve si los errores no están correlacionados. Aquí la fuga (y los acoplamientos residuales durante las CZ) es un error correlacionado que apenas se nota en la probabilidad de detección, pero que penaliza a las distancias mayores: Λ subió un 35 % con una bajada del 12 % en la detección. Los autores concluyen que la probabilidad de detección es un buen indicador de Λ solo en ausencia de correlaciones. Además del error medio por puerta, mediría la presencia de correlaciones (fuga, interacciones residuales, ráfagas) y, sobre todo, Λ con varias distancias, porque es lo que fija el coste.'
+  rubric:
+  - Indica que la probabilidad de detección predice Λ solo si los errores no están correlacionados.
+  - 'Cita el efecto de eliminar la fuga: Λ sube un 35 % en d = 5 con solo un 12 % menos de detección (o que apenas cambia en d = 3).'
+  - Identifica fuga o interacciones residuales como errores correlacionados.
+  - Propone medir correlaciones y Λ a varias distancias, no solo el error medio por puerta.
+
+- id: q-quantum-noise-channels-009
+  prompt: En el código de repetición de distancia 29 de Google (2·10¹⁰ ciclos), la supresión del error deja de ser exponencial a partir de d ≥ 15 y aparece un suelo cercano a 10⁻¹⁰ por ciclo. ¿Qué conclusión es la correcta?
+  options:
+    a: Que el código de repetición no sirve para sondear el ruido, porque sus resultados no se parecen a los del código de superficie
+    b: Que el suelo se debe a que el decodificador de emparejamiento es subóptimo y desaparecerá con una red neuronal
+    c: Que los errores del dispositivo son independientes y el suelo es un efecto estadístico de la muestra
+    d: Un Λ bueno con un suelo cuyo origen no se entiende no basta para extrapolar a los errores muy bajos que necesita un algoritmo
+  explanation: 'Los autores atribuyen el suelo a ráfagas raras y localizadas de errores correlacionados (unos 30 qubits, aproximadamente una por hora) cuyo origen no entienden. Justo por eso el código de repetición a gran distancia es una buena sonda: revela fallos que no aparecen en códigos pequeños. No se atribuye al decodificador ni a la estadística.'
+
+- id: q-quantum-noise-channels-010
+  prompt: En el código de repetición de distancia 29 de Google, ¿a partir de qué distancia deja de ser exponencial la supresión del error lógico? Responde con el valor de d.
+  accepted:
+  - '15'
+  - d = 15
+  - d ≥ 15
+  - d=15
+  - d>=15
+  - d ≥ 15 (15)
+
+- id: q-quantum-noise-channels-011
+  prompt: Vas a simular un código para (a) entender cómo funciona, (b) estimar un umbral y un coste en qubits, y (c) juzgar un dispositivo real. ¿Qué modelo de ruido eliges en cada caso y por qué? Apóyate en lo que dicen las fuentes sobre el ruido a nivel de circuito.
+  model_answer: '(a) Para entender un código: errores de Pauli independientes sobre los qubits de datos y síndrome perfecto, como en los modelos de repetición y de Shor. (b) Para estimar un umbral o un coste: ruido a nivel de circuito (cada operación falla con probabilidad p, una CNOT defectuosa añade uno de los 15 Paulis de dos qubits, una medida defectuosa voltea el resultado, una espera añade X, Y o Z), porque incluye los errores de la propia extracción del síndrome; las cifras salen más bajas que con el modelo ingenuo, como en el 0,57 % de Fowler. (c) Para juzgar un dispositivo: medir también si hay correlaciones, no solo el error medio por puerta, porque un Λ bueno con ráfagas sin explicar no garantiza el régimen que necesita un algoritmo.'
+  rubric:
+  - Asigna a (a) errores de Pauli independientes con síndrome perfecto.
+  - Asigna a (b) ruido a nivel de circuito e indica que incluye los errores de la extracción del síndrome.
+  - Señala que el modelo de circuito da cifras (umbral) más bajas que el ingenuo.
+  - Para (c) pide medir correlaciones, no solo el error medio por puerta.
+
+- id: q-quantum-noise-channels-012
+  prompt: Tu equipo observa que los errores de sus puertas son sobre todo coherentes (rotaciones unitarias sistemáticas) y teme que arruinen la corrección de errores. ¿Qué sabes sobre cómo se acumulan y qué técnica puedes usar para tratarlos?
+  model_answer: 'Los errores coherentes se acumulan más rápido que los errores de Pauli estocásticos. Una de las formas más eficaces de tratarlos es convertirlos en ruido de Pauli mediante el twirling de Pauli: se insertan Paulis aleatorios que eliminan los términos fuera de la diagonal y convierten cualquier canal en un canal de Pauli, a menudo con poco coste porque los Paulis insertados se absorben en puertas existentes. Además, Bluvstein y colaboradores dicen que su circuito lógico es más tolerante a errores coherentes y se comporta de forma inherentemente digital, de acuerdo con la teoría.'
+  rubric:
+  - Afirma que los errores coherentes se acumulan más rápido que los de Pauli.
+  - Propone el twirling de Pauli y explica que convierte el canal en uno de Pauli insertando Paulis aleatorios.
+  - Menciona que el coste suele ser bajo porque los Paulis se absorben en puertas existentes.
+  - Puede añadir que el circuito lógico de Bluvstein se comporta de forma digital y tolera mejor los coherentes.
+
+- id: q-quantum-noise-channels-013
+  prompt: En la simulación de Fowler (2012) el umbral por paso es de 1,25 % si solo fallan las CNOT, de 4,3 % si solo fallan las esperas de los qubits de datos y de alrededor del 12 % si solo fallan la inicialización, la medida y la Hadamard de los qubits de medida. ¿Qué indica eso?
+  options:
+    a: Que las esperas son la operación más peligrosa, porque su umbral es el que más se acerca al 5 %
+    b: 'Que las CNOT son la fuente de error que más pesa: el código tolera mucho menos error en ellas que en las demás operaciones'
+    c: Que los errores de medida se pueden ignorar, porque su umbral del 12 % supera al de todo el circuito
+    d: Que el umbral del código de superficie es 12 %, y los otros valores son errores de simulación
+  explanation: 'Un umbral más bajo para un tipo de operación significa que esa operación es la que hay que mantener más limpia: son las CNOT. Un umbral de 12 % para una operación aislada no se puede leer como umbral global; el global (0,57 % por paso) es menor porque suma todos los tipos de error.'
+
+- id: q-repetition-codes-001
+  prompt: El código de repetición clásico de 3 bits decide por mayoría al leer. ¿Cuántos bits volteados puede corregir con seguridad?
+  options:
+    a: Uno como máximo
+    b: Dos, porque la mayoría sigue siendo clara
+    c: Ninguno, solo detecta que algo falló
+    d: Los tres, si se repite la lectura
+  explanation: Con un bit volteado, los otros dos lo delatan; con dos volteados, la mayoría apunta al valor equivocado. Esa es la razón de que el fallo exija dos errores a la vez.
+
+- id: q-repetition-codes-002
+  prompt: Cada bit se voltea con probabilidad p = 0,1, de forma independiente. Con el código de repetición de 3 bits y voto por mayoría, ¿cuál es la probabilidad de que el voto falle (3p² − 2p³)? Responde con un número.
+  accepted:
+  - 0,028
+  - '0.028'
+  - 2,8 %
+  - 2.8%
+  - 2,8%
+  - 0,0280
+
+- id: q-repetition-codes-003
+  prompt: ¿Para qué valores de p mejora el voto por mayoría de 3 bits la fiabilidad frente a un bit sin proteger?
+  options:
+    a: Para cualquier p, porque tres copias siempre superan a una
+    b: Solo para p < 1/3
+    c: Para p < 1/2
+    d: Solo para p mayor que 1/2, cuando los errores son frecuentes
+  explanation: El fallo del voto es 3p² − 2p³, que es menor que p exactamente cuando p < 1/2. Por encima de 1/2 el código empeora; la cota 1/3 aparece más tarde en la concatenación con una cota sencilla.
+
+- id: q-repetition-codes-004
+  prompt: ¿Por qué no se puede proteger un qubit guardando simplemente tres copias, como en el código clásico?
+  options:
+    a: Porque tres qubits no caben en un solo chip
+    b: Porque los qubits no pueden tener más de un valor a la vez
+    c: Porque la copia funcionaría pero costaría el doble de puertas
+    d: Porque el teorema de no clonación prohíbe copiar un estado cuántico desconocido
+  explanation: La no clonación impide copiar α|0⟩ + β|1⟩; además, comprobar si algo falló midiendo colapsaría la superposición. El código cuántico codifica sin copiar, entrelazando.
+
+- id: q-repetition-codes-005
+  prompt: Con dos CNOT y dos qubits auxiliares en |0⟩, el estado α|0⟩ + β|1⟩ se transforma en…
+  options:
+    a: α|000⟩ + β|111⟩, un único estado entrelazado repartido en tres qubits
+    b: (α|0⟩ + β|1⟩)⊗3, tres copias independientes del estado
+    c: α|000⟩ + β|001⟩, con la información en el último qubit
+    d: α|010⟩ + β|101⟩, con los bits intercambiados de posición
+  explanation: 'El estado codificado no son tres copias: es entrelazado. Esa es la clave del código de bit-flip de 3 qubits.'
+
+- id: q-repetition-codes-006
+  prompt: 'En el código de bit-flip de 3 qubits, el síndrome se mide con dos paridades: (qubits 1-2, qubits 2-3). Si se voltea el último qubit, ¿qué síndrome sale? Respóndelo con dos dígitos.'
+  accepted:
+  - '01'
+  - 0 1
+  - (0,1)
+  - 0,1
+  - (0, 1)
+
+- id: q-repetition-codes-007
+  prompt: En el código de bit-flip de 3 qubits, el síndrome es 11 (ambas paridades rotas). ¿A qué qubit hay que volver a aplicar X?
+  options:
+    a: Al primer qubit
+    b: Al último qubit
+    c: A los tres qubits
+    d: Al qubit del medio
+  explanation: Solo un volteo en el qubit central rompe a la vez la paridad 1-2 y la 2-3. El síndrome 10 señala el primero y el 01, el último.
+
+- id: q-repetition-codes-008
+  prompt: ¿Cómo se llama el resultado de las medidas de paridad que dice qué qubit falló sin revelar el valor del dato lógico?
+  accepted:
+  - síndrome
+  - el síndrome
+  - syndrome
+  - Síndrome
+
+- id: q-repetition-codes-009
+  prompt: ¿Por qué medir la paridad Z₁Z₂ en α|000⟩ + β|111⟩ no destruye la superposición?
+  options:
+    a: Porque la medida se hace sobre una copia del estado y no sobre el original
+    b: Porque Z₁Z₂ conmuta con la puerta CNOT y por eso no perturba nada
+    c: Porque los qubits 1 y 2 son siempre iguales en ambos términos, así que el resultado es +1 con certeza y no distingue entre |000⟩ y |111⟩
+    d: Porque la ancilla absorbe la fase y deja los datos sin superposición
+  explanation: Medir ZZ solo pregunta por el valor propio ±1. Como ambos términos dan +1, no hay información sobre α ni β. No se mide ninguna copia (no clonación) y la medida es no destructiva por esa razón.
+
+- id: q-repetition-codes-010
+  prompt: ¿Cuáles son los generadores del código de phase-flip de 3 qubits (estado α|+++⟩ + β|−−−⟩)?
+  options:
+    a: ZZI e IZZ
+    b: XXI e IXX
+    c: XXX y ZZZ
+    d: XII e IIX
+  explanation: El código de phase-flip es el de bit-flip envuelto en Hadamards, que intercambian X y Z (HXH = Z), de modo que ZZI e IZZ pasan a XXI e IXX.
+
+- id: q-repetition-codes-011
+  prompt: Con el código de bit-flip de 3 qubits y errores Z independientes de probabilidad p, el volteo de fase lógico ocurre con probabilidad 3p(1−p)² + p³. Con p = 0,1, ¿cuánto vale? Responde con un número.
+  accepted:
+  - 0,244
+  - '0.244'
+  - 24,4 %
+  - 24.4%
+  - 24,4%
+
+- id: q-repetition-codes-012
+  prompt: Explica con tus palabras por qué el código de bit-flip de 3 qubits falla cuando hay dos errores X en el mismo bloque, y por qué ese fallo es indetectable.
+  model_answer: 'Con dos X, el síndrome apunta al tercer qubit (el que parece estar en minoría), así que la corrección aplica una X ahí. El resultado es XXX, que lleva |000⟩ a |111⟩: un X lógico. Ese operador de peso 3 conmuta con todas las comprobaciones ZZI e IZZ y no es un estabilizador, así que el síndrome vuelve a ser 00 y el error pasa sin ser detectado. Por eso detectar no es corregir: el código corrige un error, pero con dos produce un error lógico.'
+  rubric:
+  - Dice que con dos errores el síndrome apunta al qubit equivocado y la corrección añade una X más.
+  - Identifica el resultado como XXX, un X lógico (|000⟩ a |111⟩).
+  - Explica que XXX conmuta con las comprobaciones y no es un estabilizador, luego el síndrome no lo ve.
+  - Concluye que el código solo corrige un error por bloque.
+
+- id: q-repetition-codes-013
+  prompt: Un técnico mide el síndrome 00 en un bloque del código de bit-flip y concluye que no pasó nada. ¿Qué puede haber ocurrido en realidad?
+  options:
+    a: 'Nada más: el síndrome 00 garantiza que los datos están intactos'
+    b: Un solo volteo en el qubit del medio, que se anula con otro idéntico
+    c: Tres volteos de bit (XXX) o un error de fase Z, ambos con síndrome 00
+    d: Un error de medida de la ancilla, que no puede ocurrir con síndrome 00
+  explanation: 'Un error de peso 3 como XXX conmuta con las comprobaciones, y un Z conmuta con ZZI e IZZ: ninguno cambia el síndrome. Un síndrome todo +1 solo descarta los errores detectables.'
+
+- id: q-repetition-codes-014
+  prompt: Concatenando el código de 3 bits k veces el error es aproximadamente (1/3)(3p)^(2ᵏ). Con p = 0,01 y k = 2, ¿cuánto vale? Responde con un número (en notación decimal o científica).
+  accepted:
+  - 2,7·10⁻⁷
+  - '2.7e-7'
+  - 2,7e-7
+  - 0,00000027
+  - 2,7×10⁻⁷
+  - 2.7·10⁻⁷
+  - 2,7 · 10^-7
+
+- id: q-repetition-codes-015
+  prompt: Simulas el código de bit-flip con p = 0,01 y 100 000 ejecuciones, con síndrome perfecto, y observas unos 30 fallos. Un compañero dice que el código es tres veces peor que la teoría. ¿Qué respondes?
+  model_answer: 'La teoría da 3p² − 2p³ = 0,000298, es decir unos 30 fallos en 100 000 ejecuciones, así que lo observado coincide. Con solo 30 sucesos el error estadístico relativo es de unos ±20 % (√30/30 ≈ 18 %), por lo que una cifra algo distinta no indica un fallo del código; se arregla con más ejecuciones. Además, la simulación tiene la extracción del síndrome perfecta y solo comprueba la fórmula 3p² − 2p³, no el ruido de circuito: el fallo exige dos errores, de ahí el orden de 3p² y no de p.'
+  rubric:
+  - Calcula el valor teórico 3p² − 2p³ ≈ 0,0003 (unos 30 fallos en 100 000).
+  - Indica que el error estadístico con ~30 sucesos es del orden de ±20 %.
+  - Concluye que no hay discrepancia y propone más ejecuciones.
+  - Aclara que la simulación asume síndrome perfecto y no prueba el ruido de circuito.
+
+- id: q-repetition-codes-016
+  prompt: ¿Por qué Google ejecuta códigos de repetición de gran distancia (hasta 29) aunque no sirvan como memoria cuántica?
+  options:
+    a: Porque son el único código que alcanza un umbral superior al 1 %
+    b: Porque protegen a la vez contra errores X y Z con menos qubits que el de superficie
+    c: Porque no necesitan decodificador y por eso se ejecutan más rápido
+    d: Porque corrigen un solo tipo de error pero se pueden hacer muy largos y sirven de sonda de fallos del dispositivo que un código pequeño oculta
+  explanation: El de repetición solo corrige un eje, así que no es una memoria cuántica, pero a distancia 29 y 2·10¹⁰ ciclos reveló ráfagas de errores correlacionados que no aparecen en códigos pequeños.
+
+- id: q-repetition-codes-017
+  prompt: En un experimento de código de repetición con medidas de paridad repetidas, ves que un bit de síndrome cambia en un ciclo y vuelve a su valor en el siguiente, mientras que otro cambia y se mantiene así. ¿Qué interpretas en cada caso y por qué hay que repetir la ronda de síndrome?
+  model_answer: 'El cambio aislado que desaparece en el ciclo siguiente es típico de un error de medida: la propia medida de paridad pudo fallar. El cambio que persiste indica un error de datos, que sigue ahí en los ciclos posteriores. Esa diferencia espacio-temporal permite distinguirlos, y por eso la medida de paridades se repite muchos ciclos: el voto se hace también en el tiempo. El código de superficie hace lo mismo con comprobaciones locales de tipo X y Z.'
+  rubric:
+  - Interpreta el cambio aislado como error de medida.
+  - Interpreta el cambio persistente como error de datos.
+  - Explica que la diferencia espacio-temporal permite distinguirlos.
+  - Concluye que por eso la ronda de síndrome se repite (voto también en el tiempo).
+
+- id: q-repetition-codes-018
+  prompt: Si el error lógico de un código de repetición escala como p^((d+1)/2), ¿por qué factor baja el error lógico con d = 15 al reducir a la mitad la probabilidad física p? Responde con un número.
+  accepted:
+  - '256'
+  - 2^8
+  - 2⁸
+  - unas 250
+  - '250'
+  - ≈ 256
+  - aproximadamente 256
+
+- id: q-repetition-codes-019
+  prompt: Un colega anuncia que ya protege sus qubits porque implementó el código de bit-flip de 3 qubits, con p = 0,1 por qubit en errores de fase. ¿Qué le dices? Incluye una cifra.
+  model_answer: 'El código de bit-flip solo protege contra X. Un volteo de fase Z en cualquiera de los tres qubits equivale a un Z sobre el qubit original antes de codificar, y el síndrome sigue siendo 00. Peor, como cada uno de los tres qubits puede sufrir una Z, la probabilidad de un volteo de fase lógico es 3p(1−p)² + p³, que con p = 0,1 vale 0,244, mayor que 0,1: el código empeora los errores de fase. Hacen falta códigos que protejan ambos ejes, como Shor o el de superficie.'
+  rubric:
+  - Dice que el código solo corrige X y que Z pasa con síndrome 00.
+  - Calcula o cita que la probabilidad de fase lógica es 3p(1−p)² + p³ ≈ 0,244 con p = 0,1.
+  - Concluye que es peor que no codificar (0,244 > 0,1).
+  - Propone un código que proteja X y Z (Shor, superficie).
+
+- id: q-shor-code-001
+  prompt: ¿Cómo se construye el código de Shor de 9 qubits?
+  options:
+    a: 'Se codifica el qubit con el código de phase-flip (externo) y cada uno de esos tres con el de bit-flip (interno): tres bloques de tres qubits'
+    b: Se codifica el qubit con el de bit-flip (externo) y luego cada uno de esos tres con el de phase-flip (interno), con los bloques repartidos por tipo de error
+    c: Se repiten nueve veces el qubit original y se decide por mayoría entre las nueve copias
+    d: Se usan tres bloques de tres qubits que se miden por separado en la base X y en la base Z
+  explanation: El código de Shor concatena ambos códigos de repetición. La opción de las nueve copias no es posible por la no clonación, y la de medir los bloques en X y Z destruiría el estado.
+
+- id: q-shor-code-002
+  prompt: ¿Cuántos qubits físicos usa el código de Shor para codificar un qubit lógico? Responde con un número.
+  accepted:
+  - '9'
+  - nueve
+  - 9 qubits
+
+- id: q-shor-code-003
+  prompt: En el código de Shor, el síndrome de fase dice qué bloque falló, no qué qubit. ¿Qué nombre recibe esta propiedad y por qué no es un problema?
+  options:
+    a: 'Concatenación: el síndrome externo se calcula a partir del interno y no hace falta más precisión'
+    b: 'Degeneración: basta aplicar Z a cualquier qubit del bloque afectado, porque todas esas correcciones son equivalentes'
+    c: 'Transversalidad: la Z se aplica a un qubit por bloque en paralelo y el resto se cancela'
+    d: 'Ambigüedad: el decodificador elige al azar y acierta con probabilidad 1/3'
+  explanation: Se corrigen errores sin identificarlos de forma única. Aplicar Z a cualquiera de los tres qubits del bloque deja el mismo estado corregido (difieren en un estabilizador), así que no es un azar.
+
+- id: q-shor-code-004
+  prompt: ¿Cuál de estos errores NO puede garantizar corregir el código de Shor de 9 qubits?
+  options:
+    a: Un error Y en un solo qubit
+    b: Dos errores X en dos qubits del mismo bloque
+    c: Un error X en cada uno de los tres bloques (uno por bloque)
+    d: Un error Z en cualquier qubit de un bloque
+  explanation: Corrige cualquier error en un qubit y varios X si caen en bloques distintos. Dos X en el mismo bloque equivalen al fallo de la repetición y pueden producir un error lógico.
+
+- id: q-shor-code-005
+  prompt: Según Watrous, el código de Shor solo mejora al qubit sin proteger por debajo de un punto de equilibrio. ¿Aproximadamente cuál es, con errores de Pauli independientes?
+  options:
+    a: Alrededor de p ≈ 50 %, igual que el código clásico de 3 bits
+    b: Alrededor de p ≈ 0,1 %
+    c: Alrededor de p ≈ 33 %, el valor 1/3 de la concatenación
+    d: Alrededor de p ≈ 3,2 %
+  explanation: 'El equilibrio ronda p ≈ 0,0323, frente al 50 % del código clásico: el Shor tiene muchos más lugares donde fallar. El 1/3 es la cota sencilla de la concatenación de De Wolf para el código de 3 bits, otra cosa.'
+
+- id: q-shor-code-006
+  prompt: Los fallos del código de Shor para p pequeño se parecen a 36p², donde 36 = 9·8/2 es el número de parejas de errores entre 9 qubits. Con p = 0,001, ¿cuánto da 36p²? Responde con un número.
+  accepted:
+  - 3,6·10⁻⁵
+  - '3.6e-5'
+  - 0,000036
+  - 3,6e-5
+  - 3,6×10⁻⁵
+  - 3.6·10⁻⁵
+
+- id: q-shor-code-007
+  prompt: Explica con tus palabras por qué el código de Shor corrige cualquier error de un solo qubit, no solo X y Z, y por qué las correcciones de X y de Z se pueden hacer en cualquier orden.
+  model_answer: Los errores X se corrigen dentro de cada bloque con el síndrome de repetición, y los Z se corrigen comparando el signo relativo de los tres bloques. Como I, X, Y, Z generan todos los errores de un qubit (discretización), un código que corrige X y Z corrige cualquier error de un qubit; Y = iXZ se corrige haciendo ambas correcciones. Las dos correcciones son independientes y se pueden hacer en cualquier orden porque XZ = −ZX difiere solo en una fase global.
+  rubric:
+  - Dice que X se corrige con el síndrome dentro de cada bloque y Z comparando bloques.
+  - 'Invoca la discretización: corregir X y Z implica corregir cualquier error de un qubit (Y incluido).'
+  - 'Explica el orden: XZ = −ZX difiere solo por una fase global.'
+
+- id: q-shor-code-008
+  prompt: El código de Shor tiene 9 qubits físicos y 8 generadores independientes. ¿Cuántos qubits lógicos codifica? Responde con un número.
+  accepted:
+  - '1'
+  - uno
+  - un qubit
+  - 1 qubit
+
+- id: q-shor-code-009
+  prompt: Tienes que elegir un código para una memoria cuántica física. Alguien propone usar el código de Shor porque corrige cualquier error de un qubit. ¿Qué objeciones le planteas y qué alternativa propones?
+  model_answer: 'Objeciones: (1) tiene generadores X de peso 6, es decir medidas conjuntas de seis qubits, con circuitos mayores y más lugares donde fallar; (2) usa 9 qubits para uno lógico con distancia 3 ([[9,1,3]]); (3) su error lógico cae como p² y no como p^((d+1)/2) con d creciente, de modo que para llegar a 10⁻¹² habría que concatenar de nuevo (9ᵏ qubits) o cambiar de familia. Alternativa: el código de superficie, con comprobaciones locales de peso 4 y un umbral cercano al 1 %, o un qLDPC si el hardware admite conexiones de largo alcance. El de Shor es valioso para aprender el ciclo completo y como ejemplo de concatenación.'
+  rubric:
+  - Menciona las comprobaciones pesadas (peso 6) frente a las de peso 4 locales del código de superficie.
+  - Señala la ineficiencia de 9 qubits para distancia 3 o que el error cae como p² y no escala con d.
+  - Propone el código de superficie (peso 4, local, umbral cercano al 1 %) o un qLDPC con conectividad larga.
+  - Reconoce el valor del código de Shor como ejemplo didáctico o de concatenación.
+
+- id: q-shor-code-010
+  prompt: El código de Shor se escribe [[9, 1, 3]]. ¿Qué significa que su distancia sea 3?
+  options:
+    a: Que el menor peso de un error no detectable (un operador lógico) es 3, por ejemplo X lógico = ZIIZIIZII
+    b: Que usa tres bloques de tres qubits, y la distancia cuenta los bloques
+    c: Que corrige hasta tres errores arbitrarios en cualquier qubit
+    d: Que necesita tres rondas de síndrome para fijar la corrección
+  explanation: La distancia es el menor peso de un error no detectable, y los operadores lógicos del código de Shor tienen peso 3. Un código de distancia 3 corrige ⌊(3−1)/2⌋ = 1 error, no tres.
+
+- id: q-shor-code-011
+  prompt: Shor, Steane y el código tórico son códigos CSS. ¿Qué consecuencia práctica tiene eso?
+  options:
+    a: Que todas las puertas de Clifford son transversales en los tres códigos
+    b: Que no necesitan decodificador, porque el síndrome indica directamente el error
+    c: Los generadores son solo de tipo X o solo de tipo Z, así que los errores X y Z se decodifican por separado
+    d: Que los tres tienen la misma distancia y el mismo número de qubits
+  explanation: Esa separación explica por qué X y Z se decodifican por separado en el código de superficie y en los códigos bicicleta. Las Clifford transversales son propiedad del de Steane (y de color), no de todo CSS; en Shor y en el tórico no.
+
+- id: q-shor-code-012
+  prompt: Un equipo de átomos neutros usa bloques [[8,3,2]] y su nota de prensa habla de "corrección de errores". Con lo que sabes de la distancia, ¿qué matiz pones y qué mecanismo usan en realidad?
+  model_answer: 'Un código de distancia 2 corrige ⌊(2−1)/2⌋ = 0 errores arbitrarios: solo los detecta. Los experimentos con bloques [[8,3,2]] detectan errores en lugar de corregirlos y, para obtener buenas fidelidades, se descartan (poselección) las ejecuciones con errores detectados. Eso no es corrección completa y no escala porque el descarte crece con el tamaño, aunque el código sea útil porque admite puertas transversales como CCZ.'
+  rubric:
+  - Calcula o afirma que una distancia 2 no corrige ningún error arbitrario (solo detecta).
+  - Dice que el mecanismo es detección más poselección (descarte de ejecuciones).
+  - Indica que eso no es corrección completa ni escala.
+  - Menciona que el código tiene ventajas, como puertas transversales (CCZ).
+
+- id: q-stabilizer-formalism-001
+  prompt: ¿Cuál de estos pares de operadores de Pauli conmuta?
+  options:
+    a: XII y ZII
+    b: XXX y ZII
+    c: IYI e IXI
+    d: XXI y ZZI
+  explanation: Dos cadenas de Pauli conmutan si anticonmutan en un número par de posiciones. XXI y ZZI anticonmutan en dos (par), así que conmutan. Los otros tres pares anticonmutan en una sola posición.
+
+- id: q-stabilizer-formalism-002
+  prompt: ¿Conmutan XZZXI e IXZZX (dos comprobaciones del código de 5 qubits)?
+  options:
+    a: 'No: anticonmutan en dos posiciones, y con una sola que anticonmute ya no conmutan'
+    b: 'Sí: anticonmutan en exactamente dos posiciones (la 2.ª y la 4.ª), un número par'
+    c: 'No: son Paulis distintos y los Paulis distintos siempre anticonmutan'
+    d: 'Sí: tienen el mismo número de factores X y por eso conmutan siempre'
+  explanation: 'Posición 2: Z con X, anticonmutan. Posición 3: Z con Z, conmutan. Posición 4: X con Z, anticonmutan. Dos anticonmutaciones se cancelan y las cadenas conmutan. La regla de los factores distintos solo vale por posición, no para la cadena entera.'
+
+- id: q-stabilizer-formalism-003
+  prompt: Un código estabilizador tiene n = 9 qubits físicos y r = 6 generadores independientes. ¿Cuántos qubits lógicos codifica (n − r)? Responde con un número.
+  accepted:
+  - '3'
+  - tres
+  - 3 qubits
+
+- id: q-stabilizer-formalism-004
+  prompt: Mides todos los generadores de un código estabilizador y todos dan +1. ¿Qué puedes concluir?
+  options:
+    a: Que no hubo ningún error, porque un síndrome todo +1 garantiza que el estado está intacto
+    b: Que hubo un error de tipo (3), que anticonmuta con todos los generadores
+    c: Que no hubo un error detectable; pudo no haber error, o un error igual a un estabilizador, o un error no detectado que actúa como Pauli lógico
+    d: Que los generadores no conmutan entre sí
+  explanation: Un síndrome todo +1 solo descarta los errores que anticonmutan con algún generador. Un Pauli que conmuta con todos pero no está en el estabilizador (como XXX en el código de repetición) pasa desapercibido y es un error lógico.
+
+- id: q-stabilizer-formalism-005
+  prompt: En el código de phase-flip con generadores XXI e IXX, ¿qué síndrome (valores de XXI e IXX) produce una Z en el qubit central? Escríbelo como dos signos o dos dígitos 0/1 (1 = −1).
+  accepted:
+  - '11'
+  - −1 −1
+  - -1 -1
+  - (-1,-1)
+  - (−1, −1)
+  - -1,-1
+  - 1 1
+  - (1,1)
+
+- id: q-stabilizer-formalism-006
+  prompt: Un código con distancia d = 4, ¿cuántos errores de qubit arbitrarios corrige con seguridad?
+  options:
+    a: Uno, porque corrige errores de peso hasta ⌊(d−1)/2⌋ = 1
+    b: Dos, porque 4/2 = 2
+    c: Tres, porque d − 1 = 3
+    d: Cuatro, porque corrige tantos como la distancia
+  explanation: Corrige todo error de peso menor que d/2, esto es ⌊(d−1)/2⌋. Con d = 4 son 1; la distancia par añade capacidad de detección (hasta 3) pero no de corrección.
+
+- id: q-stabilizer-formalism-007
+  prompt: Un código de distancia d = 9, ¿cuántos errores arbitrarios de peso mínimo corrige con seguridad, según ⌊(d−1)/2⌋? Responde con un número.
+  accepted:
+  - '4'
+  - cuatro
+
+- id: q-stabilizer-formalism-008
+  prompt: 'Gottesman-Knill: un circuito de Clifford de n qubits se simula siguiendo unos n(2n+2) bits. Para n = 50, ¿cuántos bits? Responde con un número.'
+  accepted:
+  - '5100'
+  - '5.100'
+  - 5 100
+  - 5100 bits
+
+- id: q-stabilizer-formalism-009
+  prompt: Explica con tus palabras qué es un código estabilizador y cómo el formalismo convierte la detección de errores en un cálculo de commutación.
+  model_answer: Un código estabilizador se define por unos generadores de Pauli que conmutan entre sí, forman un conjunto mínimo y fijan algún estado (−I no está en el grupo). El espacio de código son los estados con valor propio +1 de todos ellos, de dimensión 2^(n−r). Los generadores se miden como observables y los resultados forman el síndrome. Un error de Pauli E que conmuta con un generador no cambia su signo y uno que anticonmuta lo voltea, así que detectar errores es calcular qué generadores anticonmutan con E. Los errores que conmutan con todos pero no están en el estabilizador pasan sin ser vistos (errores lógicos).
+  rubric:
+  - Define el código por generadores de Pauli que conmutan (espacio de código = autoespacio +1; dimensión 2^(n−r)).
+  - Explica que el síndrome son las medidas de los generadores.
+  - Explica que un error anticonmutante voltea el signo de un generador (se detecta) y uno conmutante no.
+  - Menciona que los errores que conmutan con todos y no son estabilizadores son indetectables.
+
+- id: q-stabilizer-formalism-010
+  prompt: Debes elegir entre un código de superficie y un código bicicleta bivariado de IBM para una memoria. ¿Qué parámetros del formalismo comparas y qué dice cada familia en cada uno?
+  model_answer: 'Comparo cuatro cosas. La tasa k/n: la superficie tiene n = d² datos para k = 1 (tasa asintóticamente cero y distancia √n), mientras que los buenos qLDPC tienen tasa constante y distancia lineal. La distancia d, que fija cuántos errores se aguantan. El peso y la geometría de los generadores: la superficie usa comprobaciones de peso 4 locales en 2D; los bicicleta tienen peso 6 y conexiones no locales. Y la complejidad del decodificador: hallar el error de peso mínimo es difícil en general, así que se eligen códigos con corrección eficiente (emparejamiento para la superficie, BP-OSD para los bicicleta).'
+  rubric:
+  - 'Compara la tasa k/n: superficie n = d² para k = 1 frente a tasa constante de los qLDPC.'
+  - 'Compara el peso y la geometría: peso 4 local en 2D frente a peso 6 con conexiones no locales.'
+  - Menciona la distancia (cuántos errores aguanta).
+  - Menciona la complejidad del decodificador.
+
+- id: q-stabilizer-formalism-011
+  prompt: Un equipo extrapola el error lógico del código [[144,12,12]] a p = 10⁻⁴ usando que su distancia es 12. ¿Qué objeción técnica señalas?
+  model_answer: La supresión del error la fija la distancia del circuito de síndrome, no la del código. Para el [[144,12,12]], los autores demuestran que la distancia del circuito es como mucho 10 (se conjetura 10), menor que 12. Por eso el error lógico a bajo p debe extrapolarse con d_circ y no con d, y los valores a p muy bajo (como 8·10⁻¹³ a 10⁻⁴) son en parte extrapolaciones, no medidas.
+  rubric:
+  - Indica que importa la distancia del circuito y no la del código.
+  - 'Da el valor: como mucho 10 (conjeturado 10), menor que 12.'
+  - Concluye que la extrapolación debe usar d_circ.
+  - Aclara que los valores a p bajo son en parte extrapolaciones.
+
+- id: q-stabilizer-formalism-012
+  prompt: En los códigos bicicleta bivariados n = 2ℓm. Para ℓ = 12 y m = 6, ¿cuántos qubits de datos tiene el código? Responde con un número.
+  accepted:
+  - '144'
+  - 144 qubits
+
+- id: q-stabilizer-formalism-013
+  prompt: En la práctica de un código de superficie, ¿qué se hace con los errores detectados, según Fowler?
+  options:
+    a: Se deshacen con puertas físicas X y Z inmediatamente después de cada ronda
+    b: Se anotan en el software de control (marco de Pauli) y se aplican a las medidas posteriores, en vez de deshacerlos físicamente
+    c: Se descartan las ejecuciones que los presentan (poselección)
+    d: Se mantienen en los qubits de medida hasta el final del algoritmo
+  explanation: El marco de Pauli (Pauli frame) registra los errores en software; las X y Z lógicas también se hacen en software. Descartar ejecuciones es detección con poselección, otra estrategia.
+
+- id: q-stabilizer-formalism-014
+  prompt: Los circuitos con O(log n) puertas T se simulan de forma eficiente en un ordenador clásico. ¿Qué respalda eso sobre la contabilidad de recursos?
+  options:
+    a: Que el número de puertas T mide lo no clásico de un circuito, y por eso se cuentan aparte
+    b: Que las puertas T son baratas de implementar en un código de superficie
+    c: Que las puertas de Clifford son las que dan la ventaja cuántica
+    d: Que con pocas puertas T basta cualquier código, sin corrección de errores
+  explanation: El rango estabilizador de |T⟩^{⊗t} crece exponencialmente con t, y con pocas T el circuito es simulable. Por eso la ventaja depende de las T, y por eso son lo que domina el coste.
+
+- id: q-stabilizer-formalism-015
+  prompt: Un directivo pregunta por qué el coste de verificar un circuito de síndrome en software es asumible aunque el código tenga cientos de qubits. ¿Qué herramienta del formalismo se usa y para qué la usaron Bravyi y colaboradores?
+  model_answer: 'Los circuitos de síndrome son circuitos de Clifford, que se simulan de forma eficiente siguiendo el tableau de estabilizadores (Gottesman-Knill): unos n(2n+2) bits en lugar de 2ⁿ amplitudes. Bravyi y colaboradores demuestran la corrección de su circuito de extracción de síndrome siguiendo el tableau y usan simulación de estabilizadores para propagar fallos individuales y simular circuitos de síndrome. Por eso la verificación es tratable a pesar del tamaño; la barrera clásica aparece solo con puertas T.'
+  rubric:
+  - Identifica que el circuito de síndrome es de Clifford y se simula eficientemente (Gottesman-Knill).
+  - 'Contrasta el tamaño: del orden de n(2n+2) bits frente a 2ⁿ amplitudes.'
+  - Dice que Bravyi y colaboradores lo usaron para verificar el circuito y propagar fallos individuales.
+  - Señala que la dificultad clásica aparece con puertas no Clifford (T).
+
+- id: q-threshold-theorem-001
+  prompt: ¿Qué significa que el umbral p_th del teorema no dependa del tamaño N del circuito?
+  options:
+    a: Que el hardware con error menor que p_th produce qubits lógicos perfectos sin coste adicional
+    b: Que p_th es una propiedad fija del qubit físico, la misma con cualquier código
+    c: Que si el error por lugar es menor que p_th, circuitos arbitrariamente grandes se pueden ejecutar con alta precisión, con sobrecarga O(N log^c N)
+    d: Que por debajo de p_th basta un código pequeño para cualquier circuito
+  explanation: El teorema dice que existe un umbral y que por debajo se puede suprimir el error con un coste polilogarítmico; no dice que sea gratis, ni que sea del hardware, ni que un código pequeño sirva.
+
+- id: q-threshold-theorem-002
+  prompt: En la cuenta de aula, el umbral es p_th = 1/C. Si C = 500, ¿cuánto vale el umbral? Responde en porcentaje.
+  accepted:
+  - 0,2 %
+  - 0,2%
+  - 0.2%
+  - 0.2 %
+  - 0,002
+  - '0.002'
+  - 1/500
+
+- id: q-threshold-theorem-003
+  prompt: Con C = 1000 y p = 5·10⁻⁵, el error lógico tras k niveles es (Cp)^(2ᵏ−1)·p. ¿Cuánto vale tras k = 2 niveles? Responde con un número.
+  accepted:
+  - 6,25·10⁻⁹
+  - '6.25e-9'
+  - 6,25e-9
+  - 6,25×10⁻⁹
+  - 6.25·10⁻⁹
+  - 6,3·10⁻⁹
+  - 0,00000000625
+
+- id: q-threshold-theorem-004
+  prompt: Con C = 1000 (umbral 0,1 %), se prueba una codificación de un nivel a p = 0,2 %. ¿Qué ocurre?
+  options:
+    a: El error lógico baja a 0,004, el doble de bueno que sin codificar
+    b: El error lógico no cambia, porque un nivel nunca altera la tasa de error
+    c: El error lógico baja a 4·10⁻⁶ porque se necesitan dos fallos para fallar
+    d: 'El error lógico (Cp·p = 2·0,002 = 0,004) es peor que el 0,002 sin codificar: por encima del umbral, codificar empeora'
+  explanation: Con Cp = 2 > 1, la fórmula Cp·p da un valor mayor que p. Por encima del umbral cada nivel de concatenación empeora el error; por debajo, lo reduce de forma doblemente exponencial.
+
+- id: q-threshold-theorem-005
+  prompt: Con Λ = 2, ¿por qué factor se reduce aproximadamente el error lógico por ciclo al pasar de distancia 7 a distancia 11?
+  options:
+    a: Por 2, porque Λ = 2 y solo se cambia de código una vez
+    b: Por 4, porque son dos pasos de distancia y cada uno divide por Λ
+    c: Por 8, porque pasar de 7 a 11 añade cuatro unidades de distancia
+    d: Por 16, porque el error baja como Λ elevado a la diferencia de distancias
+  explanation: Λ es el cociente ε_d/ε_{d+2}. De 7 a 11 hay dos pasos de 2 unidades, así que el error cae Λ² = 4.
+
+- id: q-threshold-theorem-006
+  prompt: Una fuente da un umbral del código de superficie de 0,57 % por paso, otra habla de cerca del 1 % y Eisert y Preskill usan 10⁻². ¿Es una contradicción?
+  options:
+    a: 'Sí: solo una puede ser correcta y las demás son errores de cálculo'
+    b: 'No: son la misma cifra redondeada de tres maneras distintas'
+    c: Sí, y se resuelve tomando el menor de los valores como umbral real
+    d: 'No: el umbral depende del modelo de ruido, del conjunto de puertas, del código y del decodificador; cada cifra se refiere a un contexto distinto'
+  explanation: El umbral es propiedad del conjunto código-circuito-decodificador-modelo de ruido, no del hardware. Hay que fijarse en qué cantidad se informa y bajo qué hipótesis.
+
+- id: q-threshold-theorem-007
+  prompt: Los códigos bicicleta de IBM dan 0,8 % de umbral en el resumen y pseudo-umbrales de 0,0065 y 0,0069 en las tablas. ¿Qué es el pseudo-umbral?
+  options:
+    a: El umbral asintótico medido con menos datos, que converge a 0,8 % al crecer el código
+    b: El valor de p por debajo del cual el decodificador deja de funcionar en tiempo real
+    c: El punto donde la tasa de error lógico p_L(p) iguala a k·p, es decir, donde el código empieza a ganar al no codificar; es otra cantidad que el umbral asintótico
+    d: El error físico del mejor qubit del dispositivo, usado como referencia
+  explanation: El pseudo-umbral es un punto de equilibrio para un tamaño dado de código; no es un umbral asintótico. Comparar cifras de ambos tipos sin distinguirlas es un error frecuente.
+
+- id: q-threshold-theorem-008
+  prompt: Con el ajuste de Fowler y p = 0,1 % (umbral efectivo p_th = 0,57 %), el factor de supresión Λ ≈ p_th/p es… Responde con un número (un decimal).
+  accepted:
+  - 5,7
+  - '5.7'
+  - ≈ 5,7
+  - 5,7 (aprox.)
+  - 5,70
+
+- id: q-threshold-theorem-009
+  prompt: Explica con tus palabras por qué por debajo del umbral añadir más codificación reduce el error y por encima lo empeora. Apóyate en la concatenación.
+  model_answer: 'Con un código que corrige un error, el fallo exige que coincidan dos fallos, así que el error lógico es como mucho C·p² por lugar y el umbral es p_th = 1/C. Al concatenar k niveles el error acotado es (Cp)^(2ᵏ−1)·p. Si Cp < 1, la base se hace menor que 1 y el error cae de forma doblemente exponencial en k, mientras que el tamaño crece solo exponencialmente. Si Cp > 1, la base es mayor que 1 y cada nivel multiplica el error en vez de reducirlo: codificar empeora. Por eso existe un umbral p_th = 1/C.'
+  rubric:
+  - Explica que el fallo del código exige dos fallos coincidentes (error lógico ≈ C·p²) y que el umbral es 1/C.
+  - Da la fórmula de concatenación (Cp)^(2ᵏ−1)·p o equivalente.
+  - Distingue Cp < 1 (error doblemente exponencial menor) de Cp > 1 (cada nivel empeora).
+  - 'Contrasta el coste: tamaño exponencial en k, error doblemente exponencial.'
+
+- id: q-threshold-theorem-010
+  prompt: 'Alguien dice: "nuestro hardware está por debajo del umbral, así que ya tenemos qubits útiles". Explica con tus palabras qué falla en esa frase.'
+  model_answer: 'Estar por debajo del umbral solo significa que añadir distancia ayuda: el error lógico cae exponencialmente con d. No dice cuánto cuesta ni qué distancia hace falta, y eso depende de cuánto por debajo se esté: cerca del umbral hacen falta muchísimos qubits (con p/p_th = 0,877, pasar de d = 3 a 11 apenas baja el error de 2,3·10⁻² a 1,4·10⁻²). Además, el umbral es propiedad del conjunto código-decodificador-modelo de ruido, no del hardware, y el teorema es un resultado teórico que no da por sí mismo un método práctico.'
+  rubric:
+  - Aclara que por debajo del umbral solo significa que aumentar d reduce el error lógico.
+  - Explica que el tamaño necesario depende de cuánto por debajo se esté (cerca del umbral, el coste crece).
+  - Dice que el umbral depende de código, decodificador y modelo de ruido, no solo del hardware.
+  - Puede añadir que el teorema es teórico y no da el coste práctico.
+
+- id: q-threshold-theorem-011
+  prompt: Con la fórmula de Eisert y Preskill P_L ≈ 0,1·(p/p_th)^((d+1)/2), p = 10⁻³ y p_th = 10⁻², ¿qué distancia d (impar) hace falta para P_L = 10⁻¹¹? Responde con el valor de d.
+  accepted:
+  - '19'
+  - d = 19
+  - d=19
+
+- id: q-threshold-theorem-012
+  prompt: Con d = 19 en un código de superficie rotado, ¿cuántos qubits físicos tiene un parche (2d² − 1)? Responde con un número.
+  accepted:
+  - '721'
+  - 721 qubits
+
+- id: q-threshold-theorem-013
+  prompt: 'Con los datos de Google (según los autores: error por ciclo ε₇ = 1,43·10⁻³ y Λ = 2,14 con decodificador de red neuronal), tu jefe quiere saber qué distancia y cuántos qubits físicos por qubit lógico harían falta para un error lógico de 10⁻⁹ por ciclo, y con qué cautela dar la cifra.'
+  model_answer: 'Se necesita Λ^((d−7)/2) ≥ 1,43·10⁻³/10⁻⁹ = 1,43·10⁶. (d−7)/2 ≥ ln(1,43·10⁶)/ln 2,14 = 14,17/0,761 = 18,6, es decir 19 pasos, d = 45. Con un parche rotado, 2·45² − 1 = 4049 qubits físicos por qubit lógico. Cautelas: Λ se midió hasta d = 7 y se simuló hasta d = 11; la fórmula supone que el exponente se mantiene a distancias mayores, pero Google ajustó la inyección de errores a solo el 80 % del exponente ideal (correlaciones) y en el código de repetición aparece un suelo de unos 10⁻¹⁰ por ciclo desde d ≥ 15. Además Λ depende del decodificador (con emparejamiento es 2,04). La cifra es una extrapolación y debe darse con ese margen.'
+  rubric:
+  - Plantea Λ^((d−7)/2) ≥ ε₇/objetivo y obtiene d = 45 (19 pasos).
+  - Calcula 2d² − 1 = 4049 qubits físicos.
+  - Cita que Λ se midió solo hasta d = 7 (simulado hasta 11) y la extrapolación es arriesgada.
+  - Menciona al menos una razón para dudar (exponente del 80 %, suelo por ráfagas o dependencia del decodificador).
+
+- id: q-threshold-theorem-014
+  prompt: Dos candidatos de tu equipo estiman el coste de un qubit lógico para 10⁻¹² con los datos de Google (según los autores). Uno usa Λ = 2,14 (decodificador de red neuronal, ε₇ = 1,43·10⁻³) y otro Λ = 2,04 (decodificador de emparejamiento, ε₇ = 1,71·10⁻³). ¿Qué distancias y qubits salen y qué lección sacas sobre el decodificador?
+  model_answer: 'Con Λ = 2,14: (d−7)/2 ≥ ln(1,43·10⁹)/ln 2,14 = 27,7, es decir 28 pasos y d = 63, con 2·63² − 1 = 7937 qubits. Con Λ = 2,04 y ε₇ = 1,71·10⁻³: ln(1,71·10⁹)/ln 2,04 = 29,8, es decir 30 pasos y d = 67, con 2·67² − 1 = 8977 qubits: un 13 % más. La lección es que el decodificador forma parte del presupuesto: uno más preciso reduce la distancia necesaria, pero ha de funcionar a velocidad de reloj, y la cifra de Λ debe leerse con su decodificador y su incertidumbre.'
+  rubric:
+  - Obtiene d = 63 y 7937 qubits con Λ = 2,14.
+  - Obtiene d = 67 y 8977 qubits con Λ = 2,04.
+  - Señala la diferencia (~13 % más qubits).
+  - Concluye que el decodificador forma parte del coste o que Λ debe citarse con su decodificador.
+
+- id: q-threshold-theorem-015
+  prompt: Con ruido p = 0,5 % y p_th = 0,57 % (ajuste de Fowler), un responsable propone duplicar la distancia para mejorar el error lógico. ¿Qué le dices? Usa los números del ajuste P_L ≈ 0,03·(p/p_th)^((d+1)/2).
+  model_answer: 'Con p/p_th = 0,877, el error cae muy poco al subir d: de d = 3 a d = 11 pasa de unos 2,3·10⁻² a 1,4·10⁻² (0,03·0,877² ≈ 0,023 y 0,03·0,877⁶ ≈ 0,014). Cerca del umbral los códigos grandes casi no compensan, porque el coste en qubits crece con d² y el error apenas baja. Primero hay que bajar p bien por debajo del umbral; por ejemplo, con p = 0,1 % la razón es 0,175 (Λ = 5,7) y los errores por ciclo de d = 3, 5, 7 son unos 9·10⁻⁴, 1,6·10⁻⁴ y 2,8·10⁻⁵.'
+  rubric:
+  - Calcula o cita p/p_th ≈ 0,877 e indica que el error baja muy poco con d (≈2,3·10⁻² a 1,4·10⁻² de d = 3 a 11).
+  - Concluye que cerca del umbral aumentar la distancia no compensa el coste en qubits.
+  - Recomienda reducir el error físico p primero.
+  - Puede contrastar con p = 0,1 % (Λ ≈ 5,7).
+
+- id: q-threshold-theorem-016
+  prompt: Un ingeniero compara el 0,8 % de umbral que IBM da en el resumen de su artículo de códigos bicicleta con el 0,57 % por paso del código de superficie de Fowler y concluye que IBM "tiene mejor umbral". ¿Qué reparos pones?
+  model_answer: Las cantidades no son comparables sin comprobar su definición. El umbral es una propiedad del conjunto código-circuito-decodificador-modelo de ruido. El resumen de IBM da 0,8 %, pero las tablas dan pseudo-umbrales de 0,0065 y 0,0069 para los códigos de 144 y 288 qubits; el pseudo-umbral (donde p_L(p) = kp) es otra cantidad que un umbral asintótico. Fowler usa otro modelo de ruido de circuito (0,57 % por paso, aproximadamente un 4 % por ciclo completo) y otro decodificador. Hay que fijarse en qué cantidad se informa, con qué decodificador y con qué modelo, antes de comparar.
+  rubric:
+  - Dice que el umbral depende de código, circuito, decodificador y modelo de ruido.
+  - Cita la diferencia entre 0,8 % (resumen) y los pseudo-umbrales ~0,0065/0,0069 de las tablas.
+  - Explica que pseudo-umbral y umbral asintótico son cantidades distintas.
+  - Concluye que no se pueden comparar sin la misma definición (modelo y decodificador).
+
+- id: q-threshold-theorem-017
+  prompt: Con ε₇ = 1,43·10⁻³ y Λ = 4, para llegar a 10⁻¹² hace falta d = 39. ¿Cuántos qubits físicos tiene un parche rotado de esa distancia (2d² − 1)? Responde con un número.
+  accepted:
+  - '3041'
+  - '3.041'
+  - 3 041
+
+- id: q-surface-code-001
+  prompt: ¿Qué ventaja principal tiene el código de superficie frente a Shor o Steane en una red 2D de vecinos próximos?
+  options:
+    a: Usa solo comprobaciones de 4 qubits vecinos y alcanza un umbral cercano al 1 % por operación, unos tres órdenes de magnitud más
+    b: Necesita menos de 10 qubits físicos por qubit lógico para cualquier distancia
+    c: Corrige errores sin necesidad de repetir las medidas de síndrome
+    d: Permite puertas T transversales sin estados mágicos
+  explanation: Fowler y colaboradores comparan ≈ 10⁻² con ≈ 2·10⁻⁵ por paso de Steane y Bacon-Shor en una red 2D. El código de superficie no es barato en qubits y sí necesita rondas repetidas; las T no son transversales.
+
+- id: q-surface-code-002
+  prompt: Un parche de código de superficie rotado de distancia d tiene d² qubits de datos y d² − 1 de medida. Para d = 5, ¿cuántos qubits en total? Responde con un número.
+  accepted:
+  - '49'
+  - 49 qubits
+
+- id: q-surface-code-003
+  prompt: La versión no rotada de Fowler usa (2d − 1)² qubits. Para d = 7, ¿cuántos? Responde con un número.
+  accepted:
+  - '169'
+  - 169 qubits
+
+- id: q-surface-code-004
+  prompt: 'El código tórico en una malla L × L tiene los qubits en las aristas: 2L² qubits. Para L = 5, ¿cuántos qubits? Responde con un número.'
+  accepted:
+  - '50'
+  - 50 qubits
+
+- id: q-surface-code-005
+  prompt: En el código de superficie, un error X en un qubit de datos de la zona central…
+  options:
+    a: Voltea los cuatro qubits de medida vecinos, X y Z a la vez
+    b: Voltea los dos qubits de medida Z adyacentes
+    c: No voltea ninguno, porque X conmuta con los estabilizadores Z
+    d: Voltea los dos qubits de medida X adyacentes
+  explanation: Un error X anticonmuta con los estabilizadores Z de sus vecinos (dos). Los qubits de medida X no lo ven, y un Y sí voltearía ambos tipos.
+
+- id: q-surface-code-006
+  prompt: En el código de superficie, una cadena de errores adyacentes deja síndrome −1 solo en sus dos extremos. ¿Qué determina si el error es dañino?
+  options:
+    a: 'La longitud de la cadena: las cadenas largas siempre son dañinas'
+    b: El número de qubits de medida que quedan en −1, que debe ser cero
+    c: Si la cadena, junto con la corrección, forma un lazo contraíble (inofensivo) o uno que cruza el toro o va de borde a borde (error lógico)
+    d: El orden en que se miden los qubits de medida durante el ciclo
+  explanation: 'El código es degenerado: muchos errores dan el mismo síndrome y lo que importa es la topología de la cadena más la corrección. Una cadena larga contraíble es un producto de estabilizadores y no hace daño.'
+
+- id: q-surface-code-007
+  prompt: ¿Por qué anticonmutan X_L y Z_L en el código de superficie plano?
+  options:
+    a: Porque están en bordes opuestos de la malla y nunca se tocan
+    b: Porque cada una es un estabilizador de peso 4
+    c: Porque se aplican en ciclos distintos y se miden por separado
+    d: Porque las cadenas de X (entre bordes X) y de Z (entre bordes Z) comparten un único qubit de datos
+  explanation: Las cadenas se cruzan en un solo qubit de datos, y un solo cruce de X con Z da anticonmutación. Si fueran estabilizadores conmutarían con todo.
+
+- id: q-surface-code-008
+  prompt: Explica con tus palabras qué es un operador lógico en el código de superficie plano, por qué la distancia d es el menor número de volteos que forman uno, y por qué ningún qubit de datos guarda por sí solo la información lógica.
+  model_answer: 'Un operador lógico conmuta con todos los estabilizadores pero no es producto de ellos: es una cadena de X que atraviesa la matriz entre los dos bordes X (X_L) o una de Z entre los dos bordes Z (Z_L). Esas cadenas no se detectan en el interior, porque solo dejan síndrome en los extremos, que están en los bordes. La distancia d es el menor número de volteos físicos que forman uno, es decir, la longitud de la cadena más corta de borde a borde. La información lógica está repartida en el estado conjunto de todos los qubits y se lee a través de una cadena de operadores, así que ningún qubit de datos guarda por sí solo la información lógica.'
+  rubric:
+  - Define el operador lógico como cadena que conmuta con los estabilizadores y no es producto de ellos (X_L entre bordes X, Z_L entre bordes Z).
+  - Explica que d es la longitud de la cadena más corta de borde a borde.
+  - Explica que la información lógica está repartida y se lee mediante una cadena, no en un qubit.
+
+- id: q-surface-code-009
+  prompt: Más allá de repetir la medida de síndrome, ¿cuánto debe durar el establecimiento de un valor de estabilizador en un parche de distancia d?
+  options:
+    a: Unos d ciclos, de modo que el parche protege por d tanto en el espacio como en el tiempo
+    b: Un solo ciclo, porque el tiempo no entra en la distancia
+    c: Unos 2d² ciclos, uno por cada qubit del parche
+    d: Un número de ciclos independiente de d, fijado por el hardware
+  explanation: 'Los errores de medida obligan a repetir: los valores de los estabilizadores deben establecerse durante unos d ciclos y las operaciones que activan o desactivan estabilizadores deben espaciarse d ciclos.'
+
+- id: q-surface-code-010
+  prompt: En el esquema de almacenamiento caliente de Gidney, un parche de distancia d tiene 2(d+1)² qubits físicos. Con d = 25, ¿cuántos? Responde con un número.
+  accepted:
+  - '1352'
+  - '1.352'
+  - 1 352
+
+- id: q-surface-code-011
+  prompt: Saffman estima 100 qubits lógicos con parches rotados de d = 10. ¿Cuántos qubits físicos son (100·(2d² − 1)), sin contar estados mágicos? Responde con un número.
+  accepted:
+  - '19900'
+  - '19.900'
+  - 19 900
+
+- id: q-surface-code-012
+  prompt: 'Un proveedor de hardware presenta una diapositiva: "los códigos bicicleta de IBM guardan 12 qubits lógicos con 288 físicos frente a casi 3000 de la superficie: ahorro de 15×". Evalúa el titular con lo que dicen los autores y las condiciones del artículo.'
+  model_answer: 'El titular es de autores de IBM y es una comparación de memoria, no de computación. Los propios autores hablan de un ahorro de "más de 10 veces" en la introducción y de "casi 15 veces" en la conclusión, por lo que hay que citar el intervalo y no una sola cifra. Condiciones: necesita conectividad de grado 6 (4 enlaces cortos y 2 de largo alcance), con un segundo nivel de acopladores de bajas pérdidas y sintonizables; las estimaciones de viabilidad son proyecciones de los autores, sin hardware en el artículo; no ofrece un conjunto universal de puertas lógicas (solo memoria); y para leer y escribir cada qubit hacen falta ancillas de acceso: 1380 más para [[144,12,12]], que los autores creen reducibles. Con ellas, 288 + 1380 = 1668 y el ahorro frente a 3000 baja a unas 1,8 veces. Además el decodificador es BP-OSD, que puede no ser lo bastante rápido para tiempo real. Conclusión: es una buena promesa para memoria densa con largo alcance, no una ventaja demostrada para computar.'
+  rubric:
+  - Indica que el ahorro se enuncia como más de 10× / casi 15× por los autores (IBM), no como una cifra única.
+  - Señala que es solo memoria (sin conjunto universal de puertas) y proyección sin demostración de hardware.
+  - Menciona las ancillas de acceso (1380 más; 288 + 1380 = 1668, ahorro ≈ 1,8×).
+  - Menciona la conectividad de largo alcance (grado 6) o el decodificador BP-OSD no probado en tiempo real.
+
+- id: q-surface-code-013
+  prompt: Si se suman las 1380 ancillas de acceso a los 288 qubits del código [[144,12,12]], ¿qué ahorro queda frente a los casi 3000 de 12 parches de superficie?
+  options:
+    a: Unas 10 veces, porque las ancillas de acceso se reutilizan sin coste
+    b: Unas 15 veces, porque las ancillas están ya incluidas en los 288
+    c: 'Ninguno: con las ancillas el qLDPC cuesta más que la superficie'
+    d: Unas 1,8 veces (3000/1668), muy por debajo del 15× del titular
+  explanation: 288 + 1380 = 1668 y 3000/1668 ≈ 1,8. Los autores creen que las ancillas son reducibles, así que el ahorro real queda entre 1,8× y el titular; el cálculo no lo hace desaparecer, pero sí lo recorta mucho.
+
+- id: q-surface-code-014
+  prompt: Necesitas 1000 qubits lógicos pasivos y tu hardware es un chip de transmones. Estima el coste con parches rotados de d = 25 y propón cómo reducirlo con lo que hace Gidney, indicando las cautelas.
+  model_answer: 'Con parches rotados de d = 25, 2·25² − 1 = 1249 qubits por qubit lógico y 1000 · 1249 ≈ 1,2 millones de qubits. Gidney (2025, preprint) reduce el coste repartiendo el chip en una región de cómputo, un almacenamiento caliente (2(d+1)² = 1352 por qubit con holgura) y otro frío con códigos yoked (430 por qubit a 10⁻¹⁵ por ronda): unas 3 veces menos por qubit pasivo. Cautelas: es un preprint con sus hipótesis (rejilla de vecinos próximos, ruido depolarizante uniforme); el rendimiento del almacenamiento frío bajo trabajo en flujo no se simuló en detalle y deja unos 100 000 qubits de holgura. Además, esto es solo memoria: no incluye las fábricas de estados mágicos ni las operaciones.'
+  rubric:
+  - Calcula 2·25² − 1 = 1249 y unos 1,2 millones para 1000 qubits.
+  - Propone almacenamiento frío (430 frente a 1352 en caliente, ≈ 3× menos).
+  - 'Cita la cautela: preprint y rendimiento bajo flujo de trabajo no simulado en detalle.'
+  - Aclara que la cifra no incluye fábricas de estados mágicos ni operaciones.
+
+- id: q-surface-code-015
+  prompt: Tu equipo duda entre superconductores y átomos neutros para un código de superficie. ¿Qué diferencias de ciclo y de conectividad pesan, y qué han demostrado hasta ahora los autores de cada plataforma?
+  model_answer: 'Los transmones encajan con las comprobaciones de peso 4 sobre una rejilla de vecinos próximos y tienen un ciclo muy rápido: Google ejecutó un parche de d = 7 (101 qubits) con un ciclo de 1,1 µs, pero solo como memoria. En átomos neutros, la conectividad flexible permite puertas transversales entre parches: Bluvstein y colaboradores hicieron una CNOT lógica entre parches de superficie de d = 3, 5 y 7 con una sola ronda de medida de estabilizadores, y la preparación del estado no es tolerante a fallos más allá de d = 3. Pero el ciclo lógico es órdenes de magnitud más lento (Saffman estima unos 1 kHz para 100 qubits lógicos), con medida lenta, lo que limita el reloj lógico. La elección depende de si prima la velocidad y la rejilla plana o la conectividad flexible.'
+  rubric:
+  - Asocia los transmones a rejilla 2D de vecinos próximos y ciclo rápido (1,1 µs en Google), solo memoria.
+  - Asocia los átomos a conectividad flexible y puertas transversales (CNOT entre parches, d = 3-7).
+  - Indica que los átomos tienen un ciclo mucho más lento (≈ 1 kHz o medida lenta).
+  - 'Matiza lo demostrado: una sola ronda de síndrome en átomos o memoria sin puertas en Google.'
+
+- id: q-decoding-001
+  prompt: ¿Cuándo se considera que un decodificador ha tenido éxito?
+  options:
+    a: Cuando su estimación coincide con el error real salvo un producto de estabilizadores, aunque no sea el error exacto
+    b: Cuando identifica exactamente el error físico que ocurrió, qubit por qubit
+    c: Cuando devuelve siempre el error de menor peso, con independencia del síndrome
+    d: Cuando el síndrome tras la corrección es todo +1, sin más condición
+  explanation: Basta con un error equivalente, que difiera del real en un estabilizador; falla si difieren en un operador lógico no trivial. Un síndrome limpio tras corregir no garantiza que no se haya introducido un operador lógico.
+
+- id: q-decoding-002
+  prompt: En el experimento de Google, la latencia media del decodificador en tiempo real es de 63 µs y el ciclo de síndrome es de 1,1 µs. ¿Cuántos ciclos de síndrome caben aproximadamente en esa latencia? Responde con un número entero.
+  accepted:
+  - '57'
+  - unos 57
+  - ≈ 57
+  - ~57
+  - 57 ciclos
+
+- id: q-decoding-003
+  prompt: Tu estimación de recursos supone un tiempo de reacción del control de 10 µs (como en Gidney, 2025) y un ciclo de 1,1 µs. Los autores de Google (según su artículo) dan un decodificador de emparejamiento en tiempo real con latencia media de 63 ± 17 µs en d = 5 y una red neuronal más precisa que tarda unos 24 µs por ciclo. ¿Qué concluyes de cada uno para tu presupuesto?
+  model_answer: 'El decodificador de emparejamiento va al ritmo del ciclo (su latencia se mantiene constante hasta 10⁶ ciclos), pero 63 µs son unos 57 ciclos y superan los 10 µs de tu hipótesis, además es una media en d = 5: el presupuesto de reacción de 10 µs no está cubierto por esta cifra. La red neuronal es más precisa (0,269 % frente a 0,35 % de error lógico), pero con 24 µs por ciclo es unas 22 veces demasiado lenta para consumir el síndrome a 1,1 µs, por lo que el atasco crece sin límite. Habría que comprobar throughput y latencia sostenida, no solo la media, y recordar que la cifra de Google aún no incluye la realimentación al circuito lógico ni se hizo en d = 7.'
+  rubric:
+  - Calcula que 63 µs ≈ 57 ciclos y es mayor que los 10 µs supuestos.
+  - Calcula que 24 µs frente a 1,1 µs es unas 22 veces demasiado lento (throughput).
+  - Explica que si el decodificador no sigue el ritmo el atasco crece sin límite (o que el precisión no basta).
+  - Señala que hay que mirar latencia sostenida, no solo media, o que son resultados de d = 5.
+
+- id: q-decoding-004
+  prompt: ¿Por qué un decodificador que va retrasado no solo es lento, sino que puede dejar de ser viable?
+  options:
+    a: Porque un decodificador lento aumenta el error físico de las puertas
+    b: Porque el síndrome se pierde si no se procesa en el ciclo en que se mide
+    c: Porque algunas operaciones lógicas son no deterministas y dependen de resultados de medidas lógicas; si el decodificador va retrasado, el atasco hace crecer exponencialmente el tiempo de cálculo
+    d: Porque la latencia solo importa en las memorias y no en la computación
+  explanation: La acumulación de síndromes sin procesar bloquea las operaciones que esperan una medida lógica. El síndrome no se pierde (se puede guardar) y el error físico no depende del decodificador; el problema es el tiempo.
+
+- id: q-decoding-005
+  prompt: En una CNOT transversal entre dos parches de superficie, un equipo decodifica cada parche por separado con emparejamiento independiente y el error de Bell crece con la distancia. ¿Qué ocurre y qué harías?
+  model_answer: 'La CNOT transversal propaga errores físicos de forma determinista de un parche al otro, así que los síndromes de ambos quedan correlacionados y la decodificación independiente pierde información. Bluvstein y colaboradores decodifican los dos qubits lógicos a la vez con un grafo de decodificación con aristas extra e hiperaristas que unen los estabilizadores de ambos bloques: con decodificación correlacionada el error de Bell cae con la distancia. Haría lo mismo, usar un grafo conjunto, y vigilaría que además corra en tiempo real (ellos usan una FPGA).'
+  rubric:
+  - Explica que la CNOT transversal propaga errores entre parches y correlaciona los síndromes.
+  - Propone decodificar conjuntamente con un grafo de decodificación con aristas extra/hiperaristas.
+  - Indica que con decodificación correlacionada el error de Bell cae con la distancia.
+
+- id: q-decoding-006
+  prompt: ¿Por qué los códigos bicicleta de IBM no se decodifican con emparejamiento de peso mínimo y qué usan los autores?
+  options:
+    a: Porque son códigos no CSS y X y Z no se pueden separar; usan una red neuronal
+    b: No tienen estructura de emparejamiento; usan BP-OSD (propagación de creencias con postprocesado de estadísticas ordenadas), que puede no ser lo bastante rápido para tiempo real
+    c: Porque su distancia es demasiado pequeña para emparejar; usan una tabla de síndromes
+    d: Porque el emparejamiento es NP-difícil; usan fuerza bruta sobre todos los errores
+  explanation: Son CSS y X y Z se decodifican por separado con matrices dispersas; lo que falta es la estructura de emparejamiento de los extremos de cadenas. El problema de peso mínimo de un código lineal es NP-difícil, de ahí BP seguido de OSD, no fuerza bruta.
+
+- id: q-decoding-007
+  prompt: La red neuronal de Google necesita unos 24 µs por ciclo y la tasa de síndromes exige menos de 1,1 µs. ¿Cuántas veces es demasiado lenta, aproximadamente? Responde con un número entero.
+  accepted:
+  - '22'
+  - unas 22
+  - ≈ 22
+  - ~22
+  - 22 veces
+
+- id: q-fault-tolerant-gates-001
+  prompt: ¿Qué establece el teorema de Eastin-Knill?
+  options:
+    a: Que para códigos de distancia al menos 2, las puertas transversales forman un conjunto discreto y no universal, así que alguna puerta debe hacerse por otra vía
+    b: Que no existe ningún código que implemente puertas de Clifford de forma transversal
+    c: Que la puerta T es transversal solo en el código de superficie
+    d: Que las puertas transversales siempre propagan errores dentro de un bloque
+  explanation: 'Eastin-Knill limita la transversalidad, no la elimina: el código de Steane tiene todas las Clifford transversales. La salida habitual es completar con una puerta no Clifford por otra vía (estados mágicos).'
+
+- id: q-fault-tolerant-gates-002
+  prompt: ¿Qué hace la destilación de estados mágicos con las copias ruidosas?
+  options:
+    a: Corrige activamente los errores de cada copia hasta dejarlas todas perfectas, sin descartar ninguna
+    b: Copia el estado mágico varias veces para votar por mayoría, igual que el código de repetición
+    c: Consume varias copias de un estado y, con operaciones ideales de Clifford, entrega una de más fidelidad, descartando los intentos con error detectado; solo funciona si la fidelidad inicial supera un umbral
+    d: Convierte estados de Clifford en estados T con una puerta transversal, sin depender de la fidelidad inicial
+  explanation: La destilación detecta errores y descarta intentos fallidos; por debajo del umbral de fidelidad converge al estado máximamente mezclado. La no clonación impediría votar sobre copias.
+
+- id: q-fault-tolerant-gates-003
+  prompt: En el protocolo 15 a 1 el error de salida es ≈ 35ε³. Con un error de entrada ε = 0,001, ¿cuánto sale tras una ronda? Responde con un número.
+  accepted:
+  - 3,5·10⁻⁸
+  - '3.5e-8'
+  - 3,5e-8
+  - 3,5×10⁻⁸
+  - 0,000000035
+  - 3.5·10⁻⁸
+
+- id: q-fault-tolerant-gates-004
+  prompt: El protocolo 15 a 1 consume 15 estados por ronda. Si encadenas tres rondas, ¿cuántos estados brutos necesitas por estado de salida, sin contar los reintentos? Responde con un número.
+  accepted:
+  - '3375'
+  - '3.375'
+  - 3 375
+
+- id: q-fault-tolerant-gates-005
+  prompt: Según Fowler, la destilación de |A_L⟩ tiene éxito con probabilidad 1 − 15p. Con un error de entrada p = 0,02, ¿cuánto vale esa probabilidad? Responde con un número.
+  accepted:
+  - 0,7
+  - '0.7'
+  - 70 %
+  - 70%
+  - 0,70
+
+- id: q-fault-tolerant-gates-006
+  prompt: ¿Cómo se llama hoy el estado que destila el protocolo 15 a 1 (el de la puerta T)? Responde con su nombre.
+  accepted:
+  - estado T
+  - estado mágico T
+  - T state
+  - magic state T
+  - '|T⟩'
+  - estado |T⟩
+  - T
+
+- id: q-fault-tolerant-gates-007
+  prompt: La destilación 8T-a-CCZ suprime el error como 28p². Con un error de entrada de 10⁻⁶ en los estados T, ¿qué error tiene el estado CCZ? Responde con un número.
+  accepted:
+  - 2,8·10⁻¹¹
+  - '2.8e-11'
+  - 2,8e-11
+  - 2,8×10⁻¹¹
+  - 0,000000000028
+  - 2.8·10⁻¹¹
+
+- id: q-fault-tolerant-gates-008
+  prompt: Tu código es de superficie 2D y necesitas una puerta T lógica. ¿Puedes hacerla de forma transversal? Si no, ¿qué haces y qué cuesta?
+  model_answer: 'No: el código de superficie 2D no admite fácilmente puertas no Clifford y, por Eastin-Knill, ningún código implementa un conjunto universal de forma transversal. La vía habitual es la teleportación de la puerta: preparar aparte un estado mágico T|+⟩, destilarlo, y consumirlo con Clifford, una medida y una corrección S controlada clásicamente (probabilística, a veces da T†). Como el estado mágico se prepara aparte, sus errores no se propagan al cálculo. El coste es el espacio de las fábricas de estados mágicos (en la estimación de Fowler de 2012, más del 94 % de los qubits) y la latencia de decodificación en las correcciones.'
+  rubric:
+  - Responde que no hay T transversal en superficie 2D (cita Eastin-Knill o la limitación del código).
+  - Describe la vía de estados mágicos y teleportación de la puerta con corrección S.
+  - 'Explica por qué es tolerante a fallos: el estado se prepara aparte y se destila.'
+  - 'Menciona el coste: fábricas (espacio) o latencia de decodificación.'
+
+- id: q-fault-tolerant-gates-009
+  prompt: Según Gidney (2025, preprint), el cultivo de estados mágicos produce estados T con error 10⁻⁷ y la destilación 8T-a-CCZ suprime el error como 28p². El algoritmo requiere unos 6500 millones de Toffoli. ¿Es suficiente la fidelidad de los CCZ? Haz la cuenta y di de qué depende.
+  model_answer: Con 10⁻⁷ de entrada, el error de cada CCZ es 28·(10⁻⁷)² = 2,8·10⁻¹³, menor que 10⁻¹². Con 6,5·10⁹ Toffoli, el error esperado total por esta fuente es unos 6,5·10⁹ · 2,8·10⁻¹³ ≈ 1,8·10⁻³ (cálculo propio), despreciable frente a otras fuentes de fallo. Depende de que de verdad se logre cultivar T con 10⁻⁷ con las hipótesis del artículo (error físico del 0,1 %, etc.) y de que el artículo es un preprint v1; el resultado vale en el marco de sus supuestos.
+  rubric:
+  - Calcula 28·(10⁻⁷)² = 2,8·10⁻¹³.
+  - Multiplica por ~6,5·10⁹ Toffoli (≈ 1,8·10⁻³ de error esperado) y concluye que es despreciable.
+  - Condiciona la conclusión a lograr el 10⁻⁷ con las hipótesis del artículo.
+  - Señala que es un preprint.
+
+- id: q-fault-tolerant-gates-010
+  prompt: En la estimación de Fowler de 2012 hacen falta 280N³ estados |A_L⟩ (7 puertas T por Toffoli y 40N³ Toffoli). Para N = 1000 bits, ¿cuántos estados? Responde con un número en notación científica o decimal.
+  accepted:
+  - 2,8·10¹¹
+  - 2.8e11
+  - 2,8e11
+  - 2,8×10¹¹
+  - '280000000000'
+  - 2.8·10¹¹
+  - 280 000 000 000
+
+- id: q-logical-qubit-experiments-001
+  prompt: ¿Qué significa el punto de equilibrio (break-even) en un experimento con qubits lógicos?
+  options:
+    a: Que el error lógico es exactamente cero tras un número fijo de ciclos
+    b: Que el qubit lógico dura más que el mejor qubit físico del dispositivo
+    c: Que el código tiene el mismo número de qubits de datos que de medida
+    d: Que Λ es igual a 1 para todas las distancias
+  explanation: El equilibrio compara el qubit lógico con el mejor físico. Λ = 1 sería estar justo en el umbral, otra cosa; y un qubit lógico nunca tiene error cero.
+
+- id: q-logical-qubit-experiments-002
+  prompt: ¿Qué indica Λ > 1, con Λ = ε_d/ε_{d+2}?
+  options:
+    a: Que el qubit lógico supera al mejor qubit físico (punto de equilibrio)
+    b: Que el error lógico por ciclo es menor que 1 %
+    c: Que el decodificador funciona en tiempo real
+    d: 'Que el dispositivo está por debajo del umbral: subir la distancia en 2 reduce el error lógico por ciclo'
+  explanation: Λ mide la supresión al subir la distancia, no compara con un qubit físico. Punto de equilibrio y estar por debajo del umbral son afirmaciones distintas; se pueden dar una sin la otra.
+
+- id: q-logical-qubit-experiments-003
+  prompt: En el experimento de Google (según los autores), el qubit lógico de d = 7 dura 291 µs frente a 119 µs del mejor qubit físico. ¿Aproximadamente por qué factor lo supera? Responde con un número (un decimal).
+  accepted:
+  - 2,4
+  - '2.4'
+  - 2,45
+  - '2.45'
+  - ≈ 2,4
+  - 2,5
+
+- id: q-logical-qubit-experiments-004
+  prompt: ¿Qué no demuestra el experimento de Google (superconductores, d = 7, Λ ≈ 2)?
+  options:
+    a: Que el error lógico baja al aumentar la distancia
+    b: Que el código funciona durante hasta 10⁶ ciclos
+    c: Que el qubit lógico supera al mejor qubit físico
+    d: 'Computación lógica: es una memoria, sin puertas lógicas, y el propio artículo lo presenta como un paso hacia el equilibrio con operaciones'
+  explanation: 'Lo demostrado es la memoria: Λ > 1, hasta 10⁶ ciclos y 2,4 veces mejor que el mejor físico. Las puertas lógicas no se demuestran en ese trabajo.'
+
+- id: q-logical-qubit-experiments-005
+  prompt: Los resultados titulares de GHZ lógico y XEB en el experimento de átomos neutros de Harvard/QuEra, ¿en qué se apoyan?
+  options:
+    a: En detección de errores con poselección (descartar las ejecuciones con errores detectados), no en corrección completa
+    b: En corrección completa con muchas rondas de síndrome repetidas
+    c: 'En ninguna medida de errores: se obtienen sin descartar datos'
+    d: En un código de superficie de distancia 7 con 10⁶ ciclos
+  explanation: 'Es la letra pequeña del resultado: la poselección descarta ejecuciones y no escala. La corrección con muchas rondas es lo que mostró Google, no esos titulares.'
+
+- id: q-logical-qubit-experiments-006
+  prompt: Con ε₇ = 1,43·10⁻³ y Λ = 2,14, el ajuste implica ε₅ ≈ ε₇·Λ. ¿Cuánto da, aproximadamente? Responde con un número (notación científica).
+  accepted:
+  - 3,1·10⁻³
+  - '3.1e-3'
+  - 3,1e-3
+  - 0,0031
+  - 3,06·10⁻³
+  - 3,1×10⁻³
+  - 3.1·10⁻³
+
+- id: q-logical-qubit-experiments-007
+  prompt: Explica con tus palabras la diferencia entre corregir y detectar con poselección, y por qué un titular de "qubits lógicos" basado en poselección no demuestra un ordenador tolerante a fallos.
+  model_answer: 'Corregir significa aplicar una corrección a los errores detectados y seguir calculando; detectar con poselección significa descartar las ejecuciones en que se detectó un error y quedarse solo con las limpias. La poselección sube la fidelidad (en Bluvstein el GHZ lógico pasa de 72 % con decodificación correlacionada a 99,85 % al poseleccionar), pero a costa de descartar datos, y esa fracción descartada crece con el tamaño del circuito, por lo que no escala. Eisert y Preskill lo señalan: pocas rondas de síndrome y un descarte que no escalará. Por eso el titular no demuestra tolerancia a fallos.'
+  rubric:
+  - Define corregir (aplicar corrección y continuar) frente a detectar y descartar (poselección).
+  - Menciona que la poselección mejora la fidelidad (por ejemplo 72 % a 99,85 %) pero a costa de datos descartados.
+  - Explica que el descarte no escala con el tamaño o que hay pocas rondas de síndrome.
+  - Concluye que no demuestra computación tolerante a fallos.
+
+- id: q-logical-qubit-experiments-008
+  prompt: Explica con tus palabras qué mide Λ y qué significa que Eisert y Preskill resuman el resultado de Google como "Λ ≈ 2 por cada paso de distancia 3 → 5 → 7".
+  model_answer: 'Λ = ε_d/ε_{d+2} ≈ p_th/p mide cuánto cae el error lógico por ciclo al subir la distancia en 2; Λ > 1 significa estar por debajo del umbral. Decir Λ ≈ 2 por cada paso 3 → 5 → 7 significa que cada vez que se suma 2 a la distancia, el error lógico se reduce aproximadamente a la mitad: es una supresión exponencial con la distancia, comprobada en tres distancias. Es el comportamiento esperado por debajo del umbral, aunque con un Λ modesto: hacen falta muchos pasos de distancia para llegar a errores muy bajos.'
+  rubric:
+  - Define Λ como el cociente de errores lógicos entre distancias d y d+2 (≈ p_th/p).
+  - Dice que Λ > 1 equivale a estar por debajo del umbral.
+  - Interpreta Λ ≈ 2 como dividir el error por unos 2 en cada paso de distancia.
+  - Observa que un Λ modesto exige muchos pasos de distancia (o que es supresión exponencial con d).
+
+- id: q-logical-qubit-experiments-009
+  prompt: 'Una empresa anuncia "48 qubits lógicos con corrección de errores" apoyándose en el artículo de Harvard/QuEra (Bluvstein y colaboradores, 2024; varios autores de QuEra). Usa el checklist del contenido: ¿qué preguntas haces?'
+  model_answer: 'Pregunto: (1) ¿memoria o puertas? Son circuitos de muestreo con bloques [[8,3,2]] y puertas transversales, no una memoria con corrección repetida. (2) ¿Cuántas rondas de síndrome? Pocas; Eisert y Preskill lo señalan. (3) ¿Corrección o detección? Son bloques de distancia 2, que solo detectan; el XEB lógico de 12 qubits pasa de 0,156 en bruto a 0,616 con detección completa de errores, y con 48 qubits lógicos es de unos 0,1: resultados con poselección que no escalan. (4) ¿Con qué se compara? Con una cota estimada de implementaciones físicas del mismo sistema, y los autores son parte interesada (algunos de QuEra). (5) ¿Quién lo dice y está revisado por pares? La versión consultada es el preprint de 2023 (publicado en Nature 626, 2024). Conclusión: es un avance real en puertas transversales, pero "corrección de errores" para 48 qubits sería una exageración.'
+  rubric:
+  - Distingue detección con poselección de corrección completa, aplicado a los bloques [[8,3,2]].
+  - Cita alguna cifra de poselección (0,156 a 0,616 en XEB de 12 qubits, o ~0,1 con 48 qubits lógicos).
+  - Señala que hay pocas rondas de síndrome.
+  - 'Atribuye la fuente (parte interesada: algunos autores de QuEra) o la comparación con una cota de implementaciones físicas.'
+
+- id: q-logical-qubit-experiments-010
+  prompt: Resume en un párrafo, como asesor, qué ha demostrado y qué no el experimento de Google (preprint v1; los autores son de Google Quantum AI) si tu objetivo es un algoritmo que necesita errores lógicos de 10⁻¹².
+  model_answer: 'Según los autores, demuestra por primera vez de forma definitiva rendimiento por debajo del umbral en memoria: d = 7 con 101 qubits, error lógico de 0,143 % por ciclo, Λ = 2,14 ± 0,02 con red neuronal (2,04 con emparejamiento), hasta 10⁶ ciclos y un qubit lógico 2,4 veces mejor que el mejor físico; Λ se mantuvo estable (2,18 ± 0,07 de media en 16 repeticiones durante 15 horas). No demuestra puertas lógicas (es una memoria). Para 10⁻¹² haría falta extrapolar desde d = 7 (Λ se midió hasta d = 7 y se simuló hasta 11): con Λ = 2,14, d = 63 y 7937 qubits por qubit lógico, mucho más arriesgado que la extrapolación a 10⁻⁶ de los propios autores. Además, el código de repetición muestra un suelo de unos 10⁻¹⁰ por ciclo por ráfagas sin entender, que los autores consideran un límite para circuitos grandes. La decodificación en tiempo real solo se hizo en d = 5.'
+  rubric:
+  - 'Resume lo demostrado: Λ > 1 estable, d = 7 con error de 0,143 % por ciclo, hasta 10⁶ ciclos, 2,4 veces mejor que el mejor físico.'
+  - Dice que es memoria y no demuestra puertas lógicas.
+  - Explica que llegar a 10⁻¹² requiere extrapolar desde d = 7 (Λ medido hasta d = 7) y es más arriesgado que a 10⁻⁶.
+  - Menciona el suelo de ~10⁻¹⁰ por ráfagas o que la decodificación en tiempo real fue solo en d = 5.
+  - Atribuye con "según los autores" o indica que es preprint.
+
+- id: q-logical-qubit-experiments-011
+  prompt: Extrapolando a d = 27 con ε₇ = 1,43·10⁻³ y Λ = 2,14, el error lógico esperado es ε₇/Λ¹⁰. ¿Cuánto da, aproximadamente? Responde con un número (notación científica).
+  accepted:
+  - 7,1·10⁻⁷
+  - '7.1e-7'
+  - 7,1e-7
+  - 7,1×10⁻⁷
+  - 0,00000071
+  - 7.1·10⁻⁷
+  - 7·10⁻⁷
+
+- id: q-logical-qubit-experiments-012
+  prompt: En el experimento de Bluvstein y colaboradores (los autores incluyen a QuEra), la fidelidad del GHZ lógico tolerante a fallos es del 72(2) % con decodificación correlacionada y del 99,85 % al poseleccionar. ¿Cuál es la cifra que refleja corrección y no detección?
+  options:
+    a: 'El 99,85 %: una fidelidad mayor siempre indica mejor corrección'
+    b: Ambas son corrección, porque las dos usan el mismo decodificador
+    c: 'El 72 %: es el resultado con decodificación correlacionada; el 99,85 % depende de descartar ejecuciones con errores detectados'
+    d: 'Ninguna: en ese experimento no se midió el GHZ lógico'
+  explanation: Con poselección sobre todos los estabilizadores lógicos se llega a 99,85 %; descartando alrededor del 50 % de los datos se llega a 90 %. La fidelidad mayor se compra con datos descartados.
+
+- id: q-logical-qubit-experiments-013
+  prompt: Tu equipo tiene hoy un dispositivo de cientos de qubits físicos y una carga que falla por ruido. ¿Usas corrección de errores o mitigación? Justifica con los costes de cada una.
+  model_answer: 'Hoy conviene la mitigación: no usa qubits adicionales, pero su coste de muestreo crece exponencialmente con el tamaño del circuito, así que solo vale para circuitos acotados cuyo resultado sea un valor esperado. La corrección de errores tiene un coste en qubits alto (cientos por qubit lógico, en un dispositivo de cientos solo hay unos pocos lógicos) pero su sobrecarga crece de forma polilogarítmica, y por ahora los qubits lógicos son un objeto de investigación: se programa sobre qubits físicos. Cai y colaboradores señalan que, con residuos de error lógico en la era temprana de tolerancia a fallos, la mitigación se puede aplicar también a qubits y puertas lógicas.'
+  rubric:
+  - Dice que la mitigación no usa qubits extra pero su coste de muestreo crece exponencialmente.
+  - Dice que la corrección tiene alto coste en qubits pero sobrecarga polilogarítmica.
+  - Concluye que hoy se usa mitigación (los qubits lógicos son investigación) o justifica su elección.
+  - Puede añadir que se pueden combinar (mitigación sobre qubits lógicos con residuos de error).
+
+- id: q-logical-qubit-experiments-014
+  prompt: Eisert y Preskill llaman "teraquop" a una máquina FASQ útil. ¿Cuántas operaciones lógicas fiables son (un teraquop)? Responde con una potencia de 10.
+  accepted:
+  - 10¹²
+  - 10^12
+  - 1e12
+  - un billón
+  - 10 elevado a 12
+
+- id: q-logical-qubit-experiments-015
+  prompt: Tienes que explicar al comité de tu empresa por qué no se pueden comparar directamente el resultado de Google (superconductores) y el de Harvard/QuEra (átomos neutros). Usa el criterio de qué se demostró, rondas, corrección frente a detección y comparación.
+  model_answer: 'Google (Quantum AI, preprint v1, sin conflictos declarados): memoria sin puertas lógicas, hasta 10⁶ ciclos de síndrome, Λ ≈ 2 estable en d = 3-7, decodificación en tiempo real (en d = 5) y comparación con el mejor qubit físico (2,4×). Harvard/QuEra (algunos autores de QuEra): puertas transversales sobre códigos pequeños (CNOT entre parches de superficie de d = 3, 5 y 7, CCZ en [[8,3,2]]), pero con una sola ronda de estabilizadores en superficie y GHZ/XEB que dependen de detección con poselección; se compara con una cota de implementaciones físicas del mismo sistema. Cada uno tiene una parte de lo necesario (memoria con muchas rondas frente a puertas), ninguno tiene ambas y las dos plataformas son de empresas o con autores de empresa, así que hay que atribuir las afirmaciones a sus autores.'
+  rubric:
+  - Contrasta memoria sin puertas (Google) con puertas transversales (Bluvstein).
+  - 'Contrasta rondas de síndrome: hasta 10⁶ ciclos frente a una sola ronda o pocas.'
+  - Distingue corrección (Google) de detección con poselección (titulares de Bluvstein).
+  - Menciona que ambos tienen autores de empresa y que las afirmaciones se atribuyen a los autores.
+
+- id: q-resource-estimation-001
+  prompt: En la estimación de Fowler (2012) el circuito de Shor usa 40N³ Toffoli secuenciales. Para N = 2000, ¿cuántas? Responde con un número en notación científica.
+  accepted:
+  - 3,2·10¹¹
+  - 3.2e11
+  - 3,2e11
+  - 3,2×10¹¹
+  - '320000000000'
+  - 3.2·10¹¹
+  - 320 000 000 000
+
+- id: q-resource-estimation-002
+  prompt: Cada Toffoli tarda 3 tiempos de medida de 100 ns. Con 3,2·10¹¹ Toffoli secuenciales, ¿cuántas horas dura la factorización (aproximadamente)? Responde con un número.
+  accepted:
+  - 26,7
+  - '26.7'
+  - '27'
+  - unas 27
+  - ≈ 26,7
+  - 26,7 horas
+  - 26.7 h
+  - 26,7 h
+
+- id: q-resource-estimation-003
+  prompt: Fowler necesita unas 1200 fábricas de estados mágicos de unos 800 000 qubits físicos cada una. ¿Cuántos qubits físicos suman, aproximadamente? Responde con una potencia de 10.
+  accepted:
+  - 10⁹
+  - 10^9
+  - 1e9
+  - mil millones
+  - 9,6·10⁸
+  - 9.6e8
+  - 960 millones
+
+- id: q-resource-estimation-004
+  prompt: Pasar de ≈ 10⁹ qubits (Fowler, 2012) a 897 864 (Gidney, 2025) es unas 1100 veces menos. ¿Es una mejora algorítmica de 1100×?
+  options:
+    a: 'Sí: las dos estiman la misma tarea con las mismas hipótesis, y la diferencia es el algoritmo'
+    b: 'No: los supuestos de hardware son distintos (ciclo de 200 ns frente a 1 µs, otra tarea y otro circuito), así que no es una comparación a igualdad de hipótesis'
+    c: Sí, pero solo si se mide en tiempo y no en qubits
+    d: 'No: es un error de Fowler, que contó cada qubit físico dos veces'
+  explanation: Gidney compara con su propio trabajo de 2019 a igualdad de supuestos y obtiene unos 20× menos qubits. Comparar con una cifra de 2012 mezcla tarea (2000 bits frente a RSA-2048), ciclo, circuito y modelo de error.
+
+- id: q-resource-estimation-005
+  prompt: 'Un titular dice: "RSA-2048 con 20 veces menos qubits que en 2019". Gidney (preprint v1) pasa de 20 millones de qubits y 8 horas a 897 864 qubits y 4,96 días. Evalúa el titular con aritmética.'
+  model_answer: 'Qubits: 20 000 000/897 864 ≈ 22 veces menos, cierto. Pero el tiempo sube de 8 horas a 4,96 · 24 = 119 h, unas 15 veces más. El volumen espacio-tiempo es 2·10⁷ × 8 h = 1,6·10⁸ qubit-hora frente a 897 864 × 119 h ≈ 1,07·10⁸: solo ≈ 1,5 veces menos. Es decir, gran parte del recorte de qubits se pagó con tiempo. El propio artículo atribuye el mayor tiempo a más puertas Toffoli y menos fábricas, y el menor número de qubits a la aritmética de residuos aproximada, los códigos yoked y el cultivo de estados mágicos. El titular es cierto pero incompleto; conviene comparar volumen espacio-tiempo y recordar que es un preprint.'
+  rubric:
+  - Calcula ≈ 22× menos qubits.
+  - Calcula que el tiempo es unas 15 veces mayor (8 h a ~119 h).
+  - Calcula el volumen espacio-tiempo y concluye que mejora solo ≈ 1,5×.
+  - Concluye que el recorte de qubits se pagó con tiempo y/o menciona que es preprint.
+
+- id: q-resource-estimation-006
+  prompt: Gidney exige 10⁻¹⁵ de error por qubit lógico y ronda con 6,9·10¹³ rondas, y la probabilidad de éxito es e^(−0,069) = 0,933. Si el objetivo fuera 10⁻¹⁴ por ronda, ¿qué probabilidad de éxito saldría (e^(−0,69))? Responde con un número.
+  accepted:
+  - 0,50
+  - '0.50'
+  - 0,5
+  - '0.5'
+  - 50 %
+  - 50%
+  - ≈ 0,5
+
+- id: q-resource-estimation-007
+  prompt: Dispones de un hardware con el mismo error físico que en Fowler (2012) pero con un ciclo de código de superficie de 2 ms, y otro equipo tiene un ciclo de 1 µs con tiempo de reacción de control de 10 µs. ¿Qué supuestos de una estimación de recursos mueven más el resultado y qué ocurre con cada hardware?
+  model_answer: 'Una estimación es función de sus hipótesis. El error físico: en Fowler, pasar de 10⁻³ a 10⁻⁴ baja las distancias a 16 y 8 y el total a ≈ 130 millones de qubits con el mismo tiempo. El tiempo de ciclo: con un ciclo de 2 ms sin añadir qubits, la factorización de Fowler tardaría ≈ 30 años (frente a 26,7 h con 200 ns), de modo que el hardware de 2 ms no sirve para esa tarea sin más. El tiempo de reacción del control: Gidney lo fija en 10 µs y la latencia del decodificador lo determina. Otros: conectividad (con largo alcance los qLDPC podrían recortar el coste), modelo de ruido (Gidney supone depolarizante uniforme; el dispositivo de Google muestra correlaciones) y las heurísticas del algoritmo no demostradas. El equipo de 1 µs necesita comprobar que su decodificador cabe en los 10 µs.'
+  rubric:
+  - Cita el efecto del tiempo de ciclo (2 ms ≈ 30 años) o del error físico (130 millones de qubits).
+  - Cita el tiempo de reacción del control (10 µs) y su relación con la latencia del decodificador.
+  - Menciona al menos otro supuesto (conectividad, modelo de ruido o heurísticas del algoritmo).
+  - Aplica el razonamiento a los dos hardwares planteados.
+
+- id: q-resource-estimation-008
+  prompt: Para 10⁻¹⁵ por ciclo con p = 10⁻³, el ajuste de Fowler (0,03·(p/0,57 %)^((d+1)/2)) da d = 35. ¿Cuántos qubits tiene un parche rotado de esa distancia (2d² − 1)? Responde con un número.
+  accepted:
+  - '2449'
+  - '2.449'
+  - 2 449
+
+- id: q-resource-estimation-009
+  prompt: Un directivo de seguridad te pregunta si el resultado de Gidney (RSA-2048 con menos de un millón de qubits ruidosos en menos de una semana) significa que RSA caerá pronto y qué debe hacer la empresa. Responde con las hipótesis y límites de la estimación.
+  model_answer: 'No es una predicción de fecha. Es un preprint v1 sin revista en el momento de consultarlo. Sus hipótesis: error físico del 0,1 % (ruido depolarizante uniforme), ciclo de 1 µs, tiempo de reacción del control de 10 µs, rejilla cuadrada de vecinos próximos, y algunas heurísticas del algoritmo no demostradas. Además el cálculo requiere fábricas de estados mágicos y un decodificador a velocidad, y el dispositivo real de Google muestra correlaciones y fugas que el modelo no incluye; el mayor qubit lógico de Google usa 101 físicos y es una memoria. Gidney la presenta como una señal de referencia del estado del arte, recuerda que los ataques siempre mejoran, y respalda los plazos de NIST (deprecar tras 2030 y prohibir tras 2035) no porque espere la máquina en 2030, sino porque la seguridad no debería depender de que el progreso sea lento. Recomendación: planificar la migración a criptografía poscuántica según los plazos de NIST, sin fijarse en una fecha concreta del ordenador.'
+  rubric:
+  - Dice que no es una predicción de fecha y que es un preprint.
+  - Enumera hipótesis clave (p = 0,1 %, ciclo 1 µs, reacción 10 µs, ruido depolarizante, rejilla 2D).
+  - Menciona la distancia con el hardware real (correlaciones, solo memoria) o el aviso de que los ataques mejoran.
+  - Recomienda planificar la migración con los plazos de NIST (2030 / 2035).
+
+- id: q-resource-estimation-010
+  prompt: 'Recibes una estimación que dice "se necesitan 10⁹ qubits físicos". Aplica el checklist de lectura: ¿qué preguntas haces antes de fiarte de la cifra?'
+  model_answer: 'Preguntaría: (1) hardware supuesto: error físico, ciclo, tiempo de reacción y conectividad; si cambia uno, cambia la cifra. (2) Qué cuenta como qubit: si incluye fábricas de estados mágicos, almacenamiento pasivo y holguras; en la estimación de Fowler de 2012 las fábricas son más del 94 % de los qubits y los 4000 qubits lógicos de cálculo son menos del 6 %. (3) Qué se compara: tiempo o volumen espacio-tiempo, porque un recorte de qubits puede ser un cambio de tiempo. (4) Error lógico objetivo y probabilidad de éxito (10⁻¹⁵ por ronda frente a 93,3 % de éxito en Gidney). (5) Aproximaciones del algoritmo y heurísticas sin demostrar. (6) Si es preprint o publicado y si los supuestos son de hace años (ciclo de 200 ns de Fowler frente a 1 µs de Gidney). (7) Qué dice el propio autor sobre sus límites.'
+  rubric:
+  - Pregunta por el hardware supuesto (p, ciclo, reacción, conectividad).
+  - Pregunta qué cuenta como qubit (fábricas, almacenamiento) citando el >94 % en fábricas de Fowler.
+  - Pregunta qué se compara (tiempo, volumen espacio-tiempo) o el objetivo de error y la probabilidad de éxito.
+  - Pregunta por la procedencia (preprint/publicado) o las heurísticas del algoritmo.
