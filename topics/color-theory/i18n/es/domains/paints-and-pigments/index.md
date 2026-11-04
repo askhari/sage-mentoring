@@ -1,6 +1,7 @@
 ---
 domain: paints-and-pigments
 title: "Pinturas y pigmentos"
+format: 2
 ---
 
 # Pinturas y pigmentos
@@ -21,11 +22,17 @@ Hasta aquí el color se ha tratado como luz, como percepción y como mezcla. Est
 
 Los tres primeros conceptos son de capa 1 y se leen en el orden de arriba: composición, nombres Colour Index y transparencia. Los tres siguientes empiezan en la capa 2: poder tintóreo y tono de masa se apoyan en la transparencia y en los tintes, y la resistencia a la luz exige haber visto los nombres Colour Index. El último es de capa 3: [diseñar una paleta limitada](concepts/limited-palette.md) conviene dejarlo para el final, tras leer los anteriores y los [primarios](../color-mixing/concepts/primary-colors.md). Las capas 2 y 3 de los primeros conceptos pueden leerse en paralelo.
 
-## Desacuerdos que conviene conocer
+## Fundamentos {#layer-1}
 
-- El **subtono** significa dos cosas según quién escriba (película fina sobre blanco, o tinte con blanco) y el tratado de Feller no usa la palabra: véase [tono de masa y subtono](concepts/masstone-undertone.md).
-- Las páginas de Golden describen su ensayo de poder tintóreo con partes iguales de blanco en un sitio y 1:10 en otro: véase [poder tintóreo](concepts/tinting-strength.md).
-- La categoría II de la ASTM se llama "Good" en Golden y "Very Good" en MITRA; la tabla del libro de Feller rotula como BS1006 una escala que en el texto llama ISO R105: véase [resistencia a la luz y permanencia](concepts/lightfastness.md).
+La capa de fundamentos abre el tubo. Primero se ve de qué está hecha una pintura (pigmento, aglutinante y aditivos), después cómo identificar el pigmento con su código Colour Index en vez de con el nombre comercial, y por último qué significa que una pintura sea opaca o transparente. Se apoya en por qué los objetos tienen color.
+
+## Comprensión {#layer-2}
+
+La capa de comprensión explica las propiedades que deciden cómo se comporta una pintura. Empieza por el poder tintóreo, que dice cuánto domina una pintura en una mezcla, sigue con el tono de masa y el subtono, que describen cómo cambia su color al espesarla, adelgazarla o mezclarla con blanco, y termina con la resistencia a la luz y la permanencia. Se apoya en la capa de fundamentos de este ámbito y en cómo se mezclan los pigmentos y en aclarar, oscurecer y agrisar.
+
+## Profesional {#layer-3}
+
+La capa profesional lleva todo lo anterior a una decisión: diseñar una paleta limitada. Reúne el nombre C.I., la transparencia, el poder tintóreo, el tono de masa y la resistencia a la luz, y los combina con los primarios y el comportamiento de los pigmentos de mezcla de color. Se apoya en las capas anteriores y en el resto del ámbito.
 
 ## Lecturas complementarias
 

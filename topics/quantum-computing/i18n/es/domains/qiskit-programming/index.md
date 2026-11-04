@@ -1,6 +1,7 @@
 ---
 domain: qiskit-programming
 title: "Programación con Qiskit"
+format: 2
 ---
 
 # Programación con Qiskit
@@ -35,6 +36,18 @@ Un algoritmo en la pizarra y un resultado en un dispositivo real están separado
 - **Camino práctico (primer contacto):** circuitos, simuladores, y después [La era NISQ](concepts/nisq-era.md), que tiene capa 1 y da el motivo de todo lo demás. Con eso puedes escribir, simular y entender por qué los resultados de un dispositivo real salen "sucios".
 - **Camino profesional:** circuitos, simuladores, primitivas, transpilación, ejecución en hardware, algoritmos variacionales y, al final, mitigación de errores (solo tiene capa profesional, y usa todo lo anterior). Los algoritmos variacionales solo exigen las primitivas, así que pueden estudiarse justo después de ellas y antes de pasar al hardware.
 - Los conceptos de [observables](../quantum-mechanics/concepts/observables.md), [decoherencia](../quantum-mechanics/concepts/decoherence.md), [conjuntos universales de puertas](../qubits-and-circuits/concepts/universal-gate-sets.md) y [estimación de fase](../quantum-algorithms/concepts/phase-estimation.md) se usan como base; no se repiten aquí.
+
+## Fundamentos {#layer-1}
+
+La capa de fundamentos arranca con lo mínimo para escribir código: construir un circuito en Qiskit (con su trampa del orden de los bits) y simularlo con vectores de estado, sin cuenta ni cola. Cierra con la era NISQ, que explica por qué un dispositivo real devuelve resultados "sucios". Se apoya en los circuitos cuánticos, las puertas y las medidas del ámbito de qubits y circuitos.
+
+## Comprensión {#layer-2}
+
+La capa de comprensión explica el camino que sigue un circuito desde el portátil hasta el chip. Empieza con las primitivas (Sampler y Estimator), que fijan qué se le pide a la máquina; sigue con la transpilación, que adapta el circuito al dispositivo; continúa con la ejecución en hardware real de IBM Quantum; y termina con los algoritmos variacionales, que usan todo lo anterior en un bucle híbrido. Además profundiza en los tres conceptos de fundamentos (circuitos dinámicos y parámetros, simuladores con ruido, cifras y límites de NISQ). Se apoya en la capa anterior y en los observables.
+
+## Profesional {#layer-3}
+
+La capa profesional lleva el ámbito a decisiones de trabajo: qué construir y qué dejar al transpilador, qué simulador y qué dispositivo elegir, cómo diseñar los PUBs y el presupuesto de shots, cómo personalizar el transpilador, qué modo de ejecución usar y cómo entrenar un algoritmo variacional. Añade un concepto que solo existe aquí, la mitigación de errores, que usa el flujo de ejecución completo, y cierra con criterios para evaluar una afirmación NISQ. Se apoya en las capas anteriores y en la decoherencia.
 
 ## Una advertencia sobre las fuentes
 

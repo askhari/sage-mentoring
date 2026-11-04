@@ -1,6 +1,7 @@
 ---
 domain: color-in-painting
 title: "Color y luz en la pintura"
+format: 2
 ---
 
 # Color y luz en la pintura
@@ -24,10 +25,25 @@ Una advertencia sobre las fuentes. La mayor parte de lo que sabemos sobre cómo 
 
 Empieza por [color local y color percibido](concepts/local-vs-perceived-color.md), el único de capa 1. En capa 2 lee [luces y sombras](concepts/light-and-shadow-color.md) antes que los otros dos: la [perspectiva atmosférica](concepts/atmospheric-perspective.md) puede leerse en cualquier momento después de ese primero, pero la [unidad cromática](concepts/colored-light-unity.md) necesita luces y sombras. En capa 3, [ver y juzgar el color](concepts/judging-color.md) puede leerse en cuanto domines el contraste simultáneo; [planificar la gama](concepts/gamut-planning.md) va al final, porque recoge la paleta limitada, la luz del cuadro y la estructura de valores.
 
+## Fundamentos {#layer-1}
+
+La capa de fundamentos tiene un único concepto, el color local y el color percibido. Enseña a separar el color «de la cosa» del color que de hecho llega al ojo, que es lo que el pintor tiene que reproducir. Se apoya solo en las ideas básicas del resto del curso y prepara los cuatro factores del color (superficie, luz, cantidad de luz y aire) que desarrollan las capas siguientes.
+
+## Comprensión {#layer-2}
+
+La capa de comprensión recorre los factores que cambian el color percibido. Empieza por la luz sobre un objeto, con sus sombras y reflejos; sigue con el aire que hay entre el ojo y lo lejano, y termina con la luz de color que baña todo el cuadro y le da unidad. El orden importa: luces y sombras van primero, porque la unidad cromática las necesita, mientras que la perspectiva atmosférica puede leerse en cualquier momento tras ese primero. Se apoya en la capa de fundamentos de este ámbito, en la constancia del color, en la luz como color, en la estructura de valores y en la interacción luz-materia.
+
+## Profesional {#layer-3}
+
+La capa profesional lleva todo lo anterior al caballete. Añade criterio a los cuatro conceptos ya vistos (cómo analizar un punto de color, elegir la luz y el aire de un cuadro) y cierra con dos conceptos de oficio: juzgar el color mientras se pinta, que puede leerse en cuanto se domina el contraste simultáneo, y planificar la gama del cuadro, que va al final porque reúne la paleta limitada, la luz del cuadro y la estructura de valores. Se apoya en las capas anteriores y en la mezcla de un color objetivo y el sistema Munsell.
+
 ## Desacuerdos y límites que conviene conocer
 
 - Leonardo es una fuente primaria sobre la práctica de la pintura, no sobre óptica. Sus explicaciones del azul del cielo y de la mezcla de colores reflejados no resisten la óptica moderna; sus consecuencias prácticas sí encajan con la física: lo lejano se aclara hacia el color del aire [@leonardo-1835, cap. CCLXXXVII], como predice el modelo de luz del aire (airlight) [@narasimhan-nayar-2002, p. 237, §3.2].
 - Para el color del sol bajo y de las sombras al aire libre no hay una fuente A o B que lo cubra del todo. Yu y Hurlbert explican físicamente el enrojecimiento del haz directo con sol bajo, pero su estudio mide cuadros, no luz [@yu-hurlbert-2024, Characteristics of terrestrial illumination]; Smith trata solo el cenit de un cielo despejado y no dice nada de sombras ni de objetos lejanos [@smith-2005, p. 590, Sec. I].
 - El enmascarado de gama es el método de Gurney, no un estándar. Lo que se apoya en fuentes A o B son sus ingredientes (límites de los pigmentos, estadísticas de color de cuadros reales, la práctica de Leonardo y Chevreul).
 - El blog de Gurney se conoce a través de entradas leídas en parte mediante resúmenes; las afirmaciones que solo constan así se marcan en el texto.
-- Las obras de Albers y de Berns solo se conocen por su índice y se usan, a lo sumo, como lectura complementaria.
+
+## Lecturas complementarias
+
+Las obras de Albers y de Berns solo se conocen por su índice, así que se señalan únicamente como lectura adicional.

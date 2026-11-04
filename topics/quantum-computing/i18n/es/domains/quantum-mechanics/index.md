@@ -1,6 +1,7 @@
 ---
 domain: quantum-mechanics
 title: "Fundamentos de mecánica cuántica"
+format: 2
 ---
 
 # Fundamentos de mecánica cuántica
@@ -27,6 +28,18 @@ Un algoritmo cuántico se lee como álgebra lineal con reglas de medida, pero es
 ## Orden de estudio recomendado
 
 Sigue la lista. Los cuatro primeros conceptos son de capa 1 y se pueden leer sin conocimientos de física más allá de las matemáticas del ámbito anterior; "sistemas de dos niveles" también tiene capa 1 y se puede leer después de "El estado cuántico como vector" para tener un ejemplo concreto. Observables, evolución, incertidumbre, matrices densidad y decoherencia empiezan en capa 2. Después sigue el ámbito [Qubits, puertas y circuitos](../qubits-and-circuits/index.md), que convierte estas ideas en abstracciones de programación: el qubit, la esfera de Bloch y las puertas.
+
+## Fundamentos {#layer-1}
+
+La capa de fundamentos presenta la física mínima para seguir un algoritmo cuántico. Empieza por los experimentos que obligaron a abandonar la mecánica clásica, sigue con el principio de superposición y la interferencia, y formaliza el estado como un vector de norma 1 cuyo cuadrado de amplitud da probabilidades al medir. Cierra con el sistema de dos niveles, el ejemplo más pequeño y el que se convierte en el qubit. Se apoya en las matemáticas del ámbito anterior (vectores, producto interior, probabilidad).
+
+## Comprensión {#layer-2}
+
+La capa de comprensión completa los cinco axiomas y explica por qué los circuitos reales se desvían del modelo ideal. Primero los observables como operadores hermíticos, la evolución unitaria que da origen a las puertas y la incertidumbre como consecuencia de que los operadores no conmutan. Después las matrices densidad, que describen estados con ruido o partes de un sistema mayor, y la decoherencia, que usa esa herramienta para explicar la pérdida de coherencia. Se apoya en la capa de fundamentos de este ámbito y en los valores propios y las matrices hermíticas.
+
+## Profesional {#layer-3}
+
+La capa profesional lleva el formalismo a criterios de uso: medidas generales (POVM), observables de subsistemas y su estimación, hamiltonianos que se convierten en puertas, canales cuánticos y modelos de ruido con sus parámetros `T₁` y `T₂`, y cuándo conviene un vector de estado o una matriz densidad. Se apoya en las dos capas anteriores y enlaza con los ámbitos de hardware y corrección de errores.
 
 ## Qué verás aquí y qué no
 

@@ -1,6 +1,7 @@
 ---
 domain: color-interaction
 title: "Interacción del color"
+format: 2
 ---
 
 # Interacción del color
@@ -20,9 +21,18 @@ Hasta aquí se ha tratado el color de una pintura como una propiedad del tubo: u
 
 Empieza por el [contraste simultáneo](concepts/simultaneous-contrast.md), el único de capa 1. En capa 2, las [posimágenes](concepts/afterimages.md) y la [constancia](concepts/color-constancy.md) se pueden leer en cualquier orden, pero la constancia usa el contraste simultáneo como mecanismo; la [asimilación](concepts/assimilation.md) conviene leerla después de haber visto el contraste, porque se define por oposición a él; las [categorías](concepts/color-categories.md) son independientes del resto y pueden leerse en cualquier momento. Deja la [equiluminancia](concepts/equiluminance.md) para el final: necesita el contraste, el proceso oponente y la distinción entre luminancia y matiz. Este ámbito prepara el siguiente, armonía y composición del color, y el de color y luz en la pintura, que depende de la constancia.
 
-## Desacuerdos y límites que conviene conocer
+## Fundamentos {#layer-1}
 
-- Chevreul describe bien *qué* cambia en el contraste, pero sus explicaciones (complementarios "añadidos", fatiga de la retina) son del siglo XIX y se presentan aquí como históricas.
-- Sobre las posimágenes, la explicación habitual es la adaptación y la oposición fisiológica; un estudio pequeño, el de Zeki y colaboradores, propone que se generan después de que el cerebro construya el color. Se expone como una propuesta, no como lo establecido: véase [posimágenes](concepts/afterimages.md).
-- Los libros de Livingstone sobre visión y arte solo se conocen aquí por un artículo y una reseña, de modo que lo que se cita de ella en [equiluminancia](concepts/equiluminance.md) es de segunda mano.
-- Ni Chevreul usa la palabra asimilación ni la revisión sobre constancia y categorías la trata; la base de ese concepto es un estudio de laboratorio especializado, y el capítulo de Albers sobre el efecto Bezold solo se conoce por su título.
+La capa de fundamentos tiene un único concepto, el contraste simultáneo: cómo un color cambia de aspecto por el color que tiene al lado, con la distinción entre contraste de valor y de matiz y la idea de que el cambio está en la percepción y no en la pintura. Se apoya en el matiz y el valor del ámbito de dimensiones del color.
+
+## Comprensión {#layer-2}
+
+La capa de comprensión amplía el contraste en cuatro direcciones. Primero las posimágenes, que son el mismo desplazamiento causado por lo que se miró antes; después la constancia del color, que usa el contraste como mecanismo para explicar por qué un objeto conserva su color con otra luz; luego la asimilación, el efecto contrario al contraste, que se define por oposición a él; y por último las categorías y nombres de color, que son independientes del resto. Se apoya en la capa de fundamentos de este ámbito, en el proceso oponente, el color de la iluminación y la mezcla óptica.
+
+## Profesional {#layer-3}
+
+La capa profesional lleva el contraste al cuadro (pintar el color local y dejar que el contraste actúe) y aplica a cada concepto de comprensión criterios de taller: el ojo fatigado, la luz del lugar, la escala de la trama y el uso de los nombres de color. Cierra con la equiluminancia, que reúne valor, contraste y proceso oponente para explicar los bordes vibrantes. Se apoya en las capas anteriores.
+
+## Lecturas complementarias
+
+Los límites de las fuentes de este ámbito se detallan en cada concepto. Dos conviene tenerlos presentes al leer el conjunto: de Albers solo se ha consultado el índice, de modo que sus capítulos (por ejemplo "El efecto Bezold" o "Bordes vibrantes") son lectura adicional y no respaldan datos concretos [@albers-2013]; y de Livingstone solo se conocen un artículo y una reseña, así que lo que se cita de ella en [equiluminancia](concepts/equiluminance.md) es de segunda mano [@livingstone-2014].

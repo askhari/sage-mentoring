@@ -1,6 +1,7 @@
 ---
 domain: error-correction
 title: "Corrección de errores y tolerancia a fallos"
+format: 2
 ---
 
 # Corrección de errores y tolerancia a fallos
@@ -40,6 +41,18 @@ Preskill defendía en 2018 que la corrección de errores es la base para creer q
 - **Los umbrales no se pueden comparar a ciegas.** El artículo de IBM da 0,8 % en el resumen y unos 0,7 % (pseudo-umbrales de 0,0065 y 0,0069) en las tablas; pseudo-umbral y umbral son cantidades distintas [@bravyi-2024, p. 1; p. 5; p. 6]. Su ahorro de qubits sale como "más de 10 veces" en la introducción y "casi 15 veces" en la conclusión [@bravyi-2024, pp. 2, 30].
 - **Las lecciones de De Wolf sobre este tema son un esbozo** que no cubre el código de superficie: da una cota rigurosa de umbral de ≈ 0,1 % y evidencia numérica de unos pocos por ciento [@de-wolf-2026, §21.1, p. 195 [183]; §21.6, p. 201 [189]]. La teoría de estabilizadores y del umbral está en Watrous [@watrous-2025, L13-L16].
 - **Nombres de estados mágicos.** El artículo original de destilación (2005) usa etiquetas distintas a las de hoy; ver [puertas tolerantes a fallos](concepts/fault-tolerant-gates.md).
+
+## Fundamentos {#layer-1}
+
+La capa de fundamentos tiene un solo concepto, los códigos de repetición. Parte del voto clásico entre tres bits, muestra por qué no se puede copiar un qubit y cómo la medida de paridades detecta un error sin leer el dato, y deja la tabla de síndromes del código de bit-flip. Se apoya en los circuitos cuánticos y en la puerta CNOT.
+
+## Comprensión {#layer-2}
+
+La capa de comprensión empieza por el ruido cuántico, que reduce un continuo de errores a cuatro opciones de Pauli, y vuelve a los códigos de repetición para explicar por qué medir paridades no destruye el estado. Sigue con el código de Shor, que apila los dos códigos de repetición, y con el formalismo de estabilizadores, que da el lenguaje común de todos los códigos. Con ellos se formula el teorema del umbral, se aplica al código de superficie y se termina con los experimentos con qubits lógicos, para saber leer lo que se ha demostrado. Se apoya en la capa de fundamentos, en las matrices de densidad, en los valores propios y en el hardware superconductor y de átomos neutros.
+
+## Profesional {#layer-3}
+
+La capa profesional pasa de entender los códigos a decidir con ellos. Añade a los conceptos ya vistos modelos de ruido reales, un presupuesto de distancia y de qubits a partir de un error objetivo, la comparación de la superficie con los códigos qLDPC y una lista para leer titulares de qubits lógicos. Después trata la decodificación, las puertas tolerantes a fallos con estados mágicos y, para cerrar, la estimación de recursos de un algoritmo como el de Shor. Se apoya en las capas anteriores, en los conjuntos universales de puertas y en el algoritmo de Shor.
 
 ## Cierre del curso
 

@@ -1,13 +1,18 @@
 ---
 concept: quantum-complexity
 title: "Complejidad cuántica (BQP) y límites de la ventaja"
+format: 2
 ---
 
 ## Comprensión {#layer-2}
 
-**Qué significa "eficiente".** Convencionalmente, eficiente es tiempo polinómico en la longitud `n` de la entrada. Es un criterio imperfecto: `n²⁴` es impracticable y el símplex es exponencial en el peor caso pero rápido en la práctica [@shor-mit-2022, L17, p. 1]. Se mide el coste en operaciones elementales de un circuito como función de la longitud de la entrada; como los circuitos tienen tamaño fijo, un algoritmo es una *familia* de circuitos `{C_n}` con coste `t(n) = tamaño(C_n)` [@watrous-2025, L6.2, PDF pp. 168-174]. La familia debe ser *uniforme*: fácil de describir, o el tamaño polinómico no significaría eficiencia [@watrous-2025, L6.2, PDF pp. 182-183; @shor-1997, §2, p. 8].
+### Idea clave
+`BQP` es la formalización aceptada de "eficientemente resoluble por ordenadores cuánticos": una familia uniforme de circuitos de tamaño polinómico con error `≤ 1/3` [@de-wolf-2026, §13.2, p. 123, nota 1]. Se cree que `BPP ⊆ BQP ⊆ PSPACE` con inclusiones estrictas, pero los resultados de ventaja más claros son de consultas, no de clases de circuitos [@de-wolf-2026, §13.2, p. 123; §2.4, p. 29].
 
-### Las clases
+### Explicación
+Convencionalmente, eficiente es tiempo polinómico en la longitud `n` de la entrada. Es un criterio imperfecto: `n²⁴` es impracticable y el símplex es exponencial en el peor caso pero rápido en la práctica [@shor-mit-2022, L17, p. 1]. Se mide el coste en operaciones elementales de un circuito como función de la longitud de la entrada; como los circuitos tienen tamaño fijo, un algoritmo es una *familia* de circuitos `{C_n}` con coste `t(n) = tamaño(C_n)` [@watrous-2025, L6.2, PDF pp. 168-174]. La familia debe ser *uniforme*: fácil de describir, o el tamaño polinómico no significaría eficiencia [@watrous-2025, L6.2, PDF pp. 182-183; @shor-1997, §2, p. 8].
+
+Con ese criterio se definen las clases:
 
 | Clase | Qué es | Fuente |
 |---|---|---|
@@ -17,23 +22,20 @@ title: "Complejidad cuántica (BQP) y límites de la ventaja"
 | `PSPACE` | espacio polinómico | [@de-wolf-2026, §13.2, pp. 122-123] |
 | `BQP` | tiempo polinómico en un ordenador cuántico, error `≤ 1/3` en toda entrada | [@de-wolf-2026, §13.2, p. 123 y nota 1; §2.1.2, pp. 27-28] |
 
-`BQP` es la formalización aceptada de "eficientemente resoluble por ordenadores cuánticos": una familia uniforme de circuitos de tamaño polinómico [@de-wolf-2026, §13.2, p. 123, nota 1]. La versión con error acotado es la natural porque la computación cuántica es intrínsecamente probabilística; las clases cuánticas deterministas dependen de detalles del modelo [@shor-mit-2022, L17, p. 1]. El error se puede reducir a cualquier constante repitiendo `O(log(1/ε))` veces y votando por mayoría [@de-wolf-2026, §13.2, p. 123].
+La versión de `BQP` con error acotado es la natural porque la computación cuántica es intrínsecamente probabilística; las clases cuánticas deterministas dependen de detalles del modelo [@shor-mit-2022, L17, p. 1]. El error se puede reducir a cualquier constante repitiendo `O(log(1/ε))` veces y votando por mayoría [@de-wolf-2026, §13.2, p. 123].
 
 ![Clases de complejidad](../../../../../assets/diagrams/complexity-classes.es.svg)
 
-### Qué se sabe y qué se cree
+Lo que se sabe y lo que se cree sobre cómo se relacionan:
 
-- **`P ⊆ BPP ⊆ BQP ⊆ PSPACE`.** `BPP ⊆ BQP` porque un ordenador cuántico genera las monedas con Hadamards [@de-wolf-2026, §13.2, p. 123]. `P ⊆ BQP` también, porque las Toffoli simulan cómputo clásico [@aaronson-2018, Lec24, p. 5]. Se cree que `P = BPP` y que las demás inclusiones son estrictas [@de-wolf-2026, §13.2, p. 123].
-- **`BQP ⊆ PSPACE`** (Bernstein-Vazirani). Con puertas Hadamard y Toffoli, cada amplitud es una suma sobre todos los estados intermedios de productos de entradas de matriz (como una integral de caminos), calculable con espacio polinómico pero tiempo exponencial reutilizando espacio [@de-wolf-2026, §13.3, pp. 124-125; @aaronson-2018, Lec24, p. 6]. Además, el `PSPACE` cuántico es igual al clásico: lo cuántico no reduce el espacio más que un factor polinómico [@shor-mit-2022, L17, p. 3].
+- **`P ⊆ BPP ⊆ BQP ⊆ PSPACE`.** `BPP ⊆ BQP` porque un ordenador cuántico genera las monedas con Hadamards [@de-wolf-2026, §13.2, p. 123]. `P ⊆ BQP` también, porque las Toffoli simulan cómputo clásico [@aaronson-2018, Lec24, p. 5]. Se cree que `P = BPP` y que las demás inclusiones son estrictas [@de-wolf-2026, §13.2, p. 123]. `BQP ⊆ PSPACE` se debe a Bernstein-Vazirani (ver el ejemplo), y el `PSPACE` cuántico es igual al clásico: lo cuántico no reduce el espacio más que un factor polinómico [@shor-mit-2022, L17, p. 3].
 - **Por qué es difícil separarlas.** Probar `BQP ≠ BPP` (por ejemplo que factorizar no está en `BPP`) implicaría `P ≠ PSPACE`, un problema abierto desde los años sesenta; probar `P ≠ BQP` tampoco es más fácil que `P ≠ NP` [@de-wolf-2026, §13.2, pp. 123-124; @aaronson-2018, Lec24, p. 6]. Entre las clases de un diagrama habitual solo se puede demostrar `P ≠ EXPTIME` [@shor-mit-2022, L17, p. 3].
 - **Factorización.** La versión de decisión está en `BQP` por Shor y no se sabe que esté en `BPP`. Si no estuviera, sería el primer contraejemplo a la tesis fuerte de Church-Turing [@de-wolf-2026, §5.1, p. 49; §13.2, p. 123]. Esa tesis dice que cualquier dispositivo físico de cómputo se simula con una máquina de Turing con sobrecoste polinómico [@shor-1997, §1, p. 2].
 - **`NP` frente a `BQP`.** Se cree que los problemas `NP`-completos no están en `BQP` y que `BQP` y `NP` son incomparables; la evidencia principal es la cota inferior de [Grover](grover-search.md) (la fuerza bruta solo gana una raíz cuadrada). No es una prueba: podría haber métodos que exploten estructura, aunque no se conoce ninguno ni clásica ni cuánticamente para SAT general [@de-wolf-2026, §13.2, p. 124; @shor-mit-2022, L17, p. 3]. No se sabe si `NP ⊆ BQP`; tampoco si `BQP ⊆ NP` (podría haber problemas fáciles cuánticamente sin prueba corta comprobable clásicamente, pero no se conoce ejemplo) [@aaronson-2018, Lec24, pp. 5-6].
 
-### Por qué la ventaja es limitada
+La ventaja cuántica, además, es limitada. Su potencia no viene de una sola propiedad: son un número enorme de amplitudes, interferencia, entrelazamiento y operaciones fuera del formalismo de estabilizadores; quitando cualquiera de ellos, la mecánica cuántica es fácil de simular clásicamente, y juntos, no [@aaronson-2018, Lec17, p. 1].
 
-**La potencia no viene de una sola propiedad.** Un número enorme de amplitudes, interferencia, entrelazamiento y operaciones fuera del formalismo de estabilizadores: quitando cualquiera de ellos, la mecánica cuántica es fácil de simular clásicamente; juntos, no [@aaronson-2018, Lec17, p. 1].
-
-**Lo que prueban los algoritmos de consultas.** Resumen de la lección 5 de Watrous:
+Lo que prueban los algoritmos de consultas se resume así (lección 5 de Watrous):
 
 | Algoritmo | Cuánto se gana | Fuente |
 |---|---|---|
@@ -43,18 +45,39 @@ title: "Complejidad cuántica (BQP) y límites de la ventaja"
 | [Simon](bernstein-vazirani-and-simon.md) | exponencial incluso frente a probabilísticos | [@watrous-2025, L5.4, PDF p. 160] |
 | [Grover](grover-search.md) | cuadrática, óptima | [@watrous-2025, L8.5, PDF p. 258] |
 
-Estas son separaciones de *complejidad de consultas*, y las propias notas de De Wolf insisten en que no separan por sí solas las clases del modelo de circuitos: la separación exponencial de Simon frente a los aleatorios de error acotado está demostrada para consultas, no para `BQP` frente a `BPP` [@de-wolf-2026, §2.4, p. 29; §3.3.2, p. 37]. Ver [modelo de consultas](query-model-and-oracles.md). Esto mismo explica que Watrous busque ventajas "al menos super-polinómicas", y que describa las polinómicas como interesantes pero menos convincentes dada la brecha tecnológica entre cuántico y clásico; hoy solo se conocen unos pocos ejemplos [@watrous-2025, L6.2, PDF p. 182]. El principal ejemplo de un algoritmo cuántico de coste polinómico para un problema sin algoritmo clásico polinómico conocido es [Shor](shor-algorithm.md) [@watrous-2025, L6 intro, PDF p. 161].
+Estas son separaciones de *complejidad de consultas*, y no separan por sí solas las clases del modelo de circuitos: la separación exponencial de Simon frente a los aleatorios de error acotado está demostrada para consultas, no para `BQP` frente a `BPP` [@de-wolf-2026, §2.4, p. 29; §3.3.2, p. 37]. Ver [modelo de consultas](query-model-and-oracles.md). Esto mismo explica que Watrous busque ventajas "al menos super-polinómicas", y que describa las polinómicas como interesantes pero menos convincentes dada la brecha tecnológica entre cuántico y clásico; hoy solo se conocen unos pocos ejemplos [@watrous-2025, L6.2, PDF p. 182]. El principal ejemplo de un algoritmo cuántico de coste polinómico para un problema sin algoritmo clásico polinómico conocido es [Shor](shor-algorithm.md) [@watrous-2025, L6 intro, PDF p. 161].
 
-**Errores frecuentes.**
+### Ejemplo
+Por qué `BQP ⊆ PSPACE`. Con puertas Hadamard y Toffoli, cada amplitud es una suma sobre todos los estados intermedios de productos de entradas de matriz (como una integral de caminos). Esa suma es calculable con espacio polinómico pero tiempo exponencial, reutilizando espacio [@de-wolf-2026, §13.3, pp. 124-125; @aaronson-2018, Lec24, p. 6].
 
+### Errores frecuentes
 - *"Los ordenadores cuánticos resuelven los `NP`-completos en tiempo polinómico."* Todo enfoque que ignore la estructura del problema obtiene solo la ventaja de Grover; muchos artículos de arXiv que afirman lo contrario violan ese teorema [@aaronson-2018, Lec25, p. 1].
 - *"La ventaja de Shor está demostrada."* Lo que está demostrado es la aceleración del cálculo de periodos frente a algoritmos clásicos que pasan por una caja negra; la ventaja para factorizar en sí es conjetural [@aaronson-2018, Lec20, p. 1].
 - *"Si es cuántico es exponencialmente mejor."* Para `Parity` hay solo un factor 2; y para todas las funciones totales a lo sumo potencia 6 [@childs-qa, §21.5, pp. 99-100; @de-wolf-2026, §11.2, p. 104].
 - *"Probar todas las posibilidades en paralelo."* No: el problema es la interferencia [@aaronson-2018, Lec21, p. 3].
 
+### Para seguir
+La capa 3 convierte estos límites en una lista de comprobación para leer anuncios de ventaja cuántica. [Criptografía poscuántica](post-quantum-cryptography.md) muestra qué se rompe y qué no con todo lo anterior.
+
 ## Profesional {#layer-3}
 
-**Cómo leer un anuncio de "ventaja cuántica".** Lista de comprobación:
+### Idea clave
+Un anuncio de "ventaja cuántica" solo es sólido si se precisa el modelo, el clásico de comparación, qué está demostrado, qué estructura se explota, el sobrecoste y las hipótesis de tolerancia a fallos [@watrous-2025, L6 intro, PDF p. 161; @de-wolf-2026, §2.4, p. 29].
+
+### Explicación
+La definición de `BQP` es robusta. Por Solovay-Kitaev, la elección del conjunto de puertas solo cambia el coste en factores polilogarítmicos, de modo que incluso las ventajas polinómicas son robustas al conjunto de puertas; el error se acumula como mucho linealmente con el número de puertas [@childs-qa, teorema 2.1, cap. 2, p. 7; lema 2.2, p. 7]. Por conteo, casi todas las funciones booleanas necesitan complejidad de circuito cercana a `2ⁿ`, incluso cuánticas [@de-wolf-2026, §13.1, p. 121]. La mayoría de las unitarias de `n` qubits requieren circuitos exponenciales [@childs-qa, §1.3, p. 2]. La clase exacta `EQP` depende del conjunto de puertas y se considera poco interesante; `QMA` es el análogo cuántico robusto de `NP` (con error `≤ 1/3`) [@de-wolf-2026, §13.2, pp. 122-123].
+
+Más allá de `BQP` hay otras clases:
+
+- Cadena `NP ⊆ MA ⊆ QCMA ⊆ QMA`; se cree `MA = NP`, pero `QMA` estrictamente mayor que `NP`; el problema de energía del fundamental para hamiltonianos 2-locales es `QMA`-completo [@de-wolf-2026, §14.1, p. 128; §13.2, p. 123].
+- `BQP ⊆ PP` [@de-wolf-2026, ej. 13.4, p. 126].
+- La simulación de hamiltonianos generales es `BQP`-difícil: ver [simulación de hamiltonianos](hamiltonian-simulation.md) [@childs-qa, §27.2, p. 133].
+- *Complejidad de consultas frente a cómputo:* el HSP no abeliano tiene complejidad de consultas polinómica (`poly(log|G|)`, Ettinger-Høyer-Knill) pero eso no implica algoritmo eficiente, porque el postproceso puede ser ineficiente [@childs-qa, §10.3, pp. 45-46]. Los algoritmos eficientes de HSP se conocen para todos los grupos abelianos y solo para unos pocos no abelianos [@childs-qa, §5.3, p. 22; §10.1, p. 44].
+
+Dos consecuencias de práctica. Los límites guían la criptografía: los criptosistemas de retículos son de los pocos que no se sabe romper ni con un ordenador cuántico, y las funciones unidireccionales genéricas no parecen amenazadas [@aaronson-2018, Lec21, p. 4; Lec17, p. 4]. Son creencias basadas en no haber encontrado ataques, no teoremas; ver [criptografía poscuántica](post-quantum-cryptography.md). Y la precisión es un recurso: Shor la identifica como un tercer recurso para los ordenadores cuánticos, pues con precisión constante no se conoce nada fuera de `BPP` y con precisión creciente polinómicamente (bits logarítmicos) parecen más potentes [@shor-1997, §1, p. 3].
+
+### Ejemplo
+Lista de comprobación para leer un anuncio de "ventaja cuántica":
 
 1. *¿En qué modelo?* Consultas, circuito o hardware real. Las ventajas de consultas "no se trasladan automáticamente": el modelo estándar da las entradas explícitas y es mucho más difícil demostrar ventajas [@watrous-2025, L6 intro, PDF p. 161; @de-wolf-2026, §2.4, p. 29].
 2. *¿Frente a qué clásico?* El mejor conocido, no el ingenuo. Ejemplos: Grover frente a fuerza bruta en el viajante pierde frente a Held-Karp [@de-wolf-2026, §7.4, p. 70]; el isomorfismo de grafos dejó de ser candidato a ventaja exponencial cuántica cuando Babai (2016) dio un algoritmo clásico cuasi-polinómico [@aaronson-2018, Lec21, pp. 3-4].
@@ -63,20 +86,5 @@ Estas son separaciones de *complejidad de consultas*, y las propias notas de De 
 5. *¿Cuál es el sobrecoste de las constantes?* La ventaja cuadrática solo compensa a partir de cierto tamaño si las puertas cuánticas son mucho más caras [@de-wolf-2026, ej. 7.2, p. 71].
 6. *¿Se supone tolerancia a fallos?* Childs asume el teorema del umbral (ruido por debajo de ≈ `10⁻³`–`10⁻⁴` según el modelo) en todo su texto [@childs-qa, §1.7, p. 4]. Shor ya señalaba en 1997 que bastan puertas con precisión `O(1/t)` para `t` pasos y decoherencia polinómicamente pequeña [@shor-1997, §7, p. 24]. Ver [teorema del umbral](../../error-correction/concepts/threshold-theorem.md).
 
-**Robustez de la definición.**
-
-- *Elección del conjunto de puertas:* por Solovay-Kitaev solo cambia el coste en factores polilogarítmicos, de modo que incluso las ventajas polinómicas son robustas al conjunto de puertas; el error se acumula como mucho linealmente con el número de puertas [@childs-qa, teorema 2.1, cap. 2, p. 7; lema 2.2, p. 7].
-- *Conteo:* casi todas las funciones booleanas necesitan complejidad de circuito cercana a `2ⁿ`, incluso cuánticas [@de-wolf-2026, §13.1, p. 121]; la mayoría de las unitarias de `n` qubits requieren circuitos exponenciales [@childs-qa, §1.3, p. 2].
-- *Clases exactas:* `EQP` depende del conjunto de puertas y se considera poco interesante; `QMA` es el análogo cuántico robusto de `NP` (con error `≤ 1/3`) [@de-wolf-2026, §13.2, pp. 122-123].
-
-**Más allá de `BQP`.**
-
-- Cadena `NP ⊆ MA ⊆ QCMA ⊆ QMA`; se cree `MA = NP`, pero `QMA` estrictamente mayor que `NP`; el problema de energía del fundamental para hamiltonianos 2-locales es `QMA`-completo [@de-wolf-2026, §14.1, p. 128; §13.2, p. 123].
-- `BQP ⊆ PP` [@de-wolf-2026, ej. 13.4, p. 126].
-- La simulación de hamiltonianos generales es `BQP`-difícil: ver [simulación de hamiltonianos](hamiltonian-simulation.md) [@childs-qa, §27.2, p. 133].
-- *Complejidad de consultas frente a cómputo:* el HSP no abeliano tiene complejidad de consultas polinómica (`poly(log|G|)`, Ettinger-Høyer-Knill) pero eso no implica algoritmo eficiente, porque el postproceso puede ser ineficiente [@childs-qa, §10.3, pp. 45-46]. Los algoritmos eficientes de HSP se conocen para todos los grupos abelianos y solo para unos pocos no abelianos [@childs-qa, §5.3, p. 22; §10.1, p. 44].
-
-**Dos puntos de práctica.**
-
-- *Los límites guían la criptografía.* Los criptosistemas de retículos son de los pocos que no se sabe romper ni con un ordenador cuántico, y las funciones unidireccionales genéricas no parecen amenazadas [@aaronson-2018, Lec21, p. 4; Lec17, p. 4]. Son creencias basadas en no haber encontrado ataques, no teoremas; ver [criptografía poscuántica](post-quantum-cryptography.md).
-- *Precisión como recurso.* Shor identifica la precisión como un tercer recurso para los ordenadores cuánticos: con precisión constante no se conoce nada fuera de `BPP`; con precisión creciente polinómicamente (bits logarítmicos) parecen más potentes [@shor-1997, §1, p. 3].
+### Para seguir
+[Criptografía poscuántica](post-quantum-cryptography.md) aplica estos criterios a qué primitivas quedan expuestas. [Simulación de hamiltonianos](hamiltonian-simulation.md) es el caso de uso en el que sí se espera ventaja.

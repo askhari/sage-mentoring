@@ -1,6 +1,7 @@
 ---
 domain: qubits-and-circuits
 title: "Qubits, puertas y circuitos"
+format: 2
 ---
 
 # Qubits, puertas y circuitos
@@ -33,6 +34,18 @@ Los conceptos forman dos bloques: construir un circuito (1-7) y entender qué se
 Sigue la lista. Los siete primeros conceptos tienen capa 1 y se leen en este orden porque cada uno usa el anterior: `qubit` y `esfera de Bloch` describen un qubit; `puertas de un qubit` lo transforman; `estados de varios qubits` y `entrelazamiento` pasan a dos; `puertas de dos qubits` y `circuitos` los unen en programas. Si vas con prisa, el camino mínimo hasta el par de Bell es: qubit, puertas de un qubit, estados de varios qubits, puertas de dos qubits, entrelazamiento.
 
 Los cinco últimos empiezan en capa 2. `No clonación` y `conjuntos universales` pueden leerse en cualquier orden tras los circuitos; la teleportación necesita entrelazamiento, circuitos y no clonación; la codificación superdensa, entrelazamiento y circuitos; las desigualdades de Bell, solo entrelazamiento.
+
+## Fundamentos {#layer-1}
+
+La capa de fundamentos construye el modelo de programación de un extremo a otro con siete conceptos: el qubit y su esfera de Bloch, las puertas de un qubit, los estados de varios qubits, el entrelazamiento, la puerta `CNOT` y, al final, el circuito que junta puertas y medidas. Cada concepto usa el anterior, y el par de Bell sirve de hilo para ver juntos entrelazamiento, `CNOT` y circuito. Se apoya en el álgebra lineal del ámbito de matemáticas y en la regla de Born y los sistemas de dos niveles de mecánica cuántica.
+
+## Comprensión {#layer-2}
+
+La capa de comprensión se pregunta qué se puede y qué no se puede hacer con esos circuitos. Empieza por dos límites, la imposibilidad de clonar un estado desconocido y la noción de conjunto universal de puertas, y sigue con tres tareas que solo el entrelazamiento hace posibles: teleportación, codificación superdensa y el juego CHSH de las desigualdades de Bell. Se apoya en los circuitos y el entrelazamiento de la capa de fundamentos.
+
+## Profesional {#layer-3}
+
+La capa profesional lleva los mismos conceptos a la práctica: modelo de coste de los circuitos y precisión que exigen, qué puertas elegir y cuánto cuestan en dispositivos reales, el entrelazamiento como recurso y los experimentos sin lagunas que lo verifican. Se apoya en las capas anteriores y conecta con los ámbitos de Qiskit, hardware y corrección de errores.
 
 ## Una convención que conviene fijar desde el principio
 

@@ -193,7 +193,7 @@ Dos piezas de la lectura **no se escriben a mano**; las añade `tools/build_read
 
 Reglas de redacción:
 
-- **Se explica la idea, no al autor.** La cita va al final de la frase o del párrafo, nunca a mitad de la frase. Se nombra a un autor solo cuando su postura importa, por ejemplo en *Las fuentes discrepan*. Escribir "Los complementarios se neutralizan en gris [@munsell-1905, ¶61]", no "Munsell explica que…". El validador avisa de las citas a mitad de frase.
+- **Se explica la idea, no al autor.** La cita va al final de la frase o del párrafo, nunca a mitad de la frase. Se nombra a un autor solo cuando su postura importa, por ejemplo en *Las fuentes discrepan*. Escribir "Los complementarios se neutralizan en gris [@munsell-1905, ¶61]", no "Munsell explica que…". El validador avisa de las citas a mitad de frase; al final de una celda de tabla son correctas.
 - **Cada capa se puede leer seguida.** La capa N de un concepto solo da por sabido lo que hay en las capas ≤ N de sus prerrequisitos. Por tanto, fuera de *Para seguir* solo enlaza a conceptos cuyo `first_layer` sea ≤ N, y nunca a una sección `#layer-M` con M > N. El validador lo comprueba.
 - **Sin repetir.** La capa N+1 parte de la N y no la resume de nuevo.
 

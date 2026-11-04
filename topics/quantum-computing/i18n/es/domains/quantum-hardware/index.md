@@ -1,6 +1,7 @@
 ---
 domain: quantum-hardware
 title: "Cómo se construyen los ordenadores cuánticos"
+format: 2
 ---
 
 # Cómo se construyen los ordenadores cuánticos
@@ -31,6 +32,18 @@ Un circuito ideal no sabe nada de ruido. En la práctica, lo que limita cuántas
 - **Camino rápido (primer contacto):** criterios de DiVincenzo, coherencia y fidelidad, y las capas 1 de superconductores, iones y átomos neutros. Con eso entiendes por qué los resultados de un dispositivo real salen distintos del simulador y qué diferencia a las tres plataformas que Eisert y Preskill consideran más avanzadas [@eisert-2025, Box 1, p. 3].
 - **Camino profesional:** el camino rápido más las capas 2 y 3 de cada plataforma, los fotónicos, los espines, los topológicos, los experimentos de ventaja y, para cerrar, la comparativa. Los espines y los topológicos empiezan en la capa 2 porque necesitan el vocabulario de las anteriores.
 - **Dependencias con otros ámbitos:** se asume [el qubit](../qubits-and-circuits/concepts/qubit.md), [los circuitos](../qubits-and-circuits/concepts/quantum-circuits.md) y [la decoherencia](../quantum-mechanics/concepts/decoherence.md); los experimentos de ventaja usan [la complejidad cuántica](../quantum-algorithms/concepts/quantum-complexity.md); y la comparativa se apoya en [la era NISQ](../qiskit-programming/concepts/nisq-era.md), [ejecutar en hardware real](../qiskit-programming/concepts/running-on-hardware.md), [transpilación](../qiskit-programming/concepts/transpilation.md) y [mitigación de errores](../qiskit-programming/concepts/error-mitigation.md).
+
+## Fundamentos {#layer-1}
+
+La capa de fundamentos da el marco y las tres plataformas más usadas. Empieza con los criterios de DiVincenzo, que fijan qué debe cumplir cualquier tecnología, y con la coherencia y la fidelidad, que convierten esos requisitos en números. Sobre eso se estudian los qubits superconductores, los de iones atrapados, los de átomos neutros y los fotónicos, cada uno con el criterio que más le cuesta. Se apoya en el qubit, los circuitos cuánticos y la decoherencia.
+
+## Comprensión {#layer-2}
+
+La capa de comprensión explica los mecanismos detrás de cada plataforma y añade las dos que necesitan el vocabulario anterior: los qubits de espín en semiconductores y los qubits topológicos, estos últimos con el estado de la evidencia. Cierra con los experimentos de ventaja cuántica y la carrera entre reclamaciones cuánticas y simulación clásica, que usa la complejidad cuántica. Se apoya en la capa de fundamentos de este ámbito.
+
+## Profesional {#layer-3}
+
+La capa profesional enseña a comparar sin engañarse: cifras con fecha, métricas que no son equivalentes, criterios de decisión por carga de trabajo y señales de alarma en anuncios. Se recorre plataforma a plataforma y termina con la comparativa y el estado actual del hardware, que reúne todo el ámbito. Se apoya en las capas anteriores, en la era NISQ, la transpilación y la mitigación de errores.
 
 ## Una advertencia sobre las cifras y las fuentes
 

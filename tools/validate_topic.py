@@ -241,8 +241,8 @@ def check_markdown_refs(path: Path, body: str, source_ids: set, rep: Report, whe
 
 KEY_IDEA_MAX_WORDS = 60
 # A citation ends a sentence or clause when followed by punctuation, another citation,
-# a closing bracket or the end of the line.
-CITATION_END_OK_RE = re.compile(r"\s*(?:$|[.;:)\]\u2014]|\[)", re.MULTILINE)
+# a closing bracket, the end of a table cell or the end of the line.
+CITATION_END_OK_RE = re.compile(r"\s*(?:$|[.;:)\]|\u2014]|\[)", re.MULTILINE)
 
 
 def is_format2(meta: dict) -> bool:

@@ -1,15 +1,20 @@
 ---
 concept: transpilation
 title: "Transpilación"
+format: 2
 ---
 
 ## Comprensión {#layer-2}
 
-**El problema.** Un circuito escrito para un algoritmo usa las puertas que te convienen entre qubits cualesquiera. Un dispositivo solo ejecuta ciertas puertas nativas y solo sobre ciertos pares de qubits. La *transpilación (transpilation)* reescribe el circuito para que quepa en un dispositivo concreto y lo optimiza para hardware ruidoso [@qiskit-docs, /guides/transpile]. Se dice "transpilador" y no "compilador" porque su entrada y salida son circuitos; la generación de código para el controlador ocurre después, en el runtime, aunque puede verse como un compilador optimizador [@javadi-abhari-2024, §II, p. 1; Fig. 2, p. 5].
+### Idea clave
+La *transpilación (transpilation)* reescribe un circuito para que use solo las puertas nativas de un dispositivo concreto, sobre pares de qubits conectados, y lo optimiza para hardware ruidoso. Su resultado es un circuito ISA, el único que aceptan los dispositivos de IBM [@qiskit-docs, /guides/transpile; /guides/intro-to-patterns].
 
-**El circuito ISA.** Un circuito ISA (de la *arquitectura del conjunto de instrucciones, instruction set architecture*) usa solo instrucciones del `Target` del dispositivo (puertas base, medidas, reinicios, control de flujo) y respeta su `CouplingMap` (qué pares de qubits están conectados). Los circuitos enviados a dispositivos de IBM deben ser ISA [@qiskit-docs, /guides/transpile; /guides/intro-to-patterns]. La ISA es la capa de abstracción clave entre hardware y software: en qubits superconductores puede incluir CNOT, `√X` y `RZ(θ)`; para máquinas lógicas podría incluir medidas de Pauli conjuntas o destilación de estados mágicos [@javadi-abhari-2024, §II, p. 1]. Un ejemplo concreto es la ISA de Heron: `RZ(θ)`, `SX`, `X`, `CZ`, medida, reinicio, retardo y control de flujo, con `CZ` solo sobre las aristas del grafo de conectividad [@javadi-abhari-2024, App. B, Tabla I, p. 18]. La razón de que un conjunto pequeño de puertas baste es que hay [conjuntos universales de puertas](../../qubits-and-circuits/concepts/universal-gate-sets.md); traducir a la base del dispositivo es aprovechar eso, aunque puede alargar el circuito [@ibm-quantum-learning, "Quantum circuit optimization"].
+### Explicación
+Un circuito escrito para un algoritmo usa las puertas que te convienen entre qubits cualesquiera; un dispositivo solo ejecuta ciertas puertas nativas y solo sobre ciertos pares de qubits. La transpilación cierra esa distancia [@qiskit-docs, /guides/transpile]. Se dice "transpilador" y no "compilador" porque su entrada y salida son circuitos; la generación de código para el controlador ocurre después, en el runtime, aunque el conjunto puede verse como un compilador optimizador [@javadi-abhari-2024, §II, p. 1; Fig. 2, p. 5].
 
-**Las seis etapas.** El transpilador por defecto encadena seis etapas [@qiskit-docs, /guides/transpile; @ibm-quantum-learning, "Quantum circuit optimization"]:
+El destino de la transpilación es el circuito ISA (de la *arquitectura del conjunto de instrucciones, instruction set architecture*). Usa solo instrucciones del `Target` del dispositivo (puertas base, medidas, reinicios, control de flujo) y respeta su `CouplingMap`, es decir, qué pares de qubits están conectados [@qiskit-docs, /guides/transpile; /guides/intro-to-patterns]. La ISA es la capa de abstracción clave entre hardware y software: en qubits superconductores puede incluir CNOT, `√X` y `RZ(θ)`; para máquinas lógicas podría incluir medidas de Pauli conjuntas o destilación de estados mágicos [@javadi-abhari-2024, §II, p. 1]. Un ejemplo concreto es la ISA de Heron: `RZ(θ)`, `SX`, `X`, `CZ`, medida, reinicio, retardo y control de flujo, con `CZ` solo sobre las aristas del grafo de conectividad [@javadi-abhari-2024, App. B, Tabla I, p. 18]. Que un conjunto pequeño de puertas baste se debe a que existen [conjuntos universales de puertas](../../qubits-and-circuits/concepts/universal-gate-sets.md); traducir a la base del dispositivo aprovecha eso, aunque puede alargar el circuito [@ibm-quantum-learning, "Quantum circuit optimization"].
+
+El transpilador por defecto encadena seis etapas [@qiskit-docs, /guides/transpile; @ibm-quantum-learning, "Quantum circuit optimization"]:
 
 1. `init`: valida el circuito y descompone puertas de varios qubits en puertas de uno y dos.
 2. `layout`: asigna qubits virtuales (los del circuito) a qubits físicos (los del chip).
@@ -20,15 +25,18 @@ title: "Transpilación"
 
 ![Etapas del transpilador](../../../../../assets/diagrams/transpiler-stages.es.svg)
 
-**Layout y routing.** En un chip, los qubits están conectados en una red (en los procesadores de IBM, una red *heavy-hex* de transmones [@ibm-quantum-learning, "Running quantum circuits"]). Si el algoritmo necesita una puerta entre dos qubits no adyacentes, el transpilador mueve el estado con `SWAP`s, que añaden puertas de dos qubits, las más ruidosas (ver más abajo). Un GHZ "en estrella" (un qubit conectado a todos) sobre una red heavy-hex necesita muchos `SWAP`s, mientras que reescribirlo con conectividad lineal da un circuito más superficial [@ibm-quantum-learning, "Quantum circuit optimization"]. Los pases que eligen el layout incluyen `TrivialLayout`, `VF2Layout` y `SabreLayout` [@ibm-quantum-learning, "Quantum circuit optimization"].
+Las etapas que más cambian un circuito son `layout` y `routing`. En un chip, los qubits están conectados en una red (en los procesadores de IBM, una red *heavy-hex* de transmones [@ibm-quantum-learning, "Running quantum circuits"]). Si el algoritmo necesita una puerta entre dos qubits no adyacentes, el transpilador mueve el estado con `SWAP`s, que añaden puertas de dos qubits, las más ruidosas. Un GHZ "en estrella" (un qubit conectado a todos) sobre una red heavy-hex necesita muchos `SWAP`s, mientras que reescribirlo con conectividad lineal da un circuito más superficial [@ibm-quantum-learning, "Quantum circuit optimization"]. Los pases que eligen el layout incluyen `TrivialLayout`, `VF2Layout` y `SabreLayout` [@ibm-quantum-learning, "Quantum circuit optimization"].
 
 ![Layout y routing con SWAP](../../../../../assets/diagrams/layout-routing-swap.es.svg)
 
-**Niveles de optimización.** `optimization_level` toma 0, 1, 2 o 3: los niveles altos dan mejores circuitos pero tardan más en compilar [@qiskit-docs, /guides/transpile]. El 0 hace solo lo necesario para poder ejecutar, el 1 es el predeterminado y el 2 y el 3 añaden optimización de bloques de dos qubits [@ibm-quantum-learning, "Quantum circuit optimization"].
+Cuánto esfuerzo se dedica se controla con `optimization_level`, que toma 0, 1, 2 o 3: los niveles altos dan mejores circuitos pero tardan más en compilar [@qiskit-docs, /guides/transpile]. El 0 hace solo lo necesario para poder ejecutar, el 1 es el predeterminado y el 2 y el 3 añaden optimización de bloques de dos qubits [@ibm-quantum-learning, "Quantum circuit optimization"].
 
-**La forma moderna de usarlo.** La entrada recomendada es `generate_preset_pass_manager(backend=..., optimization_level=...)` de `qiskit.transpiler`, que devuelve un `StagedPassManager`; `pm.run(circuito)` devuelve el circuito ISA. Se prefiere a la función `transpile()` [@qiskit-docs, /guides/transpile; /guides/hello-world]. Tras transpilar, los observables deben pasar al layout físico con `observable.apply_layout(isa_circuit.layout)` [@qiskit-docs, /guides/hello-world].
+La forma moderna de usarlo es `generate_preset_pass_manager(backend=..., optimization_level=...)` de `qiskit.transpiler`, que devuelve un `StagedPassManager`; `pm.run(circuito)` devuelve el circuito ISA. Se prefiere a la función `transpile()` [@qiskit-docs, /guides/transpile; /guides/hello-world]. Tras transpilar, los observables deben pasar al layout físico con `observable.apply_layout(isa_circuit.layout)` [@qiskit-docs, /guides/hello-world].
 
-**Caso trabajado: un GHZ de 10 qubits en un dispositivo falso.** Construimos un GHZ "en estrella" (un `H` y 9 CX desde el qubit 0), con medidas, y lo transpilamos con `FakeSherbrooke` (127 qubits, puertas base `ecr`, `rz`, `sx`, `x`) y con `FakeTorino` (133 qubits, puerta de dos qubits `cz`), en los niveles 0 y 3:
+Todo este esfuerzo se justifica por las puertas de dos qubits. El objetivo del transpilador es reducir profundidad y complejidad para limitar el efecto del ruido [@qiskit-docs, /guides/transpile]. La mayoría de los errores de hardware ocurren en las puertas de dos qubits [@qiskit-docs, /guides/configure-error-mitigation]; en la misma línea, un ejemplo de dispositivo Eagle resume errores medianos del orden de 2,3·10⁻⁴ para `SX` y 6,9·10⁻³ para `ECR`, con errores de lectura mayores que los de dos qubits y estos mayores que los de un qubit [@ibm-quantum-learning, "Hardware"]. Si cada puerta de dos qubits falla con probabilidad `p`, la probabilidad de que ninguna falle en `G` puertas es `(1−p)^G`.
+
+### Ejemplo
+Un GHZ de 10 qubits "en estrella" (un `H` y 9 CX desde el qubit 0), con medidas, transpilado con `FakeSherbrooke` (127 qubits, puertas base `ecr`, `rz`, `sx`, `x`) y con `FakeTorino` (133 qubits, puerta de dos qubits `cz`), en los niveles 0 y 3:
 
 ```python
 from qiskit import QuantumCircuit
@@ -62,9 +70,9 @@ fake_torino 133
   nivel 3: profundidad=61, puertas de 2 qubits=30
 ```
 
-El circuito original tiene solo 9 CX; los demás vienen del routing. Con la semilla fijada la salida se reproduce en el mismo entorno; con otra semilla o versión los números cambian, porque el transpilador es heurístico. Lo importante es la comparación: el nivel 3 reduce la profundidad a menos de la mitad y las puertas de dos qubits a menos de la mitad en Sherbrooke (de 42 a 17). La diferencia entre los dos dispositivos muestra que el resultado depende de la topología y de la puerta nativa. Nuestra hipótesis es que el nivel 0 deja la asignación de qubits casi como viene y paga muchos `SWAP`s [unverified]; las fuentes solo dicen que el nivel 0 hace lo mínimo necesario.
+El circuito original tiene solo 9 CX; los demás vienen del routing. Con la semilla fijada la salida se reproduce en el mismo entorno; con otra semilla o versión los números cambian, porque el transpilador es heurístico. Lo importante es la comparación: en Sherbrooke el nivel 3 reduce la profundidad a menos de la mitad y las puertas de dos qubits de 42 a 17. La diferencia entre los dos dispositivos muestra que el resultado depende de la topología y de la puerta nativa. Nuestra hipótesis es que el nivel 0 deja la asignación de qubits casi como viene y paga muchos `SWAP`s [unverified]; las fuentes solo dicen que el nivel 0 hace lo mínimo necesario.
 
-**Por qué importan las puertas de dos qubits.** El objetivo del transpilador es reducir profundidad y complejidad para limitar el efecto del ruido [@qiskit-docs, /guides/transpile]. La documentación de mitigación añade que la mayoría de los errores de hardware ocurren en las puertas de dos qubits [@qiskit-docs, /guides/configure-error-mitigation]; en la misma línea, un ejemplo de dispositivo Eagle resume errores medianos del orden de 2,3·10⁻⁴ para `SX` y 6,9·10⁻³ para `ECR`, con errores de lectura mayores que los de dos qubits y estos mayores que los de un qubit [@ibm-quantum-learning, "Hardware"]. Si cada puerta de dos qubits falla con probabilidad `p`, la probabilidad de que ninguna falle en `G` puertas es `(1−p)^G`. En el `FakeSherbrooke` el error mediano de `ecr` (calculado con `target`) es 0,0078, así que 17 puertas dan una fidelidad aproximada de 0,88 y 42 puertas de 0,72: el nivel 3 sube bastante la probabilidad de un circuito sin fallos (cálculo orientativo: solo cuenta puertas de dos qubits y supone fallos independientes).
+Ahora, lo que esa reducción vale. En el `FakeSherbrooke` el error mediano de `ecr` (calculado con `target`) es 0,0078, así que 17 puertas dan una fidelidad aproximada de 0,88 y 42 puertas de 0,72: el nivel 3 sube bastante la probabilidad de un circuito sin fallos (cálculo orientativo: solo cuenta puertas de dos qubits y supone fallos independientes).
 
 ```python
 import numpy as np
@@ -82,27 +90,38 @@ print("17 puertas:", round((1 - e) ** 17, 2), " 42 puertas:", round((1 - e) ** 4
 17 puertas: 0.88  42 puertas: 0.72
 ```
 
-**Errores frecuentes.**
-
+### Errores frecuentes
 - *"A más optimización, mejor resultado siempre."* Los niveles altos son heurísticos: más esfuerzo no siempre da mejor circuito [@ibm-quantum-learning, "Quantum circuit optimization"].
 - *"Puedo pasar `basis_gates` y `coupling_map` sueltos."* Desde 2.0 el transpilador no acepta `backend_properties`, `instruction_durations`, `timing_constraints`, `inst_map` ni `basis_gates` personalizados: se usa un `target`, un backend o `Target.from_configuration`; pasar `coupling_map` o `basis_gates` junto con `backend` avisa [@qiskit-docs, /guides/qiskit-2.0].
 - *"Transpilo con un dispositivo y ejecuto en otro."* El backend debe elegirse antes de transpilar porque la optimización depende del procesador [@ibm-quantum-learning, "Utility-scale QAOA"].
 
+### Para seguir
+[Ejecutar en hardware real](running-on-hardware.md) toma el circuito ISA y lo envía a un dispositivo de IBM. La capa profesional de este concepto abre el transpilador: pases, personalización y decisiones de ingeniería.
+
 ## Profesional {#layer-3}
 
-**Arquitectura: pases y gestores de pases.** El transpilador es una colección de pases de traducción y optimización sobre un marco para describir, componer y ejecutar tuberías de transformaciones que preservan la semántica, con lógica que puede dirigir el flujo según propiedades del dispositivo, del circuito o intermedias; recuerda a infraestructuras como LLVM [@javadi-abhari-2024, §III.B, p. 6]. Qiskit estandariza las etapas, que sirven de puntos de enganche para *plugins* y como base para comparar tuberías completas [@javadi-abhari-2024, §III.B, pp. 6-7]. El código de rendimiento crítico está escrito en Rust (alrededor del 6 % del código) con pruebas de referencia en el tiempo, y el grafo se maneja con RustworkX [@javadi-abhari-2024, §II.2, p. 3; §IV.B, p. 7].
+### Idea clave
+El transpilador es una tubería de pases que se puede inspeccionar y ampliar con *plugins* [@javadi-abhari-2024, §III.B, pp. 6-7]. Las decisiones de ingeniería giran en torno al nivel de optimización, las semillas y transpilar una sola vez los circuitos parametrizados [@ibm-quantum-learning, "Cost functions"; @qiskit-docs, /guides/construct-circuits].
 
-**Personalizar.** Se puede añadir pases a una etapa; por ejemplo, para insertar *desacoplo dinámico (dynamical decoupling)* se añaden pases de planificación ALAP y de relleno con DD a la etapa de `scheduling`, y se puede fijar `initial_layout` [@javadi-abhari-2024, §IV.B, §IV.D, pp. 9, 11]. Con ese enfoque, el tutorial VQE de IBM usa `optimization_level=3` junto con planificación ALAP y desacoplo dinámico [@qiskit-docs, /tutorials/variational-quantum-eigensolver]. Las interfaces de plugin permiten métodos externos de síntesis y optimización, incluidos algoritmos alternativos de mapeo y de routing y síntesis con SAT [@javadi-abhari-2024, §II.1, p. 3; §V, p. 11].
+### Explicación
+El transpilador es una colección de pases de traducción y optimización sobre un marco para describir, componer y ejecutar tuberías de transformaciones que preservan la semántica, con lógica que puede dirigir el flujo según propiedades del dispositivo, del circuito o intermedias; recuerda a infraestructuras como LLVM [@javadi-abhari-2024, §III.B, p. 6]. Qiskit estandariza las etapas, que sirven de puntos de enganche para *plugins* y como base para comparar tuberías completas [@javadi-abhari-2024, §III.B, pp. 6-7]. El código de rendimiento crítico está escrito en Rust (alrededor del 6 % del código) con pruebas de referencia en el tiempo, y el grafo se maneja con RustworkX [@javadi-abhari-2024, §II.2, p. 3; §IV.B, p. 7].
 
-**Retargeting: conjuntos de puertas no estándar.** Si añades al `Target` una puerta parcial `RZX` con su duración y su error, el transpilador resintetiza interacciones `ZZ(θ)` como `ZX(φ)` y acorta los circuitos; la nueva puerta no necesita estar calibrada en todas las aristas, se usa de manera oportunista [@javadi-abhari-2024, §IV.C, pp. 9-10]. Las optimizaciones locales ayudan mucho: una optimización de mirilla (*peephole*) redujo un subcircuito de profundidad CNOT 26 a 12 en un ejemplo del artículo [@javadi-abhari-2024, Fig. 1, p. 2].
+Esa estructura permite personalizar. Se pueden añadir pases a una etapa; por ejemplo, para insertar *desacoplo dinámico (dynamical decoupling)* se añaden pases de planificación ALAP y de relleno con DD a la etapa de `scheduling`, y se puede fijar `initial_layout` [@javadi-abhari-2024, §IV.B, §IV.D, pp. 9, 11]. Con ese enfoque, el tutorial VQE de IBM usa `optimization_level=3` junto con planificación ALAP y desacoplo dinámico [@qiskit-docs, /tutorials/variational-quantum-eigensolver]. Las interfaces de plugin permiten métodos externos de síntesis y optimización, incluidos algoritmos alternativos de mapeo y de routing y síntesis con SAT [@javadi-abhari-2024, §II.1, p. 3; §V, p. 11].
 
-**Routing con circuitos dinámicos.** Mapear una red hexagonal sobre un chip heavy-hex mediante el transpilador requiere `SWAP`s; una alternativa con ancillas, medidas a mitad de circuito y retroalimentación dio menos profundidad y resultados algo mejores [@javadi-abhari-2024, §IV.D, pp. 10-11]. Es un recordatorio de que el transpilador no sustituye pensar en la topología al diseñar el circuito.
+También se puede ampliar el propio conjunto de puertas (*retargeting*). Si añades al `Target` una puerta parcial `RZX` con su duración y su error, el transpilador resintetiza interacciones `ZZ(θ)` como `ZX(φ)` y acorta los circuitos; la nueva puerta no necesita estar calibrada en todas las aristas, se usa de manera oportunista [@javadi-abhari-2024, §IV.C, pp. 9-10]. Las optimizaciones locales ayudan mucho: una optimización de mirilla (*peephole*) redujo un subcircuito de profundidad CNOT 26 a 12 en un ejemplo del artículo [@javadi-abhari-2024, Fig. 1, p. 2].
 
-**Decisiones de ingeniería.**
+Aun así, el transpilador no sustituye pensar en la topología al diseñar el circuito. Mapear una red hexagonal sobre un chip heavy-hex mediante el transpilador requiere `SWAP`s; una alternativa con ancillas, medidas a mitad de circuito y retroalimentación dio menos profundidad y resultados algo mejores [@javadi-abhari-2024, §IV.D, pp. 10-11].
+
+En la práctica las decisiones son tres:
 
 - *Qué nivel usar.* Las lecciones de IBM recomiendan `optimization_level=3` para la mayoría de los casos y muestran en una prueba simulada que el nivel 3 sigue la curva ideal mejor que el 0 [@ibm-quantum-learning, "Cost functions"]. El tiempo de compilación crece con el nivel [@qiskit-docs, /guides/transpile].
-- *Varias semillas.* Como la transpilación es heurística, transpilar varias veces con distintas semillas y quedarse con el circuito con menos puertas de dos qubits es una práctica razonable [unverified]. `mapomatic` se menciona como herramienta para sugerir layouts [@ibm-quantum-learning, "Running quantum circuits"].
-- *Transpilar una vez los circuitos parametrizados.* Se transpilan a nivel 3 una vez y se asignan los valores muchas veces [@qiskit-docs, /guides/construct-circuits]:
+- *Cuántas semillas.* Como la transpilación es heurística, transpilar varias veces con distintas semillas y quedarse con el circuito con menos puertas de dos qubits es una práctica razonable [unverified]. `mapomatic` se menciona como herramienta para sugerir layouts [@ibm-quantum-learning, "Running quantum circuits"].
+- *Cuándo transpilar.* Los circuitos parametrizados se transpilan a nivel 3 una vez y se asignan los valores muchas veces [@qiskit-docs, /guides/construct-circuits]. En un bucle variacional de cientos de iteraciones, repetir la transpilación en cada paso sería un despilfarro; en un circuito que se ejecuta una vez en hardware caro, compilar a nivel 3 con varias semillas sale a cuenta. Ambos casos se discuten en [algoritmos variacionales](variational-algorithms.md) y [ejecutar en hardware real](running-on-hardware.md).
+
+Y hay un límite. Si el algoritmo necesita muchas más puertas de dos qubits de las que el dispositivo soporta (ver el límite del orden de `1/p` puertas de [la era NISQ](nisq-era.md)), ningún nivel de optimización lo salva: hay que replantear el circuito (otro ansatz, otra codificación) o mitigar errores ([mitigación de errores](error-mitigation.md)). El circuito transpilado es otro circuito: puedes inspeccionarlo, dibujarlo y contar sus puertas con las mismas herramientas con que lo construiste [@javadi-abhari-2024, §III.B, p. 6].
+
+### Ejemplo
+Transpilar una vez un ansatz parametrizado de 4 qubits y asignar después los valores sin volver a transpilar:
 
 ```python
 import numpy as np
@@ -126,6 +145,7 @@ print(bound.num_parameters)
 0
 ```
 
-- *Coste de compilar frente a coste de ejecutar.* En un bucle variacional de cientos de iteraciones, repetir la transpilación en cada paso sería un despilfarro; en un circuito que se ejecuta una vez en hardware caro, compilar a nivel 3 con varias semillas sale a cuenta. Ambos casos se discuten en [algoritmos variacionales](variational-algorithms.md) y [ejecutar en hardware real](running-on-hardware.md).
+El circuito ISA conserva sus 24 parámetros libres tras la transpilación (solo contiene puertas base: `rz`, `sx` y `ecr`), el observable se lleva al layout físico, y `assign_parameters` fija los valores sin repetir el trabajo del transpilador.
 
-**Lo que la transpilación no puede arreglar.** Si el algoritmo necesita muchas más puertas de dos qubits de las que el dispositivo soporta (ver el límite del orden de `1/p` puertas de [la era NISQ](nisq-era.md)), ningún nivel de optimización lo salva; hay que replantear el circuito (otro ansatz, otra codificación) o mitigar errores ([mitigación de errores](error-mitigation.md)). Y el circuito transpilado es otro circuito: puedes inspeccionarlo, dibujarlo y contar sus puertas con las mismas herramientas con que lo construiste [@javadi-abhari-2024, §III.B, p. 6].
+### Para seguir
+[Algoritmos variacionales](variational-algorithms.md) muestra este patrón dentro de un bucle de optimización, y [mitigación de errores](error-mitigation.md) trata lo que queda cuando la transpilación ya no puede reducir más el ruido.

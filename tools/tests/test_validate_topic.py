@@ -235,6 +235,10 @@ class ValidatorTest(unittest.TestCase):
         self.assertIn("1 citation(s) in the middle of a sentence", self.warnings())
         self.assertEqual(self.errors(), "")
 
+    def test_template_citation_in_table_cell_is_fine(self):
+        self.edit(self.LIGHT, "La luz… [@src-a, p. 1].", "| a | b |\n|---|---|\n| luz [@src-a, p. 1] | x |")
+        self.assertNotIn("middle of a sentence", self.warnings())
+
     def test_template_long_key_idea_warns(self):
         self.edit(self.LIGHT, "Aplicación [unverified].\n\n### Explicación",
                   " ".join(["palabra"] * 70) + " [unverified].\n\n### Explicación")

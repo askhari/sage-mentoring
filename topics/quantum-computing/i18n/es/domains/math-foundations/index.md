@@ -1,6 +1,7 @@
 ---
 domain: math-foundations
 title: "Matemáticas para lo cuántico"
+format: 2
 ---
 
 # Matemáticas para lo cuántico
@@ -26,6 +27,18 @@ En computación cuántica el estado de un sistema es un vector de números compl
 
 Sigue la lista anterior. Probabilidad básica no depende de los demás y se puede leer antes o en paralelo; resulta más útil después de producto interior y producto tensorial, porque comparte con ellos la idea de estados conjuntos e independencia.
 
-## Fuentes y niveles
+## Fundamentos {#layer-1}
+
+La capa de fundamentos recorre los ocho conceptos en el orden de la lista anterior. Empieza por los números complejos, que son los escalares de todo lo demás, sigue con los vectores y la notación de Dirac, y con el producto interior que da norma y ortogonalidad. Después pasa a las matrices, a las unitarias y hermíticas, a los valores propios y al producto tensorial, y cierra con la probabilidad básica como contraste con las amplitudes. No se apoya en nada fuera del ámbito; cada concepto da por sabido solo lo anterior.
+
+## Comprensión {#layer-2}
+
+La capa de comprensión explica el porqué de cada herramienta: por qué hacen falta los complejos, qué distingue la fase global de la relativa, por qué las bases ortonormales simplifican los cálculos, cómo se relacionan unitarias, hermíticas y proyectores, cuándo una matriz se diagonaliza, qué es un estado entrelazado y en qué se parecen y se diferencian probabilidades y amplitudes. Parte de lo visto en fundamentos y mantiene el mismo orden de lectura.
+
+## Profesional {#layer-3}
+
+La capa profesional lleva estas matemáticas al uso diario: convenciones que cambian entre textos y bibliotecas (dónde se conjuga el producto interior, el orden de los qubits en Qiskit), el teorema espectral y `e^{-iHt}`, la traza, el rango y la descomposición en valores singulares, las puertas escritas como productos tensoriales y las cotas de probabilidad con las que se analiza el error de un algoritmo. Se apoya en las dos capas anteriores y en el mismo orden.
+
+## Lecturas complementarias
 
 Las tres fuentes se complementan. Axler da el rigor y los teoremas de álgebra lineal en abstracto, sin notación de Dirac [@axler-2024, §1A, 6A, 7B]. Watrous presenta los mismos objetos directamente con estados cuánticos y notación de Dirac [@watrous-2025, L1.1, L1.2]. De Wolf resume lo necesario en sus apéndices A y B [@de-wolf-2026, App. A, App. B]. Cuando coinciden, se cita la más clara; cuando difieren en convenciones, se dice.

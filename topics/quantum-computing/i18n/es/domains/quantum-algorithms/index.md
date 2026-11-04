@@ -1,6 +1,7 @@
 ---
 domain: quantum-algorithms
 title: "Algoritmos cuánticos"
+format: 2
 ---
 
 # Algoritmos cuánticos
@@ -45,6 +46,18 @@ Sigue la lista, con estas notas:
 - [Complejidad cuántica](concepts/quantum-complexity.md) se entiende mejor al final, cuando ya conoces Shor y Grover.
 
 Camino mínimo para ver una ventaja real de principio a fin: modelo de consultas, Deutsch-Jozsa, Grover y, con prisa, la capa 1 de Shor y de la criptografía.
+
+## Fundamentos {#layer-1}
+
+La capa de fundamentos presenta los algoritmos como ideas que se pueden seguir sin el aparato matemático completo. Empieza por el modelo de consultas y los oráculos, que fijan cómo se cuenta el coste; sigue con Deutsch-Jozsa, el primer ejemplo con ventaja, y con Grover, que muestra una ventaja cuadrática y óptima; y termina con la idea de Shor (reducir factorizar a hallar el orden) y su impacto en la criptografía, con el primer estándar poscuántico. Se apoya en los circuitos de qubits y puertas.
+
+## Comprensión {#layer-2}
+
+La capa de comprensión explica por qué funcionan. Empieza por el retroceso de fase, que convierte una consulta de bits en una de fase, y por Bernstein-Vazirani y Simon, que extraen estructura oculta con el mismo circuito; sigue con la transformada cuántica de Fourier y la estimación de fase, que dan la maquinaria de periodos y fases que usa Shor con detalle, y cierra con la complejidad cuántica y los límites de la ventaja. Se apoya en la capa de fundamentos de este ámbito y en los valores propios y los números complejos.
+
+## Profesional {#layer-3}
+
+La capa profesional lleva los algoritmos a la decisión técnica. Añade la simulación de hamiltonianos, que solo existe en esta capa y da por sabida la estimación de fase; reúne las técnicas de consultas (cotas inferiores, subgrupo oculto, amplificación de amplitud), las estimaciones de recursos de Shor y los plazos y estándares de la migración poscuántica, y enseña a leer un anuncio de ventaja cuántica. Se apoya en las capas anteriores.
 
 ## Una advertencia sobre las fuentes
 

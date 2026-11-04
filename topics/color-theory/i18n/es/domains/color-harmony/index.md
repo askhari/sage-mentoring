@@ -1,6 +1,7 @@
 ---
 domain: color-harmony
 title: "Armonía y composición del color"
+format: 2
 ---
 
 # Armonía y composición del color
@@ -21,6 +22,18 @@ El hilo conductor es una tensión. La tradición de los pintores y de los teóri
 ## Orden de estudio recomendado
 
 Empieza por los dos conceptos de capa 1, [esquemas](concepts/color-schemes.md) y [colores cálidos y fríos](concepts/color-temperature.md), que pueden leerse en cualquier orden. En capa 2, lee la [estructura de valores](concepts/value-structure.md) y después [dominante y acento](concepts/dominance-and-accent.md), que usa los esquemas; el [significado del color](concepts/color-meaning.md) es independiente y puede leerse en cualquier momento. Deja para el final la [investigación sobre armonía](concepts/harmony-research.md), que relee todo lo anterior a la luz de los datos. Los esquemas y la temperatura se completan con el siguiente ámbito, color y luz en la pintura, donde el color se observa bajo una luz concreta.
+
+## Fundamentos {#layer-1}
+
+La capa de fundamentos da las dos formas básicas de ordenar los colores sobre la rueda: primero los esquemas clásicos (monocromático, análogo, complementario, complementario dividido y tríada) y después la división entre cálidos y fríos, que pueden leerse en cualquier orden. Se apoyan en la rueda de color, en el matiz y en los colores complementarios, y presentan los esquemas como convenciones útiles y no como leyes.
+
+## Comprensión {#layer-2}
+
+La capa de comprensión pasa de qué colores elegir a cómo repartirlos y qué dicen. Empieza por la estructura de valores, que contrasta claros y oscuros con independencia del matiz, sigue con la dominante, la proporción y el acento, que usan los esquemas de la capa anterior, y cierra con el significado del color, que es independiente y puede leerse en cualquier momento. Se apoya en el valor, el croma, el contraste simultáneo y las categorías de color.
+
+## Profesional {#layer-3}
+
+La capa profesional lleva el ámbito al taller y lo confronta con los datos. Añade criterios de decisión a los cinco conceptos anteriores (gamas con máscara, luz cálida y sombra fría, flujo de trabajo por valores, cálculo de áreas, uso del significado con un público concreto) y cierra con la investigación sobre armonía, que relee los esquemas y las proporciones a la luz de lo que se ha medido. Se apoya en las capas anteriores.
 
 ## Desacuerdos y límites que conviene conocer
 

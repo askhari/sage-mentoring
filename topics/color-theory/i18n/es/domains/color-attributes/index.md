@@ -1,6 +1,7 @@
 ---
 domain: color-attributes
 title: "Dimensiones del color"
+format: 2
 ---
 
 # Dimensiones del color
@@ -21,6 +22,18 @@ Para hablar de un color con precisión hace falta algo más que su nombre. "Rojo
 ## Orden de estudio recomendado
 
 Los cuatro primeros conceptos son de capa 1: matiz y valor se pueden leer en cualquier orden, el croma necesita ambos y la rueda solo necesita el matiz. Los cuatro últimos empiezan en la capa 2 (CIELAB, en la 3): primero la distinción entre saturación, croma y colorido, después las ruedas y Munsell, y al final CIELAB, que necesita Munsell como punto de comparación. Un buen momento para leer la capa 3 de matiz, valor y croma es después de tener Munsell y CIELAB, porque ahí se usan los datos reales de pinturas.
+
+## Fundamentos {#layer-1}
+
+La capa de fundamentos presenta las tres dimensiones de un color en este orden: el matiz, el valor y el croma, que necesita los dos anteriores; después la rueda de color, que ordena los matices en un círculo y solo necesita el matiz. Se apoya en la luz y el espectro y en por qué los objetos tienen color.
+
+## Comprensión {#layer-2}
+
+La capa de comprensión afina el vocabulario y la geometría. Empieza por la distinción entre saturación, croma y colorido, sigue con por qué existen varias ruedas (RYB, RGB/CMY y perceptuales) y termina con el sistema Munsell, que pone escalas medidas a las tres dimensiones. Se apoya en la capa de fundamentos de este ámbito, en la visión tricromática y en los procesos oponentes.
+
+## Profesional {#layer-3}
+
+La capa profesional trabaja con datos reales de pinturas. Primero lleva matiz, valor, croma, rueda, saturación, ruedas y Munsell a las tablas de los fabricantes; al final presenta CIELAB, que necesita Munsell como punto de comparación y calcula diferencias de color. Se apoya en las capas anteriores y en los procesos oponentes.
 
 ## Lecturas complementarias
 
