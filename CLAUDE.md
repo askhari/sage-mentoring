@@ -37,7 +37,7 @@ Tema piloto: **teoría del color**, desde cero hasta nivel profesional.
 - **No hay infraestructura de despliegue** por ahora; todo en local.
 
 ## Formato de datos
-Decidido y especificado en [docs/format.md](docs/format.md): `topics/` (contenido compartible, parte común + `i18n/<lang>/`) separado de `learners/` (progreso personal), un fichero por concepto con secciones por capa, índices por capa generados, citas Pandoc, diagramas propios generados por código y registro de intentos en el que solo se añaden líneas. Los conceptos siguen una **plantilla de capa** común a todos los temas (`format: 2`: idea clave, explicación, ejemplo, errores frecuentes, las fuentes discrepan, para seguir) y se leen por capas con `uv run tools/build_reader.py <topic>` (HTML con Pandoc en `exports/reader/`).
+Decidido y especificado en [docs/format.md](docs/format.md): `topics/` (contenido compartible, parte común + `i18n/<lang>/`) separado de `learners/` (progreso personal), un fichero por concepto con secciones por capa, índices por capa generados, citas Pandoc, diagramas propios generados por código y registro de intentos en el que solo se añaden líneas. Los conceptos siguen una **plantilla de capa** común a todos los temas (`format: 2`: idea clave, explicación, ejemplo, errores frecuentes, las fuentes discrepan, para seguir) y se leen por capas con `uv run tools/build_reader.py <topic>` (HTML y Markdown limpio con notas numeradas, generados con Pandoc en `exports/reader/`; en `topics/` las citas siguen como claves).
 
 ## Plan de trabajo
 1. ~~Alcance del producto~~ y ~~formato de datos~~ (hechos).

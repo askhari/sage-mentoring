@@ -31,10 +31,14 @@ class CitationTest(unittest.TestCase):
 
     def test_second_locator_merges_into_previous_item(self):
         self.assertEqual(build_reader.normalize_citation("@a, L2.2, p. 53; L3.1, p. 76; @b, ¶4"),
-                         "@a{}, L2.2, p. 53; L3.1, p. 76; @b{}, ¶4")
+                         "@a{}, L2.2, p. 53\\; L3.1, p. 76; @b{}, ¶4")
 
     def test_key_without_locator(self):
         self.assertEqual(build_reader.normalize_citation("@a; @b"), "@a; @b")
+
+    def test_block_with_inner_brackets(self):
+        out = build_reader.convert_citations("Texto [@a, p. 197 [185]; ej. 1, p. 201 [189]].", LABELS)
+        self.assertEqual(out, "Texto [@a{}, p. 197 [185]\\; ej. 1, p. 201 [189]].")
 
     def test_unverified_becomes_label(self):
         out = build_reader.convert_citations("Algo [unverified].", LABELS)
@@ -90,6 +94,14 @@ class AssemblyTest(unittest.TestCase):
             layer3 = (out / "layer-3.html").read_text(encoding="utf-8").replace("\xa0", " ")
             self.assertIn("Jane Doe, 2020, pp. 4-5.", layer3)
             self.assertTrue((out / "index.html").exists())
+            md = (out / "layer-1.md").read_text(encoding="utf-8").replace("\xa0", " ")
+            self.assertTrue(md.startswith("# "))                  # title first
+            self.assertIn("[^2]: Jane Doe, 2020, p. 1.", md)    # numbered note
+            self.assertIn("## Fuentes", md)
+            self.assertNotIn("@", md.split("## Fuentes")[0])     # no raw citation keys
+            self.assertNotIn("<div", md)
+            self.assertIn('<a id="c-light"></a>', md)            # link target kept
+            self.assertIn("(layer-2.md#c-hue)", md)
         finally:
             shutil.rmtree(out)
 

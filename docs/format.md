@@ -210,14 +210,18 @@ Al leer una capa de forma seguida, este texto abre el ámbito antes de sus conce
 
 ### Lectura por capas: `tools/build_reader.py`
 
-El contenido se **guarda por concepto**, porque preguntas, progreso y Anki apuntan a *concepto + capa*. Para **leerlo**, `tools/build_reader.py` monta un documento HTML por capa. Cada uno incluye, por ámbito y en orden de estudio: el texto de paso del ámbito, la sección de esa capa de cada concepto, *Antes conviene* y *Compruébalo*. Las citas pasan a notas al pie numeradas (al pasar el cursor por el número se ve la fuente) y al final va la bibliografía. El script no redacta nada: solo monta piezas ya escritas.
+El contenido se **guarda por concepto**, porque preguntas, progreso y Anki apuntan a *concepto + capa*. Para **leerlo**, `tools/build_reader.py` monta un documento por capa, en HTML y en Markdown. Cada uno incluye, por ámbito y en orden de estudio: el texto de paso del ámbito, la sección de esa capa de cada concepto, *Antes conviene* y *Compruébalo*. Las citas pasan a notas al pie numeradas (al pasar el cursor por el número se ve la fuente) y al final va la bibliografía. El script no redacta nada: solo monta piezas ya escritas.
 
 ```bash
-uv run tools/build_reader.py color-theory              # → exports/reader/color-theory/es/{index,layer-1,layer-2,layer-3}.html
+uv run tools/build_reader.py color-theory              # → exports/reader/color-theory/es/{index,layer-1,layer-2,layer-3}.{html,md}
 uv run tools/build_reader.py color-theory --layer 1 --out lectura/
 ```
 
 Necesita `pandoc` (≥ 3) instalado en el sistema. Los enlaces entre conceptos se reescriben para que apunten al documento de la capa que corresponda, y las imágenes se incrustan para que cada HTML sea autocontenido.
+
+El `.md` es Markdown de GitHub (GFM) para leer en cualquier editor, en GitHub o en Obsidian: notas numeradas (`[^1]`), sección *Fuentes* al final y nada de sintaxis de Pandoc. Las imágenes van enlazadas con ruta relativa a `topics/`. Lo limpia el filtro `tools/reader/gfm.lua`.
+
+Las citas se quedan como **claves** (`[@clave, localizador]`) en `topics/`: son el identificador estable que usan el validador, las preguntas y Anki, y la numeración depende del documento que se monte. Los números solo aparecen en las salidas. Para depurar el montaje, `--keep-source` guarda también el Markdown de Pandoc intermedio (`<nombre>.source.md`).
 
 ### Índices por capa: `i18n/<lang>/layers/layer-N.md`
 

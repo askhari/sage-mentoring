@@ -2,11 +2,12 @@
 # requires-python = ">=3.11"
 # dependencies = ["pyyaml>=6"]
 # ///
-"""Build the reading version of a topic: one self-contained HTML document per layer.
+"""Build the reading version of a topic: one HTML document and one clean Markdown file per layer.
 
-Usage: uv run tools/build_reader.py <topic-id-or-path> [--lang es] [--layer N] [--out DIR] [--keep-md]
+Usage: uv run tools/build_reader.py <topic-id-or-path> [--lang es] [--layer N] [--out DIR] [--keep-source]
 
-Output (default): exports/reader/<topic>/<lang>/{index,layer-1,layer-2,layer-3}.html
+Output (default): exports/reader/<topic>/<lang>/{index,layer-1,layer-2,layer-3}.{html,md}
+The .md files are GitHub-flavoured Markdown with numbered notes and a sources section.
 
 The script writes no content of its own: it assembles the pieces already written
 (domain bridge texts, the layer section of each concept), adds "Antes conviene"
@@ -18,6 +19,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import os
 import re
 import shutil
 import subprocess
@@ -27,7 +29,7 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from topiclib import (  # noqa: E402
-    CITATION_BLOCK_RE, IMAGE_RE, LAYERS, MD_LINK_RE, ROOT, Topic, layer_bodies, load_topic,
+    IMAGE_RE, LAYERS, MD_LINK_RE, ROOT, Topic, layer_bodies, load_topic,
     load_yaml, resolve_topic, section_names, split_frontmatter, subsections,
 )
 
@@ -77,11 +79,13 @@ def csl_items(t: Topic) -> list[dict]:
     return items
 
 
+# A citation block; allows one level of brackets inside, as in "p. 197 [185]" (printed page).
+CITATION_BLOCK_RE = re.compile(r"\[((?:[^\[\]]|\[[^\[\]]*\])*@(?:[^\[\]]|\[[^\[\]]*\])*)\]")
 CITE_ITEM_RE = re.compile(r"^(?P<prefix>.*?)(?P<key>-?@[a-z0-9][a-z0-9-]*)(?P<rest>.*)$", re.DOTALL)
 
 
 def normalize_citation(block: str) -> str:
-    """'@a, L2.2, PDF p. 53; L3.1, p. 76; @b, ¶4' -> '@a{}, L2.2, PDF p. 53; L3.1, p. 76; @b{}, ¶4'.
+    """'@a, L2.2, PDF p. 53; L3.1, p. 76; @b, ¶4' -> '@a{}, L2.2, PDF p. 53\\; L3.1, p. 76; @b{}, ¶4'.
 
     Locators become literal suffixes, and parts without a key (a second locator of the
     same source) are merged into the previous item.
@@ -94,7 +98,8 @@ def normalize_citation(block: str) -> str:
             loc = loc[1:].strip() if loc.startswith(",") else loc
             items.append([m.group("prefix").strip(), m.group("key"), loc])
         elif items:
-            items[-1][2] = f"{items[-1][2]}; {part.strip()}" if items[-1][2] else part.strip()
+            # escaped, or pandoc would read the part without a key as a broken citation item
+            items[-1][2] = f"{items[-1][2]}\\; {part.strip()}" if items[-1][2] else part.strip()
     out = []
     for prefix, key, loc in items:
         loc = loc.replace("{", "(").replace("}", ")")
@@ -326,13 +331,33 @@ def pandoc(md: str, out: Path, bib: Path, toc: bool) -> None:
         print(f"  pandoc: {line}")
 
 
+def pandoc_md(md: str, out: Path, bib: Path) -> None:
+    """Clean Markdown (GFM) for reading in any editor: numbered notes and a sources section."""
+    md = re.sub(r"\((index|layer-\d)\.html", r"(\1.md", md)
+    md = re.sub(r"(!\[[^\]]*\]\()(/[^)\s]+)",
+                lambda m: m.group(1) + os.path.relpath(m.group(2), out.parent), md)
+    with tempfile.NamedTemporaryFile("w", suffix=".md", delete=False, encoding="utf-8") as fh:
+        fh.write(md)
+        src = fh.name
+    cmd = ["pandoc", src, "-f", "markdown-implicit_figures", "-t", "gfm", "--wrap=none",
+           "--citeproc", "--bibliography", str(bib), "--csl", str(READER_DIR / "sage-notes.csl"),
+           "--lua-filter", str(READER_DIR / "gfm.lua"), "--reference-location=document", "-o", str(out)]
+    try:
+        res = subprocess.run(cmd, capture_output=True, text=True)
+    finally:
+        Path(src).unlink(missing_ok=True)
+    if res.returncode != 0:
+        raise SystemExit(f"pandoc failed for {out.name}:\n{res.stderr}")
+
+
 def main() -> int:
     parser = argparse.ArgumentParser()
     parser.add_argument("topic")
     parser.add_argument("--lang")
     parser.add_argument("--layer", type=int, choices=LAYERS)
     parser.add_argument("--out", help="output folder (default exports/reader/<topic>/<lang>)")
-    parser.add_argument("--keep-md", action="store_true", help="also write the assembled markdown")
+    parser.add_argument("--keep-source", action="store_true",
+                        help="also write the assembled pandoc markdown (<name>.source.md), for debugging")
     args = parser.parse_args()
 
     if not shutil.which("pandoc"):
@@ -356,10 +381,12 @@ def main() -> int:
         for layer in ([args.layer] if args.layer else LAYERS):
             docs[f"layer-{layer}"] = (layer_markdown(t, lang, layer, linker, labels), True)
         for name, (md, toc) in docs.items():
-            if args.keep_md:
-                (out_dir / f"{name}.md").write_text(md, encoding="utf-8")
+            if args.keep_source:
+                (out_dir / f"{name}.source.md").write_text(md, encoding="utf-8")
             pandoc(md, out_dir / f"{name}.html", bib, toc)
-            print(f"wrote {(out_dir / f'{name}.html').relative_to(ROOT) if out_dir.is_relative_to(ROOT) else out_dir / f'{name}.html'}")
+            pandoc_md(md, out_dir / f"{name}.md", bib)
+            shown = out_dir.relative_to(ROOT) if out_dir.is_relative_to(ROOT) else out_dir
+            print(f"wrote {shown / name}.html and .md")
         bib.unlink(missing_ok=True)
     return 0
 
