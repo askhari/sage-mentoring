@@ -42,6 +42,7 @@ Concept titles (es): `i18n/es/concepts.yaml`.
 - 2026-11-01 — color-harmony: open B sources added for the thin concepts: palmer-schloss-2010 (colour preference, ecological valence), ho-2014 (warm/cool), jonauskaite-2020 (colour–emotion, 30 nations). palmer-2013 read from the authors' copy on the Palmer lab page; schloss-palmer-2011 and ho-2014 through the Europe PMC open-access XML (no PMC access).
 - 2026-11-01 — color-in-painting: berns-2016 (TOC only) and livingstone-2014 (secondary only) were not used; open substitutes added instead: leonardo-1835 (A, primary historical source, cite by chapter; outdated optics flagged), narasimhan-nayar-2002 and smith-2005 (B, physics of airlight and sky colour), yu-hurlbert-2024 (B, colour statistics of paintings by time of day).
 - 2026-11-01 — `konica-minolta-pcc` B → C (instrument maker's technical guide, not peer-reviewed); `justpaint-munsell-cielab` B → A (manufacturer's official data on its own paints; cite only for those data).
+- 2026-11-08 — `feller-1986`: in paints-and-pigments the PDF was downloaded with a browser user agent after WebFetch got a 403, which the later topic-builder rule forbids. The text never entered the topic; only the summarised note did. The NGA offers the PDF openly ('Download PDF') and now answers the honest agent of tools/pdf_to_text.py with 200. The user chose to keep the source and note without re-checking them against the PDF (not re-downloaded, 430 MB); `sources.yaml` now records the honest route.
 
 ## Log
 - 2026-11-01 — map created (7 domains, 49 concepts, 24 sources)

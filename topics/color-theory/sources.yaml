@@ -484,7 +484,7 @@
   identifiers: { isbn: "0-89468-086-2", url: "https://www.nga.gov/research/publications/artists-pigments-handbook-their-history-and-characteristics-volume-1" }
   access: open
   accessed: 2026-11-01
-  notes: "Full text: free PDF from the National Gallery of Art (430 MB; WebFetch gets 403, download with a browser user agent). Chapters by different authors; cite the chapter in the locator."
+  notes: "Full text: free PDF from the National Gallery of Art, linked as 'Download PDF' on the publication page (430 MB; https://www.nga.gov/sites/default/files/migrate_images/content/dam/ngaweb/research/publications/pdfs/artists-pigments-vol1.pdf). As of 2026-11-08 the server answers tools/pdf_to_text.py's honest user agent with 200; WebFetch got 403 in 2026-11. Chapters by different authors; cite the chapter in the locator."
 - id: berrie-2025
   type: paper
   reliability: B
